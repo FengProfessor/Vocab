@@ -1,0 +1,204 @@
+{
+  "topicId": "6140175965d71f3a51f62f79",
+  "name": "Test 9",
+  "slug": "test-9",
+  "part": "part_7_double_passages",
+  "totalQuestions": 10,
+  "totalCards": 2,
+  "cards": [
+    {
+      "id": "61404c8565d71f3a51f644d0",
+      "questionText": "<table align=\"center\" border=\"0\" cellpadding=\"10\" cellspacing=\"10\" style=\"border-collapse: collapse;\" width=\"100%\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td colspan=\"4\">\n\t\t\t<p align=\"right\">Order #: 23740</p>\n\n\t\t\t<h4 align=\"center\">Maple Outdoor</h4>\n\n\t\t\t<p>387 Maple Street, York WA</p>\n\n\t\t\t<p align=\"right\">Date: May 6</p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr bgcolor=\"lavender\">\n\t\t\t<td><strong>ITEM </strong></td>\n\t\t\t<td><strong>BRAND </strong></td>\n\t\t\t<td><strong>UNIT </strong></td>\n\t\t\t<td><strong>PRICE</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Hiking Boots</td>\n\t\t\t<td>Nordic Heights</td>\n\t\t\t<td>$149.95</td>\n\t\t\t<td>$149.59</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Camping Stove</td>\n\t\t\t<td>Avalanche</td>\n\t\t\t<td>$58.79</td>\n\t\t\t<td>$58.79</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Fuel Canister</td>\n\t\t\t<td>Avalanche</td>\n\t\t\t<td>$9.98</td>\n\t\t\t<td>$19.96</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>Socks</td>\n\t\t\t<td>Northern Wool</td>\n\t\t\t<td>$12.85</td>\n\t\t\t<td>$0.00 (Comp.)</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"4\">---------------------------------------------------</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>&nbsp;</td>\n\t\t\t<td>&nbsp;</td>\n\t\t\t<td>Total: $228.34</td>\n\t\t\t<td>&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"4\">* We've included a free pair of socks to keep you warm on your next camping trip.<br>\n\t\t\tThank you for being a loyal patron of Maple Outdoor for more than a year!<br>\n\t\t\tAs always, if there is anything we can assist you with, don't hesitate to ask. Remember, if your are contacting us about a specific order, make sure to give us the order number and your name.<br>\n\t\t\tCall us: (601) 478-2129<br>\n\t\t\tE-mail us: MapleOutdoor@zmail.com</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p><br>\n===========================<br>\nTo: Customer Service, Maple Outdoor<br>\nFrom: Shana Sandberg<br>\nDate: Oct. 9<br>\nSubject: Delivery Issues<br>\n<br>\nI received my order yesterday and it wasn’t what I had expected. I had ordered an Avalanche camping stove, but I received a MT Elite stove instead. I'd like to receive the Avalanche stove as soon as possible, as I’ve got a fall camping trip next weekend. Do you think you could get it to me in time, or should I just come and exchange the stove at your store? Please contact me soon. I’ll be waiting.<br>\nThank you,<br>\nShanna Sandberg</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "61404c8565d71f3a51f644d2",
+          "questionText": "What does Maple Outdoor mention about Ms. Sandberg’s order?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It will be delayed for up to a month.",
+            "(B) They have expedited it for free.",
+            "(C) It may not be returned if it is damaged by misuse.",
+            "(D) They have included a complimentary item with it."
+          ],
+          "correctOptions": [
+            "(D) They have included a complimentary item with it."
+          ],
+          "transcript": "<p>Information in the sentence: \"We've included a free pair of socks to keep you warm on your next camping trip.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Maple Outdoor đề cập gì về đơn hàng của bà Sandberg?</p>\n<p>(A) Nó sẽ bị trì hoãn tới một tháng.</p>\n<p>(B) Họ đã giải quyết bằng cách miễn phí đơn hàng.</p>\n<p>(C) Nó có thể không được trả lại nếu nó bị hư hỏng do sử dụng sai mục đích.</p>\n<p>(D) Họ đã tặng kèm một món đồ miễn phí.</p>\n<p><strong>Thông tin:</strong></p>\n<p>\"Chúng tôi đã tặng kèm một đôi tất miễn phí để giữ ấm cho bạn trong chuyến cắm trại tiếp theo.\"</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "61404c8565d71f3a51f644d3",
+          "questionText": "How much does an Avalanche fuel canister cost?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "<p>(A) $58.79</p>",
+            "<p>(B) $9.98</p>",
+            "<p>(C) $19.96</p>",
+            "<p>(D) $12.85</p>"
+          ],
+          "correctOptions": [
+            "<p>(B) $9.98</p>"
+          ],
+          "transcript": "<p>From the table, we can clearly see that a unit of Avalanche fuel canister costs $9.98 =&gt; an Avalanche fuel canister costs $9.98</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Bình đựng nhiên liệu Avalanche giá bao nhiêu?</p>\n<p>(A) $58,79</p>\n<p>(B) $9,98</p>\n<p>(C) $19,96</p>\n<p>(D) $12,85</p>\n<p><strong>Thông tin:</strong></p>\n<p>Từ bảng, chúng ta có thể thấy rõ rằng một đơn vị nhiên liệu Avalanche có giá 9,98 USD =&gt; một hộp nhiên liệu Avalanche có giá 9,98 USD</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "61404c8565d71f3a51f644d4",
+          "questionText": "Why did Ms. Sandberg write the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To compliment the service she received",
+            "(B) To request a monthly newsletter",
+            "(C) To ask if she can return an item",
+            "(D) To complain of a wrong item"
+          ],
+          "correctOptions": [
+            "(D) To complain of a wrong item"
+          ],
+          "transcript": "<p>Information can be inferred from: \"I received my order yesterday and it wasn’t what I had expected.\"</p>\n",
+          "explanationVi": "<p>Tạm dịch:</p>\n\n<p>Tại sao c&ocirc; Sandberg viết e-mail?</p>\n\n<p>(A) Để khen ngợi dịch vụ m&agrave; c&ocirc; ấy nhận được</p>\n\n<p>(B) Để y&ecirc;u cầu bản tin h&agrave;ng th&aacute;ng</p>\n\n<p>(C) Để hỏi liệu c&ocirc; ấy c&oacute; thể trả lại một m&oacute;n h&agrave;ng kh&ocirc;ng</p>\n\n<p>(D) Để khiếu nại về một m&oacute;n đồ bị giao sai mẫu m&atilde;</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>&quot;T&ocirc;i đ&atilde; nhận được đơn đặt h&agrave;ng của m&igrave;nh ng&agrave;y h&ocirc;m qua v&agrave; n&oacute; kh&ocirc;ng như t&ocirc;i mong đợi.&quot;</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "61404c8565d71f3a51f644d5",
+          "questionText": "What requested information did Ms. Sandberg forget to include?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Her name",
+            "(B) Her mailing address",
+            "(C) Her order number",
+            "(D) Her credit card number"
+          ],
+          "correctOptions": [
+            "(C) Her order number"
+          ],
+          "transcript": "<p>Requested information includes order number and name. However, Ms. Sandberg only includes her name in the email. =&gt; She forgot to include her order number.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong></p>\n<p>Những thông tin được yêu cầu nào mà cô Sandberg đã quên đưa vào?</p>\n<p>(A) Tên cô ấy</p>\n<p>(B) Địa chỉ gửi thư của cô ấy</p>\n<p>(C) Số đơn đặt hàng của cô ấy</p>\n<p>(D) Số thẻ tín dụng của cô ấy</p>\n<p><strong>Thông tin: </strong></p>\n<p>Thông tin được yêu cầu bao gồm số đơn hàng và tên. Tuy nhiên, bà Sandberg chỉ ghi tên mình trong email. =&gt; Cô ấy quên ghi số đơn hàng của mình.</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "61404c8565d71f3a51f644d6",
+          "questionText": "<p>What is true about Ms. Sandberg?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She has shopped at Maple Outdoor before.",
+            "(B) She frequently goes camping.",
+            "(C) She didn’t receive her hiking boots.",
+            "(D) She will be visiting the Maple Outdoor store soon."
+          ],
+          "correctOptions": [
+            "(A) She has shopped at Maple Outdoor before."
+          ],
+          "transcript": "<p>Information can be inferred from: \"Thank you for being a loyal patron of Maple Outdoor for more than a year!\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Điều gì là đúng về cô Sandberg?</p>\n<p>(A) Cô ấy đã từng mua sắm ở Maple Outdoor trước đây.</p>\n<p>(B) Cô ấy thường xuyên đi cắm trại.</p>\n<p>(C) Cô ấy không nhận được đôi ủng đi bộ đường dài của mình.</p>\n<p>(D) Cô ấy sẽ sớm ghé thăm cửa hàng Maple Outdoor.</p>\n<p><strong>Thông tin:</strong></p>\n<p>\"Cảm ơn bạn đã là khách hàng trung thành của Maple Outdoor trong hơn một năm qua!\"</p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "61404c8565d71f3a51f644d1",
+      "questionText": "<h4 align=\"center\">Attention Passengers</h4>\n\n<p align=\"right\">Clinton Bus Lines</p>\n\n<p>In response to customer feedback, Clinton Bus Lines will be expanding its bus routes connecting Texas to other metropolitan centers in the Southwest, starting on May 1, the new routes listed below will take effect. In order to promote these new bus lines, we will be offering tickets at half price during the first week of operation. Improving your satisfaction is our main priority. To get more detailed information such as departure and arrival times, please visit our website at www.clintonbusses.com.<br>\n<b>• From Dallas Bus Terminal to Phoenix, Arizona Bus Terminal<br>\n• From Austin Bus Terminal to Santa Fe, New Mexico Bus Terminal<br>\n• From Fort Worth Bus Terminal to Denver, Colorado Bus Terminal</b><br>\n=========================<br>\nTo: erichanson@prplanning.com<br>\nFrom: dangregory@trentonlogistics.com<br>\nDate:April 27<br>\nSubject: Upcoming Visit<br>\n<br>\nDear Mr. Hanson,<br>\nI am currently finalizing all the details for my visit to your company’s headquarters in Santa Fe. Thank you for inviting me down to take part in these business negotiations. Please let me know what time I should arrive. Will the meeting begin after lunchtime like it did last time?<br>\nYou won’t need to pick up me up, as I have arranged for a cab to pick me up at the Santa Fe Bus Terminal. Fortunately, a new bus line was established between where I live and your offices. It has made transit in the Southwestern region considerably convenient.<br>\nThere are routes that now travel to Denver and Phoenix as well. Also, thanks to some lucky circumstances, I will be able to buy my ticket to Santa Fe at half the original price.<br>\nI can’t wait to see you and your co-workers again soon.<br>\nDan Gregory</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "61404c8565d71f3a51f644d7",
+          "questionText": "According to the notice, what are Clinton Bus Lines passengers encouraged to do on the website?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Reserve a ticket in advance",
+            "(B) Check bus schedules",
+            "(C) Apply for membership",
+            "(D) Request a discount coupon"
+          ],
+          "correctOptions": [
+            "(B) Check bus schedules"
+          ],
+          "transcript": "<p>Information in the sentence: \"To get more detailed information such as departure and arrival times, please visit our website at www.clintonbusses.com.\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong></p>\n<p>Theo thông báo, hành khách của Clinton Bus Lines được khuyến khích làm gì trên trang web?</p>\n<p>(A) Đặt vé trước</p>\n<p>(B) Kiểm tra lịch trình xe buýt</p>\n<p>(C) Đăng ký làm thành viên</p>\n<p>(D) Yêu cầu phiếu giảm giá</p>\n<p><strong>Thông tin:</strong></p>\n<p>\"Để biết thêm thông tin chi tiết như thời gian khởi hành và đến, vui lòng truy cập trang web của chúng tôi tại www.clintonbusses.com.\"</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "61404c8565d71f3a51f644d8",
+          "questionText": "What is indicated about Mr. Gregory’s previous meeting with Mr. Hanson?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It took place in Texas.",
+            "(B) It lasted an entire week.",
+            "(C) It commenced in the afternoon.",
+            "(D) It was canceled due to bad weather."
+          ],
+          "correctOptions": [
+            "(C) It commenced in the afternoon."
+          ],
+          "transcript": "<p>Information in the sentence: \"Will the meeting begin after lunchtime like it did last time?\"</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Điều gì được chỉ ra về cuộc gặp trước đây của ông Gregory với ông Hanson?</p>\n<p>(A) Nó diễn ra ở Texas.</p>\n<p>(B) Nó kéo dài cả tuần.</p>\n<p>(C) Nó bắt đầu vào buổi chiều.</p>\n<p>(D) Nó đã bị hủy do thời tiết xấu.</p>\n<p><strong>Thông tin:</strong></p>\n<p>“Cuộc họp sẽ bắt đầu sau giờ ăn trưa như lần trước chứ?”</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "61404c8565d71f3a51f644d9",
+          "questionText": "In the e-mail, the word “transit” in paragraph 2, line 3, is closest in meaning to",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) participation",
+            "(B) transportation",
+            "(C) navigation",
+            "(D) collaboration"
+          ],
+          "correctOptions": [
+            "(B) transportation"
+          ],
+          "transcript": "<p>(A) participation:&nbsp;the act of taking part in an activity or event</p>\n\n<p>(B) transportation:&nbsp;a system for carrying people or goods from one place to another using vehicles, roads, etc.</p>\n\n<p>(C) navigation:&nbsp;the skill or the process of planning a route for a ship or other vehicle and taking it there</p>\n\n<p>(D) collaboration:&nbsp;the act of working with another person or group of people to create or produce something</p>\n\n<p>Based on the meaning to choose the correct answer.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Trong e-mail, từ “transit” ở đoạn 2, dòng 3 có nghĩa gần nhất với</p>\n<p>(A) sự tham gia</p>\n<p>(B) vận chuyển</p>\n<p>(C) điều hướng</p>\n<p>(D) sự hợp tác</p>\n<p>- transit (n) chuyển tuyến</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "61404c8565d71f3a51f644da",
+          "questionText": "Where does Mr. Gregory most likely live?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In Santa Fe",
+            "(B) In Austin",
+            "(C) In Dallas",
+            "(D) In Denver"
+          ],
+          "correctOptions": [
+            "(B) In Austin"
+          ],
+          "transcript": "<p>The first passage includes information \"From Austin Bus Terminal to Santa Fe, New Mexico Bus Terminal\". The second passage includes information \"I am currently finalizing all the details for my visit to your company’s headquarters in Santa Fe.\" and \"Fortunately, a new bus line was established between where I live and your offices.\" =&gt; It can be inferred that Mr. Gregory most likely lives in Austin.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Ông Gregory rất có thể sống ở đâu?</p>\n<p>(A) Ở Santa Fe</p>\n<p>(B) Ở Austin</p>\n<p>(C) Ở Dallas</p>\n<p>(D) Ở Denver</p>\n<p><strong>Thông tin:</strong></p>\n<p>Đoạn đầu tiên bao gồm thông tin<em> \"Từ Bến xe buýt Austin đến Santa Fe, Bến xe buýt New Mexico\".</em></p>\n<p>Đoạn văn thứ hai bao gồm thông tin <em>\"Tôi hiện đang hoàn thiện tất cả các chi tiết cho chuyến thăm tới trụ sở chính của công ty bạn ở Santa Fe.\"</em> và <em>\"May mắn thay, một tuyến xe buýt mới đã được thành lập giữa nơi tôi ở và văn phòng của các bạn.\"</em></p>\n<p>=&gt; Có thể suy ra rằng rất có thể ông Gregory sống ở Austin.</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "61404c8565d71f3a51f644db",
+          "questionText": "<p>When is the meeting scheduled to take place?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Before April 24",
+            "(B) Between April 24 and April 30",
+            "(C) Between May 1 and May 7",
+            "(D) After May 7"
+          ],
+          "correctOptions": [
+            "(C) Between May 1 and May 7"
+          ],
+          "transcript": "<p>The meeting is scheduled to take place after bus routes take effect (May 1) =&gt; C is the most suitable answer</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Cuộc họp dự kiến diễn ra khi nào?</p>\n<p>(A) Trước ngày 24 tháng 4</p>\n<p>(B) Trong khoảng 24 tháng 4 đến 30 tháng 4</p>\n<p>(C) Trong khoảng 1 tháng 5 đến 7 tháng 5</p>\n<p>(D) Sau ngày 7 tháng 5</p>\n<p><strong>Thông tin:</strong></p>\n<p>Cuộc họp dự kiến diễn ra sau khi các tuyến xe buýt có hiệu lực (1/5) =&gt; C là đáp án phù hợp nhất</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        }
+      ]
+    }
+  ]
+}

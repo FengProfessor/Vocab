@@ -1,0 +1,2256 @@
+{
+  "version": "foundation-verbs-v1",
+  "description": "Lộ trình 100 Động từ Cốt lõi & Chủ đề Cơ bản cho người mất gốc (A0 - A1)",
+  "verbPacks": [
+    {
+      "id": "starter-verb-01",
+      "tier": 1,
+      "title": "Tầng 1 · Động từ Sinh tồn & Nhu cầu",
+      "description": "10 động từ cốt lõi nhất để xác định danh tính, sở hữu, nhu cầu và nhận thức cơ bản.",
+      "story": {
+        "title": "Một ngày bắt đầu của tôi",
+        "passage": "I **am** a student. I **have** a dream to speak English. Every day, I **do** my homework carefully. I **want** to learn fast because I **need** it for work. I **like** practicing with friends. Now I **know** many words. I **think** English is fun. When I look outside, I **see** a bright day.",
+        "passageVi": "Tôi là một học sinh. Tôi có ước mơ nói tiếng Anh. Mỗi ngày, tôi làm bài tập cẩn thận. Tôi muốn học nhanh vì tôi cần nó cho công việc. Tôi thích luyện tập cùng bạn bè. Bây giờ tôi biết nhiều từ rồi. Tôi nghĩ tiếng Anh thật thú vị. Khi nhìn ra ngoài, tôi thấy một ngày tươi sáng.",
+        "highlightWords": ["am", "have", "do", "want", "need", "like", "know", "think", "look", "see"],
+        "cloze": {
+          "text": "I {{0}} a student. I {{1}} a dream. I {{2}} to learn English because I {{3}} it for work. I {{4}} practicing every day. I {{5}} that learning is fun.",
+          "blanks": [
+            { "id": 0, "answer": "am", "options": ["am", "do", "have", "see"] },
+            { "id": 1, "answer": "have", "options": ["know", "have", "want", "think"] },
+            { "id": 2, "answer": "want", "options": ["want", "do", "look", "need"] },
+            { "id": 3, "answer": "need", "options": ["see", "need", "like", "have"] },
+            { "id": 4, "answer": "like", "options": ["like", "am", "do", "know"] },
+            { "id": 5, "answer": "think", "options": ["see", "think", "look", "want"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "be",
+          "meaningVi": "là, thì, ở (tồn tại)",
+          "ipa": "/biː/",
+          "pattern": "S + be (am/is/are) + Adj / N",
+          "collocation": "be ready (sẵn sàng), be happy (vui vẻ)",
+          "example": "I am a new student.",
+          "exampleVi": "Tôi là một học sinh mới.",
+          "cloze": {
+            "sentence": "She _____ very kind and friendly.",
+            "options": ["is", "do", "have", "go"],
+            "answer": "is",
+            "explain": "Chủ ngữ ngôi thứ ba số ít (She) đi với động từ to be 'is'."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "am", "a student", "here"],
+            "answer": ["I", "am", "a student", "here"],
+            "meaningVi": "Tôi là một học sinh ở đây."
+          }
+        },
+        {
+          "lemma": "have",
+          "meaningVi": "có, sở hữu",
+          "ipa": "/hæv/",
+          "pattern": "S + have/has + Noun",
+          "collocation": "have breakfast (ăn sáng), have time (có thời gian)",
+          "example": "I have two good friends.",
+          "exampleVi": "Tôi có hai người bạn tốt.",
+          "cloze": {
+            "sentence": "We _____ a big English dictionary.",
+            "options": ["have", "am", "want", "look"],
+            "answer": "have",
+            "explain": "Chủ ngữ 'We' đi với 'have' để diễn đạt sự sở hữu (chúng tôi có)."
+          },
+          "sentenceScramble": {
+            "tokens": ["They", "have", "a new house", "in town"],
+            "answer": ["They", "have", "a new house", "in town"],
+            "meaningVi": "Họ có một ngôi nhà mới ở trong thị trấn."
+          }
+        },
+        {
+          "lemma": "do",
+          "meaningVi": "làm, thực hiện",
+          "ipa": "/duː/",
+          "pattern": "S + do/does + Noun",
+          "collocation": "do homework (làm bài tập), do business (làm ăn)",
+          "example": "I do my exercise every morning.",
+          "exampleVi": "Tôi tập thể dục mỗi sáng.",
+          "cloze": {
+            "sentence": "Please _____ your homework before dinner.",
+            "options": ["do", "be", "see", "think"],
+            "answer": "do",
+            "explain": "Cụm 'do homework' nghĩa là làm bài tập về nhà."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "do", "my homework", "every day"],
+            "answer": ["I", "do", "my homework", "every day"],
+            "meaningVi": "Tôi làm bài tập mỗi ngày."
+          }
+        },
+        {
+          "lemma": "want",
+          "meaningVi": "muốn",
+          "ipa": "/wɑːnt/",
+          "pattern": "S + want + to V / N",
+          "collocation": "want to go (muốn đi), want some water (muốn chút nước)",
+          "example": "I want to speak English well.",
+          "exampleVi": "Tôi muốn nói tiếng Anh giỏi.",
+          "cloze": {
+            "sentence": "He _____ to drink a glass of water.",
+            "options": ["wants", "is", "does", "looks"],
+            "answer": "wants",
+            "explain": "'want to + V' diễn đạt ý muốn làm gì. Chủ ngữ He thêm -s thành wants."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "want", "to learn", "English"],
+            "answer": ["I", "want", "to learn", "English"],
+            "meaningVi": "Tôi muốn học tiếng Anh."
+          }
+        },
+        {
+          "lemma": "need",
+          "meaningVi": "cần, cần thiết",
+          "ipa": "/niːd/",
+          "pattern": "S + need + to V / N",
+          "collocation": "need help (cần giúp đỡ), need to rest (cần nghỉ ngơi)",
+          "example": "I need some help with this lesson.",
+          "exampleVi": "Tôi cần chút giúp đỡ với bài học này.",
+          "cloze": {
+            "sentence": "You _____ to practice every day.",
+            "options": ["need", "are", "make", "take"],
+            "answer": "need",
+            "explain": "'need to do something' nghĩa là cần làm điều gì đó."
+          },
+          "sentenceScramble": {
+            "tokens": ["We", "need", "some help", "today"],
+            "answer": ["We", "need", "some help", "today"],
+            "meaningVi": "Hôm nay chúng tôi cần sự giúp đỡ."
+          }
+        },
+        {
+          "lemma": "like",
+          "meaningVi": "thích",
+          "ipa": "/laɪk/",
+          "pattern": "S + like + N / V-ing / to V",
+          "collocation": "like coffee (thích cà phê), like reading (thích đọc sách)",
+          "example": "She likes listening to music.",
+          "exampleVi": "Cô ấy thích nghe nhạc.",
+          "cloze": {
+            "sentence": "I _____ this book very much.",
+            "options": ["like", "am", "do", "see"],
+            "answer": "like",
+            "explain": "'like + danh từ' thể hiện sự yêu thích một điều gì đó."
+          },
+          "sentenceScramble": {
+            "tokens": ["She", "likes", "drinking tea", "in the morning"],
+            "answer": ["She", "likes", "drinking tea", "in the morning"],
+            "meaningVi": "Cô ấy thích uống trà vào buổi sáng."
+          }
+        },
+        {
+          "lemma": "know",
+          "meaningVi": "biết, hiểu biết",
+          "ipa": "/noʊ/",
+          "pattern": "S + know + N / that...",
+          "collocation": "know the answer (biết câu trả lời), know someone (biết ai đó)",
+          "example": "I know the right answer.",
+          "exampleVi": "Tôi biết câu trả lời đúng.",
+          "cloze": {
+            "sentence": "Do you _____ his name?",
+            "options": ["know", "have", "want", "like"],
+            "answer": "know",
+            "explain": "'know someone's name' nghĩa là biết tên ai đó."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "know", "the answer", "now"],
+            "answer": ["I", "know", "the answer", "now"],
+            "meaningVi": "Bây giờ tôi đã biết câu trả lời."
+          }
+        },
+        {
+          "lemma": "think",
+          "meaningVi": "nghĩ, suy nghĩ",
+          "ipa": "/θɪŋk/",
+          "pattern": "S + think + (that) clause / about N",
+          "collocation": "think about (nghĩ về), think so (nghĩ vậy)",
+          "example": "I think this lesson is easy.",
+          "exampleVi": "Tôi nghĩ bài học này rất dễ.",
+          "cloze": {
+            "sentence": "What do you _____ about this idea?",
+            "options": ["think", "know", "do", "see"],
+            "answer": "think",
+            "explain": "'think about something' nghĩa là nghĩ hoặc có quan điểm về điều gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "think", "English", "is fun"],
+            "answer": ["I", "think", "English", "is fun"],
+            "meaningVi": "Tôi nghĩ tiếng Anh rất thú vị."
+          }
+        },
+        {
+          "lemma": "see",
+          "meaningVi": "nhìn thấy, hiểu",
+          "ipa": "/siː/",
+          "pattern": "S + see + N",
+          "collocation": "see you later (hẹn gặp lại), I see (tôi hiểu rồi)",
+          "example": "I see a bird in the tree.",
+          "exampleVi": "Tôi nhìn thấy một con chim trên cây.",
+          "cloze": {
+            "sentence": "Can you _____ that sign over there?",
+            "options": ["see", "think", "want", "be"],
+            "answer": "see",
+            "explain": "'see' chỉ khả năng nhìn thấy điều gì đó bằng mắt."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "can see", "the blue sky", "outside"],
+            "answer": ["I", "can see", "the blue sky", "outside"],
+            "meaningVi": "Tôi có thể nhìn thấy bầu trời xanh bên ngoài."
+          }
+        },
+        {
+          "lemma": "look",
+          "meaningVi": "nhìn, trông có vẻ",
+          "ipa": "/lʊk/",
+          "pattern": "S + look + at N / Adj",
+          "collocation": "look at (nhìn vào), look happy (trông có vẻ vui)",
+          "example": "Look at the blackboard, please.",
+          "exampleVi": "Xin vui lòng nhìn lên bảng.",
+          "cloze": {
+            "sentence": "Please _____ at this picture.",
+            "options": ["look", "see", "want", "know"],
+            "answer": "look",
+            "explain": "'look at something' là hướng mắt nhìn chăm chú vào vật gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["You", "look", "very happy", "today"],
+            "answer": ["You", "look", "very happy", "today"],
+            "meaningVi": "Hôm nay bạn trông có vẻ rất vui."
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter-verb-02",
+      "tier": 1,
+      "title": "Tầng 1 · Động từ Chuyển động & Di chuyển",
+      "description": "10 động từ định hình hành động di chuyển, tư thế và vị trí không gian.",
+      "story": {
+        "title": "Chuyến đi bộ buổi chiều",
+        "passage": "Every afternoon, I **go** to the park. My friends **come** along with me. We **walk** slowly and enjoy the fresh air. Sometimes we **run** fast to exercise. When tired, we **sit** on a wooden bench. Then we **stand** up and **move** toward the lake. We **stay** there for an hour before we **leave** for home. We **arrive** home before dark.",
+        "passageVi": "Mỗi buổi chiều, tôi đi tới công viên. Bạn bè tôi cùng đến với tôi. Chúng tôi đi bộ chậm rãi và tận hưởng không khí trong lành. Đôi khi chúng tôi chạy nhanh để tập thể dục. Khi mệt, chúng tôi ngồi trên một chiếc ghế gỗ. Sau đó chúng tôi đứng dậy và di chuyển về phía hồ nước. Chúng tôi ở lại đó một tiếng trước khi rời đi về nhà. Chúng tôi về tới nhà trước khi trời tối.",
+        "highlightWords": ["go", "come", "walk", "run", "sit", "stand", "move", "stay", "leave", "arrive"],
+        "cloze": {
+          "text": "Every day, I {{0}} to school by bike. My friends {{1}} to my house. We {{2}} in the classroom and listen. In the yard, boys {{3}} fast. After class, we {{4}} the school and {{5}} home.",
+          "blanks": [
+            { "id": 0, "answer": "go", "options": ["go", "sit", "stand", "stay"] },
+            { "id": 1, "answer": "come", "options": ["leave", "come", "run", "move"] },
+            { "id": 2, "answer": "sit", "options": ["sit", "arrive", "walk", "stay"] },
+            { "id": 3, "answer": "run", "options": ["run", "leave", "come", "go"] },
+            { "id": 4, "answer": "leave", "options": ["arrive", "leave", "sit", "stand"] },
+            { "id": 5, "answer": "arrive", "options": ["move", "stay", "arrive", "run"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "go",
+          "meaningVi": "đi, di chuyển đi",
+          "ipa": "/ɡoʊ/",
+          "pattern": "S + go + to Place",
+          "collocation": "go home (về nhà), go to school (đi học), go to bed (đi ngủ)",
+          "example": "I go to school by bus.",
+          "exampleVi": "Tôi đi học bằng xe buýt.",
+          "cloze": {
+            "sentence": "They _____ to the supermarket every Sunday.",
+            "options": ["go", "come", "sit", "stand"],
+            "answer": "go",
+            "explain": "'go to + nơi chốn' nghĩa là đi đến địa điểm nào đó."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "go", "to school", "every day"],
+            "answer": ["I", "go", "to school", "every day"],
+            "meaningVi": "Tôi đi học mỗi ngày."
+          }
+        },
+        {
+          "lemma": "come",
+          "meaningVi": "đến, tới",
+          "ipa": "/kʌm/",
+          "pattern": "S + come + to Place / from Place",
+          "collocation": "come from (đến từ), come in (mời vào), come home (về nhà)",
+          "example": "He comes from Vietnam.",
+          "exampleVi": "Anh ấy đến từ Việt Nam.",
+          "cloze": {
+            "sentence": "Please _____ in and have a seat.",
+            "options": ["come", "go", "leave", "run"],
+            "answer": "come",
+            "explain": "'come in' là lời mời lịch sự: mời vào trong."
+          },
+          "sentenceScramble": {
+            "tokens": ["She", "comes", "from", "Vietnam"],
+            "answer": ["She", "comes", "from", "Vietnam"],
+            "meaningVi": "Cô ấy đến từ Việt Nam."
+          }
+        },
+        {
+          "lemma": "walk",
+          "meaningVi": "đi bộ",
+          "ipa": "/wɔːk/",
+          "pattern": "S + walk + to Place",
+          "collocation": "go for a walk (đi dạo), walk to school (đi bộ đến trường)",
+          "example": "We walk in the garden every morning.",
+          "exampleVi": "Chúng tôi đi bộ trong vườn mỗi sáng.",
+          "cloze": {
+            "sentence": "I usually _____ to work because it is near.",
+            "options": ["walk", "fly", "sit", "wait"],
+            "answer": "walk",
+            "explain": "'walk to work' nghĩa là đi bộ đi làm."
+          },
+          "sentenceScramble": {
+            "tokens": ["They", "walk", "in the park", "together"],
+            "answer": ["They", "walk", "in the park", "together"],
+            "meaningVi": "Họ đi bộ trong công viên cùng nhau."
+          }
+        },
+        {
+          "lemma": "run",
+          "meaningVi": "chạy",
+          "ipa": "/rʌn/",
+          "pattern": "S + run + (Adv/Prep)",
+          "collocation": "run fast (chạy nhanh), run out of (hết cái gì)",
+          "example": "The children run happily in the yard.",
+          "exampleVi": "Lũ trẻ chạy vui vẻ trong sân.",
+          "cloze": {
+            "sentence": "He can _____ very fast.",
+            "options": ["run", "sit", "sleep", "stay"],
+            "answer": "run",
+            "explain": "'run fast' nghĩa là chạy nhanh."
+          },
+          "sentenceScramble": {
+            "tokens": ["The dog", "runs", "very fast"],
+            "answer": ["The dog", "runs", "very fast"],
+            "meaningVi": "Con chó chạy rất nhanh."
+          }
+        },
+        {
+          "lemma": "sit",
+          "meaningVi": "ngồi",
+          "ipa": "/sɪt/",
+          "pattern": "S + sit + on/in Place",
+          "collocation": "sit down (ngồi xuống), sit on the chair (ngồi trên ghế)",
+          "example": "Please sit down and open your books.",
+          "exampleVi": "Xin vui lòng ngồi xuống và mở sách ra.",
+          "cloze": {
+            "sentence": "You can _____ on this comfortable sofa.",
+            "options": ["sit", "run", "leave", "arrive"],
+            "answer": "sit",
+            "explain": "'sit on the sofa' nghĩa là ngồi trên ghế sô-pha."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "sit down", "on", "the chair"],
+            "answer": ["Please", "sit down", "on", "the chair"],
+            "meaningVi": "Xin mời ngồi xuống ghế."
+          }
+        },
+        {
+          "lemma": "stand",
+          "meaningVi": "đứng",
+          "ipa": "/stænd/",
+          "pattern": "S + stand + up / Prep",
+          "collocation": "stand up (đứng dậy), stand in line (đứng xếp hàng)",
+          "example": "The students stand up to greet the teacher.",
+          "exampleVi": "Học sinh đứng dậy chào giáo viên.",
+          "cloze": {
+            "sentence": "Everyone, please _____ up.",
+            "options": ["stand", "sit", "run", "stay"],
+            "answer": "stand",
+            "explain": "'stand up' nghĩa là đứng dậy."
+          },
+          "sentenceScramble": {
+            "tokens": ["All students", "stand up", "to greet", "the teacher"],
+            "answer": ["All students", "stand up", "to greet", "the teacher"],
+            "meaningVi": "Tất cả học sinh đứng dậy để chào giáo viên."
+          }
+        },
+        {
+          "lemma": "move",
+          "meaningVi": "di chuyển, chuyển nhà",
+          "ipa": "/muːv/",
+          "pattern": "S + move + (to Place)",
+          "collocation": "move to (chuyển tới), move away (dọn đi xa)",
+          "example": "We moved to Hanoi last year.",
+          "exampleVi": "Chúng tôi đã chuyển đến Hà Nội vào năm ngoái.",
+          "cloze": {
+            "sentence": "Don't _____! Stay right there.",
+            "options": ["move", "eat", "know", "see"],
+            "answer": "move",
+            "explain": "'Don't move' là câu khẩu lệnh phổ biến: Đừng cử động / Đừng di chuyển."
+          },
+          "sentenceScramble": {
+            "tokens": ["They", "will move", "to a new house", "soon"],
+            "answer": ["They", "will move", "to a new house", "soon"],
+            "meaningVi": "Họ sẽ sớm chuyển đến một ngôi nhà mới."
+          }
+        },
+        {
+          "lemma": "stay",
+          "meaningVi": "ở lại, duy trì",
+          "ipa": "/steɪ/",
+          "pattern": "S + stay + at Place / Adj",
+          "collocation": "stay at home (ở nhà), stay healthy (giữ sức khỏe)",
+          "example": "I stay at home on rainy days.",
+          "exampleVi": "Tôi ở nhà vào những ngày mưa.",
+          "cloze": {
+            "sentence": "It's cold outside, let's _____ at home.",
+            "options": ["stay", "run", "leave", "arrive"],
+            "answer": "stay",
+            "explain": "'stay at home' nghĩa là ở nhà."
+          },
+          "sentenceScramble": {
+            "tokens": ["We", "stay", "at home", "on Sunday"],
+            "answer": ["We", "stay", "at home", "on Sunday"],
+            "meaningVi": "Chúng tôi ở nhà vào ngày Chủ nhật."
+          }
+        },
+        {
+          "lemma": "leave",
+          "meaningVi": "rời đi, để lại",
+          "ipa": "/liːv/",
+          "pattern": "S + leave + Place",
+          "collocation": "leave home (rời khỏi nhà), leave a message (để lại lời nhắn)",
+          "example": "I leave home at seven in the morning.",
+          "exampleVi": "Tôi rời nhà lúc bảy giờ sáng.",
+          "cloze": {
+            "sentence": "The train will _____ the station in five minutes.",
+            "options": ["leave", "stay", "sit", "walk"],
+            "answer": "leave",
+            "explain": "'leave the station' nghĩa là rời khỏi nhà ga."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "leave home", "at seven", "every morning"],
+            "answer": ["I", "leave home", "at seven", "every morning"],
+            "meaningVi": "Tôi rời nhà lúc bảy giờ mỗi sáng."
+          }
+        },
+        {
+          "lemma": "arrive",
+          "meaningVi": "đến nơi, tới",
+          "ipa": "/əˈraɪv/",
+          "pattern": "S + arrive + at/in Place",
+          "collocation": "arrive at school (đến trường), arrive in Vietnam (đến Việt Nam)",
+          "example": "We arrived at the airport on time.",
+          "exampleVi": "Chúng tôi đã đến sân bay đúng giờ.",
+          "cloze": {
+            "sentence": "What time does the bus _____?",
+            "options": ["arrive", "stand", "sit", "sleep"],
+            "answer": "arrive",
+            "explain": "'arrive' hỏi về thời điểm đến nơi của phương tiện."
+          },
+          "sentenceScramble": {
+            "tokens": ["We", "arrive at school", "on time", "every day"],
+            "answer": ["We", "arrive at school", "on time", "every day"],
+            "meaningVi": "Chúng tôi đến trường đúng giờ mỗi ngày."
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter-verb-03",
+      "tier": 2,
+      "title": "Tầng 2 · Sinh hoạt Hằng ngày & Thể chất",
+      "description": "10 động từ về ăn uống, vệ sinh, nghỉ ngơi và thao tác sinh hoạt thường nhật.",
+      "story": {
+        "title": "Buổi sáng của Minh",
+        "passage": "I **wake up** at six o'clock. I **wash** my face and **clean** my teeth. Then I **wear** my favorite shirt. My mother **cooks** a warm breakfast. I **eat** bread and **drink** a glass of fresh milk. Before leaving, I **open** the window to let the fresh air in, and then I **close** the door carefully. At night, I always **sleep** eight hours.",
+        "passageVi": "Tôi thức dậy lúc sáu giờ. Tôi rửa mặt và đánh răng sạch sẽ. Sau đó tôi mặc chiếc áo sơ mi yêu thích. Mẹ tôi nấu bữa sáng ấm cúng. Tôi ăn bánh mì và uống một ly sữa tươi. Trước khi đi, tôi mở cửa sổ đón không khí trong lành, rồi đóng cửa ra vào cẩn thận. Ban đêm, tôi luôn ngủ đủ tám tiếng.",
+        "highlightWords": ["wake up", "wash", "clean", "wear", "cook", "eat", "drink", "open", "close", "sleep"],
+        "cloze": {
+          "text": "Every morning, I {{0}} early. I {{1}} my face with warm water. I {{2}} bread and {{3}} milk for breakfast. Before going out, I {{4}} my jacket and {{5}} the door.",
+          "blanks": [
+            { "id": 0, "answer": "wake up", "options": ["wake up", "sleep", "cook", "eat"] },
+            { "id": 1, "answer": "wash", "options": ["wash", "drink", "wear", "open"] },
+            { "id": 2, "answer": "eat", "options": ["close", "eat", "clean", "sleep"] },
+            { "id": 3, "answer": "drink", "options": ["wear", "drink", "cook", "wash"] },
+            { "id": 4, "answer": "wear", "options": ["wear", "open", "eat", "drink"] },
+            { "id": 5, "answer": "close", "options": ["close", "cook", "sleep", "wash"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "wake up",
+          "meaningVi": "thức dậy",
+          "ipa": "/weɪk ʌp/",
+          "pattern": "S + wake up + (at Time)",
+          "collocation": "wake up early (thức dậy sớm), wake up late (thức dậy muộn)",
+          "example": "I wake up at 6:00 AM every day.",
+          "exampleVi": "Tôi thức dậy lúc 6:00 sáng mỗi ngày.",
+          "cloze": {
+            "sentence": "She always _____ early to exercise.",
+            "options": ["wakes up", "sleeps", "cooks", "eats"],
+            "answer": "wakes up",
+            "explain": "'wake up early' nghĩa là thức dậy sớm."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "wake up", "at six", "every morning"],
+            "answer": ["I", "wake up", "at six", "every morning"],
+            "meaningVi": "Tôi thức dậy lúc sáu giờ mỗi sáng."
+          }
+        },
+        {
+          "lemma": "sleep",
+          "meaningVi": "ngủ",
+          "ipa": "/sliːp/",
+          "pattern": "S + sleep + (Adv/Time)",
+          "collocation": "sleep well (ngủ ngon), go to sleep (đi ngủ)",
+          "example": "Babies sleep a lot during the day.",
+          "exampleVi": "Em bé ngủ rất nhiều vào ban ngày.",
+          "cloze": {
+            "sentence": "Good night, _____ well!",
+            "options": ["sleep", "wake", "eat", "wash"],
+            "answer": "sleep",
+            "explain": "'Sleep well' là câu chúc ngủ ngon phổ biến."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "sleep", "eight hours", "every night"],
+            "answer": ["I", "sleep", "eight hours", "every night"],
+            "meaningVi": "Tôi ngủ tám tiếng mỗi đêm."
+          }
+        },
+        {
+          "lemma": "eat",
+          "meaningVi": "ăn",
+          "ipa": "/iːt/",
+          "pattern": "S + eat + Noun",
+          "collocation": "eat breakfast (ăn sáng), eat fruit (ăn hoa quả)",
+          "example": "We eat dinner together at 7:00 PM.",
+          "exampleVi": "Chúng tôi ăn tối cùng nhau lúc 7:00 tối.",
+          "cloze": {
+            "sentence": "Do you want to _____ some noodles?",
+            "options": ["eat", "drink", "sleep", "wear"],
+            "answer": "eat",
+            "explain": "'eat' dùng cho đồ ăn dạng rắn như cơm, bánh mì, phở/mì."
+          },
+          "sentenceScramble": {
+            "tokens": ["We", "eat", "fresh fruit", "every afternoon"],
+            "answer": ["We", "eat", "fresh fruit", "every afternoon"],
+            "meaningVi": "Chúng tôi ăn hoa quả tươi vào mỗi buổi chiều."
+          }
+        },
+        {
+          "lemma": "drink",
+          "meaningVi": "uống",
+          "ipa": "/drɪŋk/",
+          "pattern": "S + drink + Noun",
+          "collocation": "drink water (uống nước), drink coffee (uống cà phê)",
+          "example": "You should drink plenty of water.",
+          "exampleVi": "Bạn nên uống nhiều nước.",
+          "cloze": {
+            "sentence": "He likes to _____ a cup of hot tea.",
+            "options": ["drink", "eat", "cook", "wash"],
+            "answer": "drink",
+            "explain": "'drink' dùng cho các loại chất lỏng như trà, nước, sữa."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "drink", "two glasses of water", "every morning"],
+            "answer": ["I", "drink", "two glasses of water", "every morning"],
+            "meaningVi": "Tôi uống hai ly nước mỗi sáng."
+          }
+        },
+        {
+          "lemma": "cook",
+          "meaningVi": "nấu ăn, làm bếp",
+          "ipa": "/kʊk/",
+          "pattern": "S + cook + Noun",
+          "collocation": "cook dinner (nấu bữa tối), cook a meal (nấu một bữa ăn)",
+          "example": "My mother cooks delicious food.",
+          "exampleVi": "Mẹ tôi nấu đồ ăn rất ngon.",
+          "cloze": {
+            "sentence": "Who is going to _____ lunch today?",
+            "options": ["cook", "sleep", "wear", "drink"],
+            "answer": "cook",
+            "explain": "'cook lunch' nghĩa là nấu bữa trưa."
+          },
+          "sentenceScramble": {
+            "tokens": ["My mother", "cooks", "dinner", "for the family"],
+            "answer": ["My mother", "cooks", "dinner", "for the family"],
+            "meaningVi": "Mẹ tôi nấu bữa tối cho cả gia đình."
+          }
+        },
+        {
+          "lemma": "wash",
+          "meaningVi": "rửa, giặt",
+          "ipa": "/wɑːʃ/",
+          "pattern": "S + wash + Noun",
+          "collocation": "wash hands (rửa tay), wash dishes (rửa bát), wash clothes (giặt quần áo)",
+          "example": "Always wash your hands before eating.",
+          "exampleVi": "Luôn rửa tay trước khi ăn.",
+          "cloze": {
+            "sentence": "Please _____ your hands with soap.",
+            "options": ["wash", "cook", "drink", "sleep"],
+            "answer": "wash",
+            "explain": "'wash your hands' nghĩa là rửa tay của bạn."
+          },
+          "sentenceScramble": {
+            "tokens": ["Always", "wash", "your hands", "before meals"],
+            "answer": ["Always", "wash", "your hands", "before meals"],
+            "meaningVi": "Luôn luôn rửa tay trước bữa ăn."
+          }
+        },
+        {
+          "lemma": "clean",
+          "meaningVi": "lau chùi, dọn dẹp",
+          "ipa": "/kliːn/",
+          "pattern": "S + clean + Noun",
+          "collocation": "clean the room (dọn phòng), clean teeth (đánh răng)",
+          "example": "I clean my bedroom every Saturday.",
+          "exampleVi": "Tôi dọn dẹp phòng ngủ vào mỗi thứ Bảy.",
+          "cloze": {
+            "sentence": "We need to _____ the classroom today.",
+            "options": ["clean", "drink", "eat", "sleep"],
+            "answer": "clean",
+            "explain": "'clean the classroom' nghĩa là dọn dẹp phòng học."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "clean", "my room", "every weekend"],
+            "answer": ["I", "clean", "my room", "every weekend"],
+            "meaningVi": "Tôi dọn dẹp phòng của mình vào mỗi cuối tuần."
+          }
+        },
+        {
+          "lemma": "wear",
+          "meaningVi": "mặc (quần áo), đeo (kính/đồng hồ)",
+          "ipa": "/wer/",
+          "pattern": "S + wear + Clothes/Accessories",
+          "collocation": "wear glasses (đeo kính), wear a jacket (mặc áo khoác)",
+          "example": "Students wear uniforms to school.",
+          "exampleVi": "Học sinh mặc đồng phục đến trường.",
+          "cloze": {
+            "sentence": "It is cold outside, please _____ a warm coat.",
+            "options": ["wear", "eat", "cook", "wash"],
+            "answer": "wear",
+            "explain": "'wear a warm coat' nghĩa là mặc một chiếc áo khoác ấm."
+          },
+          "sentenceScramble": {
+            "tokens": ["Students", "wear", "uniforms", "to school"],
+            "answer": ["Students", "wear", "uniforms", "to school"],
+            "meaningVi": "Học sinh mặc đồng phục đến trường."
+          }
+        },
+        {
+          "lemma": "open",
+          "meaningVi": "mở",
+          "ipa": "/ˈoʊpən/",
+          "pattern": "S + open + Noun",
+          "collocation": "open the door (mở cửa), open a book (mở sách)",
+          "example": "Please open your book to page ten.",
+          "exampleVi": "Xin vui lòng mở sách ra trang mười.",
+          "cloze": {
+            "sentence": "Can you _____ the window, please?",
+            "options": ["open", "sleep", "eat", "cook"],
+            "answer": "open",
+            "explain": "'open the window' nghĩa là mở cửa sổ."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "open", "the window", "for fresh air"],
+            "answer": ["Please", "open", "the window", "for fresh air"],
+            "meaningVi": "Làm ơn mở cửa sổ đón không khí trong lành."
+          }
+        },
+        {
+          "lemma": "close",
+          "meaningVi": "đóng, khép lại",
+          "ipa": "/kloʊz/",
+          "pattern": "S + close + Noun",
+          "collocation": "close the door (đóng cửa), close eyes (nhắm mắt)",
+          "example": "Close your eyes and make a wish.",
+          "exampleVi": "Hãy nhắm mắt lại và ước một điều.",
+          "cloze": {
+            "sentence": "Don't forget to _____ the door when you leave.",
+            "options": ["close", "open", "drink", "eat"],
+            "answer": "close",
+            "explain": "'close the door' nghĩa là đóng cửa lại."
+          },
+          "sentenceScramble": {
+            "tokens": ["Remember to", "close", "the door", "carefully"],
+            "answer": ["Remember to", "close", "the door", "carefully"],
+            "meaningVi": "Hãy nhớ đóng cửa cẩn thận."
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter-verb-04",
+      "tier": 2,
+      "title": "Tầng 2 · Giao tiếp, Lắng nghe & Viết",
+      "description": "10 động từ trao đổi thông tin, nói, hỏi đáp, lắng nghe và ghi chép.",
+      "story": {
+        "title": "Trong lớp học tiếng Anh",
+        "passage": "In English class, the teacher **says** hello to everyone. She **tells** an interesting story. We **talk** with our partners in pairs. Everyone tries to **speak** English loudly. If I don't understand, I **ask** a question, and the teacher **answers** kindly. I **hear** music in the lesson. We **listen** to native speakers carefully. Then we **write** new vocabulary in our notebooks. After class, I **call** my mother to pick me up.",
+        "passageVi": "Trong lớp tiếng Anh, cô giáo nói xin chào với tất cả mọi người. Cô kể một câu chuyện thú vị. Chúng tôi trò chuyện với bạn cùng bàn theo cặp. Mọi người đều cố gắng nói tiếng Anh thật to. Nếu không hiểu, tôi đặt câu hỏi và cô giáo trả lời ân cần. Tôi nghe thấy tiếng nhạc trong bài học. Chúng tôi lắng nghe người bản xứ một cách cẩn thận. Sau đó chúng tôi viết từ mới vào vở. Sau giờ học, tôi gọi điện cho mẹ đến đón.",
+        "highlightWords": ["say", "tell", "talk", "speak", "ask", "answer", "hear", "listen", "write", "call"],
+        "cloze": {
+          "text": "The teacher {{0}} hello. She {{1}} an interesting story. Students {{2}} English with each other. If you have questions, please {{3}} the teacher. She will {{4}} you. Don't forget to {{5}} notes.",
+          "blanks": [
+            { "id": 0, "answer": "says", "options": ["says", "hears", "calls", "writes"] },
+            { "id": 1, "answer": "tells", "options": ["tells", "listens", "asks", "speaks"] },
+            { "id": 2, "answer": "speak", "options": ["speak", "call", "write", "hear"] },
+            { "id": 3, "answer": "ask", "options": ["ask", "tell", "say", "talk"] },
+            { "id": 4, "answer": "answer", "options": ["answer", "speak", "hear", "listen"] },
+            { "id": 5, "answer": "write", "options": ["write", "call", "talk", "say"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "say",
+          "meaningVi": "nói (lời, câu)",
+          "ipa": "/seɪ/",
+          "pattern": "S + say + (that) clause / 'quote'",
+          "collocation": "say hello (nói xin chào), say thank you (nói cảm ơn)",
+          "example": "Always remember to say thank you.",
+          "exampleVi": "Hãy luôn nhớ nói lời cảm ơn.",
+          "cloze": {
+            "sentence": "What did you _____ to him?",
+            "options": ["say", "tell", "hear", "listen"],
+            "answer": "say",
+            "explain": "'say' dùng để nói một câu hoặc từ cụ thể ('say something')."
+          },
+          "sentenceScramble": {
+            "tokens": ["Always", "say thank you", "for help"],
+            "answer": ["Always", "say thank you", "for help"],
+            "meaningVi": "Hãy luôn nói lời cảm ơn vì sự giúp đỡ."
+          }
+        },
+        {
+          "lemma": "tell",
+          "meaningVi": "kể, bảo ai điều gì",
+          "ipa": "/tel/",
+          "pattern": "S + tell + Person + sth/to V",
+          "collocation": "tell a story (kể chuyện), tell the truth (nói sự thật)",
+          "example": "He told me an interesting story.",
+          "exampleVi": "Anh ấy đã kể cho tôi một câu chuyện thú vị.",
+          "cloze": {
+            "sentence": "Please _____ me your phone number.",
+            "options": ["tell", "say", "speak", "talk"],
+            "answer": "tell",
+            "explain": "'tell someone something': bảo/cho ai biết điều gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "tell me", "the truth"],
+            "answer": ["Please", "tell me", "the truth"],
+            "meaningVi": "Làm ơn hãy nói cho tôi biết sự thật."
+          }
+        },
+        {
+          "lemma": "talk",
+          "meaningVi": "nói chuyện, trò chuyện",
+          "ipa": "/tɔːk/",
+          "pattern": "S + talk + to/with Person",
+          "collocation": "talk to friends (nói chuyện với bạn), talk about (nói về)",
+          "example": "We like talking with our teacher.",
+          "exampleVi": "Chúng tôi thích trò chuyện cùng cô giáo.",
+          "cloze": {
+            "sentence": "Can I _____ to you for a moment?",
+            "options": ["talk", "tell", "say", "hear"],
+            "answer": "talk",
+            "explain": "'talk to someone' nghĩa là nói chuyện với ai."
+          },
+          "sentenceScramble": {
+            "tokens": ["I want to", "talk to you", "about the exam"],
+            "answer": ["I want to", "talk to you", "about the exam"],
+            "meaningVi": "Tôi muốn nói chuyện với bạn về kỳ thi."
+          }
+        },
+        {
+          "lemma": "speak",
+          "meaningVi": "nói (ngôn ngữ), phát biểu",
+          "ipa": "/spiːk/",
+          "pattern": "S + speak + Language",
+          "collocation": "speak English (nói tiếng Anh), speak slowly (nói chậm lại)",
+          "example": "She can speak three languages.",
+          "exampleVi": "Cô ấy có thể nói ba thứ tiếng.",
+          "cloze": {
+            "sentence": "Could you please _____ more slowly?",
+            "options": ["speak", "tell", "hear", "listen"],
+            "answer": "speak",
+            "explain": "'speak slowly' là yêu cầu ai đó nói chậm lại."
+          },
+          "sentenceScramble": {
+            "tokens": ["She can", "speak English", "very fluently"],
+            "answer": ["She can", "speak English", "very fluently"],
+            "meaningVi": "Cô ấy có thể nói tiếng Anh rất trôi chảy."
+          }
+        },
+        {
+          "lemma": "ask",
+          "meaningVi": "hỏi, yêu cầu",
+          "ipa": "/æsk/",
+          "pattern": "S + ask + (Person) + Question / for sth",
+          "collocation": "ask a question (đặt câu hỏi), ask for help (xin giúp đỡ)",
+          "example": "If you don't know, just ask the teacher.",
+          "exampleVi": "Nếu bạn không biết, hãy cứ hỏi cô giáo.",
+          "cloze": {
+            "sentence": "Don't hesitate to _____ for help when needed.",
+            "options": ["ask", "tell", "say", "speak"],
+            "answer": "ask",
+            "explain": "'ask for help' là cụm từ rất phổ biến: xin sự giúp đỡ."
+          },
+          "sentenceScramble": {
+            "tokens": ["Feel free to", "ask a question", "in class"],
+            "answer": ["Feel free to", "ask a question", "in class"],
+            "meaningVi": "Cứ tự nhiên đặt câu hỏi trong lớp."
+          }
+        },
+        {
+          "lemma": "answer",
+          "meaningVi": "trả lời, giải đáp",
+          "ipa": "/ˈænsər/",
+          "pattern": "S + answer + Question/Phone",
+          "collocation": "answer the question (trả lời câu hỏi), answer the phone (nghe điện thoại)",
+          "example": "He answered all questions correctly.",
+          "exampleVi": "Anh ấy đã trả lời đúng tất cả các câu hỏi.",
+          "cloze": {
+            "sentence": "Can you _____ the phone, please?",
+            "options": ["answer", "ask", "tell", "say"],
+            "answer": "answer",
+            "explain": "'answer the phone' nghĩa là nhấc máy trả lời điện thoại."
+          },
+          "sentenceScramble": {
+            "tokens": ["He can", "answer", "all these questions"],
+            "answer": ["He can", "answer", "all these questions"],
+            "meaningVi": "Anh ấy có thể trả lời tất cả những câu hỏi này."
+          }
+        },
+        {
+          "lemma": "call",
+          "meaningVi": "gọi điện, gọi tên",
+          "ipa": "/kɔːl/",
+          "pattern": "S + call + Person / N",
+          "collocation": "call me (gọi cho tôi), call a taxi (gọi taxi)",
+          "example": "I will call you when I arrive.",
+          "exampleVi": "Tôi sẽ gọi cho bạn khi tôi đến nơi.",
+          "cloze": {
+            "sentence": "Please _____ me tonight after 8 PM.",
+            "options": ["call", "speak", "talk", "hear"],
+            "answer": "call",
+            "explain": "'call me' nghĩa là gọi điện thoại cho tôi."
+          },
+          "sentenceScramble": {
+            "tokens": ["I will", "call you", "this evening"],
+            "answer": ["I will", "call you", "this evening"],
+            "meaningVi": "Tôi sẽ gọi cho bạn vào tối nay."
+          }
+        },
+        {
+          "lemma": "hear",
+          "meaningVi": "nghe thấy (thụ động)",
+          "ipa": "/hɪr/",
+          "pattern": "S + hear + Sound/N",
+          "collocation": "hear a noise (nghe thấy tiếng ồn), hear from sb (nhận tin từ ai)",
+          "example": "Can you hear the music playing?",
+          "exampleVi": "Bạn có nghe thấy tiếng nhạc đang phát không?",
+          "cloze": {
+            "sentence": "Speak louder, I cannot _____ you.",
+            "options": ["hear", "listen", "call", "say"],
+            "answer": "hear",
+            "explain": "'cannot hear you' chỉ khả năng thính giác: không nghe thấy được."
+          },
+          "sentenceScramble": {
+            "tokens": ["I can", "hear", "birds singing", "outside"],
+            "answer": ["I can", "hear", "birds singing", "outside"],
+            "meaningVi": "Tôi có thể nghe thấy chim hót bên ngoài."
+          }
+        },
+        {
+          "lemma": "listen",
+          "meaningVi": "lắng nghe (chủ động)",
+          "ipa": "/ˈlɪsn/",
+          "pattern": "S + listen + to N",
+          "collocation": "listen to music (nghe nhạc), listen to the teacher (lắng nghe cô giáo)",
+          "example": "Listen to the teacher carefully.",
+          "exampleVi": "Hãy lắng nghe cô giáo một cách chăm chú.",
+          "cloze": {
+            "sentence": "I like to _____ to podcasts in English.",
+            "options": ["listen", "hear", "say", "talk"],
+            "answer": "listen",
+            "explain": "'listen to something': chủ động tập trung lắng nghe cái gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["Always", "listen to", "the teacher", "carefully"],
+            "answer": ["Always", "listen to", "the teacher", "carefully"],
+            "meaningVi": "Luôn luôn lắng nghe cô giáo một cách chăm chú."
+          }
+        },
+        {
+          "lemma": "write",
+          "meaningVi": "viết, ghi lại",
+          "ipa": "/raɪt/",
+          "pattern": "S + write + N",
+          "collocation": "write a letter (viết thư), write down (ghi chép lại)",
+          "example": "Please write down your name and address.",
+          "exampleVi": "Xin vui lòng viết tên và địa chỉ của bạn.",
+          "cloze": {
+            "sentence": "Remember to _____ new words in your notebook.",
+            "options": ["write", "speak", "hear", "call"],
+            "answer": "write",
+            "explain": "'write new words' nghĩa là viết các từ mới."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "write down", "your phone number"],
+            "answer": ["Please", "write down", "your phone number"],
+            "meaningVi": "Xin vui lòng ghi lại số điện thoại của bạn."
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter-verb-05",
+      "tier": 3,
+      "title": "Tầng 3 · Tương tác Xã hội, Trao nhận & Giúp đỡ",
+      "description": "10 động từ thể hiện mối quan hệ qua lại giữa người với người: cho, nhận, giúp đỡ, tạo ra và gặp gỡ.",
+      "story": {
+        "title": "Bữa tiệc sinh nhật bất ngờ",
+        "passage": "Today is Lan's birthday. Her friends **make** a delicious chocolate cake. They **bring** colorful balloons and **send** nice greeting cards. Nam **gives** Lan an English storybook, and she happily **takes** it with both hands. Everyone **helps** decorate the living room. Lan **shows** her family photo album to friends. They **invite** neighbors over. When guests arrive, they **meet** each other warmly, and nobody has to **wait** outside.",
+        "passageVi": "Hôm nay là sinh nhật của Lan. Các bạn của cô tự làm một chiếc bánh sô-cô-la thơm ngon. Họ mang đến những quả bóng bay sặc sỡ và gửi những tấm thiệp chúc mừng đẹp mắt. Nam tặng Lan một cuốn truyện tiếng Anh, và cô vui vẻ nhận lấy bằng cả hai tay. Mọi người cùng giúp dọn dẹp trang trí phòng khách. Lan cho các bạn xem cuốn album ảnh gia đình. Họ mời cả hàng xóm sang chung vui. Khi khách đến, họ gặp gỡ nhau nồng nhiệt và không ai phải chờ đợi bên ngoài.",
+        "highlightWords": ["make", "bring", "send", "give", "take", "help", "show", "invite", "meet", "wait"],
+        "cloze": {
+          "text": "My friends {{0}} a cake for my party. They {{1}} flowers and gifts. My brother {{2}} me set the table. I {{3}} them my new room. We {{4}} all our close classmates. Everyone is happy to {{5}} each other.",
+          "blanks": [
+            { "id": 0, "answer": "make", "options": ["make", "wait", "take", "send"] },
+            { "id": 1, "answer": "bring", "options": ["bring", "wait", "show", "help"] },
+            { "id": 2, "answer": "helps", "options": ["helps", "takes", "sends", "invites"] },
+            { "id": 3, "answer": "show", "options": ["show", "give", "wait", "meet"] },
+            { "id": 4, "answer": "invite", "options": ["invite", "make", "take", "bring"] },
+            { "id": 5, "answer": "meet", "options": ["meet", "wait", "send", "give"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "give",
+          "meaningVi": "cho, tặng",
+          "ipa": "/ɡɪv/",
+          "pattern": "S + give + Person + N / give + N + to Person",
+          "collocation": "give a gift (tặng quà), give advice (cho lời khuyên)",
+          "example": "He gave me a useful book.",
+          "exampleVi": "Anh ấy đã tặng tôi một cuốn sách bổ ích.",
+          "cloze": {
+            "sentence": "Can you _____ me a glass of water, please?",
+            "options": ["give", "take", "wait", "make"],
+            "answer": "give",
+            "explain": "'give someone something' nghĩa là đưa hoặc cho ai cái gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["She", "gives me", "a nice present", "today"],
+            "answer": ["She", "gives me", "a nice present", "today"],
+            "meaningVi": "Hôm nay cô ấy tặng tôi một món quà tuyệt vời."
+          }
+        },
+        {
+          "lemma": "take",
+          "meaningVi": "cầm, lấy, mang theo, tốn (thời gian)",
+          "ipa": "/teɪk/",
+          "pattern": "S + take + N",
+          "collocation": "take a photo (chụp ảnh), take time (tốn thời gian), take an umbrella (cầm theo ô)",
+          "example": "Take an umbrella because it might rain.",
+          "exampleVi": "Hãy cầm theo ô vì trời có thể mưa.",
+          "cloze": {
+            "sentence": "Let's _____ a picture together here!",
+            "options": ["take", "give", "help", "wait"],
+            "answer": "take",
+            "explain": "'take a picture/photo' là cụm cố định: chụp một bức ảnh."
+          },
+          "sentenceScramble": {
+            "tokens": ["Don't forget to", "take", "your umbrella", "with you"],
+            "answer": ["Don't forget to", "take", "your umbrella", "with you"],
+            "meaningVi": "Đừng quên cầm theo ô bên mình."
+          }
+        },
+        {
+          "lemma": "help",
+          "meaningVi": "giúp đỡ",
+          "ipa": "/help/",
+          "pattern": "S + help + Person + (with N / to V)",
+          "collocation": "help each other (giúp đỡ lẫn nhau), help me with (giúp tôi việc gì)",
+          "example": "Can you help me with this exercise?",
+          "exampleVi": "Bạn có thể giúp tôi bài tập này không?",
+          "cloze": {
+            "sentence": "Thank you for _____ing me with my homework.",
+            "options": ["help", "give", "take", "make"],
+            "answer": "help",
+            "explain": "'help someone with something' nghĩa là giúp ai việc gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["They always", "help each other", "in study"],
+            "answer": ["They always", "help each other", "in study"],
+            "meaningVi": "Họ luôn giúp đỡ lẫn nhau trong học tập."
+          }
+        },
+        {
+          "lemma": "make",
+          "meaningVi": "làm ra, tạo nên, khiến cho",
+          "ipa": "/meɪk/",
+          "pattern": "S + make + N / make + Person + Adj/V",
+          "collocation": "make a mistake (phạm lỗi), make friends (kết bạn), make coffee (pha cà phê)",
+          "example": "She makes delicious coffee.",
+          "exampleVi": "Cô ấy pha cà phê rất ngon.",
+          "cloze": {
+            "sentence": "It is easy to _____ new friends at school.",
+            "options": ["make", "take", "give", "wait"],
+            "answer": "make",
+            "explain": "'make friends' nghĩa là kết bạn, làm quen bạn mới."
+          },
+          "sentenceScramble": {
+            "tokens": ["This funny story", "makes me", "laugh a lot"],
+            "answer": ["This funny story", "makes me", "laugh a lot"],
+            "meaningVi": "Câu chuyện hài hước này khiến tôi cười rất nhiều."
+          }
+        },
+        {
+          "lemma": "bring",
+          "meaningVi": "mang đến, đem lại",
+          "ipa": "/brɪŋ/",
+          "pattern": "S + bring + Person + N / bring + N + to Person",
+          "collocation": "bring food (mang đồ ăn), bring joy (đem lại niềm vui)",
+          "example": "Please bring your book to class.",
+          "exampleVi": "Làm ơn mang sách của bạn đến lớp.",
+          "cloze": {
+            "sentence": "Don't forget to _____ your notebook tomorrow.",
+            "options": ["bring", "send", "meet", "wait"],
+            "answer": "bring",
+            "explain": "'bring your notebook' nghĩa là mang theo quyển vở."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "bring", "your textbook", "to class"],
+            "answer": ["Please", "bring", "your textbook", "to class"],
+            "meaningVi": "Xin vui lòng mang sách giáo khoa đến lớp."
+          }
+        },
+        {
+          "lemma": "send",
+          "meaningVi": "gửi (thư, tin nhắn, hàng)",
+          "ipa": "/send/",
+          "pattern": "S + send + Person + N / send + N + to Person",
+          "collocation": "send an email (gửi email), send a message (gửi tin nhắn)",
+          "example": "I will send you an email tonight.",
+          "exampleVi": "Tôi sẽ gửi email cho bạn vào tối nay.",
+          "cloze": {
+            "sentence": "Can you _____ me the file via Zalo?",
+            "options": ["send", "bring", "help", "wait"],
+            "answer": "send",
+            "explain": "'send a file' nghĩa là gửi một tệp tin."
+          },
+          "sentenceScramble": {
+            "tokens": ["I will", "send an email", "to the teacher", "tonight"],
+            "answer": ["I will", "send an email", "to the teacher", "tonight"],
+            "meaningVi": "Tôi sẽ gửi một bức email cho giáo viên tối nay."
+          }
+        },
+        {
+          "lemma": "show",
+          "meaningVi": "cho xem, chỉ ra",
+          "ipa": "/ʃoʊ/",
+          "pattern": "S + show + Person + N / show + how to V",
+          "collocation": "show me (cho tôi xem), show the way (chỉ đường)",
+          "example": "Can you show me the way to the bus station?",
+          "exampleVi": "Bạn có thể chỉ cho tôi đường đến bến xe buýt không?",
+          "cloze": {
+            "sentence": "Please _____ me your homework.",
+            "options": ["show", "send", "wait", "meet"],
+            "answer": "show",
+            "explain": "'show me something' nghĩa là cho tôi xem cái gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["Can you", "show me", "the way to", "the station"],
+            "answer": ["Can you", "show me", "the way to", "the station"],
+            "meaningVi": "Bạn có thể chỉ đường cho tôi đến nhà ga không?"
+          }
+        },
+        {
+          "lemma": "wait",
+          "meaningVi": "chờ đợi",
+          "ipa": "/weɪt/",
+          "pattern": "S + wait + for Person/Thing",
+          "collocation": "wait for the bus (chờ xe buýt), wait a minute (chờ một lát)",
+          "example": "I am waiting for the bus.",
+          "exampleVi": "Tôi đang chờ xe buýt.",
+          "cloze": {
+            "sentence": "Please _____ a moment, I will be right back.",
+            "options": ["wait", "help", "bring", "send"],
+            "answer": "wait",
+            "explain": "'wait a moment' nghĩa là vui lòng chờ một lát."
+          },
+          "sentenceScramble": {
+            "tokens": ["We are", "waiting for", "the bus", "together"],
+            "answer": ["We are", "waiting for", "the bus", "together"],
+            "meaningVi": "Chúng tôi đang cùng nhau chờ xe buýt."
+          }
+        },
+        {
+          "lemma": "meet",
+          "meaningVi": "gặp gỡ, làm quen",
+          "ipa": "/miːt/",
+          "pattern": "S + meet + Person",
+          "collocation": "nice to meet you (rất vui được gặp bạn), meet friends (gặp bạn bè)",
+          "example": "Nice to meet you!",
+          "exampleVi": "Rất vui được gặp bạn!",
+          "cloze": {
+            "sentence": "We will _____ at the coffee shop at 9 AM.",
+            "options": ["meet", "wait", "give", "bring"],
+            "answer": "meet",
+            "explain": "'meet at a place' nghĩa là hẹn gặp nhau tại một địa điểm."
+          },
+          "sentenceScramble": {
+            "tokens": ["It is", "nice to meet you", "here"],
+            "answer": ["It is", "nice to meet you", "here"],
+            "meaningVi": "Rất vui được gặp bạn ở đây."
+          }
+        },
+        {
+          "lemma": "invite",
+          "meaningVi": "mời",
+          "ipa": "/ɪnˈvaɪt/",
+          "pattern": "S + invite + Person + to Event",
+          "collocation": "invite friends (mời bạn bè), invite to dinner (mời ăn tối)",
+          "example": "They invited me to their wedding.",
+          "exampleVi": "Họ đã mời tôi đến đám cưới của họ.",
+          "cloze": {
+            "sentence": "I want to _____ you to my birthday party.",
+            "options": ["invite", "help", "wait", "show"],
+            "answer": "invite",
+            "explain": "'invite someone to a party' nghĩa là mời ai đến bữa tiệc."
+          },
+          "sentenceScramble": {
+            "tokens": ["I want to", "invite you", "to dinner", "tonight"],
+            "answer": ["I want to", "invite you", "to dinner", "tonight"],
+            "meaningVi": "Tôi muốn mời bạn đi ăn tối tối nay."
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter-verb-06",
+      "tier": 3,
+      "title": "Tầng 3 · Học tập, Làm việc & Rèn luyện",
+      "description": "10 động từ trọng tâm cho việc học kiến thức, làm việc, thử sức, tìm kiếm và kiểm tra.",
+      "story": {
+        "title": "Chăm chỉ mỗi ngày",
+        "passage": "Every evening, I **learn** new English words. I **study** hard for the upcoming test. My brother **reads** books in the living room while my father **works** on his laptop. The teacher **teaches** us grammar rules patiently. I always **try** my best in every exercise. We **use** an app to practice listening. When I don't know a word, I **find** it in the dictionary. Before submitting, I **check** my answers carefully, and I **prepare** for tomorrow's lesson.",
+        "passageVi": "Mỗi buổi tối, tôi học các từ tiếng Anh mới. Tôi ôn tập chăm chỉ cho bài thi sắp tới. Anh trai tôi đọc sách trong phòng khách trong khi bố tôi làm việc trên máy tính xách tay. Giáo viên giảng dạy cho chúng tôi các quy tắc ngữ pháp một cách kiên nhẫn. Tôi luôn cố gắng hết sức trong từng bài tập. Chúng tôi sử dụng một ứng dụng để luyện nghe. Khi tôi không biết một từ, tôi tìm kiếm nó trong từ điển. Trước khi nộp bài, tôi kiểm tra lại các câu trả lời thật cẩn thận và chuẩn bị cho bài học ngày mai.",
+        "highlightWords": ["learn", "study", "read", "work", "teach", "try", "use", "find", "check", "prepare"],
+        "cloze": {
+          "text": "Students {{0}} English every day. They {{1}} books and {{2}} their best. The teacher {{3}} grammar clearly. Students {{4}} dictionaries to {{5}} meanings of difficult words.",
+          "blanks": [
+            { "id": 0, "answer": "learn", "options": ["learn", "work", "check", "teach"] },
+            { "id": 1, "answer": "read", "options": ["read", "use", "find", "prepare"] },
+            { "id": 2, "answer": "try", "options": ["try", "teach", "read", "work"] },
+            { "id": 3, "answer": "teaches", "options": ["teaches", "studies", "uses", "finds"] },
+            { "id": 4, "answer": "use", "options": ["use", "check", "prepare", "try"] },
+            { "id": 5, "answer": "find", "options": ["find", "work", "teach", "learn"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "learn",
+          "meaningVi": "học hỏi, tiếp thu",
+          "ipa": "/lɜːrn/",
+          "pattern": "S + learn + N / to V",
+          "collocation": "learn English (học tiếng Anh), learn to drive (học lái xe)",
+          "example": "I want to learn English to travel.",
+          "exampleVi": "Tôi muốn học tiếng Anh để đi du lịch.",
+          "cloze": {
+            "sentence": "Children _____ languages very quickly.",
+            "options": ["learn", "teach", "work", "check"],
+            "answer": "learn",
+            "explain": "'learn languages' nghĩa là học ngôn ngữ."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "learn English", "every single day"],
+            "answer": ["I", "learn English", "every single day"],
+            "meaningVi": "Tôi học tiếng Anh mỗi ngày."
+          }
+        },
+        {
+          "lemma": "study",
+          "meaningVi": "học tập, ôn luyện, nghiên cứu",
+          "ipa": "/ˈstʌdi/",
+          "pattern": "S + study + (Subject/for Exam)",
+          "collocation": "study hard (học chăm chỉ), study for the test (ôn thi)",
+          "example": "He studies at Hanoi University.",
+          "exampleVi": "Anh ấy học tại Đại học Hà Nội.",
+          "cloze": {
+            "sentence": "You should _____ hard for the final exam.",
+            "options": ["study", "teach", "use", "find"],
+            "answer": "study",
+            "explain": "'study hard' là cụm từ quen thuộc: học tập chăm chỉ."
+          },
+          "sentenceScramble": {
+            "tokens": ["We", "study hard", "for the exam", "together"],
+            "answer": ["We", "study hard", "for the exam", "together"],
+            "meaningVi": "Chúng tôi cùng nhau học chăm chỉ cho kỳ thi."
+          }
+        },
+        {
+          "lemma": "read",
+          "meaningVi": "đọc",
+          "ipa": "/riːd/",
+          "pattern": "S + read + Book/Text",
+          "collocation": "read books (đọc sách), read newspapers (đọc báo)",
+          "example": "She reads books before going to bed.",
+          "exampleVi": "Cô ấy đọc sách trước khi đi ngủ.",
+          "cloze": {
+            "sentence": "I like to _____ short English stories.",
+            "options": ["read", "write", "work", "teach"],
+            "answer": "read",
+            "explain": "'read short stories' nghĩa là đọc những câu chuyện ngắn."
+          },
+          "sentenceScramble": {
+            "tokens": ["I like to", "read books", "in my free time"],
+            "answer": ["I like to", "read books", "in my free time"],
+            "meaningVi": "Tôi thích đọc sách vào thời gian rảnh rỗi."
+          }
+        },
+        {
+          "lemma": "teach",
+          "meaningVi": "dạy học, giảng dạy",
+          "ipa": "/tiːtʃ/",
+          "pattern": "S + teach + Person + (Subject)",
+          "collocation": "teach English (dạy tiếng Anh), teach someone how to do sth (dạy ai cách làm gì)",
+          "example": "Mr. Brown teaches us English grammar.",
+          "exampleVi": "Thầy Brown dạy chúng tôi ngữ pháp tiếng Anh.",
+          "cloze": {
+            "sentence": "My mother _____s at a primary school.",
+            "options": ["teach", "learn", "study", "read"],
+            "answer": "teach",
+            "explain": "'teach at a school' nghĩa là giảng dạy tại một trường học."
+          },
+          "sentenceScramble": {
+            "tokens": ["She", "teaches English", "to beginners"],
+            "answer": ["She", "teaches English", "to beginners"],
+            "meaningVi": "Cô ấy dạy tiếng Anh cho người mới bắt đầu."
+          }
+        },
+        {
+          "lemma": "work",
+          "meaningVi": "làm việc, hoạt động",
+          "ipa": "/wɜːrk/",
+          "pattern": "S + work + (at Place / as Job)",
+          "collocation": "work hard (làm việc chăm chỉ), work in an office (làm việc ở văn phòng)",
+          "example": "He works as an engineer.",
+          "exampleVi": "Anh ấy làm việc với tư cách là kỹ sư.",
+          "cloze": {
+            "sentence": "My father _____s in a big hospital.",
+            "options": ["work", "teach", "study", "read"],
+            "answer": "work",
+            "explain": "'work in a hospital' nghĩa là làm việc trong bệnh viện."
+          },
+          "sentenceScramble": {
+            "tokens": ["He", "works hard", "every day", "for his family"],
+            "answer": ["He", "works hard", "every day", "for his family"],
+            "meaningVi": "Anh ấy làm việc chăm chỉ mỗi ngày vì gia đình."
+          }
+        },
+        {
+          "lemma": "try",
+          "meaningVi": "cố gắng, thử làm",
+          "ipa": "/traɪ/",
+          "pattern": "S + try + to V (cố gắng) / V-ing (thử)",
+          "collocation": "try your best (cố gắng hết sức), try to do (cố gắng làm)",
+          "example": "Always try your best in everything you do.",
+          "exampleVi": "Hãy luôn cố gắng hết sức trong mọi việc bạn làm.",
+          "cloze": {
+            "sentence": "Please _____ to speak English every day.",
+            "options": ["try", "use", "find", "work"],
+            "answer": "try",
+            "explain": "'try to do something' mang nghĩa cố gắng làm một việc gì đó."
+          },
+          "sentenceScramble": {
+            "tokens": ["I always", "try my best", "to improve"],
+            "answer": ["I always", "try my best", "to improve"],
+            "meaningVi": "Tôi luôn cố gắng hết sức để tiến bộ."
+          }
+        },
+        {
+          "lemma": "use",
+          "meaningVi": "dùng, sử dụng",
+          "ipa": "/juːz/",
+          "pattern": "S + use + N + to V",
+          "collocation": "use a computer (dùng máy tính), use an app (dùng ứng dụng)",
+          "example": "We use this dictionary to look up words.",
+          "exampleVi": "Chúng tôi dùng cuốn từ điển này để tra từ.",
+          "cloze": {
+            "sentence": "Can I _____ your phone for a minute?",
+            "options": ["use", "try", "learn", "study"],
+            "answer": "use",
+            "explain": "'use your phone' nghĩa là sử dụng điện thoại của bạn."
+          },
+          "sentenceScramble": {
+            "tokens": ["We", "use", "this dictionary", "to look up words"],
+            "answer": ["We", "use", "this dictionary", "to look up words"],
+            "meaningVi": "Chúng tôi dùng cuốn từ điển này để tra cứu từ."
+          }
+        },
+        {
+          "lemma": "find",
+          "meaningVi": "tìm thấy, nhận ra",
+          "ipa": "/faɪnd/",
+          "pattern": "S + find + N",
+          "collocation": "find a job (tìm việc làm), find the answer (tìm câu trả lời)",
+          "example": "I cannot find my keys anywhere.",
+          "exampleVi": "Tôi không thể tìm thấy chìa khóa của mình ở đâu cả.",
+          "cloze": {
+            "sentence": "Did you _____ the right answer?",
+            "options": ["find", "work", "teach", "use"],
+            "answer": "find",
+            "explain": "'find the answer' nghĩa là tìm ra câu trả lời."
+          },
+          "sentenceScramble": {
+            "tokens": ["I can", "find the answer", "in this book"],
+            "answer": ["I can", "find the answer", "in this book"],
+            "meaningVi": "Tôi có thể tìm thấy câu trả lời trong cuốn sách này."
+          }
+        },
+        {
+          "lemma": "check",
+          "meaningVi": "kiểm tra, rà soát",
+          "ipa": "/tʃek/",
+          "pattern": "S + check + N",
+          "collocation": "check email (kiểm tra email), check answers (soát lại đáp án)",
+          "example": "Always check your answers before submitting.",
+          "exampleVi": "Luôn kiểm tra lại câu trả lời trước khi nộp bài.",
+          "cloze": {
+            "sentence": "Please _____ your spelling carefully.",
+            "options": ["check", "find", "use", "try"],
+            "answer": "check",
+            "explain": "'check spelling' nghĩa là kiểm tra lại chính tả."
+          },
+          "sentenceScramble": {
+            "tokens": ["Always", "check your work", "before submitting"],
+            "answer": ["Always", "check your work", "before submitting"],
+            "meaningVi": "Luôn luôn kiểm tra bài làm của bạn trước khi nộp."
+          }
+        },
+        {
+          "lemma": "prepare",
+          "meaningVi": "chuẩn bị",
+          "ipa": "/prɪˈper/",
+          "pattern": "S + prepare + (for N / to V)",
+          "collocation": "prepare for the exam (chuẩn bị cho kỳ thi), prepare a meal (chuẩn bị bữa ăn)",
+          "example": "We are preparing for the test next week.",
+          "exampleVi": "Chúng tôi đang chuẩn bị cho bài kiểm tra tuần tới.",
+          "cloze": {
+            "sentence": "I need to _____ for my interview tomorrow.",
+            "options": ["prepare", "teach", "study", "use"],
+            "answer": "prepare",
+            "explain": "'prepare for an interview' nghĩa là chuẩn bị cho buổi phỏng vấn."
+          },
+          "sentenceScramble": {
+            "tokens": ["We", "prepare for", "the lesson", "carefully"],
+            "answer": ["We", "prepare for", "the lesson", "carefully"],
+            "meaningVi": "Chúng tôi chuẩn bị bài học một cách cẩn thận."
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter-verb-07",
+      "tier": 4,
+      "title": "Tầng 4 · Mua sắm, Trao đổi & Quyết định",
+      "description": "10 động từ về thương mại, tài chính, chi tiêu, lựa chọn và đồng thuận.",
+      "story": {
+        "title": "Chuyến đi siêu thị cuối tuần",
+        "passage": "On Saturday, I go to the supermarket to **buy** some groceries. The shop **sells** fresh fruits and vegetables. I **choose** some sweet apples and fresh milk. This coat **costs** twenty dollars. I **spend** about one hour looking around. At the cashier, I **pay** by cash. In the café nearby, I **order** a cup of coffee. My friend suggests watching a movie, and I happily **agree**. We **decide** to meet at the cinema at 7 PM.",
+        "passageVi": "Vào thứ Bảy, tôi đến siêu thị để mua một số đồ nhu yếu phẩm. Cửa hàng bán các loại trái cây và rau củ tươi sạch. Tôi chọn vài quả táo ngọt và sữa tươi. Chiếc áo khoác này có giá hai mươi đô la. Tôi dành khoảng một tiếng đồng hồ đi dạo quanh. Tại quầy thu ngân, tôi thanh toán bằng tiền mặt. Ở quán cà phê gần đó, tôi gọi một ly cà phê. Bạn tôi gợi ý đi xem phim và tôi vui vẻ đồng ý. Chúng tôi quyết định gặp nhau ở rạp chiếu phim lúc 7 giờ tối.",
+        "highlightWords": ["buy", "sell", "choose", "cost", "spend", "pay", "order", "agree", "decide", "refuse"],
+        "cloze": {
+          "text": "I want to {{0}} a new shirt. The shop {{1}} nice clothes. I {{2}} a blue one. It {{3}} fifteen dollars. I {{4}} for it with my card. We {{5}} to go home after shopping.",
+          "blanks": [
+            { "id": 0, "answer": "buy", "options": ["buy", "sell", "pay", "refuse"] },
+            { "id": 1, "answer": "sells", "options": ["sells", "costs", "orders", "agrees"] },
+            { "id": 2, "answer": "choose", "options": ["choose", "spend", "refuse", "agree"] },
+            { "id": 3, "answer": "costs", "options": ["costs", "pays", "buys", "sells"] },
+            { "id": 4, "answer": "pay", "options": ["pay", "spend", "choose", "decide"] },
+            { "id": 5, "answer": "decide", "options": ["decide", "refuse", "cost", "pay"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "buy",
+          "meaningVi": "mua",
+          "ipa": "/baɪ/",
+          "pattern": "S + buy + N + (for Person)",
+          "collocation": "buy clothes (mua quần áo), buy food (mua đồ ăn)",
+          "example": "I want to buy a new laptop.",
+          "exampleVi": "Tôi muốn mua một chiếc máy tính xách tay mới.",
+          "cloze": {
+            "sentence": "Where did you _____ this nice bag?",
+            "options": ["buy", "sell", "cost", "spend"],
+            "answer": "buy",
+            "explain": "'buy something' nghĩa là mua một món đồ."
+          },
+          "sentenceScramble": {
+            "tokens": ["I want to", "buy", "a new dictionary"],
+            "answer": ["I want to", "buy", "a new dictionary"],
+            "meaningVi": "Tôi muốn mua một cuốn từ điển mới."
+          }
+        },
+        {
+          "lemma": "sell",
+          "meaningVi": "bán",
+          "ipa": "/sel/",
+          "pattern": "S + sell + N + (to Person)",
+          "collocation": "sell products (bán sản phẩm), sell online (bán hàng trực tuyến)",
+          "example": "They sell fresh bread every morning.",
+          "exampleVi": "Họ bán bánh mì tươi mỗi sáng.",
+          "cloze": {
+            "sentence": "This store _____s books and stationery.",
+            "options": ["sell", "buy", "pay", "cost"],
+            "answer": "sell",
+            "explain": "'sell goods' nghĩa là bán hàng hóa."
+          },
+          "sentenceScramble": {
+            "tokens": ["They", "sell fresh flowers", "at the market"],
+            "answer": ["They", "sell fresh flowers", "at the market"],
+            "meaningVi": "Họ bán hoa tươi ở chợ."
+          }
+        },
+        {
+          "lemma": "pay",
+          "meaningVi": "trả tiền, thanh toán",
+          "ipa": "/peɪ/",
+          "pattern": "S + pay + (for N / by Card / in Cash)",
+          "collocation": "pay attention (chú ý), pay for dinner (trả tiền bữa tối), pay by card (trả bằng thẻ)",
+          "example": "Can I pay by credit card?",
+          "exampleVi": "Tôi có thể thanh toán bằng thẻ tín dụng không?",
+          "cloze": {
+            "sentence": "How would you like to _____?",
+            "options": ["pay", "buy", "cost", "sell"],
+            "answer": "pay",
+            "explain": "'How would you like to pay?' là câu hỏi quen thuộc của thu ngân: Bạn muốn thanh toán như thế nào?"
+          },
+          "sentenceScramble": {
+            "tokens": ["Can I", "pay by card", "here"],
+            "answer": ["Can I", "pay by card", "here"],
+            "meaningVi": "Tôi có thể thanh toán bằng thẻ ở đây không?"
+          }
+        },
+        {
+          "lemma": "cost",
+          "meaningVi": "có giá, tốn bao nhiêu tiền",
+          "ipa": "/kɔːst/",
+          "pattern": "S (Thing) + cost + Price",
+          "collocation": "How much does it cost? (Nó có giá bao nhiêu?), cost a lot (tốn nhiều tiền)",
+          "example": "How much does this shirt cost?",
+          "exampleVi": "Chiếc áo sơ mi này giá bao nhiêu?",
+          "cloze": {
+            "sentence": "This meal _____s only five dollars.",
+            "options": ["cost", "pay", "spend", "buy"],
+            "answer": "cost",
+            "explain": "Đồ vật (This meal) làm chủ ngữ đi với 'costs + số tiền': bữa ăn này có giá..."
+          },
+          "sentenceScramble": {
+            "tokens": ["How much", "does this book", "cost"],
+            "answer": ["How much", "does this book", "cost"],
+            "meaningVi": "Cuốn sách này giá bao nhiêu?"
+          }
+        },
+        {
+          "lemma": "spend",
+          "meaningVi": "tiêu (tiền), dành (thời gian)",
+          "ipa": "/spend/",
+          "pattern": "S + spend + Money/Time + on N / V-ing",
+          "collocation": "spend time with family (dành thời gian cho gia đình), spend money (tiêu tiền)",
+          "example": "I spend one hour studying English every day.",
+          "exampleVi": "Tôi dành một tiếng học tiếng Anh mỗi ngày.",
+          "cloze": {
+            "sentence": "Don't _____ too much money on games.",
+            "options": ["spend", "pay", "cost", "sell"],
+            "answer": "spend",
+            "explain": "'spend money on something' nghĩa là tiêu tiền vào việc gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "spend one hour", "learning English", "every day"],
+            "answer": ["I", "spend one hour", "learning English", "every day"],
+            "meaningVi": "Tôi dành một tiếng học tiếng Anh mỗi ngày."
+          }
+        },
+        {
+          "lemma": "choose",
+          "meaningVi": "chọn, lựa chọn",
+          "ipa": "/tʃuːz/",
+          "pattern": "S + choose + N / to V",
+          "collocation": "choose the right answer (chọn đáp án đúng), choose carefully (chọn cẩn thận)",
+          "example": "Please choose the correct option.",
+          "exampleVi": "Xin vui lòng chọn phương án đúng.",
+          "cloze": {
+            "sentence": "It is hard to _____ between the two colors.",
+            "options": ["choose", "pay", "sell", "cost"],
+            "answer": "choose",
+            "explain": "'choose between A and B' nghĩa là lựa chọn giữa A và B."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "choose", "the correct answer"],
+            "answer": ["Please", "choose", "the correct answer"],
+            "meaningVi": "Xin vui lòng chọn câu trả lời đúng."
+          }
+        },
+        {
+          "lemma": "decide",
+          "meaningVi": "quyết định",
+          "ipa": "/dɪˈsaɪd/",
+          "pattern": "S + decide + to V / that clause",
+          "collocation": "decide to study (quyết định học), make a decision (đưa ra quyết định)",
+          "example": "I decided to learn English seriously.",
+          "exampleVi": "Tôi đã quyết định học tiếng Anh một cách nghiêm túc.",
+          "cloze": {
+            "sentence": "They _____d to travel to Da Nang this summer.",
+            "options": ["decide", "choose", "pay", "sell"],
+            "answer": "decide",
+            "explain": "'decide to do something' nghĩa là đưa ra quyết định làm việc gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "decided to", "learn English", "today"],
+            "answer": ["I", "decided to", "learn English", "today"],
+            "meaningVi": "Tôi đã quyết định học tiếng Anh ngay hôm nay."
+          }
+        },
+        {
+          "lemma": "order",
+          "meaningVi": "gọi món, đặt hàng, ra lệnh",
+          "ipa": "/ˈɔːrdər/",
+          "pattern": "S + order + Food/Item",
+          "collocation": "order food (gọi đồ ăn), place an order (đặt đơn hàng)",
+          "example": "Are you ready to order, sir?",
+          "exampleVi": "Thưa ngài, ngài đã sẵn sàng gọi món chưa ạ?",
+          "cloze": {
+            "sentence": "I want to _____ a pizza and a Coke.",
+            "options": ["order", "spend", "cost", "pay"],
+            "answer": "order",
+            "explain": "'order food' trong nhà hàng nghĩa là gọi món ăn."
+          },
+          "sentenceScramble": {
+            "tokens": ["We would like to", "order", "two coffees"],
+            "answer": ["We would like to", "order", "two coffees"],
+            "meaningVi": "Chúng tôi muốn gọi hai ly cà phê."
+          }
+        },
+        {
+          "lemma": "agree",
+          "meaningVi": "đồng ý, đồng thuận",
+          "ipa": "/əˈɡriː/",
+          "pattern": "S + agree + with Person / to V",
+          "collocation": "agree with you (đồng ý với bạn), agree to do sth (đồng ý làm gì)",
+          "example": "I completely agree with your opinion.",
+          "exampleVi": "Tôi hoàn toàn đồng ý với ý kiến của bạn.",
+          "cloze": {
+            "sentence": "I _____ with you, that's a great idea.",
+            "options": ["agree", "refuse", "choose", "order"],
+            "answer": "agree",
+            "explain": "'agree with someone' nghĩa là đồng ý với ai."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "completely agree with", "your idea"],
+            "answer": ["I", "completely agree with", "your idea"],
+            "meaningVi": "Tôi hoàn toàn đồng ý với ý tưởng của bạn."
+          }
+        },
+        {
+          "lemma": "refuse",
+          "meaningVi": "từ chối",
+          "ipa": "/rɪˈfjuːz/",
+          "pattern": "S + refuse + to V / N",
+          "collocation": "refuse the offer (từ chối lời đề nghị), refuse politely (từ chối lịch sự)",
+          "example": "He refused to answer personal questions.",
+          "exampleVi": "Anh ấy từ chối trả lời những câu hỏi cá nhân.",
+          "cloze": {
+            "sentence": "She _____d the invitation because she was busy.",
+            "options": ["refuse", "agree", "buy", "sell"],
+            "answer": "refuse",
+            "explain": "'refuse an invitation' nghĩa là từ chối lời mời."
+          },
+          "sentenceScramble": {
+            "tokens": ["He", "refused", "to accept", "the money"],
+            "answer": ["He", "refused", "to accept", "the money"],
+            "meaningVi": "Anh ấy đã từ chối nhận số tiền đó."
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter-verb-08",
+      "tier": 4,
+      "title": "Tầng 4 · Cảm xúc, Hy vọng & Niềm tin",
+      "description": "10 động từ về trạng thái cảm xúc, tâm lý, trí nhớ và sự thấu hiểu.",
+      "story": {
+        "title": "Cảm xúc chân thật",
+        "passage": "I **love** spending time with my family. I **enjoy** reading books on quiet afternoons. Sometimes I **feel** a little tired, but I always **hope** for a brighter future. I **wish** to travel around the world one day. When studying, I try to **remember** all the vocabulary and never **forget** grammar rules. Now, I **understand** what the teacher says, and I strongly **believe** that with effort, anyone can master English.",
+        "passageVi": "Tôi rất yêu quý việc dành thời gian bên gia đình. Tôi thích thú đọc sách vào những buổi chiều yên tĩnh. Đôi khi tôi cảm thấy hơi mệt mỏi một chút, nhưng tôi luôn hy vọng vào một tương lai tươi sáng hơn. Tôi ước một ngày nào đó được đi du lịch vòng quanh thế giới. Khi học tập, tôi cố gắng ghi nhớ tất cả từ vựng và không bao giờ quên các quy tắc ngữ pháp. Giờ đây, tôi hiểu những gì thầy cô giảng và tôi tin tưởng mạnh mẽ rằng chỉ cần nỗ lực, bất kỳ ai cũng có thể làm chủ tiếng Anh.",
+        "highlightWords": ["love", "enjoy", "feel", "hope", "wish", "remember", "forget", "understand", "believe", "hate"],
+        "cloze": {
+          "text": "I {{0}} studying English. I {{1}} very happy when I learn new things. I {{2}} to speak fluently soon. I always try to {{3}} new words. Now I can {{4}} simple stories. I {{5}} in myself.",
+          "blanks": [
+            { "id": 0, "answer": "enjoy", "options": ["enjoy", "hate", "forget", "feel"] },
+            { "id": 1, "answer": "feel", "options": ["feel", "hope", "wish", "believe"] },
+            { "id": 2, "answer": "hope", "options": ["hope", "hate", "forget", "remember"] },
+            { "id": 3, "answer": "remember", "options": ["remember", "forget", "hate", "feel"] },
+            { "id": 4, "answer": "understand", "options": ["understand", "wish", "love", "hope"] },
+            { "id": 5, "answer": "believe", "options": ["believe", "hate", "forget", "feel"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "love",
+          "meaningVi": "yêu, rất thích",
+          "ipa": "/lʌv/",
+          "pattern": "S + love + N / V-ing / to V",
+          "collocation": "love music (yêu âm nhạc), love my family (yêu gia đình tôi)",
+          "example": "I love listening to acoustic songs.",
+          "exampleVi": "Tôi rất thích nghe những bài hát mộc mạc.",
+          "cloze": {
+            "sentence": "Children _____ playing games in the park.",
+            "options": ["love", "hate", "forget", "remember"],
+            "answer": "love",
+            "explain": "'love + V-ing' thể hiện niềm yêu thích nồng nhiệt."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "love", "my family", "very much"],
+            "answer": ["I", "love", "my family", "very much"],
+            "meaningVi": "Tôi yêu gia đình của mình rất nhiều."
+          }
+        },
+        {
+          "lemma": "hate",
+          "meaningVi": "ghét, không thích chút nào",
+          "ipa": "/heɪt/",
+          "pattern": "S + hate + N / V-ing / to V",
+          "collocation": "hate being late (ghét bị muộn), hate rain (ghét trời mưa)",
+          "example": "I hate waiting in long lines.",
+          "exampleVi": "Tôi rất ghét phải đứng chờ trong hàng dài.",
+          "cloze": {
+            "sentence": "She _____s getting up early on weekends.",
+            "options": ["hate", "love", "enjoy", "hope"],
+            "answer": "hate",
+            "explain": "'hate + V-ing' thể hiện sự căm ghét hoặc cực kỳ không thích."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "hate", "waking up late", "on weekdays"],
+            "answer": ["I", "hate", "waking up late", "on weekdays"],
+            "meaningVi": "Tôi ghét thức dậy muộn vào các ngày trong tuần."
+          }
+        },
+        {
+          "lemma": "enjoy",
+          "meaningVi": "thích thú, tận hưởng",
+          "ipa": "/ɪnˈdʒɔɪ/",
+          "pattern": "S + enjoy + N / V-ing",
+          "collocation": "enjoy life (tận hưởng cuộc sống), enjoy doing sth (thích làm gì)",
+          "example": "We enjoyed our holiday very much.",
+          "exampleVi": "Chúng tôi đã tận hưởng kỳ nghỉ rất vui vẻ.",
+          "cloze": {
+            "sentence": "I really _____ reading English books.",
+            "options": ["enjoy", "hope", "wish", "believe"],
+            "answer": "enjoy",
+            "explain": "Sau 'enjoy' luôn luôn là V-ing hoặc danh từ ('enjoy reading')."
+          },
+          "sentenceScramble": {
+            "tokens": ["We", "enjoy learning", "new things", "together"],
+            "answer": ["We", "enjoy learning", "new things", "together"],
+            "meaningVi": "Chúng tôi thích thú học những điều mới cùng nhau."
+          }
+        },
+        {
+          "lemma": "feel",
+          "meaningVi": "cảm thấy",
+          "ipa": "/fiːl/",
+          "pattern": "S + feel + Adj",
+          "collocation": "feel happy (cảm thấy vui vẻ), feel tired (cảm thấy mệt), feel good (thấy khỏe)",
+          "example": "I feel tired after a long day.",
+          "exampleVi": "Tôi cảm thấy mệt mỏi sau một ngày dài.",
+          "cloze": {
+            "sentence": "Do you _____ better today?",
+            "options": ["feel", "hope", "wish", "love"],
+            "answer": "feel",
+            "explain": "'feel better' nghĩa là cảm thấy khỏe hơn hoặc tốt hơn."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "feel happy", "when I", "speak English"],
+            "answer": ["I", "feel happy", "when I", "speak English"],
+            "meaningVi": "Tôi cảm thấy vui khi nói được tiếng Anh."
+          }
+        },
+        {
+          "lemma": "hope",
+          "meaningVi": "hy vọng",
+          "ipa": "/hoʊp/",
+          "pattern": "S + hope + to V / (that) clause",
+          "collocation": "hope so (hy vọng là vậy), hope to see you (hy vọng gặp bạn)",
+          "example": "I hope to see you again soon.",
+          "exampleVi": "Tôi hy vọng sẽ sớm gặp lại bạn.",
+          "cloze": {
+            "sentence": "I _____ that you pass the exam.",
+            "options": ["hope", "feel", "hate", "forget"],
+            "answer": "hope",
+            "explain": "'hope that...' diễn đạt niềm hy vọng một điều tốt đẹp sẽ xảy ra."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "hope to see you", "again", "soon"],
+            "answer": ["I", "hope to see you", "again", "soon"],
+            "meaningVi": "Tôi hy vọng sẽ sớm gặp lại bạn."
+          }
+        },
+        {
+          "lemma": "wish",
+          "meaningVi": "ước, mong muốn",
+          "ipa": "/wɪʃ/",
+          "pattern": "S + wish + (Person) + N / clause",
+          "collocation": "wish you luck (chúc bạn may mắn), make a wish (ước một điều)",
+          "example": "I wish you all the best.",
+          "exampleVi": "Tôi chúc bạn mọi điều tốt đẹp nhất.",
+          "cloze": {
+            "sentence": "We _____ you a Merry Christmas!",
+            "options": ["wish", "hope", "feel", "remember"],
+            "answer": "wish",
+            "explain": "'wish someone something' là cấu trúc gửi lời chúc."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "wish you", "good luck", "on the exam"],
+            "answer": ["I", "wish you", "good luck", "on the exam"],
+            "meaningVi": "Tôi chúc bạn may mắn trong kỳ thi."
+          }
+        },
+        {
+          "lemma": "remember",
+          "meaningVi": "nhớ, ghi nhớ",
+          "ipa": "/rɪˈmembər/",
+          "pattern": "S + remember + N / to V (nhớ phải làm)",
+          "collocation": "remember to do (nhớ phải làm gì), remember my name (nhớ tên tôi)",
+          "example": "Please remember to lock the door.",
+          "exampleVi": "Xin hãy nhớ khóa cửa lại.",
+          "cloze": {
+            "sentence": "Do you _____ our first English teacher?",
+            "options": ["remember", "forget", "hate", "wish"],
+            "answer": "remember",
+            "explain": "'remember someone' nghĩa là còn nhớ đến ai đó."
+          },
+          "sentenceScramble": {
+            "tokens": ["Always", "remember to", "review your words"],
+            "answer": ["Always", "remember to", "review your words"],
+            "meaningVi": "Hãy luôn nhớ ôn lại từ vựng của bạn."
+          }
+        },
+        {
+          "lemma": "forget",
+          "meaningVi": "quên",
+          "ipa": "/fərˈɡet/",
+          "pattern": "S + forget + N / to V",
+          "collocation": "forget my keys (quên chìa khóa), don't forget (đừng quên nhé)",
+          "example": "Don't forget to do your homework.",
+          "exampleVi": "Đừng quên làm bài tập về nhà nhé.",
+          "cloze": {
+            "sentence": "I am sorry, I _____ your phone number.",
+            "options": ["forgot", "remembered", "wished", "hoped"],
+            "answer": "forgot",
+            "explain": "'forgot' là thì quá khứ của forget: tôi đã quên."
+          },
+          "sentenceScramble": {
+            "tokens": ["Don't", "forget to", "call me", "tonight"],
+            "answer": ["Don't", "forget to", "call me", "tonight"],
+            "meaningVi": "Đừng quên gọi cho tôi tối nay nhé."
+          }
+        },
+        {
+          "lemma": "understand",
+          "meaningVi": "hiểu, thấu hiểu",
+          "ipa": "/ˌʌndərˈstænd/",
+          "pattern": "S + understand + N / that clause",
+          "collocation": "understand the lesson (hiểu bài học), understand each other (thấu hiểu nhau)",
+          "example": "Do you understand what I mean?",
+          "exampleVi": "Bạn có hiểu ý tôi muốn nói không?",
+          "cloze": {
+            "sentence": "I don't _____ this grammar rule clearly.",
+            "options": ["understand", "remember", "forget", "hope"],
+            "answer": "understand",
+            "explain": "'understand a rule' nghĩa là hiểu một quy tắc."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "understand", "this lesson", "very well"],
+            "answer": ["I", "understand", "this lesson", "very well"],
+            "meaningVi": "Tôi hiểu bài học này rất rõ."
+          }
+        },
+        {
+          "lemma": "believe",
+          "meaningVi": "tin, tin tưởng",
+          "ipa": "/bɪˈliːv/",
+          "pattern": "S + believe + (in) N / that clause",
+          "collocation": "believe in yourself (tin vào bản thân), I believe so (tôi tin là vậy)",
+          "example": "I believe in you, you can do it!",
+          "exampleVi": "Tôi tin ở bạn, bạn có thể làm được mà!",
+          "cloze": {
+            "sentence": "You must _____ in yourself to succeed.",
+            "options": ["believe", "remember", "forget", "wish"],
+            "answer": "believe",
+            "explain": "'believe in yourself' là câu truyền cảm hứng: hãy tin vào chính mình."
+          },
+          "sentenceScramble": {
+            "tokens": ["Always", "believe in", "yourself"],
+            "answer": ["Always", "believe in", "yourself"],
+            "meaningVi": "Hãy luôn tin tưởng vào chính bản thân bạn."
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter-verb-09",
+      "tier": 5,
+      "title": "Tầng 5 · Tác động Vật lý, Thay đổi & Kết thúc",
+      "description": "10 động từ thao tác vật lý lên đồ vật, bắt đầu, dừng lại, chuyển đổi và hoàn tất.",
+      "story": {
+        "title": "Buổi học thực hành",
+        "passage": "In art class, the teacher asks us to **put** the paper on the desk. She shows us how to **hold** the scissors properly and **cut** paper into colorful shapes. In gym class, we practice how to **catch** a ball. When the bell rings, we **stop** talking immediately and **start** our lesson. It is important to **change** bad study habits. When we **finish** all tasks on time, we will **pass** the test with ease, and nobody will **lose** points.",
+        "passageVi": "Trong giờ mỹ thuật, cô giáo yêu cầu chúng tôi đặt giấy lên bàn. Cô chỉ cho chúng tôi cách cầm kéo đúng cách và cắt giấy thành những hình thù nhiều màu sắc. Trong giờ thể dục, chúng tôi luyện tập cách bắt bóng. Khi chuông reo, chúng tôi dừng nói chuyện ngay lập tức và bắt đầu bài học. Việc thay đổi những thói quen học tập xấu là rất quan trọng. Khi chúng tôi hoàn thành tất cả nhiệm vụ đúng giờ, chúng tôi sẽ vượt qua bài kiểm tra một cách dễ dàng và không ai bị mất điểm.",
+        "highlightWords": ["put", "hold", "cut", "catch", "change", "stop", "start", "finish", "pass", "lose"],
+        "cloze": {
+          "text": "Please {{0}} your books on the table. When the bell rings, we {{1}} our lesson and {{2}} chatting. Try to {{3}} all exercises before leaving. If you study well, you will {{4}} the test and not {{5}} any points.",
+          "blanks": [
+            { "id": 0, "answer": "put", "options": ["put", "cut", "catch", "hold"] },
+            { "id": 1, "answer": "start", "options": ["start", "stop", "lose", "pass"] },
+            { "id": 2, "answer": "stop", "options": ["stop", "start", "finish", "change"] },
+            { "id": 3, "answer": "finish", "options": ["finish", "hold", "catch", "cut"] },
+            { "id": 4, "answer": "pass", "options": ["pass", "lose", "put", "stop"] },
+            { "id": 5, "answer": "lose", "options": ["lose", "pass", "start", "change"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "put",
+          "meaningVi": "đặt, để, đút vào",
+          "ipa": "/pʊt/",
+          "pattern": "S + put + N + in/on Place",
+          "collocation": "put on (mặc vào), put in order (sắp xếp ngăn nắp)",
+          "example": "Please put your bag on the chair.",
+          "exampleVi": "Xin vui lòng để cặp của bạn lên ghế.",
+          "cloze": {
+            "sentence": "Don't _____ your feet on the table.",
+            "options": ["put", "hold", "cut", "catch"],
+            "answer": "put",
+            "explain": "'put feet on the table' nghĩa là gác chân lên bàn."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "put", "the book", "on the table"],
+            "answer": ["Please", "put", "the book", "on the table"],
+            "meaningVi": "Xin vui lòng để cuốn sách lên bàn."
+          }
+        },
+        {
+          "lemma": "hold",
+          "meaningVi": "cầm, nắm, giữ, tổ chức",
+          "ipa": "/hoʊld/",
+          "pattern": "S + hold + N",
+          "collocation": "hold hands (nắm tay), hold on (chờ một chút), hold a meeting (tổ chức họp)",
+          "example": "Hold my hand when crossing the street.",
+          "exampleVi": "Hãy nắm tay tôi khi băng qua đường.",
+          "cloze": {
+            "sentence": "Please _____ the door for me, thank you!",
+            "options": ["hold", "cut", "lose", "pass"],
+            "answer": "hold",
+            "explain": "'hold the door' nghĩa là giữ cửa giúp ai đó."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "hold on", "a moment"],
+            "answer": ["Please", "hold on", "a moment"],
+            "meaningVi": "Xin vui lòng giữ máy / chờ một lát."
+          }
+        },
+        {
+          "lemma": "cut",
+          "meaningVi": "cắt, xén, giảm bớt",
+          "ipa": "/kʌt/",
+          "pattern": "S + cut + N",
+          "collocation": "cut hair (cắt tóc), cut paper (cắt giấy), cut down (cắt giảm)",
+          "example": "Be careful when you cut the paper.",
+          "exampleVi": "Hãy cẩn thận khi bạn cắt giấy.",
+          "cloze": {
+            "sentence": "I need to _____ my hair this weekend.",
+            "options": ["cut", "catch", "pass", "lose"],
+            "answer": "cut",
+            "explain": "'cut hair' nghĩa là cắt tóc."
+          },
+          "sentenceScramble": {
+            "tokens": ["Be careful", "when you", "cut", "the paper"],
+            "answer": ["Be careful", "when you", "cut", "the paper"],
+            "meaningVi": "Hãy cẩn thận khi bạn cắt giấy."
+          }
+        },
+        {
+          "lemma": "catch",
+          "meaningVi": "bắt lấy, kịp (xe buýt/tàu)",
+          "ipa": "/kætʃ/",
+          "pattern": "S + catch + Ball/Bus/Cold",
+          "collocation": "catch the bus (bắt xe buýt), catch a cold (bị cảm lạnh), catch the ball (bắt bóng)",
+          "example": "Hurry up or we won't catch the bus.",
+          "exampleVi": "Nhanh lên nếu không chúng ta sẽ không kịp xe buýt đâu.",
+          "cloze": {
+            "sentence": "Run fast to _____ the morning bus!",
+            "options": ["catch", "cut", "put", "hold"],
+            "answer": "catch",
+            "explain": "'catch the bus' là cụm rất hay dùng: bắt kịp chuyến xe buýt."
+          },
+          "sentenceScramble": {
+            "tokens": ["We must hurry", "to catch", "the bus"],
+            "answer": ["We must hurry", "to catch", "the bus"],
+            "meaningVi": "Chúng ta phải nhanh lên để bắt kịp xe buýt."
+          }
+        },
+        {
+          "lemma": "change",
+          "meaningVi": "thay đổi, đổi tiền",
+          "ipa": "/tʃeɪndʒ/",
+          "pattern": "S + change + N",
+          "collocation": "change your mind (thay đổi ý định), change clothes (thay quần áo)",
+          "example": "You can change your study plan if needed.",
+          "exampleVi": "Bạn có thể thay đổi kế hoạch học tập nếu cần.",
+          "cloze": {
+            "sentence": "It is never too late to _____ bad habits.",
+            "options": ["change", "catch", "cut", "hold"],
+            "answer": "change",
+            "explain": "'change bad habits' nghĩa là thay đổi những thói quen xấu."
+          },
+          "sentenceScramble": {
+            "tokens": ["Good habits", "can change", "your life"],
+            "answer": ["Good habits", "can change", "your life"],
+            "meaningVi": "Những thói quen tốt có thể thay đổi cuộc sống của bạn."
+          }
+        },
+        {
+          "lemma": "stop",
+          "meaningVi": "dừng lại, ngừng",
+          "ipa": "/stɑːp/",
+          "pattern": "S + stop + V-ing (ngừng hẳn) / to V (dừng để làm gì)",
+          "collocation": "stop talking (ngừng nói chuyện), bus stop (điểm dừng xe buýt)",
+          "example": "Please stop making noise in the library.",
+          "exampleVi": "Xin vui lòng ngừng làm ồn trong thư viện.",
+          "cloze": {
+            "sentence": "The rain has _____ed, let's go out.",
+            "options": ["stop", "start", "finish", "pass"],
+            "answer": "stop",
+            "explain": "'The rain has stopped' nghĩa là cơn mưa đã tạnh."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "stop", "making noise", "here"],
+            "answer": ["Please", "stop", "making noise", "here"],
+            "meaningVi": "Làm ơn hãy ngừng làm ồn ở đây."
+          }
+        },
+        {
+          "lemma": "start",
+          "meaningVi": "bắt đầu, khởi đầu",
+          "ipa": "/stɑːrt/",
+          "pattern": "S + start + to V / V-ing / N",
+          "collocation": "start the day (bắt đầu ngày mới), start learning (bắt đầu học)",
+          "example": "The English class starts at 8:00 AM.",
+          "exampleVi": "Lớp học tiếng Anh bắt đầu lúc 8:00 sáng.",
+          "cloze": {
+            "sentence": "When will the movie _____?",
+            "options": ["start", "stop", "finish", "lose"],
+            "answer": "start",
+            "explain": "'start' hỏi về thời điểm một sự kiện bắt đầu."
+          },
+          "sentenceScramble": {
+            "tokens": ["The class", "starts", "at eight o'clock", "sharp"],
+            "answer": ["The class", "starts", "at eight o'clock", "sharp"],
+            "meaningVi": "Lớp học bắt đầu đúng tám giờ."
+          }
+        },
+        {
+          "lemma": "finish",
+          "meaningVi": "hoàn thành, kết thúc",
+          "ipa": "/ˈfɪnɪʃ/",
+          "pattern": "S + finish + N / V-ing",
+          "collocation": "finish homework (làm xong bài tập), finish line (vạch đích)",
+          "example": "I finished my homework an hour ago.",
+          "exampleVi": "Tôi đã làm xong bài tập cách đây một tiếng.",
+          "cloze": {
+            "sentence": "Have you _____ed reading that book yet?",
+            "options": ["finish", "start", "stop", "catch"],
+            "answer": "finish",
+            "explain": "Sau 'finish' là V-ing ('finish reading': đọc xong)."
+          },
+          "sentenceScramble": {
+            "tokens": ["I", "finished", "all my tasks", "today"],
+            "answer": ["I", "finished", "all my tasks", "today"],
+            "meaningVi": "Hôm nay tôi đã hoàn thành tất cả nhiệm vụ của mình."
+          }
+        },
+        {
+          "lemma": "pass",
+          "meaningVi": "vượt qua, thi đỗ, chuyền",
+          "ipa": "/pæs/",
+          "pattern": "S + pass + Exam / N",
+          "collocation": "pass the exam (đỗ kỳ thi), pass the salt (chuyền lọ muối)",
+          "example": "She worked hard and passed the exam.",
+          "exampleVi": "Cô ấy đã học chăm chỉ và thi đỗ kỳ thi.",
+          "cloze": {
+            "sentence": "Can you please _____ me the salt?",
+            "options": ["pass", "lose", "catch", "cut"],
+            "answer": "pass",
+            "explain": "'pass me the salt' là câu nói trên bàn ăn: làm ơn chuyền lọ muối cho tôi."
+          },
+          "sentenceScramble": {
+            "tokens": ["She worked hard", "and passed", "the final exam"],
+            "answer": ["She worked hard", "and passed", "the final exam"],
+            "meaningVi": "Cô ấy đã học chăm chỉ và đỗ kỳ thi cuối kỳ."
+          }
+        },
+        {
+          "lemma": "lose",
+          "meaningVi": "mất, đánh mất, thua",
+          "ipa": "/luːz/",
+          "pattern": "S + lose + N",
+          "collocation": "lose keys (mất chìa khóa), lose weight (giảm cân), lose the game (thua trận)",
+          "example": "Be careful not to lose your passport.",
+          "exampleVi": "Hãy cẩn thận đừng để làm mất hộ chiếu của bạn.",
+          "cloze": {
+            "sentence": "They didn't want to _____ the football match.",
+            "options": ["lose", "pass", "finish", "start"],
+            "answer": "lose",
+            "explain": "'lose a match/game' nghĩa là thua trận đấu."
+          },
+          "sentenceScramble": {
+            "tokens": ["Be careful", "not to lose", "your key"],
+            "answer": ["Be careful", "not to lose", "your key"],
+            "meaningVi": "Hãy cẩn thận đừng làm mất chìa khóa."
+          }
+        }
+      ]
+    },
+    {
+      "id": "starter-verb-10",
+      "tier": 5,
+      "title": "Tầng 5 · Biến đổi, Cho phép & Diễn tiến",
+      "description": "10 động từ nâng cao về sự phát triển, nguyên nhân kết quả, cấp phép và chuyển hóa trạng thái.",
+      "story": {
+        "title": "Hành trình trưởng thành",
+        "passage": "With practice, students **grow** more confident day by day. Parents **allow** children to explore new hobbies. Teachers **let** students speak freely in discussions. They **keep** practicing until they succeed. Sometimes unexpected things **happen**, but problems **seem** smaller when we work together. Gradually, hard work **becomes** good results. In the end, those who never give up will **win** their goals and **travel** to new horizons. Remember to **follow** your dreams!",
+        "passageVi": "Nhờ luyện tập, học sinh ngày càng phát triển tự tin hơn mỗi ngày. Cha mẹ cho phép con cái khám phá những sở thích mới. Thầy cô để học sinh tự do phát biểu trong các buổi thảo luận. Họ kiên trì luyện tập cho đến khi thành công. Đôi khi những điều bất ngờ xảy ra, nhưng các vấn đề dường như nhỏ bé hơn khi chúng ta làm việc cùng nhau. Dần dần, sự chăm chỉ trở thành những kết quả tốt đẹp. Cuối cùng, những ai không bao giờ bỏ cuộc sẽ giành được mục tiêu của mình và chu du đến những chân trời mới. Hãy nhớ theo đuổi ước mơ của bạn!",
+        "highlightWords": ["grow", "allow", "let", "keep", "happen", "seem", "become", "win", "travel", "follow"],
+        "cloze": {
+          "text": "If you {{0}} practicing, you will {{1}} more confident. Good habits will {{2}} your strengths. Do not give up when mistakes {{3}}. You will {{4}} success if you {{5}} your study plan.",
+          "blanks": [
+            { "id": 0, "answer": "keep", "options": ["keep", "let", "seem", "happen"] },
+            { "id": 1, "answer": "become", "options": ["become", "win", "travel", "allow"] },
+            { "id": 2, "answer": "grow", "options": ["grow", "let", "happen", "seem"] },
+            { "id": 3, "answer": "happen", "options": ["happen", "win", "travel", "allow"] },
+            { "id": 4, "answer": "win", "options": ["win", "happen", "seem", "keep"] },
+            { "id": 5, "answer": "follow", "options": ["follow", "allow", "let", "grow"] }
+          ]
+        }
+      },
+      "verbs": [
+        {
+          "lemma": "win",
+          "meaningVi": "chiến thắng, giành được",
+          "ipa": "/wɪn/",
+          "pattern": "S + win + Game/Prize",
+          "collocation": "win a prize (giành giải thưởng), win the match (thắng trận đấu)",
+          "example": "Our team won the championship.",
+          "exampleVi": "Đội của chúng tôi đã giành chức vô địch.",
+          "cloze": {
+            "sentence": "Who will _____ the first prize this year?",
+            "options": ["win", "lose", "happen", "seem"],
+            "answer": "win",
+            "explain": "'win the prize' nghĩa là giành giải thưởng."
+          },
+          "sentenceScramble": {
+            "tokens": ["They worked hard", "to win", "the competition"],
+            "answer": ["They worked hard", "to win", "the competition"],
+            "meaningVi": "Họ đã nỗ lực hết mình để chiến thắng cuộc thi."
+          }
+        },
+        {
+          "lemma": "grow",
+          "meaningVi": "lớn lên, phát triển, trồng (cây)",
+          "ipa": "/ɡroʊ/",
+          "pattern": "S + grow + (up / Adj)",
+          "collocation": "grow up (trưởng thành), grow vegetables (trồng rau)",
+          "example": "Children grow very fast.",
+          "exampleVi": "Trẻ con lớn lên rất nhanh.",
+          "cloze": {
+            "sentence": "My grandparents _____ flowers in their garden.",
+            "options": ["grow", "win", "let", "seem"],
+            "answer": "grow",
+            "explain": "'grow flowers' nghĩa là trồng hoa."
+          },
+          "sentenceScramble": {
+            "tokens": ["Children", "grow up", "very quickly"],
+            "answer": ["Children", "grow up", "very quickly"],
+            "meaningVi": "Trẻ con lớn lên rất nhanh."
+          }
+        },
+        {
+          "lemma": "follow",
+          "meaningVi": "theo sau, làm theo, tuân thủ",
+          "ipa": "/ˈfɑːloʊ/",
+          "pattern": "S + follow + Instructions/Person",
+          "collocation": "follow instructions (làm theo hướng dẫn), follow the rules (tuân thủ luật)",
+          "example": "Please follow the instructions carefully.",
+          "exampleVi": "Xin vui lòng làm theo hướng dẫn một cách cẩn thận.",
+          "cloze": {
+            "sentence": "Everyone should _____ the traffic rules.",
+            "options": ["follow", "lead", "let", "happen"],
+            "answer": "follow",
+            "explain": "'follow the rules' nghĩa là tuân theo luật lệ."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "follow", "the teacher's instructions"],
+            "answer": ["Please", "follow", "the teacher's instructions"],
+            "meaningVi": "Xin vui lòng làm theo chỉ dẫn của giáo viên."
+          }
+        },
+        {
+          "lemma": "keep",
+          "meaningVi": "giữ, tiếp tục duy trì",
+          "ipa": "/kiːp/",
+          "pattern": "S + keep + V-ing / N + Adj",
+          "collocation": "keep going (tiếp tục đi), keep calm (giữ bình tĩnh), keep a secret (giữ bí mật)",
+          "example": "Keep going, you are doing great!",
+          "exampleVi": "Cứ tiếp tục đi, bạn đang làm rất tốt đấy!",
+          "cloze": {
+            "sentence": "Please _____ quiet in the reading room.",
+            "options": ["keep", "make", "let", "grow"],
+            "answer": "keep",
+            "explain": "'keep quiet' nghĩa là giữ trật tự/yên lặng."
+          },
+          "sentenceScramble": {
+            "tokens": ["Please", "keep quiet", "in the library"],
+            "answer": ["Please", "keep quiet", "in the library"],
+            "meaningVi": "Làm ơn hãy giữ yên lặng trong thư viện."
+          }
+        },
+        {
+          "lemma": "let",
+          "meaningVi": "để cho, cho phép",
+          "ipa": "/let/",
+          "pattern": "S + let + Person + do sth (V nguyên thể)",
+          "collocation": "let me know (cho tôi biết nhé), let's go (chúng ta cùng đi nào)",
+          "example": "Let me know if you need any help.",
+          "exampleVi": "Hãy cho tôi biết nếu bạn cần bất kỳ sự giúp đỡ nào nhé.",
+          "cloze": {
+            "sentence": "_____ us start the lesson now.",
+            "options": ["Let", "Make", "Allow", "Keep"],
+            "answer": "Let",
+            "explain": "'Let us (Let's)' dùng để rủ cùng làm gì đó."
+          },
+          "sentenceScramble": {
+            "tokens": ["Let me know", "if you need", "any help"],
+            "answer": ["Let me know", "if you need", "any help"],
+            "meaningVi": "Hãy cho tôi biết nếu bạn cần bất kỳ sự giúp đỡ nào."
+          }
+        },
+        {
+          "lemma": "allow",
+          "meaningVi": "cho phép (trang trọng)",
+          "ipa": "/əˈlaʊ/",
+          "pattern": "S + allow + Person + to V",
+          "collocation": "allow students to use (cho phép học sinh dùng), not allowed (không được phép)",
+          "example": "Smoking is not allowed here.",
+          "exampleVi": "Hút thuốc không được phép ở đây.",
+          "cloze": {
+            "sentence": "The teacher _____s students to ask questions anytime.",
+            "options": ["allow", "let", "happen", "seem"],
+            "answer": "allow",
+            "explain": "'allow someone to do something': cho phép ai làm gì."
+          },
+          "sentenceScramble": {
+            "tokens": ["Parents", "allow them", "to play outside"],
+            "answer": ["Parents", "allow them", "to play outside"],
+            "meaningVi": "Bố mẹ cho phép các em chơi ở bên ngoài."
+          }
+        },
+        {
+          "lemma": "happen",
+          "meaningVi": "xảy ra, diễn ra",
+          "ipa": "/ˈhæpən/",
+          "pattern": "S + happen + (to Person)",
+          "collocation": "What happened? (Chuyện gì đã xảy ra vậy?), happen unexpectedly (xảy ra bất ngờ)",
+          "example": "What happened to your phone?",
+          "exampleVi": "Có chuyện gì xảy ra với điện thoại của bạn vậy?",
+          "cloze": {
+            "sentence": "Accidents can _____ if you are careless.",
+            "options": ["happen", "become", "seem", "grow"],
+            "answer": "happen",
+            "explain": "'happen' diễn tả sự việc xảy ra."
+          },
+          "sentenceScramble": {
+            "tokens": ["What", "happened", "yesterday evening"],
+            "answer": ["What", "happened", "yesterday evening"],
+            "meaningVi": "Chuyện gì đã xảy ra vào tối hôm qua thế?"
+          }
+        },
+        {
+          "lemma": "seem",
+          "meaningVi": "dường như, có vẻ",
+          "ipa": "/siːm/",
+          "pattern": "S + seem + Adj / to V",
+          "collocation": "seem happy (có vẻ vui), seem difficult (dường như khó)",
+          "example": "This exercise seems very easy.",
+          "exampleVi": "Bài tập này có vẻ rất dễ.",
+          "cloze": {
+            "sentence": "He _____s tired after a long journey.",
+            "options": ["seem", "grow", "let", "happen"],
+            "answer": "seem",
+            "explain": "'seem tired' nghĩa là trông có vẻ mệt mỏi."
+          },
+          "sentenceScramble": {
+            "tokens": ["Everything", "seems", "fine and peaceful"],
+            "answer": ["Everything", "seems", "fine and peaceful"],
+            "meaningVi": "Mọi thứ dường như đều ổn và yên bình."
+          }
+        },
+        {
+          "lemma": "become",
+          "meaningVi": "trở thành, trở nên",
+          "ipa": "/bɪˈkʌm/",
+          "pattern": "S + become + Adj / Noun",
+          "collocation": "become a teacher (trở thành giáo viên), become famous (trở nên nổi tiếng)",
+          "example": "She wants to become a doctor.",
+          "exampleVi": "Cô ấy muốn trở thành một bác sĩ.",
+          "cloze": {
+            "sentence": "It is _____ing colder in the evening.",
+            "options": ["becom", "grow", "seem", "happen"],
+            "answer": "becom",
+            "explain": "'become colder' nghĩa là trời đang trở nên lạnh hơn."
+          },
+          "sentenceScramble": {
+            "tokens": ["She wants to", "become", "a good teacher"],
+            "answer": ["She wants to", "become", "a good teacher"],
+            "meaningVi": "Cô ấy muốn trở thành một giáo viên giỏi."
+          }
+        },
+        {
+          "lemma": "travel",
+          "meaningVi": "đi du lịch, chu du",
+          "ipa": "/ˈtrævl/",
+          "pattern": "S + travel + to Place / by Vehicle",
+          "collocation": "travel abroad (đi du lịch nước ngoài), travel by train (đi bằng tàu)",
+          "example": "I love traveling to new countries.",
+          "exampleVi": "Tôi thích đi du lịch đến những đất nước mới.",
+          "cloze": {
+            "sentence": "Many tourists _____ to Da Nang every year.",
+            "options": ["travel", "become", "seem", "happen"],
+            "answer": "travel",
+            "explain": "'travel to a city' nghĩa là đi du lịch đến một thành phố."
+          },
+          "sentenceScramble": {
+            "tokens": ["I love to", "travel around", "the world"],
+            "answer": ["I love to", "travel around", "the world"],
+            "meaningVi": "Tôi thích đi du lịch vòng quanh thế giới."
+          }
+        }
+      ]
+    }
+  ]
+}

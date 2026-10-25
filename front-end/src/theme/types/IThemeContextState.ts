@@ -1,4 +1,4 @@
-import { ThemeConfig } from 'antd';
+import { ThemeConfig } from '@/components/ui/Primitives';
 import { ThemeMode } from '@/theme/ThemeMode';
 
 /**

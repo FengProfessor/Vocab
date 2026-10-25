@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Col, Progress, Row, Skeleton, Space, Statistic, Tag, Typography } from 'antd';
-import { FireFilled, FormOutlined, ThunderboltFilled } from '@ant-design/icons';
+import { Button, Card, Col, Progress, Row, Skeleton, Space, Statistic, Tag, Typography } from '@/components/ui/Primitives';
+import { FireFilled, FormOutlined, ThunderboltFilled } from '@/components/ui/Icons';
 import { ROADMAP_LEVEL_LABEL } from '@/config/roadmapLevels';
 import styles from '@/features/roadmap/components/RoadmapMetricsOverview.module.css';
 import { RoadmapMetricsOverviewProps } from '@/features/roadmap/types/RoadmapMetricsOverviewProps';

@@ -1,4 +1,4 @@
-import { DesktopOutlined, MoonOutlined, SunOutlined } from '@ant-design/icons';
+import { DesktopOutlined, MoonOutlined, SunOutlined } from '@/components/ui/Icons';
 import { ThemeMode } from '@/theme/ThemeMode';
 import { ThemeModeOption } from '@/config/types/ThemeModeOption';
 

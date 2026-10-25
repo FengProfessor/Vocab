@@ -1,0 +1,330 @@
+{
+  "topicId": "615c197565d71f3a51f67429",
+  "name": "Test 16",
+  "slug": "test-16",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "615d0d4f65d71f3a51f675fb",
+      "questionText": "<br>The next time you're in downtown Houston and would like a taste of Asia, visit Sensasia on the second floor of Cheviston Center. Sensasia offers authentic ---1--- from China, Japan, India, Thailand, Korea, and Vietnam.<br>---2---.From Monday to Friday, enjoy handmade sushi prepared with fresh seafood, delicious Korean bibimbap, and tasty Vietnamese pho. On weekends, Hong Kong style dim sum, consisting of various bite-size portions of food, ---3--- along with our regular menu items. And once a month, our chefs introduce something new for diners to try. ---4---, only Sensasia can give you such a wide variety of meals in one location.<br>For group reservations, please call 555-4272. To view our menu, please visit our Web site at www.sensasia.com.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d4f65d71f3a51f675ff",
+          "questionText": "Sensasia offers authentic ---1--- from China, Japan, India, Thailand, Korea, and Vietnam.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) dishes",
+            "(B) materials",
+            "(C) components",
+            "(D) directions"
+          ],
+          "correctOptions": [
+            "(A) dishes"
+          ],
+          "transcript": "<p>The previous sentence mentions \"a taste\" =&gt; Sensasia is a restaurant</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Nhà hàng Sensasia cung cấp ---1--- từ Trung Quốc, Nhật Bản, Ấn Độ, Thái Lan, Hàn Quốc và Việt Nam</p>\n<p>(A) dishes (n) món ăn</p>\n<p>(B) materials (n) vật liệu</p>\n<p>(C) components (n) thành phần</p>\n<p>(D) directions (n) chỉ dẫn</p>\n<p>Câu trước đó có đề cập đến <em>\"a taste\" (hương vị)</em></p>\n<p>=&gt; Sensasia là một nhà hàng</p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f67600",
+          "questionText": "---2---.From Monday to Friday, enjoy handmade sushi prepared with fresh seafood, delicious Korean bibimbap, and tasty Vietnamese pho.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Our chefs use exotic seasonings in all of our grilled food.",
+            "(B) Some parts of our restaurant are now being refurbished.",
+            "(C) We serve a wide range of popular Asian cuisine every day.",
+            "(D) Our food is delicious but limited to seafood selections."
+          ],
+          "correctOptions": [
+            "(C) We serve a wide range of popular Asian cuisine every day."
+          ],
+          "transcript": "<p>Sensasia offers dishes from China, Japan, India, Thailand, Korea, and Vietnam which are Asian countries</p>\n\n<p><strong>=&gt; C is correct</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> ---2---.Từ thứ Hai đến thứ Sáu, hãy thưởng thức sushi thủ công được chế biến từ hải sản tươi sống, bibimbap Hàn Quốc thơm ngon và phở Việt Nam thơm ngon.</p>\n<p>(A) Đầu bếp của chúng tôi sử dụng các loại gia vị lạ trong tất cả các món nướng của chúng tôi.</p>\n<p>(B) Một số bộ phận của nhà hàng chúng tôi hiện đang được tân trang lại.</p>\n<p>(C) Chúng tôi phục vụ nhiều món ăn châu Á phổ biến mỗi ngày.</p>\n<p>(D) Thức ăn của chúng tôi rất ngon nhưng chỉ có hải sản.</p>\n<p>Nhà hàng Sensasia cung cấp các món ăn Châu Á từ Trung Quốc, Nhật Bản, Ấn Độ, Thái Lan, Hàn Quốc và Việt Nam</p>\n<p><strong> =&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f67601",
+          "questionText": "On weekends, Hong Kong style dim sum, consisting of various bite-size portions of food, ---3--- along with our regular menu items.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) prepares",
+            "(B) prepared",
+            "(C) is prepared",
+            "(D) preparing"
+          ],
+          "correctOptions": [
+            "(C) is prepared"
+          ],
+          "transcript": "<p>The subject is a dish =&gt; use passive form</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Vào cuối tuần, món dim sum phong cách Hồng Kông, bao gồm nhiều phần ăn vừa miệng, ---3--- cùng với các món trong thực đơn thông thường của chúng tôi.</p>\n<p>(A) chuẩn bị</p>\n<p>(B) đã chuẩn bị</p>\n<p>(C) được chuẩn bị</p>\n<p>(D) đang chuẩn bị</p>\n<p>Chủ ngữ ở đây là một món ăn =&gt; Sử dụng câu bị động</p>\n<p><strong>Câu bị động</strong> (thì Hiện tại đơn):&nbsp;<span style=\"font-family: helvetica, arial, sans-serif; font-size: 14px;\">S + is/am/are + V3/ed + (by + O).</span></p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f67602",
+          "questionText": "<p>And once a month, our chefs introduce something new for diners to try. ---4---, only Sensasia can give you such a wide variety of meals in one location.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Conversely",
+            "(B) In short",
+            "(C) To that end",
+            "(D) Not to mention"
+          ],
+          "correctOptions": [
+            "(B) In short"
+          ],
+          "transcript": "<p>(A) Conversely:&nbsp;in a way that is the opposite of something</p>\n\n<p>(B) In short:&nbsp;briefly</p>\n\n<p>(C) To that end:&nbsp;in order to achieve this aim</p>\n\n<p>(D) Not to mention:&nbsp;used when you want to emphasize something that you are adding to a list</p>\n\n<p>Based on the meaning of conjunctions</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Và mỗi tháng một lần, các đầu bếp của chúng tôi sẽ giới thiệu món mới để thực khách thử. ---4---, chỉ Sensasia mới có thể cung cấp cho bạn nhiều bữa ăn đa dạng như vậy ở một địa điểm.</p>\n<p>(A) ngược lại</p>\n<p>(B) Tóm lại</p>\n<p>(C) Vì mục đích đó</p>\n<p>(D) Chưa kể</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d4f65d71f3a51f675fc",
+      "questionText": "<br>\nTo: Scott Douglas [sdouglas@evergladeprints.com]<br>\nFrom: Edward Kovac [edward.k@collinsconsulting,com]<br>\nSubject: Brochure alterations<br>\nDate: 8 May<br>\nDear Mr. Douglas,<br>\nPlease find attached a copy of the brochure you designed with our comments. Our team has reviewed the draft, and we are ---1--- with the quality of the pamphlet thus far. Despite this, we do require a few changes.<br>\nIn particular, there were minor layout and color errors and some important information was ---2--- as well. We left notes in the brochure regarding where the omitted details should go. ---3---. Please send us a revised draft when it is ready. We will, of course, be happy to ---4--- the extra cost.<br>\nBest wishes,<br>\nEdward",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d4f65d71f3a51f67603",
+          "questionText": "Our team has reviewed the draft, and we are ---1--- with the quality of the pamphlet thus far.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) concerned",
+            "(B) satisfied",
+            "(C) credited",
+            "(D) troubled"
+          ],
+          "correctOptions": [
+            "(B) satisfied"
+          ],
+          "transcript": "<p>be satisfied with sth</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong>Nhóm của chúng tôi đã xem xét bản dự thảo và chúng tôi hài lòng với chất lượng của cuốn sách nhỏ cho đến nay.</p>\n<p><strong>Cấu trúc:</strong> Be satisfied with sth: Hài lòng với điều gì đó</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f67604",
+          "questionText": "In particular, there were minor layout and color errors and some important information was ---2--- as well.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) allowed",
+            "(B) asserted",
+            "(C) moving",
+            "(D) missing"
+          ],
+          "correctOptions": [
+            "(D) missing"
+          ],
+          "transcript": "<p>(A) allowed:&nbsp;to let something happen or be done</p>\n\n<p>(B) asserted:&nbsp;to state clearly and definitely that something is true</p>\n\n<p>(C) moving:&nbsp;A moving object is one that moves</p>\n\n<p>(D) missing:&nbsp;that cannot be found or that is not in its usual place</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Đặc biệt, có một số lỗi nhỏ về bố cục và màu sắc cũng như một số thông tin quan trọng bị ---2---.</p>\n<p>(A) cho phép</p>\n<p>(B) khẳng định, xác nhận</p>\n<p>(C) di chuyển</p>\n<p>(D) quên, bỏ lỡ</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f67605",
+          "questionText": "We left notes in the brochure regarding where the omitted details should go. ---3---.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) We are not sure why these details",
+            "(B) We need each correction to be reflected precisely.",
+            "(C) We would like you to change the entire layout.",
+            "(D) We ask that you send the invoice for the design we chose."
+          ],
+          "correctOptions": [
+            "(B) We need each correction to be reflected precisely."
+          ],
+          "transcript": "<p>The following sentence mentions \"a revised draft\" <strong>=&gt; B is correct</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Chúng tôi đã để lại ghi chú trong tập tài liệu về những chi tiết bị bỏ qua sẽ đi đến đâu. ---3---.</p>\n<p>(A) Chúng tôi không chắc tại sao lại có những chi tiết này</p>\n<p>(B) Chúng tôi cần phản ánh chính xác từng sửa đổi.</p>\n<p>(C) Chúng tôi muốn bạn thay đổi toàn bộ bố cục.</p>\n<p>(D) Chúng tôi yêu cầu bạn gửi hóa đơn cho thiết kế mà chúng tôi đã chọn.</p>\n<p>Câu sau đề cập đến <em>\"bản dự thảo sửa đổi\"</em></p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f67606",
+          "questionText": "<p>We will, of course, be happy to ---4--- the extra cost.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) cover",
+            "(B) covered",
+            "(C) covering",
+            "(D) covers"
+          ],
+          "correctOptions": [
+            "(A) cover"
+          ],
+          "transcript": "<p>be adjective + to infinitive</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong>Tất nhiên, chúng tôi sẽ sẵn lòng chi trả thêm chi phí.</p>\n<p><strong>Cấu trúc: </strong>be + tính từ + to V</p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d4f65d71f3a51f675fd",
+      "questionText": "<br> June 21<br>Magnum Insurance<br>337 Deerborne Avenue<br>Banff, Alberta, T2N 4S5<br>Canada<br>Dear Mr. Clayburn,<br>This letter is to inform you that we have received your insurance claim for hail damage to your home, and we are ---1--- processing it. As you know, the powerful storm last week affected the entire city. As a result, an overwhelming number of homeowners ---2--- assistance. Nevertheless, we are working as speedily as we can to handle these applications.<br>An adjuster can inspect your property in a few days. ---3---. You can speed up the process by presenting documentary evidence ahead of time. Still, it may take some weeks to complete all the necessary forms and prepare a compensation ---4---. We hope you understand. The funds you'll need to carry out the necessary repairs will be transmitted to you as quickly as possible.<br>Thank you for your cooperation.<br>Judith Underwood<br>Claims coordinator",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d4f65d71f3a51f67607",
+          "questionText": "This letter is to inform you that we have received your insurance claim for hail damage to your home, and we are ---1--- processing it.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) previously",
+            "(B) currently",
+            "(C) surprisingly",
+            "(D) typically"
+          ],
+          "correctOptions": [
+            "(B) currently"
+          ],
+          "transcript": "<p>(A) previously:&nbsp;at a time before the time that you are talking about</p>\n\n<p>(B) currently:&nbsp;at the present time</p>\n\n<p>(C) surprisingly:&nbsp;in a way that causes surprise</p>\n\n<p>(D) typically:&nbsp;used to say that something usually happens in the way that you are stating</p>\n\n<p>Based on the meaning of adverbs</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Bức thư này nhằm thông báo cho bạn rằng chúng tôi đã nhận được yêu cầu bảo hiểm về thiệt hại do mưa đá gây ra cho ngôi nhà của bạn và chúng tôi ---1--- đang&nbsp;xử lý nó.</p>\n<p>(A) trước đó</p>\n<p>(B) hiện tại</p>\n<p>(C) một cách ngạc nhiên</p>\n<p>(D) tiêu biểu, đặc trưng</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f67608",
+          "questionText": "As a result, an overwhelming number of homeowners ---2--- assistance.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) requests",
+            "(B) were requested",
+            "(C) have requested",
+            "(D) had requested"
+          ],
+          "correctOptions": [
+            "(C) have requested"
+          ],
+          "transcript": "<p>The subject is \"homeowners\" <strong>=&gt; C is correct</strong></p>\n",
+          "explanationVi": "<p>Chủ ngữ là <em>\"homeowners\" (chủ nhà) </em></p>\n<p><strong>Tạm dịch:</strong> Kết quả là, rất nhiều chủ nhà đã yêu cầu hỗ trợ.</p>\n<p>=&gt; <strong>Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f67609",
+          "questionText": "An adjuster can inspect your property in a few days. ---3---.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) You will need to submit your insurance claim as soon as possible.",
+            "(B) He has provided you with the assistance you require.",
+            "(C) Making this investment will raise your home’s market value.",
+            "(D) If possible, start photographing the damaged areas of your home."
+          ],
+          "correctOptions": [
+            "(D) If possible, start photographing the damaged areas of your home."
+          ],
+          "transcript": "<p>The notice is about the areas damaged by a storm =&gt; they are going to inspect the property</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Nhân viên điều chỉnh có thể kiểm tra tài sản của bạn trong vài ngày. ---3---.</p>\n<p>(A) Bạn cần gửi yêu cầu bồi thường bảo hiểm càng sớm càng tốt.</p>\n<p>(B) Anh ấy đã cung cấp sự trợ giúp mà bạn yêu cầu.</p>\n<p>(C) Việc thực hiện khoản đầu tư này sẽ nâng cao giá trị thị trường của ngôi nhà bạn.</p>\n<p>(D) Nếu có thể, hãy bắt đầu chụp ảnh những khu vực bị hư hại trong nhà bạn.</p>\n<p>Thông báo là về các khu vực bị phá huỷ bởi cơn bão =&gt; Họ sẽ đi kiểm tra tài sản</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f6760a",
+          "questionText": "<p>Still, it may take some weeks to complete all the necessary forms and prepare a compensation ---4---.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) score",
+            "(B) estimate",
+            "(C) history",
+            "(D) receipt"
+          ],
+          "correctOptions": [
+            "(B) estimate"
+          ],
+          "transcript": "<p>(A) score:&nbsp;the number of points, goals, etc. scored by each player or team in a game or competition</p>\n\n<p>(B) estimate:&nbsp;a judgement that you make without having the exact details or figures about the size, amount, cost, etc. of something</p>\n\n<p>(C) history:&nbsp;all the events that happened in the past</p>\n\n<p>(D) receipt:&nbsp;a piece of paper or an electronic document that shows that goods or services have been paid for</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Tuy nhiên, có thể mất vài tuần để hoàn thành tất cả các biểu mẫu cần thiết và chuẩn bị khoản bồi thường ---4---.</p>\n<p>(A) điểm</p>\n<p>(B) ước tính</p>\n<p>(C) lịch sử</p>\n<p>(D) hoá đơn</p>\n<p>Dựa vào nghĩa của các từ =&gt; <strong>Chọn đáp án B</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d4f65d71f3a51f675fe",
+      "questionText": "<br> To: All staff<br>From: Susan Ward<br>Subject: Employee handbook<br>Date: April 15<br>Thank you to everyone who participated in the discussions with company management. Your comments about some employees being unaware of the procedures for day-to-day operations have been heard. We are now working to ---1--- the situation.<br>For starters, we will be publishing the company's standard operating procedures as soon as possible. A printed guide will give management and staff an official reference on the performance of daily tasks. ---2---. Flopefully, it will help move us closer to our goal of having firmly ---3--- policies.<br>If any revisions are required, these will be incorporated into a later version of the manual. The final version will also be ---4--- through the company's internal network. If you have any questions, please direct them to your departmental supervisors.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d4f65d71f3a51f6760b",
+          "questionText": "We are now working to ---1--- the situation.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) maintain",
+            "(B) inspect",
+            "(C) address",
+            "(D) ignore"
+          ],
+          "correctOptions": [
+            "(C) address"
+          ],
+          "transcript": "<p>(A) maintain:&nbsp;to make something continue at the same level, standard, etc.</p>\n\n<p>(B) inspect:&nbsp;to look closely at something/somebody, especially to check that everything is as it should be</p>\n\n<p>(C) address:&nbsp;to think about a problem or a situation and decide how you are going to deal with it</p>\n\n<p>(D) ignore:&nbsp;to pay no attention to something</p>\n\n<p>Based on the meaning of verbs.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Chúng tôi hiện đang làm việc để ---1--- tình hình.</p>\n<p>(A) duy trì</p>\n<p>(B) kiểm tra</p>\n<p>(C) giải quyết</p>\n<p>(D) làm ngơ</p>\n<p>Dựa vào nghĩa của các từ<strong> =&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f6760c",
+          "questionText": "A printed guide will give management and staff an official reference on the performance of daily tasks. ---2---.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A provisional copy of this handbook will be distributed at the next meeting.",
+            "(B) Your comments on the revised manual  were very much appreciated.",
+            "(C) A copy of the article may be found in last month's company newsletter.",
+            "(D) We are glad that everyone is now up-to-date on our meeting schedule."
+          ],
+          "correctOptions": [
+            "(A) A provisional copy of this handbook will be distributed at the next meeting."
+          ],
+          "transcript": "<p>The previous sentence mentions a printed guide</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Bản hướng dẫn sẽ cung cấp cho ban quản lý và nhân viên tài liệu tham khảo chính thức về việc thực hiện các công việc hàng ngày. ---2---.</p>\n<p>(A) Một bản sao tạm thời của cuốn sổ tay này sẽ được phân phát tại cuộc họp tiếp theo.</p>\n<p>(B) Những nhận xét của bạn về hướng dẫn sửa đổi được đánh giá rất cao.</p>\n<p>(C) Một bản sao của bài báo có thể được tìm thấy ở bản tin tháng trước của công ty.</p>\n<p>(D) Chúng tôi rất vui vì mọi người hiện đã cập nhật được lịch họp của chúng tôi.</p>\n<p>Câu trước đề cập đến một bản hướng dẫn</p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f6760d",
+          "questionText": "Hopefully, it will help move us closer to our goal of having firmly ---3--- policies.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) establish",
+            "(B) established",
+            "(C) establishing",
+            "(D) establishment"
+          ],
+          "correctOptions": [
+            "(B) established"
+          ],
+          "transcript": "<p>We need an adjective to modify the noun \"policies\"</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Hy vọng rằng nó sẽ giúp chúng ta tiến gần hơn đến mục tiêu có những chính sách được thiết lập vững chắc.</p>\n<p>Vị trí cần điền cần một tính từ để bổ sung nghĩa cho danh từ<em> \"policies\" (Chính sách)</em></p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "615d0d4f65d71f3a51f6760e",
+          "questionText": "<p>The final version will also be ---4--- through the company's internal network.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) access",
+            "(B) accessible",
+            "(C) accesses",
+            "(D) accessing"
+          ],
+          "correctOptions": [
+            "(B) accessible"
+          ],
+          "transcript": "<p>be + adjective</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Phiên bản cuối cùng cũng sẽ có thể truy cập được thông qua mạng nội bộ của công ty.</p>\n<p>Sau tobe, ta cần một tính từ <strong>=&gt; Chọn đáp án B</strong></p>"
+        }
+      ]
+    }
+  ]
+}

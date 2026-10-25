@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Descriptions, Progress } from 'antd';
+import { Card, Descriptions, Progress } from '@/components/ui/Primitives';
 import { FsrsMetricsCardProps } from '@/features/vocab/types/FsrsMetricsCardProps';
 import { FsrsEngine } from '@/lib/fsrsEngine';
 

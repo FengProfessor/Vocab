@@ -1,4 +1,4 @@
-import { App } from 'antd';
+import { App } from '@/components/ui/Primitives';
 import { useMutation } from '@tanstack/react-query';
 import { apiClient } from '@/lib/apiClient';
 import { ApiResponse } from '@/types/api/ApiResponse';

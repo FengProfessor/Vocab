@@ -1,6 +1,6 @@
 import React from 'react';
-import { App, Button, Card, Col, Row, Skeleton, Statistic } from 'antd';
-import { CopyOutlined } from '@ant-design/icons';
+import { App, Button, Card, Col, Row, Skeleton, Statistic } from '@/components/ui/Primitives';
+import { CopyOutlined } from '@/components/ui/Icons';
 import { appConfig } from '@/config/appConfig';
 import styles from '@/features/social/components/SocialReferralCard.module.css';
 import { SocialReferralCardProps } from '@/features/social/types/SocialReferralCardProps';

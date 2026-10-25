@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Button, Space, Tabs, Tag } from 'antd';
-import { CloudUploadOutlined, ReloadOutlined, SyncOutlined } from '@ant-design/icons';
+import { Button, Space, Tabs, Tag } from '@/components/ui/Primitives';
+import { CloudUploadOutlined, ReloadOutlined, SyncOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { FlashcardSessionPanel } from '@/features/vocab/components/FlashcardSessionPanel';
 import { FlashcardSessionSummaryModal } from '@/features/vocab/components/FlashcardSessionSummaryModal';

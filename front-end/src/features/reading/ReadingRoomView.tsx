@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Card, Col, Row, Skeleton } from 'antd';
-import { SyncOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Row, Skeleton } from '@/components/ui/Primitives';
+import { SyncOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { DailyReadingCard } from '@/features/reading/components/DailyReadingCard';
 import { ReadingArticleList } from '@/features/reading/components/ReadingArticleList';

@@ -1,4 +1,4 @@
-import { theme, type ThemeConfig } from 'antd';
+import { theme, type ThemeConfig } from '@/components/ui/Primitives';
 import { baseComponentTokens, baseThemeTokens } from '@/theme/themeTokens';
 
 /**

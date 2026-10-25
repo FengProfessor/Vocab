@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { App as AntdApp } from 'antd';
+import { App as AntdApp } from '@/components/ui/Primitives';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { appConfig } from '@/config/appConfig';
 import { AuthApi } from '@/lib/auth/AuthApi';

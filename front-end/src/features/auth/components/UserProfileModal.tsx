@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Avatar, Form, Input, InputNumber, Modal, Select, Space, Tag, Typography } from 'antd';
-import { FireFilled, ThunderboltFilled, UserOutlined } from '@ant-design/icons';
+import { Avatar, Form, Input, InputNumber, Modal, Select, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { FireFilled, ThunderboltFilled, UserOutlined } from '@/components/ui/Icons';
 import styles from '@/features/auth/components/UserProfileModal.module.css';
 import { UserProfileFormValues } from '@/features/auth/types/UserProfileFormValues';
 import { UserProfileModalProps } from '@/features/auth/types/UserProfileModalProps';

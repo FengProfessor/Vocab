@@ -1,0 +1,1855 @@
+{
+  "id": "vnu-bac3-test-09",
+  "title": "[Đề 04] Thực Hành Kỹ Năng Trọng Tâm Bậc 3 — Tập 3 (The Penny Black)",
+  "series": "VNU-BAC-3",
+  "description": "Đề thực hành tổng hợp theo chuẩn cấu trúc VNU Tests Bậc 3 (CEFR B1). Bài đọc thực tế: The Penny Black (First Postage Stamp) (Part 2), Riverside Sports & Leisure Club — Summer Membership Guide (Part 3), Harry Parnell: Photographer of the Stars (Part 4), Writing: Annual Innovation Award Winner.",
+  "durationMinutes": 65,
+  "targetLevel": "B1",
+  "totalQuestions": 45,
+  "isSampleTest": false,
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 25,
+      "tasks": [
+        {
+          "id": "reading-part1",
+          "partNumber": 1,
+          "title": "Part 1: Signs & Notices",
+          "instructions": "There are 7 questions in this part. Choose the best answer (A, B, or C) that matches the meaning of each sign, message, or notice.",
+          "questions": [
+            {
+              "id": "t09-r-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Hi Jane,\nI'll be home late tonight. Can you cook? Or I can get something on the way home. Fish and chips?\nMichael",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Michael wants Jane to cook fish and chips."
+                },
+                {
+                  "key": "B",
+                  "text": "Michael wants to eat fish and chips on the way home."
+                },
+                {
+                  "key": "C",
+                  "text": "Michael offers to buy fish and chips for dinner."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Trong tin nhắn, Michael báo về muộn và hỏi Jane có nấu ăn được không, hoặc anh ấy có thể mua đồ ăn trên đường về: 'Or I can get something on the way home. Fish and chips?' (Hoặc anh có thể mua gì đó trên đường về nhà. Cá và khoai tây chiên nhé?). Điều này có nghĩa là Michael đề nghị mua món cá và khoai tây chiên cho bữa tối. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "on the way home",
+                  "ipa": "/ɒn ðə weɪ həʊm/",
+                  "meaning": "trên đường về nhà",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "fish and chips",
+                  "ipa": "/ˌfɪʃ ən ˈtʃɪps/",
+                  "meaning": "món cá tẩm bột chiên ăn kèm khoai tây chiên",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "High-speed internet offer:\nBuy for 12 months and pay half-price!\nOffer ends soon.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "You get a special price on six months of internet."
+                },
+                {
+                  "key": "B",
+                  "text": "You get a better price if you buy internet for a year."
+                },
+                {
+                  "key": "C",
+                  "text": "You don't have to decide quickly."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Thông báo khuyến mãi ghi: 'Buy for 12 months and pay half-price!' (Mua gói 12 tháng và chỉ phải trả nửa giá!). Cụm '12 months' đồng nghĩa với 'a year' (một năm) và 'pay half-price' tương ứng với 'get a better price' (được mức giá ưu đãi hơn). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "high-speed",
+                  "ipa": "/ˌhaɪˈspiːd/",
+                  "meaning": "tốc độ cao",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "half-price",
+                  "ipa": "/ˌhɑːfˈpraɪs/",
+                  "meaning": "nửa giá, giảm 50%",
+                  "partOfSpeech": "adverb/adjective"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Mark,\nSorry I missed you. I had to go out to my mother's house. Can we do it tomorrow? Same time and place?\nHannah",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Hannah wants to meet Mark at her mother's house tomorrow."
+                },
+                {
+                  "key": "B",
+                  "text": "Hannah misses Mark and wants to go to his house."
+                },
+                {
+                  "key": "C",
+                  "text": "Mark went to Hannah's house but she was not at home."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Hannah nhắn cho Mark: 'Sorry I missed you. I had to go out to my mother's house.' (Xin lỗi vì đã lỡ hẹn không gặp được bạn. Mình phải ra ngoài tới nhà mẹ mình). Điều này cho thấy Mark đã đến tìm Hannah nhưng cô ấy không có ở nhà. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "miss somebody",
+                  "ipa": "/mɪs ˈsʌm.bə.di/",
+                  "meaning": "lỡ hẹn không gặp được ai",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "go out",
+                  "ipa": "/ɡəʊ aʊt/",
+                  "meaning": "đi ra ngoài",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "STAFF PARKING ONLY\nFor extra spaces and student parking, turn left ←",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "This is the only place where staff can park."
+                },
+                {
+                  "key": "B",
+                  "text": "Extra space is only for students."
+                },
+                {
+                  "key": "C",
+                  "text": "Turn left if you are staff and the car park is full."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Biển báo ghi: 'STAFF PARKING ONLY. For extra spaces and student parking, turn left' (Chỉ dành cho nhân viên đỗ xe. Để tới chỗ đỗ xe phụ và bãi đỗ xe sinh viên, hãy rẽ trái). Do có 'extra spaces' (chỗ đỗ xe thêm khi bãi chính đầy) ở bên trái nên nếu nhân viên thấy bãi xe đã đầy thì có thể rẽ trái. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "staff",
+                  "ipa": "/stɑːf/",
+                  "meaning": "đội ngũ nhân viên, cán bộ",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "extra space",
+                  "ipa": "/ˈek.strə speɪs/",
+                  "meaning": "chỗ trống bổ sung",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Hello,\nIs your bike still for sale? I'm interested in it if it doesn't need any work and I can test ride it.\nRegards,\nBen",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Ben wants to see if he likes the bike."
+                },
+                {
+                  "key": "B",
+                  "text": "Ben doesn't need the bike for work."
+                },
+                {
+                  "key": "C",
+                  "text": "Ben can test the bike."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Ben hỏi người bán xe đạp: 'I'm interested in it if it doesn't need any work and I can test ride it' (Tôi quan tâm đến chiếc xe nếu nó không cần sửa chữa gì và tôi có thể chạy thử nó). Việc muốn chạy thử xe ('test ride it') chính là để kiểm tra xem anh ấy có ưng ý chiếc xe đó hay không ('wants to see if he likes the bike'). Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "for sale",
+                  "ipa": "/fɔːr seɪl/",
+                  "meaning": "đang được rao bán",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "test ride",
+                  "ipa": "/ˈtest raɪd/",
+                  "meaning": "chạy thử xe (xe đạp, xe máy)",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "To: Joseph\nFrom: Briony\nDear Joseph,\nI'm unhappy that you were late a second time this week. Please make an appointment with Jenny to speak to me.\nRegards,\nBriony",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Briony will be unhappy if Joseph is late for a second time this week."
+                },
+                {
+                  "key": "B",
+                  "text": "Briony wants Joseph to explain to her why he was late."
+                },
+                {
+                  "key": "C",
+                  "text": "Joseph must explain why he was late to Jenny."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Briony viết cho Joseph: 'I'm unhappy that you were late a second time this week. Please make an appointment with Jenny to speak to me.' (Tôi không hài lòng vì bạn đã đi muộn lần thứ hai trong tuần này. Vui lòng đặt lịch hẹn qua Jenny để nói chuyện trực tiếp với tôi). Jenny chỉ là thư ký sắp xếp lịch hẹn, còn người Joseph phải gặp để giải trình là Briony. Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "make an appointment",
+                  "ipa": "/meɪk ən əˈpɔɪnt.mənt/",
+                  "meaning": "đặt lịch hẹn",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "AFTER 6 PM DAILY\nFREE DESSERT WITH DINNER",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "After six a.m., every dinner order automatically includes a free dessert."
+                },
+                {
+                  "key": "B",
+                  "text": "Free dessert is available only if you order dessert separately after six p.m."
+                },
+                {
+                  "key": "C",
+                  "text": "Free dessert is given with dinner orders after six p.m. daily."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Biển thông báo tại nhà hàng ghi: 'AFTER 6 PM DAILY: FREE DESSERT WITH DINNER' (Sau 6 giờ chiều hàng ngày: Tặng món tráng miệng miễn phí khi dùng bữa tối). Điều này đồng nghĩa với việc món tráng miệng miễn phí được tặng kèm các suất ăn tối sau 6 giờ chiều mỗi ngày. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "dessert",
+                  "ipa": "/dɪˈzɜːt/",
+                  "meaning": "món tráng miệng",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "daily",
+                  "ipa": "/ˈdeɪ.li/",
+                  "meaning": "hàng ngày, mỗi ngày",
+                  "partOfSpeech": "adverb/adjective"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cloze Test",
+          "instructions": "Read the text below and choose the best answer (A, B, or C) for each blank from 8 to 15.",
+          "passage": {
+            "title": "The Penny Black (First Postage Stamp)",
+            "text": "In 1840, The Penny Black became the (8) ________ sticky postage stamp in the world. Before this, the (9) ________ of posting something in the UK was very expensive. This depended on distance and how many sheets of paper were being sent and was paid by the person receiving the post. The idea of paying in advance was (10) ________ to parliament and in 1839 this became law. A (11) ________ was held to find the best way of sending post. The first suggestion attempted was a special envelope or 'lettersheet' with a stamp attached, but this wasn't (12) ________ and in the end the stamp itself was used with a picture of Queen Victoria and the price — one penny. However, the colour was a problem as it was difficult to cancel the stamp after it had been (13) ________. This was eventually changed to red and black ink was used to cancel it. For the first (14) ________, sending letters became cheap for ordinary people, and the Penny Black is now (15) ________ all over the world among stamp collectors.",
+            "wordCount": 182
+          },
+          "questions": [
+            {
+              "id": "t09-r-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "In 1840, The Penny Black became the (8) ________ sticky postage stamp in the world.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "basic"
+                },
+                {
+                  "key": "B",
+                  "text": "first"
+                },
+                {
+                  "key": "C",
+                  "text": "beginning"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cần một số thứ tự bổ nghĩa cho cụm danh từ 'sticky postage stamp in the world': 'the first sticky postage stamp in the world' (con tem bưu chính có keo dán đầu tiên trên thế giới). 'basic' là cơ bản, 'beginning' là danh từ chỉ sự khởi đầu. Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "postage stamp",
+                  "ipa": "/ˈpəʊ.stɪdʒ stæmp/",
+                  "meaning": "tem bưu chính",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "sticky",
+                  "ipa": "/ˈstɪk.i/",
+                  "meaning": "có chất kết dính, có keo dán",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Before this, the (9) ________ of posting something in the UK was very expensive.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "money"
+                },
+                {
+                  "key": "B",
+                  "text": "amount"
+                },
+                {
+                  "key": "C",
+                  "text": "cost"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cụm từ 'the cost of doing something' chỉ chi phí của việc làm gì đó ('the cost of posting something in the UK was very expensive' = chi phí gửi thư từ ở Anh rất đắt đỏ). 'money' và 'amount' không kết hợp với tính từ 'expensive' theo cấu trúc này. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "cost",
+                  "ipa": "/kɒst/",
+                  "meaning": "chi phí, giá tiền",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "The idea of paying in advance was (10) ________ to parliament and in 1839 this became law.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "recommended"
+                },
+                {
+                  "key": "B",
+                  "text": "said"
+                },
+                {
+                  "key": "C",
+                  "text": "ordered"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cấu trúc bị động 'be recommended to somebody/something' (được đề xuất/kiến nghị lên Quốc hội). 'said' không mang nghĩa đề xuất ý tưởng chính sách, còn 'ordered' (ra lệnh) không phù hợp ngữ cảnh trình ý tưởng lên Quốc hội. Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "in advance",
+                  "ipa": "/ɪn ədˈvɑːns/",
+                  "meaning": "trả trước, làm trước",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "parliament",
+                  "ipa": "/ˈpɑː.lɪ.mənt/",
+                  "meaning": "quốc hội, nghị viện",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "A (11) ________ was held to find the best way of sending post.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "match"
+                },
+                {
+                  "key": "B",
+                  "text": "prize"
+                },
+                {
+                  "key": "C",
+                  "text": "competition"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cụm từ 'hold a competition' nghĩa là tổ chức một cuộc thi để tìm ra giải pháp gửi thư tốt nhất. 'match' là trận đấu thể thao, 'prize' là giải thưởng. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "competition",
+                  "ipa": "/ˌkɒm.pəˈtɪʃ.ən/",
+                  "meaning": "cuộc thi",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "The first suggestion attempted was a special envelope or 'lettersheet' with a stamp attached, but this wasn't (12) ________...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "dear"
+                },
+                {
+                  "key": "B",
+                  "text": "popular"
+                },
+                {
+                  "key": "C",
+                  "text": "famous"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Phong bì đặc biệt có gắn sẵn tem không được công chúng ưa chuộng ('wasn't popular'), nên cuối cùng người ta chuyển sang dùng con tem rời. 'dear' là đắt đỏ/thân yêu, 'famous' là nổi tiếng. Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "attached",
+                  "ipa": "/əˈtætʃt/",
+                  "meaning": "được đính kèm, gắn liền",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "popular",
+                  "ipa": "/ˈpɒp.jə.lər/",
+                  "meaning": "được ưa chuộng, phổ biến",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "However, the colour was a problem as it was difficult to cancel the stamp after it had been (13) ________.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "worn"
+                },
+                {
+                  "key": "B",
+                  "text": "passed"
+                },
+                {
+                  "key": "C",
+                  "text": "used"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Màu đen của con tem gây khó khăn cho việc đóng dấu hủy tem sau khi nó đã được sử dụng ('after it had been used') để tránh tái sử dụng. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "cancel a stamp",
+                  "ipa": "/ˈkæn.səl ə stæmp/",
+                  "meaning": "đóng dấu hủy tem (sau khi đã gửi thư)",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "For the first (14) ________, sending letters became cheap for ordinary people...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "time"
+                },
+                {
+                  "key": "B",
+                  "text": "age"
+                },
+                {
+                  "key": "C",
+                  "text": "year"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cụm từ cố định 'for the first time' mang nghĩa là 'lần đầu tiên'. Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "for the first time",
+                  "ipa": "/fɔːr ðə fɜːst taɪm/",
+                  "meaning": "lần đầu tiên",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q15",
+              "questionNumber": 15,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...and the Penny Black is now (15) ________ all over the world among stamp collectors.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "special"
+                },
+                {
+                  "key": "B",
+                  "text": "favourite"
+                },
+                {
+                  "key": "C",
+                  "text": "famous"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cấu trúc 'famous all over the world' nghĩa là nổi tiếng khắp thế giới. 'favourite' là tính từ sở hữu thường đứng trước danh từ, còn 'special' không đi theo cụm 'special all over the world'. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "stamp collector",
+                  "ipa": "/stæmp kəˈlek.tər/",
+                  "meaning": "người sưu tầm tem",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part3",
+          "partNumber": 3,
+          "title": "Part 3: True / False",
+          "instructions": "Read the text below and decide whether the statements from 16 to 20 are True or False. Choose A for True and B for False.",
+          "passage": {
+            "title": "Riverside Sports & Leisure Club — Summer Membership Guide",
+            "text": "Welcome to Riverside Sports & Leisure Club! Located right beside Greenview Park, our newly renovated centre offers a wide range of indoor and outdoor facilities for individuals and families. From June to August, we are introducing a special Summer Pass that gives full access to our heated 25-metre swimming pool, modern fitness studio, and four outdoor floodlit badminton courts.\n\nSwimming & Aquatics\nOur main swimming pool is open daily from 6:30 a.m. to 9:30 p.m. On weekday mornings between 7:00 a.m. and 9:00 a.m., three lanes are reserved exclusively for adult lap swimming. Certified lifeguards are on duty at all times, and we also run beginner swimming courses for children aged 6 to 12 every Tuesday and Thursday afternoon. Parents do not need to pay extra for poolside seating while watching their children's lessons.\n\nFitness Classes & Booking Rules\nSummer Pass holders can join all morning yoga and evening aerobics classes free of charge. However, because each studio class is limited to 20 participants, members must reserve their spot through our mobile app at least 24 hours in advance. Equipment such as yoga mats and lockers is provided at no cost, though members are asked to bring their own padlock and a clean towel. Please note that café refreshments are sold separately at the club reception.",
+            "wordCount": 226
+          },
+          "questions": [
+            {
+              "id": "t09-r-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "With the Summer Pass, members can play badminton outdoors in the evening.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn 1 nêu rõ gói Summer Pass cho phép sử dụng: 'four outdoor floodlit badminton courts' (bốn sân cầu lông ngoài trời có hệ thống đèn chiếu sáng ban đêm). Nhờ có đèn pha chiếu sáng ('floodlit'), hội viên hoàn toàn có thể chơi cầu lông ngoài trời vào buổi tối. Nhận định là ĐÚNG (True).",
+              "vocabularyNotes": [
+                {
+                  "word": "floodlit",
+                  "ipa": "/ˈflʌd.lɪt/",
+                  "meaning": "được trang bị đèn pha chiếu sáng ban đêm",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "renovated",
+                  "ipa": "/ˈren.ə.veɪ.tɪd/",
+                  "meaning": "được tân trang, nâng cấp mới",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Parents have to buy a spectator ticket to sit by the pool during their children's swimming lessons.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cuối đoạn 2 khẳng định: 'Parents do not need to pay extra for poolside seating while watching their children's lessons' (Phụ huynh không cần trả thêm tiền cho chỗ ngồi cạnh hồ bơi khi theo dõi buổi học của con). Do đó nói phụ huynh phải mua vé khán giả là SAI (False).",
+              "vocabularyNotes": [
+                {
+                  "word": "exclusively",
+                  "ipa": "/ɪkˈskluː.sɪv.li/",
+                  "meaning": "dành riêng cho, độc quyền",
+                  "partOfSpeech": "adverb"
+                },
+                {
+                  "word": "lifeguard",
+                  "ipa": "/ˈlaɪf.ɡɑːd/",
+                  "meaning": "nhân viên cứu hộ hồ bơi/bãi biển",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Summer Pass members can attend yoga classes without booking if they arrive early.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn 3 quy định rõ: 'However, because each studio class is limited to 20 participants, members must reserve their spot through our mobile app at least 24 hours in advance.' Hội viên bắt buộc phải đặt chỗ qua ứng dụng di động ít nhất 24 giờ trước buổi học chứ không thể cứ đến sớm mà không đặt trước. Nhận định là SAI (False).",
+              "vocabularyNotes": [
+                {
+                  "word": "reserve a spot",
+                  "ipa": "/rɪˈzɜːv ə spɒt/",
+                  "meaning": "đặt chỗ trước",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "participant",
+                  "ipa": "/pɑːˈtɪs.ɪ.pənt/",
+                  "meaning": "người tham gia",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "The club provides yoga mats for members at no additional charge.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong đoạn 3 có ghi: 'Equipment such as yoga mats and lockers is provided at no cost, though members are asked to bring their own padlock and a clean towel.' Cụm 'at no cost' đồng nghĩa với 'at no additional charge' (miễn phí, không thu thêm phí). Nhận định là ĐÚNG (True).",
+              "vocabularyNotes": [
+                {
+                  "word": "at no cost",
+                  "ipa": "/æt nəʊ kɒst/",
+                  "meaning": "hoàn toàn miễn phí",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "padlock",
+                  "ipa": "/ˈpæd.lɒk/",
+                  "meaning": "ổ khóa bấm cá nhân",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Drinks and snacks from the café are included in the Summer Pass.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Câu cuối bài đọc lưu ý: 'Please note that café refreshments are sold separately at the club reception' (Lưu ý đồ ăn thức uống giải khát tại quầy café được bán riêng tại quầy lễ tân). Vì vậy đồ uống và đồ ăn nhẹ không nằm trong gói Summer Pass. Nhận định là SAI (False).",
+              "vocabularyNotes": [
+                {
+                  "word": "sold separately",
+                  "ipa": "/səʊld ˈsep.ər.ət.li/",
+                  "meaning": "được bán riêng (không bao gồm trong gói)",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "reception",
+                  "ipa": "/rɪˈsep.ʃən/",
+                  "meaning": "quầy lễ tân",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part4",
+          "partNumber": 4,
+          "title": "Part 4: Reading Comprehension",
+          "instructions": "Read the following passage and choose the best answer (A, B, or C) for each question from 21 to 25.",
+          "passage": {
+            "title": "Harry Parnell: Photographer of the Stars",
+            "text": "I've always been interested in photography. When I was a child, I used to borrow my parents' camera. This annoyed them, so, when I was about ten years old, they bought me my own camera. After that, I spent my free time going around taking pictures. I enjoyed taking pictures of flowers, trees and animals, but most of all, I liked taking pictures of people. I still have my childhood photo albums. Most pictures weren't that great, but I like looking at them. They remind me of what I first felt when I started taking pictures.\n\nWhen I finished school, I did a photography course and then I got a job working for my local paper. I liked the people I worked with, but I found it quite boring after a while. I used to have to take dull pictures of local buildings and new types of cars; that kind of thing. After a couple of years, I trained in digital photography and portraits with another photographer. Then, I moved to a national newspaper and that was more interesting, but I finally decided to work for myself taking pictures of famous people. I like exploring how settings and people interact. Many famous people got to know me and liked my artistic talent. I have been working as a portrait photographer for many years now.\n\nWhen I tell people what I do for a living, they imagine that I'm an unpleasant person who follows famous people, takes embarrassing pictures of them and makes a lot of money. Actually, I don't do that. Usually the people I photograph want me to photograph them. We create an atmosphere in their own garden or outdoors where they can feel comfortable. The only thing that can happen is that sometimes they suddenly decide they don't want to be photographed. That can be annoying, especially if they've asked you there in the first place. But that doesn't happen very often.\n\nI find my job exciting and challenging. It has a creative side and also a technical side. I have to imagine and shoot the best photo and I also have to use different accessories to get different effects.",
+            "wordCount": 356
+          },
+          "questions": [
+            {
+              "id": "t09-r-q21",
+              "questionNumber": 21,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What does the writer say about his childhood?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He liked taking pictures of his parents."
+                },
+                {
+                  "key": "B",
+                  "text": "He discovered he enjoyed taking pictures of people best."
+                },
+                {
+                  "key": "C",
+                  "text": "He disliked taking photos of nature."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Trong đoạn 1, tác giả chia sẻ về thời thơ ấu: 'I enjoyed taking pictures of flowers, trees and animals, but most of all, I liked taking pictures of people.' (Tôi thích chụp ảnh hoa lá, cây cối và động vật, nhưng hơn tất cả, tôi thích chụp ảnh con người nhất). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "annoy",
+                  "ipa": "/əˈnɔɪ/",
+                  "meaning": "làm phiền, làm bực mình",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "photo album",
+                  "ipa": "/ˈfəʊ.təʊ ˌæl.bəm/",
+                  "meaning": "cuốn sổ lưu giữ ảnh",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q22",
+              "questionNumber": 22,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What did the writer do in his first job?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He took pictures of ordinary people."
+                },
+                {
+                  "key": "B",
+                  "text": "He photographed uninteresting things."
+                },
+                {
+                  "key": "C",
+                  "text": "He travelled around the country a lot."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Ở đoạn 2, khi nói về công việc đầu tiên tại tờ báo địa phương, tác giả viết: 'I found it quite boring after a while. I used to have to take dull pictures of local buildings and new types of cars; that kind of thing.' Tính từ 'dull' đồng nghĩa với 'uninteresting' (nhàm chán, kém thú vị). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "dull",
+                  "ipa": "/dʌl/",
+                  "meaning": "nhàm chán, tẻ nhạt",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "portrait",
+                  "ipa": "/ˈpɔː.trət/",
+                  "meaning": "ảnh chân dung",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q23",
+              "questionNumber": 23,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What does the writer think people believe about him?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He doesn't earn much money."
+                },
+                {
+                  "key": "B",
+                  "text": "He has an embarrassing job."
+                },
+                {
+                  "key": "C",
+                  "text": "He isn't a nice person."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Đầu đoạn 3 viết: 'When I tell people what I do for a living, they imagine that I'm an unpleasant person who follows famous people, takes embarrassing pictures of them and makes a lot of money.' Cụm 'an unpleasant person' đồng nghĩa với 'not a nice person' (không phải là một người tử tế/dễ chịu). Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "unpleasant",
+                  "ipa": "/ʌnˈplez.ənt/",
+                  "meaning": "khó ưa, không tử tế",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "embarrassing",
+                  "ipa": "/ɪmˈbær.ə.sɪŋ/",
+                  "meaning": "gây bối rối, đáng xấu hổ",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q24",
+              "questionNumber": 24,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "When talking about the people he photographs now, the writer says",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "they are usually happy to be photographed."
+                },
+                {
+                  "key": "B",
+                  "text": "they're often unpleasant."
+                },
+                {
+                  "key": "C",
+                  "text": "nobody ever upsets him."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Trong đoạn 3, tác giả giải thích: 'Usually the people I photograph want me to photograph them. We create an atmosphere in their own garden or outdoors where they can feel comfortable.' Điều này có nghĩa là những người nổi tiếng mà anh chụp hiện nay thường rất vui vẻ và tự nguyện muốn được chụp ảnh. Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "atmosphere",
+                  "ipa": "/ˈæt.mə.sfɪər/",
+                  "meaning": "bầu không khí",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "in the first place",
+                  "ipa": "/ɪn ðə fɜːst pleɪs/",
+                  "meaning": "ngay từ đầu",
+                  "partOfSpeech": "idiom"
+                }
+              ]
+            },
+            {
+              "id": "t09-r-q25",
+              "questionNumber": 25,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "Which of the following is the best description of the writer?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The talented photographer who has worked in different places but has always enjoyed his career."
+                },
+                {
+                  "key": "B",
+                  "text": "The photographer who prefers taking pictures of people and enjoys embarrassing the rich and famous."
+                },
+                {
+                  "key": "C",
+                  "text": "The photographer who likes working for himself and enjoys his work most of the time."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Tác giả quyết định làm việc tự do ('work for myself') và thấy công việc thú vị, đầy thử thách ('exciting and challenging'), dù đôi khi có chút phiền lòng khi khách đổi ý nhưng điều đó rất hiếm khi xảy ra ('doesn't happen very often'). Loại A vì anh từng thấy công việc đầu tiên 'quite boring'; loại B vì anh không chụp ảnh gây xấu hổ cho người nổi tiếng. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "work for oneself",
+                  "ipa": "/wɜːk fɔːr wʌnˈself/",
+                  "meaning": "làm việc tự do, tự làm chủ",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "accessory",
+                  "ipa": "/əkˈses.ər.i/",
+                  "meaning": "phụ kiện, thiết bị đi kèm",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimitMinutes": 25,
+      "totalQuestions": 20,
+      "tasks": [
+        {
+          "id": "listening-part1",
+          "partNumber": 1,
+          "title": "Part 1: Short Recordings",
+          "instructions": "There are 7 questions in this part. For each question, you will listen to a short recording TWICE and choose the correct answer (A, B, or C).",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-09/listening-part1.mp3"
+          },
+          "transcript": "1. What was in the woman's bag?\nMan: Was there anything valuable in the bag that was stolen, Madam?\nWoman: Yes. It had my purse in it and my keys.\nMan: Anything else?\nWoman: Well, luckily I was wearing my glasses, so no, nothing else.\n\n2. Which film is the man talking about?\nMan: I'm sure I've seen this film before. That bit where she's standing on the bridge watching the sunset reminded me.\n\n3. What should the woman do first?\nWoman 1: Well, you put the washing powder in the machine.\nWoman 2: Is that before or after you put the clothes in?\nWoman 1: Oh, it's after you put them in, and then remember to switch it on at the wall when you're ready.\n\n4. What is David going to do this weekend?\nMan: Could you help me paint my flat this weekend, David?\nDavid: Oh, sorry, I'm going sailing. I decided to enjoy myself for a change. I spent last weekend helping my mum do her garden and I need to repair the car next weekend.\n\n5. How did the man get to work today?\nMan: Sorry I'm late. I never know whether to take the underground or drive. I was held up in a traffic jam for half an hour, and then when I got to work the car park was full! I think I'll have to move nearer so I can walk or use my bike.\n\n6. Which tie does the man choose?\nMan: Which tie shall I wear for the interview? D'you think my blue silk one would look all right?\nWoman: A bit boring! I'd wear something with a small pattern – squares or spots, something like that.\nMan: Oh, I don't know. I think I'll wear the plain one.\n\n7. What time is the appointment?\nWoman: Dr Brown's Clinic. Can I help you?\nMan: Yes. Can I have an appointment to see the doctor, please?\nWoman: Well, he's free at quarter past eleven today or tomorrow at quarter past ten or five to two.\nMan: I'll come tomorrow afternoon. Thank you.",
+          "questions": [
+            {
+              "id": "t09-l-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What was in the woman's bag?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Her purse, keys, and glasses"
+                },
+                {
+                  "key": "B",
+                  "text": "Her purse and her keys"
+                },
+                {
+                  "key": "C",
+                  "text": "Her purse and her glasses"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Người phụ nữ trả lời cảnh sát về những thứ bên trong chiếc túi bị mất cắp: 'Yes. It had my purse in it and my keys... Well, luckily I was wearing my glasses, so no, nothing else.' Như vậy trong túi chỉ có ví tiền và chìa khóa (còn kính thì bà đang đeo trên mắt). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "valuable",
+                  "ipa": "/ˈvæl.jə.bəl/",
+                  "meaning": "có giá trị, quý giá",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "purse",
+                  "ipa": "/pɜːs/",
+                  "meaning": "ví cầm tay nhỏ (đựng tiền mặt/tiền xu)",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which film is the man talking about?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A film where a woman is walking across a bridge in the rain"
+                },
+                {
+                  "key": "B",
+                  "text": "A film where a woman is standing on a bridge watching the sunset"
+                },
+                {
+                  "key": "C",
+                  "text": "A film where a woman is sitting on a boat watching the sunset"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Người đàn ông nói: 'I'm sure I've seen this film before. That bit where she's standing on the bridge watching the sunset reminded me.' (Cảnh cô ấy đứng trên cây cầu ngắm hoàng hôn làm tôi nhớ ra bộ phim này). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "sunset",
+                  "ipa": "/ˈsʌn.set/",
+                  "meaning": "cảnh hoàng hôn, mặt trời lặn",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "remind",
+                  "ipa": "/rɪˈmaɪnd/",
+                  "meaning": "gợi nhớ, nhắc nhở",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What should the woman do first?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Put the washing powder into the machine"
+                },
+                {
+                  "key": "B",
+                  "text": "Switch the washing machine on at the wall"
+                },
+                {
+                  "key": "C",
+                  "text": "Put the clothes into the washing machine"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Khi được hỏi cho bột giặt vào trước hay sau khi cho quần áo, người hướng dẫn trả lời: 'Oh, it's after you put them in, and then remember to switch it on at the wall when you're ready.' Như vậy việc đầu tiên cần làm là cho quần áo vào máy giặt (sau đó mới cho bột giặt rồi bật công tắc điện). Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "washing powder",
+                  "ipa": "/ˈwɒʃ.ɪŋ ˌpaʊ.dər/",
+                  "meaning": "bột giặt",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "switch on",
+                  "ipa": "/swɪtʃ ɒn/",
+                  "meaning": "bật công tắc khởi động",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What is David going to do this weekend?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Help his mother do her garden"
+                },
+                {
+                  "key": "B",
+                  "text": "Go sailing"
+                },
+                {
+                  "key": "C",
+                  "text": "Repair his car"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "David trả lời: 'Oh, sorry, I'm going sailing. I decided to enjoy myself for a change. I spent last weekend helping my mum do her garden and I need to repair the car next weekend.' Cuối tuần này anh ấy đi chèo thuyền buồm (làm vườn là cuối tuần trước, sửa xe là cuối tuần sau). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "go sailing",
+                  "ipa": "/ɡəʊ ˈseɪ.lɪŋ/",
+                  "meaning": "đi chèo thuyền buồm",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "for a change",
+                  "ipa": "/fɔːr ə tʃeɪndʒ/",
+                  "meaning": "để thay đổi không khí",
+                  "partOfSpeech": "idiom"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "How did the man get to work today?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "By car"
+                },
+                {
+                  "key": "B",
+                  "text": "By underground"
+                },
+                {
+                  "key": "C",
+                  "text": "By bike"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Người đàn ông giải thích lý do đi làm muộn: 'I was held up in a traffic jam for half an hour, and then when I got to work the car park was full!' Việc bị kẹt xe nửa tiếng và bãi đỗ xe ô tô hết chỗ chứng tỏ hôm nay anh ấy lái xe ô tô đi làm (By car). Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "be held up",
+                  "ipa": "/biː held ʌp/",
+                  "meaning": "bị kẹt lại, bị trì hoãn",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "traffic jam",
+                  "ipa": "/ˈtræf.ɪk dʒæm/",
+                  "meaning": "cảnh ùn tắc giao thông",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which tie does the man choose?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A tie with small squares"
+                },
+                {
+                  "key": "B",
+                  "text": "A tie with spots"
+                },
+                {
+                  "key": "C",
+                  "text": "A plain tie without a pattern"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Dù người phụ nữ gợi ý đeo cà vạt có họa tiết ô vuông hoặc chấm bi ('squares or spots'), người đàn ông quyết định: 'Oh, I don't know. I think I'll wear the plain one.' (Tôi nghĩ tôi sẽ đeo chiếc cà vạt trơn không họa tiết). Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "plain",
+                  "ipa": "/pleɪn/",
+                  "meaning": "trơn, một màu (không có hoa văn họa tiết)",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "pattern",
+                  "ipa": "/ˈpæt.ən/",
+                  "meaning": "hoa văn, họa tiết",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What time is the appointment?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "10:15"
+                },
+                {
+                  "key": "B",
+                  "text": "11:15"
+                },
+                {
+                  "key": "C",
+                  "text": "1:55"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Nhân viên phòng khám đưa ra 3 khung giờ: 'quarter past eleven today' (11:15 hôm nay), hoặc ngày mai lúc 'quarter past ten' (10:15 sáng) hay 'five to two' (2 giờ kém 5 chiều = 1:55). Người đàn ông chốt: 'I'll come tomorrow afternoon.' (Tôi sẽ đến vào chiều mai, tức 1:55). Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "appointment",
+                  "ipa": "/əˈpɔɪnt.mənt/",
+                  "meaning": "lịch hẹn khám bác sĩ",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "five to two",
+                  "ipa": "/faɪv tuː tuː/",
+                  "meaning": "hai giờ kém năm phút (1:55)",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "listening-part2",
+          "partNumber": 2,
+          "title": "Part 2: Short Conversations",
+          "instructions": "There are 7 questions in this part. You will listen to six short conversations TWICE and choose the right answer (A, B, or C) for questions 8 to 14.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-09/listening-part2.mp3"
+          },
+          "transcript": "8. You will hear two friends talking about a dance performance.\nMan: Did you get the email? The date for the dance performance is 11 May.\nWoman: Yes, I know. I'm sure we'll have enough time to prepare. We've got three lessons before the big day.\nMan: Yes, I think we'll be OK. We've already learnt the basic steps, haven't we?\nWoman: But the dance teacher's away on holiday for the next two weeks so we'll have to practise on our own. I'm not sure we have anyone in the group who's strong enough to take charge. You know how we argue so much.\n\n9. You will hear two friends talking about a book they've read.\nWoman: So, did you like that book?\nMan: I loved it. I read it from cover to cover in one day!\nWoman: Really? It took me a while to finish it. But I wasn't familiar with the author and I found it rather confusing.\nMan: The plot is a bit complicated I agree, especially compared to his other books. But he really is a good author. Would you like to try one of his earlier ones?\nWoman: OK, I'm happy to give him another chance.\n\n10. You will hear a man telling a friend about a football match.\nMan: Are you looking forward to going to the match this weekend?\nWoman: I am, yes. Especially such a big game. It will be so exciting. I just hope we win.\nMan: I can't wait! There should be a fantastic atmosphere in the ground and a bigger crowd than normal for such an important match.\nWoman: I know. We were lucky to get two tickets, weren't we?\nMan: It wasn't difficult at all. I know someone who has a job in the ticket office. He offered to save two for me.\n\n11. You will hear two friends talking about a visit to the dentist.\nMan: What time's your appointment at the dentist tomorrow?\nWoman: It's the last one of the day at 5.30. I was hoping to get one earlier as my tooth is really hurting.\nMan: Oh, poor you! Toothache is horrible.\nWoman: I could have got one in the morning, but it would have been with a different dentist. I've heard he's not very good with nervous patients so I thought it would be better to see my usual one. She's gentle and explains everything to you clearly and calmly.\nMan: Well, best of luck.\n\n12. You will hear two friends talking about their evening meal.\nWoman: OK, it's my turn to cook tonight. Is there anything you fancy?\nMan: I love pasta although we've had it for the past three days so perhaps something else.\nWoman: Is there anything in the freezer? I don't really want to go shopping.\nMan: I don't think so. We could always get a takeaway for a change. You could cook tomorrow instead.\nWoman: OK. What about a curry?\nMan: I'd rather have something that isn't too hot and spicy. There's a menu from the local restaurant in the kitchen. I'll go and get it.\n\n13 & 14. You will hear two friends talking about a friend's birthday present.\nWoman: It's Sandra's birthday this Saturday. Have you bought her a present yet?\nMan: Not yet, no. I was thinking of getting her a book, but I have no idea what she likes.\nWoman: There's an interesting play on at the theatre this weekend. Why don't we treat her to a night out?\nMan: That's a great idea. I know she's free on Friday so we could always book tickets and surprise her. She'd like that.\nWoman: OK, do you want to order the tickets? Hopefully we can get three seats together.",
+          "questions": [
+            {
+              "id": "t09-l-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a dance performance. What is the woman worried about?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "They need more lessons."
+                },
+                {
+                  "key": "B",
+                  "text": "They don't have anyone who can lead the group."
+                },
+                {
+                  "key": "C",
+                  "text": "They don't have enough people in the group."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Người phụ nữ lo lắng: 'But the dance teacher's away on holiday for the next two weeks so we'll have to practise on our own. I'm not sure we have anyone in the group who's strong enough to take charge.' Cụm 'take charge' đồng nghĩa với 'lead the group' (đứng ra dẫn dắt/chỉ huy nhóm). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "take charge",
+                  "ipa": "/teɪk tʃɑːdʒ/",
+                  "meaning": "đảm nhận trách nhiệm chỉ huy, dẫn dắt",
+                  "partOfSpeech": "idiom"
+                },
+                {
+                  "word": "on one's own",
+                  "ipa": "/ɒn wʌnz əʊn/",
+                  "meaning": "tự mình (không có giáo viên hướng dẫn)",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a book they've read. The man",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "finished reading it quickly."
+                },
+                {
+                  "key": "B",
+                  "text": "thinks the author's other books are more complicated."
+                },
+                {
+                  "key": "C",
+                  "text": "suggests trying a different author."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Người đàn ông nói: 'I loved it. I read it from cover to cover in one day!' (Tôi rất thích cuốn sách đó. Tôi đã đọc một mạch từ đầu đến cuối chỉ trong một ngày!). Điều này chứng tỏ anh ấy đọc xong cuốn sách rất nhanh ('finished reading it quickly'). Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "from cover to cover",
+                  "ipa": "/frɒm ˈkʌv.ər tuː ˈkʌv.ər/",
+                  "meaning": "đọc trọn vẹn từ trang đầu đến trang cuối",
+                  "partOfSpeech": "idiom"
+                },
+                {
+                  "word": "plot",
+                  "ipa": "/plɒt/",
+                  "meaning": "cốt truyện",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear a man telling a friend about a football match. He thinks",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "there will be more people there than usual."
+                },
+                {
+                  "key": "B",
+                  "text": "it was difficult to get tickets."
+                },
+                {
+                  "key": "C",
+                  "text": "he might get a job selling tickets."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Người đàn ông hào hứng nói: 'There should be a fantastic atmosphere in the ground and a bigger crowd than normal for such an important match.' Cụm 'a bigger crowd than normal' đồng nghĩa với 'more people there than usual' (đông khán giả hơn thường lệ). Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "crowd",
+                  "ipa": "/kraʊd/",
+                  "meaning": "đám đông khán giả",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "ground",
+                  "ipa": "/ɡraʊnd/",
+                  "meaning": "sân vận động bóng đá",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a visit to the dentist. What does the woman say about the appointment?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It was earlier than she wanted."
+                },
+                {
+                  "key": "B",
+                  "text": "There wasn't a morning one available."
+                },
+                {
+                  "key": "C",
+                  "text": "It's with a dentist she prefers."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Người phụ nữ giải thích: 'I could have got one in the morning, but it would have been with a different dentist... so I thought it would be better to see my usual one. She's gentle and explains everything to you clearly and calmly.' Cô chấp nhận khám muộn lúc 5.30 chiều để được khám với nữ nha sĩ quen thuộc mà cô yêu thích. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "gentle",
+                  "ipa": "/ˈdʒen.təl/",
+                  "meaning": "nhẹ nhàng, ân cần",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "toothache",
+                  "ipa": "/ˈtuːθ.eɪk/",
+                  "meaning": "cơn đau răng",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about their evening meal. What does the man say?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He'd like pasta."
+                },
+                {
+                  "key": "B",
+                  "text": "They always eat takeaways."
+                },
+                {
+                  "key": "C",
+                  "text": "He'd prefer a mild curry."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Khi người phụ nữ gợi ý món cà ri ('What about a curry?'), người đàn ông đáp: 'I'd rather have something that isn't too hot and spicy.' Món cà ri không quá cay nóng ('isn't too hot and spicy') chính là 'a mild curry' (cà ri vị dịu nhẹ). Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "mild",
+                  "ipa": "/maɪld/",
+                  "meaning": "dịu nhẹ, không cay nồng (thức ăn)",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "takeaway",
+                  "ipa": "/ˈteɪk.ə.weɪ/",
+                  "meaning": "đồ ăn mua mang về",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a friend's birthday present. What does the man say about Sandra?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She doesn't like reading books."
+                },
+                {
+                  "key": "B",
+                  "text": "She isn't doing anything on Friday."
+                },
+                {
+                  "key": "C",
+                  "text": "She doesn't like surprises."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Người đàn ông nói: 'I know she's free on Friday so we could always book tickets and surprise her. She'd like that.' Cụm 'she's free on Friday' đồng nghĩa với 'She isn't doing anything on Friday' (Cô ấy rảnh rỗi không bận gì vào thứ Sáu). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "treat somebody to something",
+                  "ipa": "/triːt ˈsʌm.bə.di tuː ˈsʌm.θɪŋ/",
+                  "meaning": "chiêu đãi ai đó một buổi đi chơi/ăn uống",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "In the final conversation, what do the two friends decide to get for Sandra's birthday?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A book by her favourite author"
+                },
+                {
+                  "key": "B",
+                  "text": "Tickets to see a play at the theatre"
+                },
+                {
+                  "key": "C",
+                  "text": "A meal at a local restaurant"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Ở cuối đoạn hội thoại thứ sáu, người phụ nữ đề xuất: 'There's an interesting play on at the theatre this weekend. Why don't we treat her to a night out?' và cả hai thống nhất đặt 3 vé xem kịch ngồi cạnh nhau ('order the tickets... get three seats together'). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "play",
+                  "ipa": "/pleɪ/",
+                  "meaning": "vở kịch (biểu diễn tại nhà hát)",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "a night out",
+                  "ipa": "/ə naɪt aʊt/",
+                  "meaning": "một buổi tối đi chơi giải trí bên ngoài",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "listening-part3",
+          "partNumber": 3,
+          "title": "Part 3: Longer Conversation (True / False)",
+          "instructions": "You will hear a conversation between a girl, Jane, and her brother, Michael, about a Spanish family who are coming to visit them in England. Listen TWICE and decide if each sentence from 15 to 20 is Correct (True) or Incorrect (False). Choose A for True and B for False.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-09/listening-part3.mp3"
+          },
+          "transcript": "Jane: Michael, you know that Spanish family Mum and Dad met in Spain last year?\nMichael: Yeah, the Sanchez family.\nJane: That's right. Anyway, they're coming to stay next month. They haven't been to England before, so Mum wants us to help plan a really good week for them. Can we give her some suggestions?\nMichael: Well, they must spend a day in London seeing the famous places like Buckingham Palace and the Tower of London. Perhaps they could go on one of those open-top buses and see everything from there.\nJane: That's a great idea. Do you think the children will like that?\nMichael: How old are they?\nJane: One's 12 and the other's nine.\nMichael: That should be okay then. What about a trip to the car museum at Beaulieu on another day?\nJane: Oh no, I found that car museum so boring. I don't think any of them would like that.\nMichael: Well, I think most people find museums boring, but it's what people do when they visit another country, isn't it?\nJane: Not necessarily. They might want to do more outdoor activities or perhaps go to some shows or plays or something.\nMichael: I know, there's a big open-air pop and jazz festival in Southampton. Do you think they'd like that?\nJane: That sounds better. What about taking the kids windsurfing as well? I think they might enjoy that, don't you?\nMichael: Fine. And what about tennis? Do you think we could still get tickets for the Open Tennis competition in Bournemouth? There are some famous players there this year.\nJane: I'm sure we could, but I wonder if the family like tennis.\nMichael: I don't know … so let's just write a list of all the things they could do, then get Mum to phone Mrs Sanchez tonight. The family can talk it over and then phone back if we need to book anything.\nJane: Brilliant! Let's start the list.",
+          "questions": [
+            {
+              "id": "t09-l-q15",
+              "questionNumber": 15,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "This will be the Sanchez family's first trip to England.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Jane nói: 'Anyway, they're coming to stay next month. They haven't been to England before, so Mum wants us to help plan a really good week for them.' Vì họ chưa từng đến nước Anh trước đây nên đây là chuyến đi đầu tiên của gia đình Sanchez tới Anh. Nhận định là ĐÚNG (True). Đáp án A.",
+              "vocabularyNotes": [
+                {
+                  "word": "suggestion",
+                  "ipa": "/səˈdʒes.tʃən/",
+                  "meaning": "lời gợi ý, đề xuất",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Michael suggests sightseeing in London.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Michael đề xuất ngay đầu tiên: 'Well, they must spend a day in London seeing the famous places like Buckingham Palace and the Tower of London.' Việc đi thăm các địa danh nổi tiếng ở London chính là 'sightseeing in London'. Nhận định là ĐÚNG (True). Đáp án A.",
+              "vocabularyNotes": [
+                {
+                  "word": "sightseeing",
+                  "ipa": "/ˈsaɪtˌsiː.ɪŋ/",
+                  "meaning": "việc đi ngắm cảnh, tham quan danh lam thắng cảnh",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "open-top bus",
+                  "ipa": "/ˌəʊ.pənˈtɒp bʌs/",
+                  "meaning": "xe buýt hai tầng mui trần (dành cho khách du lịch)",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "The Sanchez children are teenagers.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Khi Michael hỏi tuổi của bọn trẻ ('How old are they?'), Jane trả lời: 'One's 12 and the other's nine.' Một bé 12 tuổi và một bé 9 tuổi, trong khi 'teenagers' là thanh thiếu niên từ 13 đến 19 tuổi. Do đó nhận định là SAI (False). Đáp án B.",
+              "vocabularyNotes": [
+                {
+                  "word": "teenager",
+                  "ipa": "/ˈtiːnˌeɪ.dʒər/",
+                  "meaning": "thanh thiếu niên (từ 13 đến 19 tuổi)",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Jane has been to the car museum.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Khi Michael gợi ý đi bảo tàng ô tô ở Beaulieu, Jane phản đối: 'Oh no, I found that car museum so boring.' Việc Jane từng thấy bảo tàng đó rất chán chứng tỏ cô ấy đã từng đến đó rồi. Nhận định là ĐÚNG (True). Đáp án A.",
+              "vocabularyNotes": [
+                {
+                  "word": "boring",
+                  "ipa": "/ˈbɔː.rɪŋ/",
+                  "meaning": "nhàm chán, tẻ nhạt",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Michael thinks everyone enjoys visiting museums.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Michael nói: 'Well, I think most people find museums boring, but it's what people do when they visit another country, isn't it?' Anh ấy nghĩ hầu hết mọi người đều thấy bảo tàng nhàm chán chứ không phải ai cũng thích. Nhận định là SAI (False). Đáp án B.",
+              "vocabularyNotes": [
+                {
+                  "word": "not necessarily",
+                  "ipa": "/nɒt ˌnes.əˈser.ɪ.li/",
+                  "meaning": "không hẳn vậy, không nhất thiết",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "t09-l-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Jane and Michael have bought tickets for the tennis competition.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Michael chỉ mới hỏi: 'Do you think we could still get tickets for the Open Tennis competition in Bournemouth?' và cuối cùng cả hai quyết định lập danh sách để mẹ gọi hỏi gia đình bà Sanchez trước khi đặt vé ('phone back if we need to book anything'). Họ chưa hề mua vé. Nhận định là SAI (False). Đáp án B.",
+              "vocabularyNotes": [
+                {
+                  "word": "talk something over",
+                  "ipa": "/tɔːk ˈsʌm.θɪŋ ˈəʊ.vər/",
+                  "meaning": "thảo luận, bàn bạc kỹ điều gì",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing (Viết)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "writing-task1",
+          "partNumber": 1,
+          "title": "Task 1: Annual Innovation Award Winner",
+          "instructions": "Write a paragraph of at least 80 words for your company newsletter introducing the winner of the 'Annual Innovation Award'. Use all the information in the box.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "t09-w-t1",
+              "taskNumber": 1,
+              "title": "Annual Innovation Award Winner — Le Minh Khoa",
+              "instructions": "Write at least 80 words introducing Le Minh Khoa for the company newsletter. Use all the given facts.",
+              "minWords": 80,
+              "dataCard": {
+                "Name & Position": "Le Minh Khoa — Senior Software Engineer (4 years at GreenTech)",
+                "Key Achievement": "Designed an automated customer support system that reduced waiting time by 40%",
+                "Working Style": "Creative, responsible, and always supportive of junior colleagues",
+                "Award Prize": "A 5-day training trip to Singapore and a cash bonus of $1,000"
+              },
+              "sampleAnswer": "We are delighted to announce that Le Minh Khoa, our Senior Software Engineer, has won this year's Annual Innovation Award after four years of dedicated service at GreenTech. Recently, Khoa designed a smart automated customer support system that successfully reduced client waiting time by forty percent and improved service quality. In the office, everyone respects Khoa because he is creative, responsible, and always willing to guide junior colleagues through technical challenges. As the winner of this prestigious award, he will receive a cash bonus of one thousand dollars and a five-day professional training trip to Singapore next month. We are very proud of his outstanding contribution to our company."
+            }
+          ]
+        },
+        {
+          "id": "writing-task2",
+          "partNumber": 2,
+          "title": "Task 2: Opinion Paragraph (Choice)",
+          "instructions": "Choose ONE of the two topics below and write a paragraph of at least 100 words. State your main points clearly and support them with reasons and examples.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "t09-w-t2",
+              "taskNumber": 2,
+              "title": "Choose Topic 2.1 or Topic 2.2",
+              "instructions": "Choose ONE topic and write a well-organized paragraph of at least 100 words.",
+              "minWords": 100,
+              "topicChoices": [
+                {
+                  "code": "2.1",
+                  "topic": "Write a paragraph about the benefits of working in a team at school or at work.",
+                  "guidelines": [
+                    "Sharing workload and solving difficult problems faster together",
+                    "Learning new ideas and communication skills from teammates",
+                    "Building strong workplace or classroom relationships and mutual support"
+                  ]
+                },
+                {
+                  "code": "2.2",
+                  "topic": "Write a paragraph about the advantages of doing regular outdoor exercise.",
+                  "guidelines": [
+                    "Improving physical health, heart strength, and sleep quality",
+                    "Breathing fresh air and reducing stress after work or school",
+                    "Meeting neighbours and making new friends in local parks"
+                  ]
+                }
+              ],
+              "sampleAnswer": "Working in a team at school or at work brings many valuable benefits to both individuals and organizations. First of all, teamwork allows members to share heavy workloads and solve complex problems much faster than working alone. When each person focuses on their strongest skill, the whole group can complete projects more efficiently. Secondly, collaborating with others is a great way to learn new ideas and improve communication skills. For example, during group discussions, students can listen to different viewpoints and learn how to explain their thoughts clearly. Finally, working together builds trust and friendly relationships among classmates or colleagues, creating a supportive environment where everyone feels motivated to succeed."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimitMinutes": 8,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "speaking-part1",
+          "partNumber": 1,
+          "title": "Part 1: Social Interaction (3 minutes)",
+          "instructions": "In this part, the examiner will ask you 5 questions about yourself and familiar everyday topics. Answer naturally in 2 to 3 sentences per question.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "t09-s-p1",
+              "partNumber": 1,
+              "title": "Social Interaction — Everyday Life & Interests",
+              "instructions": "Answer the following questions clearly and naturally.",
+              "durationMinutes": 3,
+              "questions": [
+                "Could you tell me about your family?",
+                "Do you like to take photographs? What kind of photos do you like to take?",
+                "What kinds of music are popular in Viet Nam?",
+                "Which subject do you think will be most useful to you after you leave university?",
+                "Are weekends important to you? What do you usually do on weekends?"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "speaking-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cue-Based Description (5 minutes)",
+          "instructions": "Choose ONE of the two given cards. You have 1 minute to prepare your ideas, 1.5 to 2 minutes to speak, and then answer two follow-up questions.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "t09-s-p2",
+              "partNumber": 2,
+              "title": "Cue Card Choice — Personal Experiences",
+              "instructions": "Select Card 1 or Card 2 and talk about all the points on the card.",
+              "durationMinutes": 5,
+              "cueCards": [
+                {
+                  "code": "Card 1",
+                  "title": "Describe a walk you take regularly.",
+                  "prompts": [
+                    "Where and when you walk",
+                    "Who you walk with",
+                    "What you see on this walk",
+                    "And explain why you enjoy this walk"
+                  ],
+                  "furtherQuestions": [
+                    "Do many people in Viet Nam go for walks?",
+                    "How do you think walking is beneficial to health?"
+                  ],
+                  "sampleResponse": "I would like to talk about a regular walk I take every evening around a peaceful lake near my house. I usually go walking at about 6:00 p.m. after finishing my classes. Most of the time, I walk with my best friend or my mother so we can chat about our day. Along the path around the lake, I can see rows of green trees, colourful flower beds, and many neighbours doing exercise. I really enjoy this daily walk because the fresh breeze helps me relax, clear my mind, and sleep much better at night."
+                },
+                {
+                  "code": "Card 2",
+                  "title": "Describe a town or city where you would like to live in the future.",
+                  "prompts": [
+                    "Where it is",
+                    "How you knew about it",
+                    "What it is famous for",
+                    "And explain why you would like to live there"
+                  ],
+                  "furtherQuestions": [
+                    "Why do more and more people live in big cities?",
+                    "How does urbanization affect the environment and nature?"
+                  ],
+                  "sampleResponse": "In the future, I would love to live in Da Nang, which is a beautiful coastal city in central Viet Nam. I first knew about this city three years ago when I went there on a summer holiday with my family. Da Nang is famous for its clean sandy beaches, the Golden Bridge, and delicious fresh seafood. I want to live there because the environment is very clean, traffic is rarely congested, and the local people are warm and friendly."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

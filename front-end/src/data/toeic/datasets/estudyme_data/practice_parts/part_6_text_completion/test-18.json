@@ -1,0 +1,330 @@
+{
+  "topicId": "615c198465d71f3a51f6742b",
+  "name": "Test 18",
+  "slug": "test-18",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "615d0d5e65d71f3a51f67623",
+      "questionText": "<br> ---1---. We will be adjusting the frequency that point accumulation statements are sent to our members. From January 1, statements will be mailed every six months instead of quarterly. ---2--- this change, members may continue to log in at www.eddingtons.com/members to find current details. You can ---3--- your accumulated points and see what rewards are available in exchange for them through your online account. Or you can call us during business hours at 555-4955, and we will give you a total. ---4---, you can drop by a service counter at any Eddington's Department Store, and one of our staff will inform you of your current total.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d5e65d71f3a51f67627",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) We no longer accept membership applications.",
+            "(B) Eddington's is set to introduce a change to its membership program.",
+            "(C) We apologize for the recent difficulties with our card payment system.",
+            "(D) Eddington's Department Store has a special promotion for point cards."
+          ],
+          "correctOptions": [
+            "(B) Eddington's is set to introduce a change to its membership program."
+          ],
+          "transcript": "<p>Based on the previous sentence \" From January 1, statements will be mailed every six months instead of quarterly..\"</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o c&acirc;u sau chỗ trống &quot;We will be adjusting the frequency that point accumulation statements are sent to our members.&quot; (Ch&uacute;ng t&ocirc;i sẽ điều chỉnh tần suất gửi b&aacute;o c&aacute;o t&iacute;ch lũy điểm cho c&aacute;c th&agrave;nh vi&ecirc;n của m&igrave;nh.)</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B&nbsp;</strong></p>\n\n<p>&quot;a change&quot; (một sự thay đổi) = adjusting the frequency that point accumulation statements are sent to our members. (điều chỉnh tần suất gửi b&aacute;o c&aacute;o t&iacute;ch lũy điểm cho c&aacute;c th&agrave;nh vi&ecirc;n của m&igrave;nh.)</p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f67628",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Apart from",
+            "(B) In case of",
+            "(C) Regardless of",
+            "(D) On behalf of"
+          ],
+          "correctOptions": [
+            "(C) Regardless of"
+          ],
+          "transcript": "<p>Regardless of + Noun</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Apart from: Ngo&agrave;i, ngo&agrave;i ra</p>\n\n<p>In case of: Trong trường hợp</p>\n\n<p>Regardless of: Bất chấp, bất kể</p>\n\n<p>On behalf of: Thay mặt cho</p>\n\n<p><strong>=&gt; C c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f67629",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) submit",
+            "(B) monitor",
+            "(C) mediate",
+            "(D) convey"
+          ],
+          "correctOptions": [
+            "(B) monitor"
+          ],
+          "transcript": "<p>submit:&nbsp;to give a document, proposal, etc. to somebody in authority so that they can study or consider it</p>\n\n<p>monitor:&nbsp;to watch and check something over a period of time in order to see how it develops, so that you can make any necessary changes</p>\n\n<p>mediate:&nbsp;to talk to two separate people or groups involved in a disagreement to try to help them to agree or find a solution to their problems</p>\n\n<p>convey:&nbsp;to make ideas, feelings, etc. known to somebody</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>submit: nộp</p>\n\n<p>monitor: kiểm tra</p>\n\n<p>mediate: l&agrave;m trung gian</p>\n\n<p>convey: truyền đạt</p>\n\n<p><strong>=&gt; B c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f6762a",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Consequently",
+            "(B) Nevertheless",
+            "(C) Moreover",
+            "(D) Occasionally"
+          ],
+          "correctOptions": [
+            "(C) Moreover"
+          ],
+          "transcript": "<p>\"Moreover\" used to add ideas to the previous sentence</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Consequently:&nbsp;&nbsp;Do đ&oacute;</p>\n\n<p>Nevertheless: Tuy nhi&ecirc;n</p>\n\n<p>Moreover: Hơn nữa</p>\n\n<p>Occasionally: Thỉnh thoảng</p>\n\n<p><strong>=&gt; C c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "615d0d5e65d71f3a51f67624",
+      "questionText": "<p><br>\nClaire Staley<br>\n874 Country Lane<br>\nStillwater, OK 74074<br>\nDear Ms. Staley,<br>\nBest Link Telecom recently upgraded its network and is offering high-speed Internet in your area. We began delivering service ---5--- July 17.<br>\nBest Link ---6--- fast and reliable service for the lowest cost. We promise to match the price of any competitor charging less than us.<br>\nAs our customer, you may use our online storage services for free. Whether you're downloading videos and photos or sharing your work, you'll be able to get it done in less time than ever ---7---.<br>\nAnd those already using our telephone service can get a discount of 20 percent by upgrading to a high-speed Internet package. The reduced rates will be reflected in your ---8--- for the following month.<br>\nPlease call 555-1573 during regular business hours to arrange an installation appointment.<br>\nYours truly,<br>\nGeorge Hyde<br>\nBest Link Telecom Sales</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d5e65d71f3a51f6762b",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) to",
+            "(B) within",
+            "(C) on",
+            "(D) off"
+          ],
+          "correctOptions": [
+            "(C) on"
+          ],
+          "transcript": "<p>Day and month are often used with the preposition \"on\".</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Ta d&ugrave;ng giới từ &quot;on&quot; cho ng&agrave;y th&aacute;ng (July 17)</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f6762c",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) improves",
+            "(B) guarantees",
+            "(C) demands",
+            "(D) receives"
+          ],
+          "correctOptions": [
+            "(B) guarantees"
+          ],
+          "transcript": "<p>improve:&nbsp;to become better than before</p>\n\n<p>guarantee:&nbsp;to promise to do something; to promise something will happen</p>\n\n<p>demand:&nbsp;to make a very strong request for something</p>\n\n<p>receive:&nbsp;to get or accept something that is sent or given to you</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>improve: cải thiện</p>\n\n<p>guarantee: đảm bảo</p>\n\n<p>demand: đ&ograve;i hỏi, y&ecirc;u cầu</p>\n\n<p>receive: nhận</p>\n\n<p><strong>=&gt; B c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f6762d",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) This service is no longer available in your area.",
+            "(B) Your bill will vary based on how many files you store.",
+            "(C) This will cause the cost of computers to be cut.",
+            "(D) Our high-speed Internet service can handle it all."
+          ],
+          "correctOptions": [
+            "(D) Our high-speed Internet service can handle it all."
+          ],
+          "transcript": "<p>Based on the previous sentence \"Whether you're downloading videos and photos or sharing your work, you'll be able to get it done in less time than ever\"</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o c&acirc;u trước chỗ trống &quot;Whether you&#39;re downloading videos and photos or sharing your work, you&#39;ll be able to get it done in less time than ever.&quot; (Cho d&ugrave; bạn đang tải xuống video v&agrave; ảnh hay chia sẻ c&ocirc;ng việc của m&igrave;nh, bạn sẽ c&oacute; thể ho&agrave;n th&agrave;nh c&ocirc;ng việc đ&oacute; trong thời gian ngắn hơn bao giờ hết.)</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n\n<p>Đ&aacute;p &aacute;n (D) &quot;Dịch vụ Internet tốc độ cao của ch&uacute;ng t&ocirc;i c&oacute; thể xử l&yacute; mọi thứ&quot; phản &aacute;nh rằng dịch vụ Internet tốc độ cao của c&ocirc;ng ty c&oacute; thể đ&aacute;p ứng mọi nhu cầu của kh&aacute;ch h&agrave;ng khi sử dụng dịch vụ lưu trữ trực tuyến miễn ph&iacute; của họ.</p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f6762e",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) password",
+            "(B) statement",
+            "(C) demonstration",
+            "(D) repair"
+          ],
+          "correctOptions": [
+            "(B) statement"
+          ],
+          "transcript": "<p>password:&nbsp;a series of letters, numbers, etc. that you must type into a computer or computer system in order to be able to use it</p>\n\n<p>statement:&nbsp;something that you say or write that gives information or an opinion</p>\n\n<p>demonstration:&nbsp;the act of showing someone how to do something, or how something works</p>\n\n<p>repair:&nbsp;an act of repairing something</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>password: mật khẩu</p>\n\n<p>statement: h&oacute;a đơn, bi&ecirc;n lai</p>\n\n<p>demonstration: sự chứng minh</p>\n\n<p>repair: sửa chữa</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "615d0d5e65d71f3a51f67625",
+      "questionText": "<p><br>\n<strong>City Officials Close to Selecting Developers for Downtown Building</strong><br>\nMarinville officials have shortlisted developers they are considering to redo the Halpern building. There are now only three ---9--- remaining from an initial 25.<br>\nAs stipulated when the project first started, the firms left in the running must now add more detail to the plans they submitted at the beginning of the year. In their ---10--- presentations, they should demonstrate that they can meet all of the board's remodeling requirements. ---11---. \"If all goes well,\" says Brian Schmidt, director of the Marinville Downtown Authority, \"We'll select the most ---12--- candidate, draw up an agreement, and get started before the year is out.\"</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d5e65d71f3a51f6762f",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) obstacles",
+            "(B) agencies",
+            "(C) locations",
+            "(D) questionnaires"
+          ],
+          "correctOptions": [
+            "(B) agencies"
+          ],
+          "transcript": "<p>obstacle:&nbsp;a situation, an event, etc. that makes it difficult for you to do or achieve something</p>\n\n<p>agency:&nbsp;a business or an organization that provides a particular service especially when representing other businesses or organizations</p>\n\n<p>location:&nbsp;a place where something happens or exists; the position of something</p>\n\n<p>questionnaire:&nbsp;a written list of questions that are answered by a number of people so that information can be collected from the answers</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>obstacle: trở ngại</p>\n\n<p>agency: cơ quan, chi nh&aacute;nh</p>\n\n<p>location: địa điểm&nbsp;</p>\n\n<p>questionnaire: bảng c&acirc;u hỏi&nbsp;</p>\n\n<p><strong>=&gt; B c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f67630",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) preceding",
+            "(B) general",
+            "(C) forthcoming",
+            "(D) incomplete"
+          ],
+          "correctOptions": [
+            "(C) forthcoming"
+          ],
+          "transcript": "<p>preceding:&nbsp;happening before something; coming before something/somebody in order</p>\n\n<p>general:&nbsp;involving or relating to most or all people, things, or places, especially when these are considered as a unit</p>\n\n<p>forthcoming:&nbsp;going to happen, be published, etc. very soon</p>\n\n<p>incomplete:&nbsp;not having everything that it should have; not finished or complete</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>preceding: trước</p>\n\n<p>general: chung chung</p>\n\n<p>forthcoming: sắp tới</p>\n\n<p>incomplete: kh&ocirc;ng đầy đủ</p>\n\n<p><strong>=&gt; C c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f67631",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The candidates all came up with compelling final proposals.",
+            "(B) They hoped to develop a construction plan at that time.",
+            "(C) The deadline was extended to allow for additional projects.",
+            "(D) A complete budget and detailed blueprints must also be included in the proposal."
+          ],
+          "correctOptions": [
+            "(D) A complete budget and detailed blueprints must also be included in the proposal."
+          ],
+          "transcript": "<p>Based on the previous sentence</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o nghĩa c&acirc;u trước <strong>=&gt; Chọn D</strong></p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f67632",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) impression",
+            "(B) impressionable",
+            "(C) impressed",
+            "(D) impressive"
+          ],
+          "correctOptions": [
+            "(D) impressive"
+          ],
+          "transcript": "<p>the most + adj + N (candidate)</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Cấu tr&uacute;c: the most + t&iacute;nh từ d&agrave;i</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n\n<p>&nbsp;</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "615d0d5e65d71f3a51f67626",
+      "questionText": "<p><br>\nTo: Anthony Lilly [AnthonyLilly@ hotline.com]<br>\nFrom: Customer Service [CS@ComprehensiveAutolns.com]<br>\nDate: November 14<br>\nSubject: Name Change<br>\nOur records show that you ---13--- an automobile policy with us. We pride ourselves on keeping customers up-to-date on company business, so we are writing to ----14-- you that we are changing the name of our company from Comprehensive Auto Insurance to Complete Auto and Life Insurance.<br>\nAll of our communications will be labeled with the new name beginning next month. You'll find our new name on bills, e-mails, letters, claim forms, and on our Web site. ---15---.<br>\nAt this time, you may also want to take the opportunity to renew your life insurance ---16--- an appointment, please reply to this e-mail, and you will be contacted by a representative.<br>\nBest Regards,<br>\nCustomer Service<br>\nComprehensive Auto Insurance.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d5e65d71f3a51f67633",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) had held",
+            "(B) will hold",
+            "(C) hold",
+            "(D) were holding"
+          ],
+          "correctOptions": [
+            "(C) hold"
+          ],
+          "transcript": "<p>Use simple past tense</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>C&acirc;u n&oacute;i về h&agrave;nh động đ&atilde; xảy ra trong qu&aacute; khứ</p>\n\n<p>=&gt; D&ugrave;ng th&igrave; qu&aacute; khứ đơn&nbsp;</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f67634",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) invite",
+            "(B) extend",
+            "(C) offer",
+            "(D) inform"
+          ],
+          "correctOptions": [
+            "(D) inform"
+          ],
+          "transcript": "<p>invite:&nbsp;to ask somebody to come to a social event</p>\n\n<p>extend:&nbsp;&nbsp;to make something longer or larger</p>\n\n<p>offer:&nbsp;to say that you are willing to give something to somebody</p>\n\n<p>inform:&nbsp;to tell somebody about something, especially in an official way</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>invite: mời</p>\n\n<p>extend: mở rộng</p>\n\n<p>offer: đề nghị</p>\n\n<p>inform: th&ocirc;ng b&aacute;o&nbsp;</p>\n\n<p><strong>=&gt; D c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f67635",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They have been sent to the name provided on the form.",
+            "(B) We will mail them to your residence on a monthly basis.",
+            "(C) They must be submitted in person to one of our staff.",
+            "(D) We will modify our name on our policy documents as well."
+          ],
+          "correctOptions": [
+            "(D) We will modify our name on our policy documents as well."
+          ],
+          "transcript": "<p>Based on the previous sentence \" You'll find our new name on bills, e-mails, letters, claim forms, and on our web site.\"</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>Dựa v&agrave;o c&acirc;u trước chỗ trống &quot;You&#39;ll find our new name on bills, e-mails, letters, claim forms, and on our Web site.&quot; (Bạn sẽ t&igrave;m thấy t&ecirc;n mới của ch&uacute;ng t&ocirc;i tr&ecirc;n h&oacute;a đơn, e-mail, thư từ, mẫu y&ecirc;u cầu bồi thường v&agrave; tr&ecirc;n trang web của ch&uacute;ng t&ocirc;i.)</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n (D)</strong> Ch&uacute;ng t&ocirc;i cũng sẽ sửa đổi t&ecirc;n của m&igrave;nh tr&ecirc;n c&aacute;c t&agrave;i liệu ch&iacute;nh s&aacute;ch của m&igrave;nh.</p>\n\n<p>=&gt; Những c&acirc;u n&agrave;y đang n&oacute;i về việc thay đổi t&ecirc;n mới của c&ocirc;ng ty.</p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "615d0d5e65d71f3a51f67636",
+          "questionText": "",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Makes",
+            "(B) Making",
+            "(C) To make",
+            "(D) Having made"
+          ],
+          "correctOptions": [
+            "(C) To make"
+          ],
+          "transcript": "<p>Structure: to + V</p>\n\n<p>By phare \"to make an appointment\"</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Cấu tr&uacute;c: to + V =&gt; chỉ mục đ&iacute;ch (để l&agrave;m g&igrave;)</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n\n<p>to make an appointment: để đặt một cuộc hẹn</p>\n"
+        }
+      ]
+    }
+  ]
+}

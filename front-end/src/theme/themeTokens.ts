@@ -1,4 +1,4 @@
-import type { ThemeConfig } from 'antd';
+import type { ThemeConfig } from '@/components/ui/Primitives';
 
 /**
  * Shared foundational brand design tokens for LingoPro.

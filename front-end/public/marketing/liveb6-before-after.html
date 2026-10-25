@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LIVEB6 — Trước / Sau</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg0: #0b1220;
+      --bg1: #121a2b;
+      --card: #162033;
+      --muted: #94a3b8;
+      --text: #f8fafc;
+      --before: #64748b;
+      --before-bg: #1e293b;
+      --after: #22c55e;
+      --after-soft: rgba(34, 197, 94, 0.12);
+      --accent: #38bdf8;
+      --warn: #fbbf24;
+      --line: rgba(148, 163, 184, 0.18);
+      --strike: #f87171;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 1080px;
+      height: 1350px;
+      font-family: "Be Vietnam Pro", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(56, 189, 248, 0.22), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 80%, rgba(34, 197, 94, 0.12), transparent 50%),
+        linear-gradient(165deg, var(--bg0), var(--bg1) 55%, #0f172a);
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .frame {
+      height: 100%;
+      padding: 48px 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.35);
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-name span { color: var(--accent); }
+
+    .badge-live {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      background: linear-gradient(90deg, #fbbf24, #f59e0b);
+      padding: 8px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #4ade80, #38bdf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .sub {
+      font-size: 22px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+
+    .code-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #7dd3fc;
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 0.08em;
+      padding: 10px 18px;
+      border-radius: 14px;
+    }
+
+    .code-pill small {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      flex: 0 0 auto;
+      position: relative;
+    }
+
+    .col {
+      border-radius: 28px;
+      padding: 26px 22px 22px;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .col.before {
+      background: linear-gradient(180deg, #1a2336, var(--before-bg));
+    }
+
+    .col.after {
+      background: linear-gradient(180deg, #13281f, #0f1f18 40%, #12241c);
+      border-color: rgba(34, 197, 94, 0.35);
+      box-shadow:
+        0 0 0 1px rgba(34, 197, 94, 0.12),
+        0 24px 60px rgba(34, 197, 94, 0.12);
+    }
+
+    .col-label {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 8px;
+    }
+
+    .before .col-label { color: #94a3b8; }
+    .after .col-label { color: #4ade80; }
+
+    .col-title {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .after .col-title { color: #bbf7d0; }
+
+    .rows {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px 16px;
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.45);
+      border: 1px solid transparent;
+    }
+
+    .after .row {
+      background: rgba(0, 0, 0, 0.22);
+    }
+
+    .row.hot {
+      border-color: rgba(74, 222, 128, 0.55);
+      background: linear-gradient(90deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.06));
+      box-shadow: inset 0 0 0 1px rgba(74, 222, 128, 0.15);
+    }
+
+    .period {
+      font-size: 18px;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .row.hot .period {
+      color: #fff;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #052e16;
+      background: #4ade80;
+      padding: 3px 8px;
+      border-radius: 6px;
+      vertical-align: middle;
+      letter-spacing: 0.02em;
+    }
+
+    .price {
+      font-size: 28px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .before .price {
+      color: #cbd5e1;
+      text-decoration: line-through;
+      text-decoration-color: rgba(248, 113, 113, 0.85);
+      text-decoration-thickness: 3px;
+    }
+
+    .after .price {
+      color: #4ade80;
+    }
+
+    .row.hot .price {
+      font-size: 32px;
+      color: #86efac;
+    }
+
+    .arrow-wrap {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 800;
+      color: #0f172a;
+      box-shadow: 0 12px 32px rgba(56, 189, 248, 0.4);
+      border: 4px solid #0b1220;
+      pointer-events: none;
+    }
+
+    .foot {
+      margin-top: 28px;
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .save-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+      border-radius: 18px;
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+    }
+
+    .save-bar strong {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--warn);
+    }
+
+    .save-bar span {
+      font-size: 18px;
+      color: #fde68a;
+      font-weight: 600;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 14px;
+      text-align: center;
+    }
+
+    .step b {
+      display: block;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .step p {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .deadline {
+      text-align: center;
+      font-size: 17px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .deadline mark {
+      background: transparent;
+      color: #fbbf24;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="brand">
+      <div class="brand-left">
+        <div class="logo-dot"></div>
+        <div class="brand-name">Lingo<span>Pro</span></div>
+      </div>
+      <div class="badge-live">🎁 Quà buổi 6 · 2 ngày</div>
+    </div>
+
+    <h1>Trước &amp; sau khi dùng mã <em>LIVEB6</em></h1>
+    <p class="sub">
+      Pro cá nhân = giá nhóm 3 người · Chỉ gói Pro
+      <span class="code-pill"><small>Mã</small> LIVEB6</span>
+    </p>
+
+    <div class="cols" style="position: relative;">
+      <div class="arrow-wrap">→</div>
+
+      <div class="col before">
+        <div class="col-label">Trước</div>
+        <div class="col-title">Giá thường</div>
+        <div class="rows">
+          <div class="row">
+            <div class="period">1 tháng</div>
+            <div class="price">79.000đ</div>
+          </div>
+          <div class="row">
+            <div class="period">3 tháng</div>
+            <div class="price">213.000đ</div>
+          </div>
+          <div class="row">
+            <div class="period">6 tháng</div>
+            <div class="price">379.000đ</div>
+          </div>
+          <div class="row">
+            <div class="period">1 năm</div>
+            <div class="price">599.000đ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col after">
+        <div class="col-label">Sau mã LIVEB6</div>
+        <div class="col-title">−38% · giá nhóm 3</div>
+        <div class="rows">
+          <div class="row">
+            <div class="period">1 tháng</div>
+            <div class="price">49.000đ</div>
+          </div>
+          <div class="row hot">
+            <div class="period">3 tháng <span class="tag">NÊN CHỌN</span></div>
+            <div class="price">132.000đ</div>
+          </div>
+          <div class="row">
+            <div class="period">6 tháng</div>
+            <div class="price">235.000đ</div>
+          </div>
+          <div class="row">
+            <div class="period">1 năm</div>
+            <div class="price">372.000đ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="save-bar">
+        <strong>Chốt nhanh: 3 tháng</strong>
+        <span>213k → 132k · tiết kiệm ~81k</span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <b>Bước 1</b>
+          <p>Nâng cấp Pro</p>
+        </div>
+        <div class="step">
+          <b>Bước 2</b>
+          <p>Chọn kỳ hạn</p>
+        </div>
+        <div class="step">
+          <b>Bước 3</b>
+          <p>Nhập LIVEB6</p>
+        </div>
+      </div>
+      <p class="deadline">Hết hạn: <mark>21:13 · 27/7/2026</mark> · Không áp gói nhóm app</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,623 @@
+{
+  "topicId": "6316cf075948b5402da84a1e",
+  "name": "Test 13",
+  "slug": "test-13",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "63171f005948b5402da84a97",
+      "questionText": "<p>TO: customerservice@perseusmart.com<br>\nFROM: amcclain@personalmail.com<br>\nSUBJECT: Freeport Store<br>\nDATE: July 11</p>\n\n<p>To Whom It May Concern,<br>\nMy name is Alice McClain. Yesterday, my husband and I visited the Perseus Mart in Freeport, where we had an unpleasant experience involving an employee there. We were shopping for a humidifier and requested assistance from Tim Nelson. We just moved from an area which is not dry during the winter months, so we had a number of questions about the basic functions of the machine and how to operate it. Not only was Tim unable to answer our questions, but he contradicted himself with some responses. When my husband pointed this out, Tim become rude and insinuated that we, not him, were at fault for not knowing about the product. We immediately left the store and went across the street to Electromart, where we were treated pleasantly and our questions were answered. We had expected to become loyal customers of Perseus Mart like we were in Albany, but it appears that won’t be the case.<br>\nRegards,<br>\nAlice McClain.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84aa1",
+          "questionText": "Why did Ms. McClain write the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To complain about some service she received",
+            "(B) To inquire about a product sold at Perseus Mart",
+            "(C) To get the location of the Freeport Perseus Mart",
+            "(D) To praise an employee for the way he acted"
+          ],
+          "correctOptions": [
+            "(A) To complain about some service she received"
+          ],
+          "transcript": "<p>Information is in <em>\"Yesterday, my husband and I visited the Perseus Mart in Freeport, where we had an <strong>unpleasant experience</strong> involving an employee there.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tại sao c&ocirc; McClain lại viết e-mail?<br />\n(A) Để ph&agrave;n n&agrave;n về một số dịch vụ m&agrave; c&ocirc; ấy nhận được<br />\n(B) Để hỏi về sản phẩm được b&aacute;n tại Perseus Mart<br />\n(C) Để c&oacute; được vị tr&iacute; của Freeport Perseus Mart<br />\n(D) Để khen ngợi một nh&acirc;n vi&ecirc;n về c&aacute;ch anh ta h&agrave;nh động</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: <em>&quot;H&ocirc;m qua, chồng t&ocirc;i v&agrave; t&ocirc;i đến thăm Perseus Mart ở Freeport, nơi ch&uacute;ng t&ocirc;i đ&atilde; c&oacute; <strong>trải nghiệm kh&oacute; chịu</strong> li&ecirc;n quan đến một nh&acirc;n vi&ecirc;n ở đ&oacute;.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84aa2",
+          "questionText": "<p>What is indicated in the e-mail?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Ms. McClain intends to visit Perseus Mart again.",
+            "(B) Electromart has lower prices than Perseus Mart.",
+            "(C) Ms. McClain moved to Freeport from Albany.",
+            "(D) Tim Nelson is the manager at Perseus Mart."
+          ],
+          "correctOptions": [
+            "(C) Ms. McClain moved to Freeport from Albany."
+          ],
+          "transcript": "<p>Information is inferred from <em>\"Yesterday, my husband and I visited the Perseus Mart in <strong>Freeport</strong>\", \"We just moved from an area which is not dry during the winter months\", \"We had expected to become<strong> loyal customers of Perseus Mart like we were in Albany</strong>\"&nbsp;&nbsp;</em>=&gt; Choose C&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những g&igrave; được chỉ định trong e-mail?<br />\n(A) C&ocirc; McClain c&oacute; &yacute; định gh&eacute; thăm Perseus Mart lần nữa.<br />\n(B) Electromart c&oacute; gi&aacute; thấp hơn Perseus Mart.<br />\n(C) C&ocirc; McClain chuyển đến Freeport từ Albany.<br />\n(D) Tim Nelson l&agrave; người quản l&yacute; tại Perseus Mart.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin được suy luận từ: <em>&quot;H&ocirc;m qua, t&ocirc;i v&agrave; chồng đến thăm Perseus Mart ở <strong>Freeport</strong>&quot;, &quot;Ch&uacute;ng t&ocirc;i mới chuyển đến từ một khu vực kh&ocirc;ng kh&ocirc; r&aacute;o trong những th&aacute;ng m&ugrave;a đ&ocirc;ng&quot;, &quot;Ch&uacute;ng t&ocirc;i đ&atilde; mong đợi trở th&agrave;nh <strong>kh&aacute;ch h&agrave;ng trung th&agrave;nh của</strong> <strong>Perseus Mar</strong>t <strong>cứ như ch&uacute;ng ta đang ở Albany </strong>vậy&quot;</em><br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "63171f005948b5402da84a98",
+      "questionText": "<p style=\"text-align: center;\"><strong>Harvey’s Home Appliances Is Having a Sale!</strong></p>\n\n<p>This Saturday, September 24, Harvey’s Home Appliances is going to be opening our doors for the first time. We are located on the second floor of the Grandview Shopping Mall next to the Wellman Theater. Visit us to check out the latest in-home appliances, including refrigerators, microwaves, ovens, dishwashers, toasters, and coffeemakers. To celebrate our grand opening, the first 20 customers who make a purchase of $150 or more will get a 30% discount. On top of that, we will be holding a drawing for a brand-new Jenkins refrigerator at 6:30 P.M. All customers who make a purchase will be automatically entered. We’ll open at 9:00 A.M. and close at 7:30 P.M. Be sure not to miss this special event.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84aa3",
+          "questionText": "What is the purpose of the sale?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The store is going out of business.",
+            "(B) An anniversary is being celebrated.",
+            "(C) Last year’s items need to be sold.",
+            "(D) The store is having its grand opening."
+          ],
+          "correctOptions": [
+            "(D) The store is having its grand opening."
+          ],
+          "transcript": "<p>Information is in <em>\"To <strong>celebrate our grand opening</strong>, the first 20 customers who make a purchase of $150 or more will get a 30% discount.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Mục đ&iacute;ch của việc b&aacute;n h&agrave;ng l&agrave; g&igrave;?<br />\n(A) Cửa h&agrave;ng sắp ngừng kinh doanh.<br />\n(B) Một ng&agrave;y kỷ niệm đang được tổ chức.<br />\n(C) C&aacute;c mặt h&agrave;ng của năm ngo&aacute;i cần được b&aacute;n.<br />\n(D) Cửa h&agrave;ng sắp khai trương.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin ở c&acirc;u: &quot;<em>Để <strong>ch&agrave;o mừng sự khai trương của ch&uacute;ng t&ocirc;i</strong>, 20 kh&aacute;ch h&agrave;ng đầu ti&ecirc;n mua h&agrave;ng từ 150 USD trở l&ecirc;n sẽ được giảm gi&aacute; 30%.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84aa4",
+          "questionText": "<p>What will all customers who make a purchase on September 24 receive?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A discount",
+            "(B) A chance to win a prize",
+            "(C) A gift certificate",
+            "(D) A coupon"
+          ],
+          "correctOptions": [
+            "(B) A chance to win a prize"
+          ],
+          "transcript": "<p>Information is in <em>\"On top of that, we will be <strong>holding a drawing for a brand-new Jenkins refrigerator</strong> at 6:30 P.M.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tất cả kh&aacute;ch h&agrave;ng mua h&agrave;ng v&agrave;o ng&agrave;y 24 th&aacute;ng 9 sẽ nhận được g&igrave;?<br />\n(A) Giảm gi&aacute;<br />\n(B) Cơ hội gi&agrave;nh được giải thưởng<br />\n(C) Một phiếu qu&agrave; tặng<br />\n(D) Một phiếu giảm gi&aacute;</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin ở c&acirc;u: &quot;<em>Hơn hết, ch&uacute;ng t&ocirc;i sẽ<strong> tổ chức buổi vẽ về chiếc tủ lạnh Jenkins ho&agrave;n to&agrave;n mới</strong> v&agrave;o l&uacute;c 6:30 tối.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "63171f005948b5402da84a99",
+      "questionText": "<p><strong>Davis, Erica&nbsp; </strong>&nbsp; &nbsp; &nbsp; &nbsp;9:45 A.M.</p>\n\n<p>Alicia, I've got a huge favor to ask of you.</p>\n\n<p><strong>Chin, Alicia&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;9:46 A.M.</p>\n\n<p>What do you need?</p>\n\n<p><strong>Davis, Erica</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;9:48 A.M.</p>\n\n<p>I'm on my way to meet Mr. Swanson at Hammer Engineering. But I totally forgot to bring the report that's sitting on my desk.</p>\n\n<p><strong>Chin, Alicia&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;9:49 A.M.</p>\n\n<p>You don't need me to deliver it, do you? I'm busy writing a report at the office.</p>\n\n<p><strong>Davis, Erica&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; 9:51 A.M.</p>\n\n<p>No, but would you mind scanning the first four pages and e-mailing them to me? I can drop by a copy center before I go to the meeting.</p>\n\n<p><strong>Chin, Alicia&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 9:53 A.M.</p>\n\n<p>That won't be a problem. By when do you need it? Can you wait for me to finish something that Mr. Chatterley wants done?</p>\n\n<p><strong>Davis, Erica&nbsp;</strong> &nbsp; &nbsp; &nbsp; &nbsp; 9:54 A.M.</p>\n\n<p>The sooner, the better. My meeting starts at 10:30.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84aa5",
+          "questionText": "At 9:49 A.M., why does Ms. Chin write, “You don’t need me to deliver it, do you?”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To indicate she does not have time to visit Ms. Davis",
+            "(B) To turn down a request to deliver some items",
+            "(C) To point out that delivering items is not in her job description",
+            "(D) To ask Ms. Davis where she should meet with her"
+          ],
+          "correctOptions": [
+            "(A) To indicate she does not have time to visit Ms. Davis"
+          ],
+          "transcript": "<p>Based on the sentence<em> \"I'm busy writing a report at the office\"</em>&nbsp;=&gt; Choose A&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>9h49 s&aacute;ng, sao c&ocirc; Ch&iacute;n lại viết: &ldquo;Kh&ocirc;ng cần t&ocirc;i giao h&agrave;ng phải kh&ocirc;ng?&rdquo;?<br />\n(A) Để cho biết c&ocirc; ấy kh&ocirc;ng c&oacute; thời gian đến thăm c&ocirc; Davis<br />\n(B) Để từ chối y&ecirc;u cầu giao một số mặt h&agrave;ng<br />\n(C) Để chỉ ra rằng việc giao h&agrave;ng kh&ocirc;ng c&oacute; trong m&ocirc; tả c&ocirc;ng việc của c&ocirc; ấy<br />\n(D) Để hỏi c&ocirc; Davis nơi c&ocirc; ấy n&ecirc;n gặp c&ocirc; ấy</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o th&ocirc;ng tin ở c&acirc;u:<em> &quot;T&ocirc;i đang bận viết b&aacute;o c&aacute;o ở văn ph&ograve;ng&quot;</em><br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84aa6",
+          "questionText": "<p>What will Ms. Chin probably do next?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Check her e-mail",
+            "(B) Visit Mr. Chatterley",
+            "(C) Scan a document",
+            "(D) Attend a meeting"
+          ],
+          "correctOptions": [
+            "(C) Scan a document"
+          ],
+          "transcript": "<p>Information is in <em>\"but would you mind <strong>scanning the first four pages </strong>and e-mailing them to me?\", \"That won't be a problem\"&nbsp;</em>=&gt; Choose C&nbsp;</p>\n",
+          "explanationVi": "<p>Tạm dịch:</p>\n\n<p>C&oacute; lẽ c&ocirc; Chin sẽ l&agrave;m g&igrave; tiếp theo?<br />\n(A) Kiểm tra e-mail của c&ocirc; ấy<br />\n(B) Đến thăm &ocirc;ng Chatterley<br />\n(C) Qu&eacute;t t&agrave;i liệu<br />\n(D) Tham dự một cuộc họp</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin ở đ&oacute;: &quot;<em>nhưng bạn c&oacute; phiền khi <strong>qu&eacute;t bốn trang đầu ti&ecirc;n </strong>v&agrave; gửi ch&uacute;ng qua email cho t&ocirc;i kh&ocirc;ng?&quot;, &quot;Điều đ&oacute; kh&ocirc;ng th&agrave;nh vấn đề&quot;</em><br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "63171f005948b5402da84a9a",
+      "questionText": "<p style=\"text-align: center;\"><strong>City Gas to Conduct Inspections</strong></p>\n\n<p>There will be routine inspections of the gas meters of some Greenwood residents on July 10 and 11 between the hours of 7 A.M. and 9 P.M. —[1]—The inspections, which take place biannually, will be conducted at homes located between Elm Avenue and Pike Road and which are east of 12th Street and west of 28th Street. —[2]— Residents of homes being inspected should cooperate by creating a clear and safe path from the sidewalk to the gas meter, which is affixed on the side of the home. All obstacles should be removed, dogs and other animals should be chained, and fences should be kept unlocked or opened. —[3]— City Gas officials will arrive without notice. According to city regulations, gas company employees are allowed to walk onto private property for the purpose of inspections. —[4]— However, they may not enter a residence at any time. Call 849-1042 for more information.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84aa7",
+          "questionText": "How often do the inspections probably occur?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Every month",
+            "(B) Every four months",
+            "(C) Every six months",
+            "(D) Every year"
+          ],
+          "correctOptions": [
+            "(C) Every six months"
+          ],
+          "transcript": "<p>Information is in<em> \"The inspections, which take place <strong>biannually</strong>\".</em> Biannually means \"happening twice a year\" (= every six months)&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tần suất c&aacute;c cuộc kiểm tra c&oacute; thể diễn ra như thế n&agrave;o?<br />\n(A) H&agrave;ng th&aacute;ng<br />\n(B) Bốn th&aacute;ng một lần<br />\n(C) S&aacute;u th&aacute;ng một lần<br />\n(D) H&agrave;ng năm</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u:<em> &quot;Việc kiểm tra diễn ra <strong>s&aacute;u th&aacute;ng một lần</strong>&quot;. S&aacute;u th&aacute;ng một lần c&oacute; nghĩa l&agrave; &quot;xảy ra hai lần một năm&quot; (= s&aacute;u th&aacute;ng một lần)</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84aa8",
+          "questionText": "What are residents asked to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Report any problems with their meters to City Gas",
+            "(B) Make it easy for officials to inspect their meters",
+            "(C) Record their gas usage beneath their gas meters",
+            "(D) Put up signs indicating they have pets in their yards"
+          ],
+          "correctOptions": [
+            "(B) Make it easy for officials to inspect their meters"
+          ],
+          "transcript": "<p>Information is in <em>\"Residents of homes being inspected should cooperate by creating a clear and safe path from the sidewalk to the gas meter, which is affixed on the side of the home.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Người d&acirc;n được y&ecirc;u cầu l&agrave;m g&igrave;?<br />\n(A) B&aacute;o c&aacute;o mọi vấn đề về đồng hồ đo của họ cho City Gas<br />\n(B) Tạo điều kiện thuận lợi cho quan chức kiểm tra đồng hồ đo của họ<br />\n(C) Ghi lại mức sử dụng gas của họ b&ecirc;n dưới đồng hồ đo gas<br />\n(D) Đặt c&aacute;c biển b&aacute;o cho biết họ c&oacute; nu&ocirc;i th&uacute; cưng trong s&acirc;n</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;<em>Cư d&acirc;n trong những ng&ocirc;i nh&agrave; được kiểm tra n&ecirc;n hợp t&aacute;c bằng c&aacute;ch tạo ra một lối đi th&ocirc;ng tho&aacute;ng v&agrave; an to&agrave;n từ vỉa h&egrave; đến đồng hồ xăng được d&aacute;n ở b&ecirc;n h&ocirc;ng nh&agrave;.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84aa9",
+          "questionText": "<p>In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?<br>“Residents who fail to comply and therefore prevent City Gas officials from doing their work will be fined.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(C) [3]"
+          ],
+          "transcript": "<p>C is correct because it can connect with the sentences <em>\"Residents of homes being inspected should cooperate by creating a clear and safe path from the sidewalk to the gas meter, which is affixed on the side of the home. All obstacles should be removed, dogs and other animals should be chained, and fences should be kept unlocked or opened.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&acirc;u sau đ&acirc;y thuộc về vị tr&iacute; n&agrave;o được đ&aacute;nh dấu [1], [2], [3] v&agrave; [4]?<br />\n&ldquo;Những cư d&acirc;n kh&ocirc;ng tu&acirc;n thủ v&agrave; do đ&oacute; ngăn cản c&aacute;c quan chức của City Gas thực hiện c&ocirc;ng việc của họ sẽ bị phạt.&rdquo;</p>\n\n<p>Đ&aacute;p &aacute;n C đ&uacute;ng v&igrave; n&oacute; c&oacute; thể li&ecirc;n kết với c&acirc;u: &quot;Cư d&acirc;n trong những ng&ocirc;i nh&agrave; đang được kiểm tra n&ecirc;n hợp t&aacute;c bằng c&aacute;ch tạo ra một lối đi th&ocirc;ng tho&aacute;ng v&agrave; an to&agrave;n từ vỉa h&egrave; đến đồng hồ xăng được d&aacute;n b&ecirc;n h&ocirc;ng nh&agrave;.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C đ&uacute;ng v&igrave; c&oacute; thể nối với c&acirc;u &ldquo;Cư d&acirc;n trong những ng&ocirc;i nh&agrave; bị kiểm tra n&ecirc;n hợp t&aacute;c tạo lối đi th&ocirc;ng tho&aacute;ng, an to&agrave;n từ vỉa h&egrave; đến đồng hồ xăng được d&aacute;n b&ecirc;n h&ocirc;ng nh&agrave;. v&agrave; c&aacute;c động vật kh&aacute;c phải bị xiềng x&iacute;ch, v&agrave; h&agrave;ng r&agrave;o phải được mở kh&oacute;a hoặc mở.&quot;<br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "63171f005948b5402da84a9b",
+      "questionText": "Robert Shaver<br>491 Magnolia Boulevard<br>Rome, GA<br>August 3<br>Dear Robert Shaver,<br>Congratulations! You have been named the Employee of the Month at Knight’s Home Repair Warehouse for the month of July. This award is determined by a vote of store managers. You were unanimously selected for the prize. In addition, during our most recent customer satisfaction survey, your name was at the top of the list as our friendliest and most helpful employee. We at Knight’s Home Repair Warehouse are proud of your hard work and determination. As a reward, you may use the parking space at the front of the store for the entire month of August, and you may take Friday, August 10, off as a paid holiday. You will also be given the item of your choice (worth no more than $100). You may select it from all the items we sell. We would like to hang your picture by the front door, so please see Betty Smith as soon as possible. You need to wear your company shirt when you take the photo. Again, congratulations, and thank you for being such an outstanding employee. We’ll be expecting even greater things from you in the future.<br>Sincerely,<br>David Knight<br>Owner, Knight’s Home Repair Warehouse",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84aaa",
+          "questionText": "According to the letter, what is true about Mr. Shaver?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He has worked at Knight’s Home Repair Warehouse for two years.",
+            "(B) He is employed in a management position.",
+            "(C) He received every store manager’s vote for the July award.",
+            "(D) He helped conduct the recent customer satisfaction survey."
+          ],
+          "correctOptions": [
+            "(C) He received every store manager’s vote for the July award."
+          ],
+          "transcript": "<p>Information is in <em>\"You were <strong>unanimously selected</strong> for the prize.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo bức thư, điều g&igrave; đ&uacute;ng về &ocirc;ng Shaver?<br />\n(A) Anh ấy đ&atilde; l&agrave;m việc tại Kho sửa chữa nh&agrave; của Knight được hai năm.<br />\n(B) Anh ấy được tuyển dụng ở vị tr&iacute; quản l&yacute;.<br />\n(C) Anh ấy đ&atilde; nhận được sự b&igrave;nh chọn của mọi người quản l&yacute; cửa h&agrave;ng cho giải thưởng th&aacute;ng Bảy.<br />\n(D) Anh ấy đ&atilde; gi&uacute;p thực hiện cuộc khảo s&aacute;t về mức độ h&agrave;i l&ograve;ng của kh&aacute;ch h&agrave;ng gần đ&acirc;y.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;<em>Bạn đ&atilde; <strong>được nhất tr&iacute; chọn</strong> cho giải thưởng.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84aab",
+          "questionText": "What does Mr. Shaver NOT receive for winning the award?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A cash prize",
+            "(B) A free gift",
+            "(C) A parking spot",
+            "(D) A day of vacation"
+          ],
+          "correctOptions": [
+            "(A) A cash prize"
+          ],
+          "transcript": "<p><em>\"You will also be given the <strong>item of your choice</strong> (worth no more than $100).\" </em>=&gt; Eliminate B&nbsp;</p>\n\n<p><em>\"you may use the <strong>parking space</strong> at the front of the store\" </em>=&gt; Eliminate C&nbsp;</p>\n\n<p><em>\"you may take Friday, August 10, off as a <strong>paid holiday</strong>.\"</em> =&gt; Eliminate D</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>&Ocirc;ng Shaver KH&Ocirc;NG nhận được g&igrave; khi gi&agrave;nh giải thưởng?</p>\n\n<p>(A) Một giải thưởng tiền mặt<br />\n(B) Một m&oacute;n qu&agrave; miễn ph&iacute;<br />\n(C) Một chỗ đậu xe<br />\n(D) Một ng&agrave;y nghỉ</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Đ&aacute;p &aacute;n B, C, D đều được đề cập trong đoạn văn l&agrave; những thứ Mr Shaver nhận được khi gi&agrave;nh được giải thưởng<br />\n&quot;Bạn cũng sẽ được tặng m&oacute;n đồ bạn chọn (trị gi&aacute; kh&ocirc;ng qu&aacute; 100 USD).&quot; =&gt; Loại B<br />\n&quot;Bạn c&oacute; thể sử dụng chỗ đậu xe ph&iacute;a trước cửa h&agrave;ng&quot; =&gt; Loại bỏ C<br />\n&quot;Bạn c&oacute; thể nghỉ thứ S&aacute;u, ng&agrave;y 10 th&aacute;ng 8 như một ng&agrave;y nghỉ được trả lương.&quot; =&gt; Loại bỏ D<br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84aac",
+          "questionText": "<p>What is suggested about Ms. Smith?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She will take Mr. Shaver’s picture.",
+            "(B) She works in the Public Relations Department.",
+            "(C) She is a previous award winner.",
+            "(D) She works closely with Mr. Knight."
+          ],
+          "correctOptions": [
+            "(A) She will take Mr. Shaver’s picture."
+          ],
+          "transcript": "<p>Information is inferred from <em>\"We would like to hang your picture by the front door\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; được gợi &yacute; về c&ocirc; Smith?<br />\n(A) C&ocirc; ấy sẽ chụp ảnh &ocirc;ng Shaver.<br />\n(B) C&ocirc; ấy l&agrave;m việc ở Ph&ograve;ng Quan hệ C&ocirc;ng ch&uacute;ng.<br />\n(C) C&ocirc; ấy l&agrave; người từng đoạt giải thưởng trước đ&oacute;.<br />\n(D) C&ocirc; ấy l&agrave;m việc chặt chẽ với &ocirc;ng Knight.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin được suy luận từ: &quot;<em>Ch&uacute;ng t&ocirc;i muốn treo ảnh của bạn trước cửa nh&agrave;&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "63171f005948b5402da84a9c",
+      "questionText": "<p style=\"text-align: center;\"><strong>Pandemonium Real Estate Agency</strong></p>\n\n<p>409 Dobson Street<br>\nMesa, AZ 85204<br>\n(805) 281-5632<br>\nPandemonium Real Estate Agency has some of the best deals in Mesa. Check out these homes that went on sale this week: 32 Guadalupe Drive - 4 bedrooms; 3 bathrooms; recently refurbished kitchen; large backyard/swimming pool; several orange and lemon trees in yard; 5 minutes' walk from local elementary and high schools; $320,000 483 Desert Avenue - 2 bedrooms, 1 bathroom; fenced-in yard; quiet neighborhood near golf course; great for retirees looking to downsize; $205,000 904 Erickson Street - 3 bedrooms, 2 bathrooms; large kitchen; all electricity provided by solar panels; swimming pool &amp; hot tub in backyard; lots of privacy; near shopping district; $380,000 1954 Hidalgo Road - 4 bedrooms; 2 bathrooms; huge front yard and backyard; next to Superstition Freeway; close to business district; $428,000.<br>\nFor more listings, visit www.pandemoniumrealestate.com. Our agents are ready to help you find your dream house. They'll assist you through the entire process. Moving from out of state? Don't worry. We can help you get settled. We've done it with hundreds of others.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84aad",
+          "questionText": "Where would this advertisement most likely be found?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In a local newspaper",
+            "(B) In an economics magazine",
+            "(C) In a national journal",
+            "(D) In a community center’s newsletter"
+          ],
+          "correctOptions": [
+            "(C) In a national journal"
+          ],
+          "transcript": "<p>Reading through the passage, we can eliminate the option B &amp; D because it is not related to economy and community. Either A or C is correct; however, C is more appropriate since there is information <em>\"Pandemonium Real Estate Agency has some of the best deals in Mesa.\", \"Moving from out of state? Don't worry.\"</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Quảng c&aacute;o n&agrave;y c&oacute; thể được t&igrave;m thấy ở đ&acirc;u?<br />\n(A) Trong một tờ b&aacute;o địa phương<br />\n(B) Trong một tạp ch&iacute; kinh tế<br />\n(C) Trong một tạp ch&iacute; quốc gia<br />\n(D) Trong bản tin của trung t&acirc;m cộng đồng</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Đọc qua đoạn văn, ch&uacute;ng ta c&oacute; thể loại bỏ phương &aacute;n B &amp; D v&igrave; n&oacute; kh&ocirc;ng li&ecirc;n quan đến kinh tế v&agrave; cộng đồng. A hoặc C đều đ&uacute;ng; tuy nhi&ecirc;n, C th&iacute;ch hợp hơn v&igrave; c&oacute; th&ocirc;ng tin l&agrave;: &quot;<em>Cơ quan Bất động sản Pandemonium c&oacute; một số giao dịch tốt nhất ở Mesa.&quot;, &quot;Chuyển đến từ ngo&agrave;i tiểu bang? Đừng lo lắng.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84aae",
+          "questionText": "Which home would a family with young children be most interested in?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 904 Erickson street",
+            "(B) 1954 Hidalgo Road",
+            "(C) 32 Guadalupe Drive",
+            "(D) 483 Desert Avenue"
+          ],
+          "correctOptions": [
+            "(C) 32 Guadalupe Drive"
+          ],
+          "transcript": "<p>Information is inferred from <em>\"32 Guadalupe Drive - 4 bedrooms; 3 bathrooms; recently refurbished kitchen; <strong>large backyard/swimming pool</strong>; several orange and lemon trees in yard; <strong>5 minutes' walk from local elementary and high schools</strong>\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Ng&ocirc;i nh&agrave; n&agrave;o m&agrave; một gia đ&igrave;nh c&oacute; con nhỏ sẽ quan t&acirc;m nhất?</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; thể suy luận từ &quot;<em>32 Guadalupe Drive - 4 ph&ograve;ng ngủ; 3 ph&ograve;ng tắm; nh&agrave; bếp mới được t&acirc;n trang lại;<strong> s&acirc;n sau/hồ bơi rộng</strong>; v&agrave;i c&acirc;y cam v&agrave; chanh trong s&acirc;n; c&aacute;ch c&aacute;c trường tiểu học v&agrave; <strong>trung học địa phương 5 ph&uacute;t đi bộ</strong>&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84aaf",
+          "questionText": "<p>How are people recommended to learn about other homes available for sale?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) By calling a telephone number",
+            "(B) By visiting the agency in person",
+            "(C) By writing a letter",
+            "(D) By going to a website"
+          ],
+          "correctOptions": [
+            "(D) By going to a website"
+          ],
+          "transcript": "<p>Information is in <em>\"For more listings, visit www.pandemoniumrealestate.com.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Mọi người n&ecirc;n t&igrave;m hiểu về những ng&ocirc;i nh&agrave; kh&aacute;c đang rao b&aacute;n bằng c&aacute;ch n&agrave;o?</p>\n\n<p>(A) Bằng c&aacute;ch gọi đến một số điện thoại<br />\n(B) Bằng c&aacute;ch đ&iacute;ch th&acirc;n đến thăm cơ quan<br />\n(C) Bằng c&aacute;ch viết một l&aacute; thư<br />\n(D) Bằng c&aacute;ch truy cập một trang web</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;<em>Để biết th&ecirc;m danh s&aacute;ch, h&atilde;y truy cập www.pandemoniumrealestate.com.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "63171f005948b5402da84a9d",
+      "questionText": "To: Peter Carter <pcarter@worldmail.com><br>From: William Folsom <willfolsom345@viscount.com><br>Subject: Application<br>Date: September 28<br>Dear Mr. Carter,<br>I received your application for the position of assistant editor here at Viscount Publishing. Unfortunately, I regret to inform you that the position was filled by an internal hire this morning.<br>I did, however, look over your entire application, and I must admit that I was impressed with both your resume and the reference letters that were submitted in your application packet. You have a great deal of experience editing children’s books, and I am quite familiar with three of the books that you have worked on while at Milton, Inc.<br>It just so happens that Viscount is in the process of opening a children’s division, and we are currently looking for new staff members, while I realize you applied for a position editing young adult fiction, your experience makes you a top candidate for a job in the new department. If you are interested, I will gladly pass your resume on to Ms. Mary Farnsworth.<br>However, I should point out that the children’s division will be in Boston, not New York, and that you need to give me a response no later than tomorrow afternoon since a decision on who to interview will be made soon. Time is of the essence, so please respond to me quickly.<br>Sincerely,<br>William Folsom<br>Viscount Publishing</willfolsom345@viscount.com></pcarter@worldmail.com>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84ab0",
+          "questionText": "Why did Mr. Folsom write the e-mail to Mr. Carter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To suggest that he apply for a different position",
+            "(B) To offer him a job at Viscount Publishing",
+            "(C) To reject his proposal for a children’s book",
+            "(D) To compliment a work that he authored"
+          ],
+          "correctOptions": [
+            "(A) To suggest that he apply for a different position"
+          ],
+          "transcript": "<p>Information is inferred from <em>\"It just so happens that Viscount is in the process of opening a children’s division, and we are currently looking for new staff members, while I realize you applied for a position editing young adult fiction, your experience makes you a top candidate for a job in the new department.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tại sao &ocirc;ng Folsom lại viết e-mail cho &ocirc;ng Carter?<br />\n(A) Để đề nghị anh ấy ứng tuyển v&agrave;o một vị tr&iacute; kh&aacute;c<br />\n(B) Mời anh ấy một c&ocirc;ng việc tại Nh&agrave; xuất bản Viscount<br />\n(C) Từ chối lời đề nghị của anh ấy về một cuốn s&aacute;ch d&agrave;nh cho trẻ em<br />\n(D) Để khen ngợi một t&aacute;c phẩm m&agrave; anh ấy l&agrave; t&aacute;c giả</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin được suy luận từ: <em>&quot;Thật t&igrave;nh cờ l&agrave; Tử tước đang trong qu&aacute; tr&igrave;nh mở bộ phận d&agrave;nh cho trẻ em v&agrave; ch&uacute;ng t&ocirc;i hiện đang t&igrave;m kiếm nh&acirc;n vi&ecirc;n mới, trong khi t&ocirc;i nhận thấy bạn đ&atilde; ứng tuyển v&agrave;o vị tr&iacute; bi&ecirc;n tập tiểu thuyết d&agrave;nh cho giới trẻ, kinh nghiệm của bạn khiến bạn l&agrave; ứng cử vi&ecirc;n h&agrave;ng đầu cho c&ocirc;ng việc ở bộ phận mới.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84ab1",
+          "questionText": "What is mentioned about Mr. Carter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is an author of children’s books.",
+            "(B) He currently works on young adult fiction.",
+            "(C) He works as an editor at Milton, Inc.",
+            "(D) He is colleagues with Mary Farnsworth."
+          ],
+          "correctOptions": [
+            "(C) He works as an editor at Milton, Inc."
+          ],
+          "transcript": "<p>Information is in <em>\"I am quite familiar with three of the books that you have worked on while at Milton, Inc.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; được nhắc tới về &ocirc;ng Carter?</p>\n\n<p>(A) Anh ấy l&agrave; t&aacute;c giả s&aacute;ch d&agrave;nh cho trẻ em.<br />\n(B) Anh ấy hiện đang viết tiểu thuyết d&agrave;nh cho giới trẻ.<br />\n(C) Anh ấy l&agrave;m bi&ecirc;n tập vi&ecirc;n tại Milton, Inc.<br />\n(D) Anh ấy l&agrave; đồng nghiệp của Mary Farnsworth.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở: &quot;<em>T&ocirc;i kh&aacute; quen thuộc với ba cuốn s&aacute;ch m&agrave; bạn đ&atilde; viết khi c&ograve;n ở Milton, Inc.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84ab2",
+          "questionText": "<p>What does Mr. Carter need to do by September 29?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Provide a response to the job offer he was given",
+            "(B) Set up a time and date to be interviewed",
+            "(C) Submit his resume to someone at Milton, Inc.",
+            "(D) Decide if he wants to be considered for a position"
+          ],
+          "correctOptions": [
+            "(D) Decide if he wants to be considered for a position"
+          ],
+          "transcript": "<p>We can see the date when&nbsp;Folsom sends e-mail to&nbsp;Carter is&nbsp;September 28. Meanwhile, there is information <em>\"you need to give me a response no later than <strong>tomorrow afternoon&nbsp;</strong>since a decision on who to interview will be made soon.\"&nbsp;</em>Tomorrow afternoon is&nbsp;September 29.&nbsp;=&gt; D is correct&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>&Ocirc;ng Carter cần l&agrave;m g&igrave; trước ng&agrave;y 29/9?<br />\n(A) Đưa ra c&acirc;u trả lời cho lời mời l&agrave;m việc m&agrave; anh ấy đ&atilde; nhận được<br />\n(B) Sắp xếp ng&agrave;y giờ để phỏng vấn<br />\n(C) Gửi sơ yếu l&yacute; lịch của anh ấy cho ai đ&oacute; ở Milton, Inc.<br />\n(D) Quyết định xem anh ấy c&oacute; muốn được xem x&eacute;t cho một vị tr&iacute; kh&ocirc;ng</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Ch&uacute;ng t&ocirc;i c&oacute; thể t&igrave;m thấy ng&agrave;y Folsom gửi e-mail cho Carter l&agrave; ng&agrave;y 28 th&aacute;ng 9. Trong khi đ&oacute;, c&oacute; th&ocirc;ng tin: &quot;<em>bạn cần phải trả lời t&ocirc;i chậm nhất l&agrave; <strong>chiều mai</strong> v&igrave; quyết định về người sẽ phỏng vấn sẽ được đưa ra sớm.&quot; Chiều mai l&agrave; ng&agrave;y 29 th&aacute;ng 9.</em><br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "63171f005948b5402da84a9e",
+      "questionText": "<p>December 3<br>\nClive Robertson<br>\nWalker Resources<br>\n495 11th Avenue<br>\nBirmingham, AL<br>\nDear Mr. Robertson,<br>\nThank you for taking the time to visit my company and to give a presentation on your firm's products. Your talk was lively and enjoyable, and it provided us with insight regarding your company's newest line of products. We at RX Products are especially interested in the container-sealing machine you spoke about in brief as we feel that it might be exactly what we need. We are opening a factory in Brazil together with Ramos Manufacturing, and we are worried about the humidity there. As you know, high humidity levels make it difficult to seal containers properly. We currently use sealers manufactured by Robinson, Inc., but the product was discontinued by the company a few months ago. Not only is your sealer new but it also appears to use the latest technology, which we anticipate will improve its efficiency. I would like to enter into talks with you regarding the purchase of your company's sealing machines. At present, however, the machine's price is too high. Perhaps your company can be flexible on pricing if we order a significant number of machines. I realize that you just returned to Birmingham, but would you mind coming back to Pensacola next week? We are in a hurry to make a deal as our factory is set to open on January 10.<br>\nSincerely,<br>\nJames Matters<br>\nVice President of Procurements, RX Products</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84ab3",
+          "questionText": "Why does Mr. Matters want to purchase a product from Walker Resources?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The price of the item is lower than that of others on the market.",
+            "(B) His company has worked with Walker Resources in the past.",
+            "(C) He is unable to buy a similar product from any other firm.",
+            "(D) The item will be an upgrade from what his company uses now."
+          ],
+          "correctOptions": [
+            "(D) The item will be an upgrade from what his company uses now."
+          ],
+          "transcript": "<p>Information is inferred from <em>\"We currently use sealers manufactured by Robinson, Inc., but the product was discontinued by the company a few months ago. Not only is your sealer new but it also appears to use the latest technology, which we anticipate will improve its efficiency.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tại sao Mr. Matters muốn mua sản phẩm từ Walker Resources?</p>\n\n<p>(A) Gi&aacute; của mặt h&agrave;ng n&agrave;y thấp hơn gi&aacute; của mặt h&agrave;ng kh&aacute;c tr&ecirc;n thị trường.<br />\n(B) C&ocirc;ng ty của anh ấy đ&atilde; từng l&agrave;m việc với Walker Resources trước đ&acirc;y.<br />\n(C) Anh ấy kh&ocirc;ng thể mua một sản phẩm tương tự từ bất kỳ c&ocirc;ng ty n&agrave;o kh&aacute;c.<br />\n(D) Sản phẩm n&agrave;y sẽ l&agrave; một bản n&acirc;ng cấp so với những g&igrave; c&ocirc;ng ty anh ấy đang sử dụng.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin được suy luận từ: &#39;&#39;<em>Ch&uacute;ng t&ocirc;i hiện đang sử dụng chất bịt k&iacute;n do Robinson, Inc. sản xuất, nhưng sản phẩm n&agrave;y đ&atilde; bị c&ocirc;ng ty ngừng sản xuất c&aacute;ch đ&acirc;y v&agrave;i th&aacute;ng. M&aacute;y đ&oacute;ng dấu của bạn kh&ocirc;ng chỉ mới m&agrave; c&ograve;n c&oacute; vẻ như sử dụng c&ocirc;ng nghệ mới nhất m&agrave; ch&uacute;ng t&ocirc;i dự đo&aacute;n sẽ cải thiện hiệu quả của n&oacute;.&quot;</em></p>\n\n<p><strong>-&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84ab4",
+          "questionText": "What is mentioned about Ramos Manufacturing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is located in Birmingham.",
+            "(B) It is involved in a joint venture with RX Products.",
+            "(C) It quit making a machine recently.",
+            "(D) It is having trouble building its newest factory."
+          ],
+          "correctOptions": [
+            "(B) It is involved in a joint venture with RX Products."
+          ],
+          "transcript": "<p>Based on information&nbsp;<em>\"We at <strong>RX Products</strong>\", \"We are opening a factory in Brazil <strong>together with Ramos Manufacturing</strong>\"&nbsp;&nbsp;</em>=&gt; Choose B&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những g&igrave; được đề cập về Ramos Manufacturing?</p>\n\n<p>(A) N&oacute; nằm ở Birmingham.<br />\n(B) C&ocirc;ng ty c&oacute; li&ecirc;n doanh với RX Products.<br />\n(C) Gần đ&acirc;y n&oacute; đ&atilde; ngừng sản xuất m&aacute;y m&oacute;c.<br />\n(D) N&oacute; đang gặp kh&oacute; khăn trong việc x&acirc;y dựng nh&agrave; m&aacute;y mới nhất.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o th&ocirc;ng tin: <em>&quot;We at <strong>RX Products</strong>&quot;, &quot;Ch&uacute;ng t&ocirc;i đang mở một nh&agrave; m&aacute;y<strong> ở Brazil c&ugrave;ng với Ramos Manufacturing</strong>&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84ab5",
+          "questionText": "<p>What does Mr. Matters request?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A pamphlet",
+            "(B) A bulk discount",
+            "(C) A free sample",
+            "(D) A product demonstration"
+          ],
+          "correctOptions": [
+            "(B) A bulk discount"
+          ],
+          "transcript": "<p>Information is in <em>\"At present, however, the machine's price is too high. Perhaps your company can be flexible on pricing if we order a significant number of machines.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>&Ocirc;ng Matters y&ecirc;u cầu g&igrave;?<br />\n(A) Một cuốn s&aacute;ch nhỏ<br />\n(B) Giảm gi&aacute; số lượng lớn<br />\n(C) Một mẫu miễn ph&iacute;<br />\n(D) Tr&igrave;nh diễn sản phẩm</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;<em>Tuy nhi&ecirc;n, hiện tại gi&aacute; m&aacute;y qu&aacute; cao. C&oacute; lẽ c&ocirc;ng ty của bạn c&oacute; thể linh hoạt về gi&aacute; nếu ch&uacute;ng t&ocirc;i đặt h&agrave;ng số lượng m&aacute;y đ&aacute;ng kể.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "63171f005948b5402da84a9f",
+      "questionText": "<p><strong>McCartney, Laurie</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [10:49 A.M.]</p>\n\n<p>That was an interesting demonstration by Ms. Sanders just now. How about providing me with your immediate thoughts, both good and bad?</p>\n\n<p><strong>Patrick, Rebecca</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [10:52 A.M.]</p>\n\n<p>I don't think her firm can help ours.</p>\n\n<p><strong>Daniels, George</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [10:53 A.M.]</p>\n\n<p>I liked what she had to say.</p>\n\n<p><strong>McCartney, Laurie</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[10:54 A.M.]</p>\n\n<p>Fascinating. You two arrived at opposing conclusions. Can I get some more details? George, you go first.</p>\n\n<p><strong>Daniels, George</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[10:56 A.M.]</p>\n\n<p>Whitewater Consulting has assisted lots of startups in getting their products into foreign markets. So they've sold huge numbers of products and increased their revenues. It's that simple.</p>\n\n<p><strong>Patrick, Rebecca</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[10:57 AM]</p>\n\n<p>But the point is that Whitewater helps firms in foreign markets, not domestic ones.</p>\n\n<p><strong>McCartney, Laurie</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[10:59 A.M.]</p>\n\n<p>I think I see where you're going with this.</p>\n\n<p><strong>Patrick, Rebecca</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[11:02 A.M.]</p>\n\n<p>We're not trying to break into any foreign markets. That's something we'll consider a few years from now. We need to get our goods onto the domestic market.</p>\n\n<p><strong>Daniels, George</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[11:04 A.M.]</p>\n\n<p>But didn't Ms. Sanders say her company has done work here? I know she focused on European markets, but she talked about her firm's work in the U.S. at the beginning, too.</p>\n\n<p><strong>Patrick, Rebecca</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [11:07 A.M.]</p>\n\n<p>Yes, she did. But her lack of focus on the U.S. shows she either didn't want to discuss Whitewater's performance here or hadn't prepared properly. Neither choice is appealing.</p>\n\n<p><strong>McCartney, Laurie</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [11:10 A.M.]</p>\n\n<p>Both of you are making legitimate points. Let's meet for lunch at noon, and then we can discuss the matter in person.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84ab6",
+          "questionText": "What is mostly being discussed?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Working with Whitewater Consulting",
+            "(B) How to improve the company’s performance",
+            "(C) Opinions regarding a presentation",
+            "(D) The importance of foreign and domestic markets"
+          ],
+          "correctOptions": [
+            "(C) Opinions regarding a presentation"
+          ],
+          "transcript": "<p>Based on information <em>\"That was an interesting demonstration by Ms.Sanders just now. How about providing me with your immediate thoughts, both good and bad?\", \"I don't think her firm can help ours.\", \"I liked what she had to say.\"&nbsp;&nbsp;</em>=&gt; Choose C&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Điều g&igrave; chủ yếu được thảo luận?<br />\n(A) L&agrave;m việc với Whitewater Consulting<br />\n(B) L&agrave;m thế n&agrave;o để cải thiện hiệu suất của c&ocirc;ng ty<br />\n(C) &Yacute; kiến ​​li&ecirc;n quan đến b&agrave;i thuyết tr&igrave;nh<br />\n(D) Tầm quan trọng của thị trường trong v&agrave; ngo&agrave;i nước</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o th&ocirc;ng tin: &quot;<em>Vừa rồi đ&oacute; l&agrave; một minh chứng th&uacute; vị của c&ocirc; Sanders. Bạn c&oacute; muốn cung cấp cho t&ocirc;i những suy nghĩ trước mắt của bạn, cả tốt v&agrave; xấu kh&ocirc;ng?&quot;, &quot;T&ocirc;i kh&ocirc;ng nghĩ c&ocirc;ng ty của c&ocirc; ấy c&oacute; thể gi&uacute;p &iacute;ch cho ch&uacute;ng ta.&quot;, &quot;T&ocirc;i th&iacute;ch những g&igrave; c&ocirc; ấy n&oacute;i.&quot;</em><br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84ab7",
+          "questionText": "How does Mr. Daniels feel about the presentation?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It proved his company can break into foreign markets.",
+            "(B) It convinced him that Whitewater Consulting should be hired.",
+            "(C) It explained the problems of selling goods domestically.",
+            "(D) It showed how Whitewater Consulting can help his firm."
+          ],
+          "correctOptions": [
+            "(D) It showed how Whitewater Consulting can help his firm."
+          ],
+          "transcript": "<p>Information is inferred from <em>\"Whitewater Consulting has assisted lots of startups in getting their products into foreign markets. So they've sold huge numbers of products and increased their revenues.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>&Ocirc;ng Daniels cảm thấy thế n&agrave;o về b&agrave;i thuyết tr&igrave;nh?<br />\n(A) N&oacute; chứng tỏ c&ocirc;ng ty của anh ấy c&oacute; thể th&acirc;m nhập v&agrave;o thị trường nước ngo&agrave;i.<br />\n(B) N&oacute; đ&atilde; thuyết phục anh ấy rằng n&ecirc;n thu&ecirc; Whitewater Consulting.<br />\n(C) N&oacute; giải th&iacute;ch c&aacute;c vấn đề của việc b&aacute;n h&agrave;ng trong nước.<br />\n(D) N&oacute; cho thấy Whitewater Consulting c&oacute; thể gi&uacute;p đỡ c&ocirc;ng ty của &ocirc;ng ấy như thế n&agrave;o.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin được suy luận từ: &quot;<em>Whitewater Consulting đ&atilde; hỗ trợ rất nhiều c&ocirc;ng ty khởi nghiệp đưa sản phẩm của họ ra thị trường nước ngo&agrave;i. V&igrave; vậy, họ đ&atilde; b&aacute;n được số lượng lớn sản phẩm v&agrave; tăng doanh thu.&quot;</em></p>\n\n<p>-&gt;<strong> Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84ab8",
+          "questionText": "At 10:59 A.M., what does Ms. McCartney mean when she writes, “I think I see where you’re going with this”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She has to go to a meeting with Ms. Patrick.",
+            "(B) She knows what Ms. Patrick will write next.",
+            "(C) She is going to attend a presentation soon.",
+            "(D) She wants Ms. Patrick to provide more details."
+          ],
+          "correctOptions": [
+            "(B) She knows what Ms. Patrick will write next."
+          ],
+          "transcript": "<p>Based on the sentences<em> \"But the point is that Whitewater helps firms in foreign markets, not domestic ones.\", \"We're not trying to break into any foreign markets.\"&nbsp;&nbsp;</em>=&gt; Choose B&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>V&agrave;o l&uacute;c 10:59 s&aacute;ng, c&ocirc; McCartney c&oacute; &yacute; g&igrave; khi viết: &ldquo;T&ocirc;i nghĩ t&ocirc;i hiểu bạn đang đi đến đ&acirc;u với điều n&agrave;y&rdquo;?<br />\n(A) C&ocirc; ấy phải đi họp với c&ocirc; Patrick.<br />\n(B) C&ocirc; ấy biết c&ocirc; Patrick sẽ viết g&igrave; tiếp theo.<br />\n(C) C&ocirc; ấy sắp tham dự buổi thuyết tr&igrave;nh.<br />\n(D) C&ocirc; ấy muốn c&ocirc; Patrick cung cấp th&ecirc;m chi tiết.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa v&agrave;o th&ocirc;ng tin ở c&acirc;u: &quot;<em>Nhưng vấn đề l&agrave; Whitewater gi&uacute;p c&aacute;c c&ocirc;ng ty ở thị trường nước ngo&agrave;i chứ kh&ocirc;ng phải thị trường trong nước.&quot;, &quot;Ch&uacute;ng t&ocirc;i kh&ocirc;ng cố gắng th&acirc;m nhập v&agrave;o bất kỳ thị trường nước ngo&agrave;i n&agrave;o.&quot;</em><br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84ab9",
+          "questionText": "<p>What does Ms. Patrick suggest about Ms. Sanders?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Ms. Sanders made a mistake by ignoring the U.S. market.",
+            "(B) Ms. Sanders’s presentation brought up some valid points.",
+            "(C) Ms. Sanders’s company should be able to help hers.",
+            "(D) Ms. Sanders needs to clarify some arguments she made."
+          ],
+          "correctOptions": [
+            "(A) Ms. Sanders made a mistake by ignoring the U.S. market."
+          ],
+          "transcript": "<p>Information is inferred from <em>\"But <strong>her lack of focus on the U.S.</strong> shows she either didn't want to discuss Whitewater's performance here or hadn't prepared properly.\"</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&ocirc; Patrick gợi &yacute; g&igrave; về c&ocirc; Sanders?<br />\n(A) B&agrave; Sanders đ&atilde; phạm sai lầm khi bỏ qua thị trường Hoa Kỳ.<br />\n(B) B&agrave;i thuyết tr&igrave;nh của c&ocirc; Sanders đ&atilde; đưa ra một số điểm hợp l&yacute;.<br />\n(C) C&ocirc;ng ty của c&ocirc; Sanders c&oacute; thể gi&uacute;p đỡ c&ocirc;ng ty của c&ocirc; ấy.<br />\n(D) C&ocirc; Sanders cần l&agrave;m r&otilde; một số lập luận m&agrave; c&ocirc; đ&atilde; đưa ra.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin được suy luận từ: &quot;<em>Nhưng việc <strong>c&ocirc; ấy thiếu tập trung v&agrave;o Hoa Kỳ</strong> cho thấy c&ocirc; ấy kh&ocirc;ng muốn thảo luận về hoạt động của Whitewater ở đ&acirc;y hoặc đ&atilde; kh&ocirc;ng chuẩn bị kỹ c&agrave;ng.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "63171f005948b5402da84aa0",
+      "questionText": "July 28<br>Dear Ms. Rice,<br>On behalf of my colleagues at Evercrest Shipping, it is my great pleasure to offer you the position of head price analyst. We are all looking forward to working with you, and I believe you will find working here to be both rewarding and challenging. —[1]— Evercrest Shipping is a company that truly values its employees and strives to work with the local community to have a positive influence not only in the world of business but also in the city of San Fernando.<br>Should you accept our offer, your first day of work will be on August 31. You will work directly under the deputy director of pricing, Rob Hamilton. —[2]— You will receive a salary of \\$55,000 per year, a yearly raise of 4%, and an annual performance bonus. Since you will be moving from another state, we will contribute \\$7,500 for your moving costs. —[3]— Like all other employees, you will receive 10 paid sick days a year, half of which may be rolled over to the following year. During your first year of employment, you will get 10 days of paid vacation. Beginning in the second year, that will increase to 20 days each year.<br>Please look at the contract I have included with this letter. It contains all of the above terms. ---]—[4]— If the terms are amenable, please sign and date the contract, and return it to me within 10 days. This offer is nonnegotiable and cannot be changed in any way.<br>Sincerely,<br>Shirley Gathers<br>HR Department<br>Evercrest Shipping",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "63171f005948b5402da84aba",
+          "questionText": "Why did Ms. Gathers write the letter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To invite Ms. Rice to apply for a job",
+            "(B) To extend an offer of employment",
+            "(C) To promote her company to a job candidate",
+            "(D) To list Ms. Rice’s job duties"
+          ],
+          "correctOptions": [
+            "(B) To extend an offer of employment"
+          ],
+          "transcript": "<p>Information is in <em>\"it is my great pleasure to offer you the position of head price analyst.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tại sao c&ocirc; Gathers lại viết thư?<br />\n(A) Để mời c&ocirc; Rice đi xin việc<br />\n(B) Để gia hạn lời mời l&agrave;m việc<br />\n(C) Để quảng b&aacute; c&ocirc;ng ty của c&ocirc; ấy cho một ứng vi&ecirc;n xin việc<br />\n(D) Liệt k&ecirc; nhiệm vụ c&ocirc;ng việc của c&ocirc; Rice</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: <em>&quot;T&ocirc;i rất h&acirc;n hạnh được mời bạn l&agrave;m trưởng nh&oacute;m ph&acirc;n t&iacute;ch gi&aacute;.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84abb",
+          "questionText": "Which of the following is NOT a part of Ms.Rice’s compensation package?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Enrollment in a benefits plan",
+            "(B) A raise given each year",
+            "(C) Paid vacation and sick leave",
+            "(D) A bonus for doing well"
+          ],
+          "correctOptions": [
+            "(A) Enrollment in a benefits plan"
+          ],
+          "transcript": "<p><em>\"You will receive a salary of&nbsp;$55,000 per year, a <strong>yearly raise of 4%</strong>\" </em>=&gt; Eliminate B&nbsp;</p>\n\n<p><em>\"you will receive <strong>10 paid sick days</strong> a year, half of which may be rolled over to the following year. During your first year of employment, you will get <strong>10 days of paid vacation</strong>.\"</em> =&gt; Eliminate C&nbsp;</p>\n\n<p><em>\"an annual performance bonus.\"</em> =&gt; Eliminate D&nbsp;</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Khoản n&agrave;o sau đ&acirc;y KH&Ocirc;NG nằm trong g&oacute;i bồi thường của Ms.Rice?</p>\n\n<p>(A) Ghi danh v&agrave;o chương tr&igrave;nh ph&uacute;c lợi<br />\n(B) Tăng lương mỗi năm<br />\n(C) Ng&agrave;y nghỉ c&oacute; lương v&agrave; nghỉ ốm<br />\n(D) Tiền thưởng khi l&agrave;m tốt</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Đ&aacute;p B, C, D đều được đề cập trong b&agrave;i như một phần trong g&oacute;i bồi thường của Ms.Rice<br />\n&quot;Bạn sẽ nhận được mức lương 55.000 USD mỗi năm, <strong>mức tăng h&agrave;ng năm l&agrave; 4%</strong>&quot; =&gt; Loại bỏ B<br />\n&quot;Bạn sẽ nhận được <strong>10 ng&agrave;y nghỉ ốm được trả lương</strong> mỗi năm, một nửa trong số đ&oacute; c&oacute; thể được chuyển sang năm tiếp theo. Trong năm l&agrave;m việc đầu ti&ecirc;n, bạn sẽ <strong>được nghỉ ph&eacute;p c&oacute; lương 10 ng&agrave;y</strong>.&quot; =&gt; Loại bỏ C<br />\n&quot;Tiền thưởng hiệu suất h&agrave;ng năm.&quot; =&gt; Loại bỏ D<br />\n<strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84abc",
+          "questionText": "What is stated in the letter?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Evercrest Shipping is active in politics in San Fernando.",
+            "(B) Ms. Rice interviewed for the position two times.",
+            "(C) The terms of the contract may not be changed.",
+            "(D) Ms. Gathers is in charge of all hiring decisions."
+          ],
+          "correctOptions": [
+            "(C) The terms of the contract may not be changed."
+          ],
+          "transcript": "<p>Information is in <em>\"This offer is nonnegotiable and cannot be changed in any way.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những g&igrave; được n&ecirc;u trong thư?<br />\n(A) Evercrest Shipping hoạt động ch&iacute;nh trị ở San Fernando.<br />\n(B) C&ocirc; Rice đ&atilde; phỏng vấn cho vị tr&iacute; n&agrave;y hai lần.<br />\n(C) C&aacute;c điều khoản của hợp đồng kh&ocirc;ng được thay đổi.<br />\n(D) C&ocirc; Gathers chịu tr&aacute;ch nhiệm về mọi quyết định tuyển dụng.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm ở c&acirc;u: &quot;<em>Ưu đ&atilde;i n&agrave;y kh&ocirc;ng thể thương lượng v&agrave; kh&ocirc;ng thể thay đổi dưới bất kỳ h&igrave;nh thức n&agrave;o.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "63171f005948b5402da84abd",
+          "questionText": "<p>In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong?<br>“You can contact Vince Hoover at 950- 1434 for more details regarding your transition here.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(C) [3]"
+          ],
+          "transcript": "<p>C is correct because it can connect with the sentence <em>\"Since you will be <strong>moving from another state</strong>, we will contribute&nbsp;$7,500 for your moving costs.\"&nbsp;</em></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&acirc;u sau đ&acirc;y thuộc về vị tr&iacute; n&agrave;o được đ&aacute;nh dấu [1], [2], [3] v&agrave; [4]?<br />\n&ldquo;Bạn c&oacute; thể li&ecirc;n hệ với Vince Hoover theo số 950-1434 để biết th&ecirc;m chi tiết về qu&aacute; tr&igrave;nh chuyển đổi của bạn tại đ&acirc;y.&rdquo;</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Đ&aacute;p &aacute;n C đ&uacute;ng v&igrave; n&oacute; c&oacute; thể li&ecirc;n kết với c&acirc;u: &quot;<em>V&igrave; bạn sẽ <strong>chuyển từ tiểu bang kh&aacute;c</strong> n&ecirc;n ch&uacute;ng t&ocirc;i sẽ đ&oacute;ng g&oacute;p 7.500 USD cho chi ph&iacute; chuyển nh&agrave; của bạn.&quot;</em><br />\n<strong>-&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,623 @@
+{
+  "topicId": "614012e465d71f3a51f62c46",
+  "name": "Test 4",
+  "slug": "test-4",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6140136c65d71f3a51f62ccc",
+      "questionText": "<p align=\"center\"><span style=\"font-size:16px;\"><strong>Notice</strong></span></p>\n\n<p><span style=\"font-size:14px;\">Crawford Apparel has refurbished dressing rooms where you can try on clothes before you make a purchase.<br>\n- Please take only an item or two into a dressing room at a time.<br>\n- You may leave your personal belongings such as a wallet or a purse with one of our clerks for safekeeping.<br>\n- Any personal items left behind in a dressing room will be kept in the lost-and-found room near the entrance.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62cd6",
+          "questionText": "For whom is the notice most likely intended?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Storekeepers",
+            "(B) Customers",
+            "(C) Designers",
+            "(D) Clerks"
+          ],
+          "correctOptions": [
+            "(B) Customers"
+          ],
+          "transcript": "<p>It can be inferred from: <i>\"Crawford Apparel has refurbished dressing rooms where you can try on clothes before you make a purchase.\"</i> that those who can try on clothes are the customers of Crawfood Apparel.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Th&ocirc;ng b&aacute;o n&agrave;y c&oacute; khả năng hướng đến ai nhất?</p>\n\n<p>(A) Thủ kho</p>\n\n<p>(B) Kh&aacute;ch h&agrave;ng</p>\n\n<p>(C) Nh&agrave; thiết kế</p>\n\n<p>(D) Nh&acirc;n vi&ecirc;n</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ: <em>&quot;Crawford Apparel đ&atilde; t&acirc;n trang lại ph&ograve;ng thay đồ nơi bạn c&oacute; thể thử quần &aacute;o trước khi mua.&quot;</em> rằng những người c&oacute; thể thử quần &aacute;o l&agrave; kh&aacute;ch h&agrave;ng của Crawfood Apparel.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cd7",
+          "questionText": "According to the notice, where can missing items be found?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In a police station",
+            "(B) In an information center",
+            "(C) In a storage area",
+            "(D) Behind a counter"
+          ],
+          "correctOptions": [
+            "(C) In a storage area"
+          ],
+          "transcript": "<p>The information is in: <i>\"Any personal items left behind in a dressing room will be kept in the lost-and-found room near the entrance.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo th&ocirc;ng b&aacute;o, đồ thất lạc c&oacute; thể t&igrave;m thấy ở đ&acirc;u?</p>\n\n<p>(A) Trong đồn cảnh s&aacute;t</p>\n\n<p>(B) Trong trung t&acirc;m th&ocirc;ng tin</p>\n\n<p>(C) Trong khu vực lưu trữ</p>\n\n<p>(D) Ph&iacute;a sau quầy</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin như sau: <em>&quot;Bất kỳ đồ d&ugrave;ng c&aacute; nh&acirc;n n&agrave;o bị bỏ qu&ecirc;n trong ph&ograve;ng thay đồ sẽ được giữ trong ph&ograve;ng thất lạc gần lối v&agrave;o.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136c65d71f3a51f62ccd",
+      "questionText": "<p><strong>Linda Bates&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;6:55</strong></p>\n\n<p>I'm late. I woke up late.</p>\n\n<p><strong>Melinda Cruz&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;6:56</strong></p>\n\n<p>When can I expect you?</p>\n\n<p><strong>Linda Bates&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;6:57</strong></p>\n\n<p>I'll be there in an hour.</p>\n\n<p><strong>Melinda Cruz&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;6:58</strong></p>\n\n<p>Should I leave without you?</p>\n\n<p><strong>Linda Bates&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;7:02</strong></p>\n\n<p>No, just make sure the van is loaded when I get there.</p>\n\n<p><strong>Melinda Cruz&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;7:02</strong></p>\n\n<p>Will do.</p>\n\n<p><strong>Linda Bates&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;7:03</strong></p>\n\n<p>Thanks.</p>\n\n<p><strong>Melinda Cruz&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;7:08</strong></p>\n\n<p>I'll see you soon. Drive carefully.</p>\n\n<p><strong>Linda Bates&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 7:10</strong></p>\n\n<p>Yep. I am.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62cd8",
+          "questionText": "What is suggested about Ms. Bates?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She works for Ms. Cruz.",
+            "(B) She is being held up by traffic.",
+            "(C) She is currently operating an automobile.",
+            "(D) She is frequently late."
+          ],
+          "correctOptions": [
+            "(C) She is currently operating an automobile."
+          ],
+          "transcript": "<p>Melinda Cruz said to Linda Bates: <i>\"Drive carefully.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Gợi &yacute; g&igrave; về c&ocirc; Bates?</p>\n\n<p>(A) C&ocirc; ấy l&agrave;m việc cho c&ocirc; Cruz.</p>\n\n<p>(B) C&ocirc; ấy đang bị kẹt xe.</p>\n\n<p>(C) C&ocirc; ấy hiện đang l&aacute;i &ocirc; t&ocirc;.</p>\n\n<p>(D) C&ocirc; ấy thường xuy&ecirc;n đến muộn.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Melinda Cruz n&oacute;i với Linda Bates: <em>&quot;H&atilde;y l&aacute;i xe cẩn thận.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cd9",
+          "questionText": "At 7:02, what does Ms. Cruz mean when she writes, “Will do”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She will be waiting for Ms. Cruz.",
+            "(B) She plans to load the vehicle.",
+            "(C) She is frustrated by Ms. Bate’s tardiness.",
+            "(D) She has finished parking the van."
+          ],
+          "correctOptions": [
+            "(B) She plans to load the vehicle."
+          ],
+          "transcript": "<p>Because Linda Bates asked her to make sure the van is loaded when she got there.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>L&uacute;c 7:02, c&ocirc; Cruz c&oacute; &yacute; g&igrave; khi viết, &ldquo;Sẽ l&agrave;m&rdquo;?</p>\n\n<p>(A) C&ocirc; ấy sẽ đợi c&ocirc; Cruz.</p>\n\n<p>(B) C&ocirc; ấy định chất đồ l&ecirc;n xe.</p>\n\n<p>(C) C&ocirc; ấy bực m&igrave;nh v&igrave; c&ocirc; Bate đến muộn.</p>\n\n<p>(D) C&ocirc; ấy đ&atilde; đỗ xe xong.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Bởi v&igrave; Linda Bates đ&atilde; y&ecirc;u cầu c&ocirc; ấy đảm bảo xe đ&atilde; được chất đồ l&ecirc;n khi c&ocirc; ấy đến đ&oacute;.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136c65d71f3a51f62cce",
+      "questionText": "<p><span style=\"font-size:14px;\">To: Patricia Mueller patmueller@fine-mail.net<br>\nFrom: Mark Hutchings </span><mhutchings@grosvenoronline.com><br>\n<span style=\"font-size:14px;\">Date: June 4<br>\nSubject: Re: Hotline<br>\n<br>\nDear Ms. Mueller,<br>\nThank you for your feedback on our technical service hotline. We had not realized that calls were taking so long to connect to an operator, and we have managed to resolve the problem, which was caused by a glitch in the telephone switchboard software. As a gesture of goodwill, I would like to issue you a coupon for our online store for the value of $25. To redeem it, simply sign in to your store account at www.grosvenoronline.com and enter the coupon code H58K55 into the box on the main page.<br>\n<br>\nYours sincerely,<br>\nMark Hutchings<br>\nCustomer Service Representative, Grosvenor Online</span></mhutchings@grosvenoronline.com></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62cda",
+          "questionText": "Why did Mr. Hutchings send the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To promote a special seasonal offer",
+            "(B) To confirm an address for an order",
+            "(C) To show appreciation for a comment",
+            "(D) To request further information about a problem"
+          ],
+          "correctOptions": [
+            "(C) To show appreciation for a comment"
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\"Thank you for your feedback on our technical service hotline.... As a gesture of goodwill, I would like to issue you a coupon for our online store for the value of </i><span id=\"cke_bm_105672S\" style=\"display: none;\">&nbsp;</span> <em>$</em><i>25.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Tại sao &ocirc;ng Hutchings lại gửi email?</p>\n\n<p>(A) Để quảng b&aacute; một ưu đ&atilde;i theo m&ugrave;a đặc biệt</p>\n\n<p>(B) Để x&aacute;c nhận địa chỉ cho một đơn h&agrave;ng</p>\n\n<p>(C) Để b&agrave;y tỏ l&ograve;ng biết ơn đối với một b&igrave;nh luận</p>\n\n<p>(D) Để y&ecirc;u cầu th&ecirc;m th&ocirc;ng tin về một vấn đề</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra th&ocirc;ng tin từ: <em>&quot;Cảm ơn bạn đ&atilde; phản hồi về đường d&acirc;y n&oacute;ng dịch vụ kỹ thuật của ch&uacute;ng t&ocirc;i.... Như một cử chỉ thiện ch&iacute;, t&ocirc;i muốn gửi cho bạn một phiếu giảm gi&aacute; cho cửa h&agrave;ng trực tuyến của ch&uacute;ng t&ocirc;i trị gi&aacute; 25 đ&ocirc; la.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cdb",
+          "questionText": "What will Ms. Mueller most likely do on her next visit to Grosvenor Online?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Sign up for a membership program",
+            "(B) Claim the value of a coupon",
+            "(C) Use the customer feedback form",
+            "(D) Update her billing information"
+          ],
+          "correctOptions": [
+            "(B) Claim the value of a coupon"
+          ],
+          "transcript": "<p>Because Maeek Hutchings sent her a coupon for the online store for the value of <i>$</i>25.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&ocirc; Mueller c&oacute; khả năng sẽ l&agrave;m g&igrave; nhất trong lần gh&eacute; thăm Grosvenor Online tiếp theo?</p>\n\n<p>(A) Đăng k&yacute; chương tr&igrave;nh th&agrave;nh vi&ecirc;n</p>\n\n<p>(B) Nhận gi&aacute; trị của phiếu giảm gi&aacute;</p>\n\n<p>(C) Sử dụng biểu mẫu phản hồi của kh&aacute;ch h&agrave;ng</p>\n\n<p>(D) Cập nhật th&ocirc;ng tin thanh to&aacute;n của c&ocirc; ấy</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Bởi v&igrave; Maeek Hutchings đ&atilde; gửi cho c&ocirc; ấy một phiếu giảm gi&aacute; cho cửa h&agrave;ng trực tuyến trị gi&aacute; 25 đ&ocirc; la.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136c65d71f3a51f62ccf",
+      "questionText": "<p>http://www.jannisar.com</p>\n\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width: 500px;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"text-align: center;\">Home&nbsp;</td>\n\t\t\t<td style=\"text-align: center;\">Products&nbsp;</td>\n\t\t\t<td style=\"text-align: center;\">Contact&nbsp;</td>\n\t\t\t<td style=\"text-align: center;\">About Us&nbsp;</td>\n\t\t\t<td style=\"text-align: center;\">Account&nbsp;</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p style=\"text-align: justify;\">Congratulations! Because of your high level of regular activity on our site, you have been selected to become a Premium Gold Member. Please fill out the following form to complete the process:</p>\n\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width: 623px;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 201px;\">First name :</td>\n\t\t\t<td style=\"width: 408px;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 201px;\">Surname :</td>\n\t\t\t<td style=\"width: 408px;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 201px;\">Shipping address :</td>\n\t\t\t<td style=\"width: 408px;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 201px;\">Authorization code :</td>\n\t\t\t<td style=\"width: 408px;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 201px;\">E-mail address :</td>\n\t\t\t<td style=\"width: 408px;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" style=\"width: 201px;\">\n\t\t\t<p>Comments:&nbsp;</p>\n\n\t\t\t<p>&nbsp;</p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p>Check the boxes for the merchandise categories that are of interest to you.</p>\n\n<p>(You may check more than one.)</p>\n\n<p>Electronics [&nbsp; &nbsp;]&nbsp; &nbsp; &nbsp; Music [&nbsp; &nbsp;]&nbsp; &nbsp; &nbsp; Books [&nbsp; &nbsp;]&nbsp; &nbsp; &nbsp;Furniture [&nbsp; &nbsp;]&nbsp; &nbsp; &nbsp; Computer Games [&nbsp; &nbsp;]</p>\n\n<p style=\"text-align: justify;\">Please note that as a Premium Gold Member, you will receive e-mail notifications four times a year on special offers for the categories selected. Your account details will be verified by e-mail within the next 24 hours. An e-mail confirmation will be sent. Follow the instructions in that e-mail to confirm your membership.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62cdc",
+          "questionText": "Who most likely is the web page aimed at?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A new customer for an auction website",
+            "(B) An online marketing agency representative",
+            "(C) A supplier to a retail outlet",
+            "(D) A long-term customer of an online retailer"
+          ],
+          "correctOptions": [
+            "(D) A long-term customer of an online retailer"
+          ],
+          "transcript": "<p>Based on the information given in: <i>\"Because of your high level of regular activity on ourr site,..\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Trang web n&agrave;y c&oacute; khả năng hướng đến đối tượng n&agrave;o nhất?</p>\n\n<p>(A) Một kh&aacute;ch h&agrave;ng mới của một trang web đấu gi&aacute;</p>\n\n<p>(B) Một đại diện của một c&ocirc;ng ty tiếp thị trực tuyến</p>\n\n<p>(C) Một nh&agrave; cung cấp cho một cửa h&agrave;ng b&aacute;n lẻ</p>\n\n<p>(D) Một kh&aacute;ch h&agrave;ng l&acirc;u năm của một nh&agrave; b&aacute;n lẻ trực tuyến</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa tr&ecirc;n th&ocirc;ng tin được đưa ra trong: <em>&quot;Do mức độ hoạt động thường xuy&ecirc;n cao của bạn tr&ecirc;n trang web của ch&uacute;ng t&ocirc;i,..&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cdd",
+          "questionText": "What is the reader asked to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Indicate product preferences",
+            "(B) Supply payment details",
+            "(C) Print and sign the form",
+            "(D) Report shipping delays"
+          ],
+          "correctOptions": [
+            "(A) Indicate product preferences"
+          ],
+          "transcript": "<p>The information is in: <i>\"Check the boxes for the merchandise categories that are of interest to you.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Người đọc được y&ecirc;u cầu l&agrave;m g&igrave;?</p>\n\n<p>(A) Chỉ ra sở th&iacute;ch sản phẩm</p>\n\n<p>(B) Cung cấp th&ocirc;ng tin thanh to&aacute;n</p>\n\n<p>(C) In v&agrave; k&yacute; v&agrave;o biểu mẫu</p>\n\n<p>(D) B&aacute;o c&aacute;o sự chậm trễ trong việc giao h&agrave;ng</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin nằm trong:<em> &quot;Đ&aacute;nh dấu v&agrave;o c&aacute;c &ocirc; cho c&aacute;c danh mục h&agrave;ng h&oacute;a m&agrave; bạn quan t&acirc;m.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136c65d71f3a51f62cd0",
+      "questionText": "<p style=\"text-align: center;\"><span style=\"font-size:16px;\"><strong>It’s Raining Cats and Dogs</strong></span></p>\n\n<p><span style=\"font-size:14px;\">Brentwood (May 2) - [1] - Brentwood City finally has its very own cat café called Catastrophe and dog café called Hotdogs, both opened by owners Kevin and Ginger Blake. Both cafes opened last month to fanfare and a great deal of press coverage. - [2] - \"Business has been booming,” says Kevin Blake. “We knew we'd be successful; we just didn’t think we'd be this successful.” Not only are customers enthusiastically flocking to both cafes to hang out with the animals while drinking coffee and tea, many of them are adopting the animals and giving them forever homes. - [3] - “We thought it would be a good idea to take in some of the animals because of the overcrowding in many of the shelters,” explained Ginger Blake. \"And customers have a chance to interact with the animals, which is the best form of advertisement for the shelters.” Since the cafes’ opening, more than 10 dogs and 15 cats have been adopted. “I don’t yet own a dog, but I’ve always wanted one,” says Laurie Jordan, a regular customer. “I come here to play with them. Maybe one day I'll find a dog that I really want.” - [4] -<br>\nBecause of the success, the Blakes are considering expanding by purchasing the adjacent shops. “We need more space to fit all our customers and the animals,” explained Kevin. “It can get very crowded at times.” The Blakes are looking to renovate the dog café next month and the cat café during the fall.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62cde",
+          "questionText": "What is indicated about the cafes?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They serve an assortment of snacks.",
+            "(B) They sell puppies and kittens.",
+            "(C) They serve coffees and teas.",
+            "(D) They offer pet products."
+          ],
+          "correctOptions": [
+            "(C) They serve coffees and teas."
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\"Not only are customers enthusiastically flocking to both cafes to hang out with the animals while drinking coffee and tea, many of them are adopting the animals and giving them forever homes. \"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những g&igrave; được chỉ ra về c&aacute;c qu&aacute;n c&agrave; ph&ecirc;?</p>\n\n<p>(A) Họ phục vụ một loạt c&aacute;c m&oacute;n ăn nhẹ.</p>\n\n<p>(B) Họ b&aacute;n ch&oacute; con v&agrave; m&egrave;o con.</p>\n\n<p>(C) Họ phục vụ c&agrave; ph&ecirc; v&agrave; tr&agrave;.</p>\n\n<p>(D) Họ cung cấp c&aacute;c sản phẩm cho th&uacute; cưng.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra th&ocirc;ng tin từ: <em>&quot;Kh&ocirc;ng chỉ kh&aacute;ch h&agrave;ng nhiệt t&igrave;nh đổ x&ocirc; đến cả hai qu&aacute;n c&agrave; ph&ecirc; để tụ tập với c&aacute;c lo&agrave;i động vật trong khi uống c&agrave; ph&ecirc; v&agrave; tr&agrave;, nhiều người trong số họ c&ograve;n nhận nu&ocirc;i c&aacute;c lo&agrave;i động vật v&agrave; cho ch&uacute;ng một m&aacute;i nh&agrave; m&atilde;i m&atilde;i.&quot;</em></p>\n\n<p><strong>= &gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cdf",
+          "questionText": "What is reported about the cats and dogs?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Several have been adopted.",
+            "(B) They are permanent residents of the cafes.",
+            "(C) They are friendly towards the customers.",
+            "(D) They are trained to entertain."
+          ],
+          "correctOptions": [
+            "(A) Several have been adopted."
+          ],
+          "transcript": "<p>The information is in: <i>\"Since the cafes’ opening, more than 10 dogs and 15 cats have been adopted.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những g&igrave; được b&aacute;o c&aacute;o về m&egrave;o v&agrave; ch&oacute;?</p>\n\n<p>(A) Một số đ&atilde; được nhận nu&ocirc;i.</p>\n\n<p>(B) Ch&uacute;ng l&agrave; cư d&acirc;n thường tr&uacute; của c&aacute;c qu&aacute;n c&agrave; ph&ecirc;.</p>\n\n<p>(C) Ch&uacute;ng th&acirc;n thiện với kh&aacute;ch h&agrave;ng.</p>\n\n<p>(D) Ch&uacute;ng được huấn luyện để giải tr&iacute;.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin trong: <em>&quot;Kể từ khi qu&aacute;n c&agrave; ph&ecirc; mở cửa, hơn 10 con ch&oacute; v&agrave; 15 con m&egrave;o đ&atilde; được nhận nu&ocirc;i.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62ce0",
+          "questionText": "In which of the positions marked [1], [2], [3] and [4] does the following sentence belong?<br> But the hype hasn’t slowed down.”",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(B) [2]"
+          ],
+          "transcript": "<p>It is easy to see that this sentence is about the fame of both café so it can be placed in position [2], after the coverage of the press.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&acirc;u sau đ&acirc;y nằm ở vị tr&iacute; n&agrave;o trong c&aacute;c vị tr&iacute; được đ&aacute;nh dấu [1], [2], [3] v&agrave; [4]?<br />\nNhưng sự cường điệu vẫn chưa chậm lại.&rdquo;</p>\n\n<p>(A) [1]</p>\n\n<p>(B) [2]</p>\n\n<p>(C) [3]</p>\n\n<p>(D) [4]</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dễ thấy rằng c&acirc;u n&agrave;y n&oacute;i về sự nổi tiếng của cả hai qu&aacute;n c&agrave; ph&ecirc; n&ecirc;n c&oacute; thể đặt ở vị tr&iacute; [2], sau khi b&aacute;o ch&iacute; đưa tin.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136c65d71f3a51f62cd1",
+      "questionText": "<p align=\"center\"><span style=\"font-size:16px;\"><strong>Relax and unwind at New Wave Spa!</strong></span></p>\n\n<p><span style=\"font-size:14px;\">Take a break from your hectic day with professional spa treatments from New Wave Spa, located at 458 Worley Avenue. Whether you stay for an hour or a full day, you'll leave feeling refreshed and energized. Check out our regular packages below:<br>\n<b>Classic Getaway (</b><strong>$</strong><b>120) </b> —Try this basic package that’s perfect for those on the go<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 30-minute back and neck massage / cucumber facial treatment / lilac body wrap4<br>\n<b>Rose Garden (</b><strong>$</strong><b>155) </b> —Let the scent of roses revive your senses.<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 45-minute full-body massage / rose water skin treatment / manicure<br>\n<b>Ocean Experience (</b><strong>$</strong><b>180) </b> —Take advantage of the ocean's healing powers in our most popular package.<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 60-minute full-body massage / head-to-toe sea salt scrub / hot stone treatment / seaweed facial treatment<br>\n<b>Complete Rejuvenation ($210) </b> —Indulge yourself in the luxury of a full day of treatments.<br>\n&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 90-minute full-body massage / relaxation scalp massage / mud mask facial treatment / rosemary purifying scrub / manicure / pedicure</span></p>\n\n<p><span style=\"font-size:14px;\">Book in advance to secure your spot by calling 555-2940. Groups of four or more people will receive a free lunch of sandwiches, steamed vegetables, and freshly- squeezed juices. All patrons will be given a free New Wave lounging robe on their third visit to our facility.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62ce1",
+          "questionText": "What is the advertisement mainly about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The expansion of a health facility",
+            "(B) A discount on luxury services",
+            "(C) The relocation of a spa",
+            "(D) A business’s standard options"
+          ],
+          "correctOptions": [
+            "(D) A business’s standard options"
+          ],
+          "transcript": "<p>Based on the options given with price: Classic Getaway ($120), Rose Garden ($155), Ocean Experience ($180) and Complete Rejuvenation ($210).</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Quảng c&aacute;o chủ yếu n&oacute;i về điều g&igrave;?</p>\n\n<p>(A) Việc mở rộng một cơ sở y tế</p>\n\n<p>(B) Giảm gi&aacute; c&aacute;c dịch vụ cao cấp</p>\n\n<p>(C) Việc di dời một spa</p>\n\n<p>(D) C&aacute;c lựa chọn ti&ecirc;u chuẩn của một doanh nghiệp</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Dựa tr&ecirc;n c&aacute;c lựa chọn được đưa ra với mức gi&aacute;: Classic Getaway ($120), Rose Garden ($155), Ocean Experience ($180) v&agrave; Complete Rejuvenation ($210).</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62ce2",
+          "questionText": "Which package includes a heat treatment?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Classic Getaway",
+            "(B) Rose Garden",
+            "(C) Ocean Experience",
+            "(D) Complete Rejuvenation"
+          ],
+          "correctOptions": [
+            "(C) Ocean Experience"
+          ],
+          "transcript": "<p>It can be inferred from: <i>\"60-minute full-body massage / head-to-toe sea salt scrub / hot stone treatment / seaweed facial treatment\"</i> that hot stone treatment is heat treatment.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>G&oacute;i n&agrave;o bao gồm liệu ph&aacute;p nhiệt?</p>\n\n<p>(A) Classic Getaway</p>\n\n<p>(B) Rose Garden</p>\n\n<p>(C) Ocean Experience</p>\n\n<p>(D) Complete Rejuvenation</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ: <em>&quot;60-minute full-body massage / head-to-toe sea salt scrub / hot stone treatment / rong biển facial treatment&quot;</em> rằng liệu ph&aacute;p đ&aacute; n&oacute;ng l&agrave; liệu ph&aacute;p nhiệt.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62ce3",
+          "questionText": "What will groups of four or more people be given?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A free robe",
+            "(B) A reduced rate",
+            "(C) A complimentary meal",
+            "(D) A private room"
+          ],
+          "correctOptions": [
+            "(C) A complimentary meal"
+          ],
+          "transcript": "<p>The information is in: <i>\"Groups of four or more people will receive a free lunch of sandwiches, steamed vegetables, and freshly- squeezed juices.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Nh&oacute;m bốn người trở l&ecirc;n sẽ được tặng g&igrave;?</p>\n\n<p>(A) Một chiếc &aacute;o cho&agrave;ng miễn ph&iacute;</p>\n\n<p>(B) Một mức gi&aacute; giảm</p>\n\n<p>(C) Một bữa ăn miễn ph&iacute;</p>\n\n<p>(D) Một ph&ograve;ng ri&ecirc;ng</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin trong: <em>&quot;Nh&oacute;m bốn người trở l&ecirc;n sẽ được tặng một bữa trưa miễn ph&iacute; gồm b&aacute;nh sandwich, rau hấp v&agrave; nước &eacute;p tr&aacute;i c&acirc;y tươi.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136c65d71f3a51f62cd2",
+      "questionText": "<p><span style=\"font-size:14px;\"><b>Bill Flake </b> (9:41)<br>\nHello, I'd like to get an update on the progress of the drapes that the Manillo Family ordered.<br>\n<b>Lucy Mitt</b> (9:41)<br>\nWe're still waiting for the lace silks from Hand-Made Lace but we received most of the other fabrics yesterday. Our seamstresses will get to work on those today.<br>\n<b>Bill Flake</b> (9:42)<br>\nThen do you think the project will be completed by this Friday as the Manillo's wanted?<br>\n<b>Lucy Mitt</b> (9:43)<br>\nI'm not sure. It'll depend on when the lace arrives. Our group can start sewing some of the pieces together, but we need the lace to complete the intricate designs.<br>\n<b>Bill Flake</b> (9:44)<br>\nCan you contact Hand-Made Lace and find out when the shipment arrives?<br>\n<b>Lucy Mitt</b> (9:45)<br>\nActually, Richard is taking care of that. Any word from them, Richard?<br>\n<b>Richard Choi</b> (9:45)<br>\nYes, I just got off the phone with them. There was a bit of a delay because the lace artisans used the wrong silks. They had to re-work the lace. We'll receive them this afternoon. They sent a rush delivery to US.<br>\n<b>Bill Flake</b> (9:46)<br>\nExcellent. Then can the drapes be finished at the end of this week?<br>\n<b>Lucy Mitt</b> (9:47)<br>\nNo problem. We'll work around the clock to get them finished on time.<br>\n<b>Bill Flake </b> (9:48)<br>\nI'm glad to hear that. They are long-time customers and they needed the drapes for their new condo this weekend.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62ce4",
+          "questionText": "What kind of business do the participants in the online chat probably work at?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A clothing company",
+            "(B) A bridal shop",
+            "(C) A custom drapery shop",
+            "(D) A fabric warehouse"
+          ],
+          "correctOptions": [
+            "(C) A custom drapery shop"
+          ],
+          "transcript": "<p>The information is in: <i>\"Hello, I'd like to get an update on the progress of the drapes that the Manillo Family ordered.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những người tham gia tr&ograve; chuyện trực tuyến c&oacute; thể l&agrave;m việc trong loại h&igrave;nh doanh nghiệp n&agrave;o?</p>\n\n<p>(A) Một c&ocirc;ng ty may mặc</p>\n\n<p>(B) Một cửa h&agrave;ng v&aacute;y cưới</p>\n\n<p>(C) Một cửa h&agrave;ng vải may đo</p>\n\n<p>(D) Một kho vải</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; dạng: <em>&quot;Xin ch&agrave;o, t&ocirc;i muốn cập nhật tiến độ của những tấm r&egrave;m m&agrave; Gia đ&igrave;nh Manillo đ&atilde; đặt h&agrave;ng.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62ce5",
+          "questionText": "When will the shipment of lace arrive?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In the morning",
+            "(B) In the afternoon",
+            "(C) The next day",
+            "(D) At the end of the week"
+          ],
+          "correctOptions": [
+            "(B) In the afternoon"
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\"They had to re-work the lace. We'll receive them this afternoon.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Khi n&agrave;o l&ocirc; h&agrave;ng ren sẽ đến?</p>\n\n<p>(A) V&agrave;o buổi s&aacute;ng</p>\n\n<p>(B) V&agrave;o buổi chiều</p>\n\n<p>(C) Ng&agrave;y h&ocirc;m sau</p>\n\n<p>(D) V&agrave;o cuối tuần</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra th&ocirc;ng tin từ:<em> &quot;Họ phải l&agrave;m lại ren. Ch&uacute;ng t&ocirc;i sẽ nhận được ch&uacute;ng v&agrave;o chiều nay.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62ce6",
+          "questionText": "At 9:47, what does Lucy Mitt mean when she says, “We’ll work around the clock”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Her team will watch the time carefully.",
+            "(B) Her team will work as quickly as possible.",
+            "(C) Her team will take as much time as they need.",
+            "(D) Her team will work all day and night if they have to."
+          ],
+          "correctOptions": [
+            "(D) Her team will work all day and night if they have to."
+          ],
+          "transcript": "<p><b>around the clock</b>: happening or done all day and all night<br>\nIf something is done around the clock or round the clock, it is done all day and all night without stopping.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>L&uacute;c 9:47, Lucy Mitt c&oacute; &yacute; g&igrave; khi c&ocirc; ấy n&oacute;i, &ldquo;We&rsquo;ll work around the clock&rdquo;?</p>\n\n<p>(A) Nh&oacute;m của c&ocirc; ấy sẽ xem giờ cẩn thận.</p>\n\n<p>(B) Nh&oacute;m của c&ocirc; ấy sẽ l&agrave;m việc nhanh nhất c&oacute; thể.</p>\n\n<p>(C) Nh&oacute;m của c&ocirc; ấy sẽ d&agrave;nh nhiều thời gian nhất c&oacute; thể.</p>\n\n<p>(D) Nh&oacute;m của c&ocirc; ấy sẽ l&agrave;m việc cả ng&agrave;y lẫn đ&ecirc;m nếu họ phải l&agrave;m vậy.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p><strong>around the clock:</strong> xảy ra hoặc được thực hiện cả ng&agrave;y lẫn đ&ecirc;m<br />\nNếu một việc g&igrave; đ&oacute; được thực hiện suốt ng&agrave;y đ&ecirc;m th&igrave; n&oacute; được thực hiện cả ng&agrave;y lẫn đ&ecirc;m m&agrave; kh&ocirc;ng dừng lại.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62ce7",
+          "questionText": "What will Bill Flake probably do next?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Call the client",
+            "(B) Cancel the order",
+            "(D) Organize a meeting",
+            "(c) Request a shipment of lace"
+          ],
+          "correctOptions": [
+            "(A) Call the client"
+          ],
+          "transcript": "<p>In the first message Bill wanted to get update on progress of the drapes that the Manilo Family ordered, it can be inferred from that he will call the Manilo family and let them know about the progress.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Bill Flake c&oacute; thể sẽ l&agrave;m g&igrave; tiếp theo?</p>\n\n<p>(A) Gọi cho kh&aacute;ch h&agrave;ng</p>\n\n<p>(B) Hủy đơn h&agrave;ng</p>\n\n<p>(D) Tổ chức một cuộc họp</p>\n\n<p>(c) Y&ecirc;u cầu giao h&agrave;ng ren</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Trong tin nhắn đầu ti&ecirc;n, Bill muốn cập nhật tiến độ của những tấm r&egrave;m m&agrave; Gia đ&igrave;nh Manilo đ&atilde; đặt h&agrave;ng, c&oacute; thể suy ra rằng anh ấy sẽ gọi cho gia đ&igrave;nh Manilo v&agrave; cho họ biết về tiến độ.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136c65d71f3a51f62cd3",
+      "questionText": "<p align=\"center\"><span style=\"font-size:16px;\"><strong>Duluth City</strong></span></p>\n\n<p align=\"center\"><span style=\"font-size:16px;\"><strong>5th Annual Summer Fun Festival</strong></span></p>\n\n<p align=\"center\"><span style=\"font-size:14px;\"><strong>Sunday, July 23</strong></span></p>\n\n<p><span style=\"font-size:14px;\">10:00 A.M. to 6:00 P.M. <i>Local Nature Art Competition</i><br>\nDuluth artists will be displaying their paintings of local nature and wildlife in the Duluth Community Center. Visitors are asked to cast their vote for their favorite painting. The winner will be announced at the start of the singing competition.</span></p>\n\n<p><span style=\"font-size:14px;\">11:00 A.M. to 12:00 P.M. <i>Magic Show</i><br>\nPlease join us for an astonishing magic show. Magician Mick Turner is famous for his creative and entertaining magic tricks.</span></p>\n\n<p><span style=\"font-size:14px;\">12:00 P.M. to 2:00 P.M. <i>Live Jazz Concert</i><br>\nEnjoy live jazz in the park performed by New-York-based jazz band The Holloway Band. They will be playing a variety of jazz standards. They will also have their most recent record for sale.</span></p>\n\n<p><span style=\"font-size:14px;\">10:00 A.M. to 7:00 P.M. <i>Renewable Energy Expo</i><br>\nLocal company Sunshine Energy will be displaying some of its newest renewable energy projects, including solar panels and portable cell phone chargers.</span></p>\n\n<p><span style=\"font-size:14px;\">7:00 P.M. to 9:00 P.M. <i>Singing Competition</i><br>\nLocal residents are encouraged to take part in this year’s singing competition. Those who would like to participate can register by visiting our website at www.duluthcitysff.com and filling out the necessary.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62ce8",
+          "questionText": "When will the winner of the art competition be announced?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 2:00 P.M.",
+            "(B) 6:00 P.M.",
+            "(C) 7:00 P.M.",
+            "(D) 9:00 PM."
+          ],
+          "correctOptions": [
+            "(C) 7:00 P.M."
+          ],
+          "transcript": "<p>It can be inferred from: <i>\"The winner will be announced at the start of the singing competition.\" </i> and the singing competititon is from 7 p.m. to 9 p.m.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Khi n&agrave;o người chiến thắng cuộc thi nghệ thuật sẽ được c&ocirc;ng bố?</p>\n\n<p>(A) 2:00 P.M.</p>\n\n<p>(B) 6:00 P.M.</p>\n\n<p>(C) 7:00 P.M.</p>\n\n<p>(D) 9:00 PM.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ: <em>&quot;Người chiến thắng sẽ được c&ocirc;ng bố khi bắt đầu cuộc thi h&aacute;t.&quot;</em> v&agrave; cuộc thi h&aacute;t diễn ra từ 7 giờ tối đến 9 giờ tối.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62ce9",
+          "questionText": "According to the schedule, what will be available for purchase?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A work of art",
+            "(B) A musical album",
+            "(C) A cell phone accessory",
+            "(D) A solar panel"
+          ],
+          "correctOptions": [
+            "(B) A musical album"
+          ],
+          "transcript": "<p>As you can see in the schedule of Live Jazz Concert which would be performed by The Holloway Band that <i>\"They will also have their most recent record for sale.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo lịch tr&igrave;nh, những g&igrave; sẽ c&oacute; sẵn để mua?</p>\n\n<p>(A) Một t&aacute;c phẩm nghệ thuật</p>\n\n<p>(B) Một album nhạc</p>\n\n<p>(C) Một phụ kiện điện thoại di động</p>\n\n<p>(D) Một tấm pin mặt trời</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Như bạn c&oacute; thể thấy trong lịch tr&igrave;nh của Live Jazz Concert do The Holloway Band biểu diễn rằng <em>&quot;Họ cũng sẽ c&oacute; bản thu &acirc;m mới nhất của họ để b&aacute;n.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cea",
+          "questionText": "How can participants sign up for the singing competition?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) By visiting an information booth",
+            "(B) By contacting the community center",
+            "(C) By visiting a website",
+            "(D) By sending an e-mail"
+          ],
+          "correctOptions": [
+            "(C) By visiting a website"
+          ],
+          "transcript": "<p>The information is in: <i>\"Those who would like to participate can register by visiting our website at www.duluthcitysff.com and filling out the necessary.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Người tham gia c&oacute; thể đăng k&yacute; cuộc thi ca h&aacute;t bằng c&aacute;ch n&agrave;o?</p>\n\n<p>(A) Bằng c&aacute;ch đến quầy th&ocirc;ng tin</p>\n\n<p>(B) Bằng c&aacute;ch li&ecirc;n hệ với trung t&acirc;m cộng đồng</p>\n\n<p>(C) Bằng c&aacute;ch truy cập trang web</p>\n\n<p>(D) Bằng c&aacute;ch gửi email</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong:<em> &quot;Những ai muốn tham gia c&oacute; thể đăng k&yacute; bằng c&aacute;ch truy cập trang web của ch&uacute;ng t&ocirc;i tại www.duluthcitysff.com v&agrave; điền th&ocirc;ng tin cần thiết.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136c65d71f3a51f62cd4",
+      "questionText": "<p align=\"center\"><span style=\"font-size:16px;\"><strong>Movies in the Park</strong></span></p>\n\n<p><span style=\"font-size:14px;\">This fall Glenwood Springs Park will host a weekly Movies in the Park night for residents of Glenwood Springs. In cooperation with various local business sponsors including Paxton Inc. and GS Mall, family-friendly movies will be shown every Friday night at the center of the park. Tickets are not necessary for these events because they are free to the public.</span></p>\n\n<p><span style=\"font-size:14px;\">Running from September through November, Movies in the Park promises a wonderful line-up of fun and touching movies for the whole family. You are encouraged to bring blankets and chairs as well as picnic snacks. Movie starting times depend on sunset times, so it is advised to come early to secure your spot beforehand. Please visit our website at www.glenwoodsprings.org/movies to see a schedule of upcoming films and a list of our local sponsors.</span></p>\n\n<p><span style=\"font-size:14px;\">In the event of heavy rain, low temperatures, or strong winds, the film screening may be canceled. If this occurs, the announcement for the film cancelation will be made both on our website and on the local radio. You can also ask about event cancelations by calling the Glenwood Springs Department of Parks and Recreation at 715-555-5358.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62ceb",
+          "questionText": "What is the purpose of the flyer?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To announce park renovation plans",
+            "(B) To publicize a community event",
+            "(C) To solicit donations",
+            "(D) To promote a new film"
+          ],
+          "correctOptions": [
+            "(B) To publicize a community event"
+          ],
+          "transcript": "<p>It can be inferred from the first passage that a weekly Movies in the Park night will be hosted for residents and it is free to the public. Therefore, it is a public event</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Mục đ&iacute;ch của tờ rơi l&agrave; g&igrave;?</p>\n\n<p>(A) Để c&ocirc;ng bố kế hoạch cải tạo c&ocirc;ng vi&ecirc;n</p>\n\n<p>(B) Để c&ocirc;ng khai một sự kiện cộng đồng</p>\n\n<p>(C) Để k&ecirc;u gọi quy&ecirc;n g&oacute;p</p>\n\n<p>(D) Để quảng b&aacute; một bộ phim mới</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ đoạn văn đầu ti&ecirc;n rằng một đ&ecirc;m chiếu phim h&agrave;ng tuần tại C&ocirc;ng vi&ecirc;n sẽ được tổ chức cho cư d&acirc;n v&agrave; miễn ph&iacute; cho c&ocirc;ng ch&uacute;ng. Do đ&oacute;, đ&acirc;y l&agrave; một sự kiện c&ocirc;ng cộng</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cec",
+          "questionText": "Who will provide funding for Movies in the Park?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A local radio station",
+            "(B) The residents in Glenwood Springs",
+            "(C) The Department of Parks and Recreation",
+            "(D) The businesses in Glenwood Springs"
+          ],
+          "correctOptions": [
+            "(D) The businesses in Glenwood Springs"
+          ],
+          "transcript": "<p>It can be inferred from <i>\"In cooperation with various local business sponsors including Paxton Inc. and GS Mall.\"</i> that local business is the businesses in Glenwood Springs.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Ai sẽ t&agrave;i trợ cho Phim trong C&ocirc;ng vi&ecirc;n?</p>\n\n<p>(A) Một đ&agrave;i ph&aacute;t thanh địa phương</p>\n\n<p>(B) Cư d&acirc;n ở Glenwood Springs</p>\n\n<p>(C) Sở C&ocirc;ng vi&ecirc;n v&agrave; Giải tr&iacute;</p>\n\n<p>(D) C&aacute;c doanh nghiệp ở Glenwood Springs</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra từ <em>&quot;Hợp t&aacute;c với nhiều nh&agrave; t&agrave;i trợ doanh nghiệp địa phương bao gồm Paxton Inc. v&agrave; GS Mall.&quot;</em> rằng doanh nghiệp địa phương l&agrave; c&aacute;c doanh nghiệp ở Glenwood Springs.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62ced",
+          "questionText": "What is NOT mentioned as a recommendation for participants?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Bringing food",
+            "(B) Purchasing tickets in advance",
+            "(C) Consulting a schedule",
+            "(D) Arriving early"
+          ],
+          "correctOptions": [
+            "(B) Purchasing tickets in advance"
+          ],
+          "transcript": "<p>(A) - You are encouraged to bring blankets and chairs as well as picnic snacks.<br>\n(C) - Please visit our website at www.glenwoodsprings.org/movies to see a schedule of upcoming films and a list of our local sponsors.<br>\n(D) - Movie starting times depend on sunset times, so it is advised to come early to secure your spot beforehand.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những điều KH&Ocirc;NG được đề cập đến như một khuyến nghị cho người tham gia?</p>\n\n<p>(A) Mang theo đồ ăn</p>\n\n<p>(B) Mua v&eacute; trước</p>\n\n<p>(C) Tham khảo lịch tr&igrave;nh</p>\n\n<p>(D) Đến sớm</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>(A) - Bạn được khuyến kh&iacute;ch mang theo chăn v&agrave; ghế cũng như đồ ăn nhẹ cho bữa ăn ngo&agrave;i trời.<br />\n(C) - Vui l&ograve;ng truy cập trang web của ch&uacute;ng t&ocirc;i tại www.glenwoodsprings.org/movies để xem lịch tr&igrave;nh c&aacute;c bộ phim sắp tới v&agrave; danh s&aacute;ch c&aacute;c nh&agrave; t&agrave;i trợ địa phương của ch&uacute;ng t&ocirc;i.<br />\n(D) - Thời gian bắt đầu chiếu phim phụ thuộc v&agrave;o thời gian ho&agrave;ng h&ocirc;n, v&igrave; vậy bạn n&ecirc;n đến sớm để đảm bảo chỗ ngồi của m&igrave;nh trước.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cee",
+          "questionText": "According to the flyer, why would the phone number be used?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To make a reservation",
+            "(B) To inquire about a schedule change",
+            "(C) To ask for driving directions",
+            "(D) To cancel an appointment"
+          ],
+          "correctOptions": [
+            "(B) To inquire about a schedule change"
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\"You can also ask about event cancelations by calling the Glenwood Springs Department of Parks and Recreation at 715-555-5358.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Theo tờ rơi, tại sao số điện thoại được sử dụng?</p>\n\n<p>(A) Để đặt chỗ</p>\n\n<p>(B) Để hỏi về việc thay đổi lịch tr&igrave;nh</p>\n\n<p>(C) Để hỏi chỉ đường l&aacute;i xe</p>\n\n<p>(D) Để hủy cuộc hẹn</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra th&ocirc;ng tin từ: <em>&quot;Bạn cũng c&oacute; thể hỏi về việc hủy sự kiện bằng c&aacute;ch gọi đến Sở C&ocirc;ng vi&ecirc;n v&agrave; Giải tr&iacute; Glenwood Springs theo số 715-555-5358.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140136c65d71f3a51f62cd5",
+      "questionText": "<p align=\"center\"><span style=\"font-size:16px;\"><strong>Wrightman Towers</strong></span></p>\n\n<p align=\"center\"><span style=\"font-size:14px;\"><b>1234 Broadway Street</b></span></p>\n\n<p align=\"center\"><span style=\"font-size:14px;\"><b>New York, NY 49858</b></span></p>\n\n<p><span style=\"font-size:14px;\">- [1] - Located in the financial district of the city, Wrightman Towers offers spectacular views of the city landscape and offers office spaces that are ideal for any company that wishes to operate within the heart of New York. Just one block from the subway station and located within walking distance of public buses and taxis, Wrightman Towers is conveniently located. - [2] - The first-floor lobby offers security as employees and residents must scan their way through the security gates to the elevators behind. At the same time the spacious lobby is welcoming with its luxurious interior designs and friendly staff of attendants. - [3] -<br>\nThe third and fourth floors are available for rent to businesses and corporations. High ceilings and tall glass windows offer open space and beautiful natural lighting. Hurry and send in your requests today. - [4] - Only serious inquiries will be taken and interviews must be conducted in person. Please visit our website at www.wrightmantowers.com/rent for more information. You can take a virtual tour of the premises.</span></p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140136c65d71f3a51f62cef",
+          "questionText": "What is indicated about the rental space?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is only for private residents.",
+            "(B) It is only for businesses.",
+            "(C) It is available to the public.",
+            "(D) It is very expensive."
+          ],
+          "correctOptions": [
+            "(B) It is only for businesses."
+          ],
+          "transcript": "<p>The information can be inferred from: <i>\"Located in the financial district of the city, Wrightman Towers offers spectacular views of the city landscape and offers office spaces that are ideal for any company that wishes to operate within the heart of New York.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những g&igrave; được chỉ ra về kh&ocirc;ng gian cho thu&ecirc;?</p>\n\n<p>(A) Chỉ d&agrave;nh cho cư d&acirc;n tư nh&acirc;n.</p>\n\n<p>(B) Chỉ d&agrave;nh cho doanh nghiệp.</p>\n\n<p>(C) C&oacute; sẵn cho c&ocirc;ng ch&uacute;ng.</p>\n\n<p>(D) Rất đắt.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>C&oacute; thể suy ra th&ocirc;ng tin từ: <em>&quot;Tọa lạc tại khu t&agrave;i ch&iacute;nh của th&agrave;nh phố, Wrightman Towers cung cấp tầm nh&igrave;n ngoạn mục ra quang cảnh th&agrave;nh phố v&agrave; cung cấp kh&ocirc;ng gian văn ph&ograve;ng l&yacute; tưởng cho bất kỳ c&ocirc;ng ty n&agrave;o muốn hoạt động trong trung t&acirc;m th&agrave;nh phố New York.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cf0",
+          "questionText": "What is indicated about the location of Wrightman Towers?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is near public transportation.",
+            "(B) It has heavy traffic around the building.",
+            "(C) There are no parking spaces.",
+            "(D) It is just outside the city."
+          ],
+          "correctOptions": [
+            "(A) It is near public transportation."
+          ],
+          "transcript": "<p>Information in:<i>\"Just one block from the subway station and located within walking distance of public buses and taxis, Wrightman Towers is conveniently located.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những th&ocirc;ng tin n&agrave;o được n&ecirc;u về vị tr&iacute; của Wrightman Towers?</p>\n\n<p>(A) Gần phương tiện giao th&ocirc;ng c&ocirc;ng cộng.</p>\n\n<p>(B) C&oacute; lưu lượng giao th&ocirc;ng lớn xung quanh t&ograve;a nh&agrave;.</p>\n\n<p>(C) Kh&ocirc;ng c&oacute; chỗ đậu xe.</p>\n\n<p>(D) Ngay b&ecirc;n ngo&agrave;i th&agrave;nh phố.</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin trong:<em> &quot;Chỉ c&aacute;ch ga t&agrave;u điện ngầm một d&atilde;y nh&agrave; v&agrave; nằm trong khoảng c&aacute;ch đi bộ đến xe bu&yacute;t c&ocirc;ng cộng v&agrave; taxi, Wrightman Towers c&oacute; vị tr&iacute; thuận tiện.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cf1",
+          "questionText": "What is featured on the website?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A listing of all occupied spaces",
+            "(B) An exclusive discount promo code",
+            "(C) A virtual tour of the rental space",
+            "(D) A history of the building"
+          ],
+          "correctOptions": [
+            "(C) A virtual tour of the rental space"
+          ],
+          "transcript": "<p>The information is in: <i>\"Please visit our website at www.wrightmantowers.com/rent for more information.You can take a virtual tour of the premises.\"</i></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>Những g&igrave; được giới thiệu tr&ecirc;n trang web?</p>\n\n<p>(A) Danh s&aacute;ch tất cả c&aacute;c kh&ocirc;ng gian đ&atilde; được sử dụng</p>\n\n<p>(B) M&atilde; khuyến mại giảm gi&aacute; độc quyền</p>\n\n<p>(C) Chuyến tham quan ảo kh&ocirc;ng gian cho thu&ecirc;</p>\n\n<p>(D) Lịch sử của t&ograve;a nh&agrave;</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Th&ocirc;ng tin c&oacute; trong: <em>&quot;Vui l&ograve;ng truy cập trang web của ch&uacute;ng t&ocirc;i tại www.wrightmantowers.com/rent để biết th&ecirc;m th&ocirc;ng tin. Bạn c&oacute; thể tham quan ảo cơ sở.&quot;</em></p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n C</strong></p>\n"
+        },
+        {
+          "id": "6140136c65d71f3a51f62cf2",
+          "questionText": "In which of the positions marked [1], [2], [3] and [4] does the following sentence belong?<br> “These spaces are in high demand.”",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(D) [4]"
+          ],
+          "transcript": "<p>You can see the sentences before position [4] mention about the third and fourth floors are available for rent.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n\n<p>C&acirc;u sau đ&acirc;y nằm ở vị tr&iacute; n&agrave;o trong c&aacute;c vị tr&iacute; được đ&aacute;nh dấu [1], [2], [3] v&agrave; [4]?<br />\n&ldquo;These spaces are in high demand.&rdquo;</p>\n\n<p>(A) [1]</p>\n\n<p>(B) [2]</p>\n\n<p>(C) [3]</p>\n\n<p>(D) [4]</p>\n\n<p><strong>Th&ocirc;ng tin:</strong></p>\n\n<p>Bạn c&oacute; thể thấy c&aacute;c c&acirc;u trước vị tr&iacute; [4] đề cập đến tầng ba v&agrave; tầng bốn c&oacute; sẵn để cho thu&ecirc;.</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        }
+      ]
+    }
+  ]
+}

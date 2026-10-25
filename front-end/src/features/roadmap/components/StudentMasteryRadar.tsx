@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Col, Progress, Row, Space, Typography } from 'antd';
+import { Card, Col, Progress, Row, Space, Typography } from '@/components/ui/Primitives';
 import { SKILL_MASTERY_DEFINITIONS } from '@/config/skillMasteryDefinitions';
 import styles from '@/features/roadmap/components/StudentMasteryRadar.module.css';
 import { FsrsEngine } from '@/lib/fsrsEngine';

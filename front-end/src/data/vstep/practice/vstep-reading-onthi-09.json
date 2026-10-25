@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-09",
+  "title": "Luyện Đọc VSTEP: VstepR4-Test 07 (VstepR4-Test 07)",
+  "duration": 10,
+  "date": "2025-11-16",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "VstepR4-Test 07",
+            "text": "<p class=\"Bodytext70\">Brown bears are found in Alaska and western Canada. They are first cousins of the grizzly, each belonging to the species Ursus arctos. The chief difference in them is size, as brown bears on the average are slightly larger. A full-grown male may weigh 1,500 pounds and stand 9 to 10 feet tall. Like bears everywhere they are creatures of habit that tread the same trails year after year. Brown bears have three gaits: an even, deliberate one that takes them over rough or boggy ground at a steady clip, a quick shuffle, and a fast gallop. They are not only surprisingly fast, but also, for such huge beasts, amazingly agile. They can charge up and climb down nearly vertical inclines. Fishing the streams in summer, they pounce on swift-moving salmon and snatch them with almost simultaneous movements of their paws and mouths. Brown bears are excellent swimmers and love to loll and wallow in the water on warm days. They are also curious and playful. Most manifest a fear of humans, but Alaskans prefer not to test these creatures and usually carry noisemakers of some kind to warn the bears of theirpresence.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r09-q1",
+              "type": "mcq",
+              "question": "<span>It can be inferred from the passage that</span>",
+              "options": [
+                "Grizzlies are smaller than brown bears",
+                "Brown bears do not have the same habits as most bears",
+                "Grizzlies are not found in western Canada",
+                "Grizzlies and brown bears are not related"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Sau khi xem xét từng đáp án ta thấy các thông tin suy ra mà các đáp án đưa ra bao gồm thông tin về kích thước (size) của gấu xám và Bắc Mỹ, thói quen (habit) của gấu nâu, nơi sinh sống của gấu xám Bắc Mỹ và mối quan hệ giữa gấu nâu và gấu xám Bắc Mỹ. Những thông tin này có trong 5 câu đầu của văn bản:</p>\n<p><i>Gấu nâu được tìm thấy ở Alaska và phía tây Canada (1). Chúng là anh em họ đầu tiên của gấu xám Bắc Mỹ, đều thuộc chủng Gấu nâu (2). Sự khác biệt chính giữa chúng là kích thước, bởi vì gấu nâu trung bình nặng hơn gấu xám Bắc Mỹ một chút (3). Một con đực đã trưởng thành có thể nặng 1.500 pounds, và cao từ 9-10 feet (4). Giống như những con gấu ở khắp mọi nơi, chúng là sinh vật sống theo thói quen, chúng đi theo những con đường giống nhau năm này qua năm khác (5). </i></p>\n<p>Đáp án A. <i>Gấu xám Bắc Mỹ nhỏ hơn gấu nâu</i>. Theo nội dung trên, gấu nâu thường nặng hơn gấu xác Bắc Mỹ. -> A đúng</p>\n<p>Đáp án B. <i>Gấu nâu không có thói quen giống như hầu hết các loài gấu khác</i>. Theo câu (5), gấu nâu “giống như những con gấu ở khắp mọi nơi, chúng là sinh vật sống theo thói quen”. Do đó thông tin ở đáp án này không đúng. -> B loại</p>\n<p>Đáp án C. <i>Gấu xám Bắc Mỹ không được tìm thấy ở Canada</i>. Nội dung văn bản chỉ đề cập đến nơi sinh sống của gấu nâu; nên không có thông tin để suy ra nơi sinh sống của gấu xám Bắc Mỹ. -> C loại</p>\n<p>Đáp án D. <i>Gấu xám Bắc Mỹ và gấu nâu không liên quan đến nhau</i>. Đáp án này không đúng vì gấu nâu là những “anh em họ đầu tiên” của gấu xám Bắc Mỹ (câu 2). -> D loại</p>\n<p>=> A là đáp án đúng. </p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r09-q2",
+              "type": "mcq",
+              "question": "<span>It is most probable that if a brown bear came across a human in the wild it would</span>",
+              "options": [
+                "Attack the human",
+                "Avoid the human",
+                "Not be the least interested in the human",
+                "Be friendly toward the human"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Câu này hỏi về khả năng dễ xảy ra nhất khi gấu nâu gặp con người trong thế giới hoang dã. Ta có thể tìm được thông tin này trong câu cuối của văn bản.</p>\n<p><i>Hầu hết đều thể hiện sự sợ hãi đối với con người, nhưng người dân Alaska thì thấy tốt hơn là không nên thử những sinh vật này và thường mang theo máy tạo tiếng ồn giống như là một cách để cảnh báo cho những con gấu về sự hiện diện của họ.</i></p>\n<p>Với các đáp án A. <i>tấn công con người </i>và D. <i>thân thiện đối với con người</i> đều không hợp lý, vì gấu nâu sợ con người nên thông thường chúng có thể sẽ không dám tấn công hoặc lại gần con người. -> A, D loại</p>\n<p>Đáp án C. <i>Không quan tâm một chút nào đối với con người</i>. Việc thể hiện sự sợ hãi đối với con người chứng tỏ rằng gấu nâu có chú ý đến sự xuất hiện của con người nên không thể nói rằng chúng thờ ơ với con người. -> C loại</p>\n<p>Đáp án B. <i>Tránh con người</i>. Đây là phản ứng hợp lý nhất trong trường hợp động vật sợ hãi thứ gì đó. -> B đúng</p>\n<p>=> B là đáp án đúng </p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r09-q3",
+              "type": "mcq",
+              "question": "<span>The passage implies that brown bears</span>",
+              "options": [
+                "Are huge, awkward animals",
+                "Can negotiate almost any terrain",
+                "Are fierce and bad-tempered",
+                "Are not afraid of loud noises"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Câu này hỏi thông tin suy ra về đặc tính của gấu nâu.</p>\n<p>Đáp án A. <i>là những con vật to lớn và kì quặc</i>. Trong câu số 2 từ cuối lên ở văn bản, ta thấy rằng “Chúng còn tò mò và ham chơi”; “tò mò” và “ham chơi” không phải là tính cách kì quặc. -> A loại</p>\n<p>Đáp án B. <i>Chúng có thể thích nghi với hầu hết bất kỳ địa hình nào</i>. Theo câu (6): “Gấu nâu có ba dáng đi: một dáng đi chậm rãi và có chủ đích để vượt qua các khu đất gồ ghề và lầy lội ở một dốc đúng, một dáng đi lê bước nhanh và một dáng đi nước đại nhanh. Bởi vì với 3 dáng đi, gấu nâu có thể điều chỉnh tốc đi đi nhanh hay chậm cũng như khoảng cách giữa các bước phụ thuộc vào địa hình. Thậm chí địa hình khó đi như dốc đứng chúng vẫn có thể đi qua được. Do vậy, có khả năng gấu nâu có thể thích nghi với nhiều địa hình khác nhau. -> B đúng</p>\n<p>Đáp án C. <i>Hung tợn và dễ nổi nóng</i>. (Xem lại phần giải thích đáp án A) Đây không phải là đặc tích của gấu nâu. -> C loại</p>\n<p>Đáp án D. <i>Không sợ tiếng ồn</i>. Theo như câu văn cuối cùng của văn bản (dịch ở câu số 29), người dân sống ở Alaska thường mang theo dụng cụ tạo tiếng ồn để cảnh báo các con gấu nâu về sự xuất hiện của họ, chứng tỏ việc tạo tiếng ồn có thể có ảnh hưởng khiến các con gấu sợ và tránh xa loài người. -> D loại</p>\n<p>=> B là đáp án đúng.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r09-q4",
+              "type": "mcq",
+              "question": "<span>The passage suggests that</span>",
+              "options": [
+                "It would not be unusual to see a bear cross a deep river",
+                "Brown bears catch salmon in quiet pools",
+                "Brown bears like to range over new territory",
+                "Brown bears are slow but agile"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án A. <i>Sẽ là điều không bình thường nếu nhìn thấy một con gấu băng qua một dòng sông sâu</i>. Nhìn vào câu thứ 3 từ dưới lên: “Gấu nâu là những tay bơi cừ khôi, chúng yêu thích việc quanh quẩn và đầm mình dưới nước trong những ngày ấm áp”, mặc dù có nói rằng các con gấu nâu bơi rất giỏi, nhưng việc chúng ưa thích không phải là bơi mà là quanh quẩn và đầm mình dưới nước. Chỉ những vũng nước nông thì các con gấu này mới có thể ngâm mình trong thời gian dài, trong khi nếu là vùng nước sâu chúng phải bơi. Do đó việc nhìn thấy các con gấu nâu ở những con sông sâu có thể là điều không bình thường. -> A đúng</p>\n<p>Đáp án B. <i>Gấu nâu bắt cá hồi ở những hồ nước lặng</i>. Câu thứ 4 từ cuối lên: “Bơi ở những con suối trong mùa hè, chúng lao vào những con cá hồi đang bơi nhanh và chộp lấy những con cá hồi này gần như là với chuyển động đồng thời của chân và miệng”, cho thấy gấu nâu bắt có hồi ở suối chứ không phải hồ nước lặng. -> B loại</p>\n<p>Đáp án C. <i>Gấu nâu thích thay đổi lãnh thổ mới</i>. Không có thông tin liên quan đến sở thích thay đổi khu vực sống của gấu nâu. -> C loại</p>\n<p>Đáp án D. <i>Gấu nâu chậm nhưng nhạy bén</i>. Thông tin này không chính xác vì theo câu số 7 từ trên xuống: “chúng không chỉ nhanh nhẹn đáng kinh ngạc và , đối với những động vật to lớn như vậy, chúng còn nhạy bén một cách tuyệt vời”. -> D loại</p>\n<p>=> A là đáp án đúng</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r09-q5",
+              "type": "mcq",
+              "question": "<span>Which of the following can be implied fromthe passage?</span>",
+              "options": [
+                "Alaskans have no fear of the brown bear.",
+                "Alaskans do not know very much about the habits of the brown bear.",
+                "Alaskans are not creatures of habit.",
+                "Alaskans have a cautious respect for the brown bear."
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Câu này hỏi về thái độ của người Alaska đối với các con gấu nâu. Sau khi làm câu 29, ta thấy rằng người Alaska thay vì thử xem các con gấu này có sợ mình không, họ thường dùng các tiếng động để khiến các con gấu nâu tránh xa mình.</p>\n<p>Đáp án A. <i>Người Alaska không sợ gấu nâu</i>. Nếu người ta không có chút sợ hãi gấu nâu thì họ sẽ không cần tìm cách để đuổi những con gấu này. -> A loại</p>\n<p>Đáp án B. <i>Người Alaska không biết nhiều về thói quen của các con gấu nâu</i>. Chúng ta không có đủ thông tin qua câu trên để kết luận về hiểu biết của người Alaska đối với gấu nâu. Hơn nữa các câu khác trong bài cũng không có thông tin liên quan. -> B loại.</p>\n<p>Đáp án C. <i>Những người Alaska không phải là những người sống theo thói quen</i>. “creatures of habit” (những sinh vật sống theo thói quen) là cụm từ để miêu tả gấu nâu chứ không phải loại người, còn về việc người Alaska có sống theo thói quen, tập tục hay không thì không được nêu ra trong bài này. -> C loại</p>\n<p>Đáp án D. <i>Người Alaska tôn trọng một cách cẩn trọng với những con gấu nâu.</i> Thông tin này là hợp lý, bởi vì thay vì thử xem liệu rằng gấu nâu có sợ mình không, những người sống ở Alaska lại chuẩn bị dụng cụ để cảnh báo các con gấu không lại gần mình thay vì tìm cách chống trả trong trường hợp gặp gấu nâu. -> D đúng</p>\n<p>=> D là đáp án đúng </p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

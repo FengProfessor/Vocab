@@ -1,8 +1,9 @@
 import { AppEnvironment } from '@/config/types/AppEnvironment';
-function requireUrl(name: 'VITE_API_BASE_URL' | 'VITE_SERVER_ORIGIN'): string {
+
+function resolveUrl(name: 'VITE_API_BASE_URL' | 'VITE_SERVER_ORIGIN', fallback: string): string {
   const value = (import.meta.env[name] as string | undefined)?.trim();
   if (!value) {
-    throw new Error(`Missing ${name}. Define it in the .env.${import.meta.env.MODE} file.`);
+    return fallback;
   }
   return value.replace(/\/+$/, '');
 }
@@ -13,9 +14,9 @@ export const appConfig = {
     ? import.meta.env.MODE
     : 'development') as AppEnvironment,
 
-  /** Absolute base URL of the .NET API, e.g. https://api.lingopro.online/api/v1. */
-  apiBaseUrl: requireUrl('VITE_API_BASE_URL'),
+  /** Absolute base URL of the .NET API, e.g. http://localhost:5000/api/v1. */
+  apiBaseUrl: resolveUrl('VITE_API_BASE_URL', 'http://localhost:5000/api/v1'),
 
-  /** Origin of the .NET server (marketing/SSR pages), without a path. */
-  serverOrigin: requireUrl('VITE_SERVER_ORIGIN'),
+  /** Origin of the .NET server, without a path. */
+  serverOrigin: resolveUrl('VITE_SERVER_ORIGIN', 'http://localhost:5000'),
 } as const;

@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-23",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 23",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-23/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>Great Midland Railway would like to apologize to passengers as we will not be providing the advertised buffet service with tea, coffee cold drinks and full English and continental breakfasts on this journey. This is due to fire in the locomotive shed before departure. A trolley service is available, however which will be visiting all coaches with a selection of cold drinks and sandwiches. Passengers are requested to remain in their seats for this service.</li></ul><p><b>Question 2.</b></p><ul><li>Well, I was afraid you’d have to wait till Thursday but I just talked to the engineer and er today’s Tuesday, isn’t it he said you could pick it up tomorrow Is that all right for you?</li></ul><p><b>Question 3.</b></p><ul><li>Motorists travelling to Bury are notified of a serious fire in the town. The traffic isn’t moving at all and there are hold ups in all directions. Avoid Bury if you can. In Birmingham there’s already heavy traffic around Edgbaston as the crowds arrive for the cricket final. There are a number of minor roads closed around the cricket ground so if you’ve got a ticket for the final make sure you give yourself plenty of time to get there On the M11 to Cambridge there’s been.</li></ul><p><b>Question 4.</b></p><ul><li>It’s 7.30 and now we have a choice of our viewers here in Wales. On HTV we have Bill Barnard and Ian Fall in The Sport in Question. On TSW we have a documentary on the 400th anniversary of Sir Francis Drake’s death which examines Drake’s last voyage to the Caribbean and on Channel 4 Wales there’s an adaptation of Johns McShene’s novel about modern university life. A Place in History.</li></ul><p><b>Question 5.</b></p><ul><li>I’ve got instructions for getting to Dad’s new house here, Ken Turn off at junction 28 and take the first turning signposted to the City centre and Barnstable. After that, drive for about 200 yards and there’s another left turn. There’s no signpost but he says it leads to Matlock village and it’s called Gate Lane. The new house is 150 yards along on the right. It’s an old brick building with a lovely…</li></ul><p><b>Question 6.</b></p><ul><li>ideal for a weekend break. We have indoor heated swimming pools Jacuzzis and saunas three gymnasia with qualified fitness instructors all freely available to guests. There are three top class restaurants to cater for every taste. And even a crèche so the busy mum and dad are free to enjoy the facilities. Double and single rooms can be booked only through.</li></ul><p><b>Question 7.</b></p><ul><li>...and all passengers should disembark while the plane is being refuelled. This should take about 45 minutes. Passengers to London should follow the signs to the luggage collection points and the exits. Passengers continuing their journeys to destinations in Europe should proceed to terminal B. There is a bus to take you there. Passengers continuing their flight to the USA should wait in the departure lounge. We will call you as soon as it is safe for you to reboard the plane. On behalf of Air Midland, I would like to thank you for choosing.</li></ul><p><b>Question 8.</b></p><ul><li>A woman whose life was saved by an emergency operation while on a flight from Cape Town to Jakarta will take another flight to Jakarta tomorrow this time on her honeymoon. Georgina Curry survived thanks to quick thinking from two doctors on board the plane who performed an emergency appendix operation at 30,000 feet. But today only love is in the air Miss Curry marries her fiancé David Hume.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What can you get on the train?",
+              "options": [
+                "full English breakfast",
+                "full continental breakfast",
+                "tea and coffee",
+                "sandwiches"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "When will the television be ready for collection?",
+              "options": [
+                "on Tuesday",
+                "on Wednesday",
+                "on Thursday",
+                "on Friday"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What should people going to Birmingham do?",
+              "options": [
+                "cancel the trip",
+                "leave early",
+                "use minor roads",
+                "use Bury road"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which channel broadcasts about history?",
+              "options": [
+                "HTV",
+                "Channel 4 Wales",
+                "TSW",
+                "no channel at all"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Where does Ken’s father live?",
+              "options": [
+                "in the City centre",
+                "in Matlock village",
+                "in Gate Lane",
+                "near a motorway"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is being advertised?",
+              "options": [
+                "a luxury hotel",
+                "a fitness centre",
+                "a summer camp",
+                "a restaurant"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "You are flying to New York. Where should passengers to New York go?",
+              "options": [
+                "to terminal B",
+                "to the departure lounge",
+                "to luggage collection",
+                "to the exits"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is it true about Georgina Curry?",
+              "options": [
+                "She went to Jakarta for an appendix operation.",
+                "She is going to Jakarta for an appendix operation.",
+                "She went to Jakarta on her honeymoon.",
+                "She is going to Jakarta on her honeymoon"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-23/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> I’ve been reading your personal statement, Paul. First, let’s talk about your work experience in South America. What took you there? Was it to gain more fluency in Spanish?</li><li><b>M:</b> Well, as I’m combining Spanish with Latin American studies, my main idea was to find out more about the way people lived there. My spoken Spanish was already pretty good in fact.</li><li><b>W:</b> So you weren’t too worried about language barriers?</li><li><b>M:</b> No. In fact, I ended up teaching English there, although that wasn’t my original choice of work.</li><li><b>W:</b> How did you find out about all this?</li><li><b>M:</b> I found an agency that runs all kinds of voluntary projects in South America.</li><li><b>W:</b> What kind of work?</li><li><b>M:</b> Well, there were several possibilities.</li><li><b>W:</b> You mean construction? Engineering work?</li><li><b>M:</b> Yes, getting involved in building projects was an option. Then there was tourism, taking tourists for walks around the volcanoes which I actually chose to do and then there was work with local farmers.</li><li><b>W:</b> But you didn’t continue with that project. Why not?</li><li><b>M:</b> Because I never really knew whether I’d be needed or not. I’d thought it might be difficult physically, but I was certainly fit enough ... no, I wanted to do something that had more of a proper structure to it, I suppose. I get de-motivated otherwise.</li><li><b>W:</b> What do you think you learned from your experience? It must have been a great opportunity to examine community life.</li><li><b>M:</b> Yes, but it was difficult at first to be accepted by the locals. It was a very remote village and some of them were reluctant to speak to me although they were always interested in my clothes and how much I’d had to pay for them.</li><li><b>W:</b> Well, that’s understandable.</li><li><b>M:</b> Yes, but things soon improved. What struck me was that when people became more comfortable with me and less suspicious, we really connected with each other in a meaningful way.</li><li><b>W:</b> You made good friends?</li><li><b>M:</b> Yes, with two of the families in particular.</li><li><b>W:</b> Good. What about management. Did you have a project manager?</li><li><b>M:</b> Yes and he gave me lots of advice and guidance.</li><li><b>W:</b> And was he good at managing too?</li><li><b>M:</b> That wasn’t his strong point! I think he was often more interested in the academic side of things than filing reports. He was a bit of a dreamer.</li><li><b>W:</b> And did you have a contract?</li><li><b>M:</b> I had to stay for a minimum of three months. My parents were surprised when I asked to stay longer - six months in the end. I was so happy there.</li><li><b>W:</b> And did anything on the administration side of things surprise you? What was the food and lodging like?</li><li><b>M:</b> Simple ... but there was plenty to eat and I only paid seven dollars a day for that which was amazing really. And they gave me all the equipment I needed ... even a laptop.</li><li><b>W:</b> You didn’t expect that then?</li><li><b>M:</b> No</li><li><b>W:</b> Well, I’ll look forward to hearing more.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Hi Jun. As you know, I’ve asked you here today to discuss the future of our Self-Access Centre. We have to decide what we want to do about this very important resource for our English language students. So, can you tell me what the students think about this?</li><li><b>M:</b> Well, from the students’ point of view, we would like to keep it. The majority of students say they enjoy using it because it provides a variation on the classroom routine and they see it as a pretty major component of their course, but we would like to see some improvements to the equipment, particularly the computers; there aren’t enough for one each at the moment and we always have to share.</li><li><b>W:</b> Well yes, the teachers agree that it is a very valuable resource but one thing we have noticed is that a lot of the students are using it to check their personal emails. We don’t want to stop you students using it, but we think the computers should be used as a learning resource, not for emails. Some of us also think that we could benefit a lot more by relocating the Self-Access Centre to the main University library building. How do you think the students would feel about that, Jun?</li><li><b>M:</b> Well, the library is big enough to incorporate the Self-Access Centre, but it wouldn’t be like a class activity anymore. Our main worry would not be being able to go to a teacher for advice. I’m sure there would be plenty of things to do but we really need teachers to help us choose the best activities.</li><li><b>W:</b> Well, there would still be a teacher present and he or she would guide the activities of the students. We wouldn’t just leave him to get on with it.</li><li><b>M:</b> Yes, but I think the students would be much happier keeping the existing set-up; they really like going to the Self-Access Centre with their teacher and staying together as a group to do activities. If we could just improve the resources and facilities, I think it would be fine. Is the cost going to be a problem?</li><li><b>W:</b> It’s not so much the expense that I’m worried about, and we’ve certainly got room to do it, but it’s the problem of timetabling a teacher to be in there outside class hours. If we’re going to spend a lot of money on equipment and resources, we really need to make sure that everything is looked after properly. Anyway, let’s make some notes to see just what needs doing to improve the Centre.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> For the second in our series about locally-run businesses, we meet Simon Winridge, co-founder of the hugely-successful Winridge Forest Railway Park. Welcome, Simon. Now, perhaps you can begin by telling us a little bit about how it all started.</li><li><b>M:</b> Well, during the 1970s, my wife, Liz and I had just acquired 80 acres of sheep-farming land, and we decided to settle down and have children. Pretty soon we had a daughter, Sarah, and a son, Duncan. The place was wonderful for the kids: they particularly loved trains and gradually built up an enormous network of miniature railway track. I began to develop larger-scale models of locomotives but we didn’t think anything more of it until I went on a trip to a theme park near Birmingham and decided we could do a much better job! So we set up a small one ourselves based on the miniature railway and we opened to the public for just a month that year. 1984 - in July - our driest month because our children said they didn’t want our guests to have a miserable, wet visit. I dealt with Park business and Liz carried on with the farm work. It soon became clear that we were onto a winner. We began to extend the railway track and lay it among more interesting landscape by planting trees, which in turn attracted more wildlife, and by making cuttings through the rock. Nowadays, we’re open all year round and we’re pleased to say that Winridge is one of the most popular visitor attractions in the area with 50,000 visitors a year - a million and a half people have been through our doors since we opened. All these visitors mean we have had to expand our operation and it’s now a truly family concern I’m near to retirement age so I only concern myself with looking after the mechanical side of things - keeping the trains going. Liz now devotes all her energies to recruiting and supporting the large squadron of workers, which keep the place running smoothly. We're really pleased that after some years away teaching, Sarah has now returned to the park and makes sure the visitors are kept fed and watered, which keeps her pretty busy as you can imagine. Our son Duncan has been a stalwart of the park for the last 10 years, taking over from me and the area of construction and I'll say a little bit more about that in the moment. And his new wife Judith has also joined the team in charge of retail. That’s becoming a tremendous growth area for us a lot of people want to buy souvenirs.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why did Paul decided to get work experience in South America?",
+              "options": [
+                "to teach English there.",
+                "to improve his Spanish.",
+                "to learn about Latin American life.",
+                "to earn a good salary."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What project work did Paul originally intend to get involved in?",
+              "options": [
+                "construction",
+                "agriculture",
+                "tourism",
+                "education"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Paul say about his project manager?",
+              "options": [
+                "He let Paul do most of the work.",
+                "His plans were too ambitious.",
+                "He was very supportive of Paul.",
+                "He was skilled at managing."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What surprised Paul most?",
+              "options": [
+                "he had to stay in the community at least for three months.",
+                "he was given a computer to use.",
+                "he had too much to eat",
+                "He spent only a small sum of money for plenty of food."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why do students want to keep the Self-Access Centre?",
+              "options": [
+                "they enjoy the variety of equipment.",
+                "they like being able to work on their own.",
+                "it is an important part of their studies.",
+                "they can share learning materials there."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What do some teachers think of the Self-Access Centre?",
+              "options": [
+                "it should be closed.",
+                "it should be moved elsewhere.",
+                "Restricted access should be given.",
+                "it should be used for both personal and study purposes."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What are students mainly concerned about using the library?",
+              "options": [
+                "the size of the library.",
+                "difficulty in getting help.",
+                "the lack of materials.",
+                "choosing a class activity."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is the Director of Studies concerned about?",
+              "options": [
+                "the cost of upgrading the centre.",
+                "the lack of space in the centre.",
+                "the difficulty in supervising the centre.",
+                "students’ using the centre for personal emails."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What prompted Simon to launch his own theme park venture?",
+              "options": [
+                "A desire to improve upon a commercial park he had visited.",
+                "An inspiration drawn from his children’s miniature train setup.",
+                "A passion for restoring full-sized vintage model locomotives.",
+                "A plan to convert their sheep farm into a scenic tourist spot."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Why was July selected as the initial opening period for the park?",
+              "options": [
+                "It coincided with the time their kids finished their school term.",
+                "It was recommended by family members to avoid rainy weather.",
+                "It allowed them to take a break from heavy farm work duties.",
+                "It gave them enough time to secure capital for basic setup."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What total attendance figure has the park reached overall?",
+              "options": [
+                "50,000 visitors in total.",
+                "500,000 visitors in total.",
+                "1,000,000 visitors in total.",
+                "1,500,000 visitors in total."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "Who currently oversees the catering operations for visitors at the site?",
+              "options": [
+                "The co-founder responsible for maintenance tasks.",
+                "The former teacher who rejoined the family business.",
+                "The person handling recruitment and staff management.",
+                "The team member supervising construction projects."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-08/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1</b></p><p>Well, there’s nothing quite like finding your first old ship – it was 300 years old. Well, there’s nothing quite like finding your first Ok just lying at the bottom of the sea, so it wasn’t difficult to find. Most are covered in sand and rocks – but this one wasn’t.</p><p>I’m actually a teacher, not a full time diver – I dive in my free time but I often get to them before the professional divers, because I have good up-to-date equipment. Another thing that helps is talking to fish-men who tell me about their local area. I’ve even written a book about some of their experiences.</p><p>At the moment, I’m looking for the gold from a ship called The Sea Bird. It was an enormous well-built ship and it was coming from Australia on a winter night in 1859. Everything was going fine until the ship reached the English coast, when it crashed into some rocks in a very strong wind and sank to the bottom of the sea. It was carrying gold from Australia, and most of it is still at the bottom of the sea.</p><p>My wedding ring is actually made from gold which I found on an eighteenth – century sailing ship. A friend of mine, another diver, has already found 88,000 pounds worth of gold from different ship. He’s now decided to give up his job and become a full – time diver.</p><p>My house is full of things like coins, bottles and old guns. My wife is always complaining about the number of objects around the house – she says I should open an antiques shop – but I love all these old things. Anyway, in the end, I gave some things from my collection to museums, because I didn’t want to sell them. But my wife still wasn’t very pleased, I’m afraid.</p><p>As diving is a dangerous hobby, It’s not a good idea to try to teach yourself. I’d advise anyone interested to do what I did. There are some excellent diving clubs like the one I joined, which run courses for beginners. It is best to do one of these before you go on a diving holiday...</p><p><b>Talk 2</b></p><p>Are you interested in history? Well, I’d like to tell you about some of the historical places open to visitors in this part of the country.</p><p>Let’s start with the oldest first, Black Rock Caves have been here for over two million years. And, for half a million year, they were home to people and various animals, particularly tigers. You can explore these ancient homes and imagine what life was like for the people who lived there. The caves are open daily from April to October. A special attraction on evenings in August is a walk by candle light. Don’t take this tour if you are afraid of the dark.</p><p>Next I recommend a visit to Salter house. This was built by Sir Joshua Salter and dates back to seventeen sixty – five. The Salter family are still living these today. The house became famous in nineteen eighty two when the television series Aunt Dorothy was filmed there. The furniture and paintings are well worth seeing, but the attraction nobody wants to miss is the kitchen. This is where Aunt Dorothy cooked her enormous meals and gave advice to anyone who passed through this part of the house.</p><p>And don’t forget to visit the Old Port. You will need several hours to see everything there, especially if you take a trip along the riverside in an old tram as far as the fishing village. The guides there all wear traditional costume and you too get the chance to try on clothes from hundred years ago. You can buy gifts in the old village stores and eat delicious snacks in the Tea Shop. If you visit the village factory, you can see how sweets were made a hundred years ago, and taste them, too.</p><p>So, you see there’s plenty of...</p><p><b>Talk 3</b></p><p>This lecture is going to introduce you to traditional Chinese philosophy. First, you will learn about, uh, the yin and yang philosophy. Secondly, we will look at the five elements of this philosophy. It is important that you remember these five elements as we will be discussing them throughout the lecture. The five elements of yin and yang are: water, wood, fire, earth, and umm, metal. Ok, so those are the five elements. Umm, let’s begin with the definition of yin and yang. Yin and yang should be considered as opposite forces like, uhh, like land and ocean, for example. These are opposite. Now, these opposites do not compete with each other. They are complementary. When you think of yin and yang, think complementary opposites.</p><p>So, moving from complementary opposites, let’s return to the five elements we mentioned earlier. If you recall, we said they were water, wood, fire, earth and metal. The Chinese divided yin and yang into five elements to gain an understanding of how the body, mind and spirit work. According to the Chinese, every person’s physical and mental health relies on a balance of the five elements.</p><p>Individuals may have more of one element than another. Of course, ideally, all elements are in balance or harmony. What does this mean? Uh, it means that a person’s body contains equal amounts of each element.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The first old ship which Frank found was ..........",
+              "options": [
+                "covered by rocks",
+                "older than he first thought",
+                "easy to find",
+                "had a lot of gold"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did Frank find the ships so quickly?",
+              "options": [
+                "reads history books",
+                "is a professional driver",
+                "his friends helped him",
+                "uses the latest equipment"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does Frank say about the ship called The Sea Bird?",
+              "options": [
+                "It was so expensive",
+                "It was built in 1859",
+                "It sank in a storm",
+                "It was badly made"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What did Frank say about his wedding ring?",
+              "options": [
+                "was made from gold he found himself",
+                "it was given by someone",
+                "is worth 88,000 pounds",
+                "was found by a friend"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "How did Frank learn to dive?",
+              "options": [
+                "by joining a diving club",
+                "by asking the dive tutor",
+                "by teaching himself",
+                "by going on a diving holiday"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "The Black Rock Caves have been home for....",
+              "options": [
+                "Two million years",
+                "A million year",
+                "A half a million year",
+                "centuries"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "When can the cave attract the tourists?",
+              "options": [
+                "from April to October",
+                "April",
+                "October",
+                "August"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Salter house was built in ............",
+              "options": [
+                "1765s",
+                "1756s",
+                "1928s",
+                "1982s"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "The things that are worth to visit in Salter house is ............",
+              "options": [
+                "the furniture",
+                "the paintings",
+                "the enormous meals",
+                "the kitchen"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should tourists do as visiting The Old Port?",
+              "options": [
+                "take an old trek to visit the riverside",
+                "buy different traditional costumes",
+                "try sweets made in the Tea Shop",
+                "visit the village factory"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What does the professor say about the elements in the body?",
+              "options": [
+                "Ideally, these should be different amounts of each",
+                "The amount of each in the body is not very important",
+                "They can be out of balance",
+                "Different people have different elements"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the professor, what are yin and yang?",
+              "options": [
+                "They are opposite forces",
+                "They are what make a person healthy",
+                "They are four different elements",
+                "They are the land and the ocean"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What does the professor say about yin and yang?",
+              "options": [
+                "They represent opposing forces that complement each other.",
+                "They are constantly changing to maintain harmony.",
+                "They must remain equal in order to maintain good health.",
+                "They are divided into five elements that compete with one another."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "According to the Chinese, five elements of Yin and Yang are studied for the work of",
+              "options": [
+                "the body and spirit",
+                "body, mind and spirit work",
+                "balance and harmony",
+                "medicine and health"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the professor says “Yin and Yang should be considered as opposite forces like, uhh, like land and ocean, for example”?",
+              "options": [
+                "To correct something she said earlier",
+                "To explain a term she just introduced",
+                "To explain what is wrong with a particular theory",
+                "To remind the students of something discussed earlier"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-52",
+  "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 07 (Reading Part 1 - Test 07)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 1 - Test 07",
+            "text": "<p style=\"text-align:center;\"><strong>TEXT A - Hotel Booking Confirmation</strong></p>\n<p><strong>Reservation Number:</strong> HTL-789456<br><strong>Guest:</strong> Sarah Johnson<br><strong>Check-in:</strong> May 15, 2026 (3:00 PM)<br><strong>Check-out:</strong> May 18, 2026 (11:00 AM)</p>\n<p style=\"text-align:justify;\">Thank you for choosing Seaside Resort! We are <strong>delighted</strong> to confirm your reservation for a <strong>superior</strong> ocean-view room. Our <strong>complimentary</strong> breakfast buffet is served daily from 7-10 AM. The hotel features an outdoor pool, fitness center, and spa facilities. Free Wi-Fi is <strong>available</strong> throughout the property.</p>\n<p style=\"text-align:justify;\">Please note that early check-in is subject to <strong>availability</strong>. If you have any special requests or need to <strong>modify</strong> your reservation, contact us at least 48 hours in advance. We have a <strong>flexible</strong> cancellation policy - free cancellation up to 24 hours before arrival. Our <strong>dedicated</strong> staff looks forward to making your stay memorable!</p>\n</div>\n\n<div style=\"background: #fff3e0; padding: 20px; margin: 20px 0; border-left: 4px solid #ff9800;\">\n<p style=\"text-align:center;\"><strong>TEXT B - Airline Travel Advisory</strong></p>\n<p><strong>Important Notice for Flight SK2045 (May 15, 2026)</strong></p>\n<p style=\"text-align:justify;\">Due to <strong>adverse</strong> weather conditions, Flight SK2045 departure time has been <strong>adjusted</strong> from 9:00 AM to 11:30 AM. Passengers are advised to arrive at the airport at least 2 hours before the new departure time. This delay is <strong>temporary</strong> and necessary to ensure passenger safety.</p>\n<p style=\"text-align:justify;\">Complimentary meal vouchers will be <strong>provided</strong> to all affected passengers. Please proceed to the airline counter to collect your voucher. We apologize for any <strong>inconvenience</strong> this may cause and appreciate your patience and understanding.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r52-q1",
+              "type": "mcq",
+              "question": "In TEXT A, what does \"delighted\" mean?",
+              "options": [
+                "disappointed",
+                "very pleased and happy",
+                "confused",
+                "uncertain"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r52-q2",
+              "type": "mcq",
+              "question": "The word \"superior\" in TEXT A is closest in meaning to?",
+              "options": [
+                "basic or standard",
+                "higher in quality or rank",
+                "small",
+                "cheap"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r52-q3",
+              "type": "mcq",
+              "question": "What does \"availability\" mean in TEXT A?",
+              "options": [
+                "the state of being able to be used or obtained",
+                "expense",
+                "location",
+                "cancellation"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r52-q4",
+              "type": "mcq",
+              "question": "The word \"modify\" in TEXT A means?",
+              "options": [
+                "cancel completely",
+                "make partial changes to",
+                "confirm",
+                "pay for"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r52-q5",
+              "type": "mcq",
+              "question": "What does \"dedicated\" mean in TEXT A?",
+              "options": [
+                "lazy or careless",
+                "committed and devoted to their work",
+                "new and inexperienced",
+                "temporary"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r52-q6",
+              "type": "mcq",
+              "question": "In TEXT B, what does \"adverse\" mean?",
+              "options": [
+                "favorable or good",
+                "harmful or unfavorable",
+                "normal",
+                "predicted"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r52-q7",
+              "type": "mcq",
+              "question": "The word \"adjusted\" in TEXT B is closest in meaning to?",
+              "options": [
+                "cancelled",
+                "changed or modified",
+                "confirmed",
+                "delayed permanently"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r52-q8",
+              "type": "mcq",
+              "question": "What does \"temporary\" mean in TEXT B?",
+              "options": [
+                "permanent",
+                "lasting for only a limited time",
+                "dangerous",
+                "expensive"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r52-q9",
+              "type": "mcq",
+              "question": "The word \"provided\" in TEXT B means?",
+              "options": [
+                "sold",
+                "supplied or given",
+                "refused",
+                "cancelled"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r52-q10",
+              "type": "mcq",
+              "question": "According to both texts, what is a common offering?",
+              "options": [
+                "Free parking",
+                "Complimentary items (breakfast/vouchers)",
+                "Spa services",
+                "Airport shuttle"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

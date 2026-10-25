@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Radio, Space, Typography } from 'antd';
+import { Modal, Radio, Space, Typography } from '@/components/ui/Primitives';
 import { ROADMAP_LEVELS_BY_TRACK, ROADMAP_LEVEL_LABEL } from '@/config/roadmapLevels';
 import styles from '@/features/roadmap/components/RoadmapPlacementModal.module.css';
 import { RoadmapPlacementModalProps } from '@/features/roadmap/types/RoadmapPlacementModalProps';

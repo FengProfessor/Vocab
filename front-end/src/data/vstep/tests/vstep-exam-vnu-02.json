@@ -1,0 +1,1295 @@
+{
+  "id": "vstep-exam-vnu-02",
+  "title": "Đề Khảo Thí VSTEP B2-C1 Sau Đại Học — Đại Học Quốc Gia Hà Nội",
+  "duration": 172,
+  "date": "2026-04-20",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-1.mp3"
+          },
+          "tapescript": "<div class=\"space-y-3 font-sans text-sm text-slate-700\">\n  <p><b>[Announcement 1 - Graduate School]:</b> \"Attention all Master's thesis candidates. The final deadline for submitting your dissertation defense dossier to the Postgraduate Academic Board is exactly 5:00 PM next Wednesday, October 15th. Late submissions without prior dean authorization will not be processed until the subsequent spring academic term.\"</p>\n  <p><b>[Announcement 2 - VNU Research Symposium]:</b> \"The University Science Council cordially invites all doctoral researchers to the International Symposium on Clean Energy Transitions. The plenary keynote address will be held in Auditorium 101 on the ground floor of the Informatics Center.\"</p>\n  <p><b>[Announcement 3 - Digital Library Database]:</b> \"Postgraduate researchers, please be advised that institutional access to Scopus and ScienceDirect will undergo scheduled database maintenance from midnight until 4:00 AM on Sunday. All offline bibliographic citations should be exported beforehand.\"</p>\n  <p><b>[Announcement 4 - Fellowship Program]:</b> \"The National Science Foundation has announced its 2026 Young Researcher Fellowship grants. Eligible applicants must be enrolled in an accredited doctoral program and have authored at least one peer-reviewed journal paper.\"</p>\n  <p><b>[Announcement 5 - Campus Shuttle]:</b> \"Due to road maintenance on Xuan Thuy Street, the VNU inter-campus shuttle bus schedule will operate on a modified 30-minute departure interval rather than the customary 15-minute headway throughout this week.\"</p>\n  <p><b>[Announcement 6 - Academic Ethics Seminar]:</b> \"Attendance at the mandatory research integrity workshop regarding plagiarism and algorithmic AI citation standards is required for all first-year postgraduate candidates this Friday afternoon.\"</p>\n  <p><b>[Announcement 7 - University Clinic]:</b> \"The University Health Center will conduct compulsory health screenings for all newly admitted international graduate scholars in Room 205 between 8:00 AM and 11:30 AM on Thursday.\"</p>\n  <p><b>[Announcement 8 - Laboratory Safety]:</b> \"Before operating the nuclear magnetic resonance spectrometer in Chemical Lab 3, researchers must display their advanced radiation safety certification and log instrument hours with the laboratory director.\"</p>\n</div>",
+          "questions": [
+            {
+              "id": "vnu2-l-q1",
+              "type": "mcq",
+              "question": "What is the absolute deadline for Master dissertation dossier submissions?",
+              "options": [
+                "This Friday at 12:00 PM",
+                "Next Wednesday at 5:00 PM",
+                "Next Monday at 8:00 AM",
+                "By the end of October"
+              ],
+              "answer": 1,
+              "explanationVi": "<b>Dẫn chứng trong audio:</b> <i>'...deadline for submitting your dissertation defense dossier... is exactly 5:00 PM next Wednesday, October 15th.'</i>. Phương án đúng: B.",
+              "part": "Part 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "vnu2-l-q2",
+              "type": "mcq",
+              "question": "Where will the keynote address of the Clean Energy Symposium be held?",
+              "options": [
+                "In Conference Hall B, 3rd floor",
+                "At the Main University Square",
+                "In Auditorium 101, ground floor",
+                "In Room 302 of the Library"
+              ],
+              "answer": 2,
+              "explanationVi": "<b>Dẫn chứng trong audio:</b> <i>'...keynote address will be held in Auditorium 101 on the ground floor of the Informatics Center.'</i>. Phương án đúng: C.",
+              "part": "Part 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "vnu2-l-q3",
+              "type": "mcq",
+              "question": "When will the scheduled maintenance of Scopus and ScienceDirect take place?",
+              "options": [
+                "From midnight to 4:00 AM on Sunday",
+                "During business hours on Friday",
+                "All day Saturday",
+                "Next Monday morning"
+              ],
+              "answer": 0,
+              "explanationVi": "<b>Dẫn chứng trong audio:</b> <i>'...undergo scheduled database maintenance from midnight until 4:00 AM on Sunday.'</i>. Phương án đúng: A.",
+              "part": "Part 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "vnu2-l-q4",
+              "type": "mcq",
+              "question": "What is a mandatory prerequisite for the Young Researcher Fellowship?",
+              "options": [
+                "Having three years of university lecturing experience",
+                "Graduating with a perfect grade point average",
+                "Residing permanently in Hanoi",
+                "Authoring at least one peer-reviewed journal paper"
+              ],
+              "answer": 3,
+              "explanationVi": "<b>Dẫn chứng trong audio:</b> <i>'...must be enrolled in an accredited doctoral program and have authored at least one peer-reviewed journal paper.'</i>. Phương án đúng: D.",
+              "part": "Part 1",
+              "orderNumber": 4
+            },
+            {
+              "id": "vnu2-l-q5",
+              "type": "mcq",
+              "question": "How frequently will the VNU inter-campus shuttle depart this week?",
+              "options": [
+                "Every 15 minutes",
+                "Every 45 minutes",
+                "Every 30 minutes",
+                "Once per hour"
+              ],
+              "answer": 2,
+              "explanationVi": "<b>Dẫn chứng trong audio:</b> <i>'...will operate on a modified 30-minute departure interval rather than the customary 15-minute headway...'</i>. Phương án đúng: C.",
+              "part": "Part 1",
+              "orderNumber": 5
+            },
+            {
+              "id": "vnu2-l-q6",
+              "type": "mcq",
+              "question": "What topic is addressed in Friday's mandatory graduate workshop?",
+              "options": [
+                "Statistical software installation",
+                "Plagiarism and AI citation standards",
+                "Grant budgeting procedures",
+                "Overseas visa application processing"
+              ],
+              "answer": 1,
+              "explanationVi": "<b>Dẫn chứng trong audio:</b> <i>'...mandatory research integrity workshop regarding plagiarism and algorithmic AI citation standards...'</i>. Phương án đúng: B.",
+              "part": "Part 1",
+              "orderNumber": 6
+            },
+            {
+              "id": "vnu2-l-q7",
+              "type": "mcq",
+              "question": "Who is required to undergo health screenings on Thursday morning?",
+              "options": [
+                "Newly admitted international graduate scholars",
+                "Senior professors approaching retirement",
+                "Undergraduate student club leaders",
+                "Campus cafeteria catering staff"
+              ],
+              "answer": 0,
+              "explanationVi": "<b>Dẫn chứng trong audio:</b> <i>'...compulsory health screenings for all newly admitted international graduate scholars...'</i>. Phương án đúng: A.",
+              "part": "Part 1",
+              "orderNumber": 7
+            },
+            {
+              "id": "vnu2-l-q8",
+              "type": "mcq",
+              "question": "What must researchers present prior to using the spectrometer in Lab 3?",
+              "options": [
+                "A written endorsement from the university rector",
+                "A receipt of maintenance payment",
+                "Their undergraduate diploma",
+                "Their advanced radiation safety certification"
+              ],
+              "answer": 3,
+              "explanationVi": "<b>Dẫn chứng trong audio:</b> <i>'...must display their advanced radiation safety certification and log instrument hours...'</i>. Phương án đúng: D.",
+              "part": "Part 1",
+              "orderNumber": 8
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. Each conversation has four questions. For each question, choose the best answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-2.mp3"
+          },
+          "tapescript": "<div class=\"space-y-3 font-sans text-sm text-slate-700\">\n  <p><b>[Conversation 1 - Grant Funding Proposal]:</b><br/>\n  <b>Dr. Ha:</b> \"Good morning, Tuan. I reviewed your draft grant application for the National Foundation for Science and Technology Development. Your research question on microplastic accumulation in Red River estuaries is highly pertinent, but your budget justification is lacking detail.\"<br/>\n  <b>Tuan:</b> \"Thank you, Dr. Ha. I wasn't certain whether we should itemize consumable sampling containers or lump them under general field expenses.\"<br/>\n  <b>Dr. Ha:</b> \"You must itemize every high-resolution mass spectrometry consumable. Reviewers scrutinize equipment operation costs. Also, replace your third methodology objective with a clear validation metric.\"<br/>\n  <b>Tuan:</b> \"Understood. I will revise the spreadsheet and resubmit by Thursday afternoon.\"</p>\n\n  <p><b>[Conversation 2 - Doctoral Defense Preparation]:</b><br/>\n  <b>Advisor:</b> \"Mai, the external review committee has returned preliminary comments on your dissertation regarding cognitive ergonomics in automated vehicle interfaces.\"<br/>\n  <b>Mai:</b> \"Were there any fundamental conceptual objections, Professor?\"<br/>\n  <b>Advisor:</b> \"None that threaten your defense. However, Dr. Evans noted that your statistical power calculation needs explicit justification in chapter 4, and the panel requests an additional experimental validation trial with senior drivers over 65.\"<br/>\n  <b>Mai:</b> \"That will require around two weeks of recruitment. Can we maintain the scheduled defense date on December 12th?\"<br/>\n  <b>Advisor:</b> \"Yes, provided you conclude testing by late November.\"</p>\n\n  <p><b>[Conversation 3 - Academic Journal Peer Review]:</b><br/>\n  <b>Editor:</b> \"Professor Vu, thank you for agreeing to review manuscript 408 on renewable microgrid algorithms in northern mountainous communities.\"<br/>\n  <b>Prof. Vu:</b> \"My pleasure. I have read the theoretical section. The mathematical model for stochastic wind forecasting is mathematically sound, but the field empirical data is restricted to just three days of summer testing.\"<br/>\n  <b>Editor:</b> \"Do you recommend a major revision or rejection?\"<br/>\n  <b>Prof. Vu:</b> \"I will recommend a Major Revision. The authors must incorporate seasonal winter temperature variations before we can endorse publication.\"</p>\n</div>",
+          "questions": [
+            {
+              "id": "vnu2-l-q9",
+              "type": "mcq",
+              "question": "What is the primary topic of Conversation 1?",
+              "options": [
+                "A student exchange visa application",
+                "A grant funding proposal on microplastic contamination",
+                "A campus building renovation project",
+                "Scheduling a doctoral interview"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Part 2",
+              "orderNumber": 9
+            },
+            {
+              "id": "vnu2-l-q10",
+              "type": "mcq",
+              "question": "What weakness did Dr. Ha identify in Tuan's proposal?",
+              "options": [
+                "An inappropriate research topic",
+                "An overly small geographic study area",
+                "A lack of itemized budget detail for equipment consumables",
+                "A poorly formatted title page"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Part 2",
+              "orderNumber": 10
+            },
+            {
+              "id": "vnu2-l-q11",
+              "type": "mcq",
+              "question": "What modification did Dr. Ha request for the methodology?",
+              "options": [
+                "Replacing the third objective with a clear validation metric",
+                "Deleting the entire statistical modeling section",
+                "Extending the study to coastal provinces",
+                "Adding five more co-investigators"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Part 2",
+              "orderNumber": 11
+            },
+            {
+              "id": "vnu2-l-q12",
+              "type": "mcq",
+              "question": "When will Tuan resubmit the revised grant application?",
+              "options": [
+                "Next Tuesday morning",
+                "In two weeks",
+                "At the end of the month",
+                "By Thursday afternoon"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Part 2",
+              "orderNumber": 12
+            },
+            {
+              "id": "vnu2-l-q13",
+              "type": "mcq",
+              "question": "What is the focus of Mai's doctoral dissertation in Conversation 2?",
+              "options": [
+                "Pedagogical grammar drills in high schools",
+                "Microplastic accumulation in coastal wetlands",
+                "Cognitive ergonomics in automated vehicle interfaces",
+                "Renewable wind power algorithms"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Part 2",
+              "orderNumber": 13
+            },
+            {
+              "id": "vnu2-l-q14",
+              "type": "mcq",
+              "question": "What specific experimental request did external reviewer Dr. Evans make?",
+              "options": [
+                "Deleting Chapter 4 completely",
+                "Conducting a validation trial with drivers over 65",
+                "Interviewing automobile manufacturing executives",
+                "Purchasing three new simulator monitors"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Part 2",
+              "orderNumber": 14
+            },
+            {
+              "id": "vnu2-l-q15",
+              "type": "mcq",
+              "question": "How long will driver participant recruitment require?",
+              "options": [
+                "Around two months",
+                "Only three days",
+                "Six weeks",
+                "Approximately two weeks"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Part 2",
+              "orderNumber": 15
+            },
+            {
+              "id": "vnu2-l-q16",
+              "type": "mcq",
+              "question": "When is Mai's formal doctoral defense scheduled?",
+              "options": [
+                "On December 12th",
+                "On November 15th",
+                "In early October",
+                "Next spring term"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Part 2",
+              "orderNumber": 16
+            },
+            {
+              "id": "vnu2-l-q17",
+              "type": "mcq",
+              "question": "What manuscript is Professor Vu reviewing in Conversation 3?",
+              "options": [
+                "A history of Vietnamese linguistic folklore",
+                "A report on urban land subsidence",
+                "A study on renewable microgrid algorithms for mountain communities",
+                "An analysis of university tuition structures"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Part 2",
+              "orderNumber": 17
+            },
+            {
+              "id": "vnu2-l-q18",
+              "type": "mcq",
+              "question": "What critique does Professor Vu raise regarding the field data?",
+              "options": [
+                "The mathematical formulas contain severe calculation errors",
+                "It is restricted to only three days of summer testing",
+                "The author failed to cite relevant VNU research",
+                "The data was generated entirely by AI software"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Part 2",
+              "orderNumber": 18
+            },
+            {
+              "id": "vnu2-l-q19",
+              "type": "mcq",
+              "question": "What peer-review recommendation will Professor Vu submit?",
+              "options": [
+                "Major Revision",
+                "Accept without modifications",
+                "Immediate Rejection",
+                "Transfer to another journal"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Part 2",
+              "orderNumber": 19
+            },
+            {
+              "id": "vnu2-l-q20",
+              "type": "mcq",
+              "question": "What seasonal condition must the authors incorporate in their revision?",
+              "options": [
+                "Monsoon flood storm surges",
+                "Extreme spring humidity",
+                "Tropical typhoons",
+                "Winter temperature variations"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo ngữ cảnh đối thoại học thuật ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Part 2",
+              "orderNumber": 20
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. Each talk or lecture has five questions. For each question, choose the best answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-3.mp3"
+          },
+          "tapescript": "<div class=\"space-y-3 font-sans text-sm text-slate-700\">\n  <p><b>[Lecture 1 - Environmental Governance in the Mekong Basin]:</b><br/>\n  \"Good morning, colleagues. Today we investigate transboundary water governance across the Lower Mekong Basin. The construction of upstream cascade mega-dams has severely altered downstream hydrologic regimes, reducing essential sediment nutrient transport to the Mekong Delta by nearly 60 percent. This reduction, coupled with commercial sand mining, has catalyzed catastrophic riverbank collapse and accelerated saltwater intrusion into agricultural rice paddies. Effective regional governance under the 1995 Mekong Agreement requires transitioning from non-binding consultative protocols to legally enforceable water-data sharing and joint sediment replenishment operations.\"</p>\n\n  <p><b>[Lecture 2 - Behavioral Economics & Nudge Theory]:</b><br/>\n  \"Welcome back, postgraduate seminar. Today's theme is Behavioral Economics and Choice Architecture. Traditional neoclassical economics operated upon the axiomatic assumption of 'Homo economicus'—the rational agent who maximizes utility with mathematical precision. Empirical reality, however, demonstrates systematic cognitive biases: loss aversion, hyperbolic discounting, and status-quo inertia. By designing subtle 'nudges'—such as automatic enrollment in university retirement pension plans—institutions can steer optimal welfare choices without restricting individual freedom of choice.\"</p>\n\n  <p><b>[Lecture 3 - Artificial Intelligence in Biomedical Diagnostics]:</b><br/>\n  \"In this final lecture, we analyze deep convolutional neural networks applied to radiological oncology. While algorithmic models achieve diagnostic sensitivity rivaling board-certified radiologists in detecting pulmonary nodules on CT scans, clinical integration faces profound 'black-box' interpretability obstacles. Clinicians cannot ethically base invasive chemotherapy decisions upon uninterpretable probability vectors. Developing explainable AI (XAI) frameworks that provide visual attention heatmaps and causal counterfactual rationales represents the foremost imperative for biomedical machine learning.\"</p>\n</div>",
+          "questions": [
+            {
+              "id": "vnu2-l-q21",
+              "type": "mcq",
+              "question": "What is the central focus of the environmental lecture?",
+              "options": [
+                "Hydroelectric turbine engineering in North America",
+                "Transboundary water governance and sediment loss in the Mekong Basin",
+                "Traditional freshwater fishing techniques",
+                "Desalination technology in the Middle East"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Part 3",
+              "orderNumber": 21
+            },
+            {
+              "id": "vnu2-l-q22",
+              "type": "mcq",
+              "question": "By what percentage has sediment nutrient transport to the Mekong Delta declined?",
+              "options": [
+                "By approximately 20 percent",
+                "By over 90 percent",
+                "By nearly 60 percent",
+                "By less than 10 percent"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Part 3",
+              "orderNumber": 22
+            },
+            {
+              "id": "vnu2-l-q23",
+              "type": "mcq",
+              "question": "What two concurrent factors have exacerbated riverbank collapse in the Delta?",
+              "options": [
+                "Sediment reduction from upstream dams and commercial sand mining",
+                "Global warming and tourism boating",
+                "Chemical factory runoff and typhoons",
+                "Overpopulation and aquaculture farming"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Part 3",
+              "orderNumber": 23
+            },
+            {
+              "id": "vnu2-l-q24",
+              "type": "mcq",
+              "question": "What reform does the lecturer advocate for the 1995 Mekong Agreement?",
+              "options": [
+                "Complete dismantling of the Mekong River Commission",
+                "Banning all commercial navigation on the river",
+                "Privatizing delta water supplies",
+                "Enforceable water-data sharing and joint sediment replenishment"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Part 3",
+              "orderNumber": 24
+            },
+            {
+              "id": "vnu2-l-q25",
+              "type": "mcq",
+              "question": "What is the primary ecological consequence of reduced sediment flow?",
+              "options": [
+                "Rapid expansion of freshwater mangrove forests",
+                "Accelerated saltwater intrusion and riverbank erosion",
+                "An increase in wild dolphin populations",
+                "Cooling of coastal sea surface temperatures"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Part 3",
+              "orderNumber": 25
+            },
+            {
+              "id": "vnu2-l-q26",
+              "type": "mcq",
+              "question": "What fundamental assumption of neoclassical economics is challenged in Lecture 2?",
+              "options": [
+                "The concept of Homo economicus as a perfectly rational utility maximizer",
+                "The law of supply and demand in open markets",
+                "The necessity of national currency reserves",
+                "The role of taxation in public infrastructure"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Part 3",
+              "orderNumber": 26
+            },
+            {
+              "id": "vnu2-l-q27",
+              "type": "mcq",
+              "question": "Which cognitive bias causes people to prefer immediate rewards over future benefits?",
+              "options": [
+                "Loss aversion",
+                "Confirmation bias",
+                "Hyperbolic discounting",
+                "The halo effect"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Part 3",
+              "orderNumber": 27
+            },
+            {
+              "id": "vnu2-l-q28",
+              "type": "mcq",
+              "question": "How does choice architecture define a \"nudge\"?",
+              "options": [
+                "A mandatory legal penalty for bad financial habits",
+                "An aggressive marketing advertisement",
+                "A direct cash subsidy for poor families",
+                "A subtle intervention that steers choices without restricting liberty"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Part 3",
+              "orderNumber": 28
+            },
+            {
+              "id": "vnu2-l-q29",
+              "type": "mcq",
+              "question": "What example of an effective institutional nudge is provided?",
+              "options": [
+                "Compulsory military service registration",
+                "Banning sugary beverages in campus vending machines",
+                "Automatic default enrollment in retirement pension schemes",
+                "Increasing income taxes on luxury goods"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Part 3",
+              "orderNumber": 29
+            },
+            {
+              "id": "vnu2-l-q30",
+              "type": "mcq",
+              "question": "According to behavioral economics, why is status-quo bias pervasive?",
+              "options": [
+                "Humans always seek out extreme novelty",
+                "People exhibit inertia and disproportionately stick with default settings",
+                "Individuals calculate risk perfectly in all situations",
+                "Culture eliminates all individual cognitive differences"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Part 3",
+              "orderNumber": 30
+            },
+            {
+              "id": "vnu2-l-q31",
+              "type": "mcq",
+              "question": "What capability of deep convolutional networks in oncology was highlighted?",
+              "options": [
+                "Diagnostic sensitivity rivaling board-certified radiologists on CT scans",
+                "Synthesizing new chemotherapy drugs autonomously",
+                "Performing surgical tumor excision without human supervision",
+                "Predicting patient emotional mood from voice recording"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Part 3",
+              "orderNumber": 31
+            },
+            {
+              "id": "vnu2-l-q32",
+              "type": "mcq",
+              "question": "What major ethical obstacle impedes clinical deployment of medical AI?",
+              "options": [
+                "The exorbitant cost of desktop computer mice",
+                "A lack of patients willing to undergo CT scanning",
+                "The opposition of medical student associations",
+                "The black-box opacity and lack of interpretability of neural models"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Part 3",
+              "orderNumber": 32
+            },
+            {
+              "id": "vnu2-l-q33",
+              "type": "mcq",
+              "question": "Why do clinicians hesitate to rely solely on raw AI probability scores?",
+              "options": [
+                "Probability scores are always mathematically inaccurate",
+                "They cannot ethically justify invasive treatments without clear diagnostic rationale",
+                "Hospital computers lack internet connectivity",
+                "Insurance companies forbid digital records"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Part 3",
+              "orderNumber": 33
+            },
+            {
+              "id": "vnu2-l-q34",
+              "type": "mcq",
+              "question": "What feature of Explainable AI (XAI) is essential for oncologist adoption?",
+              "options": [
+                "Higher screen brightness and louder alert speakers",
+                "Completely open-source programming code on Github",
+                "Visual attention heatmaps and causal counterfactual rationales",
+                "Faster printer paper outputs"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Part 3",
+              "orderNumber": 34
+            },
+            {
+              "id": "vnu2-l-q35",
+              "type": "mcq",
+              "question": "What is the lecturer's concluding imperative for biomedical machine learning?",
+              "options": [
+                "Developing interpretable, trustworthy models that collaborate with physicians",
+                "Replacing human doctors completely with autonomous software",
+                "Halting all computational research in hospitals",
+                "Standardizing medical diagnosis on smartphone apps"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài giảng chuyên đề sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Part 3",
+              "orderNumber": 35
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 60,
+      "totalQuestions": 40,
+      "tasks": [
+        {
+          "id": "vnu2-r-task1",
+          "instructions": "Read the following passage and choose the best answer for questions 1 to 10.",
+          "passage": {
+            "title": "Passage 1: Cognitive Biases and Heuristics in Economic Decision-Making",
+            "text": "<p>For the greater part of the twentieth century, neoclassical economic orthodoxy rested upon the axiomatic assumption of the perfectly rational agent, formally designated *Homo economicus*. Under this theoretical architecture, economic actors were presumed to possess comprehensive information, boundless cognitive processing capacity, and stable, internally consistent preferences. Decisions regarding investment, saving, and consumption were modeled as optimal mathematical solutions maximizing expected utility. However, the emergence of behavioral economics, spearheaded by Daniel Kahneman and Amos Tversky, fundamentally dismantled this model by demonstrating that human decision-making is systematically bounded and guided by intuitive mental shortcuts termed heuristics.</p>\n<p>One of the most consequential heuristics identified in behavioral literature is the availability heuristic, wherein individuals estimate the likelihood or frequency of an event based upon the ease with which relevant instances can be recalled from memory. Highly vivid, sensational, or emotionally charged occurrences—such as catastrophic commercial airline crashes or sudden cryptocurrency market collapses—are disproportionately accessible in human cognitive recall. Consequently, economic actors persistently overestimate the probability of rare, dramatic hazards while simultaneously underestimating pervasive, mundane risks such as cardiovascular disease or chronic inflationary asset erosion.</p>\n<p>Closely intertwined with availability is the cognitive bias known as loss aversion, encapsulated within Kahneman and Tversky’s groundbreaking Prospect Theory. Empirical experiments rigorously demonstrate that the psychological distress generated by incurring a financial loss is roughly twice as potent as the pleasure derived from acquiring an equivalent monetary gain. This asymmetric emotional response explains numerous empirical market anomalies that confound classical theory, including the disposition effect—whereby equity investors precipitously sell appreciating assets to lock in minor gains while stubbornly holding depreciating stocks in a desperate gamble to avoid realizing a loss.</p>"
+          },
+          "questions": [
+            {
+              "id": "vnu2-r-q1",
+              "type": "mcq",
+              "question": "What is the primary purpose of Passage 1?",
+              "options": [
+                "To argue that mathematical calculus is useless in financial markets",
+                "To analyze how cognitive heuristics and biases challenge the neoclassical rational agent model",
+                "To provide a historical biography of Daniel Kahneman and Amos Tversky",
+                "To encourage individual retail investors to invest heavily in cryptocurrency"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "vnu2-r-q2",
+              "type": "mcq",
+              "question": "The term \"Homo economicus\" in paragraph 1 refers to:",
+              "options": [
+                "A prehistoric human ancestor who engaged in primitive trade",
+                "A specialized computer program used for Wall Street arbitrage",
+                "The theoretical construct of a perfectly rational decision-maker with stable preferences",
+                "A consumer who only purchases essential survival items"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "vnu2-r-q3",
+              "type": "mcq",
+              "question": "According to paragraph 1, what assumption underlay neoclassical economic models?",
+              "options": [
+                "Actors possess comprehensive information and boundless cognitive processing capacity",
+                "Consumers are predominantly irrational and driven by superstition",
+                "Economic markets must always be regulated by state intervention",
+                "Monetary wealth guarantees psychological happiness"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Passage 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "vnu2-r-q4",
+              "type": "mcq",
+              "question": "How does the \"availability heuristic\" function in cognitive recall?",
+              "options": [
+                "People only remember events that occurred within the past twenty-four hours",
+                "Individuals actively suppress memories that cause financial stress",
+                "Memory retention increases linearly with monetary wealth",
+                "Events that are easily retrieved from memory are judged as more probable or frequent"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Passage 1",
+              "orderNumber": 4
+            },
+            {
+              "id": "vnu2-r-q5",
+              "type": "mcq",
+              "question": "The word \"mundane\" in paragraph 2 is closest in meaning to:",
+              "options": [
+                "Extremely dangerous",
+                "Completely unpredictable",
+                "Ordinary and routine",
+                "Financially profitable"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 1",
+              "orderNumber": 5
+            },
+            {
+              "id": "vnu2-r-q6",
+              "type": "mcq",
+              "question": "Which of the following illustrates the availability heuristic in economic behavior?",
+              "options": [
+                "Carefully calculating discounted cash flow formulas before buying stocks",
+                "Overestimating the likelihood of rare catastrophic crashes due to vivid news media coverage",
+                "Saving a fixed ten percent of monthly income in a state bank",
+                "Diversifying an investment portfolio across ten uncorrelated asset classes"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 1",
+              "orderNumber": 6
+            },
+            {
+              "id": "vnu2-r-q7",
+              "type": "mcq",
+              "question": "According to Prospect Theory, how does the psychological impact of a financial loss compare to an equivalent gain?",
+              "options": [
+                "Gains and losses produce identical emotional reactions in healthy brains",
+                "Gains are significantly more memorable than losses",
+                "Losses are completely forgotten within three months",
+                "The distress of a loss is approximately twice as potent as the pleasure of an equal gain"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Passage 1",
+              "orderNumber": 7
+            },
+            {
+              "id": "vnu2-r-q8",
+              "type": "mcq",
+              "question": "The word \"precipitously\" in paragraph 3 indicates an action that is:",
+              "options": [
+                "Hasty and premature",
+                "Carefully planned over years",
+                "Legally mandated by regulators",
+                "Extremely reluctant and sluggish"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Passage 1",
+              "orderNumber": 8
+            },
+            {
+              "id": "vnu2-r-q9",
+              "type": "mcq",
+              "question": "What real-world market behavior is explained by the \"disposition effect\"?",
+              "options": [
+                "Refusing to borrow money from commercial banks",
+                "Investing exclusively in government-backed treasury bonds",
+                "Selling winning investments prematurely while clinging to losing stocks",
+                "Copying the trade decisions of institutional hedge funds"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 1",
+              "orderNumber": 9
+            },
+            {
+              "id": "vnu2-r-q10",
+              "type": "mcq",
+              "question": "What overall conclusion does the author support regarding human decision-making?",
+              "options": [
+                "It has become completely rational due to modern smartphone algorithms",
+                "It is systematically bounded and guided by intuitive mental heuristics",
+                "It is utterly random and incapable of scientific modeling",
+                "It differs fundamentally between male and female investors"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài đọc kinh tế học hành vi sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 1",
+              "orderNumber": 10
+            }
+          ]
+        },
+        {
+          "id": "vnu2-r-task2",
+          "instructions": "Read the following passage and choose the best answer for questions 11 to 20.",
+          "passage": {
+            "title": "Passage 2: Ecological Resilience of Mangrove Ecosystems in Coastal Vietnam",
+            "text": "<p>Stretching along thousands of kilometers of tropical coastline, Vietnam’s mangrove biomes constitute one of the planet’s most biologically productive and ecologically vital wetland ecosystems. Situated within the dynamic intertidal transition zone between terrestrial watersheds and marine environments, mangroves exhibit remarkable physiological adaptations. Species such as Rhizophora apiculata and Avicennia marina have evolved specialized stilt roots and pneumatophores that project upward through anoxic coastal muds, enabling gas exchange in waterlogged soils while concurrently dissipating the kinetic energy of ocean storm surges and tidal waves.</p>\n<p>Beyond their physical role as natural protective sea ramparts, mangrove ecosystems function as extraordinary carbon sinks—a role denoted in climate literature as \"blue carbon\" sequestration. The dense root networks of mangroves trap organic sediment and mineral detritus, preventing decomposition through perpetual water saturation. Consequently, mangrove forests sequester atmospheric carbon dioxide at rates up to four times higher per hectare than mature terrestrial tropical rainforests. The carbon accumulated within deep mangrove soils can remain locked away for millennia, rendering their preservation an indispensable pillar of Vietnam’s national climate mitigation commitments under the Paris Agreement.</p>\n<p>Nevertheless, anthropogenic pressures have historically precipitated widespread mangrove destruction. During the latter half of the twentieth century, extensive chemical defoliation, followed by the unregulated expansion of commercial aquaculture shrimp farming, eradicated over half of the country’s original mangrove cover. While modern reforestation initiatives in the Can Gio Biosphere Reserve have demonstrated commendable ecological recovery, newly planted monoculture stands frequently lack the structural complexity and genetic diversity of pristine primary forests, leaving them acutely vulnerable to hypersalinity surges, emerging pathogens, and accelerated sea-level rise.</p>"
+          },
+          "questions": [
+            {
+              "id": "vnu2-r-q11",
+              "type": "mcq",
+              "question": "What is the primary focus of Passage 2?",
+              "options": [
+                "A financial analysis of commercial shrimp export revenues in Ca Mau",
+                "The geological history of volcanic island formation in the East Sea",
+                "The ecological adaptations, carbon sequestration, and conservation challenges of Vietnamese mangroves",
+                "Techniques for harvesting mangrove timber for charcoal production"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 2",
+              "orderNumber": 11
+            },
+            {
+              "id": "vnu2-r-q12",
+              "type": "mcq",
+              "question": "What physiological function do pneumatophores and stilt roots perform?",
+              "options": [
+                "Facilitating gas exchange in anoxic soils and dissipating wave kinetic energy",
+                "Absorbing fresh rainwater directly from passing clouds",
+                "Anchoring telephone cables across marine straits",
+                "Repelling predatory marine fish with toxic chemical secretions"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Passage 2",
+              "orderNumber": 12
+            },
+            {
+              "id": "vnu2-r-q13",
+              "type": "mcq",
+              "question": "The word \"anoxic\" in paragraph 1 means:",
+              "options": [
+                "Extremely cold",
+                "Depleted of oxygen",
+                "Heavily polluted with plastic",
+                "Rich in iron minerals"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 2",
+              "orderNumber": 13
+            },
+            {
+              "id": "vnu2-r-q14",
+              "type": "mcq",
+              "question": "The term \"blue carbon\" in paragraph 2 refers to carbon that is:",
+              "options": [
+                "Artificially colored for laboratory microscope observation",
+                "Emitted exclusively by commercial diesel shipping vessels",
+                "Synthesized into synthetic diamond gems for electronics",
+                "Sequestered and stored within coastal marine and wetland ecosystems"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Passage 2",
+              "orderNumber": 14
+            },
+            {
+              "id": "vnu2-r-q15",
+              "type": "mcq",
+              "question": "How does the carbon sequestration rate of mangroves compare to terrestrial rainforests?",
+              "options": [
+                "Up to four times higher per hectare",
+                "Approximately half as effective",
+                "Identical in volume and duration",
+                "Virtually zero due to tidal washing"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Passage 2",
+              "orderNumber": 15
+            },
+            {
+              "id": "vnu2-r-q16",
+              "type": "mcq",
+              "question": "Why is carbon prevented from decomposing quickly in mangrove soils?",
+              "options": [
+                "Soil temperatures remain below freezing throughout the year",
+                "Mangrove crabs consume all organic matter within minutes",
+                "Dense root networks trap sediment in perpetually water-saturated, low-oxygen conditions",
+                "High levels of sunlight neutralize all soil bacteria"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 2",
+              "orderNumber": 16
+            },
+            {
+              "id": "vnu2-r-q17",
+              "type": "mcq",
+              "question": "What historical factors caused the loss of over half of Vietnam's original mangroves?",
+              "options": [
+                "Natural meteorite impacts and volcanic eruptions",
+                "Chemical defoliation followed by unregulated commercial shrimp aquaculture",
+                "A sudden nationwide freeze during the Little Ice Age",
+                "Overgrazing by domestic cattle herds"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 2",
+              "orderNumber": 17
+            },
+            {
+              "id": "vnu2-r-q18",
+              "type": "mcq",
+              "question": "The word \"precipitated\" in paragraph 3 is closest in meaning to:",
+              "options": [
+                "Completely resolved",
+                "Legally prohibited",
+                "Gradually slowed down",
+                "Triggered or brought about rapidly"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Passage 2",
+              "orderNumber": 18
+            },
+            {
+              "id": "vnu2-r-q19",
+              "type": "mcq",
+              "question": "What critical weakness characterizes reforested monoculture mangrove stands?",
+              "options": [
+                "They produce wood that is too soft for construction",
+                "They lack structural complexity and genetic diversity, increasing vulnerability to pathogens",
+                "They attract invasive bird species that damage crops",
+                "They consume excessive amounts of groundwater"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 2",
+              "orderNumber": 19
+            },
+            {
+              "id": "vnu2-r-q20",
+              "type": "mcq",
+              "question": "What can be inferred about the Can Gio Biosphere Reserve?",
+              "options": [
+                "It has completely replaced all commercial shipping in southern Vietnam",
+                "It was abandoned by the government due to excessive costs",
+                "It represents a successful ecological restoration effort that still requires ongoing biodiversity management",
+                "It is identical in every ecological metric to virgin primary forests"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo văn bản sinh thái học sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 2",
+              "orderNumber": 20
+            }
+          ]
+        },
+        {
+          "id": "vnu2-r-task3",
+          "instructions": "Read the following passage and choose the best answer for questions 21 to 30.",
+          "passage": {
+            "title": "Passage 3: The Digital Transformation of Higher Education and Blended Pedagogy",
+            "text": "<p>The rapid convergence of cloud computing, high-speed broadband, and sophisticated learning management systems has catalyzed an irreversible digital metamorphosis across global higher education. Prior to the 2020s, educational technology was largely relegated to an administrative periphery—used primarily for digital grade submissions, passive syllabus dissemination, or optional supplementary quizzes. Today, the higher education paradigm has structurally pivoted toward blended learning environments, where asynchronous digital instruction is strategically interwoven with synchronous collaborative face-to-face interaction.</p>\n<p>The pedagogical theoretical foundation underpinning modern blended frameworks is the \"Flipped Classroom\" model. In a conventional university lecture, precious instructional hours are spent delivering foundational expository lectures to a largely passive student audience, leaving cognitively demanding tasks—such as analytical problem-solving, synthesis, and evaluative debate—to isolated individual homework. In contrast, the flipped approach reverses this temporal sequence: students engage with recorded interactive micro-lectures and foundational readings autonomously before class, liberating classroom contact hours for instructor-guided inquiry, Socratic dialogue, and collaborative project execution.</p>\n<p>Notwithstanding its demonstrable cognitive benefits, the institutional implementation of blended learning has illuminated profound socio-technical divides. Foremost among these is the digital divide; students from marginalized socio-economic backgrounds or remote provincial areas frequently encounter unreliable internet connectivity, outdated hardware, and sub-optimal domestic study environments. Furthermore, faculty development represents a formidable structural bottleneck. Transforming a distinguished conventional academic researcher into an adept digital facilitator requires substantial institutional investment in instructional design, digital multimedia production, and formative learning analytics.</p>"
+          },
+          "questions": [
+            {
+              "id": "vnu2-r-q21",
+              "type": "mcq",
+              "question": "What is the main idea of Passage 3?",
+              "options": [
+                "Why physical university campuses will be completely demolished by 2030",
+                "The evolution, pedagogical mechanisms, and structural challenges of blended learning in higher education",
+                "A technical manual for configuring learning management software servers",
+                "The superior financial profits of commercial online tutoring platforms"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 3",
+              "orderNumber": 21
+            },
+            {
+              "id": "vnu2-r-q22",
+              "type": "mcq",
+              "question": "How was educational technology predominantly utilized prior to the 2020s?",
+              "options": [
+                "As the primary medium for all doctoral dissertations",
+                "Exclusively for grading physical sports examinations",
+                "For administrative tasks, syllabus dissemination, and optional supplementary quizzes",
+                "To replace university professors with early robotic tutors"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 3",
+              "orderNumber": 22
+            },
+            {
+              "id": "vnu2-r-q23",
+              "type": "mcq",
+              "question": "What defines a \"blended learning\" instructional environment?",
+              "options": [
+                "The strategic combination of asynchronous digital instruction with synchronous face-to-face interaction",
+                "Teaching exclusively via pre-recorded YouTube videos without teacher interaction",
+                "Conducting all laboratory experiments in virtual reality without physical equipment",
+                "Eliminating all written examinations in favor of oral interviews"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Passage 3",
+              "orderNumber": 23
+            },
+            {
+              "id": "vnu2-r-q24",
+              "type": "mcq",
+              "question": "How does the \"Flipped Classroom\" model invert conventional lecture pedagogy?",
+              "options": [
+                "Students grade the professor's performance before each lecture begins",
+                "Examinations are taken at the beginning of the semester rather than the end",
+                "Classrooms are physically rotated every thirty minutes",
+                "Foundational lectures are reviewed prior to class, freeing contact hours for collaborative problem-solving"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Passage 3",
+              "orderNumber": 24
+            },
+            {
+              "id": "vnu2-r-q25",
+              "type": "mcq",
+              "question": "The word \"expository\" in paragraph 2 is closest in meaning to:",
+              "options": [
+                "Highly controversial",
+                "Emotionally dramatic",
+                "Explanatory and informative",
+                "Completely fictional"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 3",
+              "orderNumber": 25
+            },
+            {
+              "id": "vnu2-r-q26",
+              "type": "mcq",
+              "question": "What cognitive activities are prioritized during in-class hours in a flipped model?",
+              "options": [
+                "Passive memorization of foreign vocabulary tables",
+                "Instructor-guided inquiry, Socratic dialogue, and collaborative project execution",
+                "Silent reading of printed textbook chapters without speaking",
+                "Watching uninterrupted two-hour documentary films"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 3",
+              "orderNumber": 26
+            },
+            {
+              "id": "vnu2-r-q27",
+              "type": "mcq",
+              "question": "The term \"digital divide\" in paragraph 3 refers to disparities in:",
+              "options": [
+                "Mathematical calculating speeds between computers and humans",
+                "Tuition fees charged by public versus private universities",
+                "Salary scales between humanities and computer science faculty",
+                "Access to reliable internet connectivity, modern hardware, and suitable study environments"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Passage 3",
+              "orderNumber": 27
+            },
+            {
+              "id": "vnu2-r-q28",
+              "type": "mcq",
+              "question": "The word \"formidable\" in paragraph 3 means:",
+              "options": [
+                "Challenging and difficult to overcome",
+                "Completely insignificant",
+                "Inexpensive and easy",
+                "Universally celebrated"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Passage 3",
+              "orderNumber": 28
+            },
+            {
+              "id": "vnu2-r-q29",
+              "type": "mcq",
+              "question": "Why is faculty professional development identified as a structural bottleneck?",
+              "options": [
+                "Most professors refuse to use email or modern smartphones",
+                "Universities are legally prohibited from training existing academic staff",
+                "Transitioning researchers into digital facilitators requires substantial training in instructional design and analytics",
+                "Software companies charge exorbitant fees for teacher login accounts"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 3",
+              "orderNumber": 29
+            },
+            {
+              "id": "vnu2-r-q30",
+              "type": "mcq",
+              "question": "What tone does the author convey regarding the future of higher education?",
+              "options": [
+                "Excessively alarmist, predicting the immediate collapse of universities",
+                "Realistic and balanced, acknowledging both pedagogical advantages and socio-technical hurdles",
+                "Nostalgic for nineteenth-century lecture halls",
+                "Indifferent and unconcerned with educational quality"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài đọc chuyển đổi số giáo dục đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 3",
+              "orderNumber": 30
+            }
+          ]
+        },
+        {
+          "id": "vnu2-r-task4",
+          "instructions": "Read the following passage and choose the best answer for questions 31 to 40.",
+          "passage": {
+            "title": "Passage 4: Nanotechnology and Targeted Drug Delivery Systems in Oncology",
+            "text": "<p>In clinical pharmacology, systemic cancer chemotherapy has long been constrained by a profound therapeutic paradox: the very cytotoxic compounds engineered to eradicate malignant neoplastic cells simultaneously inflict indiscriminate collateral damage upon healthy, rapidly dividing tissues. Patients undergoing conventional chemotherapy routinely suffer debilitating systemic toxicities, including myelosuppression, cardiotoxicity, and severe gastrointestinal ulceration. The therapeutic index—the ratio between the toxic dose and the therapeutically effective dose—is notoriously narrow. However, interdisciplinary innovations in biomedical nanotechnology are fundamentally transforming this landscape through the engineering of targeted drug delivery systems (TDDS).</p>\n<p>Nanocarriers, typically engineered with dimensional diameters ranging between 10 and 100 nanometers, exploit unique physiological microenvironments characteristic of solid tumors. In healthy vascular endothelium, tight junctions between endothelial cells prevent macromolecules from escaping the bloodstream. In contrast, tumor-associated blood vessels exhibit aberrant, hyper-permeable architectures with fenestrations measuring hundreds of nanometers across, coupled with compromised lymphatic drainage. This biological phenomenon, termed the Enhanced Permeability and Retention (EPR) effect, enables passively targeted nanoparticles to selectively extravasate into tumor interstitium while sparing normal, healthy organs.</p>\n<p>Beyond passive extravasation, cutting-edge nanomedicine incorporates active targeting mechanisms and stimulus-responsive release triggers. Nanoparticle surfaces are conjugated with specific ligand molecules—such as monoclonal antibodies, aptamers, or folic acid—that bind with high affinity to overexpressed receptors present exclusively on cancer cell membranes. Once localized within the tumor microenvironment, \"smart\" nanoparticles release their cytotoxic payload in response to specific biochemical stimuli, such as the mildly acidic pH of the tumor extracellular matrix, elevated intracellular glutathione concentrations, or external triggers including localized near-infrared laser irradiation.</p>"
+          },
+          "questions": [
+            {
+              "id": "vnu2-r-q31",
+              "type": "mcq",
+              "question": "What is the primary topic addressed in Passage 4?",
+              "options": [
+                "The total failure of all modern pharmaceutical cancer treatments",
+                "A surgical guide to operating chemotherapy infusion pumps",
+                "The mechanisms and advantages of targeted nanocarrier drug delivery systems in oncology",
+                "The chemical manufacturing process of commercial cosmetic skin lotions"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 4",
+              "orderNumber": 31
+            },
+            {
+              "id": "vnu2-r-q32",
+              "type": "mcq",
+              "question": "What major limitation characterizes conventional systemic chemotherapy?",
+              "options": [
+                "Cytotoxic agents cause indiscriminate collateral damage to healthy tissues due to narrow therapeutic indices",
+                "Chemotherapy medications are completely destroyed by stomach acid within seconds",
+                "Pharmaceutical companies refuse to manufacture liquid chemotherapy compounds",
+                "Patients develop immunity to all chemical drugs within twenty-four hours"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Passage 4",
+              "orderNumber": 32
+            },
+            {
+              "id": "vnu2-r-q33",
+              "type": "mcq",
+              "question": "The term \"therapeutic index\" in paragraph 1 refers to the ratio between:",
+              "options": [
+                "The financial cost of a treatment and the patient's income",
+                "The toxic dose and the therapeutically effective dose of a drug",
+                "The number of doctors and the number of hospital beds",
+                "The speed of drug injection and the patient's blood pressure"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 4",
+              "orderNumber": 33
+            },
+            {
+              "id": "vnu2-r-q34",
+              "type": "mcq",
+              "question": "What is the typical diameter range of therapeutic nanocarriers?",
+              "options": [
+                "Between 500 and 1000 micrometers",
+                "Exactly one centimeter",
+                "Larger than red blood cells",
+                "Between 10 and 100 nanometers"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Passage 4",
+              "orderNumber": 34
+            },
+            {
+              "id": "vnu2-r-q35",
+              "type": "mcq",
+              "question": "What physiological characteristic enables the Enhanced Permeability and Retention (EPR) effect?",
+              "options": [
+                "Hyper-permeable tumor blood vessels with large fenestrations and compromised lymphatic drainage",
+                "Extremely thick blood vessel walls that prevent drug absorption",
+                "Rapid blood flow that carries drugs away from cancer tissues",
+                "Excessive white blood cell production in bone marrow"
+              ],
+              "answer": 0,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>A</b>.",
+              "part": "Passage 4",
+              "orderNumber": 35
+            },
+            {
+              "id": "vnu2-r-q36",
+              "type": "mcq",
+              "question": "The word \"aberrant\" in paragraph 2 is closest in meaning to:",
+              "options": [
+                "Completely healthy",
+                "Symmetrically aligned",
+                "Abnormal and irregular",
+                "Artificially constructed"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 4",
+              "orderNumber": 36
+            },
+            {
+              "id": "vnu2-r-q37",
+              "type": "mcq",
+              "question": "How does \"active targeting\" differ from passive EPR accumulation?",
+              "options": [
+                "Drugs are injected directly into tumors using robotic surgical scalpels",
+                "Nanoparticle surfaces are conjugated with ligands that bind specifically to overexpressed tumor cell receptors",
+                "Patients are required to run on treadmills during drug infusion",
+                "Active targeting uses acoustic sound waves to dissolve cancer cells"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 4",
+              "orderNumber": 37
+            },
+            {
+              "id": "vnu2-r-q38",
+              "type": "mcq",
+              "question": "The word \"payload\" in paragraph 3 refers to:",
+              "options": [
+                "The financial invoice sent to the health insurance company",
+                "The radioactive waste generated by medical imaging scanners",
+                "The plastic intravenous tubing connecting the medicine bag",
+                "The therapeutic cytotoxic drug carried inside the nanocarrier"
+              ],
+              "answer": 3,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>D</b>.",
+              "part": "Passage 4",
+              "orderNumber": 38
+            },
+            {
+              "id": "vnu2-r-q39",
+              "type": "mcq",
+              "question": "Which of the following serves as a biochemical stimulus for \"smart\" nanoparticle drug release?",
+              "options": [
+                "Extremely high alkaline concentrations in stomach bile",
+                "The mildly acidic pH of the tumor extracellular matrix",
+                "Exposure to room-temperature fluorescent ceiling lighting",
+                "The patient speaking aloud in an examination room"
+              ],
+              "answer": 1,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>B</b>.",
+              "part": "Passage 4",
+              "orderNumber": 39
+            },
+            {
+              "id": "vnu2-r-q40",
+              "type": "mcq",
+              "question": "What conclusion can be drawn regarding the future of oncology from Passage 4?",
+              "options": [
+                "Nanomedicine has proven too expensive to ever be utilized in human clinics",
+                "Conventional chemotherapy will be legally banned worldwide next year",
+                "Targeted nanotechnology holds profound promise for maximizing tumor eradication while minimizing systemic toxicity",
+                "Cancer can now be completely cured by drinking herbal teas"
+              ],
+              "answer": 2,
+              "explanationVi": "Căn cứ theo bài đọc y sinh công nghệ nano sau đại học ĐHQGHN, phương án đúng là <b>C</b>.",
+              "part": "Passage 4",
+              "orderNumber": 40
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing (Viết)",
+      "timeLimit": 60,
+      "tasks": [
+        {
+          "id": "vnu2-w-task1",
+          "type": "email",
+          "formatType": "formal_letter",
+          "minWords": 120,
+          "title": "<p class=\"mb-1\"><b>Task 1:</b> You should spend about 20 minutes on this task.</p><p>You are a doctoral research candidate who recently submitted an academic paper to the <i>VNU Journal of Science: Policy and Management Studies</i>. The managing editor requested revisions within 30 days, but unexpected laboratory equipment maintenance has delayed your validation tests.</p>",
+          "content": "<p>Write a formal letter to the Editor-in-Chief, Professor Tran Van Minh:</p><ul><li>Explain the exact reason for the delay in completing the experimental revisions.</li><li>Specify the progress already accomplished on theoretical and literature adjustments.</li><li>Formally request a 3-week extension to the revision submission deadline.</li></ul>",
+          "description": "Write at least 120 words. Use formal academic correspondence conventions. Evaluated on Task Fulfillment, Organization, Vocabulary, and Grammar.",
+          "suggestion": "<div class=\"space-y-3 font-sans text-sm\">\n  <div class=\"p-3 bg-amber-50 rounded-lg border border-amber-200\">\n    <p class=\"font-bold text-amber-900\">⭐ BÀI MẪU BAND 8.5 - C1 (145 từ):</p>\n    <div class=\"mt-2 text-slate-800 space-y-2 leading-relaxed\">\n      <p><b>Dear Professor Tran Van Minh, Editor-in-Chief,</b></p>\n      <p>I am writing with reference to manuscript #PMS-2026-084, entitled <i>\"Optimizing Renewable Energy Policy Frameworks in Northern Vietnam,\"</i> which received a constructive Major Revision decision on September 10th.</p>\n      <p>While my research team has successfully addressed all theoretical critiques and incorporated the reviewers' recommended literature citations, we have encountered an unforeseen technical obstacle. The specialized computational simulation server in our faculty laboratory underwent emergency hardware repairs last week, temporarily suspending our sensitivity analysis calibration.</p>\n      <p>In light of this unavoidable disruption, I respectfully request a three-week extension to our revision submission deadline, proposing a revised date of November 15th. This will ensure that our experimental validation meets the rigorous empirical standards of the <i>VNU Journal of Science</i>.</p>\n      <p>Thank you very much for your understanding and continued editorial guidance.</p>\n      <p><b>Sincerely yours,<br/>Nguyen Duc Thang</b><br/>Doctoral Candidate, Vietnam National University</p>\n    </div>\n  </div>\n</div>"
+        },
+        {
+          "id": "vnu2-w-task2",
+          "type": "essay",
+          "formatType": "opinion_essay",
+          "minWords": 250,
+          "title": "<p class=\"mb-1\"><b>Task 2:</b> You should spend about 40 minutes on this task.</p>",
+          "content": "<p>In recent years, several prestigious universities have instituted mandatory requirements stipulating that all doctoral candidates must publish at least one or two peer-reviewed articles in internationally indexed journals (such as Scopus or Web of Science) before being granted permission to defend their dissertations.</p><p><b>Do you believe the advantages of this publication mandate outweigh its disadvantages?</b></p>",
+          "description": "Write an academic essay of at least 250 words to an educated audience. Support your position with pertinent reasons and empirical examples.",
+          "suggestion": "<div class=\"space-y-3 font-sans text-sm\">\n  <div class=\"p-3 bg-indigo-50 rounded-lg border border-indigo-200\">\n    <p class=\"font-bold text-indigo-900\">⭐ BÀI MẪU BAND 8.5 - C1 (295 từ):</p>\n    <div class=\"mt-2 text-slate-800 space-y-2 leading-relaxed\">\n      <p>In an era marked by intense global academic benchmarking, numerous leading tertiary institutions have mandated that doctoral scholars must publish peer-reviewed papers in internationally indexed journals—such as Scopus or Web of Science—prior to dissertation defense. While this regulation has elicited criticism regarding student psychological stress and research commercialization, I firmly maintain that its methodological and professional advantages substantially eclipse its shortcomings.</p>\n      <p>On the one hand, critics raise valid concerns regarding systemic publication pressures. Preparing international manuscripts often subjects doctoral candidates to protracted peer-review cycles that frequently span over twelve months, inadvertently postponing graduation timelines. Furthermore, an overemphasis on journal metrics can incentivize perverse academic behaviors, such as superficial salami-slicing of research data or submitting to predatory open-access outlets that demand exorbitant author-processing fees. These challenges undoubtedly exacerbate mental health anxieties among emerging researchers.</p>\n      <p>Nevertheless, the profound merits of rigorous international publication are indispensable for modern academic excellence. Firstly, external peer review by blind international referees serves as an incorruptible quality assurance mechanism, eliminating academic nepotism and ensuring that doctoral research meets global empirical standards. In developing academic ecosystems, this benchmark elevates domestic institutional prestige and accelerates knowledge integration with global scientific communities. Secondly, mastering the arduous craft of academic publishing equips candidates with paramount competitive advantages in career placement, international post-doctoral fellowships, and competitive grant acquisition.</p>\n      <p>In conclusion, while institutional leaders must mitigate publication stress through dedicated faculty mentorship and financial subsidies for research dissemination, the mandate itself remains vital. International peer review ensures academic integrity, enhances university reputation, and prepares doctoral graduates to become impactful contributors to global scholarship.</p>\n    </div>\n  </div>\n</div>"
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimit": 12,
+      "tasks": [
+        {
+          "id": "vnu2-s-part1",
+          "type": "social_interaction",
+          "timeLimit": 3,
+          "questions": [
+            "What inspired you to pursue postgraduate academic research in your discipline?",
+            "How do you manage your time between research commitments and personal responsibilities?",
+            "What role does peer collaboration play in your academic laboratory?",
+            "Do you prefer reading physical academic monographs or digital journal articles?",
+            "What strategies do you employ when confronting research methodology roadblocks?",
+            "How do you envision your professional career five years post-graduation?"
+          ],
+          "suggestion": "<p><b>VNU Sau Đại Học Speaking Part 1:</b> Thể hiện phong thái học giả chững chạc. Sử dụng thuật ngữ chuyên môn chính xác, trả lời gãy gọn theo mô hình ARE (Answer - Reason - Example) trong 25-35 giây mỗi câu.</p>"
+        },
+        {
+          "id": "vnu2-s-part2",
+          "type": "solution_discussion",
+          "timeLimit": 4,
+          "situation": "<p class=\"mb-1\"><b>Situation:</b> The University Research Council has allocated a special budget to cultivate academic integrity and prevent research misconduct among graduate scholars.</p><p>Three institutional proposals are under review:</p><ul><li><b>Option 1:</b> Investing in university-wide automated plagiarism and AI-generated text detection software licenses.</li><li><b>Option 2:</b> Mandating a credit-bearing semester course on Research Ethics and Data Management for all incoming candidates.</li><li><b>Option 3:</b> Imposing severe financial penalties and automatic expulsion for any confirmed plagiarism violation.</li></ul><p>Select the most effective option and defend your choice while demonstrating why the alternative measures are less constructive.</p>",
+          "suggestion": "<p><b>VNU Sau Đại Học Speaking Part 2:</b> Áp dụng mô hình ICE (Intro - Comparison - End). Phân tích toàn diện: Giáo dục phòng ngừa chủ động (Option 2) bền vững và giải quyết gốc rễ hơn nhiều so với việc chỉ dựa vào phần mềm (Option 1) hay xử phạt thụ động (Option 3).</p>"
+        },
+        {
+          "id": "vnu2-s-part3",
+          "type": "topic_development",
+          "timeLimit": 5,
+          "topic": "The impact of international publication metrics on university research quality",
+          "mindmap": {
+            "title": "Impact of International Publication Metrics (Scopus/WoS)",
+            "ideas": [
+              "Benchmarking domestic science against global empirical standards",
+              "Attracting foreign faculty recruitment and international research grants",
+              "Risk of neglecting locally relevant socio-economic community problems",
+              "[Your own creative perspective]"
+            ]
+          },
+          "followUp": [
+            "Should Vietnamese universities prioritize publishing in high-impact international journals over solving immediate domestic industrial challenges?",
+            "How can academic institutions effectively discourage predatory journal publishing among junior researchers?",
+            "In what ways will generative artificial intelligence reshape the traditional peer-review publication ecosystem?"
+          ],
+          "suggestion": "<p><b>VNU Sau Đại Học Speaking Part 3:</b> Phát triển luận điểm đa chiều (IDEA). Đề xuất nhánh ý riêng về chính sách đánh giá cân bằng (Balanced research evaluation) giữa công bố quốc tế và ứng dụng thực tiễn cho địa phương.</p>"
+        }
+      ]
+    }
+  ]
+}

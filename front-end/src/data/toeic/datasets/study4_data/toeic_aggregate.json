@@ -1,0 +1,365 @@
+{
+  "metadata": {
+    "source": "4tests.com",
+    "total_crawled": 10,
+    "timestamp": "2026-09-07T13:15:32"
+  },
+  "reading": [
+    {
+      "source": "4tests",
+      "type": "reading",
+      "part": 5,
+      "questions": [
+        {
+          "id": "4tests-2804",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: His trials and tribulations, which he claimed were his worse, would be more satisfactory if he actually took the time to organize his thoughts.",
+          "options": [
+            "(A) which he claimed were",
+            "(B) worse",
+            "(C) actually",
+            "(D) thoughts"
+          ],
+          "answer": "A",
+          "answerText": "WORST",
+          "explain": "The correct answer is WORST. It must be a superlative instead of a comparative, as there are more than two things being compared here.",
+          "crawled_at": "2026-09-07T13:15:08"
+        },
+        {
+          "id": "4tests-2805",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: My friend had been advised to make prudent investments with her inheritance, so she delayed to buy those stocks offered on the exchange that morning.",
+          "options": [
+            "(A) had been advised",
+            "(B) to make",
+            "(C) with",
+            "(D) delayed to buy"
+          ],
+          "answer": "D",
+          "answerText": "",
+          "explain": "The correct answer should be DELAYED BUYING. An infinitive was used instead of a gerund. DELAYED is a verb that is followed by the -ing Gerund.",
+          "crawled_at": "2026-09-07T13:15:09"
+        },
+        {
+          "id": "4tests-2806",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: The newest ideas presented actually will might cost more, and may have to be considered carefully before going to the board for ratification.",
+          "options": [
+            "(A) presented",
+            "(B) will might",
+            "(C) may have to",
+            "(D) before going"
+          ],
+          "answer": "B",
+          "answerText": "",
+          "explain": "Don't put two MODAL verbs together like this. The correct structure is MIGHT COST.",
+          "crawled_at": "2026-09-07T13:15:11"
+        },
+        {
+          "id": "4tests-2807",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: Not agreeing to sell his assets and eventually is phasing out his construction company, John will attempt to keep things going until the bank floats another loan.",
+          "options": [
+            "(A) Not agreeing to sell",
+            "(B) is phasing",
+            "(C) will attempt",
+            "(D) things going"
+          ],
+          "answer": "A",
+          "answerText": "",
+          "explain": "This should read PHASING, to keep it as a parallel structure with NOT AGREEING. It is a participle, not a verb tense.",
+          "crawled_at": "2026-09-07T13:15:24"
+        },
+        {
+          "id": "4tests-2808",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: Until the end of the First World War, a little official attention was given to preventing fires, because extinguishing fires was the main concern of fire departments.",
+          "options": [
+            "(A) a little",
+            "(B) to preventing",
+            "(C) extinguishing",
+            "(D) was"
+          ],
+          "answer": "A",
+          "answerText": "",
+          "explain": "A LITTLE means that some attention was given, which has no negative connotation; LITTLE is the correct answer. LITTLE means not much, which gives the sentence its correct negative connotation.",
+          "crawled_at": "2026-09-07T13:15:25"
+        },
+        {
+          "id": "4tests-2809",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: A frustrating year for the U.S. space program was experienced in 1993 because of lost satellites, delays of space shuttle launches, and a drastically size reduction of the space station.",
+          "options": [
+            "(A) frustrating",
+            "(B) was experienced",
+            "(C) because of",
+            "(D) drastically"
+          ],
+          "answer": "D",
+          "answerText": "",
+          "explain": "DRASTICALLY is an adverb, but what is needed is an adjective. DRASTIC is the correct form of the word.",
+          "crawled_at": "2026-09-07T13:15:26"
+        },
+        {
+          "id": "4tests-2810",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: Marine biology also deals on organisms which directly depend upon bodies of salt water for essities of life.",
+          "options": [
+            "(A) deals on",
+            "(B) which",
+            "(C) depend upon",
+            "(D) necessities of life"
+          ],
+          "answer": "B",
+          "answerText": "",
+          "explain": "The answer should be with a different preposition which follows DEALS: DEALS WITH.",
+          "crawled_at": "2026-09-07T13:15:28"
+        },
+        {
+          "id": "4tests-2811",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: Hakka is very much like Cantonese, with six tones distinguishing meaning between words or words elements within the same vowels and consonants.",
+          "options": [
+            "(A) much like",
+            "(B) with",
+            "(C) distinguishing",
+            "(D) words"
+          ],
+          "answer": "A",
+          "answerText": "",
+          "explain": "This is a noun which has 'become' an adjective to modify ELEMENTS, and there are very few adjectives which end in -S.",
+          "crawled_at": "2026-09-07T13:15:29"
+        },
+        {
+          "id": "4tests-2812",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: Although Myanmar jewelry has its own characteristics, it was influenced by various Indian styles in which individual jewels blend in rather than standing out.",
+          "options": [
+            "(A) Although",
+            "(B) it",
+            "(C) in which",
+            "(D) standing out"
+          ],
+          "answer": "D",
+          "answerText": "",
+          "explain": "There is faulty parallelism here; BLEND IN is a two-word verb, and what follows should be the same structure. The correct answer should be: BLEND IN RATHER THAN STAND OUT.",
+          "crawled_at": "2026-09-07T13:15:30"
+        },
+        {
+          "id": "4tests-2813",
+          "source": "4tests",
+          "part": 5,
+          "section": "Error Recognition",
+          "question": "Select the underlined section that contains an error: When was the least time you updated the information in your address book?",
+          "options": [
+            "(A) was",
+            "(B) least",
+            "(C) the",
+            "(D) address"
+          ],
+          "answer": "B",
+          "answerText": "",
+          "explain": "This should be LAST not LEAST.",
+          "crawled_at": "2026-09-07T13:15:31"
+        }
+      ]
+    },
+    {
+      "source": "4tests",
+      "type": "reading",
+      "part": 7,
+      "questions": []
+    }
+  ],
+  "listening": [],
+  "all_questions": [
+    {
+      "id": "4tests-2804",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: His trials and tribulations, which he claimed were his worse, would be more satisfactory if he actually took the time to organize his thoughts.",
+      "options": [
+        "(A) which he claimed were",
+        "(B) worse",
+        "(C) actually",
+        "(D) thoughts"
+      ],
+      "answer": "A",
+      "answerText": "WORST",
+      "explain": "The correct answer is WORST. It must be a superlative instead of a comparative, as there are more than two things being compared here.",
+      "crawled_at": "2026-09-07T13:15:08"
+    },
+    {
+      "id": "4tests-2805",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: My friend had been advised to make prudent investments with her inheritance, so she delayed to buy those stocks offered on the exchange that morning.",
+      "options": [
+        "(A) had been advised",
+        "(B) to make",
+        "(C) with",
+        "(D) delayed to buy"
+      ],
+      "answer": "D",
+      "answerText": "",
+      "explain": "The correct answer should be DELAYED BUYING. An infinitive was used instead of a gerund. DELAYED is a verb that is followed by the -ing Gerund.",
+      "crawled_at": "2026-09-07T13:15:09"
+    },
+    {
+      "id": "4tests-2806",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: The newest ideas presented actually will might cost more, and may have to be considered carefully before going to the board for ratification.",
+      "options": [
+        "(A) presented",
+        "(B) will might",
+        "(C) may have to",
+        "(D) before going"
+      ],
+      "answer": "B",
+      "answerText": "",
+      "explain": "Don't put two MODAL verbs together like this. The correct structure is MIGHT COST.",
+      "crawled_at": "2026-09-07T13:15:11"
+    },
+    {
+      "id": "4tests-2807",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: Not agreeing to sell his assets and eventually is phasing out his construction company, John will attempt to keep things going until the bank floats another loan.",
+      "options": [
+        "(A) Not agreeing to sell",
+        "(B) is phasing",
+        "(C) will attempt",
+        "(D) things going"
+      ],
+      "answer": "A",
+      "answerText": "",
+      "explain": "This should read PHASING, to keep it as a parallel structure with NOT AGREEING. It is a participle, not a verb tense.",
+      "crawled_at": "2026-09-07T13:15:24"
+    },
+    {
+      "id": "4tests-2808",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: Until the end of the First World War, a little official attention was given to preventing fires, because extinguishing fires was the main concern of fire departments.",
+      "options": [
+        "(A) a little",
+        "(B) to preventing",
+        "(C) extinguishing",
+        "(D) was"
+      ],
+      "answer": "A",
+      "answerText": "",
+      "explain": "A LITTLE means that some attention was given, which has no negative connotation; LITTLE is the correct answer. LITTLE means not much, which gives the sentence its correct negative connotation.",
+      "crawled_at": "2026-09-07T13:15:25"
+    },
+    {
+      "id": "4tests-2809",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: A frustrating year for the U.S. space program was experienced in 1993 because of lost satellites, delays of space shuttle launches, and a drastically size reduction of the space station.",
+      "options": [
+        "(A) frustrating",
+        "(B) was experienced",
+        "(C) because of",
+        "(D) drastically"
+      ],
+      "answer": "D",
+      "answerText": "",
+      "explain": "DRASTICALLY is an adverb, but what is needed is an adjective. DRASTIC is the correct form of the word.",
+      "crawled_at": "2026-09-07T13:15:26"
+    },
+    {
+      "id": "4tests-2810",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: Marine biology also deals on organisms which directly depend upon bodies of salt water for essities of life.",
+      "options": [
+        "(A) deals on",
+        "(B) which",
+        "(C) depend upon",
+        "(D) necessities of life"
+      ],
+      "answer": "B",
+      "answerText": "",
+      "explain": "The answer should be with a different preposition which follows DEALS: DEALS WITH.",
+      "crawled_at": "2026-09-07T13:15:28"
+    },
+    {
+      "id": "4tests-2811",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: Hakka is very much like Cantonese, with six tones distinguishing meaning between words or words elements within the same vowels and consonants.",
+      "options": [
+        "(A) much like",
+        "(B) with",
+        "(C) distinguishing",
+        "(D) words"
+      ],
+      "answer": "A",
+      "answerText": "",
+      "explain": "This is a noun which has 'become' an adjective to modify ELEMENTS, and there are very few adjectives which end in -S.",
+      "crawled_at": "2026-09-07T13:15:29"
+    },
+    {
+      "id": "4tests-2812",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: Although Myanmar jewelry has its own characteristics, it was influenced by various Indian styles in which individual jewels blend in rather than standing out.",
+      "options": [
+        "(A) Although",
+        "(B) it",
+        "(C) in which",
+        "(D) standing out"
+      ],
+      "answer": "D",
+      "answerText": "",
+      "explain": "There is faulty parallelism here; BLEND IN is a two-word verb, and what follows should be the same structure. The correct answer should be: BLEND IN RATHER THAN STAND OUT.",
+      "crawled_at": "2026-09-07T13:15:30"
+    },
+    {
+      "id": "4tests-2813",
+      "source": "4tests",
+      "part": 5,
+      "section": "Error Recognition",
+      "question": "Select the underlined section that contains an error: When was the least time you updated the information in your address book?",
+      "options": [
+        "(A) was",
+        "(B) least",
+        "(C) the",
+        "(D) address"
+      ],
+      "answer": "B",
+      "answerText": "",
+      "explain": "This should be LAST not LEAST.",
+      "crawled_at": "2026-09-07T13:15:31"
+    }
+  ]
+}

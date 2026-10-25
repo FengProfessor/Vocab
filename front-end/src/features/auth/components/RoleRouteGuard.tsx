@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Result } from 'antd';
+import { Button, Card, Result } from '@/components/ui/Primitives';
 import { Outlet, useNavigate } from 'react-router-dom';
 import styles from '@/features/auth/components/RoleRouteGuard.module.css';
 import { RoleRouteGuardProps } from '@/features/auth/types/RoleRouteGuardProps';

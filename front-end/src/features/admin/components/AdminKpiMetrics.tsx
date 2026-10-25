@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Col, Row, Skeleton, Statistic } from 'antd';
-import { ApiOutlined, BankOutlined, DollarOutlined, TeamOutlined } from '@ant-design/icons';
+import { Card, Col, Row, Skeleton, Statistic } from '@/components/ui/Primitives';
+import { ApiOutlined, BankOutlined, DollarOutlined, TeamOutlined } from '@/components/ui/Icons';
 import styles from '@/features/admin/components/AdminKpiMetrics.module.css';
 import { AdminKpiMetricsProps } from '@/features/admin/types/AdminKpiMetricsProps';
 

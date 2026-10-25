@@ -1,0 +1,301 @@
+{
+  "topicId": "631b1a21f2fe240a4043b031",
+  "name": "Test 20",
+  "slug": "test-20",
+  "part": "part_7_triple_passages",
+  "totalQuestions": 15,
+  "totalCards": 3,
+  "cards": [
+    {
+      "id": "631c560af2fe240a4043b08d",
+      "questionText": "<p>To: Customer Service [cs@tailwiiidairlines.com]<br>\nFrom: Maggie Flowers [m.flo@fastmail.com]<br>\nDate: May 29<br>\nSubject: Compensation<br>\nAttachment: Rental receipt<br>\n<br>\nDear Customer Service,<br>\nOn May 25, I was scheduled to fly on Flight 535 from Cleveland to Pittsburgh. However, the flight was canceled due to mechanical problems. While at the airport, I was promised a flight voucher as compensation for the inconvenience. I never claimed it and would like to follow up now. Also, I'd like reimbursement for an incurred expense. I had a job interview to attend and could not wait until the following day. So, I rented a car and drove to my destination. I have attached a copy of the rental receipt in case you need it.<br>\nI hope you can help me resolve this matter.<br>\nSincerely,<br>\nMaggie Flowers</p>\n\n<p style=\"text-align: center;\">______________________________________________</p>\n\n<p>To: Maggie Flowers [m.flo@fastmail.com]<br>\nFrom: Customer service [cs@tailwindairlines.com]<br>\nDate: June 8<br>\nAttachment: reimbursement_form<br>\nSubject: Re: Compensation<br>\n<br>\nDear Ms. Flowers,<br>\nI am sorry to hear of your inconvenience. Let me correct the situation.<br>\nFirst, our system indicates that you are entitled to the voucher. We normally tell customers that they will get it within four weeks. I apologize if our airline staff failed to <b>convey</b> this information properly at the time your flight was canceled. The voucher has been mailed and should arrive shortly. Second, all of the passengers on your flight were offered a night's stay at an airport hotel.<br>\nOur policy states that we can reimburse a passenger with exceptional circumstances up to the price of the hotel stay. Your situation qualifies since the car rental amount was less than this cost.<br>\nTo proceed, complete the attached form and mail it to us along with your original receipt.<br>\nIf I can assist you further, please contact me again. Thank you for being a loyal, valued customer.<br>\nYours Truly,<br>\nPaul Russell<br>\nCustomer service representative</p>\n\n<p style=\"text-align: center;\">______________________________________________</p>\n\n<p>TAILWIND AIRLINES</p>\n\n<p>Please allow up to 30 days for settlement.</p>\n\n<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\" style=\"width: 918px;\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 475px;\">Name: Maggie Flowers</td>\n\t\t\t<td style=\"width: 430px;\">Membership rewards no.: 4793345</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 475px;\">Address: 12704 Gruss Court, Cleveland, OH 44018</td>\n\t\t\t<td style=\"width: 430px;\">Tel: 555-2348</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 475px;\">&nbsp;</td>\n\t\t\t<td style=\"width: 430px;\">Email: m.flo@fastmail.com</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" style=\"width: 908px;\">Type of claim:&nbsp; &nbsp; &nbsp; &nbsp;[&nbsp; &nbsp;]&nbsp;Damage&nbsp; &nbsp; &nbsp; &nbsp; [&nbsp; &nbsp;] Loss&nbsp; &nbsp; &nbsp; &nbsp;[ X&nbsp;]&nbsp; Reimbursement</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 475px;\">Amount of claim: $135.00</td>\n\t\t\t<td style=\"width: 430px;\">&nbsp;</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 475px;\">Flight no.: 535</td>\n\t\t\t<td style=\"width: 430px;\">Date: May 25</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 475px;\">Origin: Cleveland, OH</td>\n\t\t\t<td style=\"width: 430px;\">Destination: Pittsburgh, PA</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" style=\"width: 908px;\">Please explain the reason(s) for your claim:<br>\n\t\t\tMy flight was canceled, and I'd like to be reimbursed for some expenses.</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" style=\"width: 908px;\">Supporting documents (please attach): Car rental receipt</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p>&nbsp; &nbsp; &nbsp;<u> &nbsp; Maggie Flowers&nbsp; &nbsp; &nbsp; </u>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<u> &nbsp; &nbsp; &nbsp; &nbsp;June 10&nbsp; &nbsp; &nbsp;</u></p>\n\n<p>Please sign your name here&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Date&nbsp;</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "631c560af2fe240a4043b090",
+          "questionText": "Why did Ms. Flowers write the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To pursue some claims",
+            "(B) To recover some items",
+            "(C) To change a reservation",
+            "(D) To complain about an attendant"
+          ],
+          "correctOptions": [
+            "(A) To pursue some claims"
+          ],
+          "transcript": "<p>Information:&nbsp;<em>While at the airport, I was promised a flight voucher as compensation for the inconvenience. I never claimed it and would like to follow up now.</em></p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b091",
+          "questionText": "What does Mr. Russell ask Ms. Flowers to provide?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A copy of her passport",
+            "(B) An airline boarding pass",
+            "(C) A hotel reservation number",
+            "(D)  A car rental receipt"
+          ],
+          "correctOptions": [
+            "(D)  A car rental receipt"
+          ],
+          "transcript": "<p>Information: <em>To proceed, complete the attached form and mail it to us along with your original receipt.</em></p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b092",
+          "questionText": "In the second e-mail, the word \"convey\" in paragraph 2, line 2, is closest in meaning to",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) pick up",
+            "(B) make known",
+            "(C) take into consideration",
+            "(D) take to another place"
+          ],
+          "correctOptions": [
+            "(B) make known"
+          ],
+          "transcript": "<p><strong>convey </strong>(v):&nbsp;to express a thought, feeling, or idea so that it is understood by other people = <strong>make known</strong></p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b093",
+          "questionText": "What is indicated about passengers on the canceled flight?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They all took the next available flight.",
+            "(B) Their hotel rooms cost over $135 each.",
+            "(C) They all received their promised vouchers.",
+            "(D) Their meals were paid for by the airline."
+          ],
+          "correctOptions": [
+            "(B) Their hotel rooms cost over $135 each."
+          ],
+          "transcript": "<p>Information in second mail: <em>Our policy states that we can reimburse a passenger with exceptional circumstances up to the price of the hotel stay. Your situation qualifies since the car rental amount was less than this cost.</em></p>\n\n<p>Information in the form: <em>Amount of claim:&nbsp;<span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\"><span style=\"font-size:14px;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\"><span style=\"line-height:107%\">$</span></span></span></span></span></span>135.00</em></p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b094",
+          "questionText": "What does the form indicate about Ms. Flowers?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She received extra membership rewards for her trouble.",
+            "(B) She applied the voucher to a future flight.",
+            "(C) She may have to wait until July to be repaid.",
+            "(D) She did not provide a document as proof."
+          ],
+          "correctOptions": [
+            "(C) She may have to wait until July to be repaid."
+          ],
+          "transcript": "<p>Ms. Flowers fills the form on June 10, and it takes up to 30 days for settlement. This means that she may have to wait until July to be repaid.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "631c560af2fe240a4043b08e",
+      "questionText": "<p><b>12th Green Technology Conference</b><br>\nThursday, June 9 | Singapore Convention Hall, Room A<br>\nHosted by the Green Technology Association<br>\n<b>Program Outline</b></p>\n\n<table align=\"center\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 138px; text-align: center;\">12:30 P.M.</td>\n\t\t\t<td style=\"width:486px;\">Registration</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 138px; text-align: center;\">1:00 P.M.</td>\n\t\t\t<td style=\"width:486px;\">Welcome address<br>\n\t\t\tSpeaker: Ellen Matsushita, Chair, Green Technology Association</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 138px; text-align: center;\">1:30 P.M.</td>\n\t\t\t<td style=\"width:486px;\">Keynote address<br>\n\t\t\tSpeaker: Harold Baker, President, Greentrade Technologies</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 138px; text-align: center;\">2:00 P.M.</td>\n\t\t\t<td style=\"width:486px;\">Industry outlook<br>\n\t\t\tSpeaker: Jeremy Porter, Managing Director, Green Research Institute</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 138px; text-align: center;\">2:30 P.M.</td>\n\t\t\t<td style=\"width:486px;\">Wind, solar, and biomass power<br>\n\t\t\tSpeaker: Nathan Chaudry, CEO, Leaftech International</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 138px; text-align: center;\">3:00 P.M.</td>\n\t\t\t<td style=\"width:486px;\">Coffee break</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 138px; text-align: center;\">3:30 P.M.</td>\n\t\t\t<td style=\"width:486px;\">New applications in green technology<br>\n\t\t\tSpeaker: Thomas Keng, Chair, Environmental Research Group</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 138px; text-align: center;\">4:00 P.M.</td>\n\t\t\t<td style=\"width:486px;\">Panel discussion: Financing green projects<br>\n\t\t\tModerator: Barbara Woodbine, CFO, Global Lending</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 138px; text-align: center;\">5:00 P.M.</td>\n\t\t\t<td style=\"width:486px;\">Closing remarks<br>\n\t\t\tSpeaker: Sylvia Klein, President, European Green Initiative</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p style=\"text-align: center;\">______________________________________________</p>\n\n<p>To: Eduardo Ferrer [edfer@greentech.com]<br>\nFrom: Ellen Matsushita [elmat@greentech.com]<br>\nDate: May 14<br>\nSubject: Re: Conference program<br>\n<br>\nThere are a few additional changes to make. As it turns out, the president of Greentrade Technologies is unavailable. Instead, we will have Dr. Connor Aromdee from Thailand University. In addition, Ms. Woodbine from Global Lending will be leaving the conference early, so she cannot moderate the panel discussion. She suggested that we invite the minister of the Singapore Economic Development Board to take her place. I have contacted him, and he has accepted the invitation. If there are any other changes to make, I'll let you know in the morning. After that, the program will be finalized.<br>\nThanks!<br>\nEllen</p>\n\n<p style=\"text-align: center;\">______________________________________________</p>\n\n<p style=\"text-align: center;\"><b>Business Bulletin</b></p>\n\n<p>Singapore, June 11 - The Green Technology Association (GTA) recently held its 12th Green Technology Conference at the Singapore Convention Hall. The heads of several organizations playing a critical role in the development of green technologies around the world were in attendance. According to speaker Jeremy Porter of the Green Research Institute, the outlook for the industry appears stable despite politicians in some nations who are holding back the use of green technologies. GTA chair Ellen Matsushita was equally hopeful, citing insightful comments from the minister of the Singapore Economic Development Board, David Mah. Download a full report on the talks and material presented at the conference by visiting the organization's Web site at www.gta.org.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "631c560af2fe240a4043b095",
+          "questionText": "What has NOT been scheduled for the conference?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A closing speech",
+            "(B) A presentation on solar power",
+            "(C) A special luncheon",
+            "(D) A talk on the future of the industry"
+          ],
+          "correctOptions": [
+            "(C) A special luncheon"
+          ],
+          "transcript": "<p>The program outline does not show the lunch time&nbsp;</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b096",
+          "questionText": "What time did Dr. Aromdee most likely speak?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At 1:00 p.m.",
+            "(B) At 1:30 p.m.",
+            "(C) At 2:00 p.m.",
+            "(D) At 2:30 p.m."
+          ],
+          "correctOptions": [
+            "(B) At 1:30 p.m."
+          ],
+          "transcript": "<p>Information in the program outline and the email: Dr. Connor Aromdee will president of Greentrade Technologies, who gives a presentation at 1:30 p.m</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b097",
+          "questionText": "What does the article mention about green technology?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Its development has been stunted by high equipment costs.",
+            "(B) Its adoption is being opposed by some people in government.",
+            "(C) Its role is particularly important in developing nations.",
+            "(D) Its supporters are pessimistic about the future."
+          ],
+          "correctOptions": [
+            "(B) Its adoption is being opposed by some people in government."
+          ],
+          "transcript": "<p>Information:&nbsp;<em>According to speaker Jeremy Porter of the Green Research Institute, the outlook for the industry appears stable <strong>despite politicians in some nations who are holding back the use of green technologies</strong>.</em></p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b098",
+          "questionText": "In the article, the word \"critical\" in paragraph 1, line 3, is closest in meaning to",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) analytical",
+            "(B) opinionated",
+            "(C) disapproving",
+            "(D) crucial"
+          ],
+          "correctOptions": [
+            "(D) crucial"
+          ],
+          "transcript": "<p>critical (adj) = crucial (adj):&nbsp;extremely important or necessary</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b099",
+          "questionText": "What is indicated about David Mah?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He was contacted by a government group about a schedule.",
+            "(B) He is a member of the GTA board of directors.",
+            "(C) He led a panel discussion on funding green projects.",
+            "(D) He participated in a conference call hosted by Ms. Matsushita."
+          ],
+          "correctOptions": [
+            "(C) He led a panel discussion on funding green projects."
+          ],
+          "transcript": "<p>David Mah,&nbsp;minister of the Singapore Economic Development Board&nbsp;will take place Ms. Woodbine to present the Panel discussion: Financing green projects</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "631c560af2fe240a4043b08f",
+      "questionText": "<p style=\"text-align: center;\"><b>Westerburn Public Library Online Renewal Policy</b></p>\n\n<p>All books owned by Westerburn can be renewed through your online account. Simply log in, click on the \"View\" menu, select \"Checked out items,\" and mark the boxes next to the titles you wish to renew. Then press \"Send\" at the bottom of the screen. Members are allowed to renew our material for two-week periods provided there are no pending requests for them. If materials you have checked out have been requested in advance by any other member, the system will indicate that they cannot be borrowed again.<br>\nInterlibrary loans can also be renewed online. However, some restrictions may apply. Please check the sticker on the back of the book cover for the lending library's renewal policies, which may be different from our own.</p>\n\n<p style=\"text-align: center;\">______________________________________________</p>\n\n<p><b>List of Active Loans for Westerburn Public Library Member No.<br>\n0177634 - Melissa Terrance</b><br>\nDate: 08/08</p>\n\n<table align=\"center\" border=\"1\" cellpadding=\"0\" cellspacing=\"0\">\n\t<tbody>\n\t\t<tr>\n\t\t\t<td style=\"width: 125px; text-align: center;\"><strong>Renew</strong></td>\n\t\t\t<td style=\"width: 125px; text-align: center;\"><strong>Title</strong></td>\n\t\t\t<td style=\"width: 125px; text-align: center;\"><strong>Call No.</strong></td>\n\t\t\t<td style=\"width: 125px; text-align: center;\"><strong>Source</strong></td>\n\t\t\t<td style=\"width: 125px; text-align: center;\"><strong>Due Date</strong></td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 125px; text-align: center;\">Non-Renewable</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">The Reign of King Jordanius/ Hans schoffer</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">834.04 SCH</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">Westerburn Public Library</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">08/10</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 125px; text-align: center;\">x</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">The Science of Memory/ Laurence Templeton</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">216.94 TEM</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">Westerburn Public Library</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">08/10</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 125px; text-align: center;\">x</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">A History of Medicinal Plants / Daniel Wu</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">147.09 WUD</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">(Interlibrary Loan)<br>\n\t\t\tHighland Marsh Public Library<br>\n\t\t\t&nbsp;</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">08/10</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"width: 125px; text-align: center;\">&nbsp;</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">Tell Her: Short Stories /Maya Teller</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">924.07 TEL<br>\n\t\t\t&nbsp;</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">\n\t\t\t<p>(Interlibrary Loan)</p>\n\n\t\t\t<p>Greenport University Library&nbsp;</p>\n\t\t\t</td>\n\t\t\t<td style=\"width: 125px; text-align: center;\">08/15</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"5\" style=\"width: 623px; text-align: center;\"><strong>SEND</strong></td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<p style=\"text-align: center;\">______________________________________________</p>\n\n<p>To: Melissa Terrance [mellit@greatmail.com]<br>\nFrom: Agnes Featherstone [agnesf@westerburn.com]<br>\nDate: August 9<br>\nSubject: Re: Inquiry<br>\n<br>\nDear Ms. Terrance,<br>\nTo answer your question, the reason your request was rejected is that the book you wanted to renew (Call No. 147.09WUD) is from another library with different lending policies than our own, and our online renewal system is not set up to reflect them. If you check the sticker on the back of the book, you'll see that the library where the book is from only allows reference materials to be renewed a single time. Unlike the other items on your list of active loans, you have already renewed this item once before. Please note that it is due tomorrow.<br>\nThank you.<br>\nAgnes Featherstone<br>\nWesterburn Public Library Staff</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "631c560af2fe240a4043b09a",
+          "questionText": "What is the information mainly about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Requesting items from other libraries",
+            "(B) Accessing library databases online",
+            "(C) Extending loans using the Internet",
+            "(D) Returning books after their due date"
+          ],
+          "correctOptions": [
+            "(C) Extending loans using the Internet"
+          ],
+          "transcript": "<p>The information is mainly about the Online Renewal Policy of a library. In other words, it's about&nbsp;Extending loans using the Internet.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b09b",
+          "questionText": "What is NOT indicated about Westerburn Public Library?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Its books can be renewed for 14 days at a time.",
+            "(B) It allows material to be reserved in advance.",
+            "(C) Its late fees can be paid through online accounts.",
+            "(D) Its policies may vary from those of other libraries."
+          ],
+          "correctOptions": [
+            "(C) Its late fees can be paid through online accounts."
+          ],
+          "transcript": "<p>Information for (A):&nbsp;Members are allowed to renew our material for <strong>two-week periods</strong> provided there are no pending requests for them.</p>\n\n<p>Information for (B):&nbsp;&nbsp;If <strong>materials </strong>you have <strong>checked out have been requested in advance </strong>by any other member, the system will indicate that they cannot be borrowed again.</p>\n\n<p>Information for (D):&nbsp;Please check the sticker on the back of the book cover for the lending <strong>library's renewal policies</strong>, which <strong>may be different from our own</strong>.</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b09c",
+          "questionText": "What is true about The Reign of King Jordaniusl",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is a part of a special collection.",
+            "(B) Someone else made a request for it.",
+            "(C) Another copy of it is available at a partner library.",
+            "(D) Its sticker indicates renewal is forbidden."
+          ],
+          "correctOptions": [
+            "(B) Someone else made a request for it."
+          ],
+          "transcript": "<p>Based on the table, the material is non-renewable, so it&nbsp;has been requested in advance by another member</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b09d",
+          "questionText": "What is indicated in the Web Page?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Maya Teller's book may be returned to Westerburn Public Library.",
+            "(B) The lending period of Highland Marsh Public Library is two weeks.",
+            "(C) Ms. Terrance holds a special type of membership at her library.",
+            "(D) The Science of Memory has been overdue for several days now."
+          ],
+          "correctOptions": [
+            "(A) Maya Teller's book may be returned to Westerburn Public Library."
+          ],
+          "transcript": "<p>Based on the table, Maya Teller's book is an interlibrary loan, so it&nbsp;may be returned to Westerburn Public Library</p>\n",
+          "explanationVi": ""
+        },
+        {
+          "id": "631c560af2fe240a4043b09e",
+          "questionText": "Which book has Ms. Terrance already renewed once?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The Science of Memory",
+            "(B) A History of Medicinal Plants",
+            "(C) Tell Her: Short Stories",
+            "(D) The Reign of King Jordanius"
+          ],
+          "correctOptions": [
+            "(B) A History of Medicinal Plants"
+          ],
+          "transcript": "<p>The book she wanted to renew (Call No. 147.09WUD) is&nbsp;<em>A History of Medicinal Plants.</em>&nbsp;She has already renewed this item once before.</p>\n",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

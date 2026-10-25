@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-44",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 44",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-28/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Question 1.</b></p><ul><li>You’re listening to the morning traffic report on J-49. No congestion is reported in the downtown area. Commuters will also be happy to know that the Port Smith Bridge will reopen tomorrow morning, following 2 months of repairs.</li></ul><p><b>Question 2.</b></p><ul><li>Good afternoon. Thanks for coming to the meeting this morning. I have a few announcements. First, the director will be leaving tomorrow for Berlin and won’t be back until next Tuesday. Also, our project is nearly two weeks ahead of schedule, thanks to your hard work. We still have a lot to do, but I am pleased with our progress. One last thing: please think of some ideas for our presentation next month. We will meet next week to discuss them.</li></ul><p><b>Question 3.</b></p><ul><li>This morning, we’ll be talking to Dr. Russell Johnson, a professor of history at Dale University. Dr. Johnson is an expert in ancient building techniques and he’s the winner of this year’s Gailling Award for his book, The Development of Pyramids.</li></ul><p><b>Question 4.</b></p><ul><li>Snowstorms are expected this afternoon, continuing through tomorrow. Temperatures are also expected to drop dramatically overnight. Roads may become quite slippery, so please drive carefully. Coming up next is the local news with Amy Howard.</li></ul><p><b>Question 5.</b></p><ul><li>This is Andrea Martin reporting for KG-98 news. Local residents are feeling the effects of the rising cost of natural gas this winter. Many people are trying to find alternate methods of heating their homes because of the expense of gas. City officials report that the cost of natural gas has risen by nearly 20 percent in the past year. Energy experts say that the best way people can save on the cost of heating their homes is to make sure their houses are energy efficient.</li></ul><p><b>Question 6.</b></p><ul><li>Ms. Austen, this is George calling from Sun Valley Computer Repairs. I wanted to let you know that the repairs on your computer have been completed. You can drop by our store anytime before 5:00 this evening to pick it up. However, did find one small problem with your computer that we need to discuss the anti-virus software on your computer is out of date and I suggest you let us install the newest version. I have a meeting this morning, so I will not be back until after lunch. Please call me sometime this afternoon and let me know if you would like us to go ahead and install the new anti-virus.</li></ul><p><b>Question 7.</b></p><ul><li>On today’s show, we’ll be speaking with Dr. Mark Hamid, a director of the Northshore Medical Center. He’ll talk about changes in the medical industry over the past years. He’ll also discuss his opinions of medical coverage in this country.</li></ul><p><b>Question 8.</b></p><ul><li>It’s 7 o’clock and this is the morning traffic report on WKPR radio. The continuing snowstorm has caused a lot of traffic congestion this morning. Traffic has stopped completely on Pandosy Avenue, so take Gershmar Road if you’re going to the city center. The transportation department reports that they are working on clearing the snow but because of the congestion, progress is slow. The storm is expected to continue until tomorrow afternoon, so we don’t think the conditions will better anytime soon. Stay tuned for our next traffic report at 7:30.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "According to the report, what will happen tomorrow?",
+              "options": [
+                "the reopening of a bridge",
+                "traffic congestion",
+                "the repair of a bridge",
+                "road restriction"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What are employees asked to give?",
+              "options": [
+                "Progress reports",
+                "A list of announcements",
+                "Vacation schedules",
+                "Presentation ideas"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What is true about Dr. Johnson?",
+              "options": [
+                "He is a professor of Literature",
+                "He designed ancient buildings.",
+                "He got this year's award.",
+                "He wrote books about literature"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What does the speaker advise people to do tomorrow?",
+              "options": [
+                "Wear warm clothes",
+                "Drive carefully",
+                "Stay at home",
+                "Watch the local news"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is this news report about?",
+              "options": [
+                "A stock market forecast",
+                "Building construction",
+                "Increasing gas costs",
+                "Office maintenance"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "When will George attend a meeting?",
+              "options": [
+                "In the morning",
+                "At noon",
+                "In the afternoon",
+                "In the evening"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What is the topic of the show?",
+              "options": [
+                "Advice about changes in health",
+                "Changes in medical industry",
+                "Medical industry and its coverage",
+                "How to improve health"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "According to the report, what will happen tomorrow?",
+              "options": [
+                "the reopening of a bridge",
+                "traffic congestion",
+                "the repair of a bridge",
+                "road restriction"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><p><b>My daily schedule as a dental hygienist</b> is a little complicated. That's because it's different every day.</p><p>Monday, I don't go into work until late in the afternoon. So I have time to spend, most of the day, doing washing of clothes, shopping, and my banking. I leave for work around four o'clock in the afternoon, I work from five to nine p.m. Tuesday, I wake up at six thirty a.m. and leave for work, at seven thirty. My first patient is scheduled for eight fifteen. Each patient, is allotted forty-five minutes. Lunch break is twelve-thirty to one-thirty. I finish up at five p.m. and get home, at around six p.m. Wednesday starts an hour earlier. I wake up at five-thirty a.m., leave for work at six-thirty, and see my first patient at seven a.m., I also finish early on Wednesday, at twelve-noon. Thursday is the same schedule as Tuesday... getting up at six-thirty a.m., leaving for work at seven-thirty, and seeing my first patient at eight-fifteen. I get home about six p.m. in the evening. Friday is another early start. I wake up at five-thirty a.m., leave the house at six thirty and finish up my last patient at three o'clock in the afternoon. I like to get finished early on Friday. That is a typical work week for me.</p><p><b>Conversation 2:</b></p><ul><li><b>Man:</b> Hi, Sis. I just came over to drop off the DVDs you wanted, and . . . Hey, wow!? Where did you get all of this stuff?</li><li><b>Woman:</b> I bought it. So, what do you think of my new entertainment center? And the widescreen TV..</li><li><b>Man:</b> Bought it?</li><li><b>Woman:</b> . . . and my new DVD player. Here, let me show you my stereo. You can really rock the house with this one.</li><li><b>Man:</b> But where did you get the dough to buy all this? You didn't borrow money from mom and dad again, did you?</li><li><b>Woman:</b> Of course not. I got it with this!</li><li><b>Man:</b> This? Let me see that . . . Have you been using Dad's credit card again?</li><li><b>Woman:</b> No, silly. It's mine. It's student credit card.</li><li><b>Man:</b> A student credit card? How in the world did you get one of these?</li><li><b>Woman:</b> I got an application in the mail.</li><li><b>Man:</b> Well, why did you get one in the first place?</li><li><b>Woman:</b> Listen. Times are changing, and having a credit card helps you build a credit rating, control spending, and even buy things that you can't pay with cash . . . like the plane ticket I got recently.</li><li><b>Man:</b> What plane ticket?</li><li><b>Woman:</b> Oh yeah, my roommate and I are going to Hawaii over the school break, and course, I needed some new clothes for that so . . .</li><li><b>Man:</b> I don't want to hear it. How does having a student credit card control spending? It sounds you've spent yourself in a hole. Anyway, student credit cards just lead to impulse spending . . . as I can see here. And the interest rates of student credit cards are usually sky-high, and if you miss a payment, the rates, well, just jump!</li><li><b>Woman:</b> Ah. The credit card has a credit limit . . .</li><li><b>Man:</b> . . . of $20,000?</li><li><b>Woman:</b> No, no quite that high. Anyway, . . .</li><li><b>Man:</b> I've heard enough.</li><li><b>Woman:</b> Did I tell you we now get digital cable with over 100 channels? Oh, and here's your birthday present. A new MP3 player . . .</li><li><b>Man:</b> Yeah. Oh, don't tell me. Charged on the credit card. Listen. Hey, I don't think having a student credit card is a bad idea, but this is ridiculous. And how in the world are you going to pay off your credit card bill?</li><li><b>Woman:</b> Um, with my birthday money? It's coming up in a week.</li><li><b>Man:</b> Hey, let's sit down and talk about how you're going to pay things back, and maybe we can come up with a budget that will help you get out of this mess. That's the least I can do.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Server:</b> Hi. Welcome to Joe's Hamburger Restaurant. [Hi] Home of the one-pound super deluxe hot and spicy cheeseburger. Will this be for here or to go?</li><li><b>Customer:</b> Uh, to go.</li><li><b>Server:</b> Okay. What would you like today? Would you like to try the one-pound super hot and spicy cheeseburger?</li><li><b>Customer:</b> Uh. I don't think so. I'd probably have heartburn for a week after downing that monster.</li><li><b>Server:</b> Well. It's our house special this week, and it comes with fries, and a large specialty drink called \"Everything-but-the-kitchen-sink.\"</li><li><b>Customer:</b> A what? \"Everything-but-the-kitchen-sink\"? What in the world is that?</li><li><b>Server:</b> Well, it's a little mix of everything in a large cup: Pepsi, Sprite, Fanta Orange, and lemonade with crushed ice and a scoop of ice cream.</li><li><b>Customer:</b> Ah, that sounds disgusting.</li><li><b>Server:</b> Hey, it'll grow on you.</li><li><b>Customer:</b> Nay, I think I'll just order a hamburger with some mustard and lettuce and a glass of water.</li><li><b>Server:</b> Boring. Hey. Would you care for anything else like a side order of amazing cheesy onion rings?</li><li><b>Customer:</b> No thank you. Onion rings usually don't agree with me.</li><li><b>Server:</b> Hmm. Okay. Your total comes to ten ninety ($10.90).</li><li><b>Customer:</b> Ten ninety? For just a hamburger?! You've got to be kidding</li><li><b>Server:</b> Well, the one-pound super deluxe hamburger is nine dollars.</li><li><b>Customer:</b> Hey, I didn't order a one-pound burger. I just wanted a simple burger. That's all.</li><li><b>Server:</b> Well, sir. Joe's Hamburger Restaurant only serves one-pound burgers. [Man!] The one-pound super hot and spicy, the one-pound barbecue burger, the one-pound bacon cheese burger, the one-pound . . .</li><li><b>Customer:</b> No, no. Those are all huge.</li><li><b>Server:</b> Well, sir. If you really want something smaller [Yeah], you should order from the kids' menu: The half-pound super hot and spicy burger, the half-pound barbecue burger, the half-pound bacon cheese burger, the half-pound . . .</li><li><b>Customer:</b> No. Those are still giant burgers.</li><li><b>Server:</b> Well, in these parts, we are hearty eaters.</li><li><b>Customer:</b> Okay, but you said my total was ten ninety, but the burger only comes to ten bucks. What about the other ninety cents?</li><li><b>Server:</b> Well, sir. We only serve natural spring water from yonder hills, and . . .</li><li><b>Customer:</b> Okay, okay. I'll take the giant burger and a bottle of your spring water. The sandwich should feed me for a week.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What hours does the speaker work on Monday?",
+              "options": [
+                "Noon to 6 PM",
+                "8:15 AM to 5 PM",
+                "7 AM to 12 PM",
+                "5 PM to 9 PM"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "On which two days does the speaker have the same schedule?",
+              "options": [
+                "Monday and Tuesday",
+                "Wednesday and Thursday",
+                "Tuesday and Thursday",
+                "Thursday and Friday"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What is the main purpose of the speaker's talk?",
+              "options": [
+                "To discuss the importance of the job",
+                "To compare the work of doctors and dentists",
+                "To describe a typical week at work",
+                "To explain the details of a day at work"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does the speaker think of her work?",
+              "options": [
+                "She enjoys sleeping late every morning",
+                "It is difficult to describe her schedule",
+                "She enjoys helping the patients",
+                "It is too complicated to remember"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "According to the conversation, which item did the woman NOT purchase with her credit card?",
+              "options": [
+                "a digital camera",
+                "a DVD player",
+                "a TV",
+                "a stereo"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What is one reason to explain why the woman obtained a student credit card?",
+              "options": [
+                "She wants to buy things at a discount using the card",
+                "She hopes to establish a good credit rating",
+                "She doesn't want to borrow from her parents",
+                "She can be financially independent"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does the woman imply about how she plans on resolving her credit card problems?",
+              "options": [
+                "She hopes that someone will give her the money",
+                "She plans on getting rid of her student credit cards",
+                "She'll get a part-time job",
+                "She is going to return the items she purchased on the card"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is the man going to do for the woman to help her manage her money?",
+              "options": [
+                "help her find a better paying job to cover her expenses",
+                "teach her how to prepare a financial management plan",
+                "show her how she can apply for low-interest student credit cards",
+                "teach her how to shop wisely"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why does the customer not buy the recommended sandwich at the beginning of the conversation?",
+              "options": [
+                "It is too expensive",
+                "He is not interested in ordering a burger",
+                "It is not tasty",
+                "He fears the food will make him sick"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "How does the specialty drink get its name?",
+              "options": [
+                "It contains a wide range of ingredients",
+                "It is prepared in the kitchen sink",
+                "It contains chicken soup",
+                "It comes in a very large cup"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Why was the man surprised by the price of his meal?",
+              "options": [
+                "He thought the drink should have been included",
+                "He felt the meal was way overpriced",
+                "He was charged for two sandwiches instead of one",
+                "It was lower than he had expected"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does the customer decide to do at the end of the conversation?",
+              "options": [
+                "He orders something from the restaurant menu",
+                "He plans to come back at weekend",
+                "He decides to look for another place to eat",
+                "He plans to come in a week when the prices are lower"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks or lectures. There are five questions for each talk or lecture. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only ONCE.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-02/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1: Ecotourism</b></p><p>Ecotourism is a booming business that many tour operators cite as being <b>helpful to nature</b>. Every year, millions of people descend on protected and pristine natural areas to observe rare species. However, a new report casts doubt on the value of this form of tourism. In fact, it suggests that ecotourism is <b>more damaging than helpful</b> to nature. Details are in a report published in the journal 'Trends in Ecology and Evolution'. Researchers believe tourists are <b>disrupting animals</b> in their natural habitat. They pointed to a recent event where sea turtles in Costa Rica had problems laying their eggs because of the hordes of tourists who had congregated to watch the turtles' nesting habits.</p><p>The report says that ecotourism is making animals <b>bolder</b> and that this could endanger the animals. A regular human presence might make animals tamer and less cautious about other animals around them, and this could put them at risk of being attacked by their <b>natural threats</b>. \"Then they will suffer <b>higher mortality</b> when they encounter real predators,\" the report says. It added: \"When animals interact in 'benign' ways with humans, they may let down their guard.\" The report said it was essential, \"to develop a more comprehensive understanding of how different species in different situations respond to human visitation and under what precise conditions human exposure might put them at risk.\"</p><p><b>Talk 2: Skin-lightening Creams</b></p><p>An association of local governments in the UK, called the LGA, has warned consumers about the use of some <b>skin-lightening creams</b>. The LGA discovered that some of the whitening cosmetics they tested contained <b>banned ingredients</b> and were thus illegal. However, they were available for purchase in UK stores. An LGA spokesperson said these ingredients could pose a <b>serious threat</b> to consumers' health. He said there has been an increase in the number of users experiencing health problems after using the creams. These include <b>seizures, rashes and scarring</b>. The spokesperson said the creams could increase the risk of skin cancer, and liver and kidney damage.</p><p>The global skin-lightening industry is booming. In 2017, it was valued at an estimated $4.8 billion and is forecast to nearly double to around $8.9 billion in the next decade. Many people use it to reduce the darkness of the color of their skin. The LGA warned that <b>\"rogue retailers\"</b> were selling illegal skin-lightening lotions on which the label incorrectly listed the ingredients and omitted the illegal substances. The LGA said some illegal ingredients acted like <b>paint stripper</b> and could burn off the top layer of skin. It said: \"Skin creams containing banned ingredients are very dangerous and could seriously damage your health, scar you for life and <b>even kill you</b>, so they should be avoided at all costs.\"</p><p><b>Talk 3: Parental Happiness</b></p><p>Many of us believe that having children is the <b>key to happiness</b> and a perfect family life. Naturally, this idealistic image is true for some, but researchers say that in reality, children make us happiest when they <b>fly the nest</b> - when they have grown up and left home. Researchers in Germany looked at data from a survey of 55,000 over 50-year-olds living in Europe. The survey respondents were quizzed about their emotional wellbeing. The researchers discovered that most parents were <b>happier with life</b> after their offspring had left home and started making their own way in life. Researchers say this could be because raising children creates <b>financial worry, stress, fatigue and anxiety</b>.</p><p>The research was led by Christoph Becker at Heidelberg University. He concluded that a big reason for parents being happiest when their children leave home is that the tables are turned and the <b>children provide more support</b> to their parents. He said parents whose children no longer live with them suffer from fewer symptoms of depression and have a <b>more positive outlook</b> on life. Regarding the role reversal in providing support, Mr Becker said: \"Children's roles as caregivers, providers of financial support or simply as a means of social contact might outweigh the negative aspects of parenthood.\" He added that maintaining family relationships may <b>stave off loneliness</b> in ageing parents.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the main idea of Talk 1?",
+              "options": [
+                "Ecotourism benefits local economies",
+                "Ecotourism may harm the environment",
+                "Tourists prefer natural destinations",
+                "Animals adapt well to tourists"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why are sea turtles mentioned?",
+              "options": [
+                "They attract many tourists",
+                "They are endangered species",
+                "They were disturbed while nesting",
+                "They live in Costa Rica"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "How does human presence affect animals?",
+              "options": [
+                "It makes them more aggressive",
+                "It makes them less cautious",
+                "It improves their survival skills",
+                "It helps them find food"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What risk do animals face when they become bolder?",
+              "options": [
+                "They may lose their habitat",
+                "They may get lost easily",
+                "They may be attacked by predators",
+                "They may stop reproducing"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What do researchers suggest?",
+              "options": [
+                "Stop all tourism activities",
+                "Increase tourism marketing",
+                "Study animal responses more carefully",
+                "Build more protected areas"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What warning did the LGA give?",
+              "options": [
+                "Skin creams are too expensive",
+                "Some creams contain illegal ingredients",
+                "Skin care products are ineffective",
+                "Cosmetics are not regulated"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What health problems are mentioned?",
+              "options": [
+                "Headaches and fever",
+                "Hair loss and blindness",
+                "Seizures, rashes, and scarring",
+                "Coughing and fatigue"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is said about the skin-lightening industry?",
+              "options": [
+                "It is declining rapidly",
+                "It is highly regulated",
+                "It is growing quickly",
+                "It is only popular in Asia"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What problem exists with product labeling?",
+              "options": [
+                "Labels are too detailed",
+                "Ingredients are incorrectly listed",
+                "Labels are written in foreign languages",
+                "Products have no labels"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What can illegal ingredients do?",
+              "options": [
+                "Improve skin quality",
+                "Act like paint stripper on skin",
+                "Protect against sunlight",
+                "Make skin healthier"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What belief about children is mentioned?",
+              "options": [
+                "They always bring happiness",
+                "They reduce stress completely",
+                "They are the key to happiness",
+                "They improve financial stability"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "When are parents reported to be happiest?",
+              "options": [
+                "When children are young",
+                "When children start school",
+                "When children leave home",
+                "When children get married"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Why can raising children be stressful?",
+              "options": [
+                "It limits social life",
+                "It causes financial and emotional pressure",
+                "It requires moving house",
+                "It reduces career opportunities"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What happens when children grow up?",
+              "options": [
+                "They depend more on parents",
+                "They provide support to parents",
+                "They move abroad permanently",
+                "They lose contact with parents"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What benefit does maintaining family relationships bring?",
+              "options": [
+                "Better financial status",
+                "Improved physical strength",
+                "Reduced loneliness",
+                "Higher social status"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

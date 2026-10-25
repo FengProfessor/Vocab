@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-06",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 06",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-06/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What colour is Mary’s coat?</b></p><ul><li><b>A:</b> Hi, Mary. What have you bought?</li><li><b>B:</b> This coat. Do you like it?</li><li><b>A:</b> Yes. <b>Yellow</b> looks good on you.</li><li><b>B:</b> Do you think I can use my blue bag with it?</li><li><b>A:</b> Your brown one will look better.</li></ul><p><b>2. What did the woman repair?</b></p><ul><li><b>A:</b> Hi. What have you done today?</li><li><b>B:</b> You know that <b>broken shelf</b> above my desk. Well, I repaired it and then I went shopping.</li><li><b>A:</b> What did you buy?</li><li><b>B:</b> A new chair.</li></ul><p><b>3. What are they going to buy for Pam?</b></p><ul><li><b>A:</b> Last year we gave Pam a book for her birthday. Shall we buy another one this year?</li><li><b>B:</b> I think we should give her a plant or some chocolates</li><li><b>A:</b> But she doesn’t like sweet things.</li><li><b>B:</b> Let’s get her <b>something to put in her garden</b>. But not a book again.</li></ul><p><b>4. What has the girl lost?</b></p><ul><li><b>A:</b> Can I help you? You look worried. Is everything alright?</li><li><b>B:</b> Well, I was in the playground about 10 minutes ago with my friends. And I got a call on my mobile phone. I have to get a pen out of my bag to write something down. And I think my <b>purse</b> fell out. I can’t find it now. Do you know anyone has handed it in.</li><li><b>A:</b> You know. You’re not supposed to bring phone to school. Anyway, let me go and check. What color is it?</li></ul><p><b>5. Which sport will the boy do soon at the centre?</b></p><ul><li><b>A:</b> Have you been to the new water sports centre yet?</li><li><b>B:</b> Oh yes. It’s brilliant. There are two indoor pools. One for underwater diving and one for swimming lessons. And you can also have sailing lessons on the lake.</li><li><b>A:</b> That’s what I’m doing there next weekend, actually. I was hoping to take water skiing lesson but the leaflet says they’re not starting those until next year.</li></ul><p><b>6. Who lives with Josh in his house?</b></p><ul><li><b>A:</b> Does your house seem empty now as your sister left home.</li><li><b>B:</b> Not really. My <b>grandmother</b> moved into her room and she doesn’t go out much. It’s really nice having her there because my dad never comes home until later and if mother’s out for the evening, grandmother cooks supper for me.</li></ul><p><b>7. What will the girl take with her on holiday?</b></p><ul><li><b>A:</b> Have you packed for your holiday?</li><li><b>B:</b> No. I need to go shopping before I can do that. Last holiday, my suitcase handles got broken. So I need something new to put my stuff in but suitcases are so heavy to carry.</li><li><b>A:</b> I always take a backpack. You can carry more that way.</li><li><b>B:</b> Yes, I thought to buy one of those. But good quality ones are expensive. I’ll get one of those <b>big sports bags</b>. You know you can pull along. They don’t cost much</li></ul><p><b>8. Where do the boys decide to go?</b></p><ul><li><b>A:</b> So we’ve got three hours. Shall we go skateboard in the park? What do you think?</li><li><b>B:</b> Well. There’s little space there which isn’t meant to be good. Oh there’s a new computer game shop which has just opened.</li><li><b>A:</b> Oh, well. I haven’t got enough money to buy a new game anyway.</li><li><b>B:</b> Let’s go and <b>watch a film</b>.</li><li><b>A:</b> Ok. We can go skateboard in anytime</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What colour is Mary's coat?",
+              "options": [
+                "yellow",
+                "blue",
+                "brown",
+                "black"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What did the woman repair?",
+              "options": [
+                "chair",
+                "shelf",
+                "desk",
+                "bed"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What are they going to buy for Pam?",
+              "options": [
+                "a book",
+                "a plant",
+                "some chocolates",
+                "candies"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What has the girl lost?",
+              "options": [
+                "mobile phone",
+                "purse",
+                "pen",
+                "bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "Which sport will the boy do soon at the centre?",
+              "options": [
+                "waterskiing",
+                "diving",
+                "sailing",
+                "swimming"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Who lives with Josh in his house?",
+              "options": [
+                "his grandmother",
+                "his father",
+                "his sister",
+                "his mother"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What will the girl take with her on holiday?",
+              "options": [
+                "suitcase",
+                "sports bag",
+                "backpack",
+                "overhead bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Where do the boys decide to go?",
+              "options": [
+                "cinema",
+                "game store",
+                "park",
+                "library"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-06/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1. You will hear a journalist interviewing Geoff Thompson, a British sportsman.</b></p><ul><li><b>Journalist:</b> Good evening, Geoff.</li><li><b>Geoff:</b> Hi.</li><li><b>Journalist:</b> Perhaps you could tell me a bit about your background. Where are you from exactly?</li><li><b>Geoff:</b> Well, I was actually born in <b>1958</b>, up in the north of England. My parents came to live in Britain after the war.</li><li><b>Journalist:</b> It sounds great.</li><li><b>Geoff:</b> We moved south to <b>London</b> after that. We were completely broke and I did all sorts of odd jobs to try and make money.</li><li><b>Journalist:</b> Goodness, how dramatic! But?...</li><li><b>Geoff:</b> But I was lucky – I discovered <b>karate</b>.</li><li><b>Journalist:</b> Ah! How, exactly?</li><li><b>Geoff:</b> There was a school trip – nothing special really – but we went to this sports center and I just thought “That’s for me!”.</li><li><b>Journalist:</b> Just like that?</li><li><b>Geoff:</b> Yup. Anyway, I started training. I found myself a Japanese coach and things just happened. I found it came naturally to me and I worked my way up till I found myself in <b>Taiwan</b> for the World Championships. That was in <b>1982</b>.</li><li><b>Journalist:</b> And you won?</li><li><b>Geoff:</b> Yeah, suddenly I was <b>World Heavyweight Champion</b>. It was great.</li><li><b>Journalist:</b> And you were world champion at that weight <b>five times</b> in all?</li><li><b>Geoff:</b> Yeah, that’s right.</li><li><b>Journalist:</b> And then you retired?</li><li><b>Geoff:</b> Well, I didn’t have much choice.</li><li><b>Journalist:</b> And now you’ve got others projects on the go all around the country and even abroad?</li><li><b>Geoff:</b> Mm...yeah...we’re going from strength to strength.</li></ul><p><b>Conversation 2. You will hear a man telephoning to talk about the job in a hotel.</b></p><ul><li><b>Woman:</b> Hello, <b>West Bay Hotel</b>. Can I help you?</li><li><b>Man:</b> Oh, good morning. I’m ringing about your advertisement in the Evening Gazette.</li><li><b>Woman:</b> Is that the one for temporary staff?</li><li><b>Man:</b> That’s right. Could you tell me what kind of staff you are looking for?</li><li><b>Woman:</b> We’re looking for <b>waiters</b> at the moment.</li><li><b>Man:</b> Right. Erm, what are the hours of work?</li><li><b>Woman:</b> There are two different shifts – there’s a <b>day shift from 7 to 2</b> and a <b>late shift from 4 till 11</b>.</li><li><b>Man:</b> What about time off?</li><li><b>Woman:</b> You get <b>one day off</b>.</li><li><b>Man:</b> Do you know what the rates of pay are?</li><li><b>Woman:</b> Yes, I’ve got them here. You get <b>£5.50 an hour</b>, and that includes a break.</li><li><b>Man:</b> Oh good. Yes, so let’s see. I’d get er, two hundred and twenty one, no, <b>two hundred and thirty one pounds</b> a week?</li><li><b>Woman:</b> You’d also get tips – our guests tend to be quite generous.</li><li><b>Man:</b> Erm, is there a uniform? What about clothes?</li><li><b>Woman:</b> Yes, I forgot to mention that. You need to wear a <b>white shirt</b>, just a plain one, and <b>dark trousers</b>.</li><li><b>Man:</b> Erm, one last thing – I don’t know what the starting date is.</li><li><b>Woman:</b> Just a minute. I think it’s some time around the end of June. Yes, the <b>28th</b> in time for the summer.</li><li><b>Man:</b> That’s great. I’m available from the 10th. Well, thanks very much for your help.</li><li><b>Woman:</b> You’re welcome. Bye.</li><li><b>Man:</b> Bye.</li></ul><p><b>Conversation 3. Listen to part of a conversation at a university library</b></p><ul><li><b>Man:</b> Hi. May I speak to the...uh, the <b>archives librarian</b>?</li><li><b>Woman:</b> I’m the archives librarian. What can I help you with?</li><li><b>Man:</b> Well, actually, I’m not a student here.</li><li><b>Woman:</b> Are you the...sorry. I don’t remember your name, but the librarian over there asked me about giving someone access to the <b>Jacobson collection</b>. Is that you?</li><li><b>Man:</b> Yes, that’s right. See, my paper is on the development of the <b>coal – mining industry</b>.</li><li><b>Woman:</b> Did your librarian explain what our system is here?</li><li><b>Man:</b> A little. She told me to make sure I brought my <b>college ID</b> so I could get in the door.</li><li><b>Woman:</b> Yes, well, I’ll need to take a <b>copy</b> of it too. Even our own students who look at items from our archive collections have to leave a copy of their ID with us. You’ll also have to <b>sign into</b> the archives room whenever you enter and <b>sign out</b> whenever you leave. There’s a desk. You know, for security.</li><li><b>Man:</b> I’ll be careful.</li><li><b>Woman:</b> Thank you. The other thing is, the things in the Jacobson collection are over <b>100 years old</b>, so I’ll have to ask you to wear <b>special gloves</b> while handling the books. Also, I’m afraid you <b>won’t be able to photography</b> anything.</li><li><b>Man:</b> I figured that. Can I...I don’t know, take a picture, or something?</li><li><b>Woman:</b> Well, I can’t let you take a picture. But we have <b>scans images</b> of all the pages in the collection.</li><li><b>Man:</b> Well, I guess given how rare these things are...Okay so you want a copy of my ID, and then can you tell me how to get to the archives room so I can get started?</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Where was Geoff Thompson born?",
+              "options": [
+                "In London.",
+                "In the North of England.",
+                "In the South of London.",
+                "In Britain."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "How did he know about karate?",
+              "options": [
+                "He discovered karate by himself.",
+                "He's interested in karate owning to a sports center during a school visit.",
+                "His friend introduced it to him.",
+                "He knew it when moving to London."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "When did he take part in the World Championships in Taiwan?",
+              "options": [
+                "In 1972.",
+                "In 1980.",
+                "In 1982.",
+                "After starting training with a British coach."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "How many times has he got the World Champion?",
+              "options": [
+                "Two times.",
+                "Three times.",
+                "Four times.",
+                "Five times."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Which position does this hotel need?",
+              "options": [
+                "A temporary staff.",
+                "A stable staff.",
+                "A part-time receptionist.",
+                "A full-time waiter."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What about the hour of work?",
+              "options": [
+                "There are two shifts and two days off.",
+                "There are two shifts and one day off.",
+                "There's a day shift from 7 to 2 and a late shift from 4 till 11.",
+                "There is only afternoon shift"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does the woman mention about the uniform?",
+              "options": [
+                "It's prepared by the hotel.",
+                "He needs to wear dark clothes.",
+                "He needs a white shirt and dark trousers.",
+                "He needs wear uniform five days a week."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "When does he start his job?",
+              "options": [
+                "At the end of May.",
+                "On the 10th of May.",
+                "On the 10th of June.",
+                "On the 28th of June."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What does the man plan to write his paper on?",
+              "options": [
+                "The preservation of old books.",
+                "The local coal industry.",
+                "The famous archives librarian.",
+                "The collection of rare books"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What security procedures does the librarian tell the man he must follow?",
+              "options": [
+                "Show her his note cards before leaving.",
+                "Show her his ID card.",
+                "Pay a fee.",
+                "Allow his ID card to be copied; sign in and out of the archives room."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Why did the librarian mention the age of the books?",
+              "options": [
+                "They need to be handled with gloves.",
+                "The man can only look at photographs of them.",
+                "They were added to the collection recently.",
+                "They are value books."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How did the man collect his needed information about his paper?",
+              "options": [
+                "He took a picture.",
+                "He scanned these images.",
+                "He could just look them.",
+                "He photocopied these books."
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-06/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1 / Lecture 1:</b></p><p>Welcome everybody to this presentation about creating a corporate image for your company. I wonder if, when you came in today, you thought, 'Hey, this guy hasn't got a suit on. This could be an interesting day!' You see, I believe that the way you dress is very important. I decided to come here rather casually dressed not because I wanted to make a fashion statement but because I wanted to let you know that this is not going to be a formal presentation. On the other hand, I want you to work hard and get something out of the day. I'm not wearing shorts and a T-shirt, for instance. So how would you describe the way I'm dressed?</p><p><b>Smart but casual.</b></p><p>Exactly. But I also believe there are particular occasions when you need to wear a suit such as meeting a client – especially if you expect the client to be wearing one. Which brings me to a recent trend which we've picked up from the Americans: 'Dress down Friday'. How many of you are dressing more informally on a Friday? Quite a lot of you. How many of you go as far as wearing jeans? Not so many. Probably many of that small group work in the IT sector? I thought so.</p><p>So you see it's not just the day of the week or what clients may expect of you, it's the business you're in. If, for example, you work in a bank you're probably going to be in a dark suit every day of the week. And then there are those of us who are expected to wear a uniform. What you are doing here is projecting a very specific image of your company or service. Usually it's to do with reliability, expertise and efficiency. Customers and the general public feel reassured about someone in a recognisable uniform. Dress down Friday is a long way off for this group of employees. Now let's have a look at other ways in which a company projects its image...</p><p><b>Talk 2 / Lecture 2:</b></p><p>Do you get enough sleep at night? Do you ever feel tired during school? You may not be the only one. According to the National Sleep Foundation, kids aren't getting enough sleep. And it's affecting how they do in school.</p><p>Experts say that kids need about ten hours of sleep each night. Your body needs sleep so it can rest for the next day. Animals need sleep to stay healthy. Cats and dogs sleep for about fifteen hours each day!</p><p>Sleep is also important for your brain. Just like your body, your brain needs a little vacation every night. Without enough sleep, students can't learn as well. They cannot pay attention, follow directions, or solve problems as well. Also, tired kids act in ways that they usually don't. They can easily get angry with their friends or get in trouble in class.</p><p>Scientists at the National Sleep Foundation talked to 1,400 kids. They asked them about their sleeping habits. They found that about seventy percent of kids were not getting enough sleep. The scientists think that soda and television are part of the reason. Drinks like cola, coffee, and tea have caffeine in them. Caffeine makes people stay awake. Kids who had drinks with caffeine got less sleep than other kids. Television is also a problem. When kids watch too much TV, they have to stay up later to finish their homework. Scientists also found that many kids had a TV in their room. These kids often stayed up late to watch a show.</p><p>So what can you do to make sure that you get enough sleep? Try not to drink anything with caffeine, especially at night. Sleep experts suggest that you try to go to bed at the same time every night. Don't do anything exciting before you go to bed. For instance, don't watch a scary movie or exercise. Try to do something relaxing, like reading a book or listening to quiet music.</p><p><b>Talk 3 / Lecture 3:</b></p><p>If you have ever seen the northern lights, you know that they are one of most beautiful sights. People often seeing a faint glow appear on the horizon in the night sky. Then they may see wonderful colors such as green, red, blue, or purple stretch the sky. The shape of the northern lights can be straight lines, or it may be curved like the letter S, or round, just like a wheel. The colored lights and shapes move across the night sky, like ocean waves. No matter what the color or shape is, the northern lights are truly an amazing sight.</p><p>Many people know them by their common name \"the northern lights.\" But do you know the meaning of the real name? The scientific name for the northern lights from Latin. It is <b>aurora borealis</b>. In English, the Latin word <b>aurora</b> translates to \"dawn,\" which means \"early morning.\" The Latin word <b>borealis</b> means \"northern.\" So <b>aurora borealis</b> can be translated as \"northern dawn,\" which describes the look of the northern sky in the very early morning.</p><p>If you have never seen <b>aurora borealis</b>, you are not alone. This natural phenomenon is not common in most parts of the world. In fact, many people travel or go on tours to places where they can see the northern lights. Where are these places? The best place to see <b>aurora borealis</b> is near the North Pole – the northernmost point of Earth – especially in areas such as northern Greenland, Scandinavia, and Alaska.</p><p>Many years ago, before modern science, people developed stories, myths, and legends to explain natural phenomena such as <b>aurora borealis</b>. Finnish people called them \"fox fires,\" and believed the lights were caused when foxes made fires to keep warm. The Inuit people of northern Canada and Greenland believed that the <b>aurora</b> was the dance of animal spirits such as deer, seals, and whales.</p><p>The way the northern lights work is similar to a neon sign. Gas travels along magnetic lines. The lights occur when electric particles – electrons – collide with gas atoms, causing the atoms to give off light. The result is the amazing sweeps and waves of color that you can see. It's a wonderful sight if you happen to be in the right place at the right time.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "The presenter doesn't wear a suit because",
+              "options": [
+                "He is not an important person.",
+                "He wants to talk about different fashion trend.",
+                "The presentation is not formal.",
+                "He works for a fashion company."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "According to the speaker, which statement is TRUE?",
+              "options": [
+                "It's important to look casually-dressed in public.",
+                "A suit is necessary when meeting clients.",
+                "Wearing shorts is OK, sometimes.",
+                "Nobody can describe the way he's dressed."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does the phrase 'Dress-down Fridays' mean?",
+              "options": [
+                "Employees must wear fashionable clothes on Fridays.",
+                "Employees can wear anything they want on Fridays.",
+                "Employees are allowed to wear informally on Fridays.",
+                "Employees are required to wear special clothes on Fridays."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "According to the speaker, who may be the most informal dressers?",
+              "options": [
+                "People working in IT",
+                "People working in banks.",
+                "People working in customer services.",
+                "People working with clients."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does a customer feel about a man in uniform?",
+              "options": [
+                "reliable",
+                "recognized",
+                "expertised",
+                "reassured"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How many hours of sleep do experts suggest for kids?",
+              "options": [
+                "Ten",
+                "About fifteen",
+                "1,400",
+                "70"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "According to the speaker, why is sleep important for the brain?",
+              "options": [
+                "Sleep generates dreams so brain can relax.",
+                "Brain can rest in a sleep.",
+                "Sleep can save energy for the brain.",
+                "Sleep improves the effectiveness of the brain."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "Why don't the students learn well when they are tired?",
+              "options": [
+                "They can't finish their homework.",
+                "They can't deal with troubles in class.",
+                "They get very excited.",
+                "They can't pay attention very well"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Which is NOT a reason for poor sleep?",
+              "options": [
+                "drinking soda",
+                "playing computer games",
+                "staying up late",
+                "exercising before sleep"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What should students try to do each night?",
+              "options": [
+                "Watch a scary movie",
+                "Drink some hot tea",
+                "Go to bed at a regular time",
+                "relax with a TV show"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Which is NOT the shape of the northern lights?",
+              "options": [
+                "a straight line",
+                "a curved line",
+                "a round shape",
+                "an oval shape"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "What does 'aurora borealis' exactly mean?",
+              "options": [
+                "northern lights",
+                "northern dawn",
+                "northern sky",
+                "early morning lights"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Where is the best place to see the northern lights?",
+              "options": [
+                "The northernmost point of Earth",
+                "The north of Poland",
+                "Scandinavian countries",
+                "Most parts of the world"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What is one of the stories developed by people before modern science?",
+              "options": [
+                "The lights were caused by volcanic eruptions.",
+                "The lights were the dance of animal spirits.",
+                "The lights appeared when people moved north.",
+                "The lights came from fires of northern gods."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned in this talk?",
+              "options": [
+                "A description of the lights",
+                "The scientific explanation for the lights",
+                "The discovery of the lights",
+                "Beliefs about the light"
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

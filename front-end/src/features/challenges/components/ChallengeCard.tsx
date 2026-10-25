@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Col, Progress, Row, Space, Statistic, Tag, Typography } from 'antd';
-import { FireFilled, SafetyCertificateOutlined } from '@ant-design/icons';
+import { Button, Card, Col, Progress, Row, Space, Statistic, Tag, Typography } from '@/components/ui/Primitives';
+import { FireFilled, SafetyCertificateOutlined } from '@/components/ui/Icons';
 import styles from '@/features/challenges/components/ChallengeCard.module.css';
 import { ChallengeCardProps } from '@/features/challenges/types/ChallengeCardProps';
 

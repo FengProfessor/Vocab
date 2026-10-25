@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spin, Typography } from 'antd';
+import { Spin, Typography } from '@/components/ui/Primitives';
 import styles from '@/components/common/FullScreenStatus.module.css';
 import { FullScreenStatusProps } from '@/components/types/FullScreenStatusProps';
 

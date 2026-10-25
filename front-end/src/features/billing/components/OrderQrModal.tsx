@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Button, Modal, Space } from 'antd';
+import { Alert, Button, Modal, Space } from '@/components/ui/Primitives';
 import styles from '@/features/billing/components/OrderQrModal.module.css';
 import { OrderQrModalProps } from '@/features/billing/types/OrderQrModalProps';
 

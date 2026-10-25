@@ -1,12 +1,12 @@
 import React, { useMemo, useState } from 'react';
-import { Alert, Button, Card, Col, Row, Space, Tag, Typography } from 'antd';
+import { Alert, Button, Card, Col, Row, Space, Tag, Typography } from '@/components/ui/Primitives';
 import {
   CheckCircleFilled,
   CloseCircleFilled,
   FireFilled,
   RightOutlined,
   ThunderboltFilled,
-} from '@ant-design/icons';
+} from '@/components/ui/Icons';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import styles from '@/features/vocab/components/VocabQuizCard.module.css';
 import { VocabQuizCardProps } from '@/features/vocab/types/VocabQuizCardProps';

@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-14",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 14",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-14/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q1: Why is the speaker apologizing?</b></p><ul><li>Your attention, please. The library will be closing at 3 o'clock today in order to add new books and periodicals to its collection. Due to the need to take accurate inventory, we cannot allow books to be checked out today. We apologize for any inconvenience this may cause.</li></ul><p><b>Q2: Why would Daniel Jergens like to reschedule the meeting?</b></p><ul><li>Hello, Mr. Thompson, this is Daniel Jergens in the finance division. I am calling about the upcoming meeting with representatives of Shoal Barrier Associates. If you are free, we would like to move the meeting forward by one week. The main reason for this is that we need to wrap up the purchase as quickly as possible. Please get back to me about this as soon as you can.</li></ul><p><b>Q3: Why will the information technology division be relocating earlier?</b></p><ul><li>Beginning Wednesday, June 3, we will be temporarily relocating to the third floor of our Capital Cities branch downtown. Before the full relocation, the information technology section will be moving to the Capital Cities branch on May 20. This step will be necessary with the disruption of network service caused by the construction work.</li></ul><p><b>Q4: What is the message mainly about?</b></p><ul><li>Hello, Mrs. Hartman. This is Andy Synton with Premier Design Interiors. I have a few questions about your recent furniture order. A number of the items you requested are not in stock at the moment. However, we are able to offer you very similar products that can be shipped right away. Please let me know if you are interested in this.</li></ul><p><b>Q5: What is the purpose of the talk?</b></p><ul><li>OK, everyone. I asked you all to come today so that you know the schedule for the next 4 months. As I'm sure you all have heard, we recently received a major contract from Confederated Enterprises. However, we're really going to have to rush in order to meet the deadline in 4 months. So, I have broken down the tasks that need to be accomplished by each department and will be assigning them to you. After I give out your department's tasks, I'd like you to create a plan showing how you'll be able to complete the assignments by the deadline. I'll need those work plans e-mailed to me by this Friday.</li></ul><p><b>Q6: Who most likely is the speaker?</b></p><ul><li>Good evening. This message is for Marty from Clara Clayton. I'm just calling to let you know that I may have found an office space that might be exactly what you're looking for. It has 6 executive offices and a conference room. The only problem is that it isn't as close to the subway station as you wanted. However, it is in a waterfront building, so the view is quite spectacular. The rent is 8,000 dollars a month. So, if you're interested, give me a call and I can arrange for you to have a look at it today with the landlord. I might not be in the office, so please call me on my mobile. Thanks a lot, Marty. I'll speak with you soon.</li></ul><p><b>Q7: What will be provided for the travelers?</b></p><ul><li>May I have your attention, please? Due to severe weather conditions, all outgoing flights after 7 p.m. on Europeo Airlines to Milan have been cancelled. This includes the 7:30 flight as well. The next available flight to Milan Malpensa International will be tomorrow morning at 8 o'clock. We apologize for the inconvenience and will be offering hotel accommodations and shuttle bus service to those passengers who require them. For further information, please go to the Europeo Airlines counter. Thanks for your patience and understanding.</li></ul><p><b>Q8: What is the celebration for?</b></p><ul><li>It is my great privilege to welcome you all to this evening's anniversary celebration. In just over a decade, we have become one of the most reputable names in the American office supplies industry. It is largely because of your efforts that we have made such tremendous strides.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Why is the speaker apologizing?",
+              "options": [
+                "To schedule a checkup",
+                "To delay a meeting",
+                "To confirm an appointment",
+                "To announce an early closure"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Why would Daniel Jergens like to reschedule the meeting?",
+              "options": [
+                "To satisfy a request from Barrier Associates",
+                "To complete the purchase more quickly",
+                "To reconsider the contract",
+                "To avoid the severe weather condition"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "Why will the information technology division be relocating earlier?",
+              "options": [
+                "Because of an increase in staff",
+                "Because of an interruption of network service",
+                "Because of the full relocation",
+                "Because of the high release costs"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the message mainly about?",
+              "options": [
+                "A question about substituting order items",
+                "A question about the number of the items",
+                "The list of items that will be delivered",
+                "The shipping service that will be used"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the purpose of the talk?",
+              "options": [
+                "To address customer complaints",
+                "To discuss a presentation",
+                "To celebrate a new contract",
+                "To hand out assignments"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Who most likely is the speaker?",
+              "options": [
+                "A landlord",
+                "A business executive",
+                "A real estate agent",
+                "A police officer"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What will be provided for the travelers?",
+              "options": [
+                "A free flight",
+                "Meal vouchers",
+                "Winter clothing",
+                "Hotel rooms"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What is the celebration for?",
+              "options": [
+                "A merger",
+                "An anniversary",
+                "A new CEO",
+                "A stock offering"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-14/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>M:</b> Did you find out when the plumber is going to be here to fix the broken pipe?</li><li><b>W:</b> Yes, I called at 1 o'clock, and he said he was tied up in another building and would be here by 2.</li><li><b>M:</b> Okay, it's ten minutes to 2 right now. Could you do me a favor and make sure the work goes smoothly when he gets here? I have to step out of the office to meet a client but should be back by 4 o'clock.</li><li><b>W:</b> Okay, I will see you later.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> John, are you planning to go to Chicago to attend the big conference tomorrow? I heard it's going to be great.</li><li><b>M:</b> Well, I really want to, but I can't. I just came back from a business trip in Europe, so I have so much work piled up on my desk.</li><li><b>W:</b> I'm sorry to hear that. Tell you what... I'll take my video camera with me, and I will film the speeches you'd like to see.</li><li><b>M:</b> Oh, that would be great. Thanks, Susan.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>JTx:</b> Have you sent out the shipment of computers to the electronics shop yet? The owner just called and said he needs them within the hour.</li><li><b>M:</b> The truck left ten minutes ago, so it should arrive at the store in the next fifteen minutes. Do you want me to check to see where the driver is now?</li><li><b>W:</b> That's okay. So long as it has left, it'll be fine. Now could you do me a favor and get those boxes loaded on to the truck parked over there?</li><li><b>M:</b> Okay, I will take care of that right away.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Where most likely is the plumber now?",
+              "options": [
+                "He is having lunch.",
+                "He is working somewhere else.",
+                "He is at home relaxing.",
+                "He is doing a favor for the man."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "When is the plumber expected to arrive?",
+              "options": [
+                "At one o'clock",
+                "At two o'clock",
+                "At three o'clock",
+                "At four o'clock"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "Where is the man going?",
+              "options": [
+                "To meet a client",
+                "To talk to the plumber",
+                "To fix the pipe",
+                "To have lunch"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "When will the man come back to his office?",
+              "options": [
+                "At one o'clock",
+                "At two o'clock",
+                "At three o'clock",
+                "At four o'clock"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "When is the conference scheduled to take place?",
+              "options": [
+                "Today",
+                "Tomorrow",
+                "Next week",
+                "Next month"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "Why will John miss the conference?",
+              "options": [
+                "He is going on a business trip.",
+                "He is taking a vacation in Europe.",
+                "He has too much work.",
+                "He has to review the videos."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "Where has the man just been to for a business trip?",
+              "options": [
+                "Chicago",
+                "Toronto",
+                "Europe",
+                "Asia"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Why is the man thanking the woman?",
+              "options": [
+                "She offered to give him a ride.",
+                "She will lend him her video recorder.",
+                "She will go to the seminar in his place.",
+                "She will record the sessions he wants to see."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Where is the conversation most likely taking place?",
+              "options": [
+                "In a truck",
+                "At the bus stop",
+                "In a warehouse",
+                "At an electronics store"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "When will the computers arrive at the store?",
+              "options": [
+                "In five minutes",
+                "In fifteen minutes",
+                "By this evening",
+                "By tomorrow morning"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Who most likely the man is?",
+              "options": [
+                "A manager",
+                "A director",
+                "A secretary",
+                "A blue worker"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What will the man do next?",
+              "options": [
+                "Call the electronics shop",
+                "Talk to the truck driver",
+                "Turn on the computer",
+                "Lift some boxes"
+              ],
+              "answer": 3
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-14/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 / Lecture (Questions 21-25)</strong></p><p>OK class. I want to talk to you about the Cold War today. Now, the Cold War wasn't just one single war. It was actually a long time of aggression. It, um, lasted about fifty years! Anyway, the Cold War was mainly between the US and the USSR. That was Russia's old name. They had different opinions on just about everything. Oh, and Joseph Stalin, who we have talked about before, was the leader of the USSR at the start of the Cold War. Anyway! There was a lot of suspicion during the Cold War. But, the US and the USSR never actually fought each other. This is because both countries had nuclear weapons. So, they were afraid of each other. They didn't want to destroy the whole world. And that might have happened... if they'd fought each other. But, instead of fighting, they showed their different opinions by competing with each other. For example, they made their militaries bigger. And they raced each other to see who could get a person in space first. Stuff like that. But, a lot of the problems were political. The two countries were very different, and so they couldn't get along. This is what caused the Cold War.</p><p><strong>Conversation 2 (Questions 26-30)</strong></p><ul><li><b>M:</b> OK, yesterday we read about Georges Seurat. Now, many people would like to paint like Seurat. But, very few people can. He invented a very precise way of painting. It looks different and is hard to do because it is so exact. There were various styles of painting but Seurat decided to make a different one. The first difference was that Seurat took a lot of time to prepare before he painted. He planned his paintings very carefully. He made many drawings to decide on the best way to reproduce the scene. He worked for many hours before he started to paint. With this style, you have to have a clear purpose. With other styles at this time, they had very little time to prepare. Now, the second difference was that he used pure colors. He understood that the eye would blend the colors. He knew if he painted red next to yellow, the eye would see orange. OK?</li><li><b>W:</b> Why didn't he just mix the paints like other artists? Wouldn't that have been easier?</li><li><b>M:</b> Yes, but using pure colors made the painting very bright. These paintings don't look bright in books. But when you see them in person. Wow! They are great! Now, as you know the biggest difference was that Seurat didn't use brush strokes. He painted tiny dots. One at a time! Millions and millions of dots and some of his paintings were VERY big! Can you imagine how long this took? One painting took two years! Of course, that didn't mean that Seurat was a better painter. All the well-known painters back then were very good and made beautiful paintings. But, Seurat was very proud of his different way of painting. He felt that this new style represented people and nature very well.</li></ul><p><strong>Conversation 3 (Questions 31-35)</strong></p><ul><li><b>W:</b> Today, we're going to talk about snakes. Can you imagine eating a snake? Me neither. But there are creatures that do. This is a problem for snakes. So how do they solve this problem? They have to protect themselves. Let's look at three types of snakes, The rattlesnake, spitting cobra, and hognose snake. They all have unique ways of protecting themselves. The rattlesnake solves this problem in a unique way. You see, rattlesnakes are born with small beads on their tails. As an average snake gets older, it grows more beads. These beads rub together and make a rattling sound. OK, so when does the rattlesnake make this noise? When it thinks an animal might attack it. It cannot shield itself so it tries to scare the creature by rattling its tail. The spitting cobra has another way to protect itself. What does it do? It sprays poison from its mouth. OK? But this snake doesn't just spray it anywhere. No, it sprays it into the eyes of the creature that is attacking it. This is very effective because eyes are sensitive. The spray stops the creature from seeing. And the snake gets away. Next, we have the hognose snake. It's less aggressive. So what does it do? The hognose snake plays dead. That's right! It will twist and roll like it's dying. Then it will lie still on its back. The snake will even hang its tongue out of its mouth! Can you believe that? So, by playing dead, it actually survives.</li></ul>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the main topic in this lecture?",
+              "options": [
+                "Russian leaders",
+                "The Cold War",
+                "The wars between the USSR and the US",
+                "The impacts of the Cold War"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why did the US and the USSR never actually fight each other?",
+              "options": [
+                "Because the USSR had nuclear weapons.",
+                "Because the US were afraid of Stalin.",
+                "Because they did not want to destroy the world.",
+                "Because nuclear power could destroy the US."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "According to the professor, how long did the Cold War last?",
+              "options": [
+                "Around 50 years",
+                "Around 60 years",
+                "Around 70 years",
+                "Around 80 years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What can be inferred from the lecture?",
+              "options": [
+                "The Cold War was caused by different opinions.",
+                "The Cold War was a long, violent war between the US and USSR.",
+                "The Cold War was an important time in history of the US and the USSR.",
+                "The Cold War changed the world dramatically."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "How does the professor describe the main topic?",
+              "options": [
+                "By comparing and contrasting",
+                "By giving examples",
+                "By listing the events chronologically",
+                "By giving definitions"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What is the lecture mainly about?",
+              "options": [
+                "The way the eye sees colors",
+                "The steps to paint in a Neo-Impressionism style",
+                "The artists who learned from Seurat",
+                "The difference between painting styles"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What is the professor's opinion of this style of painting?",
+              "options": [
+                "He thinks painting in brush strokes is a better way.",
+                "He is surprised that so many artists are good at it.",
+                "He thinks it is difficult to learn.",
+                "He doesn't like it."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "According to the professor, why did Seurat not blend his paints?",
+              "options": [
+                "He thought it would ruin the paints.",
+                "He thought mixed paints did not look real.",
+                "He thought blended paints made paintings look too divided.",
+                "He thought it would make the art bright."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is true about Georges Seurat?",
+              "options": [
+                "He was the best artist at his time.",
+                "He was proud of his painting style.",
+                "He used brush strokes to make the pictures brighter.",
+                "He didn't spend a lot of time finishing his paintings."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "How did the professor organize the information about this way of painting?",
+              "options": [
+                "By describing only Seurat's style",
+                "By describing only other styles",
+                "By comparing Seurat and other Neo-Impressionists",
+                "By comparing Neo-Impressionism and other styles"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the lecture about?",
+              "options": [
+                "The feeding habits of snakes",
+                "How certain snakes protect themselves",
+                "The most dangerous snakes in the world",
+                "The different uses of snake poison"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "Why does the professor discuss the beads on a rattlesnake's tail?",
+              "options": [
+                "To show how the rattlesnake is more dangerous than other snakes",
+                "To compare the rattlesnake to less scary animals",
+                "To explain how the rattlesnake scares off animals",
+                "To describe how the rattlesnake uses its tail to hunt"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "According to the professor, where does the spitting cobra spray its poison?",
+              "options": [
+                "At the animal it is hunting",
+                "At other snakes",
+                "At the tongue of an animal that is attacking it",
+                "At the eyes of an animal that is attacking it"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What is the professor's attitude towards the hognose snake?",
+              "options": [
+                "She is amazed by it.",
+                "She thinks that it is stupid.",
+                "She thinks that it is the best snake.",
+                "She thinks that it is the most dangerous."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What can be inferred from the lecture?",
+              "options": [
+                "The spitting cobra rattles its tail.",
+                "The hognose snake pretends to be sick.",
+                "Beads in a rattlesnake's tail make the sound.",
+                "There are no creatures that eat snakes."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

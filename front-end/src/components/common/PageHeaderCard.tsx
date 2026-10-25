@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Space, Tag, Typography } from 'antd';
+import { Card, Space, Tag, Typography } from '@/components/ui/Primitives';
 import styles from '@/components/common/PageHeaderCard.module.css';
 import { PageHeaderCardProps } from '@/components/types/PageHeaderCardProps';
 

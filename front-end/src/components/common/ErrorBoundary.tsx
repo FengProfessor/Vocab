@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Result } from 'antd';
+import { Button, Result } from '@/components/ui/Primitives';
 import { ErrorBoundaryProps } from '@/components/types/ErrorBoundaryProps';
 import { ErrorBoundaryState } from '@/components/types/ErrorBoundaryState';
 

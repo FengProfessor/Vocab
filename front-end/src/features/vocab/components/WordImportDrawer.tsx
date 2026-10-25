@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Alert, App, Button, Drawer, Input, Space, Table, Tag, Typography } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import { CloudUploadOutlined, FileTextOutlined } from '@ant-design/icons';
+import { Alert, App, Button, Drawer, Input, Space, Table, Tag, Typography } from '@/components/ui/Primitives';
+import type { ColumnsType } from '@/components/ui/Primitives';
+import { CloudUploadOutlined, FileTextOutlined } from '@/components/ui/Icons';
 import styles from '@/features/vocab/components/WordImportDrawer.module.css';
 import { WordImportDrawerProps } from '@/features/vocab/types/WordImportDrawerProps';
 import { VocabImportParser } from '@/lib/vocabImportParser';

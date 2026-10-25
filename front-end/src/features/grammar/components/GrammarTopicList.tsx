@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Empty, Skeleton, Space, Tag, Typography } from 'antd';
+import { Card, Empty, Skeleton, Space, Tag, Typography } from '@/components/ui/Primitives';
 import styles from '@/features/grammar/components/GrammarTopicList.module.css';
 import { GrammarTopicListProps } from '@/features/grammar/types/GrammarTopicListProps';
 

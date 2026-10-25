@@ -1,0 +1,330 @@
+{
+  "topicId": "6140003065d71f3a51f62a95",
+  "name": "Test 4",
+  "slug": "test-4",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "6140037d65d71f3a51f62ae2",
+      "questionText": "<p align=\"center\"><strong>Employee Workshop</strong></p> <p>T&amp;R Group strives to help employees reach their potential by offering leadership retreats, employee training, and various workshops. This month, we <b> (1) </b> _____ workshops for those interested in <b> (2) </b> _____ their computer skills with several classes on how to use Professional Office, create a personal website, and run the message app. We have a couple of other slots that are currently<b> (3) </b> _____ and will accept suggestions from employees. <b> (4) </b> _____ Please email Jonas at jsmith@TRgroup.com if you are interested in attending any of the workshops.<br> We hope you take advantage of the programs offered.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p style=\"text-align: center;\"><strong>Hội thảo cho Nh&acirc;n vi&ecirc;n</strong></p>\n\n<p>Tập đo&agrave;n T&amp;R nỗ lực gi&uacute;p nh&acirc;n vi&ecirc;n ph&aacute;t huy hết tiềm năng của m&igrave;nh bằng c&aacute;ch tổ chức c&aacute;c kh&oacute;a đ&agrave;o tạo l&atilde;nh đạo, đ&agrave;o tạo nh&acirc;n vi&ecirc;n v&agrave; c&aacute;c hội thảo kh&aacute;c nhau. Th&aacute;ng n&agrave;y, ch&uacute;ng t&ocirc;i cung cấp c&aacute;c hội thảo cho những ai quan t&acirc;m đến việc cải thiện kỹ năng m&aacute;y t&iacute;nh của m&igrave;nh với một số lớp học về c&aacute;ch sử dụng Professional Office, tạo trang web c&aacute; nh&acirc;n v&agrave; chạy ứng dụng tin nhắn. Ch&uacute;ng t&ocirc;i c&oacute; một số khung giờ kh&aacute;c hiện đang trống v&agrave; sẽ chấp nhận c&aacute;c đề xuất từ nh&acirc;n vi&ecirc;n. Những y&ecirc;u cầu phổ biến nhất sẽ được xem x&eacute;t cho c&aacute;c hội thảo. Vui l&ograve;ng gửi email cho Jonas tại <a rel=\"noreferrer\">jsmith@TRgroup.com</a> nếu bạn quan t&acirc;m đến việc tham gia bất kỳ hội thảo n&agrave;o.</p>\n\n<p>Ch&uacute;ng t&ocirc;i hy vọng bạn tận dụng được c&aacute;c chương tr&igrave;nh được cung cấp.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140037d65d71f3a51f62ae6",
+          "questionText": "This month, we <b> (1) </b> _____ workshops for those interested in  _____  their computer skills with several classes on how to use Professional Office, create a personal website, and run the message app.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) offers",
+            "(B) were offering",
+            "(C) are offering",
+            "(D) have offered"
+          ],
+          "correctOptions": [
+            "(C) are offering"
+          ],
+          "transcript": "<p>With the hint of time \"this month\" =&gt; use present continuous to talk about actions happening in the future.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Với cụm từ &quot; this month&quot; =&gt; Sử dụng th&igrave; hiện tại tiếp diễn để n&oacute;i về h&agrave;nh động xảy ra trong tương lai</p>\n\n<p><strong>=&gt; Chọn C</strong></p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62ae7",
+          "questionText": "This month, we _____ workshops for those interested in <b> (2) </b> _____  their computer skills with several classes on how to use Professional Office, create a personal website, and run the message app.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) correcting",
+            "(B) diminishing",
+            "<p>(C) improving</p>",
+            "<p>(D) elaborating</p>"
+          ],
+          "correctOptions": [
+            "<p>(C) improving</p>"
+          ],
+          "transcript": "<p>correcting:&nbsp;to make something right or accurate, for example by changing it or removing mistakes</p>\n\n<p>diminishing:&nbsp;to become smaller, weaker, etc.; to make something become smaller, weaker, etc.</p>\n\n<p>improving:&nbsp;to become better than before</p>\n\n<p>elaborating:&nbsp;to explain or describe something in a more detailed way</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:</strong></p>\n\n<p>(A) sửa chữa<br />\n(B) giảm bớt<br />\n(C) cải thiện<br />\n(D) thảo luận chi tiết, bổ sung</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u =&gt; Chọn <strong>đ&aacute;p &aacute;n C</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Th&aacute;ng n&agrave;y, ch&uacute;ng t&ocirc;i đang tổ chức c&aacute;c hội thảo cho những ai quan t&acirc;m đến việc cải thiện kỹ năng m&aacute;y t&iacute;nh của m&igrave;nh với một số lớp học về c&aacute;ch sử dụng Professional Office, tạo trang web c&aacute; nh&acirc;n v&agrave; chạy ứng dụng tin nhắn.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62ae8",
+          "questionText": "We have a couple of other slots that are currently <b> (3) </b> _____ and will accept suggestions from employees.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) dependent",
+            "(B) independent",
+            "(C) free",
+            "(D) obtainable"
+          ],
+          "correctOptions": [
+            "(C) free"
+          ],
+          "transcript": "<ul>\n\t<li>\"dependent\":&nbsp;needing somebody/something in order to survive or be successful</li>\n\t<li>\"independent\":&nbsp;confident and free to do things without needing help from other people</li>\n\t<li>\"obtainable\":&nbsp;that can be obtained</li>\n</ul>\n\n<p>This sentence has the information that the company \"will accept suggestions from employees\" =&gt; \"free slots\" is suitable.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Đ&aacute;p &aacute;n C</strong> &quot;free&quot; (trống) l&agrave; từ ph&ugrave; hợp nhất để chỉ c&aacute;c chỗ trống trong lịch tr&igrave;nh hoặc danh s&aacute;ch. C&aacute;c từ kh&aacute;c kh&ocirc;ng ph&ugrave; hợp với ngữ cảnh n&agrave;y</p>\n\n<ul>\n\t<li>&quot;dependent&quot; (phụ thuộc)</li>\n\t<li>&quot;independent&quot; (độc lập)</li>\n\t<li>&quot;obtainable&quot; (c&oacute; thể đạt được)</li>\n</ul>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ch&uacute;ng t&ocirc;i c&oacute; v&agrave;i chỗ trống v&agrave; ch&uacute;ng t&ocirc;i sẽ chấp nhận c&aacute;c đề xuất từ nh&acirc;n vi&ecirc;n.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62ae9",
+          "questionText": "<b> (4) </b> _____ Please email Jonas at jsmith@TRgroup.com if you are interested in attending any of the workshops.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Suggestions related to gaming and entertainment will not be accepted.",
+            "(B) The most popular requests will be considered for the workshops.",
+            "(C) We ask all managers to make a suggestion.",
+            "(D) We hope the workshop is a success and wish you the very best."
+          ],
+          "correctOptions": [
+            "(B) The most popular requests will be considered for the workshops."
+          ],
+          "transcript": "<p>Based on the previous sentence.</p>\n",
+          "explanationVi": "<p><b>(4) </b> _____ Xin vui l&ograve;ng gửi email cho Jonas tại <a rel=\"noreferrer\">jsmith@TRgroup.com</a> nếu bạn quan t&acirc;m tham gia bất kỳ buổi hội thảo n&agrave;o.</p>\n\n<p><br />\n(A) C&aacute;c đề xuất li&ecirc;n quan đến tr&ograve; chơi v&agrave; giải tr&iacute; sẽ kh&ocirc;ng được chấp nhận.<br />\n(B) C&aacute;c y&ecirc;u cầu phổ biến nhất sẽ được xem x&eacute;t cho c&aacute;c buổi hội thảo.<br />\n(C) Ch&uacute;ng t&ocirc;i y&ecirc;u cầu tất cả c&aacute;c quản l&yacute; đưa ra một đề xuất.<br />\n(D) Ch&uacute;ng t&ocirc;i hy vọng buổi hội thảo sẽ th&agrave;nh c&ocirc;ng v&agrave; ch&uacute;c bạn những điều tốt đẹp nhất.</p>\n\n<p>Dựa v&agrave;o Ngữ cảnh của c&acirc;u chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140037d65d71f3a51f62ae3",
+      "questionText": "<p align=\"center\"><strong>Citrusine: Total Flu for Night-time</strong></p> <p>Get ready for cold and flu season with Citrusine. Citrusine is a <b> (1) </b> _____ medicated night-time tea that can treat symptoms of the flu including fever, aches and pains, nasal congestion, cough, and sore throat. Wake up feeling <b> (2) </b> _____ and ready to conquer another day. Citrusine should not be taken if you’re planning to operate machinery or drive a vehicle. Keep out of the reach of children <b> (3) </b> _____.</p> <p>Citrusine is the number-one-selling medication <b> (4) </b> _____ the flu and is guaranteed to provide results if taken as directed. Visit our website for more information. www.citrusine.com</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p>Citrusine: Thuốc cảm c&uacute;m tổng hợp ban đ&ecirc;m</p>\n\n<p>H&atilde;y sẵn s&agrave;ng cho m&ugrave;a cảm lạnh v&agrave; c&uacute;m với Citrusine. Citrusine l&agrave; một loại tr&agrave; đ&ecirc;m c&oacute; chứa thuốc l&agrave;m dịu c&oacute; thể điều trị c&aacute;c triệu chứng của bệnh c&uacute;m bao gồm sốt, đau nhức, nghẹt mũi, ho v&agrave; đau họng. Thức dậy với cảm gi&aacute;c sảng kho&aacute;i v&agrave; sẵn s&agrave;ng chinh phục một ng&agrave;y mới. Kh&ocirc;ng n&ecirc;n d&ugrave;ng Citrusine nếu bạn dự định vận h&agrave;nh m&aacute;y m&oacute;c hoặc l&aacute;i xe. Để xa tầm tay trẻ em v&agrave; nếu triệu chứng k&eacute;o d&agrave;i hơn mười ng&agrave;y, h&atilde;y tham khảo &yacute; kiến ​​b&aacute;c sĩ.</p>\n\n<p>Citrusine l&agrave; loại thuốc b&aacute;n chạy nhất cho bệnh c&uacute;m v&agrave; được đảm bảo mang lại hiệu quả nếu sử dụng đ&uacute;ng theo hướng dẫn. Truy cập trang web của ch&uacute;ng t&ocirc;i để biết th&ecirc;m th&ocirc;ng tin.&nbsp;www.citrusine.com</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140037d65d71f3a51f62aea",
+          "questionText": "Citrusine is a <b> (1) </b> _____ medicated night-time tea that can treat symptoms of the flu including fever, aches and pains, nasal congestion, cough, and sore throat.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) easing",
+            "(B) stimulating",
+            "(C) soothing",
+            "(D) consoling"
+          ],
+          "correctOptions": [
+            "(C) soothing"
+          ],
+          "transcript": "<p>A) Easing:&nbsp;the action or process of making something less severe or difficult</p>\n\n<p>B) Stimulating:&nbsp;full of interesting or exciting ideas; making people feel enthusiastic</p>\n\n<p>C) Soothing:&nbsp;that makes somebody who is anxious, upset, etc. feel calmer</p>\n\n<p>D) Consoling:&nbsp;to give comfort or sympathy to somebody who is unhappy or disappointed</p>\n\n<p>Based on the meaning of words.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<p>A) Easing: Giảm bớt, l&agrave;m dịu bớt</p>\n\n<p>B) Stimulating: K&iacute;ch th&iacute;ch, khuyến kh&iacute;ch.</p>\n\n<p>C) Soothing: L&agrave;m dịu, l&agrave;m nhẹ.</p>\n\n<p>D) Consoling: An ủi, l&agrave;m cho cảm thấy bớt buồn.</p>\n\n<p>Dựa v&agrave;o nghĩa của c&acirc;u chọn <strong>đ&aacute;p &aacute;n C</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Citrusine l&agrave; một loại tr&agrave; đ&ecirc;m c&oacute; chứa thuốc l&agrave;m dịu c&oacute; thể điều trị c&aacute;c triệu chứng của bệnh c&uacute;m bao gồm sốt, đau nhức, nghẹt mũi, ho v&agrave; đau họng.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62aeb",
+          "questionText": "Wake up feeling <b> (2) </b> _____  and ready to conquer another day.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) refreshing",
+            "(B) refreshed",
+            "(C) refreshes",
+            "(D) refresh"
+          ],
+          "correctOptions": [
+            "(B) refreshed"
+          ],
+          "transcript": "<p>feel + adjective to describe emotions and feelings</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Giải th&iacute;ch:</strong></p>\n\n<ul>\n\t<li><strong>Refreshing</strong> (t&iacute;nh từ): C&oacute; thể m&ocirc; tả sự l&agrave;m cho một thứ g&igrave; đ&oacute; trở n&ecirc;n tươi mới hoặc l&agrave;m cho bạn cảm thấy như vậy.</li>\n\t<li><strong>Refreshed</strong> (t&iacute;nh từ): Mi&ecirc;u tả cảm gi&aacute;c được l&agrave;m mới hoặc hồi phục, trạng th&aacute;i cảm thấy tươi mới sau khi nghỉ ngơi hoặc thư gi&atilde;n.</li>\n\t<li><strong>Refreshes</strong> (động từ): H&agrave;nh động l&agrave;m cho một thứ g&igrave; đ&oacute; trở n&ecirc;n tươi mới.</li>\n\t<li><strong>Refresh</strong> (động từ): H&agrave;nh động l&agrave;m mới, l&agrave;m tươi mới.</li>\n</ul>\n\n<p>Trong ngữ cảnh của c&acirc;u, <strong>Đ&aacute;p &aacute;n B </strong>&quot;refreshed&quot; l&agrave; từ ch&iacute;nh x&aacute;c v&igrave; n&oacute; mi&ecirc;u tả trạng th&aacute;i cảm gi&aacute;c của người sau khi tỉnh dậy.</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Thức dậy với cảm gi&aacute;c sảng kho&aacute;i v&agrave; sẵn s&agrave;ng chinh phục một ng&agrave;y mới.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62aec",
+          "questionText": "Keep out of the reach of children <b> (3) </b> _____.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "A. The medication may cause serious side effects if not taken properly.",
+            "B. Children should take Citrusine for Kids instead.",
+            "C. The packets look like candy and may pose problems.",
+            "D. And if symptoms persist for more than ten days, consult a physician."
+          ],
+          "correctOptions": [
+            "D. And if symptoms persist for more than ten days, consult a physician."
+          ],
+          "transcript": "<p>C is incorrect because \"packets\" is not mentioned previously. B doesn't match the previous sentence \"Keep out of the reach of children\" and \"Citrusine for Kids\" is not mentioned. <strong>=&gt; D is the most appropriate answer</strong></p>\n",
+          "explanationVi": "<p>Để xa tầm tay trẻ em (3)____</p>\n\n<p>A. Thuốc c&oacute; thể g&acirc;y ra t&aacute;c dụng phụ nghi&ecirc;m trọng nếu kh&ocirc;ng được sử dụng đ&uacute;ng c&aacute;ch.</p>\n\n<p>B. Trẻ em n&ecirc;n d&ugrave;ng Citrusine d&agrave;nh cho trẻ em thay v&igrave; loại n&agrave;y.</p>\n\n<p>C. C&aacute;c g&oacute;i thuốc tr&ocirc;ng giống như kẹo v&agrave; c&oacute; thể g&acirc;y ra vấn đề.</p>\n\n<p>D. V&agrave; nếu triệu chứng k&eacute;o d&agrave;i hơn mười ng&agrave;y, h&atilde;y tham khảo &yacute; kiến b&aacute;c sĩ.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62aed",
+          "questionText": "Citrusine is the number-one-selling medication <b> (4) </b> _____ the flu and is guaranteed to provide results if taken as directed.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) for",
+            "(B) during",
+            "(C) with",
+            "(D) after"
+          ],
+          "correctOptions": [
+            "(A) for"
+          ],
+          "transcript": "<p>medication + for sth</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>medication + for sth ,&nbsp;Đ&acirc;y l&agrave; giới từ ph&ugrave; hợp để chỉ mục đ&iacute;ch hoặc bệnh m&agrave; thuốc điều trị. C&acirc;u n&agrave;y muốn n&oacute;i rằng Citrusine l&agrave; thuốc b&aacute;n chạy nhất cho bệnh c&uacute;m, n&ecirc;n &quot;for the flu&quot; l&agrave; c&aacute;ch diễn đạt ch&iacute;nh x&aacute;c để chỉ ra đối tượng m&agrave; thuốc điều trị.</p>\n\n<p><strong>=&gt; Chọn A</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Citrusine l&agrave; loại thuốc b&aacute;n chạy nhất cho bệnh c&uacute;m v&agrave; được đảm bảo mang lại hiệu quả nếu sử dụng đ&uacute;ng theo hướng dẫn.</p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140037d65d71f3a51f62ae4",
+      "questionText": "To:Janet Doe <br>From:Greenscape<br>Date:June 28<br>Subject:Inquiry<br><br>Ms. Doe, <br>We thank you for your inquiry. Greenscape has been the leading landscaper for businesses in  the greater downtown area for over 10 years.<b> (1) </b> _____ we specialize in gardens and Japanese- style landscape art, we also maintain lawns and fields. But to answer your question, yes, we even clear away thick shrubbery and trees. We can send a person to  <b> (2) </b> _____  the amount of time it will take and the approximate costs. Furthermore, if you<b> (3) </b> _____ to replace the dense shrubs with a lawn or garden, you can work with one of our designers to come up with a landscape you can be happy with. <br><b> (4) </b> _____ We are more than happy to serve you.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p>Gửi: Janet Doe<br />\nTừ: Greenscape<br />\nNg&agrave;y: 28 th&aacute;ng 6<br />\nChủ đề: Y&ecirc;u cầu th&ocirc;ng tin</p>\n\n<p>B&agrave; Doe th&acirc;n mến,<br />\nCh&uacute;ng t&ocirc;i cảm ơn b&agrave; đ&atilde; gửi y&ecirc;u cầu th&ocirc;ng tin. Greenscape đ&atilde; l&agrave; đơn vị h&agrave;ng đầu về cảnh quan cho c&aacute;c doanh nghiệp trong khu vực trung t&acirc;m th&agrave;nh phố suốt hơn 10 năm qua. Mặc d&ugrave; ch&uacute;ng t&ocirc;i chuy&ecirc;n về vườn v&agrave; nghệ thuật cảnh quan kiểu Nhật, ch&uacute;ng t&ocirc;i cũng bảo dưỡng b&atilde;i cỏ v&agrave; c&aacute;c khu đất. Nhưng để trả lời c&acirc;u hỏi của b&agrave;, v&acirc;ng, ch&uacute;ng t&ocirc;i thậm ch&iacute; c&ograve;n dọn sạch c&aacute;c bụi rậm v&agrave; c&acirc;y cối d&agrave;y đặc. Ch&uacute;ng t&ocirc;i c&oacute; thể cử người đến ước t&iacute;nh thời gian cần thiết v&agrave; chi ph&iacute; xấp xỉ. Hơn nữa, nếu b&agrave; mong muốn thay thế c&aacute;c bụi rậm d&agrave;y đặc bằng b&atilde;i cỏ hoặc khu vườn, b&agrave; c&oacute; thể l&agrave;m việc với một trong những nh&agrave; thiết kế của ch&uacute;ng t&ocirc;i để tạo ra một cảnh quan m&agrave; b&agrave; c&oacute; thể h&agrave;i l&ograve;ng.</p>\n\n<p>Vui l&ograve;ng gọi cho ch&uacute;ng t&ocirc;i theo số 555-1245 nếu b&agrave; quan t&acirc;m đến một buổi tư vấn. Ch&uacute;ng t&ocirc;i rất h&acirc;n hạnh được phục vụ b&agrave;.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140037d65d71f3a51f62aee",
+          "questionText": "<b> (1) </b> _____ we specialize in gardens and Japanese- style landscape art, we also maintain lawns and fields.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Although",
+            "(B) Because",
+            "(D) However",
+            "(c) Therefore"
+          ],
+          "correctOptions": [
+            "(A) Although"
+          ],
+          "transcript": "<p>Both \"Therefore\" and \"However\" are grammatically incorrect.</p>\n\n<p>Based on the meaning of sentence, choose \"although\"</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<ul>\n\t<li><strong>(A) Although</strong> - Mặc d&ugrave;</li>\n\t<li><strong>(B) Because</strong> - Bởi v&igrave;</li>\n\t<li><strong>(C) However</strong> - Tuy nhi&ecirc;n</li>\n\t<li><strong>(D) Therefore</strong> - Do đ&oacute;</li>\n</ul>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n A</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Mặc d&ugrave; ch&uacute;ng t&ocirc;i chuy&ecirc;n về vườn v&agrave; nghệ thuật cảnh quan kiểu Nhật, ch&uacute;ng t&ocirc;i cũng bảo dưỡng b&atilde;i cỏ v&agrave; c&aacute;c khu đất.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62aef",
+          "questionText": "We can send a person to  <b> (2) </b> _____  the amount of time it will take and the approximate costs.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) conclude",
+            "(B) calculate",
+            "(C) estimate",
+            "(D) guess"
+          ],
+          "correctOptions": [
+            "(C) estimate"
+          ],
+          "transcript": "<ul>\n\t<li>(A) conclude:&nbsp;to decide or believe something as a result of what you have heard or seen</li>\n\t<li>(B) calculate:&nbsp;to use numbers to find out a total number, amount, distance, etc.</li>\n\t<li>(C) estimate:&nbsp;to form an idea of the cost, size, value, etc. of something, but without calculating it exactly</li>\n\t<li>(D) guess:&nbsp;to try and give an answer or make a judgement about something without being sure of all the facts</li>\n</ul>\n\n<p>\"the approximate costs\" =&gt; \"estimate\" is correct</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:</strong>&nbsp;</p>\n\n<ul>\n\t<li>(A) conclude - Kết luận</li>\n\t<li>(B) calculate - T&iacute;nh to&aacute;n</li>\n\t<li>(C) estimate - Ước t&iacute;nh</li>\n\t<li>(D) guess - Đo&aacute;n</li>\n</ul>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u, chọn <strong>đ&aacute;p &aacute;n C</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ch&uacute;ng t&ocirc;i c&oacute; thể cử người đến ước t&iacute;nh thời gian cần thiết v&agrave; chi ph&iacute; xấp xỉ.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62af0",
+          "questionText": "Furthermore, if you<b> (3) </b> _____ to replace the dense shrubs with a lawn or garden, you can work with one of our designers to come up with a landscape you can be happy with.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) wishing",
+            "(B) wish",
+            "(C) wished",
+            "(D) wishes"
+          ],
+          "correctOptions": [
+            "(B) wish"
+          ],
+          "transcript": "<p>Conditional sentence type I: If + S + V(present tense\", S + will/can/may/should/... + V-infinitive</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức ngữ ph&aacute;p: </strong></p>\n\n<p>C&acirc;u điều kiện loại 1: If + S+ V (th&igrave; hiện tại đơn),&nbsp; will/can/may/should/ + động từ nguy&ecirc;n mẫu</p>\n\n<p>Chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Hơn nữa, nếu b&agrave; mong muốn thay thế c&aacute;c bụi rậm d&agrave;y đặc bằng b&atilde;i cỏ hoặc khu vườn, b&agrave; c&oacute; thể l&agrave;m việc với một trong những nh&agrave; thiết kế của ch&uacute;ng t&ocirc;i để tạo ra một cảnh quan m&agrave; b&agrave; c&oacute; thể h&agrave;i l&ograve;ng.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62af1",
+          "questionText": "<b> (4) </b> _____ We are more than happy to serve you.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) We welcome any business opportunity with you.",
+            "(B) Please don’t hesitate to email any questions you have.",
+            "(C) Please call US at 555-1245 if you are interested in a consultation.",
+            "(D) Visit our website for more information."
+          ],
+          "correctOptions": [
+            "(C) Please call US at 555-1245 if you are interested in a consultation."
+          ],
+          "transcript": "<p>Based on the following sentence.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><b>(4) </b> _____Ch&uacute;ng t&ocirc;i rất sẵn l&ograve;ng phục vụ bạn.</p>\n\n<p>(A) Ch&uacute;ng t&ocirc;i hoan ngh&ecirc;nh mọi cơ hội kinh doanh với bạn.</p>\n\n<p>(B) Vui l&ograve;ng đừng ngần ngại gửi email nếu bạn c&oacute; bất kỳ c&acirc;u hỏi n&agrave;o.</p>\n\n<p>(C) Vui l&ograve;ng gọi cho ch&uacute;ng t&ocirc;i theo số 555-1245 nếu bạn quan t&acirc;m đến việc tư vấn.</p>\n\n<p>(D) Truy cập trang web của ch&uacute;ng t&ocirc;i để biết th&ecirc;m th&ocirc;ng tin.</p>\n\n<p>Dựa v&agrave;o ngữ cảnh của đoạn văn chọn <strong>đ&aacute;p &aacute;n C</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "6140037d65d71f3a51f62ae5",
+      "questionText": "<p><strong>Black Hill Beans</strong><br> Black Hill Beans is a Louisianan coffee company and the pioneer of the Louisiana coffee fruit. We oversee a vertically <b>(1)</b>_____ supply chain that starts with the highest quality coffee and coffee fruit from Black Hill, Louisiana. We <b>(2)</b>_______ three award-winning beans, Summer Harvest, Dark Southern, and Black Earth. All can be shipped to you <b>(3)</b>______ 24 hours anywhere in the continental U.S. Black Hill Beans' coffee is also sold at every Launders Superstore in the U.S.</p> <p>Whether you're looking for excellent coffee or a bit of southern comfort, Black Hill Beans is the right choice for your coffee. <b>(4)</b>_____ It's nice to feel patriotic while you drink. Visit us online today to hear more about our story.</p> <p>www.blackhillbeans.com</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "<p><strong>Black Hill Beans</strong><br />\nBlack Hill Beans l&agrave; một c&ocirc;ng ty c&agrave; ph&ecirc; ở Louisiana v&agrave; l&agrave; ti&ecirc;n phong trong việc sử dụng quả c&agrave; ph&ecirc; của Louisiana. Ch&uacute;ng t&ocirc;i quản l&yacute; một chuỗi cung ứng t&iacute;ch hợp theo chiều dọc, bắt đầu từ việc chọn lọc c&agrave; ph&ecirc; v&agrave; quả c&agrave; ph&ecirc; chất lượng cao nhất từ Black Hill, Louisiana. Ch&uacute;ng t&ocirc;i sản xuất ba loại hạt c&agrave; ph&ecirc; đ&atilde; đoạt giải thưởng: Summer Harvest, Dark Southern v&agrave; Black Earth. Tất cả c&aacute;c sản phẩm đều c&oacute; thể được giao đến bạn trong v&ograve;ng 24 giờ ở bất kỳ đ&acirc;u trong lục địa Hoa Kỳ. C&agrave; ph&ecirc; của Black Hill Beans cũng được b&aacute;n tại mọi cửa h&agrave;ng Launders tr&ecirc;n to&agrave;n nước Mỹ.</p>\n\n<p>D&ugrave; bạn đang t&igrave;m kiếm c&agrave; ph&ecirc; thượng hạng hay một ch&uacute;t ấm &aacute;p của miền Nam, Black Hill Beans l&agrave; sự lựa chọn ho&agrave;n hảo cho c&agrave; ph&ecirc; của bạn. Được sản xuất tại Mỹ v&agrave; l&agrave; sản phẩm hữu cơ, thật tuyệt khi cảm thấy l&ograve;ng y&ecirc;u nước trong mỗi t&aacute;ch c&agrave; ph&ecirc;. Truy cập trang web của ch&uacute;ng t&ocirc;i ngay h&ocirc;m nay để biết th&ecirc;m về c&acirc;u chuyện của ch&uacute;ng t&ocirc;i.</p>\n\n<p>www.blackhillbeans.com</p>\n",
+      "childQuestions": [
+        {
+          "id": "6140037d65d71f3a51f62af2",
+          "questionText": "We oversee a vertically <b> (1) </b> _____  supply chain that starts with the highest quality coffee and coffee fruit from Black Hill, Louisiana.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) integrates",
+            "(B) to integrate",
+            "(C) integrated",
+            "(D) integration"
+          ],
+          "correctOptions": [
+            "(C) integrated"
+          ],
+          "transcript": "<p>The blank precedes a noun so we need an adjective to form a noun phrase, and the blank comes after an adverb \"vertically\" that modifies it =&gt; use an adjective in form of past participle.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>Trong trường hợp n&agrave;y, <strong>Đ&aacute;p &aacute;n C</strong> t&iacute;nh từ &quot;integrated&quot; (đ&atilde; được t&iacute;ch hợp) l&agrave; th&iacute;ch hợp nhất để m&ocirc; tả chuỗi cung ứng. &quot;Integrated&quot; l&agrave; t&iacute;nh từ mi&ecirc;u tả trạng th&aacute;i của chuỗi cung ứng, chỉ ra rằng n&oacute; đ&atilde; được t&iacute;ch hợp một c&aacute;ch to&agrave;n diện.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62af3",
+          "questionText": "We <b> (2) </b> _____ three award-winning beans, Summer Harvest, Dark Southern, and Black Earth",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) locate",
+            "(B) select",
+            "(C) evaluate",
+            "(D) produce"
+          ],
+          "correctOptions": [
+            "(D) produce"
+          ],
+          "transcript": "<ul>\n\t<li>(A) locate:&nbsp;to find the exact position of somebody/something</li>\n\t<li>(B) select:&nbsp;to choose somebody/something from a group of people or things, usually according to a system</li>\n\t<li>(C) evaluate:&nbsp;to judge or calculate the quality, importance, amount, or value of something</li>\n\t<li>(D) produce:&nbsp;&nbsp;to make things to be sold, especially in large quantities</li>\n</ul>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p><strong>Kiến thức từ vựng:&nbsp;</strong></p>\n\n<ul>\n\t<li>(A) locate: định vị</li>\n\t<li>(B) select: lựa chọn</li>\n\t<li>(C) evaluate: đ&aacute;nh gi&aacute;</li>\n\t<li>(D) produce: sản xuất</li>\n</ul>\n\n<p>Dựa v&agrave;o ngữ cảnh của c&acirc;u chọn <strong>đ&aacute;p &aacute;n D</strong></p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Ch&uacute;ng t&ocirc;i sản xuất ba loại hạt c&agrave; ph&ecirc; đ&atilde; đoạt giải thưởng: Summer Harvest, Dark Southern v&agrave; Black Earth.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62af4",
+          "questionText": "All can be shipped to you <b> (3) </b> _____ 24 hours anywhere in the continental U.S. Black Hill Beans’ coffee is also sold at every Launders Superstore in the U.S.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) within",
+            "(B) by",
+            "(C) until",
+            "(D) at"
+          ],
+          "correctOptions": [
+            "(A) within"
+          ],
+          "transcript": "<p>within + a time period; by, until and at + a point of time</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<ul>\n\t<li>\n\t<p><strong>&quot;within&quot;</strong>: c&oacute; nghĩa l&agrave; &quot;trong v&ograve;ng&quot; v&agrave; thường được sử dụng để chỉ một khoảng thời gian trong giới hạn cụ thể. Trong c&acirc;u n&agrave;y, &quot;All can be shipped to you within 24 hours&quot; c&oacute; nghĩa l&agrave; sản phẩm c&oacute; thể được giao đến bạn trong v&ograve;ng 24 giờ.</p>\n\t</li>\n\t<li>\n\t<p><strong>&quot;by&quot;</strong>: thường được sử dụng để chỉ thời điểm kết th&uacute;c, như &quot;by tomorrow&quot; (trước ng&agrave;y mai).</p>\n\t</li>\n\t<li>\n\t<p><strong>&quot;until&quot;</strong>: thường được sử dụng để chỉ một khoảng thời gian k&eacute;o d&agrave;i cho đến một thời điểm nhất định, như &quot;until next week&quot; (cho đến tuần sau).</p>\n\t</li>\n\t<li>\n\t<p><strong>&quot;at&quot;</strong>: thường chỉ một thời điểm cụ thể, như &quot;at 3 PM&quot; (v&agrave;o l&uacute;c 3 giờ chiều).</p>\n\t</li>\n</ul>\n\n<p>Trong ngữ cảnh n&agrave;y, <strong>Đ&aacute;p &aacute;n A </strong>&quot;within&quot; l&agrave; từ th&iacute;ch hợp nhất để chỉ việc vận chuyển h&agrave;ng trong v&ograve;ng 24 giờ.</p>\n\n<p><strong>Tạm dịch:&nbsp;</strong>Tất cả c&aacute;c sản phẩm đều c&oacute; thể được giao đến bạn trong v&ograve;ng 24 giờ ở bất kỳ đ&acirc;u trong lục địa Hoa Kỳ.</p>\n"
+        },
+        {
+          "id": "6140037d65d71f3a51f62af5",
+          "questionText": "<b> (4) </b> _____ It’s nice to feel patriotic while you drink.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Try the best-selling frozen beverage around.",
+            "(B) It’s American-made and organic.",
+            "(C)  Let us help you find the right supplier.",
+            "(D) This discount is only available through October 1"
+          ],
+          "correctOptions": [
+            "(B) It’s American-made and organic."
+          ],
+          "transcript": "<p>Based on the following sentence.</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><b>(4) </b> _____ Thật tuyệt khi cảm thấy l&ograve;ng y&ecirc;u nước trong mỗi t&aacute;ch c&agrave; ph&ecirc;.</p>\n\n<ul>\n\t<li><strong>(A)</strong> H&atilde;y thử đồ uống đ&ocirc;ng lạnh b&aacute;n chạy nhất hiện nay.</li>\n\t<li><strong>(B)</strong> N&oacute; được sản xuất tại Mỹ v&agrave; hữu cơ.</li>\n\t<li><strong>(C)</strong> H&atilde;y để ch&uacute;ng t&ocirc;i gi&uacute;p bạn t&igrave;m nh&agrave; cung cấp ph&ugrave; hợp.</li>\n\t<li><strong>(D)</strong> Giảm gi&aacute; n&agrave;y chỉ c&oacute; hiệu lực đến ng&agrave;y 1 th&aacute;ng 10.</li>\n</ul>\n\n<p>Dựa v&agrave;o ngữ cảnh của đoạn chọn <strong>đ&aacute;p &aacute;n B</strong></p>\n\n<p>&nbsp;</p>\n"
+        }
+      ]
+    }
+  ]
+}

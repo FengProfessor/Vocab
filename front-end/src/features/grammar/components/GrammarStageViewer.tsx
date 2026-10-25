@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Alert, Button, Card, Descriptions, Slider, Space, Steps, Typography } from 'antd';
-import { ExperimentOutlined, ReadOutlined } from '@ant-design/icons';
+import { Alert, Button, Card, Descriptions, Slider, Space, Steps, Typography } from '@/components/ui/Primitives';
+import { ExperimentOutlined, ReadOutlined } from '@/components/ui/Icons';
 import { GRAMMAR_MASTERY_THRESHOLD } from '@/config/businessRules';
 import styles from '@/features/grammar/components/GrammarStageViewer.module.css';
 import { GrammarStageViewerProps } from '@/features/grammar/types/GrammarStageViewerProps';

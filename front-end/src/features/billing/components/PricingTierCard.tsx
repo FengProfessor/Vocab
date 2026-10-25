@@ -1,6 +1,6 @@
 import React from 'react';
-import { Badge, Button, Card, List, Space, Tag, Typography } from 'antd';
-import { CheckOutlined, CrownFilled, QrcodeOutlined } from '@ant-design/icons';
+import { Badge, Button, Card, List, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { CheckOutlined, CrownFilled, QrcodeOutlined } from '@/components/ui/Icons';
 import styles from '@/features/billing/components/PricingTierCard.module.css';
 import { PricingTierCardProps } from '@/features/billing/types/PricingTierCardProps';
 

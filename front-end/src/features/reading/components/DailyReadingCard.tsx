@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Space, Tag, Tooltip, Typography } from 'antd';
-import { BookOutlined, CheckCircleOutlined, PlusCircleOutlined } from '@ant-design/icons';
+import { Button, Card, Space, Tag, Tooltip, Typography } from '@/components/ui/Primitives';
+import { BookOutlined, CheckCircleOutlined, PlusCircleOutlined } from '@/components/ui/Icons';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import styles from '@/features/reading/components/DailyReadingCard.module.css';
 import { DailyReadingCardProps } from '@/features/reading/types/DailyReadingCardProps';

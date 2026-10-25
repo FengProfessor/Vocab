@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button } from '@/components/ui/Primitives';
 import { FLASHCARD_RATING_OPTIONS } from '@/config/flashcardRatingOptions';
 import styles from '@/features/vocab/components/FlashcardRatingBar.module.css';
 import { FlashcardRatingBarProps } from '@/features/vocab/types/FlashcardRatingBarProps';

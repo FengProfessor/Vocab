@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-07",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 07",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. What have they forgotten?</b></p><ul><li><b>Speaker 1:</b> I've got the passports here.</li><li><b>Speaker 2:</b> And the tickets are in my bag.</li><li><b>Speaker 1:</b> What about the camera?</li><li><b>Speaker 2:</b> Oh no. I have left it at home. And I really want to take some holiday photos.</li></ul><p><b>2. What time does the train go?</b></p><ul><li><b>Speaker 1:</b> Hurry up! we'll be late</li><li><b>Speaker 2:</b> what time does the train go?</li><li><b>Speaker 1:</b> At six fifteen. We've got to leave in ten minutes.</li><li><b>Speaker 1:</b> I’m nearly ready</li></ul><p><b>3. How did the woman get to work?</b></p><ul><li><b>Speaker 1:</b> The traffic is terrible today.</li><li><b>Speaker 2:</b> Yes it took me forty minutes by bus</li><li><b>Speaker 1:</b> Well I drove and it took me an hour</li><li><b>Speaker 2:</b> An hour? it's probably quicker by bicycle.</li></ul><p><b>4. Where are the man's shoes?</b></p><ul><li><b>Speaker 1:</b> Have you seen my old shoes? I thought they were under the chair by the television</li><li><b>Speaker 2:</b> Not any more. They’re by the door with the other rubbish, inside the flat.</li><li><b>Speaker 1:</b> Well the living room looks very nice but you’re not throwing my old shoes away all the same.</li></ul><p><b>5. What will Paul get at the shop?</b></p><ul><li>Right. Now.. what do we need for the sauce so Paul can get for me ... let me see.. onions, tomatoes, one red pepper, mushrooms and two carrots. So what I’ve got. Onions? I’ve got those. Tomatoes ,yes ,red pepper ,no, I need one of those. I’ve got mushrooms, oh dear, no carrots. Paul. Could you go to the shop for me, please?</li></ul><p><b>6. How were they told to do their homework?</b></p><ul><li><b>Speaker 1:</b> Wow your homework looks great</li><li><b>Speaker 2:</b> Thanks. I typed it on my dad’s computer.</li><li><b>Speaker 1:</b> But did Mrs Smith tell us we have to write in our books?</li><li><b>Speaker 2:</b> Oh, No. You’re right. What am I going to do now?</li></ul><p><b>7. What did Helen buy?</b></p><ul><li><b>Speaker 1:</b> Look. Roger I’ve been shopping. They’ve got some great things in Star Right</li><li><b>Speaker 2:</b> That’s brilliant, lovely colors and it’ll keep you warm in the winter</li><li><b>Speaker 1:</b> Yes, but are the sleeves too short for me?</li><li><b>Speaker 2:</b> No. they look fine.</li></ul><p><b>8. How did the woman get to work today?</b></p><ul><li>Oh I’m so sorry I’m late. I missed the bus and I was trying to decide whether to walk or go back and get my bike when I saw my neighbor. Luckily he offered me a lift because he works near here.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "What have they forgotten?",
+              "options": [
+                "ticket",
+                "camera",
+                "passport",
+                "bag"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "What time does the train go?",
+              "options": [
+                "06.15",
+                "07.40",
+                "06.10",
+                "07.10"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How did the woman get to work?",
+              "options": [
+                "by bicycle",
+                "by bus",
+                "by car",
+                "by train"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Where are the man's shoes?",
+              "options": [
+                "under the chair",
+                "by the television",
+                "by the door with the other rubbish",
+                "under the table"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What will Paul get at the shop?",
+              "options": [
+                "mushrooms",
+                "onions",
+                "carrots",
+                "red pepper"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "How were they told to do their homework?",
+              "options": [
+                "write it in the books",
+                "write it on paper",
+                "type it",
+                "email it"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What did Helen buy?",
+              "options": [
+                "gloves",
+                "sweater",
+                "socks",
+                "hat"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "How did the woman get to work today?",
+              "options": [
+                "by bus",
+                "a neighbour offered her a lift",
+                "by bike",
+                "walk"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><p><b>My daily schedule as a dental hygienist</b> is a little complicated. That's because it's different every day.</p><p>Monday, I don't go into work until late in the afternoon. So I have time to spend, most of the day, doing washing of clothes, shopping, and my banking. I leave for work around four o'clock in the afternoon, I work from five to nine p.m. Tuesday, I wake up at six thirty a.m. and leave for work, at seven thirty. My first patient is scheduled for eight fifteen. Each patient, is allotted forty-five minutes. Lunch break is twelve-thirty to one-thirty. I finish up at five p.m. and get home, at around six p.m. Wednesday starts an hour earlier. I wake up at five-thirty a.m., leave for work at six-thirty, and see my first patient at seven a.m., I also finish early on Wednesday, at twelve-noon. Thursday is the same schedule as Tuesday... getting up at six-thirty a.m., leaving for work at seven-thirty, and seeing my first patient at eight-fifteen. I get home about six p.m. in the evening. Friday is another early start. I wake up at five-thirty a.m., leave the house at six thirty and finish up my last patient at three o'clock in the afternoon. I like to get finished early on Friday. That is a typical work week for me.</p><p><b>Conversation 2:</b></p><ul><li><b>Man:</b> Hi, Sis. I just came over to drop off the DVDs you wanted, and . . . Hey, wow!? Where did you get all of this stuff?</li><li><b>Woman:</b> I bought it. So, what do you think of my new entertainment center? And the widescreen TV..</li><li><b>Man:</b> Bought it?</li><li><b>Woman:</b> . . . and my new DVD player. Here, let me show you my stereo. You can really rock the house with this one.</li><li><b>Man:</b> But where did you get the dough to buy all this? You didn't borrow money from mom and dad again, did you?</li><li><b>Woman:</b> Of course not. I got it with this!</li><li><b>Man:</b> This? Let me see that . . . Have you been using Dad's credit card again?</li><li><b>Woman:</b> No, silly. It's mine. It's student credit card.</li><li><b>Man:</b> A student credit card? How in the world did you get one of these?</li><li><b>Woman:</b> I got an application in the mail.</li><li><b>Man:</b> Well, why did you get one in the first place?</li><li><b>Woman:</b> Listen. Times are changing, and having a credit card helps you build a credit rating, control spending, and even buy things that you can't pay with cash . . . like the plane ticket I got recently.</li><li><b>Man:</b> What plane ticket?</li><li><b>Woman:</b> Oh yeah, my roommate and I are going to Hawaii over the school break, and course, I needed some new clothes for that so . . .</li><li><b>Man:</b> I don't want to hear it. How does having a student credit card control spending? It sounds you've spent yourself in a hole. Anyway, student credit cards just lead to impulse spending . . . as I can see here. And the interest rates of student credit cards are usually sky-high, and if you miss a payment, the rates, well, just jump!</li><li><b>Woman:</b> Ah. The credit card has a credit limit . . .</li><li><b>Man:</b> . . . of $20,000?</li><li><b>Woman:</b> No, no quite that high. Anyway, . . .</li><li><b>Man:</b> I've heard enough.</li><li><b>Woman:</b> Did I tell you we now get digital cable with over 100 channels? Oh, and here's your birthday present. A new MP3 player . . .</li><li><b>Man:</b> Yeah. Oh, don't tell me. Charged on the credit card. Listen. Hey, I don't think having a student credit card is a bad idea, but this is ridiculous. And how in the world are you going to pay off your credit card bill?</li><li><b>Woman:</b> Um, with my birthday money? It's coming up in a week.</li><li><b>Man:</b> Hey, let's sit down and talk about how you're going to pay things back, and maybe we can come up with a budget that will help you get out of this mess. That's the least I can do.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Server:</b> Hi. Welcome to Joe's Hamburger Restaurant. [Hi] Home of the one-pound super deluxe hot and spicy cheeseburger. Will this be for here or to go?</li><li><b>Customer:</b> Uh, to go.</li><li><b>Server:</b> Okay. What would you like today? Would you like to try the one-pound super hot and spicy cheeseburger?</li><li><b>Customer:</b> Uh. I don't think so. I'd probably have heartburn for a week after downing that monster.</li><li><b>Server:</b> Well. It's our house special this week, and it comes with fries, and a large specialty drink called \"Everything-but-the-kitchen-sink.\"</li><li><b>Customer:</b> A what? \"Everything-but-the-kitchen-sink\"? What in the world is that?</li><li><b>Server:</b> Well, it's a little mix of everything in a large cup: Pepsi, Sprite, Fanta Orange, and lemonade with crushed ice and a scoop of ice cream.</li><li><b>Customer:</b> Ah, that sounds disgusting.</li><li><b>Server:</b> Hey, it'll grow on you.</li><li><b>Customer:</b> Nay, I think I'll just order a hamburger with some mustard and lettuce and a glass of water.</li><li><b>Server:</b> Boring. Hey. Would you care for anything else like a side order of amazing cheesy onion rings?</li><li><b>Customer:</b> No thank you. Onion rings usually don't agree with me.</li><li><b>Server:</b> Hmm. Okay. Your total comes to ten ninety ($10.90).</li><li><b>Customer:</b> Ten ninety? For just a hamburger?! You've got to be kidding</li><li><b>Server:</b> Well, the one-pound super deluxe hamburger is nine dollars.</li><li><b>Customer:</b> Hey, I didn't order a one-pound burger. I just wanted a simple burger. That's all.</li><li><b>Server:</b> Well, sir. Joe's Hamburger Restaurant only serves one-pound burgers. [Man!] The one-pound super hot and spicy, the one-pound barbecue burger, the one-pound bacon cheese burger, the one-pound . . .</li><li><b>Customer:</b> No, no. Those are all huge.</li><li><b>Server:</b> Well, sir. If you really want something smaller [Yeah], you should order from the kids' menu: The half-pound super hot and spicy burger, the half-pound barbecue burger, the half-pound bacon cheese burger, the half-pound . . .</li><li><b>Customer:</b> No. Those are still giant burgers.</li><li><b>Server:</b> Well, in these parts, we are hearty eaters.</li><li><b>Customer:</b> Okay, but you said my total was ten ninety, but the burger only comes to ten bucks. What about the other ninety cents?</li><li><b>Server:</b> Well, sir. We only serve natural spring water from yonder hills, and . . .</li><li><b>Customer:</b> Okay, okay. I'll take the giant burger and a bottle of your spring water. The sandwich should feed me for a week.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What hours does the speaker work on Monday?",
+              "options": [
+                "Noon to 6 PM",
+                "8:15 AM to 5 PM",
+                "7 AM to 12 PM",
+                "5 PM to 9 PM"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "On which two days does the speaker have the same schedule?",
+              "options": [
+                "Monday and Tuesday",
+                "Wednesday and Thursday",
+                "Tuesday and Thursday",
+                "Thursday and Friday"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What is the main purpose of the speaker's talk?",
+              "options": [
+                "To discuss the importance of the job",
+                "To compare the work of doctors and dentists",
+                "To describe a typical week at work",
+                "To explain the details of a day at work"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What does the speaker think of her work?",
+              "options": [
+                "She enjoys sleeping late every morning",
+                "It is difficult to describe her schedule",
+                "She enjoys helping the patients",
+                "It is too complicated to remember"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "According to the conversation, which item did the woman NOT purchase with her credit card?",
+              "options": [
+                "a digital camera",
+                "a DVD player",
+                "a TV",
+                "a stereo"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What is one reason to explain why the woman obtained a student credit card?",
+              "options": [
+                "She wants to buy things at a discount using the card",
+                "She hopes to establish a good credit rating",
+                "She doesn't want to borrow from her parents",
+                "She can be financially independent"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What does the woman imply about how she plans on resolving her credit card problems?",
+              "options": [
+                "She hopes that someone will give her the money",
+                "She plans on getting rid of her student credit cards",
+                "She'll get a part-time job",
+                "She is going to return the items she purchased on the card"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is the man going to do for the woman to help her manage her money?",
+              "options": [
+                "help her find a better paying job to cover her expenses",
+                "teach her how to prepare a financial management plan",
+                "show her how she can apply for low-interest student credit cards",
+                "teach her how to shop wisely"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "Why does the customer not buy the recommended sandwich at the beginning of the conversation?",
+              "options": [
+                "It is too expensive",
+                "He is not interested in ordering a burger",
+                "It is not tasty",
+                "He fears the food will make him sick"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "How does the specialty drink get its name?",
+              "options": [
+                "It contains a wide range of ingredients",
+                "It is prepared in the kitchen sink",
+                "It contains chicken soup",
+                "It comes in a very large cup"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "Why was the man surprised by the price of his meal?",
+              "options": [
+                "He thought the drink should have been included",
+                "He felt the meal was way overpriced",
+                "He was charged for two sandwiches instead of one",
+                "It was lower than he had expected"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What does the customer decide to do at the end of the conversation?",
+              "options": [
+                "He orders something from the restaurant menu",
+                "He plans to come back at weekend",
+                "He decides to look for another place to eat",
+                "He plans to come in a week when the prices are lower"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-07/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk/Lecture 1</b></p><p>Hello everyone, My name’s Sandy Duffy and I’m here to tell you about my career as a video game writer.</p><p>I work with game developers and designers to think of good stories, and I write all the dialogue in the game.</p><p>When I was in secondary school, I never imagined that I would do this job. I played guitar that’s what I planned to do as my job. But I had an accident when I was playing basketball and hurt my hand, so I had to think of another career. My mother wanted me to be a journalist, but I didn’t think it was for me.</p><p>I didn’t know what to study at university. I was good at lots of science subjects, including physics and math, but I also loved entertaining people and I was good at Art. In the end, I went to film school where I studied lighting, special effects, how to use camera...all that! It was there that I started to think about working in the video game industry.</p><p>Now, a question that every always asks me is “How did you get your first job?” Well, I had a friend whose job was organizing conferences, at one of the conferences, she met a man who owned a company that made video games. I wrote to him and sent my CV. He obviously liked what he read because he gave me an interview and offered me a job as a junior.</p><p>People also ask me what I like best about being a video game writer. Well, the money is good and it’s quite exciting, just last night, for example, I was at a big dinner where they were giving prizes for new games. But what I love is the fact that I get on well with everyone in the business. That’s what makes my job so much fun.</p><p>Obviously, no job is perfect though, and there are things I don’t like. I’ve just started a new job and I have to spend a lot of time on the road or at the airport, which I find very hard. I’d really like to be able to spend more time at home.</p><p><b>Talk/Lecture 2</b></p><p>Do you want to take part in a trip of a lifetime? Then join Go4Health India. This amazing five – day trek will take you through one of the world’s most beautiful mountain ranges, the Indian Himalayas.</p><p>You will also be helping raise vital funds for our charity which aims to promote health care all over the world.</p><p>The trip starts in the city of Delhi where you will have the chance to see one of the charity’s health care projects in action. The following day we set off on our incredible journey into the mountains.</p><p>During the trek you will pass colourful towns and villages and enjoy the most magnificent mountain views. You will experience all this before you even reach the peak of our trek to see the stunning DhaulaDahr mountain range. Once at the top you can climb even higher if you want to and experience walking on a glacier to each Lakes cave. You will soon know what it feels like to be on top of the world. And on the way down you will be able to admire the wonderful views across the valley.</p><p>To join Go4Health India all you need to do is pay an entry fee of 250 pounds. You also need to promise to raise a minimum of 2500 pounds before the start of the trip. Fundraising is part of the challenge, but don’t worry our fundraising team is on hand to help you. Once you have signed up you will receive an information pack. This includes details of the trek as well as the work of the charity. It also contains useful tips and advice on fundraising. And you will also get a charity cap to wear with pride. You will also receive a full training guide which will help you reach a reasonable level of fitness. Our top training tips will definitely improve your physical ability so that you can get the most out of the trek!</p><p>The cost of the trip includes your flights, accommodation, food, tour guides and medical support. However, please note that airport and tax is not included. You will have to meet this additional cost yourself.</p><p>Dates for this year’s Go4Health India are 3rd to 13th November. Visit our website www.Go4Health.uk and sign up today!</p><p><b>Talk/Lecture 3</b></p><p>Last year in India, people bought around 1.5 million new cars. This will probably go up to three million a year in the next few years. That’s how the India economy is changing. Many Indians in the big cities are richer than ever and they want to spend money on new products. However, most of the money is still in the big cities. There is still a lot of poverty in the villages and countryside.</p><p>Now the government hopes a new road in India can help to change India’s economy. The golden Quadrilateral road or GQ connects the country’s four biggest cities. Delhi, Mumbai, Chennai and Kolkata. Hopefully, the road will carry business from the giant cities to the smaller and poorer villages and the other half of the India’s population.</p><p>The GQ is nearly 6,000 kilometre long and the most hi – tech high way in the world. At the administration headquarters in Delhi, you can watch thousands of vehicles moving around the country on a computer screen. If there is a problem anywhere with the road, electronic sensors tell the headquarters and engineers instantly drive there.</p><p>When you drive on the high way, there is every kind of transport. There are animals pulling cars, motorcycles, lines of old trucks and fast moving modern cars. Sometimes the road goes right through middle of a city. So there are often traffic jams and pedestrians trying to cross the six lanes. Industry is also growing along the new highway.</p><p>When a large company opens a factory, lots of other smaller factories and offices also open. Trucks then drive and deliver all over India along the new high way. For India, all this is a symbol of the country’s future.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What did Sandy Duffy want to be when she was at school?",
+              "options": [
+                "a journalist",
+                "a musician",
+                "A director",
+                "A basketball player"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What did Sandy study at university?",
+              "options": [
+                "Math and Physics",
+                "film making",
+                "Technology",
+                "Art"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "How did Sandy get her first job as a video game writer?",
+              "options": [
+                "She answered a job advertisement",
+                "She met someone at a conference",
+                "She sent some information about herself to a company",
+                "She was invited by a friend"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What does Sandy like best about being a video game writer?",
+              "options": [
+                "the prizes she has won",
+                "the high salary",
+                "the people she works with",
+                "the great working condition"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What does Sandy dislike about being a video game writer?",
+              "options": [
+                "She has to travel a lot",
+                "She has to work long hours",
+                "She often has to change her job",
+                "She has to live far from home"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "How long does the trek last?",
+              "options": [
+                "a day",
+                "three days",
+                "five days",
+                "a week"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "The trek aims to raise money for .............",
+              "options": [
+                "health care",
+                "school education",
+                "hospital",
+                "the old people"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The cost of the trek includes .............",
+              "options": [
+                "flight and airport taxes",
+                "medical provision and taxes",
+                "Foods",
+                "Food and accommodation"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "Participants must .............",
+              "options": [
+                "walk across a glacier",
+                "complete a fitness course",
+                "agree to raise funds for the charity",
+                "pay amount of money"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "The trip starts on .............",
+              "options": [
+                "1st of November",
+                "3rd of November",
+                "13th of November",
+                "23th of November"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "Where do many of the rich people live?",
+              "options": [
+                "next to the new road",
+                "in the cities",
+                "in the countryside",
+                "in isolated places"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "How long is the road?",
+              "options": [
+                "600 kilometres",
+                "6,000 kilometers",
+                "60,000 kilometres",
+                "60 miles"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "What can you see on the computers at the road's headquarters in Delhi?",
+              "options": [
+                "small vehicles on the road",
+                "any vehicle and problems on the road",
+                "big vehicles on the road",
+                "serious problems on the road"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What types of transport can you see on the road?",
+              "options": [
+                "all types",
+                "mostly cars",
+                "mostly motorbikes",
+                "the presenter doesn't say"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Why does the presenter describe the new road as a symbol of India's future?",
+              "options": [
+                "because it's the same shape as the country of India",
+                "because it is modern, it is helping the economy grow",
+                "Because India has big population",
+                "Because India has lots of transport"
+              ],
+              "answer": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

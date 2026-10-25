@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-10",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 10",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. How will Mary travel to Scotland?</b></p><ul><li><b>Speaker 1:</b> Are you taking the train to Scotland tomorrow, Mary?</li><li><b>Speaker 2:</b> No. I’m driving there. It’s cheaper.</li><li><b>Speaker 1:</b> Why don’t you go by coach?</li><li><b>Speaker 2:</b> Oh no. It takes 7 hours</li></ul><p><b>2. Where are the shoes?</b></p><ul><li><b>Speaker 1:</b> Mom. Have you seen my brown shoes?</li><li><b>Speaker 2:</b> Yes. They’re under the table.</li><li><b>Speaker 1:</b> No. They’re not. I left them on the chair this morning. But they’re not there now.</li><li><b>Speaker 2:</b> There they are, under the window.</li></ul><p><b>3. When will the football match start next week?</b></p><ul><li><b>Speaker 1:</b> Does the football match start at 12:15 every week?</li><li><b>Speaker 2:</b> No. It was early this week. It usually begins at 2 o’clock.</li><li><b>Speaker 1:</b> So it will be the usual time next week.</li><li><b>Speaker 2:</b> Yes.</li></ul><p><b>4. What is the man selling?</b></p><ul><li><b>Man:</b> And this? Is the latest model by MacPoint. You'll find it's even quicker at doing your washing up and needs less water. And it's very easy to use, as easy as turning on your shower.</li></ul><p><b>5. What is the weather forecast for tomorrow?</b></p><ul><li><b>Woman:</b> It's been typical spring weather today, sunshine and showers. The next 24 hours should be dry but cloudy. Things look better for the next week, with Monday being a fine sunny day and the following day mild but windy.</li></ul><p><b>6. Where will the woman go first after work?</b></p><ul><li><b>Speaker 1:</b> Are you and Sarah going straight to the restaurant from work tonight?</li><li><b>Speaker 2:</b> Actually I’m leaving work early because I need to do some shopping in the market and I’m going to meet Sarah after that outside the cinema. She doesn’t know where the restaurant is, you see. You’re playing tennis after work, aren’t you?</li><li><b>Speaker 1:</b> Yes. So see you at the restaurant.</li></ul><p><b>7. What can festival visitors see every day?</b></p><ul><li>The art centre in London is holding a festival of Irish culture from 4th to 12th of April. An exhibition of paintings is open daily and on some weekday evenings. The theatre has special events including plays and films. At the weekend, concert of Irish music will take place in the town hall</li></ul><p><b>8. What souvenir will the boy’s mother bring?</b></p><ul><li><b>Speaker 1:</b> What color of T-shirt shall I bring you from New York, Fred?</li><li><b>Speaker 2:</b> I prefer black but actually a baseball cap would be a good idea.</li><li><b>Speaker 1:</b> What about another model car for your collection. I can get you a New York taxi.</li><li><b>Speaker 2:</b> Great. I really like the sports car you bought me last time.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "How will Mary travel to Scotland?",
+              "options": [
+                "bus",
+                "car",
+                "train",
+                "plane"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Where are the shoes?",
+              "options": [
+                "under the window",
+                "under the table",
+                "on the chair",
+                "by the door"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "When will the football match start next week?",
+              "options": [
+                "11.45 a.m",
+                "12.15 p.m",
+                "02.00 p.m",
+                "04.25 p.m"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What is the man selling?",
+              "options": [
+                "A washing machine",
+                "A dishwasher",
+                "A shower",
+                "A water pump"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the weather forecast for tomorrow?",
+              "options": [
+                "Dry but cloudy",
+                "Sunshine and showers",
+                "Fine and sunny",
+                "Mild but windy"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "Where will the woman go first after work?",
+              "options": [
+                "the restaurant",
+                "the market",
+                "the cinema",
+                "tennis court"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "What can festival visitors see everyday?",
+              "options": [
+                "plays",
+                "paintings",
+                "films",
+                "concerts"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What souvenir will the boy’s mother bring?",
+              "options": [
+                "a T-shirt",
+                "a baseball cap",
+                "a taxi",
+                "a sports car"
+              ],
+              "answer": 2
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> You will hear three different conversations. In each conversation there are four questions. For each question, choose the correct answer A, B, C or D. You will hear the conversations only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1:</b></p><ul><li><b>Presenter:</b> In today’s programme, David Green has come along to tell us all about Waterside Shopping Center near Northport. Good morning, David.</li><li><b>David:</b> Good morning. Well, I visited Waterside last week and I think it has something for everyone and I would recommend it for a day out. It’s taken three years to build and (Q1) finally opened three weeks ago, two months later than planned. Firstly, getting there; there are (Q2) organized coach trips from most towns in the area but they leave early and come home late, so I drove. There are 12,000 free parking spaces, so parking is no problem. You can also get there by train, but the station is 15 minutes from Waterside by bus, and the buses are really crowded so you sometimes have a long wait.</li><li><b>Presenter:</b> And what about opening times?</li><li><b>David:</b> Well, one thing to remember is that the shops don’t open till 10.00 in the morning except on Saturday when they open at 9.00. So don’t get there too early on a weekday. (Q3) They close at 8 o’clock every day except Friday when they’re open until 9 pm.</li><li><b>Presenter:</b> Can you tell us some more about the facilities at the shopping center?</li><li><b>David:</b> Yes, it’s arranged on three levels. You’ll find all your favourites here. In fact if you want to buy a pair of shoes there are 15 different shops to choose from on level one and two. When you run out of money there are seven different banks, but collect your money before you get to the third level as there aren’t any banks up there. On that level, however, there are several restaurants as well as cinema with seven screens. And don’t get lost like I did, go to the information desk on the first level and get a map.</li><li><b>Presenter:</b> What else can you do at Waterside?</li><li><b>David:</b> Before you go back to your car or the bus – and (Q4) in fact it might be better to do this before you go shopping and have too much to carry – go and see the lake. Take a walk or have a go at fishing, sailing or wind surfing if you have time. Or you can rest your tired feet and watch the birds and ducks, but you are asked not to feed them.</li></ul><p><b>Conversation 2:</b></p><ul><li><b>Interviewer:</b> OK, now I understand that the Park is involved in one or two projects at the moment.</li><li><b>Wildlife park representative:</b> That’s right. Since 1994, we’ve been working with various partners to raise money and help co-ordinate something called Project Life Lion. This project involves sending teams to villages which border the Serengeti National Park in East Africa to vaccinate domestic dogs against canine distemper virus (CDV) and rabies. In 1994 over one third of the Serengeti lions died (Q5) as a result of CDV, which had passed from domestic dogs to the wild animal population. In addition to that, we are currently taking part in the Atlantic Rainforest Project and supporting the Community Conservation Project.</li><li><b>Interviewer:</b> So you’re obviously concerned about environmental issues.</li><li><b>Wildlife park representative:</b> Yes, the Park continuously monitors its environmental impact. To do that, we have our own independently-written Environmental Management System, which is now being used as a model by other organizations across the UK so that they can establish their own.</li><li><b>Interviewer:</b> Now, apart from the day-to-day business of visitors to the Park, you also put on events, don’t you?</li><li><b>Wildlife park representative:</b> Yes, the Park is a venue for all manner of corporate events, such as (Q6) product launches, team-building, special events, barbecues - the list is endless. And we play host to many charity and fund-raising events each year. For them, (Q8) we are happy to help with discounted tickets and competition prizes.</li><li><b>Interviewer:</b> Now, tell me about the Center for Television and Radio Training. I gather you’re connected with that.</li><li><b>Wildlife park representative:</b> Yes, it’s our sister’s company. (Q7) If you’ve always dreamed of being a radio presenter, we offer you the opportunity to take the first steps.</li></ul><p><b>Conversation 3:</b></p><ul><li><b>Man:</b> Hello?</li><li><b>Woman:</b> Hi. It’s Laura Carlton here. We’ve just arrived at the holiday flat, but I can’t get the hot water and heating to work.</li><li><b>Man:</b> Oh right! That’s easy. Don’t worry. In the upstairs cupboard, you’ll find the water heater. (Q9) You’ll see three main controls on the left at the bottom of the heater. The first one – the round one on the far left – is the most important one for the heating and hot water. It’s the main control switch. Make sure it’s in the ‘on’ position. The switch itself doesn’t light up, but the little square below will be black if (Q10) the switch is ‘off’. That’s probably what’s happened – it’s got switched off by mistake. The middle one of these three controls – you’ll see it’s slightly larger than the first one – controls the radiators. If you feel cold while you’re there and need the radiators on, this needs to be turned to maximum. The last of the three controls – the one on the right – is usually on about a number four setting which for the water in the taps is usually quite hot enough. Below the heating controls in the middle is a small round plastic button. If there isn’t enough water in the pipes, (Q11) sometimes the heater goes out. If this happens you’ll need to press this button to reset the heater. Hold it in for about five seconds and the heater should come on again. Then there’s a little square indicator under the third knob that’s a kind of alarm light. It’ll flash if you need to reset the heater.</li><li><b>Woman:</b> (Q12) It sounds complicated</li><li><b>Man:</b> I’m sure you won’t have any problem with it. There should be some more instructions on the side of the heater. Call me back if you can’t make it work.</li><li><b>Woman:</b> Okay</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "When was the center first opened?",
+              "options": [
+                "three years ago",
+                "three weeks ago",
+                "two months ago",
+                "two weeks ago"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "How can you get to the center?",
+              "options": [
+                "by car and taxi",
+                "by train and taxi",
+                "by car, taxi and train",
+                "by car, train and coach"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What time do the shops close on Saturday?",
+              "options": [
+                "9:00 am",
+                "10:00 am",
+                "8:00 pm",
+                "9:00 pm"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What should people do before shopping in the center?",
+              "options": [
+                "collect money from the bank",
+                "Watch a movie",
+                "Rest by the lake",
+                "Buy a map"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why did Serengeti lions die?",
+              "options": [
+                "attacked by domestic dogs",
+                "infected with a disease from domestic dogs",
+                "killed by other wild animals",
+                "sent to villages"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What events are NOT organized in the park?",
+              "options": [
+                "product introduction",
+                "charity events",
+                "family camping",
+                "barbecue"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "You can try this when coming to the park",
+              "options": [
+                "introducing programs on the radio",
+                "deliver discounted tickets",
+                "organize competition",
+                "host an event"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Which one is not a programme of the park?",
+              "options": [
+                "Project Life Lion",
+                "Atlantic Rainforest Project",
+                "Discounted Tickets",
+                "None of the above"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "How many main controls are there on the heater?",
+              "options": [
+                "two",
+                "three",
+                "four",
+                "none"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "What is the reason for the problem of the heater?",
+              "options": [
+                "the switch doesn't light up",
+                "the little square is black",
+                "the switch is off",
+                "the switch is on"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "When does the woman have to restart the heater?",
+              "options": [
+                "when there isn't enough water",
+                "when the water is too hot",
+                "when the heater is switched off",
+                "when there is no light"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "How does the woman feel after listening to the instruction?",
+              "options": [
+                "confused",
+                "motivated",
+                "interested",
+                "encouraged"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> You will hear three different talks or lectures. In each talk or lecture there are five questions. For each question, choose the correct answer A, B, C or D. You will hear the talks or lectures only once.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-10/part1-3.mp3"
+          },
+          "tapescript": "<p><b>Talk 1:</b></p><p>Right, everyone- about the trip to the Jubilee Arts Centre next Wednesday. As you know, we have tickets for the Centre’s two theatres and the concert hall. Those of you with concert tickets will hear piano music by Chopin and Schumann. Those with tickets for the main theatre will see Shakespeare’s Twelfth Night, while people going to the smaller theatre will see The Wild Duck by Ibsen. Although all the theatre and concert tickets have gone, if anyone else would like to join us on the trip I can get tickets for the Arts Centre cinema to see the Australian comedy film, Spider and Rose.</p><p>The shows begin at half past seven, but we’ll leave early so you can spend time looking around the Arts Centre. The coach will leave here at 3:30 and arrive at the Arts Centre at about a quarter to five. Let me tell you what you can do there.</p><p>The Centre has a lot of art- lovers. In the Art Gallery there’s an exhibition of the history of Russian ballet. It has dresses and shoes worn by famous dancers and photos of past performances. With your student card, you can get in very cheaply. There are also some interesting free exhibitions. On the ground floor you can see prize- winning paintings from children’s competition, and gold jewellery made by Scottish artists. On the first floor there’s an exhibition of South American photographs, and there’s no charge for that either.</p><p>I know some of you hope to do some shopping. The Centre has a bookshop on the first floor and there’s a souvenir shop by the ticket office. If you’re more interested in clothes and shoes there’s a large shopping centre five minutes’ walk from the Arts Centre.</p><p>You’ll probably want to eat before the show. The Balcony Restaurant has a menu with a wide range of meals and waiter service, but it is rather expensive. Or there’s the Fountain Restaurant whose special three- course dinner is good value for money. There’s also Charlie’s coffee bar which serves coffee, sandwiches and cakes. You can get fruit juices and ice cream from the cinema kiosk.</p><p>After the shows the coach will pick us up at the Bridge Street exit. Everyone should be there by twenty past ten. The two plays will finish at around 10.10 or 10.15. I’m afraid concert- goers will have to wait, as the concert finishes earlier, at ten to ten.</p><p><b>Talk 2:</b></p><p>Announcer: And now for a few tips of you who are going to go walking this summer. Let’s look first of all at the type of bag that you should take with you. Rod Smith works in a shop that sells camping equipment and he feels he has a bag for every type of walking holiday. Rod, does it really make a difference what type of bag you use?</p><p>Rod: Yes, Jill, it certainly does. Bags come in every shape, colour and size now so it makes sense to pick one that is right for your needs. A backpack, for example, could quite rapidly ruin an otherwise good walking holiday if it doesn’t fit your back. In fact the fit is critical but the choice is so large now that it’s difficult to know how to make the right one. So- here are a few things to look for.</p><p>First of all size. A bag that holds thirty- five litres and has three outside pockets should be plenty big enough for a day- trip. For a four to five- day walking tour I would recommend a bag that holds seventy litres for a man and fifty to sixty litres for a woman. That’s along with a tent and a sleeping bag. An upright bag- that’s one that closes at the top- is better if you intend to climb a lot of hills.</p><p>What about the contents? Well, in order to really avoid the inconvenience of broken containers or crushed clothes, I suggest you go for a bag with a solid bottom. The best ones- but these are probably the most expensive have a leather base that is particularly resistant to wear and tear. A bag that has two compartments inside will allow you to find things more easily and separate out items such as creams that could leak in hot weather. Extra pockets on the outside of the bag are also useful if you want to carry any tools for climbing that are sharp or get dirty when you use them.</p><p>When you have to think about carrying your bag. If it’s a backpack, a wide cushioned belt will ease the strain on your back and hops and leave you with more energy for your walking activities. Shoulder straps also help lighten the load and these should be easy to adjust. There are many different types of strap on the market that can be adjusted in various different ways. Try several and compare them. It’s also a good idea to make sure there’s a horizontal bar that goes across your shoulders and stops the straps from falling off.</p><p>Well, if you choose your bag carefully and think about some of the things I’ve mentioned, you shouldn’t waste your money. Finally, make sure there are plenty of air holes in the padded part of your bag that touches your body. These are essential to allow sweat to escape and to make your walking or climbing holiday a comfortable one.</p><p><b>Talk 3:</b></p><p>Thank you all for coming to my talk this evening. It’s nice to see so many people in the audience. For those of you who don’t know very much about PS Camping let me start by giving some background information about the company.</p><p>The company started twenty-five years ago. It actually opened as a retail chain selling camping equipment, and then twenty years ago, it bought a small number of campsites in the UK, and began offering camping holidays. The company grew rapidly and has been providing holidays in continental Europe for the last fifteen years.</p><p>If you book a camping holiday with us, you’ll have a choice of over 300 sites. In Italy we now have some 64 sites that we either own, or have exclusive use of. France is where we have the majority of sites, and we currently have a project to expand into Switzerland. We also have a number of sites in northern Spain, particularly in the mountainous region of Picos de Europa. We’ve upgraded all these Spanish sites, and improved them considerably from their original three-star rating.</p><p>We believe holidays after superb facilities for the whole family. Parents who want their children to be fully occupied for all or part of the day can take advantage of our children’s activities. These are organized by our well-qualified and enthusiastic staff. Each day kicks off with a sports match, perhaps football, or volleyball, followed by an hour of drama for everyone. This may include singing or dancing, mime or other activities. In the afternoon, there’s a different art activity for each day of the week including a poster competition or modal making. What’s more, our sites are truly child-friendly, and, with this in mind, we operate a no-noise rule in the evenings. Children’s evening activities usually finished at 9:30, or occasionally 10, and from 10:30 holiday-makers are expected to be quiet in the areas where there are tents.</p><p>We want nothing to go wrong on a PS Camping holiday, but if it does, we also want all customers to be insured. If you haven’t organized an annual insurance policy of your own you’ll need to take out the low-cost cover we offer and we require that you arrange this when you make your holiday reservation.</p><p>There are many advantages to choosing PS Camping, and to recommending it to others. As a regular customer, you’ll be kept informed of special offers, and your friends can benefit from ten percent off their holidays, or book a luxury tent for the price of a standard one. In return, we’ll send you a thank-you present, which you can choose from a list of high-quality items.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "There are still tickets for .........",
+              "options": [
+                "The piano concert",
+                "The movie",
+                "Twelfth Night",
+                "Spider and Rose"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "The coach will leave at 3.30 because ..............",
+              "options": [
+                "It's the earliest",
+                "They don't want to miss the shows",
+                "They want free time at the Arts Centre",
+                "It's long journey to the Arts Centre"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "You have to pay to see ..................",
+              "options": [
+                "The Russian ballet exhibition",
+                "The shoes store",
+                "The Scottish jewellery",
+                "The South American photographs"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "You can buy clothes ..............",
+              "options": [
+                "On the first floor",
+                "On the second floor",
+                "In the souvenir shop",
+                "Close to the Arts Centre"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "If you want a snack and a hot drink, try .......................",
+              "options": [
+                "The nearby café",
+                "The fountain",
+                "Charlie's",
+                "The cinema kiosk"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Rod’s shop sells bags and ...............",
+              "options": [
+                "Camping equipment",
+                "Hiking clothes",
+                "Walking holiday stuffs",
+                "No information"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "A 35- litre bag is good for .............................",
+              "options": [
+                "a day trip",
+                "four day trip",
+                "five day trip",
+                "six day trip"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "The bag that allows you to separate your belongings .......................",
+              "options": [
+                "One with a solid bottom",
+                "One has a leather base",
+                "One has two compartments inside",
+                "One has pockets bags outside"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "It's important that shoulder straps are .......................",
+              "options": [
+                "Light",
+                "Flexible",
+                "Fashionable",
+                "Strong"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "Another essential part of the bags includes .......................",
+              "options": [
+                "Straps",
+                "Air holes",
+                "Sweat absorption",
+                "Cooler tool"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "PS Camping has been organising holidays for .......................",
+              "options": [
+                "15 years",
+                "20 years",
+                "25 years",
+                "30 years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "The company has most camping sites in ...............",
+              "options": [
+                "France",
+                "Italy",
+                "Europe",
+                "Switzerland"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Which organized activity can children do every day of the week?",
+              "options": [
+                "Singing and dancing",
+                "Football",
+                "Drama",
+                "Model making"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "Some areas of the sites have a “no- noise” rule after .......",
+              "options": [
+                "9.30 pm",
+                "10.00 pm",
+                "10.30 pm",
+                "11.30 pm"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "Customers who recommend PS Camping to friends will receive ......",
+              "options": [
+                "a free gift",
+                "an upgrade to a luxury tent",
+                "a discount",
+                "an insurance"
+              ],
+              "answer": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

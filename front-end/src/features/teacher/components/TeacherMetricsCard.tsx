@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Col, Row, Skeleton, Statistic } from 'antd';
-import { BookOutlined, TeamOutlined } from '@ant-design/icons';
+import { Card, Col, Row, Skeleton, Statistic } from '@/components/ui/Primitives';
+import { BookOutlined, TeamOutlined } from '@/components/ui/Icons';
 import styles from '@/features/teacher/components/TeacherMetricsCard.module.css';
 import { TeacherMetricsCardProps } from '@/features/teacher/types/TeacherMetricsCardProps';
 

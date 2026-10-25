@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-63",
+  "title": "Luyện Đọc VSTEP: Reading Part 2 - Test 08 (Reading Part 2 - Test 08)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 2 - Test 08",
+            "text": "<p style=\"text-align:justify;\">The rise of automation and artificial intelligence is transforming the workplace at an <strong>unprecedented</strong> pace. While technological advancement has always changed the nature of work, the current wave of automation is particularly significant because it affects not only manual labor but also cognitive tasks that were once thought to require uniquely human intelligence. This transformation raises important questions about the future of employment and how society will adapt.</p>\n\n<p style=\"text-align:justify;\">Proponents of automation argue that technology will create more opportunities than it destroys. They point to historical precedent: when agricultural mechanization reduced farm labor needs, workers transitioned to manufacturing jobs; when manufacturing automated, the service sector expanded. Today's automation may similarly create new types of jobs that we cannot yet imagine. Furthermore, automation can eliminate dangerous, repetitive, or physically demanding work, allowing humans to focus on more creative and meaningful tasks. <strong>This</strong> shift could lead to improved job satisfaction and better quality of life for workers.</p>\n\n<p style=\"text-align:justify;\">However, critics express serious concerns about the pace and scale of current automation. Unlike previous technological transitions, which occurred over decades, today's changes are happening much faster, potentially leaving workers insufficient time to <strong>retrain</strong> for new roles. Some jobs, particularly in transportation, manufacturing, and data processing, face high risk of automation in the near future. Moreover, the new jobs created by technology often require advanced technical skills, potentially excluding workers without access to quality education and training. This could <strong>exacerbate</strong> income inequality, with highly skilled workers benefiting while others struggle to find employment.</p>\n\n<p style=\"text-align:justify;\">Experts suggest that preparing for this future requires a multifaceted approach. Education systems need to emphasize skills that complement rather than compete with automation, such as creativity, critical thinking, emotional intelligence, and complex problem-solving. Governments and businesses should invest in retraining programs to help displaced workers transition to new careers. Some economists have even proposed universal basic income as a way to provide economic security in an increasingly automated economy. Whatever solutions emerge, it is clear that society must actively shape how automation affects work rather than simply accepting technological change as inevitable. The goal should be to harness automation's benefits while ensuring that the transition is equitable and that no segment of society is left behind.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r63-q1",
+              "type": "mcq",
+              "question": "What is the main topic of this passage?",
+              "options": [
+                "The history of agricultural mechanization",
+                "How automation is changing work and its implications",
+                "Why automation should be stopped",
+                "The benefits of manual labor"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r63-q2",
+              "type": "mcq",
+              "question": "The word \"unprecedented\" in paragraph 1 is closest in meaning to ____.",
+              "options": [
+                "slow and gradual",
+                "never seen before",
+                "commonly occurring",
+                "unimportant and minor"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r63-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, what is an argument in favor of automation?",
+              "options": [
+                "It will eliminate all jobs",
+                "It creates opportunities and improves work quality",
+                "It only affects manufacturing",
+                "It prevents technological progress"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r63-q4",
+              "type": "mcq",
+              "question": "The word \"This\" in paragraph 2 refers to ____.",
+              "options": [
+                "historical precedent",
+                "the service sector",
+                "the shift from repetitive to creative work",
+                "dangerous work"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r63-q5",
+              "type": "mcq",
+              "question": "What concern do critics have about current automation?",
+              "options": [
+                "It is happening too slowly",
+                "It is changing too rapidly for workers to adapt",
+                "It doesn't affect enough industries",
+                "It is too expensive"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r63-q6",
+              "type": "mcq",
+              "question": "The word \"retrain\" in paragraph 3 most likely means ____.",
+              "options": [
+                "return to previous jobs",
+                "learn new skills for different work",
+                "quit working completely",
+                "teach others"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r63-q7",
+              "type": "mcq",
+              "question": "The word \"exacerbate\" in paragraph 3 is closest in meaning to ____.",
+              "options": [
+                "improve or reduce",
+                "worsen or intensify",
+                "maintain or preserve",
+                "measure or calculate"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r63-q8",
+              "type": "mcq",
+              "question": "According to paragraph 4, what skills should education emphasize?",
+              "options": [
+                "Skills that machines can do better",
+                "Only technical programming skills",
+                "Skills that complement automation like creativity",
+                "Traditional manufacturing skills"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r63-q9",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that the author believes ____.",
+              "options": [
+                "automation is entirely negative",
+                "society should actively manage automation's impact",
+                "technological change cannot be controlled",
+                "all workers will easily adapt"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r63-q10",
+              "type": "mcq",
+              "question": "The author's overall tone regarding automation is ____.",
+              "options": [
+                "extremely optimistic",
+                "completely pessimistic",
+                "balanced and thoughtful",
+                "indifferent and uncaring"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,621 @@
+{
+  "id": "vstep-listening-ets-04",
+  "title": "VSTEP B1, B2, C1 Listening - Full Test 004 (EnglishTestStore Practice)",
+  "duration": 40,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimit": 40,
+      "totalQuestions": 31,
+      "tasks": [
+        {
+          "id": "ets-l04-task-1",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 1 to 1.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q01",
+              "type": "mcq",
+              "question": "Why is Regent's Department Store having such a big sale?",
+              "options": [
+                "They are overstocked.",
+                "It is their anniversary.",
+                "It is going out of business.",
+                "Every Christmas they have a sale."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 1",
+              "orderNumber": 1
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-2",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 2 to 2.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q02",
+              "type": "mcq",
+              "question": "Why would someone choose to call Love Line?",
+              "options": [
+                "They are getting married soon.",
+                "They have the extra time to spare.",
+                "They are lonely and want to fall in love.",
+                "They are bored with the women they know."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 2",
+              "orderNumber": 2
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-3",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 3 to 3.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q03",
+              "type": "mcq",
+              "question": "How much petrol does the woman want?",
+              "options": [
+                "13 litres",
+                "30 litres",
+                "33 litres",
+                "15 litres"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 3",
+              "orderNumber": 3
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-4",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 4 to 4.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q04",
+              "type": "mcq",
+              "question": "Why is this speaker talking about the Boy Scouts?",
+              "options": [
+                "It is the anniversary of when they started.",
+                "The Boy Scouts are all over the world.",
+                "Over 100 countries are represented.",
+                "The Scouts teach valuable skills."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 4",
+              "orderNumber": 4
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-5",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 5 to 5.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q05",
+              "type": "mcq",
+              "question": "Where’s the sport centre?",
+              "options": [
+                "It’s the second on the left.",
+                "It’s opposite the bank,",
+                "It’s the first on the right.",
+                "It’s near the bank."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 5",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-6",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 6 to 6.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q06",
+              "type": "mcq",
+              "question": "When did the speaker become interested in dolphins?",
+              "options": [
+                "When he was twenty years old.",
+                "When he was a child.",
+                "When he danced with a dolphin.",
+                "He has made it his life work."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 6",
+              "orderNumber": 6
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-7",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 7 to 7.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q07",
+              "type": "mcq",
+              "question": "When would this talk be heard?",
+              "options": [
+                "At the beginning of the program",
+                "At the end of the program",
+                "At the start of a speech on crime.",
+                "To warn people about criminals."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 7",
+              "orderNumber": 7
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-8",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 8 to 8.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q08",
+              "type": "mcq",
+              "question": "What was the weather like on Emma’s holiday?",
+              "options": [
+                "It’s hot.",
+                "It’s sunny.",
+                "It’s wet.",
+                "It’s windy."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 8",
+              "orderNumber": 8
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-9",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 9 to 12.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q09",
+              "type": "mcq",
+              "question": "Why did Linda like her first boss?",
+              "options": [
+                "Paid her well",
+                "Was kind to her",
+                "Sent her on a training course",
+                "Mad her become confident"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-l04-q10",
+              "type": "mcq",
+              "question": "What did Linda enjoy about working in the shop?",
+              "options": [
+                "Eating the cakes",
+                "The smell of baking",
+                "The clean workplace",
+                "Friendly co-workers"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-l04-q11",
+              "type": "mcq",
+              "question": "In the shop, what did Linda help with?",
+              "options": [
+                "Baking bread",
+                "Displaying cakes",
+                "Making sandwiches",
+                "Creating new bread recipes"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-l04-q12",
+              "type": "mcq",
+              "question": "What does Linda say about the full-time shop assistants?",
+              "options": [
+                "Were friendly to her",
+                "Hadn’t got the same skills as her",
+                "Helped her a lot with her work",
+                "Didn’t work as hard as her"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 9",
+              "orderNumber": 12
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-10",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 13 to 16.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q13",
+              "type": "mcq",
+              "question": "What is the problem?",
+              "options": [
+                "The woman does not know how to get to the man's office.",
+                "The copy machine is not working properly.",
+                "The man is late for his appointment.",
+                "The woman can't go to the office today."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-l04-q14",
+              "type": "mcq",
+              "question": "Who most likely is the man?",
+              "options": [
+                "An auto mechanic",
+                "A photocopier technician",
+                "A new assistant",
+                "A coffee shop owner"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-l04-q15",
+              "type": "mcq",
+              "question": "What does the man ask the woman to do?",
+              "options": [
+                "To have a clinic check-up",
+                "To turn off the machine",
+                "To check the inside paper jam",
+                "To call another technician"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 15
+            },
+            {
+              "id": "ets-l04-q16",
+              "type": "mcq",
+              "question": "When will the man most likely get to the woman’s office?",
+              "options": [
+                "In the morning",
+                "During lunch",
+                "In the afternoon",
+                "In the evening"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 10",
+              "orderNumber": 16
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-11",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 17 to 19.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q17",
+              "type": "mcq",
+              "question": "What is the topic of the conversation?",
+              "options": [
+                "Using the student recreation center",
+                "Playing basketball",
+                "Included tuition fees",
+                "Lost ID cards"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-l04-q18",
+              "type": "mcq",
+              "question": "What does the woman decide to do?",
+              "options": [
+                "Buy an ID card",
+                "Go to the gym with the man",
+                "Play basketball in the park",
+                "Study in the library"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-l04-q19",
+              "type": "mcq",
+              "question": "What does the woman need to use the gym?",
+              "options": [
+                "A basketball",
+                "Proper shoes",
+                "A student ID card",
+                "A swimming pool"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 11",
+              "orderNumber": 19
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-12",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 20 to 23.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q20",
+              "type": "mcq",
+              "question": "What is the talk mainly about?",
+              "options": [
+                "The types of instruments used in bebop music.",
+                "The social setting in which bebop music developed.",
+                "How two styles of jazz music influenced each other",
+                "The influence of bebop music on the United States economy during the 1940’s."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-l04-q21",
+              "type": "mcq",
+              "question": "How did debug bands avoid the performance tax?",
+              "options": [
+                "They didn’t use singers.",
+                "They gave free concerts.",
+                "They performed in small nightclubs.",
+                "They shortened the length of their performances."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-l04-q22",
+              "type": "mcq",
+              "question": "Why does the professor mention the decline of the United States economy during the Great Depression?",
+              "options": [
+                "To discuss one way it impacted jazz music.",
+                "To explain why the government reduced some taxes.",
+                "To describe a common theme in jazz music.",
+                "To discuss the popularity of certain jazz bands."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-l04-q23",
+              "type": "mcq",
+              "question": "What does the professor describe as a significant characteristic of Bebop music?",
+              "options": [
+                "The music contained strong political messages.",
+                "The music had a steady beat that people could dance to.",
+                "The music included sad melodies.",
+                "The music contained irregular types of rhythms."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 12",
+              "orderNumber": 23
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-13",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 24 to 27.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q24",
+              "type": "mcq",
+              "question": "What is the talk mainly about?",
+              "options": [
+                "A comparison of fish to warm-blooded animals.",
+                "The difference between saltwater and freshwater environments.",
+                "The importance of fish to human beings.",
+                "How water has affected the development of fish."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-l04-q25",
+              "type": "mcq",
+              "question": "What does the speaker mention as a problem that water presents to face?",
+              "options": [
+                "It can't be compressed.",
+                "It is often polluted.",
+                "Its temperature often fluctuates dramatically.",
+                "It limits their size."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-l04-q26",
+              "type": "mcq",
+              "question": "The speaker compares a fish's movement with that of what creature?",
+              "options": [
+                "A whale.",
+                "A human.",
+                "A snake.",
+                "A snail."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 26
+            },
+            {
+              "id": "ets-l04-q27",
+              "type": "mcq",
+              "question": "What aspect of a fish does the speaker discuss in the most detailed.",
+              "options": [
+                "Its skeleton.",
+                "Its shape.",
+                "Its senses.",
+                "Its body temperature."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 13",
+              "orderNumber": 27
+            }
+          ]
+        },
+        {
+          "id": "ets-l04-task-14",
+          "type": "listening_part",
+          "instructions": "Listen to the audio recording and answer questions 28 to 31.",
+          "media": {
+            "audio": "https://englishteststore.net/test/cert_test/vstep/listening/full/test04/data/audios/snd-133f044a1664a26b6b7916468982740476249bb5.mp3"
+          },
+          "questions": [
+            {
+              "id": "ets-l04-q28",
+              "type": "mcq",
+              "question": "What part of the museum flooded?",
+              "options": [
+                "The central gallery.",
+                "The storerooms.",
+                "The gift shop.",
+                "The furnace room."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-l04-q29",
+              "type": "mcq",
+              "question": "What was damaged?",
+              "options": [
+                "Several works of art.",
+                "The museum grounds.",
+                "Nineteen frescoes.",
+                "The foundation."
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 29
+            },
+            {
+              "id": "ets-l04-q30",
+              "type": "mcq",
+              "question": "What can not be restored?",
+              "options": [
+                "The store next door.",
+                "The central heating.",
+                "The main part of the museum.",
+                "A fresco."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-l04-q31",
+              "type": "mcq",
+              "question": "What did the director say about the cost of damages?",
+              "options": [
+                "They were more than the museum could afford.",
+                "They are covered by insurance.",
+                "They will cause a rise in admission prices.",
+                "They are not known yet."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Part 14",
+              "orderNumber": 31
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

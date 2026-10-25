@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-53",
+  "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 08 (Reading Part 1 - Test 08)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 1 - Test 08",
+            "text": "<p><strong>📱 TEXT MESSAGE A - From: Mom (2:15 PM)</strong></p>\n<p style=\"text-align:justify;\">Hi honey! Running late due to <strong>unexpected</strong> traffic. Can you start dinner? There's chicken in the fridge - just <strong>defrost</strong> it in the microwave. I should be home around 6. Love you!</p>\n</div>\n\n<div style=\"background: #f3e5f5; padding: 12px; margin: 15px 0; border-radius: 8px;\">\n<p><strong>💬 SOCIAL MEDIA POST B - @FitnessGuru (May 7)</strong></p>\n<p style=\"text-align:justify;\">Day 30 of my fitness challenge! Feeling <strong>accomplished</strong> and stronger than ever. Remember: progress is <strong>gradual</strong> - don't expect <strong>instant</strong> results. Stay <strong>consistent</strong> and the results will come! #FitnessJourney</p>\n</div>\n\n<div style=\"background: #e0f2f1; padding: 12px; margin: 15px 0; border-radius: 8px;\">\n<p><strong>📧 EMAIL C - Community Garden Meeting</strong></p>\n<p style=\"text-align:justify;\">The meeting scheduled for Saturday has been <strong>postponed</strong> to next week. Heavy rain is <strong>predicted</strong> and our outdoor venue won't be suitable. We'll <strong>notify</strong> you of the new date soon.</p>\n</div>\n\n<div style=\"background: #fff9e6; padding: 12px; margin: 15px 0; border-radius: 8px;\">\n<p><strong>💼 WORK SLACK MESSAGE D - From: Alex (4:30 PM)</strong></p>\n<p style=\"text-align:justify;\">Great job on the presentation today! Your explanation was very <strong>clear</strong> and <strong>concise</strong>. The client seemed <strong>impressed</strong>. I think we have a good chance of securing this contract!</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r53-q1",
+              "type": "mcq",
+              "question": "In TEXT A, what does \"unexpected\" mean?",
+              "options": [
+                "planned and scheduled",
+                "not anticipated or foreseen",
+                "normal",
+                "pleasant"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r53-q2",
+              "type": "mcq",
+              "question": "The word \"defrost\" in TEXT A means?",
+              "options": [
+                "freeze",
+                "thaw or remove ice from",
+                "cook",
+                "cut"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r53-q3",
+              "type": "mcq",
+              "question": "What does \"accomplished\" mean in TEXT B?",
+              "options": [
+                "tired and exhausted",
+                "having achieved something successfully",
+                "disappointed",
+                "confused"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r53-q4",
+              "type": "mcq",
+              "question": "The word \"gradual\" in TEXT B is closest in meaning to?",
+              "options": [
+                "sudden and immediate",
+                "happening slowly over time",
+                "fast",
+                "difficult"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r53-q5",
+              "type": "mcq",
+              "question": "What does \"instant\" mean in TEXT B?",
+              "options": [
+                "delayed",
+                "happening immediately",
+                "gradual",
+                "impossible"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r53-q6",
+              "type": "mcq",
+              "question": "The word \"consistent\" in TEXT B means?",
+              "options": [
+                "irregular and unpredictable",
+                "acting the same way over time",
+                "lazy",
+                "aggressive"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r53-q7",
+              "type": "mcq",
+              "question": "In TEXT C, what does \"postponed\" mean?",
+              "options": [
+                "cancelled permanently",
+                "rescheduled to a later time",
+                "moved to an earlier time",
+                "confirmed"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r53-q8",
+              "type": "mcq",
+              "question": "The word \"predicted\" in TEXT C is closest in meaning to?",
+              "options": [
+                "prevented",
+                "forecasted or expected",
+                "ignored",
+                "stopped"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r53-q9",
+              "type": "mcq",
+              "question": "What does \"notify\" mean in TEXT C?",
+              "options": [
+                "hide information",
+                "inform or tell",
+                "forget",
+                "question"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r53-q10",
+              "type": "mcq",
+              "question": "The word \"concise\" in TEXT D means?",
+              "options": [
+                "long and detailed",
+                "brief and to the point",
+                "confusing",
+                "boring"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

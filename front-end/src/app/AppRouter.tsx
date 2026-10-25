@@ -1,125 +1,157 @@
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { UserRole } from '@/types/enums/UserRole';
+import React, { Suspense, lazy, useMemo } from 'react';
+import {
+  Navigate,
+  Outlet,
+  Route,
+  Routes,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
+import AdminLayout from '@/app/admin/layout';
+import RootLandingPage from '@/app/page';
 import { RouteLoadingFallback } from '@/components/common/RouteLoadingFallback';
-import { AppShellLayout } from '@/components/layout/AppShellLayout';
-import { ProtectedRoute } from '@/features/auth/ProtectedRoute';
-import { RoleRouteGuard } from '@/features/auth/components/RoleRouteGuard';
 
-// Lazy-loaded route views for optimized code splitting and low initial bundle size
-const AuthPage = lazy(() =>
-  import('@/features/auth/AuthPage').then((m) => ({ default: m.AuthPage })),
-);
-const GoogleCallbackView = lazy(() =>
-  import('@/features/auth/GoogleCallbackView').then((m) => ({ default: m.GoogleCallbackView })),
-);
-const AuthCompleteView = lazy(() =>
-  import('@/features/auth/AuthCompleteView').then((m) => ({ default: m.AuthCompleteView })),
-);
-const RoadmapDashboard = lazy(() =>
-  import('@/features/roadmap/RoadmapDashboard').then((m) => ({ default: m.RoadmapDashboard })),
-);
-const VocabStudyView = lazy(() =>
-  import('@/features/vocab/VocabStudyView').then((m) => ({ default: m.VocabStudyView })),
-);
-const GrammarHubView = lazy(() =>
-  import('@/features/grammar/GrammarHubView').then((m) => ({ default: m.GrammarHubView })),
-);
-const ReadingRoomView = lazy(() =>
-  import('@/features/reading/ReadingRoomView').then((m) => ({ default: m.ReadingRoomView })),
-);
-const DictionaryLookupView = lazy(() =>
-  import('@/features/dictionary/DictionaryLookupView').then((m) => ({
-    default: m.DictionaryLookupView,
-  })),
-);
-const ToeicArenaView = lazy(() =>
-  import('@/features/toeic/ToeicArenaView').then((m) => ({ default: m.ToeicArenaView })),
-);
-const VstepSimulatorView = lazy(() =>
-  import('@/features/exam-vstep/VstepSimulatorView').then((m) => ({
-    default: m.VstepSimulatorView,
-  })),
-);
-const AiCoachView = lazy(() =>
-  import('@/features/ai-coach/AiCoachView').then((m) => ({ default: m.AiCoachView })),
-);
-const SpeakingFoundationView = lazy(() =>
-  import('@/features/speaking-foundation/SpeakingFoundationView').then((m) => ({
-    default: m.SpeakingFoundationView,
-  })),
-);
-const ChallengeCommitmentView = lazy(() =>
-  import('@/features/challenges/ChallengeCommitmentView').then((m) => ({
-    default: m.ChallengeCommitmentView,
-  })),
-);
-const SocialLeaderboardView = lazy(() =>
-  import('@/features/social/SocialLeaderboardView').then((m) => ({
-    default: m.SocialLeaderboardView,
-  })),
-);
-const BillingPlansView = lazy(() =>
-  import('@/features/billing/BillingPlansView').then((m) => ({ default: m.BillingPlansView })),
-);
-const TeacherWorkspaceView = lazy(() =>
-  import('@/features/teacher/TeacherWorkspaceView').then((m) => ({
-    default: m.TeacherWorkspaceView,
-  })),
-);
-const AdminSystemView = lazy(() =>
-  import('@/features/admin/AdminSystemView').then((m) => ({ default: m.AdminSystemView })),
+type PageModule = {
+  default: React.ComponentType<any>;
+};
+
+// Auto-discovers all 99 page.tsx routes ported from /src/app
+const PAGE_MODULES = import.meta.glob<PageModule>('./**/page.tsx');
+
+// Creates a React 19 compatible pre-fulfilled Thenable Promise so pages calling
+// React.use(params) resolve synchronously on the client without suspending.
+function createFulfilledPromise<T>(value: T): Promise<T> {
+  const p = Promise.resolve(value) as Promise<T> & {
+    status?: string;
+    value?: T;
+  };
+  p.status = 'fulfilled';
+  p.value = value;
+  return p;
+}
+
+// Converts a Next.js App Router relative path (./journey/checkpoint/[unitId]/page.tsx)
+// into a React Router v7 path (/journey/checkpoint/:unitId).
+function toRouterPath(globKey: string): string {
+  const stripped = globKey
+    .replace(/^\.\//, '')
+    .replace(/(^|\/)page\.tsx$/, '');
+  if (!stripped) return '/';
+  const segments = stripped.split('/').map((seg) => {
+    const match = seg.match(/^\[([^\]]+)\]$/);
+    return match ? `:${match[1]}` : seg;
+  });
+  return `/${segments.join('/')}`;
+}
+
+interface DiscoveredRoute {
+  path: string;
+  isAdmin: boolean;
+  Component: React.ComponentType<any>;
+}
+
+const DISCOVERED_ROUTES: DiscoveredRoute[] = Object.entries(PAGE_MODULES).map(
+  ([globKey, loader]) => {
+    const path = toRouterPath(globKey);
+    return {
+      path,
+      isAdmin: path === '/admin' || path.startsWith('/admin/'),
+      Component: path === '/' ? RootLandingPage : lazy(loader),
+    };
+  },
 );
 
-/** Roles allowed into the teacher portal. */
-const TEACHER_ROLES: readonly UserRole[] = [UserRole.Teacher, UserRole.Admin];
+if (!DISCOVERED_ROUTES.some((r) => r.path === '/')) {
+  DISCOVERED_ROUTES.unshift({
+    path: '/',
+    isAdmin: false,
+    Component: RootLandingPage,
+  });
+}
 
-/** Roles allowed into the admin console. */
-const ADMIN_ROLES: readonly UserRole[] = [UserRole.Admin];
+const ADMIN_ROUTES = DISCOVERED_ROUTES.filter((r) => r.isAdmin);
+const STANDARD_ROUTES = DISCOVERED_ROUTES.filter((r) => !r.isAdmin);
 
-/**
- * Declarative React Router v7 tree mapping all authenticated LingoPro SPA modules.
- * Incorporates React.lazy and Suspense for optimized chunk splitting.
- */
+const PageEntryWrapper: React.FC<{
+  Component: React.ComponentType<any>;
+}> = ({ Component }) => {
+  const rawParams = useParams();
+  const { search } = useLocation();
+
+  const paramsPromise = useMemo(() => {
+    const clean: Record<string, string> = {};
+    for (const [k, v] of Object.entries(rawParams)) {
+      if (v !== undefined) clean[k] = v;
+    }
+    return createFulfilledPromise(clean);
+  }, [rawParams]);
+
+  const searchParamsPromise = useMemo(() => {
+    const sp = new URLSearchParams(search);
+    const obj: Record<string, string> = {};
+    sp.forEach((v, k) => {
+      obj[k] = v;
+    });
+    return createFulfilledPromise(obj);
+  }, [search]);
+
+  return <Component params={paramsPromise} searchParams={searchParamsPromise} />;
+};
+
+const AdminLayoutOutlet: React.FC = () => (
+  <AdminLayout>
+    <Outlet />
+  </AdminLayout>
+);
+
 export const AppRouter: React.FC = () => {
   return (
-    <BrowserRouter>
-      <Suspense fallback={<RouteLoadingFallback />}>
-        <Routes>
-          <Route path="/auth" element={<Navigate to="/auth/login" replace />} />
-          <Route path="/auth/login" element={<AuthPage />} />
-          <Route path="/auth/register" element={<AuthPage />} />
-          <Route path="/auth/callback" element={<GoogleCallbackView />} />
-          <Route element={<ProtectedRoute />}>
-            <Route path="/app/complete" element={<AuthCompleteView />} />
-            <Route element={<AppShellLayout />}>
-              <Route path="/" element={<Navigate to="/app" replace />} />
-              <Route path="/app" element={<RoadmapDashboard />} />
-              <Route path="/student" element={<RoadmapDashboard />} />
-              <Route path="/app/vocab" element={<VocabStudyView />} />
-              <Route path="/app/grammar" element={<GrammarHubView />} />
-              <Route path="/app/reading" element={<ReadingRoomView />} />
-              <Route path="/app/dictionary" element={<DictionaryLookupView />} />
-              <Route path="/app/toeic" element={<ToeicArenaView />} />
-              <Route path="/app/vstep" element={<VstepSimulatorView />} />
-              <Route path="/app/ai-coach" element={<AiCoachView />} />
-              <Route path="/app/speaking-foundation" element={<SpeakingFoundationView />} />
-              <Route path="/app/challenges" element={<ChallengeCommitmentView />} />
-              <Route path="/app/social" element={<SocialLeaderboardView />} />
-              <Route path="/app/billing" element={<BillingPlansView />} />
-              <Route element={<RoleRouteGuard allowedRoles={TEACHER_ROLES} />}>
-                <Route path="/teacher" element={<TeacherWorkspaceView />} />
-                <Route path="/for-teacher" element={<TeacherWorkspaceView />} />
-                <Route path="/for-teachers" element={<TeacherWorkspaceView />} />
-              </Route>
-              <Route element={<RoleRouteGuard allowedRoles={ADMIN_ROLES} />}>
-                <Route path="/admin" element={<AdminSystemView />} />
-              </Route>
-              <Route path="*" element={<Navigate to="/app" replace />} />
-            </Route>
-          </Route>
-        </Routes>
-      </Suspense>
-    </BrowserRouter>
+    <Suspense fallback={<RouteLoadingFallback />}>
+      <Routes>
+        {/* Legacy route redirects from /src/app */}
+        <Route
+          path="/grammar/foundation"
+          element={<Navigate to="/grammar?level=A0" replace />}
+        />
+        <Route
+          path="/grammar/foundation/a1"
+          element={<Navigate to="/grammar?level=A1" replace />}
+        />
+        <Route path="/grammar/learn" element={<Navigate to="/grammar" replace />} />
+        <Route
+          path="/practice/reading"
+          element={<Navigate to="/practice/reading-library" replace />}
+        />
+        <Route path="/profile" element={<Navigate to="/student/profile" replace />} />
+        <Route path="/referral" element={<Navigate to="/student/referral" replace />} />
+        <Route
+          path="/student/stats"
+          element={<Navigate to="/student/profile#stats" replace />}
+        />
+
+        {/* Admin Portal Routes wrapped in /src/app/admin/layout.tsx */}
+        <Route element={<AdminLayoutOutlet />}>
+          {ADMIN_ROUTES.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={<PageEntryWrapper Component={route.Component} />}
+            />
+          ))}
+        </Route>
+
+        {/* All Student, Teacher, Exam, Practice, Dictionary, Auth & Public Routes */}
+        {STANDARD_ROUTES.map((route) => (
+          <Route
+            key={route.path}
+            path={route.path}
+            element={<PageEntryWrapper Component={route.Component} />}
+          />
+        ))}
+
+        {/* Fallback */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Suspense>
   );
 };

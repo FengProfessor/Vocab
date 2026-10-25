@@ -1,0 +1,640 @@
+{
+  "topicId": "6305d1d65948b5402da8373b",
+  "name": "Test 13",
+  "slug": "test-13",
+  "part": "part_4_short_talks",
+  "totalQuestions": 30,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6305fb3d5948b5402da837b7",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/68706117.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nPhillipe, this is Fred Reynolds in Marketing. I&rsquo;m calling regarding the work I&rsquo;m doing on the Simpson project. I&rsquo;m afraid I&rsquo;m going to require an extension. Instead of finishing the work on Friday as we had originally discussed, I&rsquo;d like to change the due date to next Wednesday. I apologize for requesting this change, but Tina Westerly, the head of my department, just assigned me to work with Dave Powers in Accounting on his project. Apparently, Dave is progressing slowly and is way behind schedule, and she wants it done no later than Thursday. Once we complete it, I can resume working on our project.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nPhillipe, đây là Fred Reynolds ở bộ phận Marketing. Tôi gọi điện để hỏi về công việc tôi đang làm trong dự án Simpson. Tôi e rằng sẽ phải gia hạn deadline. Thay vì hoàn thành công việc vào thứ Sáu như chúng ta đã thảo luận ban đầu, tôi muốn đổi sang thứ Tư tuần sau. Tôi xin lỗi vì đã yêu cầu thay đổi này, nhưng Tina Westerly, trưởng phòng của tôi, vừa bổ nhiệm tôi làm việc với Dave Powers ở phòng Kế toán trong dự án của anh ấy. Rõ ràng, dự án của Dave đang chậm tiến độ và có thể sẽ không thể hoàn thành kịp kế hoạch, vậy nên dự án này cần được hoàn thành xong trước thứ Năm. Sau khi hoàn thành dự án bên Dave, tôi sẽ tiếp tục quay lại thực hiện dự án của chúng ta.</p>",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837c1",
+          "questionText": "What is the purpose of the call?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To cancel plans to meet",
+            "(B) To request a later due date",
+            "(C) To ask for some help on a report",
+            "(D) To go over an ongoing project"
+          ],
+          "correctOptions": [
+            "(B) To request a later due date"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837c2",
+          "questionText": "Where most likely does Tina Westerly work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In the Sales Department",
+            "(B) In the Marketing Department",
+            "(C) In the Accounting Department",
+            "(D) In the Shipping Department"
+          ],
+          "correctOptions": [
+            "(B) In the Marketing Department"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837c3",
+          "questionText": "What does the speaker say he needs to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Transfer to another department .",
+            "(B) Attend a meeting with his boss",
+            "(C) Work faster on his own assignment",
+            "(D) Assist a colleague with a project"
+          ],
+          "correctOptions": [
+            "(D) Assist a colleague with a project"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305fb3d5948b5402da837b8",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/92656739.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nAre you tired of high prices and poor quality? Then you should visit West Side Auto Repairs. We&rsquo;ll provide you with the highest quality in auto care, but we won&#39;t overcharge you. In fact, our rates are much lower than those of our competitors. The mechanics here have several years of experience and are qualified to work on automobiles, trucks, motorcycles, and even buses. Before they make any repairs to your vehicle, they&#39;ll tell you exactly what needs to be done and how much it will cost. So come to West Side Auto Repairs for top-quality service. We&rsquo;re located at 899 Beacon street and never close.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Có phải các bạn đang cảm thấy mệt mỏi với các dịch vụ có giá thành cao mà chất lượng kém? Vậy hãy ghé thăm West Side Auto Repairs. Chúng tôi cung cấp dịch vụ chăm sóc ô tô chất lượng cao nhất với giá cả phải chăng. Trên thực tế, mức giá cho dịch vụ của chúng tôi hợp lý hơn nhiều so với các đối thủ cạnh tranh. Các thợ cơ khí của chúng tôi có nhiều năm kinh nghiệm và trình độ sửa chữa các loại ô tô, xe tải, xe máy và thậm chí cả xe buýt. Trước khi tiến hành sửa chữa bất kỳ phần nào cho xe của bạn, chúng tôi sẽ kiểm tra xe miễn phí và gửi báo giá chi tiết cho các bạn. Vì vậy hãy đến với West Side Auto Repairs để trải nghiệm dịch vụ chất lượng hàng đầu. Chúng tôi tọa lạc tại số 899 phố Beacon và mở cửa 24/24.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837c4",
+          "questionText": "What does the speaker say about the mechanics at West Side Auto Repairs?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They receive special training every year.",
+            "(B) They are only qualified to work on cars and trucks.",
+            "(C) They have been in the business a long time.",
+            "(D) They work in pairs on every vehicle they look at."
+          ],
+          "correctOptions": [
+            "(C) They have been in the business a long time."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837c5",
+          "questionText": "What will the mechanics do before working on a vehicle?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Ask the customer to sign a contract",
+            "(B) Explain why the work needs to be done",
+            "(C) Give the customer some repair options",
+            "(D) Mention the price of the work they will do"
+          ],
+          "correctOptions": [
+            "(D) Mention the price of the work they will do"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837c6",
+          "questionText": "What is indicated about West Side Auto Repairs?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is located in the suburbs.",
+            "(B) It has space for five vehicles.",
+            "(C) It specializes in motorcycles.",
+            "(D) It is open all year round."
+          ],
+          "correctOptions": [
+            "(D) It is open all year round."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305fb3d5948b5402da837b9",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/23493486.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nWe&rsquo;ve taken on more than 75 new employees in the past two months since we&rsquo;ve been expanding recently. Not everyone&rsquo;s working out well though. We&rsquo;ve been receiving complaints from other employees about the low quality of work several individuals are doing. So those of you here now have an additional duty. You need to work closely with the new employees in your department and act as mentors for them. Train them properly so that we can reduce the number of errors they&rsquo;re making. I&rsquo;d appreciate it if you would do that for me. otherwise, we&rsquo;ll be obligated to terminate some of them.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Chúng tôi đã tiếp nhận hơn 75 nhân viên mới trong hai tháng qua kể từ hoạt động mở rộng quy mô công ty gần đây. Tuy nhiên, không phải ai cũng làm việc tốt. Chúng tôi đã nhận được khiếu nại về việc một số cá nhân đang làm việc kém hiệu quả. Vì vậy, tất cả các bạn sẽ thêm một nhiệm vụ. Đó làm việc chặt chẽ với các nhân viên mới trong bộ phận của mình và đóng vai trò là người cố vấn cho họ. Hãy huấn luyện họ đúng cách để giảm số lỗi mà họ mắc phải. Tôi đánh giá cao sự đóng góp của các bạn. Nếu không thì chúng ta không còn cách nào khác ngoài việc chấm dứt hợp đồng với một số cá nhân.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837c7",
+          "questionText": "What is the speaker mainly discussing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The performance of some employees",
+            "(B) The need to hire more workers",
+            "(C) A training session that will be held",
+            "(D) How to reduce complaints from customers"
+          ],
+          "correctOptions": [
+            "(A) The performance of some employees"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837c8",
+          "questionText": "What does the speaker mean when she says, “I’d appreciate it if you would do that for me”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She wants the listeners to work harder at their jobs.",
+            "(B) She wants the listeners to assist some other employees.",
+            "(C) She wants the listeners to be politer to customers.",
+            "(D) She wants the listeners to do their duties much better."
+          ],
+          "correctOptions": [
+            "(B) She wants the listeners to assist some other employees."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837c9",
+          "questionText": "What does the speaker suggest may happen?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Some stores may be closed.",
+            "(B) The prices of services may increase.",
+            "(C) The orientation session may be canceled.",
+            "(D) Some individuals may lose their jobs."
+          ],
+          "correctOptions": [
+            "(D) Some individuals may lose their jobs."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305fb3d5948b5402da837ba",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/96432484.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nLadies and gentlemen, your attention, please. It has been brought to our attention that a black SUV has been parked right in front of the shop. This is a no-parking zone, and we request that the owner of the vehicle immediately move it. The vehicle&rsquo;s license plate is 595- M87. If the car is not moved within the next five minutes, we will call a tow truck, and the vehicle will be removed at the owner&rsquo;s expense. Once again, will the owner of the black SUV parked in front of the front doors please return to your vehicle and park it elsewhere? Thank you.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Thưa quý ông quý bà, xin hãy chú ý. Chúng tôi được biết rằng một chiếc SUV màu đen đang đậu ngay trước cửa hàng. Đây là khu vực cấm đỗ xe và chúng tôi yêu cầu chủ phương tiện di chuyển xe ngay lập tức. Biển số xe là 595-M87. Nếu chiếc xe không được di chuyển trong vòng năm phút nữa, chúng tôi sẽ gọi xe kéo đến kéo xe đi và chủ xe sẽ phải chi trả toàn bộ chi phí kéo xe này. Một lần nữa, xin chủ nhân của chiếc SUV màu đen đỗ trước cửa vui lòng quay lại xe của bạn và đậu ở nơi khác. Xin cảm ơn.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837ca",
+          "questionText": "Where most likely does this talk take place?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In a parking lot",
+            "(B) In an office",
+            "(C) At a park",
+            "(D) In a store"
+          ],
+          "correctOptions": [
+            "(D) In a store"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837cb",
+          "questionText": "What is the problem?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A car is in the wrong place.",
+            "(B) No parking spots are available.",
+            "(C) The front doors are locked.",
+            "(D) People cannot get out of the building."
+          ],
+          "correctOptions": [
+            "(A) A car is in the wrong place."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837cc",
+          "questionText": "What does the speaker request?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) That a fee be paid",
+            "(B) That a door be opened",
+            "(C) That a vehicle be moved",
+            "(D) That a person be quiet"
+          ],
+          "correctOptions": [
+            "(C) That a vehicle be moved"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305fb3d5948b5402da837bb",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/52990928.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nThe numbers for the month of July are in, and they&#39;re worse than expected. Revenues declined by more than 25%, and we posted a loss of nearly half a million dollars. That&rsquo;s the worst month we&rsquo;ve had in the past 6 years. The reason for this decline has to do with the negative response of consumers to our newest product line. It&rsquo;s widely considered user-unfriendly, and people think it&rsquo;s overpriced as well. That&rsquo;s having a negative effect on our other products because consumers are avoiding buying anything made by us. How about brainstorming on how to solve this problem right now?</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Các số liệu của tháng 7 đã được công khai và tình hình có vẻ tệ hơn dự kiến. Doanh thu giảm hơn 25% và chúng ta đã thua lỗ gần nửa triệu đô la. Đây là tháng tồi tệ nhất mà chúng ta đã trải qua trong vòng 6 năm qua. Nguyên nhân của sự sụt giảm này liên quan đến phản ứng tiêu cực của người tiêu dùng đối với dòng sản phẩm mới nhất của chúng ta. Nhiều người phản hồi rằng sản phẩm không thân thiện với người dùng và được định giá quá cao. Những phản hồi đó đồng thời cũng có tác động tiêu cực đến các sản phẩm khác vì người tiêu dùng đang hình thành tâm lý né tránh với tất cả các sản phẩm do chúng ta sản xuất. Tôi muốn các bạn đưa ra phương án giải quyết cho vấn đề này ngay bây giờ?</p>\n",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837cd",
+          "questionText": "What does the speaker mention about the company’s recent performance?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It earned half a million dollars.",
+            "(B) It released six new products.",
+            "(C) It had lower revenues than before.",
+            "(D) It had its best month in years."
+          ],
+          "correctOptions": [
+            "(C) It had lower revenues than before."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837ce",
+          "questionText": "How do customers feel about the new product line?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They believe it costs too much.",
+            "(B) They think it is easy to use.",
+            "(C) They have responded positively.",
+            "(D) They consider it poorly made."
+          ],
+          "correctOptions": [
+            "(A) They believe it costs too much."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837cf",
+          "questionText": "What does the speaker ask the listeners to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Try to sell more new items",
+            "(B) Think of some solutions",
+            "(C) Suggest alternative products",
+            "(D) Speak with some customers"
+          ],
+          "correctOptions": [
+            "(B) Think of some solutions"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305fb3d5948b5402da837bc",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/63621291.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nHi, Amy. This is Sam Chu. It was just brought to my attention that you weren&rsquo;t invited to the staff dinner we&rsquo;re having after work tonight. I apologize for the oversight. I&rsquo;m not sure how that happened. Anyway, we&rsquo;d love for you to be in attendance. We&rsquo;re getting together at the Mesa Steakhouse at 6:30. If you don&rsquo;t know where it is, ask Cathy or me, and one of us can provide you with directions. Or you can ride along with someone else who&rsquo;s driving. Would you mind calling me back at extension 689 to confirm that you can make it to tonight&#39;s event? I&rsquo;d appreciate that.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Chào Amy. Đây là Sam Chu. Tôi vừa nhận ra rằng cô vẫn chưa nhận được lời mời đến dự bữa tối với các nhân viên khác sau giờ làm việc tối nay. Tôi xin lỗi vì sự thiếu sót này. Tôi không chắc điều đó đã xảy ra như thế nào nữa. Dù sao đi nữa, chúng tôi rất mong cô có thể tham dự tiệc cùng chúng tôi. Chúng ta sẽ gặp nhau ở Mesa Steakhouse lúc 6:30. Nếu cô không biết địa chỉ ở đâu, hãy hỏi Cathy hoặc tôi nhé, chúng tôi có thể chỉ đường cho cô. Hoặc cô có thể đi cùng với một người có xe. Cô không phiền khi gọi lại cho tôi theo số máy nhánh 689 để xác nhận rằng cô sẽ tham dự sự kiện tối nay chứ? Tôi sẽ rất cảm kích nếu cô có thể làm điều đó.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837d0",
+          "questionText": "What is going to happen at 6:30?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A staff meeting will be held.",
+            "(B) A dinner event will begin.",
+            "(C) People will leave on a company trip.",
+            "(D) An awards ceremony will be catered."
+          ],
+          "correctOptions": [
+            "(B) A dinner event will begin."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837d1",
+          "questionText": "Why does the speaker say, “I’m not sure how that happened”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To provide an excuse for Amy not being invited",
+            "(B) To explain why Amy did not get directions",
+            "(C) To apologize since Amy did not receive an award",
+            "(D) To state that he does not know why the event changed"
+          ],
+          "correctOptions": [
+            "(A) To provide an excuse for Amy not being invited"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837d2",
+          "questionText": "What does the speaker suggest that Amy do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Download directions from a website",
+            "(B) Send him an e-mail before work ends",
+            "(C) Get a ride with one of her coworkers",
+            "(D) Confirm that she wants to transfer"
+          ],
+          "correctOptions": [
+            "(C) Get a ride with one of her coworkers"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305fb3d5948b5402da837bd",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/93254741.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nThank you for coming, ladies and gentlemen. I&rsquo;m pleased with the turnout to today&rsquo;s event. I hope those of you in the back can hear me all right. It&#39;s now time for the main event. David Hooper, the author of the recently released novel Winters End, is going to read some excerpts from his book. After he completes that, Mr. Hooper has agreed to answer some of your questions for a few minutes. And please be aware that all of Mr. Hooper&rsquo;s books are available for purchase at the front counter. Now, won&rsquo;t you please give a big round of applause for Mr. David Hooper?</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nCảm ơn quý vị và các bạn đã dành thời gian cho sự kiện này. Tôi rất vui khi thấy nhiều người tham gia như vậy. Tôi hy vọng những người ở phía sau cũng có thể nghe rõ tôi nói. Đã đến lúc nói về phần chính của ngày hôm nay. David Hooper, tác giả cuốn tiểu thuyết Winters End mới phát hành gần đây, sẽ đọc một số đoạn trích trong cuốn sách của ông. Sau khi hoàn thành việc đó, ông Hooper đã đồng ý sẽ giao lưu với khan giả trong vài phút. Và xin lưu ý rằng tất cả các đầu sách của tác giả Hooper đều được bán sẵn tại quầy. Bây giờ, các bạn vui lòng dành một tràng pháo tay thật lớn cho tác giả David Hooper, được chứ?</p>",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837d3",
+          "questionText": "Where most likely does this talk take place?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In a library",
+            "(B) At a bookstore",
+            "(C) At a school",
+            "(D) At a publishing company"
+          ],
+          "correctOptions": [
+            "(B) At a bookstore"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837d4",
+          "questionText": "What will Mr. Hooper do first?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Answer questions",
+            "(B) Give a speech",
+            "(C) Read from a book",
+            "(D) Sign copies of his book"
+          ],
+          "correctOptions": [
+            "(C) Read from a book"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837d5",
+          "questionText": "What does the speaker say about Mr. Hooper’s books?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They are for sale.",
+            "(B) They are all checked out.",
+            "(C) They are nonfiction works.",
+            "(D) They are available to check out."
+          ],
+          "correctOptions": [
+            "(A) They are for sale."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305fb3d5948b5402da837be",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/24/75791434.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/33186770.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nThis is Crystal Wallace in the WTRE helicopter providing you with a bird&rsquo;s-eye view of traffic in the city. Right now, traffic on Main street is moving fairly well considering that it&rsquo;s rush hour. It&rsquo;s backed up about five minutes on both Oak street and Wadley Road though. And there&rsquo;s a four-car accident on Gold street right now, so traffic moving northbound is stopped for several blocks. I highly recommend that drivers seek alternative routes and avoid that part of the city. I&rsquo;ll be back in fifteen minutes with another rush-hour update.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Đây là Crystal Wallace đưa tin trực tiếp từ trực thăng WTRE để mang đến cho các bạn cái nhìn toàn cảnh về tình hình giao thông trong thành phố. Hiện tại, giao thông trên tuyến phố chính đang khá thuận lợi vì đang là giờ cao điểm. Tuy nhiên, nó đã bị lùi lại khoảng năm phút trên cả Phố Oak và Đường Wadley. Hiện tại, đang có một vụ tai nạn giữa bốn chiếc ô tô trên phố Gold nên giao thông di chuyển về phía bắc sẽ bị ùn ứ trong khoảng vài con phố. Tôi thực sự khuyên các tài xế nên tìm các tuyến đường thay thế và tránh các khu vực ùn tắc trong thành phố. Tôi sẽ quay lại sau mười lăm phút nữa với thông tin được cập nhật thêm vào giờ cao điểm.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837d6",
+          "questionText": "Where is Ms. Wallace?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In a news van",
+            "(B) In a studio",
+            "(C) At a radio station",
+            "(D) In a helicopter"
+          ],
+          "correctOptions": [
+            "(D) In a helicopter"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837d7",
+          "questionText": "Look at the graphic. Which part of the city had a traffic accident?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Number 1",
+            "(B) Number 2",
+            "(C) Number 3",
+            "(D) Number 4"
+          ],
+          "correctOptions": [
+            "(A) Number 1"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837d8",
+          "questionText": "When will Ms. Wallace make another traffic report?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In 5 minutes",
+            "(B) In a quarter of an hour",
+            "(C) In half an hour",
+            "(D) In an hour"
+          ],
+          "correctOptions": [
+            "(B) In a quarter of an hour"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305fb3d5948b5402da837bf",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/24/91120792.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/98789467.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nHello. My name is Nick Tenaglia. I&rsquo;m calling regarding order number 985020. I purchased several items two days ago, and they just arrived in the mail a few minutes ago. I must admit that I&rsquo;m highly impressed with the speed of the delivery. Unfortunately, it appears as though the person who packed the order wasn&#39;t particularly careful. I ordered some 10-inch dinner plates, but only a dozen of them were actually in the box. How do I go about getting the other plates that I bought and paid for? I would appreciate receiving a call to inform me about this issue. Thank you. Goodbye.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Xin chào. Tên tôi là Nick Tenaglia. Tôi gọi để hỏi về đơn đặt hàng có mã số 985020. Tôi đã mua một số mặt hàng cách đây hai ngày và hàng vừa được gửi qua đường bưu điện cách đây vài phút. Tôi phải thừa nhận rằng tôi rất ấn tượng với tốc độ giao hàng. Nhưng thật không may, có vẻ như nhân viên đóng gói đơn hàng đã sơ suất. Tôi đặt mua rất nhiều đĩa ăn tối kích cỡ 10 inch, nhưng thực sự chỉ nhận được khoảng chục chiếc. Làm thế nào để tôi có thể nhận được những chiếc đĩa khác mà tôi đã trả tiền? Tôi sẽ rất cảm kích nếu các bạn có thể gọi lại cho tôi để thông báo về vấn đề này. Cảm ơn. Tạm biệt.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837d9",
+          "questionText": "What does the speaker indicate about the delivery?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It was very fast.",
+            "(B) It cost too much.",
+            "(C) It was slower than normal.",
+            "(D) It was faster than usual."
+          ],
+          "correctOptions": [
+            "(A) It was very fast."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837da",
+          "questionText": "Look at the graphic. How many new items does Mr. Tenaglia need?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 8",
+            "(B) 10",
+            "(C) 12",
+            "(D) 14"
+          ],
+          "correctOptions": [
+            "(A) 8"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837db",
+          "questionText": "What does the speaker want?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The address of a local store that he can visit",
+            "(B) Information on how to get the missing items",
+            "(C) A full refund for the broken items",
+            "(D) A way to return the incorrect items to the company"
+          ],
+          "correctOptions": [
+            "(B) Information on how to get the missing items"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "6305fb3d5948b5402da837c0",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/24/59624423.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/25/12256678.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nWelcome, everyone, to the fifth annual workshop for creative writers. We&rsquo;ve got a great day filled with exciting events in store for you. In a few minutes, we&rsquo;re going to start today&rsquo;s workshop with a short talk by Mary Lattimore, one of the best-known poets in the state. She&#39;s going to talk about how to develop a creative mindset. After she&rsquo;s done, we&rsquo;ll listen to Ronald Devers, who&rsquo;s going to chat about making outlines for essays. There&rsquo;s one change to the schedule though. Lisa Delacruz&rsquo;s train has been delayed, so she&#39;s going to switch times with Mark Haverford.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br /> Chào mừng mọi người đến với hội thảo thường niên lần thứ năm dành cho các cây viết sáng tạo. Chúng ta sẽ có một ngày tuyệt vời với nhiều sự kiện thú vị. Trong vài phút nữa, chúng ta sẽ bắt đầu buổi hội thảo hôm nay với bài thuyết trình của Mary Lattimore, một trong những nhà thơ nổi tiếng nhất bang. Cô ấy sẽ nói về cách phát triển tư duy sáng tạo. Sau đó, chúng ta sẽ lắng nghe Ronald Devers, với bài thuyết trình về cách lập dàn ý cho các bài luận. Tuy nhiên, có một sự thay đổi về chương trình. Chuyến tàu của Lisa Delacruz bị hoãn nên cô ấy sẽ đổi lịch với Mark Haverford.</p>\n",
+      "childQuestions": [
+        {
+          "id": "6305fb3d5948b5402da837dc",
+          "questionText": "What is the purpose of the talk?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To request full participation by the audience",
+            "(B) To introduce the keynote speaker",
+            "(C) To encourage people to sign up",
+            "(D) To welcome guests to an event"
+          ],
+          "correctOptions": [
+            "(D) To welcome guests to an event"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837dd",
+          "questionText": "Who is Mary Lattimore?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A novelist",
+            "(B) A creative writing professor",
+            "(C) A poet",
+            "(D) The host"
+          ],
+          "correctOptions": [
+            "(C) A poet"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "6305fb3d5948b5402da837de",
+          "questionText": "Look at the graphic. What time is Lisa Delacruz going to speak?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At 10:30",
+            "(B) At 11:15",
+            "(C) At 1:00",
+            "(D) At 2:00"
+          ],
+          "correctOptions": [
+            "(D) At 2:00"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

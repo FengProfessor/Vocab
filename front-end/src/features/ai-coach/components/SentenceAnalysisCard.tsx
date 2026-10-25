@@ -1,6 +1,6 @@
 import React from 'react';
-import { Alert, Card, Empty, List, Skeleton, Space, Tag, Typography } from 'antd';
-import { ApartmentOutlined } from '@ant-design/icons';
+import { Alert, Card, Empty, List, Skeleton, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { ApartmentOutlined } from '@/components/ui/Icons';
 import styles from '@/features/ai-coach/components/SentenceAnalysisCard.module.css';
 import { SentenceAnalysisCardProps } from '@/features/ai-coach/types/SentenceAnalysisCardProps';
 

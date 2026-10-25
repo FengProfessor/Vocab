@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-74",
+  "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 09 (Reading Part 3 - Test 09)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 3 - Test 09",
+            "text": "<p style=\"text-align:center; font-weight: bold; font-size: 18px;\">The Remote Work Revolution</p><p style=\"text-align:justify;\">The rapid shift to remote work during the COVID-19 pandemic has fundamentally transformed how millions of people approach their jobs. What began as an emergency measure has evolved into a lasting change in work culture, with profound implications for employees, employers, cities, and society. While remote work offers numerous benefits, it also presents challenges that organizations and workers continue to navigate.</p><p>(...passage continues...)</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r74-q1",
+              "type": "mcq",
+              "question": "Main idea of passage?",
+              "options": [
+                "Offices should close forever",
+                "Remote work transformation with benefits and challenges",
+                "COVID-19 history",
+                "Technology problems"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r74-q2",
+              "type": "mcq",
+              "question": "Benefits mentioned include:",
+              "options": [
+                "Flexibility and no commute",
+                "More office parties",
+                "Mandatory overtime",
+                "Less productivity"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r74-q3",
+              "type": "mcq",
+              "question": "Challenge for remote workers:",
+              "options": [
+                "Too much leisure time",
+                "Work-life boundary blur",
+                "Excessive socializing",
+                "Too many breaks"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r74-q4",
+              "type": "mcq",
+              "question": "Impact on cities:",
+              "options": [
+                "More downtown activity",
+                "Reduced commercial demand",
+                "No change",
+                "Population increase"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r74-q5",
+              "type": "mcq",
+              "question": "Hybrid work model means:",
+              "options": [
+                "All remote",
+                "Combination of office and remote",
+                "All in-office",
+                "No work"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r74-q6",
+              "type": "mcq",
+              "question": "Equity concern mentioned:",
+              "options": [
+                "Everyone benefits equally",
+                "Not all jobs can be remote",
+                "Technology is free",
+                "No concerns exist"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r74-q7",
+              "type": "mcq",
+              "question": "Companies adapting by:",
+              "options": [
+                "Ignoring changes",
+                "Redesigning policies and spaces",
+                "Firing all workers",
+                "Closing businesses"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r74-q8",
+              "type": "mcq",
+              "question": "Environmental impact:",
+              "options": [
+                "More pollution",
+                "Reduced commuting emissions",
+                "No change",
+                "Worse air quality"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r74-q9",
+              "type": "mcq",
+              "question": "Future outlook suggests:",
+              "options": [
+                "Complete return to offices",
+                "Permanent hybrid models",
+                "Work will disappear",
+                "No predictions possible"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r74-q10",
+              "type": "mcq",
+              "question": "Aut hor's perspective:",
+              "options": [
+                "Negative about all changes",
+                "Balanced view of transformation",
+                "Dismissive",
+                "Confused"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

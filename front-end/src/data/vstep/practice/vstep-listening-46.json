@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-46",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 46",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> There are eight questions in this part. For each question there are four options and a short recording. For each question, choose the correct answer A, B, C or D. You now have 45 seconds to look through the questions and the options in each question.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-03/part1-1.mp3"
+          },
+          "tapescript": "<p><b>1. When is the man’s appointment?</b></p><ul><li><b>A:</b> Good morning. I’d like someone to cut my hair, please. Can I make an appointment?</li><li><b>B:</b> Certainly. Wednesday or Thursday morning or Friday afternoon?</li><li><b>A:</b> On Friday I’m going to go to France. What about <b>Thursday afternoon</b>? I’m afraid I have a meeting all day Wednesday.</li><li><b>B:</b> Well. It’s a little bit difficult but that’s the only afternoon you can come. So we’ll see you then.</li></ul><p><b>2. Which is the aunt’s postcard?</b></p><ul><li><b>A:</b> Look, Sandra. I’ve got this really nice postcard for my aunt.</li><li><b>B:</b> Oh what a pretty village. And it’s right by a <b>river</b>. Isn’t it in the mountain?</li><li><b>A:</b> Yes. But you can’t see them in the picture.</li><li><b>B:</b> Perhaps, they’re behind those <b>tall trees</b>.</li></ul><p><b>3. What time will the plane to Milan leave?</b></p><ul><li><b>A:</b> Excuse me. What time is the next plane to Milan?</li><li><b>B:</b> It should leave at 7:15 but an hour late today.</li><li><b>A:</b> Oh. That’s a problem. If it doesn’t leave until <b>8:15</b>, I’ll be one hour late for my meeting.</li><li><b>B:</b> I’m sorry, Sir. There’s nothing I can do.</li></ul><p><b>4. Which present has the girl bought her mother?</b></p><ul><li><b>Jane:</b> Hi. It’s me, Jane. I’ve got Mom’s birthday present. I think she’ll like it. ...yes, that’s right, a <b>gold colored one</b>. She’s always <b>writing letters</b> so she’ll find it useful. I thought about a CD but I’m never really sure what music she likes and dad bought her a new pair of earrings for her birthday anyway. I’m sure she’ll like what I’ve got her.</li></ul><p><b>5. What time will the pie be ready?</b></p><ul><li><b>A:</b> What time is it Mom? Do you think the apple pie will be ready yet?</li><li><b>B:</b> It’s 4:35</li><li><b>A:</b> And the pie went into the oven at 4:15</li><li><b>B:</b> That’s right. You could check it at 5:00. And turn the heat down a bit but don’t take out until <b>20 past</b>. That’s 45 minutes to go.</li><li><b>A:</b> OK. I’m hungry already.</li></ul><p><b>6. What time is the swimming lesson today?</b></p><ul><li><b>A:</b> Hi Chidy. Do you want to play tennis after school? Say about 4:30</li><li><b>B:</b> That’s would be fun but I’ve got a swimming lesson. It’s usually at 5:15 but it’s half an hour earlier this evening, at <b>4:45</b>. It takes me ages to cycle to the swimming pool so I really don’t think I have time today. Let’s try it tomorrow</li><li><b>A:</b> OK</li></ul><p><b>7. Which subject does the boy like best?</b></p><ul><li><b>Boy:</b> I really like the new IT teacher. Our project for this term is to design a new website. I’ve always wanted to know how to do that. The sports teacher is much more serious. But <b>that’s still my favorite subject</b>. Last year, I usually like geography but the teacher we have now gives us so much homework.</li></ul><p><b>8. Which T-shirt does the boy decide to buy?</b></p><ul><li><b>A:</b> I’d like a buy a black T-shirt with short sleeves, please, large size.</li><li><b>B:</b> I’m afraid the black one has long sleeves. But we’ve got <b>short sleeves in a lighter color</b>. Do you want a round neck or a V-neck?</li><li><b>A:</b> It must be <b>round neck</b>. Let me think ...OK, I’ll take one of the short sleeve ones. The color’s not so important, really.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "When is the man’s appointment?",
+              "options": [
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Tuesday"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Which is the aunt’s postcard?",
+              "options": [
+                "a pretty village right by the sea",
+                "big trees",
+                "a pretty village behind the tall trees",
+                "a pretty village on the hills"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "What time will the plane to Milan leave?",
+              "options": [
+                "01:00",
+                "07:15",
+                "08:15",
+                "06:15"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "Which present has the girl bought her mother?",
+              "options": [
+                "earrings",
+                "music",
+                "pen",
+                "notebook"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What time will the pie be ready?",
+              "options": [
+                "four fifteen",
+                "five o’clock",
+                "twenty past five",
+                "fifty past four"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What time is the swimming lesson today?",
+              "options": [
+                "half past four",
+                "fifteen to five",
+                "fifteen past five",
+                "four thirty"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Which subject does the boy like best?",
+              "options": [
+                "information technology",
+                "geography",
+                "sports",
+                "design"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "Which T-shirt does the boy decide to buy?",
+              "options": [
+                "a short-sleeved T-shirt with round neck",
+                "a V-neck black T-shirt",
+                "a long-sleeved T-shirt",
+                "a sleeveless white T-shirt"
+              ],
+              "answer": 0
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-23/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1 (Q.9-12)</b></p><ul><li><b>W:</b> I’ve been reading your personal statement, Paul. First, let’s talk about your work experience in South America. What took you there? Was it to gain more fluency in Spanish?</li><li><b>M:</b> Well, as I’m combining Spanish with Latin American studies, my main idea was to find out more about the way people lived there. My spoken Spanish was already pretty good in fact.</li><li><b>W:</b> So you weren’t too worried about language barriers?</li><li><b>M:</b> No. In fact, I ended up teaching English there, although that wasn’t my original choice of work.</li><li><b>W:</b> How did you find out about all this?</li><li><b>M:</b> I found an agency that runs all kinds of voluntary projects in South America.</li><li><b>W:</b> What kind of work?</li><li><b>M:</b> Well, there were several possibilities.</li><li><b>W:</b> You mean construction? Engineering work?</li><li><b>M:</b> Yes, getting involved in building projects was an option. Then there was tourism, taking tourists for walks around the volcanoes which I actually chose to do and then there was work with local farmers.</li><li><b>W:</b> But you didn’t continue with that project. Why not?</li><li><b>M:</b> Because I never really knew whether I’d be needed or not. I’d thought it might be difficult physically, but I was certainly fit enough ... no, I wanted to do something that had more of a proper structure to it, I suppose. I get de-motivated otherwise.</li><li><b>W:</b> What do you think you learned from your experience? It must have been a great opportunity to examine community life.</li><li><b>M:</b> Yes, but it was difficult at first to be accepted by the locals. It was a very remote village and some of them were reluctant to speak to me although they were always interested in my clothes and how much I’d had to pay for them.</li><li><b>W:</b> Well, that’s understandable.</li><li><b>M:</b> Yes, but things soon improved. What struck me was that when people became more comfortable with me and less suspicious, we really connected with each other in a meaningful way.</li><li><b>W:</b> You made good friends?</li><li><b>M:</b> Yes, with two of the families in particular.</li><li><b>W:</b> Good. What about management. Did you have a project manager?</li><li><b>M:</b> Yes and he gave me lots of advice and guidance.</li><li><b>W:</b> And was he good at managing too?</li><li><b>M:</b> That wasn’t his strong point! I think he was often more interested in the academic side of things than filing reports. He was a bit of a dreamer.</li><li><b>W:</b> And did you have a contract?</li><li><b>M:</b> I had to stay for a minimum of three months. My parents were surprised when I asked to stay longer - six months in the end. I was so happy there.</li><li><b>W:</b> And did anything on the administration side of things surprise you? What was the food and lodging like?</li><li><b>M:</b> Simple ... but there was plenty to eat and I only paid seven dollars a day for that which was amazing really. And they gave me all the equipment I needed ... even a laptop.</li><li><b>W:</b> You didn’t expect that then?</li><li><b>M:</b> No</li><li><b>W:</b> Well, I’ll look forward to hearing more.</li></ul><p><b>Conversation 2 (Q.13-16)</b></p><ul><li><b>W:</b> Hi Jun. As you know, I’ve asked you here today to discuss the future of our Self-Access Centre. We have to decide what we want to do about this very important resource for our English language students. So, can you tell me what the students think about this?</li><li><b>M:</b> Well, from the students’ point of view, we would like to keep it. The majority of students say they enjoy using it because it provides a variation on the classroom routine and they see it as a pretty major component of their course, but we would like to see some improvements to the equipment, particularly the computers; there aren’t enough for one each at the moment and we always have to share.</li><li><b>W:</b> Well yes, the teachers agree that it is a very valuable resource but one thing we have noticed is that a lot of the students are using it to check their personal emails. We don’t want to stop you students using it, but we think the computers should be used as a learning resource, not for emails. Some of us also think that we could benefit a lot more by relocating the Self-Access Centre to the main University library building. How do you think the students would feel about that, Jun?</li><li><b>M:</b> Well, the library is big enough to incorporate the Self-Access Centre, but it wouldn’t be like a class activity anymore. Our main worry would not be being able to go to a teacher for advice. I’m sure there would be plenty of things to do but we really need teachers to help us choose the best activities.</li><li><b>W:</b> Well, there would still be a teacher present and he or she would guide the activities of the students. We wouldn’t just leave him to get on with it.</li><li><b>M:</b> Yes, but I think the students would be much happier keeping the existing set-up; they really like going to the Self-Access Centre with their teacher and staying together as a group to do activities. If we could just improve the resources and facilities, I think it would be fine. Is the cost going to be a problem?</li><li><b>W:</b> It’s not so much the expense that I’m worried about, and we’ve certainly got room to do it, but it’s the problem of timetabling a teacher to be in there outside class hours. If we’re going to spend a lot of money on equipment and resources, we really need to make sure that everything is looked after properly. Anyway, let’s make some notes to see just what needs doing to improve the Centre.</li></ul><p><b>Conversation 3 (Q.17-20)</b></p><ul><li><b>W:</b> For the second in our series about locally-run businesses, we meet Simon Winridge, co-founder of the hugely-successful Winridge Forest Railway Park. Welcome, Simon. Now, perhaps you can begin by telling us a little bit about how it all started.</li><li><b>M:</b> Well, during the 1970s, my wife, Liz and I had just acquired 80 acres of sheep-farming land, and we decided to settle down and have children. Pretty soon we had a daughter, Sarah, and a son, Duncan. The place was wonderful for the kids: they particularly loved trains and gradually built up an enormous network of miniature railway track. I began to develop larger-scale models of locomotives but we didn’t think anything more of it until I went on a trip to a theme park near Birmingham and decided we could do a much better job! So we set up a small one ourselves based on the miniature railway and we opened to the public for just a month that year. 1984 - in July - our driest month because our children said they didn’t want our guests to have a miserable, wet visit. I dealt with Park business and Liz carried on with the farm work. It soon became clear that we were onto a winner. We began to extend the railway track and lay it among more interesting landscape by planting trees, which in turn attracted more wildlife, and by making cuttings through the rock. Nowadays, we’re open all year round and we’re pleased to say that Winridge is one of the most popular visitor attractions in the area with 50,000 visitors a year - a million and a half people have been through our doors since we opened. All these visitors mean we have had to expand our operation and it’s now a truly family concern I’m near to retirement age so I only concern myself with looking after the mechanical side of things - keeping the trains going. Liz now devotes all her energies to recruiting and supporting the large squadron of workers, which keep the place running smoothly. We're really pleased that after some years away teaching, Sarah has now returned to the park and makes sure the visitors are kept fed and watered, which keeps her pretty busy as you can imagine. Our son Duncan has been a stalwart of the park for the last 10 years, taking over from me and the area of construction and I'll say a little bit more about that in the moment. And his new wife Judith has also joined the team in charge of retail. That’s becoming a tremendous growth area for us a lot of people want to buy souvenirs.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "Why did Paul decided to get work experience in South America?",
+              "options": [
+                "to teach English there.",
+                "to improve his Spanish.",
+                "to learn about Latin American life.",
+                "to earn a good salary."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "What project work did Paul originally intend to get involved in?",
+              "options": [
+                "construction",
+                "agriculture",
+                "tourism",
+                "education"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "What does Paul say about his project manager?",
+              "options": [
+                "He let Paul do most of the work.",
+                "His plans were too ambitious.",
+                "He was very supportive of Paul.",
+                "He was skilled at managing."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What surprised Paul most?",
+              "options": [
+                "he had to stay in the community at least for three months.",
+                "he was given a computer to use.",
+                "he had too much to eat",
+                "He spent only a small sum of money for plenty of food."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "Why do students want to keep the Self-Access Centre?",
+              "options": [
+                "they enjoy the variety of equipment.",
+                "they like being able to work on their own.",
+                "it is an important part of their studies.",
+                "they can share learning materials there."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What do some teachers think of the Self-Access Centre?",
+              "options": [
+                "it should be closed.",
+                "it should be moved elsewhere.",
+                "Restricted access should be given.",
+                "it should be used for both personal and study purposes."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What are students mainly concerned about using the library?",
+              "options": [
+                "the size of the library.",
+                "difficulty in getting help.",
+                "the lack of materials.",
+                "choosing a class activity."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "What is the Director of Studies concerned about?",
+              "options": [
+                "the cost of upgrading the centre.",
+                "the lack of space in the centre.",
+                "the difficulty in supervising the centre.",
+                "students’ using the centre for personal emails."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What prompted Simon to launch his own theme park venture?",
+              "options": [
+                "A desire to improve upon a commercial park he had visited.",
+                "An inspiration drawn from his children’s miniature train setup.",
+                "A passion for restoring full-sized vintage model locomotives.",
+                "A plan to convert their sheep farm into a scenic tourist spot."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Why was July selected as the initial opening period for the park?",
+              "options": [
+                "It coincided with the time their kids finished their school term.",
+                "It was recommended by family members to avoid rainy weather.",
+                "It allowed them to take a break from heavy farm work duties.",
+                "It gave them enough time to secure capital for basic setup."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What total attendance figure has the park reached overall?",
+              "options": [
+                "50,000 visitors in total.",
+                "500,000 visitors in total.",
+                "1,000,000 visitors in total.",
+                "1,500,000 visitors in total."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "Who currently oversees the catering operations for visitors at the site?",
+              "options": [
+                "The co-founder responsible for maintenance tasks.",
+                "The former teacher who rejoined the family business.",
+                "The person handling recruitment and staff management.",
+                "The team member supervising construction projects."
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-12/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 (Q.21-25)</strong></p><ul><li><b>W:</b> Hi, there. I was looking for information about becoming a political science major.</li><li><b>M:</b> Sure. We have some brochures right here.</li><li><b>W:</b> Thanks, but could I ask you a few questions?</li><li><b>M:</b> No problem. Fire away.</li><li><b>W:</b> Are there many requirements for Political Science?</li><li><b>M:</b> Uh, not really ... Just you must take Political Science 1 and 2, a general history class, and a writing seminar.</li><li><b>W:</b> I thought you had to take economics, too.</li><li><b>M:</b> Not for the general Political Science program. But there are a couple of specialized programs that have additional requirements.</li><li><b>W:</b> Oh, really? What are they?</li><li><b>M:</b> Well, there is the International Relations program. It is more interdisciplinary, so it requires economics and a second history credit; the two history credits have to be in different regions. There is also the honors Political Science program. To get into that, you need to take the same economics class as the International Relations program, and a special Political Science seminar. And you need to maintain over a \"B\" average in all those required courses.</li><li><b>W:</b> Wow, that sounds difficult.</li><li><b>M:</b> Yeah, not many people are qualified for the honors program. That's why it's considered more prestigious, I guess.</li><li><b>W:</b> Is that all?</li><li><b>M:</b> No. You also have to complete this form, listing all the Political Science and related credits you have already taken or plan to take, and get the department chair to sign off on it.</li><li><b>W:</b> Uggh. This is really a lot of work.</li><li><b>M:</b> Yeah, but everyone has to do it. It's not different from any other majors; the department wants to know that you've thought about your major carefully and thoroughly, and that all the students are being realistic in their expectations.</li></ul><p><strong>Conversation 2 (Q.26-30)</strong></p><ul><li><b>M:</b> Hey, Clara. Got a minute?</li><li><b>W:</b> Oh, hi, Will. Sure, I've got plenty of time. What's the matter?</li><li><b>M:</b> Did you see the poster saying that our debate club meeting tonight had been moved?</li><li><b>W:</b> Oh yes, you didn't get the email?</li><li><b>M:</b> My computer hasn't been working these few days, so I can't get access to my mailbox. Anyway, why has it been moved?</li><li><b>W:</b> That whole wing of the Student Union building is getting repainted today, so it's off-limits until the paint dries, vented properly and the workers clean everything up.</li><li><b>M:</b> It's about time. The club offices in the student building have been looking rundown for quite a while now. A new paint-job would do them a world of good.</li><li><b>W:</b> And the rooms are going to be repainted in a lighter color, too. That old paint was too dark and depressing.</li><li><b>M:</b> A lighter color would help everything look bigger, too. Our debate club could use that.</li><li><b>W:</b> Yeah, but we need more than just light paint. We've grown too big for that little room; we really need to move into a bigger place.</li><li><b>M:</b> Any chance of that happening?</li><li><b>W:</b> Not that I know of. Except for tonight, that is, just for this once, we'll be meeting downstairs in Turner Auditorium.</li><li><b>M:</b> That place is huge, way too big for us.</li><li><b>W:</b> I know, but it was the only place available tonight. And it was either there or else cancel the meeting altogether.</li><li><b>M:</b> I guess it's better than canceling. Although, to be honest, I could use another week to prepare for my speech, I've been really busy with my classes lately.</li></ul><p><strong>Conversation 3 (Q.31-35)</strong></p><p>Science fiction is very popular these days - in books, in movies, and on TV. Unfortunately, popular science fiction is often a lot more \"fiction\" and not so much \"science.\" One of the most common problems is science fiction’s fascination with faster-than-light travel. We know that is impossible, as it violates Einstein’s basic theory of space and time, but on Star Trek and other science fiction shows, spaceships jump from star to star and galaxy to galaxy like you or I might want to drive to another city. In truth, the closest star to Earth, Proxima Centauri, is over three light years away. That means traveling at the speed of light, the fastest speed anyone theoretically could travel, it would take three years to make it to our nearest neighbor. Other stars and galaxies are routinely thousands and millions of light years away, making intergalactic travel an impossibility. Even if we grant that such space travel somehow was possible, there is no shortage of other errors in popular science fiction. In Star Wars and other films, spaceships swoop across the screen, with their ... uh ... their engines emitting a great roar. However, since space is a void, sound waves cannot travel. There is no sound in space; it is utterly silent. Gravity is another mystery in these films. Gravity depends mostly on mass. Spaceships are tiny compared to the mass of earth. In space there should be practically no gravity. And yet people in science fiction routinely walk around on their spaceships in space as comfortably as they would on earth. That said, there have been a few, scarce films that bothered to portray the science of space flight somewhat realistically. In 2001: A Space Odyssey, the ship must rotate to create artificial gravity. Outside the spaceship, there is total silence. And the voyage from Earth to Jupiter takes many months. But such films are the exception, not the rule. While science fiction may be enjoyable, you should look elsewhere to learn about science.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "Why is the woman visiting this office?",
+              "options": [
+                "She wants to be a science major.",
+                "She wants to learn about politics.",
+                "She is interested in registering for a course.",
+                "She is interested in Political Science."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "Why are there few people in the honors program?",
+              "options": [
+                "It is not considered a prestigious program.",
+                "The requirements are difficult to meet.",
+                "No one likes the economics requirement.",
+                "It is an unpopular program."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What subject is NOT included, if the woman chooses Political Science?",
+              "options": [
+                "Political Science 1",
+                "Political Science 2",
+                "Writing seminar",
+                "Economics"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "Which is one of the requirements, if the woman chooses International Relation program?",
+              "options": [
+                "Students have to maintain over a \"B\" average in all required courses.",
+                "Students have to study economics and a second history credit.",
+                "Students need to be realistic in their expectation.",
+                "A, B, and C are all correct."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What is NOT a reason for the Political Science Department's elaborate registration process?",
+              "options": [
+                "To make students think carefully about what courses they will take",
+                "To have a similar system with other majors",
+                "To make students have a planned program",
+                "To ensure students have realistic expectations"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "What happened to the debate club meeting?",
+              "options": [
+                "They painted instead of debating.",
+                "The club was disbanded.",
+                "The meeting was moved to another room.",
+                "The meeting was postponed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "Why couldn't the man receive the email?",
+              "options": [
+                "He was too busy with his classes.",
+                "He was in a meeting.",
+                "His computer has been out of order.",
+                "His friend forgot to tell him."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What is going to happen with the debate club's meeting room?",
+              "options": [
+                "It is going to be demolished.",
+                "It is going to be sold.",
+                "It is going to be repainted.",
+                "It is going to be closed."
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is true about the debate club's meeting room?",
+              "options": [
+                "It is too small for the group.",
+                "It is called \"Turner Auditorium\".",
+                "It will soon be enlarged to accommodate everyone.",
+                "It is the most run-down room in the student building."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What can be inferred about the man?",
+              "options": [
+                "He does not enjoy the debate club.",
+                "He is not taking many classes.",
+                "He is a weak debater.",
+                "He is not ready for his debate yet."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the professor mainly talking about?",
+              "options": [
+                "The science of space travel",
+                "Scientific problems in Star Wars",
+                "The erroneous science in science fiction",
+                "Why science fiction is bad literature"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the lecture, what is wrong with space travel in most science fiction?",
+              "options": [
+                "There are no aliens in outer space.",
+                "There is no way to go faster than light speed.",
+                "There are many other stars and galaxies.",
+                "There is nowhere to go in outer space."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "According to the professor, how long does it take to travel to the closest star to Earth?",
+              "options": [
+                "Three light years",
+                "One hundred light years",
+                "Hundreds light years",
+                "A million light years"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What does the professor NOT say about the movie 2001: A Space Odyssey?",
+              "options": [
+                "It is exceptionally good.",
+                "It portrays gravity correctly.",
+                "It does not have faster-than-light travel.",
+                "It does not depict sound in space."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What can be inferred about science fiction?",
+              "options": [
+                "Many people do not like watching science fiction.",
+                "It is costly to make science fiction.",
+                "Science fiction is not meant to teach us about science.",
+                "The film Space Odyssey is a famous science fiction."
+              ],
+              "answer": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

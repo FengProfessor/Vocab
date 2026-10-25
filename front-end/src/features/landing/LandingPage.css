@@ -1,0 +1,218 @@
+/* ==========================================================================
+   LingoPro Public Marketing Landing Page — Ported from /src/app/page.tsx
+   Warm Cream (#f6efe6), Terracotta (#b5502f), Espresso (#241710), Gold (#d7bb76)
+   ========================================================================== */
+
+.lp-landing-root {
+  min-height: 100dvh;
+  background-color: #f6efe6;
+  color: #241710;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.lp-landing-serif {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+.lp-landing-ambient {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.lp-landing-blob-left {
+  position: absolute;
+  left: -8%;
+  top: -10%;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 50%;
+  background: rgba(229, 123, 82, 0.18);
+  filter: blur(64px);
+}
+
+.lp-landing-blob-right {
+  position: absolute;
+  right: -8%;
+  top: 8%;
+  width: 26rem;
+  height: 26rem;
+  border-radius: 50%;
+  background: rgba(210, 192, 158, 0.3);
+  filter: blur(64px);
+}
+
+/* Header */
+.lp-landing-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(188, 165, 143, 0.3);
+  background: rgba(246, 239, 230, 0.92);
+  backdrop-filter: blur(16px);
+}
+
+.lp-landing-header-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  height: 4rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.lp-landing-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.lp-landing-nav a {
+  color: #6d574a;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.lp-landing-nav a:hover {
+  color: #241710;
+}
+
+@media (max-width: 860px) {
+  .lp-landing-nav {
+    display: none;
+  }
+}
+
+.lp-landing-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(184, 111, 82, 0.25);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.3rem 0.9rem;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #9f4d2f;
+}
+
+/* Hero Section */
+.lp-landing-hero {
+  position: relative;
+  z-index: 1;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .lp-landing-hero {
+    grid-template-columns: 1fr;
+    padding: 2rem 1rem;
+  }
+}
+
+.lp-landing-h1 {
+  font-size: clamp(2.25rem, 4.2vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #241710;
+  margin: 1.25rem 0 1rem;
+}
+
+.lp-landing-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: #b5502f;
+  color: #ffffff;
+  padding: 0.9rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 14px 36px rgba(181, 80, 47, 0.28);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.lp-landing-btn-primary:hover {
+  transform: translateY(-2px);
+  background: #a04428;
+}
+
+.lp-landing-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid #bca58f;
+  background: rgba(255, 255, 255, 0.85);
+  color: #241710;
+  padding: 0.9rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.lp-landing-btn-secondary:hover {
+  background: #ffffff;
+}
+
+/* Dark Espresso Card */
+.lp-landing-hero-card {
+  border-radius: 1.75rem;
+  border: 1px solid rgba(188, 165, 143, 0.35);
+  background: #241710;
+  padding: 1.5rem;
+  color: #f6efe6;
+  box-shadow: 0 24px 70px rgba(36, 23, 16, 0.22);
+}
+
+/* Grids */
+.lp-landing-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.lp-landing-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.lp-landing-demo-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .lp-landing-grid-2,
+  .lp-landing-grid-3,
+  .lp-landing-demo-grid {
+    grid-template-columns: 1fr;
+  }
+}

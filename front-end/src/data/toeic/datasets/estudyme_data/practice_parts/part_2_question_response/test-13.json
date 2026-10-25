@@ -1,0 +1,435 @@
+{
+  "topicId": "62ec94c75948b5402da8295c",
+  "name": "Test 13",
+  "slug": "test-13",
+  "part": "part_2_question_response",
+  "totalQuestions": 25,
+  "totalCards": 25,
+  "cards": [
+    {
+      "id": "62ecce925948b5402da829c2",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/22325762.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nHow would you like me to prepare your coffee?<br />\n(A) She&#39;s making copies.<br />\n(B) From the local caf&eacute;.<br />\n<strong>(C) Black with no sugar.</strong></p>\n",
+      "explanationVi": "<p>Bạn muốn t&ocirc;i pha c&agrave; ph&ecirc; cho bạn như thế n&agrave;o?<br />\n(A) C&ocirc; ấy đang sao ch&eacute;p.<br />\n(B) Từ qu&aacute;n c&agrave; ph&ecirc; địa phương.<br />\n<strong>(C) Đen kh&ocirc;ng đường.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829c3",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/11932188.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhen will I be informed about the status of my application?<br />\n(A) A promotion within two months.<br />\n<strong>(B) Sometime around Thursday.</strong><br />\n(C) You can do that on our website.</p>\n",
+      "explanationVi": "<p>Khi n&agrave;o t&ocirc;i sẽ được th&ocirc;ng b&aacute;o về t&igrave;nh trạng đơn đăng k&yacute; của m&igrave;nh?<br />\n(A) Được thăng chức trong v&ograve;ng hai th&aacute;ng.<br />\n<strong>(B) V&agrave;o khoảng thứ năm.</strong><br />\n(C) Bạn c&oacute; thể l&agrave;m điều đ&oacute; tr&ecirc;n trang web của ch&uacute;ng t&ocirc;i.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829c4",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/21332848.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nDo you know where the office supplies happen to be?<br />\n(A) We buy from Alpha Stationery.<br />\n(B) It came as a total surprise.<br />\n<strong>(C) Look in the storage closet.</strong></p>\n",
+      "explanationVi": "Bạn c&oacute; biết đồ d&ugrave;ng văn ph&ograve;ng phẩm được để ở đ&acirc;u kh&ocirc;ng?<br />\n(A) Ch&uacute;ng t&ocirc;i mua từ Alpha Stationery.<br />\n(B) Thật bất ngờ.<br />\n<strong>(C) Nh&igrave;n v&agrave;o tủ đựng đồ.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829c5",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/96231934.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nShall I save a seat for you in the cafeteria?<br />\n(A) Yeah, the new caf&eacute; has great seats.<br />\n(B) That&#39;s fine. I&#39;m already sitting here.<br />\n<strong>(C) No, I&#39;m going to eat at my desk.</strong></p>\n",
+      "explanationVi": "T&ocirc;i giữ chỗ cho bạn ở căng tin nh&eacute;?<br />\n(A) V&acirc;ng, qu&aacute;n c&agrave; ph&ecirc; mới c&oacute; chỗ ngồi tuyệt vời.<br />\n(B) Kh&ocirc;ng sao đ&acirc;u. T&ocirc;i đang ngồi đ&acirc;y rồi.<br />\n<strong>(C) Kh&ocirc;ng, t&ocirc;i sẽ ăn ở b&agrave;n l&agrave;m việc của m&igrave;nh.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829c6",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/34103948.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nShouldn&#39;t you be heading to the conference room in a few minutes?<br />\n<strong>(A) No, the meeting got canceled.</strong><br />\n(B) Sure, I&#39;ll call you in half an hour.<br />\n(C) Yes, we&#39;re ahead of our competitors.</p>\n",
+      "explanationVi": "<p>Bạn kh&ocirc;ng n&ecirc;n đến ph&ograve;ng họp trong v&agrave;i ph&uacute;t nữa sao?<br />\n<strong>(A) Kh&ocirc;ng, cuộc họp đ&atilde; bị hủy.</strong><br />\n(B) Chắc chắn rồi, t&ocirc;i sẽ gọi cho bạn sau nửa giờ nữa.<br />\n(C) V&acirc;ng, ch&uacute;ng ta đang đi trước c&aacute;c đối thủ cạnh tranh.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829c7",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/80156342.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nIs it possible to have cable TV installed at my home?<br />\n(A) There&#39;s a game on channel 10.<br />\n<strong>(B) If you pay an installation fee.</strong><br />\n(C) A house at 64 Rosemont Avenue.</p>\n",
+      "explanationVi": "<p>T&ocirc;i c&oacute; thể lắp truyền h&igrave;nh c&aacute;p tại nh&agrave; kh&ocirc;ng?<br />\n(A) C&oacute; một trận đấu tr&ecirc;n k&ecirc;nh 10.<br />\n<strong>(B) Nếu bạn trả ph&iacute; lắp đặt.</strong><br />\n(C) Một ng&ocirc;i nh&agrave; tại số 64 Rosemont Avenue.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829c8",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/50151849.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhy did Mr. Martinson request Ms. Johnson&#39;s work file?<br />\n(A) She works in the Marketing Department.<br />\n<strong>(B) To review her performance last year.</strong><br />\n(C) You&#39;ll have to flle your own request.</p>\n",
+      "explanationVi": "Tại sao &ocirc;ng Martinson lại y&ecirc;u cầu hồ sơ c&ocirc;ng việc của c&ocirc; Johnson?<br />\n(A) C&ocirc; ấy l&agrave;m việc tại Ph&ograve;ng Tiếp thị.<br />\n<strong>(B) Để xem x&eacute;t hiệu suất l&agrave;m việc của c&ocirc; ấy năm ngo&aacute;i.</strong><br />\n(C) Bạn sẽ phải tự điền y&ecirc;u cầu của m&igrave;nh.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829c9",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/69594001.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nIs it your turn to drive tomorrow, or is it mine?<br />\n<strong>(A) Neither. Jane&#39;s driving.</strong><br />\n(B) I&#39;ll drive you home today.<br />\n(C) I&#39;m pretty sure that&#39;s right.</p>\n",
+      "explanationVi": "Ng&agrave;y mai đến lượt anh l&aacute;i xe hay l&agrave; của t&ocirc;i?<br />\n<strong>(A) Kh&ocirc;ng b&ecirc;n n&agrave;o cả. Jane đang l&aacute;i xe.</strong><br />\n(B) H&ocirc;m nay t&ocirc;i sẽ chở anh về nh&agrave;.<br />\n(C) T&ocirc;i kh&aacute; chắc l&agrave; đ&uacute;ng.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829ca",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/40135148.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWe had better order some more food for the event.<br />\n(A) Two large pizzas and a pitcher of soda.<br />\n(B) It&#39;s going to take place on Friday night.<br />\n<strong>(C) You&#39;re right. More people are attending it.</strong></p>\n",
+      "explanationVi": "<p>Ch&uacute;ng ta n&ecirc;n gọi th&ecirc;m đồ ăn cho sự kiện.<br />\n(A) Hai chiếc pizza lớn v&agrave; một b&igrave;nh soda.<br />\n(B) Sự kiện sẽ diễn ra v&agrave;o tối thứ s&aacute;u.<br />\n<strong>(C) Bạn n&oacute;i đ&uacute;ng. Sẽ c&oacute; nhiều người tham dự hơn.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829cb",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/54279462.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhy hasn&rsquo;t the appliance that I ordered been mailed yet?<br />\n(A) You can get a discount on it.<br />\n(B) I ordered it last Monday.<br />\n<strong>(C) It&#39;s not in stock at the warehouse.</strong></p>\n",
+      "explanationVi": "<p>Tại sao thiết bị m&agrave; t&ocirc;i đặt h&agrave;ng vẫn chưa được gửi đi?<br />\n(A) Bạn c&oacute; thể được giảm gi&aacute;.<br />\n(B) T&ocirc;i đ&atilde; đặt h&agrave;ng v&agrave;o thứ Hai tuần trước.<br />\n<strong>(C) Thiết bị kh&ocirc;ng c&oacute; trong kho.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829cc",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/20545480.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nYou&#39;re picking the German delegation up at the airport, aren&#39;t you?<br />\n(A) They&#39;ll be here for the next two weeks.<br />\n<strong>(B) Jeremy volunteered to go there instead.</strong><br />\n(C) She delegated several tasks to me.</p>\n",
+      "explanationVi": "<p>Bạn đang đ&oacute;n ph&aacute;i đo&agrave;n Đức ở s&acirc;n bay, phải kh&ocirc;ng?<br />\n(A) Họ sẽ ở đ&acirc;y trong hai tuần tới.<br />\n<strong>(B) Jeremy đ&atilde; t&igrave;nh nguyện đến đ&oacute; thay thế.</strong><br />\n(C) C&ocirc; ấy giao cho t&ocirc;i một số nhiệm vụ.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829cd",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/61632264.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWho&#39;s giving the presentation at the staff meeting?<br />\n(A) It&#39;s going to start at eight o&#39;clock sharp.<br />\n(B) We can open the presents later in the day.<br />\n<strong>(C) Ken told me that Ms. Ruiz is doing that.</strong></p>\n",
+      "explanationVi": "<p>Ai sẽ thuyết tr&igrave;nh tại cuộc họp nh&acirc;n vi&ecirc;n?<br />\n(A) Buổi thuyết tr&igrave;nh sẽ bắt đầu đ&uacute;ng t&aacute;m giờ.<br />\n(B) Ch&uacute;ng ta c&oacute; thể mở qu&agrave; v&agrave;o cuối ng&agrave;y.<br />\n<strong>(C) Ken n&oacute;i với t&ocirc;i rằng c&ocirc; Ruiz sẽ l&agrave;m việc đ&oacute;.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829ce",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/6935306.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nHow quickly can we get the fax machine repaired?<br />\n(A) It was around several years ago.<br />\n<strong>(B) Let&#39;s call the service provider and ask.</strong><br />\n(C) Sure, I&#39;ll send you my fax number.</p>\n",
+      "explanationVi": "<p>Ch&uacute;ng ta c&oacute; thể sửa m&aacute;y fax nhanh như thế n&agrave;o?<br />\n(A) N&oacute; đ&atilde; xảy ra c&aacute;ch đ&acirc;y v&agrave;i năm.<br />\n<strong>(B) Ch&uacute;ng ta h&atilde;y gọi cho nh&agrave; cung cấp dịch vụ v&agrave; hỏi.</strong><br />\n(C) Chắc chắn rồi, t&ocirc;i sẽ gửi cho bạn số fax của t&ocirc;i.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829cf",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/99762575.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhat do you think about purchasing tickets for next Wednesday&#39;s concert?<br />\n<strong>(A) Go ahead and buy a couple for me, please.</strong><br />\n(B) It&#39;s going to feature some popular bands.<br />\n(C) Everyone on the team should act in concert.</p>\n",
+      "explanationVi": "<p>Bạn nghĩ sao về việc mua v&eacute; cho buổi h&ograve;a nhạc v&agrave;o thứ Tư tuần tới?<br />\n<strong>(A) H&atilde;y mua cho t&ocirc;i một v&agrave;i v&eacute; nh&eacute;.</strong><br />\n(B) Sẽ c&oacute; một số ban nhạc nổi tiếng biểu diễn.<br />\n(C) Mọi người trong nh&oacute;m n&ecirc;n biểu diễn trong buổi h&ograve;a nhạc.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d0",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/27039189.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhy haven&#39;t the survey results been published?<br />\n(A) It hit the bestseller list after being published.<br />\n<strong>(B) All the data is still being compiled.</strong><br />\n(C) Sure, I don&#39;t mind taking a survey.</p>\n",
+      "explanationVi": "<p>Tại sao kết quả khảo s&aacute;t vẫn chưa được c&ocirc;ng bố?<br />\n(A) N&oacute; đ&atilde; lọt v&agrave;o danh s&aacute;ch b&aacute;n chạy nhất sau khi được c&ocirc;ng bố.<br />\n<strong>(B) Tất cả dữ liệu vẫn đang được bi&ecirc;n soạn.</strong><br />\n(C) Chắc chắn rồi, t&ocirc;i kh&ocirc;ng ngại tham gia khảo s&aacute;t.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d1",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/40053890.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nCould you please direct me to the Marketing Department?<br />\n(A) Take a right at the third intersection.<br />\n<strong>(B) Follow me. I&#39;m going there now.</strong><br />\n(C) He&#39;s quite an experienced marketer.</p>\n",
+      "explanationVi": "<p>Bạn c&oacute; thể chỉ đường cho t&ocirc;i đến Ph&ograve;ng Tiếp thị kh&ocirc;ng?<br />\n(A) Rẽ phải ở ng&atilde; tư thứ ba.<br />\n<strong>(B) Đi theo t&ocirc;i. T&ocirc;i đang đến đ&oacute;.</strong><br />\n(C) Anh ấy l&agrave; một nh&agrave; tiếp thị kh&aacute; c&oacute; kinh nghiệm.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d2",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/47230903.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nSomeone had better assist that customer who has been waiting.<br />\n<strong>(A) I&#39;m free, so I&#39;ll give her a hand.</strong><br />\n(B) It&#39;s our job to provide customer assistance.<br />\n(C) I&#39;ve been waiting for almost an hour.</p>\n",
+      "explanationVi": "Ai đ&oacute; n&ecirc;n hỗ trợ kh&aacute;ch h&agrave;ng đang chờ đợi.<br />\n<strong>(A) T&ocirc;i rảnh, n&ecirc;n t&ocirc;i sẽ gi&uacute;p c&ocirc; ấy một tay.</strong><br />\n(B) C&ocirc;ng việc của ch&uacute;ng t&ocirc;i l&agrave; hỗ trợ kh&aacute;ch h&agrave;ng.<br />\n(C) T&ocirc;i đ&atilde; chờ gần một giờ.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d3",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/62108212.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhen is the commercial for the new product line going to air?<br />\n<strong>(A) Sometime during the middle of the week.</strong><br />\n(B) It features all kinds of new cosmetics.<br />\n(C) Yeah, she&#39;s done something new with her hair.</p>\n",
+      "explanationVi": "Khi n&agrave;o th&igrave; quảng c&aacute;o cho d&ograve;ng sản phẩm mới sẽ được ph&aacute;t s&oacute;ng?<br />\n<strong>(A) V&agrave;o l&uacute;c n&agrave;o đ&oacute; giữa tuần.</strong><br />\n(B) Quảng c&aacute;o c&oacute; đủ loại mỹ phẩm mới.<br />\n(C) Đ&uacute;ng rồi, c&ocirc; ấy đ&atilde; l&agrave;m g&igrave; đ&oacute; mới với m&aacute;i t&oacute;c của m&igrave;nh.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d4",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/27440578.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhat about purchasing a laptop instead of a desktop?<br />\n(A) This one is too costly.<br />\n(B) They bought it last week.<br />\n<strong>(C) I&#39;d prefer not to do that.</strong></p>\n",
+      "explanationVi": "Thế c&ograve;n việc mua m&aacute;y t&iacute;nh x&aacute;ch tay thay v&igrave; m&aacute;y t&iacute;nh để b&agrave;n th&igrave; sao?<br />\n(A) C&aacute;i n&agrave;y qu&aacute; đắt.<br />\n(B) Họ đ&atilde; mua n&oacute; v&agrave;o tuần trước.<br />\n<strong>(C) T&ocirc;i kh&ocirc;ng muốn l&agrave;m thế.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d5",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/96548415.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nHow much money do I owe you for these items?<br />\n<strong>(A) Don&#39;t worry. It&#39;s my treat.</strong><br />\n(B) I deposited it in your account.<br />\n(C) There are five of them in total.</p>\n",
+      "explanationVi": "T&ocirc;i nợ bạn bao nhi&ecirc;u tiền cho những m&oacute;n đồ n&agrave;y?<br />\n<strong>(A) Đừng lo. T&ocirc;i sẽ lo.</strong><br />\n(B) T&ocirc;i đ&atilde; gửi n&oacute; v&agrave;o t&agrave;i khoản của bạn.<br />\n(C) Tổng cộng c&oacute; năm m&oacute;n.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d6",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/11871870.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(B)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhat caused the power to go out all over the city?<br />\n(A) I don&#39;t know why my phone has no power.<br />\n<strong>(B) Some electric lines got knocked down.</strong><br />\n(C) There will be thunderstorms next week.</p>\n",
+      "explanationVi": "Nguy&ecirc;n nh&acirc;n n&agrave;o khiến to&agrave;n th&agrave;nh phố mất điện?<br />\n(A) T&ocirc;i kh&ocirc;ng biết tại sao điện thoại của t&ocirc;i kh&ocirc;ng c&oacute; điện.<br />\n<strong>(B) Một số đường d&acirc;y điện bị đứt.</strong><br />\n(C) Sẽ c&oacute; gi&ocirc;ng b&atilde;o v&agrave;o tuần tới.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d7",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/90769039.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nDon&#39;t forget to submit your nominations for the Employee of the Month.<br />\n(A) Thanks. I can&#39;t believe that I won.<br />\n(B) Yes, he was nominated again.<br />\n<strong>(C) I turned mine in to Clarice already.</strong></p>\n",
+      "explanationVi": "Đừng qu&ecirc;n gửi đề cử của bạn cho Nh&acirc;n vi&ecirc;n của th&aacute;ng.<br />\n(A) Cảm ơn. T&ocirc;i kh&ocirc;ng thể tin rằng t&ocirc;i đ&atilde; thắng.<br />\n(B) V&acirc;ng, anh ấy lại được đề cử.<br />\n<strong>(C) T&ocirc;i đ&atilde; nộp đề cử của m&igrave;nh cho Clarice rồi.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d8",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/49920135.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhen can you send someone to look at the air conditioner?<br />\n(A) It&#39;s not very cool in this room.<br />\n(B) I can&#39;t find anything wrong with it.<br />\n<strong>(C) A repairman will be there by two.</strong></p>\n",
+      "explanationVi": "Khi n&agrave;o bạn c&oacute; thể cử người đến xem m&aacute;y điều h&ograve;a?<br />\n(A) Ph&ograve;ng n&agrave;y kh&ocirc;ng m&aacute;t lắm.<br />\n(B) T&ocirc;i kh&ocirc;ng thấy c&oacute; vấn đề g&igrave; với m&aacute;y.<br />\n<strong>(C) Một thợ sửa chữa sẽ đến v&agrave;o l&uacute;c hai giờ.</strong></p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829d9",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/62274348.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(A)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nI wonder what&#39;s taking Mr. Yeats so long.<br />\n<strong>(A) He called and said he&#39;s caught in traffic.</strong><br />\n(B) This is much longer than I had expected.<br />\n(C) He&#39;s looking forward to meeting everyone.</p>\n",
+      "explanationVi": "T&ocirc;i tự hỏi tại sao &ocirc;ng Yeats lại mất nhiều thời gian như vậy.<br />\n<strong>(A) &Ocirc;ng ấy gọi điện v&agrave; n&oacute;i rằng &ocirc;ng ấy bị kẹt xe.</strong><br />\n(B) L&acirc;u hơn nhiều so với t&ocirc;i mong đợi.<br />\n(C) &Ocirc;ng ấy mong được gặp mọi người.</p>\n",
+      "childQuestions": []
+    },
+    {
+      "id": "62ecce925948b5402da829da",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/07/62962617.mp3",
+      "options": [
+        "(A)",
+        "(B)",
+        "(C)"
+      ],
+      "correctOptions": [
+        "(C)"
+      ],
+      "transcript": "<p><strong>Transcript:</strong><br />\nWhich type of wallpaper would look best in this room?<br />\n(A) l&#39;ve never put up wallpaper before.<br />\n(B) This is going to be my office.<br />\n<strong>(C) They all seem all right to me.</strong></p>\n",
+      "explanationVi": "Loại giấy d&aacute;n tường n&agrave;o sẽ đẹp nhất trong căn ph&ograve;ng n&agrave;y?<br />\n(A) T&ocirc;i chưa bao giờ d&aacute;n giấy d&aacute;n tường trước đ&acirc;y.<br />\n(B) Đ&acirc;y sẽ l&agrave; văn ph&ograve;ng của t&ocirc;i.<br />\n<strong>(C) Với t&ocirc;i, tất cả ch&uacute;ng đều ổn.</strong></p>\n",
+      "childQuestions": []
+    }
+  ]
+}

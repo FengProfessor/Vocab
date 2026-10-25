@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-70",
+  "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 13 (Reading Part 3 - Test 13)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 3 - Test 13",
+            "text": "<p style=\"text-align:center; font-weight: bold; font-size: 18px;\">The Digital Divide in Education</p>\n\n<p style=\"text-align:justify;\">The COVID-19 pandemic <strong>starkly</strong> revealed what educators had long known: access to digital technology is not equally distributed, creating a \"digital divide\" that significantly affects educational opportunities. As schools worldwide shifted to online learning, millions of students without reliable internet access or appropriate devices found themselves unable to participate fully in their education. This gap threatens to deepen existing inequalities and create long-term disadvantages for already marginalized communities.</p>\n\n<p style=\"text-align:justify;\">The digital divide manifests in multiple dimensions. The most obvious is basic access—whether students have computers, tablets, or smartphones and whether they have reliable high-speed internet connections. In wealthy neighborhoods, most students have personal devices and unlimited internet, while in low-income areas, families may share a single smartphone among multiple children. Rural communities often lack the infrastructure for high-speed internet entirely. However, access alone is insufficient. Digital literacy—the ability to effectively use technology for learning—is equally important, and students from disadvantaged backgrounds typically receive less training and support in developing these skills.</p>\n\n<p style=\"text-align:justify;\">The educational consequences of this divide are profound. Students without adequate technology access fall behind in completing assignments, accessing online resources, and developing digital skills that are increasingly essential in the modern workforce. During remote learning periods, these students often became <strong>disengaged</strong> from school entirely, leading to learning loss that may take years to overcome. Even as schools have reopened, much educational content and communication remains digital, continuing to disadvantage students with limited technology access.</p>\n\n<p style=\"text-align:justify;\">Moreover, the digital divide intersects with other forms of inequality. Students from low-income families, racial minorities, rural areas, and students with disabilities are disproportionately affected. These groups already face multiple barriers to educational success, and limited technology access compounds these challenges. For instance, students with learning disabilities might benefit enormously from specialized educational software, but only if they can access it. This creates a situation where technology, which should be an equalizer, instead <strong>amplifies</strong> existing disparities.</p>\n\n<p style=\"text-align:justify;\">Addressing the digital divide requires coordinated action from governments, schools, technology companies, and communities. Some districts have provided laptops or tablets to students in need and worked with internet providers to offer affordable connections. Mobile hotspots, school buses equipped with Wi-Fi, and community technology centers have helped extend internet access. However, these solutions are often <strong>piecemeal</strong> and temporary, failing to address the fundamental infrastructure gaps that create the divide.</p>\n\n<p style=\"text-align:justify;\">Long-term solutions must include substantial public investment in both technology infrastructure and digital literacy programs. Universal broadband access should be treated as a public utility, much like electricity or water, with government subsidies ensuring that all families can afford connectivity. Schools need sustainable funding for technology and ongoing teacher training to help educators effectively integrate digital tools into instruction. Additionally, device lending programs should be permanent features of school systems, not emergency measures.</p>\n\n<p style=\"text-align:justify;\">Technology companies also bear responsibility. While some have launched philanthropic programs donating devices or offering discounted services, critics argue these efforts are insufficient given these companies' enormous profits. More comprehensive partnerships between the public and private sectors could help bridge the gap, with companies contributing resources while governments ensure equitable distribution and accountability.</p>\n\n<p style=\"text-align:justify;\">Ultimately, closing the digital divide is essential not only for educational equity but also for economic and social justice. In an increasingly digital world, technological access and literacy are fundamental rights that determine access to opportunities throughout life. While progress has been made, particularly in awareness of the problem, much work remains. Success will require sustained commitment, adequate funding, and recognition that technology access is no longer optional but essential for full participation in modern society.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r70-q1",
+              "type": "mcq",
+              "question": "What is the main purpose of this passage?",
+              "options": [
+                "To promote specific technology companies",
+                "To examine the digital divide in education and propose solutions",
+                "To argue that technology should be removed from schools",
+                "To describe how COVID-19 improved education"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r70-q2",
+              "type": "mcq",
+              "question": "The word \"starkly\" in paragraph 1 is closest in meaning to:",
+              "options": [
+                "vaguely or unclearly",
+                "clearly and dramatically",
+                "slowly and gradually",
+                "happily and positively"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r70-q3",
+              "type": "mcq",
+              "question": "According to paragraph 2, which of the following is NOT mentioned as part of the digital divide?",
+              "options": [
+                "Access to devices",
+                "Internet connection quality",
+                "Digital literacy skills",
+                "Physical classroom size"
+              ],
+              "answer": 3,
+              "explanationVi": "<p>Đáp án chính xác là <b>D</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r70-q4",
+              "type": "mcq",
+              "question": "The word \"disengaged\" in paragraph 3 most likely means:",
+              "options": [
+                "highly involved",
+                "disconnected or withdrawn",
+                "excited and motivated",
+                "confused but trying"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r70-q5",
+              "type": "mcq",
+              "question": "According to paragraph 4, the digital divide affects which groups disproportionately?",
+              "options": [
+                "Only wealthy students",
+                "Low-income, minority, rural, and disabled students",
+                "Only urban students",
+                "Students who dislike technology"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r70-q6",
+              "type": "mcq",
+              "question": "The word \"amplifies\" in paragraph 4 is closest in meaning to:",
+              "options": [
+                "reduces or minimizes",
+                "increases or intensifies",
+                "hides or conceals",
+                "measures or evaluates"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r70-q7",
+              "type": "mcq",
+              "question": "The word \"piecemeal\" in paragraph 5 suggests that current solutions are:",
+              "options": [
+                "comprehensive and coordinated",
+                "fragmented and incomplete",
+                "extremely expensive",
+                "highly effective"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r70-q8",
+              "type": "mcq",
+              "question": "According to paragraph 6, how should broadband access be treated?",
+              "options": [
+                "As a luxury item",
+                "As a public utility like electricity or water",
+                "As something only schools need",
+                "As unnecessary for education"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r70-q9",
+              "type": "mcq",
+              "question": "What does paragraph 7 suggest about technology companies' current efforts?",
+              "options": [
+                "They are doing more than enough",
+                "They should do nothing",
+                "Their efforts are insufficient given their resources",
+                "They have solved the digital divide"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r70-q10",
+              "type": "mcq",
+              "question": "The author's overall attitude toward closing the digital divide is:",
+              "options": [
+                "dismissive and unconcerned",
+                "urgent and important",
+                "impossible and hopeless",
+                "amused and entertained"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

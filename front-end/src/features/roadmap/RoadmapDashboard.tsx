@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { Alert, Button, Card, Skeleton } from 'antd';
-import { FormOutlined, ReloadOutlined } from '@ant-design/icons';
+import { Alert, Button, Card, Skeleton } from '@/components/ui/Primitives';
+import { FormOutlined, ReloadOutlined } from '@/components/ui/Icons';
 import { PageHeaderCard } from '@/components/common/PageHeaderCard';
 import { ROADMAP_DAILY_STATIONS } from '@/config/roadmapCurriculum';
 import { RoadmapMetricsOverview } from '@/features/roadmap/components/RoadmapMetricsOverview';

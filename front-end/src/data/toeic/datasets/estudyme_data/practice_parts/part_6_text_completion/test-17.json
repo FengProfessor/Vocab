@@ -1,0 +1,330 @@
+{
+  "topicId": "615c197a65d71f3a51f6742a",
+  "name": "Test 17",
+  "slug": "test-17",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "615d0d5765d71f3a51f6760f",
+      "questionText": "<br><b><u>Parking Notice</u></b><br>Parking along the streets in the Frederickton downtown area is prohibited every second and fourth Tuesday of the month between 8 a.m. and 12 p.m. for cleaning. ---1---. Anyone who violates this rule will be ticketed and charged a $15 penalty for the first three offenses. This must be paid within 30 days of ---2---.<br>City statutes permit vehicle owners to challenge a ticket's validity within the same 30-day period, and owners may make an appeal if they disagree with the outcome. On ---3--- violations, vehicles will be towed at the owner's expense. Repeated negligence could also ---4--- to the suspension of a driver's license.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d5765d71f3a51f67613",
+          "questionText": "Parking along the streets in the Frederickton downtown area is prohibited every second and fourth Tuesday of the month between 8 a.m. and 12 p.m. for cleaning. ---1---.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The city had to adjust parking rates every two months.",
+            "(B) The city's sanitation vehicles and crews will be working on roadways during this time.",
+            "(C) This regulation has been implemented to reduce weekend traffic.",
+            "(D) There are several ways you can pay the fees for parking"
+          ],
+          "correctOptions": [
+            "(B) The city's sanitation vehicles and crews will be working on roadways during this time."
+          ],
+          "transcript": "<p>The previous sentence mentions that the Frederickton downtown area is prohibited every second and fourth Tuesday of the month between 8 a.m. and 12 p.m. for cleaning</p>\n\n<p><strong>=&gt; B is correct</strong></p>\n",
+          "explanationVi": "<p><strong>Đ&aacute;p &aacute;n B đ&uacute;ng</strong> v&igrave; n&oacute; giải th&iacute;ch l&yacute; do tại sao việc đậu xe bị cấm v&agrave;o mỗi thứ Ba thứ hai v&agrave; thứ tư h&agrave;ng th&aacute;ng, từ 8 giờ s&aacute;ng đến 12 giờ trưa để l&agrave;m sạch đường phố.&nbsp;</p>\n"
+        },
+        {
+          "id": "615d0d5765d71f3a51f67614",
+          "questionText": "This must be paid within 30 days of ---2---.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) receipt",
+            "(B) receive",
+            "(C) receivable",
+            "(D) receives"
+          ],
+          "correctOptions": [
+            "(A) receipt"
+          ],
+          "transcript": "<p>We need a noun after \"of\"</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>Trước chỗ trống l&agrave; giới từ &quot;of&quot;</p>\n\n<p>=&gt; Chỗ trống cần 1 danh từ&nbsp;</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n\n<p>&nbsp;receipt: h&oacute;a đơn</p>\n"
+        },
+        {
+          "id": "615d0d5765d71f3a51f67615",
+          "questionText": "<p>On ---3--- violations, vehicles will be towed at the owner's expense.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) flexible",
+            "(B) technical",
+            "(C) exemplary",
+            "(D) subsequent"
+          ],
+          "correctOptions": [
+            "(D) subsequent"
+          ],
+          "transcript": "<p>(A) flexible:&nbsp;able to change to suit new conditions or situations</p>\n\n<p>(B) technical:&nbsp;connected with the practical use of machines, methods, etc. in science and industry</p>\n\n<p>(C) exemplary:&nbsp;providing a good example for people to copy</p>\n\n<p>(D) subsequent:&nbsp;happening or coming after something else</p>\n\n<p>Based on the meaning of adjectives to choose the correct answer.</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>flexible: linh hoạt</p>\n\n<p>technical: thuộc về kỹ thuật&nbsp;</p>\n\n<p>exemplary: mẫu mực</p>\n\n<p>subsequent: tiếp theo, xảy ra sau</p>\n\n<p><strong>=&gt; D c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n\n<p>&nbsp;</p>\n"
+        },
+        {
+          "id": "615d0d5765d71f3a51f67616",
+          "questionText": "<p>Repeated negligence could also ---4--- to the suspension of a driver's license.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) lead",
+            "(B) leads",
+            "(C) led",
+            "(D) leading"
+          ],
+          "correctOptions": [
+            "(A) lead"
+          ],
+          "transcript": "<p>could + infinitive</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p>could + V nguy&ecirc;n thể</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n A</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "615d0d5765d71f3a51f67610",
+      "questionText": "<p><br>To: Denise Barton [dbarton@officetime.com]<br>From: Elmer Wittson [elm_witt@wittsons.com]<br>Date: July 8<br>Subject: Inquiry<br>Dear Ms. Barton,<br>I am writing in regard to one of the ---1--- advertised in your sales flyer last week. The Cambridge XD multi-function printer was listed at a discounted price of only $449. As I have never seen it offered at such a large markdown, I am ---2--- to buy one.<br>However, I noticed the listing says that supplies may be limited. This is not surprising given that it is a very ---3--- model. ---4--- . I am looking forward to hearing back from you.<br>Thank you,<br>Elmer Wittson</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d5765d71f3a51f67617",
+          "questionText": "I am writing in regard to one of the ---1--- advertised in your sales flyer last week.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) positions",
+            "(B) stores",
+            "(C) products",
+            "(D) venues"
+          ],
+          "correctOptions": [
+            "(C) products"
+          ],
+          "transcript": "<p>This sentence mentions \"sales flyer\" =&gt; \"products\" is correct</p>\n",
+          "explanationVi": "<p>position: vị trí</p>\n<p>store: cửa hàng</p>\n<p>product: sản phẩm</p>\n<p>venue: địa điểm</p>\n<p>=&gt; C có nghĩa phù hợp nhất</p>"
+        },
+        {
+          "id": "615d0d5765d71f3a51f67618",
+          "questionText": "<p>As I have never seen it offered at such a large markdown, I am ---2--- to buy one.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) acceptable",
+            "(B) intense",
+            "(C) eager",
+            "(D) strong"
+          ],
+          "correctOptions": [
+            "(C) eager"
+          ],
+          "transcript": "<p>be eager to + infinitive: showing desire to do something</p>\n",
+          "explanationVi": "<p>acceptable: chấp nhận được</p>\n<p>intense: dữ dội</p>\n<p>eager: háo hức</p>\n<p>strong: mạnh mẽ</p>\n<p>=&gt; C có nghĩa phù hợp nhất</p>"
+        },
+        {
+          "id": "615d0d5765d71f3a51f67619",
+          "questionText": "<p>This is not surprising given that it is a very ---3--- model.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) popularize",
+            "(B) popular",
+            "(C) popularly",
+            "(D) popularity"
+          ],
+          "correctOptions": [
+            "(B) popular"
+          ],
+          "transcript": "<p>We need an adjective to modify the noun \"model\"</p>\n",
+          "explanationVi": "<p>Trước chỗ trống là 1 trạng từ (very)</p>\n<p>=&gt; Chỗ trống cần 1 tính từ&nbsp;</p>\n<p>=&gt; Chọn đáp án B</p>\n<p>popular: phổ biến</p>"
+        },
+        {
+          "id": "615d0d5765d71f3a51f6761a",
+          "questionText": "<p>---4--- . I am looking forward to hearing back from you.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) I sincerely appreciate your business as a first-time client.",
+            "(B) Don't forget to correct any errors before sending the next invoice.",
+            "(C) It is fortunate that I was able to buy it last week.",
+            "(D) Please let me know if there are any left as soon as possible."
+          ],
+          "correctOptions": [
+            "(D) Please let me know if there are any left as soon as possible."
+          ],
+          "transcript": "<p>Previously it is mentioned that \"supplies may be limited\" and this person is eager to buy one =&gt; D is correct</p>\n",
+          "explanationVi": "<p>Đáp án D đúng vì phản ánh sự quan tâm của người nói về sự hạn chế về cung cấp và mong muốn được thông báo ngay lập tức nếu vẫn còn hàng. (However, I noticed the listing says that supplies may be limited.&nbsp;&nbsp;I am looking forward to hearing back from you.)</p>\n<p>&nbsp;</p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d5765d71f3a51f67611",
+      "questionText": "<br>The Tulsa Airport is getting a major facelift this year, as announced by officials from the Department of Aviation. At a press conference held earlier, spokesperson Oliver Conway shared some details about the project. \"In response to ---1--- growth in regional aviation, city authorities and airport management have decided that now is the time to make renovations. In addition to an extra runway and gate facilities, the airport's interior ---2--- a significant transformation designed to enhance security and ease passenger flow,\" he said. The airport was first constructed over four decades ago at a cost of $11 million, but the cost of the current work is expected to exceed $1 billion. ---3---. If all goes according to plan, the new Tulsa Airport will be completed next year. It will ---4--- state-of-the-art equipment and facilities.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d5765d71f3a51f6761b",
+          "questionText": "In response to ---1--- growth in regional aviation, city authorities and airport management have decided that now is the time to make renovations.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) continue",
+            "(B) continued",
+            "(C) continuation",
+            "(D) continually"
+          ],
+          "correctOptions": [
+            "(B) continued"
+          ],
+          "transcript": "<p>We need an adjective to modify the noun \"growth\"</p>\n",
+          "explanationVi": "<p>Chỗ trống cần 1 tính từ để bổ nghĩa cho danh từ \"growth\"</p>\n<p>=&gt; Chọn đáp án B</p>\n<p>continued: tiếp tục</p>"
+        },
+        {
+          "id": "615d0d5765d71f3a51f6761c",
+          "questionText": "<p>In addition to an extra runway and gate facilities, the airport's interior ---2--- a significant transformation designed to enhance security and ease passenger flow,\" he said.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) to undergo",
+            "(B) underwent",
+            "(C) has undergone",
+            "(D) will undergo"
+          ],
+          "correctOptions": [
+            "(D) will undergo"
+          ],
+          "transcript": "<p>This sentence is about a prediction =&gt; use future simple tense</p>\n",
+          "explanationVi": "<p>Đoạn văn nói về hành động sẽ xảy ra trong tương lai (Dấu hiệu: this year: năm nay)</p>\n<p>=&gt; Dùng thì tương lai đơn</p>\n<p>=&gt; Chọn đáp án D</p>\n<p>&nbsp;</p>"
+        },
+        {
+          "id": "615d0d5765d71f3a51f6761d",
+          "questionText": "<p>The airport was first constructed over four decades ago at a cost of $11 million, but the cost of the current work is expected to exceed $1 billion. ---3---.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The amount needed has forced officials to cancel the renovation.",
+            "(B) This figure is reasonable given the project's significant size.",
+            "(C) This is due to a decrease in the number of transit passengers.",
+            "(D) Anticipated tourist arrivals could bring added revenues on top of that."
+          ],
+          "correctOptions": [
+            "(B) This figure is reasonable given the project's significant size."
+          ],
+          "transcript": "<p>The previous sentence mentions a cost =&gt; B is correct</p>\n",
+          "explanationVi": "<p>Câu trước \"<em>The airport was first constructed over four decades ago at a cost of $11 million, but the cost of the current work is expected to exceed $1 billion.</em>\" (Sân bay được xây dựng lần đầu tiên cách đây hơn bốn thập kỷ với chi phí 11 triệu USD, nhưng chi phí cho công trình hiện tại dự kiến sẽ vượt quá 1 tỷ USD.)</p>\n<p>=&gt; Đáp án B đúng vì nó phản ánh ý rằng chi phí dự án hiện tại là đáng kể và phù hợp với quy mô của công việc cần thực hiện.</p>\n<p>=&gt; \"This figure\" chỉ \"$1 billion\"&nbsp;</p>\n<p>&nbsp;</p>"
+        },
+        {
+          "id": "615d0d5765d71f3a51f6761e",
+          "questionText": "<p>It will ---4--- state-of-the-art equipment and facilities.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) disclose",
+            "(B) process",
+            "(C) feature",
+            "(D) distract"
+          ],
+          "correctOptions": [
+            "(C) feature"
+          ],
+          "transcript": "<p>disclose:&nbsp;to give somebody information about something, especially something that was previously secret</p>\n\n<p>process:&nbsp;to treat raw material, food, etc. in order to change it, preserve it, etc.</p>\n\n<p>feature:&nbsp;to include a particular person or thing as a special feature</p>\n\n<p>distract:&nbsp;to take somebody’s attention away from what they are trying to do</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p>disclose: tiết lộ</p>\n\n<p>process: xử l&yacute;, chế biến</p>\n\n<p>feature: bao gồm</p>\n\n<p>distract: l&agrave;m xao nh&atilde;ng</p>\n\n<p><strong>=&gt; C c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        }
+      ]
+    },
+    {
+      "id": "615d0d5765d71f3a51f67612",
+      "questionText": "<br> Claire Lewis<br>Coapow Industries<br>5411 Superior Avenue<br>Cleveland, OH 44103<br>Dear Ms. Lewis,<br>I am writing in reference to a conversation we had at last year's Food Expo in Beijing. You asked me to contact you if an opportunity ---1--- business together ever arose.<br>As it happens, I have since established a cocoa farm and processing plant called Ecuacao near Quito, Ecuador. I recall you mentioning your interest in products ---2--- from Forastero cocoa beans. It was difficult to grow at first, but I have successfully produced a good quantity of beans, as you can see from the catalog I sent you. Enclosed in the package that came with this letter are some ---3---  of my products. After trying them, please let me know what you think of the quality. ---4---. I'm certain our product will add to your revenues.<br>Thank you, and I look forward to hearing from you.<br>Sincerely,<br>Daniel Gerber",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d5765d71f3a51f6761f",
+          "questionText": "You asked me to contact you if an opportunity ---1--- business together ever arose.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) conduct",
+            "(B) will conduct",
+            "(C) conducting",
+            "(D) to conduct"
+          ],
+          "correctOptions": [
+            "(D) to conduct"
+          ],
+          "transcript": "<p>opportunity + to infinitive</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p>opportunity + to V</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n D</strong></p>\n"
+        },
+        {
+          "id": "615d0d5765d71f3a51f67620",
+          "questionText": "I recall you mentioning your interest in products ---2--- from Forastero cocoa beans.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) enjoyed",
+            "(B) derived",
+            "(C) implemented",
+            "(D) prevented"
+          ],
+          "correctOptions": [
+            "(B) derived"
+          ],
+          "transcript": "<p>products derived from: coming from</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>derived from: c&oacute; nguồn gốc từ</p>\n\n<p><strong>=&gt; Chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "615d0d5765d71f3a51f67621",
+          "questionText": "Enclosed in the package that came with this letter are some ---3---  of my products.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) descriptions",
+            "(B) samples",
+            "(C) surveys",
+            "(D) formulas"
+          ],
+          "correctOptions": [
+            "(B) samples"
+          ],
+          "transcript": "<p>description:&nbsp;something that tells you what something or someone is like</p>\n\n<p>sample:&nbsp;a small amount of something that shows you what the rest is or should be like</p>\n\n<p>survey:&nbsp;an examination of opinions, behaviour, etc., made by asking people questions</p>\n\n<p>formula:&nbsp;a standard or accepted way of doing or making something</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p>description: m&ocirc; tả</p>\n\n<p>sample: mẫu, h&agrave;ng mẫu</p>\n\n<p>survey: khảo s&aacute;t</p>\n\n<p>formula: c&ocirc;ng thức&nbsp;</p>\n\n<p><strong>=&gt; B c&oacute; nghĩa ph&ugrave; hợp nhất</strong></p>\n"
+        },
+        {
+          "id": "615d0d5765d71f3a51f67622",
+          "questionText": "<p>After trying them, please let me know what you think of the quality. ---4---.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Your suggestions for improving the quality of the beans were very useful to me.",
+            "(B) We produced a smaller quantity than was originally projected.",
+            "(C) I hope you will consider ordering a supply for your company.",
+            "(D) I plan to set up my first factory facilities with the money."
+          ],
+          "correctOptions": [
+            "(C) I hope you will consider ordering a supply for your company."
+          ],
+          "transcript": "<p>C makes most sense.</p>\n",
+          "explanationVi": "<p>Dựa vào câu trước đó (After trying them, please let me know what you think of the quality) - Sau khi dùng thử, vui lòng cho tôi biết cảm nhận của bạn về chất lượng.</p>\n<p>=&gt; Chọn đáp án C</p>\n<p>Câu này thể hiện một lời mời hoặc gợi ý đối với người nhận hàng để họ xem xét việc đặt hàng cho công ty của họ.</p>"
+        }
+      ]
+    }
+  ]
+}

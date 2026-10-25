@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Card, Space, Tag, Typography } from 'antd';
-import { EyeOutlined, SoundOutlined } from '@ant-design/icons';
+import { Button, Card, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { EyeOutlined, SoundOutlined } from '@/components/ui/Icons';
 import { CertLevelTag } from '@/components/common/CertLevelTag';
 import { SRS_CARD_STATE_TAG_COLOR } from '@/config/srsCardStateTagColor';
 import styles from '@/features/vocab/components/FlashcardCard.module.css';

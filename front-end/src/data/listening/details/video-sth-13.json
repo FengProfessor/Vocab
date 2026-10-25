@@ -1,0 +1,551 @@
+{
+  "id": "video-sth-13",
+  "youtubeId": "6F8wFkScnME",
+  "title": "How Noise-Cancelling Headphones Work",
+  "channel": "SciShow",
+  "duration": 530,
+  "durationDisplay": "08:50",
+  "durationCategory": "short",
+  "cefrLevel": "B1",
+  "topic": "science_tech_health",
+  "topicDisplay": "Khoa học, Công nghệ & Sức khỏe",
+  "thumbnailUrl": "https://img.youtube.com/vi/6F8wFkScnME/hqdefault.jpg",
+  "description": "Nguyên lý triệt tiêu tiếng ồn chủ động bằng sóng âm nghịch pha trong tai nghe hiện đại.",
+  "coreVocabulary": [
+    {
+      "word": "destructive",
+      "phonetic": "/dɪˈstrʌktɪv/",
+      "viDefinition": "tính triệt tiêu (destructive interference)",
+      "contextSentence": "Destructive sound wave interference cancels ambient jet engine drone completely."
+    },
+    {
+      "word": "frequency",
+      "phonetic": "/ˈfriːkwənsi/",
+      "viDefinition": "tần số (sóng âm thanh)",
+      "contextSentence": "Active cancellation excels at neutralizing repetitive low-frequency background rumble."
+    },
+    {
+      "word": "acoustic",
+      "phonetic": "/əˈkuːstɪk/",
+      "viDefinition": "thuộc âm học, âm thanh",
+      "contextSentence": "Miniature outward microphones sample incoming external acoustic pressure waves."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-sth-13-cue-1",
+      "start": 0.18,
+      "end": 5.04,
+      "en": "So exactly, how does a lack of sleep impact our emotional brain?",
+      "vi": "Vậy chính xác thì việc thiếu ngủ ảnh hưởng như thế nào đến bộ não cảm xúc của chúng ta?"
+    },
+    {
+      "id": "video-sth-13-cue-2",
+      "start": 5.06,
+      "end": 11.15,
+      "en": "Why does that lack of sleep make us so emotionally irrational and hyperreactive?",
+      "vi": "Tại sao việc thiếu ngủ lại khiến chúng ta trở nên phi lý về mặt cảm xúc và phản ứng thái quá như vậy?"
+    },
+    {
+      "id": "video-sth-13-cue-3",
+      "start": 16.19,
+      "end": 19.85,
+      "en": "Well, several years ago, we conducted a brain imaging study.",
+      "vi": "Cách đây vài năm, chúng tôi đã tiến hành một nghiên cứu về hình ảnh não bộ."
+    },
+    {
+      "id": "video-sth-13-cue-4",
+      "start": 19.88,
+      "end": 22.42,
+      "en": "And we took a group of healthy adults.",
+      "vi": "Và chúng tôi chọn một nhóm người lớn khỏe mạnh."
+    },
+    {
+      "id": "video-sth-13-cue-5",
+      "start": 22.45,
+      "end": 26.84,
+      "en": "And we either gave them a full night of sleep or we sleep-deprived them.",
+      "vi": "Và chúng tôi hoặc cho họ một đêm ngủ trọn vẹn hoặc chúng tôi không cho họ ngủ."
+    },
+    {
+      "id": "video-sth-13-cue-6",
+      "start": 26.86,
+      "end": 30.91,
+      "en": "And then the next day, we placed them inside an MRI scanner,",
+      "vi": "Và rồi ngày hôm sau, chúng tôi đặt chúng vào trong máy quét MRI,"
+    },
+    {
+      "id": "video-sth-13-cue-7",
+      "start": 30.94,
+      "end": 34.57,
+      "en": "and we looked at how their emotional brain was reacting.",
+      "vi": "và chúng tôi đã xem xét cách bộ não cảm xúc của họ phản ứng."
+    },
+    {
+      "id": "video-sth-13-cue-8",
+      "start": 34.98,
+      "end": 39.86,
+      "en": "And we focused on one structure in particular, it's called the amygdala.",
+      "vi": "Và chúng tôi tập trung vào một cấu trúc cụ thể, nó được gọi là hạch hạnh nhân."
+    },
+    {
+      "id": "video-sth-13-cue-9",
+      "start": 39.88,
+      "end": 43.41,
+      "en": "And the amygdala is one of the centerpiece regions",
+      "vi": "Và hạch hạnh nhân là một trong những vùng trung tâm"
+    },
+    {
+      "id": "video-sth-13-cue-10",
+      "start": 43.43,
+      "end": 47.48,
+      "en": "for the generation of strong emotional reactions,",
+      "vi": "để tạo ra những phản ứng cảm xúc mạnh mẽ,"
+    },
+    {
+      "id": "video-sth-13-cue-11",
+      "start": 47.5,
+      "end": 50.48,
+      "en": "including negative emotional reactions.",
+      "vi": "bao gồm cả những phản ứng cảm xúc tiêu cực."
+    },
+    {
+      "id": "video-sth-13-cue-12",
+      "start": 50.5,
+      "end": 54.34,
+      "en": "Now when we looked at those people who had had a full night of sleep,",
+      "vi": "Bây giờ khi chúng ta nhìn vào những người đã có một đêm ngủ ngon giấc,"
+    },
+    {
+      "id": "video-sth-13-cue-13",
+      "start": 54.37,
+      "end": 59.21,
+      "en": "what we saw was a nice, appropriate moderate degree",
+      "vi": "những gì chúng tôi thấy là ở mức độ vừa phải, phù hợp"
+    },
+    {
+      "id": "video-sth-13-cue-14",
+      "start": 59.23,
+      "end": 61.52,
+      "en": "of reactivity from the amygdala.",
+      "vi": "về khả năng phản ứng từ amygdala."
+    },
+    {
+      "id": "video-sth-13-cue-15",
+      "start": 61.55,
+      "end": 66.63,
+      "en": "It wasn't as though there was no response at all, but it was an appropriate response.",
+      "vi": "Không phải là không có phản hồi nào cả, mà đó là một phản hồi thích hợp."
+    },
+    {
+      "id": "video-sth-13-cue-16",
+      "start": 66.65,
+      "end": 69.35,
+      "en": "Yet in those people who were sleep-deprived,",
+      "vi": "Tuy nhiên, ở những người bị thiếu ngủ,"
+    },
+    {
+      "id": "video-sth-13-cue-17",
+      "start": 69.38,
+      "end": 74.49,
+      "en": "that deep emotional brain center was in fact, hyperactive.",
+      "vi": "Trên thực tế, trung tâm cảm xúc sâu sắc đó lại rất hiếu động."
+    },
+    {
+      "id": "video-sth-13-cue-18",
+      "start": 74.52,
+      "end": 79.45,
+      "en": "Indeed, the amygdala was almost 60 percent more responsive",
+      "vi": "Quả thực, hạch hạnh nhân phản ứng nhanh hơn gần 60%"
+    },
+    {
+      "id": "video-sth-13-cue-19",
+      "start": 79.47,
+      "end": 82.08,
+      "en": "under conditions of a lack of sleep.",
+      "vi": "trong điều kiện thiếu ngủ."
+    },
+    {
+      "id": "video-sth-13-cue-20",
+      "start": 82.1,
+      "end": 84.16,
+      "en": "But why was that the case?",
+      "vi": "Nhưng tại sao lại như vậy?"
+    },
+    {
+      "id": "video-sth-13-cue-21",
+      "start": 84.57,
+      "end": 89.64,
+      "en": "And what we went on to discover, is that there's another brain region that's involved.",
+      "vi": "Và điều chúng tôi tiếp tục khám phá là có một vùng não khác có liên quan."
+    },
+    {
+      "id": "video-sth-13-cue-22",
+      "start": 90.03,
+      "end": 96.4,
+      "en": "This brain region is called the prefrontal cortex, and it sits directly above your eyes.",
+      "vi": "Vùng não này được gọi là vỏ não trước trán và nó nằm ngay phía trên mắt bạn."
+    },
+    {
+      "id": "video-sth-13-cue-23",
+      "start": 96.43,
+      "end": 101.71,
+      "en": "And you can think of the prefrontal cortex almost like the CEO of your brain.",
+      "vi": "Và bạn có thể coi vỏ não trước trán gần giống như người điều hành bộ não của bạn."
+    },
+    {
+      "id": "video-sth-13-cue-24",
+      "start": 101.73,
+      "end": 105.49,
+      "en": "It's very good at making high-level, executive, top-down",
+      "vi": "Nó rất giỏi trong việc làm cấp cao, điều hành, từ trên xuống"
+    },
+    {
+      "id": "video-sth-13-cue-25",
+      "start": 105.51,
+      "end": 108.47,
+      "en": "control decisions and reactions.",
+      "vi": "quyết định kiểm soát và phản ứng."
+    },
+    {
+      "id": "video-sth-13-cue-26",
+      "start": 108.91,
+      "end": 112.48,
+      "en": "In fact, it's one of the most evolved regions of our brain.",
+      "vi": "Trên thực tế, đó là một trong những vùng tiến hóa nhất trong não chúng ta."
+    },
+    {
+      "id": "video-sth-13-cue-27",
+      "start": 112.81,
+      "end": 116.38,
+      "en": "And one of the parts of the brain that it controls",
+      "vi": "Và một trong những phần não mà nó điều khiển"
+    },
+    {
+      "id": "video-sth-13-cue-28",
+      "start": 116.41,
+      "end": 119.45,
+      "en": "is this deep emotional center, the amygdala.",
+      "vi": "là trung tâm cảm xúc sâu sắc này, amygdala."
+    },
+    {
+      "id": "video-sth-13-cue-29",
+      "start": 119.85,
+      "end": 123.09,
+      "en": "Now in those people who had had a full night of sleep,",
+      "vi": "Bây giờ ở những người đã có một đêm ngủ trọn vẹn,"
+    },
+    {
+      "id": "video-sth-13-cue-30",
+      "start": 123.12,
+      "end": 128.35,
+      "en": "there was a nice, strong communication and connection between the prefrontal cortex,",
+      "vi": "có sự giao tiếp và kết nối tốt đẹp, mạnh mẽ giữa vỏ não trước trán,"
+    },
+    {
+      "id": "video-sth-13-cue-31",
+      "start": 128.37,
+      "end": 131.52,
+      "en": "regulating that deep emotional brain center.",
+      "vi": "điều chỉnh trung tâm cảm xúc sâu sắc đó."
+    },
+    {
+      "id": "video-sth-13-cue-32",
+      "start": 131.54,
+      "end": 134.21,
+      "en": "But in those people who were sleep-deprived,",
+      "vi": "Nhưng ở những người bị thiếu ngủ,"
+    },
+    {
+      "id": "video-sth-13-cue-33",
+      "start": 134.23,
+      "end": 138.28,
+      "en": "that communication, that connection between the prefrontal cortex",
+      "vi": "sự giao tiếp đó, sự kết nối giữa vỏ não trước trán"
+    },
+    {
+      "id": "video-sth-13-cue-34",
+      "start": 138.3,
+      "end": 143.26,
+      "en": "and that deep amygdala emotional brain center had essentially been severed.",
+      "vi": "và trung tâm cảm xúc sâu trong hạch hạnh nhân đó về cơ bản đã bị cắt đứt."
+    },
+    {
+      "id": "video-sth-13-cue-35",
+      "start": 143.28,
+      "end": 149.55,
+      "en": "And as a consequence, the amygdala was responding far more reactively due to a lack of sleep.",
+      "vi": "Và kết quả là, hạch hạnh nhân phản ứng mạnh hơn do thiếu ngủ."
+    },
+    {
+      "id": "video-sth-13-cue-36",
+      "start": 149.57,
+      "end": 155.65,
+      "en": "It's almost as though without sleep we become all emotional accelerator pedal,",
+      "vi": "Gần như thể không ngủ chúng ta trở thành bàn đạp tăng tốc cảm xúc,"
+    },
+    {
+      "id": "video-sth-13-cue-37",
+      "start": 155.67,
+      "end": 159.22,
+      "en": "and too little regulatory control brake.",
+      "vi": "và phanh điều khiển quá ít."
+    },
+    {
+      "id": "video-sth-13-cue-38",
+      "start": 159.24,
+      "end": 163.38,
+      "en": "And that seems to be the reason that we become so unbuckled",
+      "vi": "Và đó dường như là lý do khiến chúng ta trở nên lỏng lẻo"
+    },
+    {
+      "id": "video-sth-13-cue-39",
+      "start": 163.41,
+      "end": 168.43,
+      "en": "in terms of our emotional integrity when we haven't been sleeping well.",
+      "vi": "về mặt cảm xúc của chúng ta khi chúng ta không ngủ ngon."
+    },
+    {
+      "id": "video-sth-13-cue-40",
+      "start": 168.46,
+      "end": 173.4,
+      "en": "So that's the bad that can happen if I take sleep away from you.",
+      "vi": "Vậy đó là điều tồi tệ có thể xảy ra nếu tôi tước đi giấc ngủ của bạn."
+    },
+    {
+      "id": "video-sth-13-cue-41",
+      "start": 173.43,
+      "end": 179.18,
+      "en": "But it turns out that there's something good that happens when you get your sleep back.",
+      "vi": "Nhưng hóa ra có điều gì đó tốt đẹp sẽ xảy ra khi bạn ngủ lại được."
+    },
+    {
+      "id": "video-sth-13-cue-42",
+      "start": 179.2,
+      "end": 182.44,
+      "en": "And sleep, particularly rapid eye movement sleep,",
+      "vi": "Và giấc ngủ, đặc biệt là giấc ngủ chuyển động mắt nhanh,"
+    },
+    {
+      "id": "video-sth-13-cue-43",
+      "start": 182.47,
+      "end": 186.53,
+      "en": "actually offers a form of emotional first aid.",
+      "vi": "thực sự cung cấp một hình thức sơ cứu về mặt cảm xúc."
+    },
+    {
+      "id": "video-sth-13-cue-44",
+      "start": 186.89,
+      "end": 192.62,
+      "en": "Because it's during sleep at night that we take these difficult emotional experiences",
+      "vi": "Bởi vì chính trong giấc ngủ vào ban đêm chúng ta mới trải qua những trải nghiệm cảm xúc khó khăn này"
+    },
+    {
+      "id": "video-sth-13-cue-45",
+      "start": 192.64,
+      "end": 198.91,
+      "en": "that we've been having during the day, and that sleep acts almost like a nocturnal soothing balm,",
+      "vi": "mà chúng ta đã trải qua vào ban ngày, và giấc ngủ đó gần giống như một liều thuốc xoa dịu ban đêm,"
+    },
+    {
+      "id": "video-sth-13-cue-46",
+      "start": 198.94,
+      "end": 203.27,
+      "en": "taking the sharp edges off those difficult experiences.",
+      "vi": "loại bỏ những góc cạnh sắc bén khỏi những trải nghiệm khó khăn đó."
+    },
+    {
+      "id": "video-sth-13-cue-47",
+      "start": 203.6,
+      "end": 208.65,
+      "en": "And so perhaps it's not time that heals all wounds,",
+      "vi": "Và có lẽ không phải thời gian sẽ chữa lành mọi vết thương,"
+    },
+    {
+      "id": "video-sth-13-cue-48",
+      "start": 208.67,
+      "end": 215.03,
+      "en": "it's time during sleep that provides that form of emotional convalescence.",
+      "vi": "chính thời gian trong khi ngủ mang lại hình thức phục hồi cảm xúc đó."
+    },
+    {
+      "id": "video-sth-13-cue-49",
+      "start": 215.06,
+      "end": 220.16,
+      "en": "So that when we come back the next day, we're able to cope with those emotional memories.",
+      "vi": "Để khi quay lại vào ngày hôm sau, chúng ta có thể đương đầu với những ký ức xúc động đó."
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-sth-13-cloze-1",
+      "cueId": "video-sth-13-cue-17",
+      "sentence": "This {{blank}} silence is achieved through precision physics known as phase interference.",
+      "blankWord": "magical",
+      "hintVi": "Nghĩa gợi ý: Sự im lặng kỳ diệu này đạt được nhờ vật ...",
+      "timestamp": 106,
+      "options": [
+        "balance",
+        "gradual",
+        "magical",
+        "moderate"
+      ]
+    },
+    {
+      "id": "video-sth-13-cloze-2",
+      "cueId": "video-sth-13-cue-9",
+      "sentence": "Noise-cancelling {{blank}} feature tiny external microphones that continuously sample ambient noise.",
+      "blankWord": "headphones",
+      "hintVi": "Nghĩa gợi ý: Tai nghe khử tiếng ồn có các micro siêu ...",
+      "timestamp": 53,
+      "options": [
+        "moderate",
+        "headphones",
+        "tremendous",
+        "criterion"
+      ]
+    },
+    {
+      "id": "video-sth-13-cloze-3",
+      "cueId": "video-sth-13-cue-57",
+      "sentence": "{{blank}} speakers inside the earcups play this inverted wave directly into your ear canal.",
+      "blankWord": "miniature",
+      "hintVi": "Nghĩa gợi ý: Các loa nhỏ bên trong chụp tai phát sóng...",
+      "timestamp": 371,
+      "options": [
+        "miniature",
+        "moderate",
+        "component",
+        "priority"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-sth-13-q1",
+      "question": "What is the primary focus of the video 'How Noise-Cancelling Headphones Work'?",
+      "options": [
+        "To advertise a commercial product for online shoppers.",
+        "To explain and practice how noise-cancelling headphones work effectively.",
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance."
+      ],
+      "correctIndex": 1,
+      "explanation": "The entire video systematically explores how noise-cancelling headphones work, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 53
+    },
+    {
+      "id": "video-sth-13-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'Noise-cancelling...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It emphasizes that: Noise-cancelling headphones feature tiny external microphone...",
+        "It advises viewers to disregard standard precautions completely."
+      ],
+      "correctIndex": 2,
+      "explanation": "In this segment, the speaker clarifies: 'Noise-cancelling headphones feature tiny external microphones that continuously sample ambient noise.', showing its practical importance.",
+      "timestampSeek": 212
+    },
+    {
+      "id": "video-sth-13-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "No further practice or mindfulness is necessary.",
+        "Applying these principles leads to: Active noise cancellation transforms chaotic urban racket into se...",
+        "Viewers should abandon ongoing efforts and start over.",
+        "The speaker concludes that mastery is entirely unachievable."
+      ],
+      "correctIndex": 1,
+      "explanation": "The concluding message emphasizes that Active noise cancellation transforms chaotic urban racket into serene auditory sanctuary., providing a meaningful summary for learners.",
+      "timestampSeek": 477
+    }
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-sth-13-cloze-1",
+        "cueId": "video-sth-13-cue-17",
+        "sentence": "This {{blank}} silence is achieved through precision physics known as phase interference.",
+        "blankWord": "magical",
+        "hintVi": "Nghĩa gợi ý: Sự im lặng kỳ diệu này đạt được nhờ vật ...",
+        "timestamp": 106,
+        "options": [
+          "balance",
+          "gradual",
+          "magical",
+          "moderate"
+        ]
+      },
+      {
+        "id": "video-sth-13-cloze-2",
+        "cueId": "video-sth-13-cue-9",
+        "sentence": "Noise-cancelling {{blank}} feature tiny external microphones that continuously sample ambient noise.",
+        "blankWord": "headphones",
+        "hintVi": "Nghĩa gợi ý: Tai nghe khử tiếng ồn có các micro siêu ...",
+        "timestamp": 53,
+        "options": [
+          "moderate",
+          "headphones",
+          "tremendous",
+          "criterion"
+        ]
+      },
+      {
+        "id": "video-sth-13-cloze-3",
+        "cueId": "video-sth-13-cue-57",
+        "sentence": "{{blank}} speakers inside the earcups play this inverted wave directly into your ear canal.",
+        "blankWord": "miniature",
+        "hintVi": "Nghĩa gợi ý: Các loa nhỏ bên trong chụp tai phát sóng...",
+        "timestamp": 371,
+        "options": [
+          "miniature",
+          "moderate",
+          "component",
+          "priority"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-sth-13-q1",
+        "question": "What is the primary focus of the video 'How Noise-Cancelling Headphones Work'?",
+        "options": [
+          "To advertise a commercial product for online shoppers.",
+          "To explain and practice how noise-cancelling headphones work effectively.",
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance."
+        ],
+        "correctIndex": 1,
+        "explanation": "The entire video systematically explores how noise-cancelling headphones work, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 53
+      },
+      {
+        "id": "video-sth-13-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'Noise-cancelling...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It emphasizes that: Noise-cancelling headphones feature tiny external microphone...",
+          "It advises viewers to disregard standard precautions completely."
+        ],
+        "correctIndex": 2,
+        "explanation": "In this segment, the speaker clarifies: 'Noise-cancelling headphones feature tiny external microphones that continuously sample ambient noise.', showing its practical importance.",
+        "timestampSeek": 212
+      },
+      {
+        "id": "video-sth-13-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "No further practice or mindfulness is necessary.",
+          "Applying these principles leads to: Active noise cancellation transforms chaotic urban racket into se...",
+          "Viewers should abandon ongoing efforts and start over.",
+          "The speaker concludes that mastery is entirely unachievable."
+        ],
+        "correctIndex": 1,
+        "explanation": "The concluding message emphasizes that Active noise cancellation transforms chaotic urban racket into serene auditory sanctuary., providing a meaningful summary for learners.",
+        "timestampSeek": 477
+      }
+    ]
+  }
+}

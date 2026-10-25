@@ -1,0 +1,330 @@
+{
+  "topicId": "615c195865d71f3a51f67428",
+  "name": "Test 15",
+  "slug": "test-15",
+  "part": "part_6_text_completion",
+  "totalQuestions": 16,
+  "totalCards": 4,
+  "cards": [
+    {
+      "id": "615d0d4765d71f3a51f675e7",
+      "questionText": "<b>ATTENTION ALL TENANTS</b><br> Wimberley Group will ---1--- its rent collection system to electronic one. This change will apply to all apartments effective February 1. ---2---. Cash and personal checks will no longer be accepted.<br>Every tenant needs to create a user profile at www.wimberlygroup.com. After logging in, tenants will be able to ---3--- a payment. You can do this by selecting the unpaid bill and then clicking on the button at the bottom of the screen. ---4--- you hit “Pay”, the amount you designate will be deducted from your registered credit card or bank account. If you wish to arrange automatic payments, please click the button labeled “Pay this amount every month.”<br>Thank you for your cooperation. If you have any questions, e-mail US at help@wimberlygroup.com",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d4765d71f3a51f675eb",
+          "questionText": "Wimberley Group will ---1--- its rent collection system to electronic one.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) induce",
+            "(B) fluctuate",
+            "(C) convert",
+            "(D) recover"
+          ],
+          "correctOptions": [
+            "(C) convert"
+          ],
+          "transcript": "<p>(A) induce (v)&nbsp;to persuade or influence somebody to do something</p>\n\n<p>(B) fluctuate (v)&nbsp;to change, especially continuously and between one level or thing and another</p>\n\n<p>(C) convert (v)&nbsp;to change or make something change from one form, purpose, system, etc. to another</p>\n\n<p>(D) recover (v)&nbsp;to get well again after being ill, hurt, etc.</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong></p>\n<p>Tập đoàn Wimberley sẽ ---1--- hệ thống thu tiền thuê sang hệ thống điện tử.</p>\n<p>(A) induce (v) xui khiến, xúi giục</p>\n<p>(B) fluctuate (v) biến động</p>\n<p>(C) convert (v) chuyển đổi</p>\n<p>(D) recover (v) hồi phục, phục hồi</p>\n<p><strong>=&gt; chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675ec",
+          "questionText": "This change will apply to all apartments effective February 1. ---2---.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Tenants had found the new system easy to use.",
+            "(B) From that day on, tenants must pay their rental fees online.",
+            "(C) The new system allowed for a greater variety of payment options.",
+            "(D) Only certain Wimberley Group occupants will be affected."
+          ],
+          "correctOptions": [
+            "(B) From that day on, tenants must pay their rental fees online."
+          ],
+          "transcript": "<p>The previous sentence mentions a day when the change will apply to all apartments</p>\n\n<p><strong>=&gt; B is correct</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:&nbsp;</strong></p>\n<p>Thay đổi này sẽ áp dụng cho tất cả các căn hộ có hiệu lực từ ngày 1 tháng 2. ---2---.</p>\n<p>(A) Người thuê nhà nhận thấy hệ thống mới dễ sử dụng.</p>\n<p>(B) Kể từ ngày đó, người thuê nhà phải thanh toán phí thuê trực tuyến.</p>\n<p>(C) Hệ thống mới cho phép có nhiều lựa chọn thanh toán đa dạng hơn.</p>\n<p>(D) Chỉ một số cư dân của Wimberley Group sẽ bị ảnh hưởng.</p>\n<p>Ở câu trước có đề cập đến thời gian sẽ áp dụng sự thay đổi cho toàn bộ các căn hộ</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>\n<p>&nbsp;</p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675ed",
+          "questionText": "After logging in, tenants will be able to ---3--- a payment. You can do this by selecting the unpaid bill and then clicking on the button at the bottom of the screen.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) postpone",
+            "(B) cancel",
+            "(C) oppose",
+            "(D) make"
+          ],
+          "correctOptions": [
+            "(D) make"
+          ],
+          "transcript": "<p>(A) postpone (v):&nbsp;to arrange for an event, etc. to take place at a later time or date than originally planned</p>\n\n<p>(B) cancel (v):&nbsp;to decide that something that has been arranged will not now take place</p>\n\n<p>(C) oppose (v):&nbsp;to disagree strongly with somebody’s plan, policy, etc. and try to change it or prevent it from succeeding</p>\n\n<p>(D) make (v):&nbsp;to create or prepare something by combining materials or putting parts together</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Sau khi đăng nhập, người thuê nhà sẽ có thể ---3--- thanh toán. Bạn có thể thực hiện việc này bằng cách chọn hóa đơn chưa thanh toán và sau đó nhấp vào nút ở cuối màn hình.</p>\n<p>(A) postpone (v) hoãn lại</p>\n<p>(B) cancel (v) huỷ bỏ</p>\n<p>(C) oppose (v) phản đối</p>\n<p>(D) make (v) làm</p>\n<p>- make a payment: Thanh toán</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675ee",
+          "questionText": "<p>---4--- you hit “Pay”, the amount you designate will be deducted from your registered credit card or bank account.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Even though",
+            "(B) During",
+            "(C) Since",
+            "(D) As soon as"
+          ],
+          "correctOptions": [
+            "(D) As soon as"
+          ],
+          "transcript": "<p>(A) Even though:&nbsp;although</p>\n\n<p>(B) During:&nbsp;all through a period of time</p>\n\n<p>(C) Since:&nbsp;from a time in the past until a later past time, or until now</p>\n\n<p>(D) As soon as:&nbsp;at the same time or a very short time after</p>\n\n<p>Based on the meaning of conjunctions</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> ---4--- bạn nhấn “Thanh toán”, số tiền bạn chỉ định sẽ được trừ vào thẻ tín dụng hoặc tài khoản ngân hàng đã đăng ký của bạn.</p>\n<p>(A) Even though: Mặc dù</p>\n<p>(B) During: Trong khi</p>\n<p>(C) Since: Từ khi</p>\n<p>(D) As soon as: Ngay sau khi</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d4765d71f3a51f675e8",
+      "questionText": "<p>To: Angela Thornberry [athornberry@fastmail.com]<br>\nFrom: Vincent Nakamura [vnakamura@traxcomputers.com]<br>\nSubject: Your laptop<br>\nDate: June 18<br>\nDear Ms. Thornberry,<br>\nI am writing about the Trax 2700 laptop you dropped off at our store on June 15 because of problems with its screen. After sending it to our ---1---for examination, we discovered that it contained a faulty component. At present, your laptop is being ---2---. As requested, we are also thoroughly testing the device to see if there are any other issues.<br>\nAs this problem appears to have been entirely our fault, we will provide you with a $50 voucher to use at our retail store. ---3---, e-coupons for our Web site are also available. Just let us know which you'd prefer.<br>\n---4---. If you have not received it by then, please call customer service.<br>\nBest wishes,<br>\nVincent Nakamura<br>\nCustomer Satisfaction Department</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d4765d71f3a51f675ef",
+          "questionText": "After sending it to our ---1---for examination, we discovered that it contained a faulty component.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) technicality",
+            "(B) technical",
+            "(C) technicians",
+            "(D) technology"
+          ],
+          "correctOptions": [
+            "(C) technicians"
+          ],
+          "transcript": "<p>send something to somebody <strong>=&gt; choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Sau khi gửi nó cho ---1--- để kiểm tra, chúng tôi phát hiện ra rằng nó có chứa một thành phần bị lỗi.</p>\n<p>(A) technicality (n) chi tiết kỹ thuật</p>\n<p>(B) technical (adj) thuộc về kỹ thuật</p>\n<p>(C) technicians (n) chuyên viên kỹ thuật</p>\n<p>(D) technology (n) công nghệ</p>\n<p>- send something to somebody</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675f0",
+          "questionText": "At present, your laptop is being ---2---.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) replaced",
+            "(B) repaired",
+            "(C) shipped",
+            "(D) recalled"
+          ],
+          "correctOptions": [
+            "(B) repaired"
+          ],
+          "transcript": "<p>(A) replace (v):&nbsp;to take the place of something</p>\n\n<p>(B) repaired (v):&nbsp;to fix something that is broken, damaged or torn</p>\n\n<p>(C) ship (v)&nbsp;to send or transport somebody/something by ship or by another means of transport</p>\n\n<p>(D) recall (v):&nbsp;to remember something</p>\n\n<p>Based on the meaning of verbs</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Hiện tại, laptop của bạn đang được ---2---.</p>\n\n<p>(A) replace (v) thay thế</p>\n\n<p>(B) repaired (v) sửa chữa</p>\n\n<p>(C) ship (v) vận chuyển</p>\n\n<p>(D) recall (v) thu hồi</p>\n\n<p>=&gt; Dựa v&agrave;o nghĩa của c&aacute;c từ, <strong>chọn đ&aacute;p &aacute;n B</strong></p>\n"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675f1",
+          "questionText": "As this problem appears to have been entirely our fault, we will provide you with a $50 voucher to use at our retail store. ---3---, e-coupons for our Web site are also available.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Regrettably",
+            "(B) Subsequently",
+            "(C) Approximately",
+            "(D) Alternatively"
+          ],
+          "correctOptions": [
+            "(D) Alternatively"
+          ],
+          "transcript": "<p>(A) Regrettably (adv):&nbsp;used to describe something that you are sorry about and wish had not happened</p>\n\n<p>(B) Subsequently (adv):&nbsp;afterwards; later; after something else has happened</p>\n\n<p>(C) Approximately (adv):&nbsp;used to show that something is almost, but not completely, accurate or correct</p>\n\n<p>(D) Alternatively (adv):&nbsp;used to introduce a suggestion that is a second choice or possibility</p>\n\n<p>Based on the meaning of adverbs</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Vì vấn đề này dường như hoàn toàn là lỗi của chúng tôi nên chúng tôi sẽ cung cấp cho bạn phiếu mua hàng trị giá $50 để sử dụng tại cửa hàng bán lẻ của chúng tôi. ---3---, phiếu giảm giá điện tử cho trang web của chúng tôi cũng có sẵn.</p>\n<p>(A) Regrettably (adv) Đáng tiếc</p>\n<p>(B) Subsequently (adv) Theo, Hệ quả là</p>\n<p>(C) Approximately (adv) Khoảng chừng</p>\n<p>(D) Alternatively (adv) Cách khác. Được sử dụng để đề xuất một lựa chọn hoặc một phương pháp khác</p>\n<p>=&gt; Dựa vào nghĩa của các từ, <strong>chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675f2",
+          "questionText": "<p>---4---. If you have not received it by then, please call customer service.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The model you inquired about is no longer available at this location.",
+            "(B) We will send the computer back to you within three days.",
+            "(C) You are not covered under the warranty as it has expired.",
+            "(D) We have been receiving a number of complaints about our service."
+          ],
+          "correctOptions": [
+            "(B) We will send the computer back to you within three days."
+          ],
+          "transcript": "<p>The following sentence mentions \"If you have not received it by then\" <strong>=&gt; B is correct</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> ---4---. Nếu đến thời điểm đó mà bạn vẫn chưa nhận được, vui lòng gọi cho bộ phận dịch vụ khách hàng.</p>\n<p>(A) Model bạn hỏi không còn có tại điểm này nữa.</p>\n<p>(B) Chúng tôi sẽ gửi lại máy tính cho bạn trong vòng ba ngày.</p>\n<p>(C) Bạn không được bảo hành vì nó đã hết hạn.</p>\n<p>(D) Chúng tôi đã nhận được một số khiếu nại về dịch vụ của chúng tôi.</p>\n<p>Câu tiếp theo đề cập \"If you have not received it by then\" (Nếu khi đó bạn chưa nhận được)</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d4765d71f3a51f675e9",
+      "questionText": "<p><br>\n<b>Notice for All Staff</b><br>\nThe shopping mall our store is located in will be closed from December 24 to 26. ---1---, some of you will be coming in on December 24 to set up for our post-holiday sale. The guard who usually opens the mall doors in the morning is off duty during this time. ---2---. Daniel Monahan is the most senior staff member, so I will give it to him, and he will let everyone inside.<br>\nIt is vital that you ---3--- Daniel at the entrance at exactly 10 a.m. We don't want to waste time making him go back and forth to open the doors, so please be considerate and arrive as ---4---</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d4765d71f3a51f675f3",
+          "questionText": "The shopping mall our store is located in will be closed from December 24 to 26. ---1---, some of you will be coming in on December 24 to set up for our post-holiday sale.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Besides",
+            "(B) Otherwise",
+            "(C) Accordingly",
+            "(D) However"
+          ],
+          "correctOptions": [
+            "(D) However"
+          ],
+          "transcript": "<p>The previous sentence indicates that the shopping mall our store is located in will be closed from December 24 to 26 while this sentence says some of you will be coming in on December 24... =&gt; \"However\" is correct</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Trung tâm mua sắm mà cửa hàng của chúng tôi tọa lạc sẽ đóng cửa từ ngày 24 đến ngày 26 tháng 12. ---1---, một số bạn sẽ đến vào ngày 24 tháng 12 để chuẩn bị cho đợt giảm giá sau kỳ nghỉ lễ của chúng tôi.</p>\n<p>(A) Bên cạnh đó</p>\n<p>(B) Nếu không</p>\n<p>(C) Vì thế</p>\n<p>(D) Tuy nhiên</p>\n<p>Ở câu trước có biểu đạt rằng trung tâm mua sắm mà có cửa hàng của chúng ta sẽ đóng cửa từ 24-26/12. Trong khi đó, câu này nói rằng một số bạn sẽ đến vào 24/12 để chuẩn bị cho buổi giảm giá sau lễ =&gt; \"However\" là đáp án phù hợp</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675f4",
+          "questionText": "The guard who usually opens the mall doors in the morning is off duty during this time. ---2---.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Making sure we answer customer inquiries in a timely manner is our priority.",
+            "(B) You should be able to use your employee pass to access the mall.",
+            "(C) A security code will therefore be required to enter the building.",
+            "(D) You will need to handle backorders caused by his absence."
+          ],
+          "correctOptions": [
+            "(C) A security code will therefore be required to enter the building."
+          ],
+          "transcript": "<p>It's mentioned that the guard who usually opens the mall doors in the morning is off duty so a security code will therefore be required to enter the building.</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Người bảo vệ thường mở cửa trung tâm thương mại vào buổi sáng sẽ nghỉ làm trong thời gian này. ---2---.</p>\n<p>(A) Đảm bảo rằng chúng tôi trả lời các câu hỏi của khách hàng một cách kịp thời là ưu tiên hàng đầu của chúng tôi.</p>\n<p>(B) Bạn có thể sử dụng thẻ nhân viên của mình để vào trung tâm mua sắm.</p>\n<p>(C) Do đó, cần phải có mã bảo mật để vào tòa nhà.</p>\n<p>(D) Bạn sẽ cần phải xử lý các đơn hàng đặt trước do sự vắng mặt của anh ấy.</p>\n<p>Đề bài đề cập rằng người bảo vệ thường mở cửa trung tâm thương mại vào buổi sáng đã nghỉ làm nên cần phải có mã an ninh để vào tòa nhà.</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675f5",
+          "questionText": "It is vital that you ---3--- Daniel at the entrance at exactly 10 a.m.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) are meeting",
+            "(B) meet",
+            "(C) had met",
+            "D) met"
+          ],
+          "correctOptions": [
+            "(B) meet"
+          ],
+          "transcript": "<p>It is + adjective + S + V-infinitive</p>\n\n<p><strong>=&gt; Choose B</strong></p>\n",
+          "explanationVi": "<p><strong>Cấu trúc:</strong> It is + tính từ + Chủ ngữ + Động từ nguyên mẫu</p>\n<p><strong>Tạm dịch:</strong> Điều quan trọng là bạn phải gặp Daniel ở lối vào vào đúng 10 giờ sáng.</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675f6",
+          "questionText": "<p>We don't want to waste time making him go back and forth to open the doors, so please be considerate and arrive as ---4---</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) punctually",
+            "(B) regularly",
+            "(C) politely",
+            "(D) impressively"
+          ],
+          "correctOptions": [
+            "(A) punctually"
+          ],
+          "transcript": "<p>(A) punctually (adv):&nbsp;at the arranged or correct time and not late</p>\n\n<p>(B) regularly (adv):&nbsp;often</p>\n\n<p>(C) politely (adv):&nbsp;in a way that shows good manners and respect for the feelings of others</p>\n\n<p>(D) impressively (adv):&nbsp;in a way that people admire or respect</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Chúng tôi không muốn lãng phí thời gian bắt anh ấy đi tới đi lui để mở cửa, vì vậy hãy ân cần và đến với tư cách ---4---</p>\n<p>(A) punctually (adv) đúng giờ</p>\n<p>(B) regularly (adv) thường xuyên</p>\n<p>(C) politely (adv) một cách lịch sự</p>\n<p>(D) impressively (adv) một cách ấn tượng</p>\n<p>=&gt; Dựa vào nghĩa của các từ,<strong> chọn đáp án A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "615d0d4765d71f3a51f675ea",
+      "questionText": "To: Rajesh Singh [rajesh.singh@indiaclothing.in]<br>\nFrom: Faria Deveraj [f.deveraj@mumbai.gov.in]<br>\nSubject:Scheduled Inspection<br>\nDate: October 12<br>\nDear Mr. Singh,<br>\nOn October 17, your clothing factory will face its yearly government inspection. This annual ---1--- will verify that all labor laws are being followed. Your factory passed the ---2--- evaluation with no major problems, so our inspectors hope to see a similar level of compliance this time around.<br>\nYou are ---3--- obliged to provide access to any part of the factory that the inspectors may wish to see. Failure to comply in this regard may result in fines and further investigation. Also, the inspectors need to confirm that workers are being properly compensated. ---4---.<br>\nThank you for your attention to this matter.<br>\nFaria Deveraj<br>\nInspection Team Leader<br>\nCity Government of Mumbai",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "615d0d4765d71f3a51f675f7",
+          "questionText": "This annual ---1--- will verify that all labor laws are being followed.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) meeting",
+            "(B) investment",
+            "(C) commemoration",
+            "(D) assessment"
+          ],
+          "correctOptions": [
+            "(D) assessment"
+          ],
+          "transcript": "<p>(A) meeting (n):&nbsp;an occasion when people come together to discuss or decide something</p>\n\n<p>(B) investment (n)&nbsp;the act of investing money in something</p>\n\n<p>(C) commemoration (n)&nbsp;an action, or a ceremony, etc. that makes people remember and show respect for an important person or event in the past</p>\n\n<p>(D) assessment (n):&nbsp;an opinion or a judgement about somebody/something that has been thought about very carefully</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose D</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> ---1--- thường niên này sẽ xác minh rằng tất cả các luật lao động đều được tuân thủ.</p>\n<p>(A) meeting (n) cuộc họp</p>\n<p>(B) investment (n) sự đầu tư</p>\n<p>(C) commemoration (n) lễ kỉ niệm</p>\n<p>(D) assessment (n) bản đánh giá</p>\n<p>=&gt; Dựa vào nghĩa của các từ,<strong> chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675f8",
+          "questionText": "Your factory passed the ---2--- evaluation with no major problems, so our inspectors hope to see a similar level of compliance this time around.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) decided",
+            "(B) forthcoming",
+            "(C) previous",
+            "(D) ultimate"
+          ],
+          "correctOptions": [
+            "(C) previous"
+          ],
+          "transcript": "<p>(A) decided:&nbsp;certain, obvious, or easy to notice</p>\n\n<p>(B) forthcoming:&nbsp;happening soon</p>\n\n<p>(C) previous:&nbsp;happening or existing before something or someone else</p>\n\n<p>(D) ultimate:&nbsp;most extreme or important because either the original or final, or the best or worst</p>\n\n<p>Based on the meaning of words</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Nhà máy của bạn đã vượt qua cuộc đánh giá ---2--- mà không gặp vấn đề gì lớn, vì vậy, các thanh tra viên của chúng tôi hy vọng lần này sẽ thấy mức độ tuân thủ tương tự.</p>\n<p>(A) decided: đã được quyết định</p>\n<p>(B) forthcoming: sắp tới</p>\n<p>(C) previous: trước đó</p>\n<p>(D) ultimate: cuối cùng</p>\n<p>=&gt; Dựa vào nghĩa của các từ, <strong>chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675f9",
+          "questionText": "You are ---3--- obliged to provide access to any part of the factory that the inspectors may wish to see. Failure to comply in this regard may result in fines and further investigation.",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) legally",
+            "(B) legality",
+            "(C) legal",
+            "(D) legitimate"
+          ],
+          "correctOptions": [
+            "(A) legally"
+          ],
+          "transcript": "<p>The blank is between \"is\" and \"obliged\" =&gt; use adverb</p>\n\n<p><strong>=&gt; Choose A</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch: </strong>Về mặt pháp lý, bạn có nghĩa vụ phải cho phép tiếp cận bất kỳ khu vực nào của nhà máy mà thanh tra viên có thể muốn xem. Việc không tuân thủ về vấn đề này có thể bị phạt tiền và bị điều tra thêm.</p>\n<p>(A) legally (adv) một cách hợp pháp</p>\n<p>(B) legality (n) sự hợp pháp</p>\n<p>(C) legal (adj) tính hợp pháp</p>\n<p>(D) legitimate (v) hợp pháp</p>\n<p>Vị trí cần điền đứng giữa Tobe \"is\" và Động từ \"obliged\" =&gt; Cần một trạng từ</p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        },
+        {
+          "id": "615d0d4765d71f3a51f675fa",
+          "questionText": "<p>Also, the inspectors need to confirm that workers are being properly compensated. ---4---.</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A copy of the receipt for your recent payment has been sent to you in the mail",
+            "(B) The human resources department will need to prepare the relevant documents.",
+            "(C) Consequently, the company wishes to avoid paying any such penalties.",
+            "(D) We are interested in hearing about certain products that were recalled."
+          ],
+          "correctOptions": [
+            "(B) The human resources department will need to prepare the relevant documents."
+          ],
+          "transcript": "<p><strong>=&gt; B makes most sense among the answers</strong>. The relevant documents for the compensation.</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong> Ngoài ra, các thanh tra viên cần xác nhận rằng người lao động đang được đền bù thỏa đáng. ---4---.</p>\n<p>(A) Một bản sao biên lai thanh toán gần đây của bạn đã được gửi cho bạn qua đường bưu điện</p>\n<p>(B) Bộ phận nhân sự sẽ cần chuẩn bị các tài liệu liên quan.</p>\n<p>(C) Do đó, công ty mong muốn tránh phải trả bất kỳ hình phạt nào như vậy.</p>\n<p>(D) Chúng tôi muốn biết về một số sản phẩm đã bị thu hồi.</p>\n<p>Các tài liệu liên quan đến việc đền bù =&gt; Dựa vào mặt nghĩa, <strong>chọn đáp án B</strong></p>"
+        }
+      ]
+    }
+  ]
+}

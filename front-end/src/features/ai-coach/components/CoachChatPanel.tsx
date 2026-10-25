@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button, Card, Empty, Input, List, Space, Tag, Typography } from 'antd';
-import { SendOutlined } from '@ant-design/icons';
+import { Button, Card, Empty, Input, List, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { SendOutlined } from '@/components/ui/Icons';
 import styles from '@/features/ai-coach/components/CoachChatPanel.module.css';
 import { CoachChatPanelProps } from '@/features/ai-coach/types/CoachChatPanelProps';
 import { CoachMessageSender } from '@/types/enums/CoachMessageSender';

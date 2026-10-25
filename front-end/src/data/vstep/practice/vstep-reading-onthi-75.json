@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-75",
+  "title": "Luyện Đọc VSTEP: Reading Part 3 - Test 10 (Reading Part 3 - Test 10)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 3 - Test 10",
+            "text": "<p style=\"text-align:center; font-weight: bold; font-size: 18px;\">Global Water Scarcity Crisis</p><p style=\"text-align:justify;\">Water scarcity affects more than 40% of the global population, a figure that is projected to rise as climate change alters precipitation patterns and population growth increases demand. Unlike many environmental challenges, water scarcity has immediate and severe consequences for human health, food security, and economic development. Addressing this crisis requires innovative approaches to water management, conservation, and equitable distribution.</p><p>(...passage continues with water conservation strategies, technological solutions, policy recommendations...)</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r75-q1",
+              "type": "mcq",
+              "question": "Main topic is:",
+              "options": [
+                "Ocean exploration",
+                "Water scarcity and solutions",
+                "Beverage industry",
+                "Swimming pools"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r75-q2",
+              "type": "mcq",
+              "question": "Percentage affected:",
+              "options": [
+                "Less than 10%",
+                "More than 40%",
+                "Nobody",
+                "100%"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r75-q3",
+              "type": "mcq",
+              "question": "Climate change impact:",
+              "options": [
+                "No effect on water",
+                "Alters precipitation patterns",
+                "Increases rainfall everywhere",
+                "Irrelevant"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r75-q4",
+              "type": "mcq",
+              "question": "Conservation method mentioned:",
+              "options": [
+                "Using more water",
+                "Efficient irrigation systems",
+                "Ignoring the problem",
+                "Building more pools"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r75-q5",
+              "type": "mcq",
+              "question": "Agriculture uses:",
+              "options": [
+                "No water",
+                "Majority of freshwater",
+                "Less than industry",
+                "Minimal amounts"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r75-q6",
+              "type": "mcq",
+              "question": "Technology solution mentioned:",
+              "options": [
+                "No technology helps",
+                "Desalination and recycling",
+                "Video games",
+                "Social media"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r75-q7",
+              "type": "mcq",
+              "question": "Individual actions include:",
+              "options": [
+                "Wasting more water",
+                "Reducing consumption and fixing leaks",
+                "Ignoring the issue",
+                "Using more appliances"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r75-q8",
+              "type": "mcq",
+              "question": "Water conflicts occur because:",
+              "options": [
+                "Too much water everywhere",
+                "Shared water resources cause disputes",
+                "People don't like water",
+                "No water exists"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r75-q9",
+              "type": "mcq",
+              "question": "Policy recommendations include:",
+              "options": [
+                "No government role",
+                "Pricing, regulation, and infrastructure investment",
+                "Privatizing all water",
+                "Exporting water abroad"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r75-q10",
+              "type": "mcq",
+              "question": "Overall message is:",
+              "options": [
+                "Problem is unsolvable",
+                "Urgent action needed with available solutions",
+                "Water scarcity is a myth",
+                "Only future generations matter"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

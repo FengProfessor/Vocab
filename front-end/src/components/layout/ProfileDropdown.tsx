@@ -1,13 +1,13 @@
 import React from 'react';
-import { Avatar, Dropdown, Tag, Typography } from 'antd';
-import type { MenuProps } from 'antd';
+import { Avatar, Dropdown, Tag, Typography } from '@/components/ui/Primitives';
+import type { MenuProps } from '@/components/ui/Primitives';
 import {
   CheckOutlined,
   DownOutlined,
   LogoutOutlined,
   SafetyCertificateOutlined,
   UserOutlined,
-} from '@ant-design/icons';
+} from '@/components/ui/Icons';
 import { THEME_MODE_OPTIONS } from '@/config/themeModeOptions';
 import styles from '@/components/layout/ProfileDropdown.module.css';
 import { ProfileDropdownProps } from '@/components/types/ProfileDropdownProps';

@@ -1,0 +1,525 @@
+{
+  "id": "vstep-reading-ets-04",
+  "title": "VSTEP B1, B2, C1 Reading - Full Test 004 (EnglishTestStore Practice)",
+  "duration": 60,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 60,
+      "totalQuestions": 31,
+      "tasks": [
+        {
+          "id": "ets-r04-task-1",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 1 to 5.",
+          "passage": {
+            "title": "Passage 1",
+            "text": "East Somalia's prolonged shortage of rain, which has already caused food supplies to fail and brought unemployment in farming areas, could also affect the production of electricity, and thus reduce the output from the nation's mines. The mining industry, and especially copper mining, uses a huge amount of electricity and is almost completely dependent on the government Electricity Supply Commission. But the Commission has recently asked the mines what would happen if electricity supplies were reduced by ten, twenty or thirty percent.\n        The Commission's power stations, which produce the electricity using coal as fuel, are mostly situated near the large coalfields of Eastern Province. But this area has little water so the cooling towers at the power stations have to be supplied with water from elsewhere. The problem now is that water levels in all rivers and lakes have fallen dangerously low and, in some cases, are well below the intake pipes which feed into the pipelines which supply the cooling towers.\n        In a desperate attempt to solve the problem, engineers are spending some forty million dollars on building a series of small dams across the Haro River. It is hoped that these dams will make the water level at the Malawa Dam rise so that water can then be pumped through a new pipeline to the power stations. \n        This will take time and it is now the dry season. Very little rain falls before October or November, and, after a shortage which has lasted for four years and is believed to be the worst in two centuries, nobody can say whether the rains will be sufficient. \n        The amount of electricity and water used by the mines has tended to increase in recent years. The mines, which produce about half the country's export earnings, need electricity in order to pump fresh air through their workings and to drive machines which crush vast quantities of rock. Each mine also has to provide accommodation for as many as three thousand workers."
+          },
+          "questions": [
+            {
+              "id": "ets-r04-q01",
+              "type": "mcq",
+              "question": "How might Weast Somalia's lack of rain affect electricity Supplies and mining?",
+              "options": [
+                "Copper mines are having to use less electricity.",
+                "Coal supplies are failing to reach power stations.",
+                "Electricity supplies to mines may be cut by up to thirty percent.",
+                "Copper mines may be unable to pump water by October."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "ets-r04-q02",
+              "type": "mcq",
+              "question": "Where does the Electricity Supply Commission produce most of its electricity?",
+              "options": [
+                "Along the Haro River",
+                "Near the copper mines",
+                "At the Malawa Dam",
+                "In Eastern Province"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "ets-r04-q03",
+              "type": "mcq",
+              "question": "The action that the engineers are taking",
+              "options": [
+                "may not help if there is sufficient rain",
+                "will become effective towards the end of the year",
+                "should get enough water to the mines",
+                "will use up a lot of electricity"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "ets-r04-q04",
+              "type": "mcq",
+              "question": "The engineers aim to",
+              "options": [
+                "change the direction of the Haro River",
+                "keep more water at the Malawa Dam",
+                "get more water into the Haro River",
+                "dig out artificial lakes near the dam"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 4
+            },
+            {
+              "id": "ets-r04-q05",
+              "type": "mcq",
+              "question": "Why are the copper mines important to East Somalia?",
+              "options": [
+                "They train many skilled mechanics.",
+                "Each mine employs approximately 3,000 people.",
+                "Their costs and production are rising.",
+                "They bring in fifty percent of what the country earns."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-r04-task-2",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 6 to 15.",
+          "passage": {
+            "title": "PASSAGE 2",
+            "text": "We find that bright children are rarely held back by mixed-ability teaching. On the contrary, both their knowledge and experience are enriched. We feel that there are many disadvantages in streaming pupils. It does not take into account the fact that children develop at different rates. It can have a bad effect on both the bright and the not-so-bright child. After all, it can be quite discouraging to be at the bottom of the top grade!\nBesides, it is rather unreal to grade people just according to their intellectual ability. This is only one aspect of their total personality. We are concerned to develop the abilities of all our pupils to the full, not just their academic ability. We also value personal qualities and social skills, and we find that mixed-ability teaching contributes to all these aspects of learning.\nIn our classrooms, we work in various ways. The pupils often work in groups: this gives them the opportunity to learn to co-operate, to share, and to develop leadership skills. They also learn how to cope with personal problems as well as learning how to think, to make decisions, to analyze and evaluate, and to communicate effectively. The pupils learn from each other as well as from the teachers.\nSometimes the pupils work in pairs; sometimes they work on individual tasks and assignments, and they can do this at their own speed. They also have some formal class teaching when this is appropriate. We encourage our pupils to use the library, and we teach them the skills they need in order to do this effectively. An advanced pupil can do advanced work; it does not matter what age the child is. We expect our pupils to do their best, not their least, and we give them every encouragement to attain this goal."
+          },
+          "questions": [
+            {
+              "id": "ets-r04-q06",
+              "type": "mcq",
+              "question": "In the passage, the author’s attitude towards “mixed-ability teaching” is ______.",
+              "options": [
+                "objective",
+                "questioning",
+                "critical",
+                "approving"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 6
+            },
+            {
+              "id": "ets-r04-q07",
+              "type": "mcq",
+              "question": "The words “held back” in 1st paragraph means “______”.",
+              "options": [
+                "made to lag behind in study",
+                "forced to study in lower classes",
+                "prevented from advancing",
+                "made to remain in the same classes"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 7
+            },
+            {
+              "id": "ets-r04-q08",
+              "type": "mcq",
+              "question": "The author argues that a teacher’s chief concern should be the development of the pupils’ ______.",
+              "options": [
+                "total personality",
+                "learning ability and communicative skills",
+                "intellectual abilities",
+                "personal and social skills"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 8
+            },
+            {
+              "id": "ets-r04-q09",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned in the passage?",
+              "options": [
+                "Group work provides the pupils with the opportunity to learn to be capable organizers.",
+                "Pupils also learn to develop their reasoning ability.",
+                "Group work gives pupils the opportunity to learn to work together with others.",
+                "Pupils also learn how to participate in teaching activities."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-r04-q10",
+              "type": "mcq",
+              "question": "The author’s purpose of writing this passage is to ______.",
+              "options": [
+                "recommend pair work and group work classroom activities",
+                "argue for teaching bright and not-so-bright pupils in the same class",
+                "emphasize the importance of appropriate formal classroom teaching",
+                "offer advice on the proper use of the school library"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 10
+            },
+            {
+              "id": "ets-r04-q11",
+              "type": "mcq",
+              "question": "According to the passage, which of the following is NOT TRUE?",
+              "options": [
+                "There is no fixed method in teaching pupils to develop themselves to the full.",
+                "Development of pupils as individuals is not the aim of group work.",
+                "It’s not good for a bright child to find out that he performs worst in a mixed-ability class.",
+                "Pupils cannot develop in the best way if they are streamed into classes of different intellectual abilities."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-r04-q12",
+              "type": "mcq",
+              "question": "According to the passage, which of the following is an advantage of mixed-ability teaching?",
+              "options": [
+                "Pupils can be hindered from an all-round development.",
+                "Formal class teaching is the important way to give the pupils essential skills such as those to be used in the library.",
+                "A pupil can be at the bottom of a class.",
+                "Pupils as individuals always have the opportunities to work on their own."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 12
+            },
+            {
+              "id": "ets-r04-q13",
+              "type": "mcq",
+              "question": "Which of the following statements can best summaries the main idea of the passage?",
+              "options": [
+                "The aim of education is to find out how to teach the bright and not-so-bright pupils.",
+                "Children, in general, develop at different rates.",
+                "Various ways of teaching should be encouraged in class.",
+                "Bright children do benefit from mixed-class teaching."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-r04-q14",
+              "type": "mcq",
+              "question": "According to the passage, “streaming pupils” _____.",
+              "options": [
+                "is the act of putting pupils into classes according to their academic abilities",
+                "will help the pupils learn best",
+                "aims at enriching both their knowledge and experience",
+                "is quite discouraging"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-r04-q15",
+              "type": "mcq",
+              "question": "According to the author, mixed-ability teaching is more preferable because ______.",
+              "options": [
+                "it doesn’t have disadvantages as in streaming pupils",
+                "children can learn to work with each other to solve personal problems",
+                "formal class teaching is appropriate",
+                "it aims at developing the children’s total personality"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 15
+            }
+          ]
+        },
+        {
+          "id": "ets-r04-task-3",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 16 to 21.",
+          "passage": {
+            "title": "PASSAGE 3",
+            "text": "In the mid-nineteenth century, the United States had tremendous natural resources that could be exploited in order to develop heavy industry. Most of the raw materials that are valuable in the manufacture of machinery, transportation facilities, and consumer goods lay ready to be worked into wealth. Iron, coal, and oil ― the basic ingredients of industrial growth ― were plentiful and needed only the application of technical expertise, organizational skill, and labor.  One crucial development in this movement toward industrialization was the growth of the railroads. The railway network expanded rapidly until the railroad map of the United States looked like a spider's web, with the steel filaments connecting all important sources of raw materials, their places of manufacture, and their centers of distribution. The railroads contributed to the industrial growth not only by connecting these major centers, but also by themselves consuming enormous amounts of fuel, iron, and coal.  Many factors influenced emerging modes of production. For example, machine tools, the tools used to make goods, were steadily improved in the latter part of the nineteenth century ― always with an eye to speedier production and lower unit costs. The products of the factories were rapidly absorbed by the growing cities that sheltered the workers and the distributors. The increased urban population was nourished by the increased farm production that, in turn, was made more productive by the use of the new farm machinery. American agricultural production kept up with the urban demand and still had surpluses for sale to the industrial centers of Europe.\nThe labor that ran the factories and built the railways was recruited in part from American farm areas where people were being displaced by farm machinery, in part from Asia, and in part from Europe. Europe now began to send tides of immigrants from eastern and southern Europe ― most of whom were originally poor farmers but who settled in American industrial cities. The money to finance this tremendous expansion of the American economy still came from European financiers for the most part, but the Americans were approaching the day when their expansion could be financed in their own “money market”"
+          },
+          "questions": [
+            {
+              "id": "ets-r04-q16",
+              "type": "mcq",
+              "question": "What does the passage mainly discuss?",
+              "options": [
+                "The history of railroads in the United States",
+                "The major United States industrial centers",
+                "Factors that affected industrialization in the United States",
+                "The role of agriculture in the nineteenth century"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 16
+            },
+            {
+              "id": "ets-r04-q17",
+              "type": "mcq",
+              "question": "Why does the author mention “a spider's web”?",
+              "options": [
+                "To emphasize the railroad's consumption of oil and coal",
+                "To describe the complex structure of the railway system",
+                "To explain the problems brought on by railway expansion",
+                "To describe the difficulties involved in the distribution of raw materials"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-r04-q18",
+              "type": "mcq",
+              "question": "The word “themselves” refers to",
+              "options": [
+                "sources",
+                "centers",
+                "railroads",
+                "places"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-r04-q19",
+              "type": "mcq",
+              "question": "According to the passage, what was one effect of the improvement of machine tools?",
+              "options": [
+                "Lower manufacturing costs",
+                "Better distribution of goods",
+                "More efficient transportation of natural resources",
+                "A reduction in industrial jobs"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 19
+            },
+            {
+              "id": "ets-r04-q20",
+              "type": "mcq",
+              "question": "Which of the following is NOT true of United States farmers in the nineteenth century?",
+              "options": [
+                "They lost some jobs because of mechanization",
+                "They were unable to produce sufficient food for urban areas.",
+                "They raised their productivity by using new machinery.",
+                "They sold food to European countries"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-r04-q21",
+              "type": "mcq",
+              "question": "The word “ran” is closest in meaning to",
+              "options": [
+                "operated",
+                "hurried",
+                "constructed",
+                "owned"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 21
+            }
+          ]
+        },
+        {
+          "id": "ets-r04-task-4",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 22 to 31.",
+          "passage": {
+            "title": "Passage 4",
+            "text": "People in the United States in the nineteenth century were haunted by the prospect that unprecedented change in the nation's economy would bring social chaos. In the years following 1820, after several decades of relative stability, the economy entered a period of sustained and extremely rapid growth that continued to the end of the nineteenth century. Accompanying that growth that was a structural change that featured increasing economic diversification and a gradual shift in the nation's labor force from agriculture to manufacturing and other nonagricultural pursuits.\n          Although the birth rate continued to decline from its high level of the eighteenth and early nineteenth century. The population roughly doubled every generation during the rest of the nineteenth centuries. As the population grew, its makeup also changed. Massive waves of immigration brought new ethnic groups into the country. Geographic and social mobility - downward as well as upward - touched almost everyone. Local studies indicate that nearly three - quarters of the population - in the North and South, in the emerging cities of the Northeast, and in the restless rural counties of the West - changed their residence each decade. As a consequence, historian David Donald has written, \"Social atomization affected every segment of society,\" and it seemed too many people that \"all the recognized values of orderly civilization were gradually being eroded.\" Rapid industrialization and increased geographic mobility in the nineteenth century had special implications for women because these tended to magnify social distinctions. As the roles men and women played in society became more rigidly defined, so did the roles they played in the home. In the context of extreme competitiveness and dizzying social change, the household lost many of its earlier functions and the home came to serve as a haven of tranquility and order. As the size of families decreased, the roles of husband and wife became more clearly differentiated than ever before. In the middle class especially, men participated in the productive economy while women ruled the home and served as the custodians of civility and culture. The intimacy of marriage that was common in earlier periods was rent, and a gulf that at times seemed unbridgeable was created between husbands and wives."
+          },
+          "questions": [
+            {
+              "id": "ets-r04-q22",
+              "type": "mcq",
+              "question": "What does the passage mainly discuss?",
+              "options": [
+                "The economic development of the United States in the eighteenth century",
+                "Ways in which economic development led to social changes in the United States",
+                "Population growth in the western United States",
+                "The increasing availability of industrial jobs for women in the United States"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-r04-q23",
+              "type": "mcq",
+              "question": "The word \"Prospect\" is closest in meaning to",
+              "options": [
+                "regret",
+                "possibility",
+                "theory",
+                "circumstance"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-r04-q24",
+              "type": "mcq",
+              "question": "According to the passage, the economy of the United States between 1820 and 1900 was",
+              "options": [
+                "expanding",
+                "in sharp decline",
+                "stagnate",
+                "disorganized"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-r04-q25",
+              "type": "mcq",
+              "question": "The word \"roughly\" is closest in meaning to",
+              "options": [
+                "harshly",
+                "surprisingly",
+                "slowly",
+                "approximately"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-r04-q26",
+              "type": "mcq",
+              "question": "The word \"its\" refers to",
+              "options": [
+                "century",
+                "population",
+                "generation",
+                "birth rate"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 26
+            },
+            {
+              "id": "ets-r04-q27",
+              "type": "mcq",
+              "question": "According to the passage, as the nineteenth century progressed, the people of the United States",
+              "options": [
+                "emigrated to other countries",
+                "often settled in the West",
+                "tended to change the place in which they lived",
+                "had a higher rate of birth than ever before"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-r04-q28",
+              "type": "mcq",
+              "question": "Which of the following best describes the society about which David Donald wrote?",
+              "options": [
+                "A highly conservative society that was resistant to new ideas",
+                "A society that was undergoing fundamental change",
+                "A society that had been gradually changing since the early 1700's",
+                "A nomadic society that was starting permanent settlements"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-r04-q29",
+              "type": "mcq",
+              "question": "The word \"magnify\" is closest in meaning to",
+              "options": [
+                "solve",
+                "explain",
+                "analyze",
+                "increase"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 29
+            },
+            {
+              "id": "ets-r04-q30",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned as an example of the social changes occurring in the United States after 1820?",
+              "options": [
+                "Increased social mobility",
+                "Increased immigration",
+                "Significant movement of population",
+                "Strong emphasis on traditional social values"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 30
+            },
+            {
+              "id": "ets-r04-q31",
+              "type": "mcq",
+              "question": "The word \" distinctions\" is closest in meaning to",
+              "options": [
+                "Differences",
+                "Classes",
+                "Accomplishments",
+                "characteristics"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 31
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

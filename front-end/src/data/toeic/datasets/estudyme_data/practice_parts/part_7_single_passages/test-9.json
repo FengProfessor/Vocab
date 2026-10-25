@@ -1,0 +1,623 @@
+{
+  "topicId": "614012fb65d71f3a51f62c4b",
+  "name": "Test 9",
+  "slug": "test-9",
+  "part": "part_7_single_passages",
+  "totalQuestions": 29,
+  "totalCards": 10,
+  "cards": [
+    {
+      "id": "6140138865d71f3a51f62d7f",
+      "questionText": "<p style=\"text-align: center;\"><strong><span style=\"font-size:16px;\">Jay Furniture</span></strong></p>\n\n<p style=\"text-align: center;\">3105 Michigan Avenue, Chicago, IL 60611</p>\n\n<p style=\"text-align: center;\"><strong>Black Friday Weekend Sale </strong></p>\n\n<p style=\"text-align: center;\"><strong>November 29 to December 1</strong></p>\n\n<p style=\"text-align: center;\">Tables - 20% off</p>\n\n<p style=\"text-align: center;\">Couches - 30% off</p>\n\n<p style=\"text-align: center;\">Mattresses - 20% to 50% off</p>\n\n<p style=\"text-align: center;\">Desks and Chairs - 25% to 50% off</p>\n\n<p style=\"text-align: justify;\">- During the sale, any customer who purchases over $500 of merchandise will receive a coupon for an extra 5% off any purchase during the Christmas Sale. Coupons will be valid from December 9 to December 28.</p>\n\n<p style=\"text-align: justify;\">- Mention the code BLKFRI for an additional $10 off of any tables and mattresses during the sale.</p>\n\n<p style=\"text-align: justify;\">Note: Jay Furniture will be closed a day before the weekend sale to prepare for it. Doors will open at 9:00 A.M. on November 29.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62d89",
+          "questionText": "What is the purpose of the flyer?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To announce the opening of a store",
+            "(B) To advertise a sale on furniture",
+            "(C) To introduce new products",
+            "(D) To inform customers of a business relocation"
+          ],
+          "correctOptions": [
+            "(B) To advertise a sale on furniture"
+          ],
+          "transcript": "<p>As you can see in the flyer, it's about sale at Jat Furniture.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Mục đích của tờ rơi là gì?</p>\n<p>(A) Để thông báo về việc khai trương một cửa hàng</p>\n<p>(B) Để quảng cáo giảm giá đồ nội thất</p>\n<p>(C) Để giới thiệu sản phẩm mới</p>\n<p>(D) Để thông báo cho khách hàng về việc chuyển địa điểm kinh doanh</p>\n<p><strong>Thông tin:</strong></p>\n<p>Như bạn có thể thấy trong tờ rơi, nội dung này nói về việc bán hàng tại Jat Furniture.</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d8a",
+          "questionText": "<p>When will the store be closed?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) On November 28",
+            "(B) On November 29",
+            "(C) On November 30",
+            "(D) On December 9"
+          ],
+          "correctOptions": [
+            "(A) On November 28"
+          ],
+          "transcript": "<p>Based on the information given in: <em>\"Coupons will be valid from December 9 to December 28.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Khi nào cửa hàng sẽ đóng cửa?</p>\n<p>(A) Vào ngày 28 tháng 11</p>\n<p>(B) Vào ngày 29 tháng 11</p>\n<p>(C) Vào ngày 30 tháng 11</p>\n<p>(D) Vào ngày 9 tháng 12</p>\n<p><strong>Thông tin:</strong></p>\n<p>Dựa vào thông tin: <em>\"Phiếu giảm giá có hiệu lực từ ngày 9 tháng 12 đến ngày 28 tháng 12.\"</em></p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6140138865d71f3a51f62d80",
+      "questionText": "<p>11:01</p>\n\n<p><strong>James</strong>: Where are you?</p>\n\n<p>11:25</p>\n\n<p><strong>Robert</strong>: What do you mean? I've been here all morning.</p>\n\n<p>11:26</p>\n\n<p><strong>James</strong>: ?</p>\n\n<p>I haven't seen you anywhere.</p>\n\n<p>12:00</p>\n\n<p><strong>James</strong>: Where r u?</p>\n\n<p>12:03</p>\n\n<p><strong>Robert</strong>: Sorry, I've been with a client in the Red Lounge, couldn't get your message.</p>\n\n<p>12:04</p>\n\n<p><strong>James</strong>: K got it, I'll be outside the lounge waiting.</p>\n\n<p>12:30</p>\n\n<p><strong>Robert</strong>: You still there?</p>\n\n<p>12:31</p>\n\n<p><strong>James</strong>: Yeah, hope you closed the deal!</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62d8b",
+          "questionText": "Why does James most likely say, “hope you closed the deal!”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He thinks there will be a bonus.",
+            "(B) He has been waiting a long time.",
+            "(C) He loves the Red Lounge.",
+            "(D) There are too many deals open."
+          ],
+          "correctOptions": [
+            "(B) He has been waiting a long time."
+          ],
+          "transcript": "<p>Because he said he would be outside the lounge waiting for Robert at 12:04</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Tại sao rất có thể James sẽ nói, “hy vọng bạn sẽ hoàn tất giao dịch!”?</p>\n<p>(A) Anh ấy nghĩ sẽ có tiền thưởng.</p>\n<p>(B) Anh ấy đã chờ đợi rất lâu rồi.</p>\n<p>(C) Anh ấy yêu Red Lounge.</p>\n<p>(D) Có quá nhiều giao dịch mở.</p>\n<p><strong>Thông tin:</strong></p>\n<p>Bởi vì anh ấy nói anh ấy sẽ ở ngoài phòng chờ đợi Robert lúc 12:04</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d8c",
+          "questionText": "<p>What can be inferred about Robert by the length of time between James’ messages and Robert’s responses?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He isn’t interested in James.",
+            "(B) He wants time to himself.",
+            "(C) His phone has died.",
+            "(D) He cannot check his phone all the time."
+          ],
+          "correctOptions": [
+            "(D) He cannot check his phone all the time."
+          ],
+          "transcript": "<p>Robert had been with a client and he couldn't check the message.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Có thể suy ra điều gì về Robert dựa trên khoảng thời gian giữa tin nhắn của James và phản hồi của Robert?</p>\n<p>(A) Anh ấy không quan tâm đến James.</p>\n<p>(B) Anh ấy muốn có thời gian cho riêng mình.</p>\n<p>(C) Điện thoại của anh ấy đã hỏng.</p>\n<p>(D) Anh ấy không thể kiểm tra điện thoại của mình mọi lúc.</p>\n<p><strong>Thông tin:</strong></p>\n<p>Robert đang làm việc với một khách hàng và anh ấy không thể kiểm tra tin nhắn.</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6140138865d71f3a51f62d81",
+      "questionText": "<p>To: Operations Team &lt;operations@acemfg.com&gt; <br>From: Thomas Wheeler t.wheeler@acemfg.com <br>Date: Monday, June 16 <br>Subject: New Equipment<br><br>Operations Team, <br><br>The company will order a new set of heavy equipment tomorrow and it will be delivered to the warehouse the following afternoon. Our employees’ work schedule will have to be adjusted according to our new addition of equipment. Please submit a report stating the new tasks and responsibilities of each worker for this equipment by no later than 5:00 P.M. on Thursday. <br>If I am not in the office, please give it to my secretary, Ms. Hardy. <br>Thanks, <br>Thomas Wheeler <br>Director of Manufacturing&lt;/operations@acemfg.com&gt;</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62d8d",
+          "questionText": "When will the new equipment most likely arrive at the warehouse?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) On Monday",
+            "(B) On Tuesday",
+            "(C) On Wednesday",
+            "(D) On Thursday"
+          ],
+          "correctOptions": [
+            "(C) On Wednesday"
+          ],
+          "transcript": "<p>The information is in: <em>\"The company will order a new set of heavy equipment tomorrow and it will be delivered to the warehouse the following afternoon\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Khi nào thiết bị mới có nhiều khả năng sẽ đến kho?</p>\n<p>(A) Vào thứ Hai</p>\n<p>(B) Vào thứ Ba</p>\n<p>(C) Vào thứ Tư</p>\n<p>(D) Vào thứ Năm</p>\n<p><strong>Thông tin:</strong></p>\n<p>Thông tin như sau: “Ngày mai công ty đặt mua một bộ thiết bị nặng mới và sẽ giao đến kho vào chiều hôm sau”.</p>\n<p>Trong khi đó email được gửi vào thứ Hai =&gt; Công ty đặt mua thiết bị vào thứ Ba và nó sẽ được giao đến vào thứ Tư.</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d8e",
+          "questionText": "<p>What should be included in the report?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Workers’ contact information",
+            "(B) Workers’ assignments",
+            "(C) Workers’ resumes",
+            "(D) Workers’ suggestions"
+          ],
+          "correctOptions": [
+            "(B) Workers’ assignments"
+          ],
+          "transcript": "<p>The information can be inferred from: <em>\" Please submit a report stating the new tasks and responsibilities of each worker for this equipment by no later than 5:00 P.M.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Những gì cần được đưa vào báo cáo?</p>\n<p>(A) Thông tin liên hệ của người lao động</p>\n<p>(B) Nhiệm vụ của người lao động</p>\n<p>(C) Sơ yếu lý lịch của người lao động</p>\n<p>(D) Đề xuất của người lao động</p>\n<p><strong>Thông tin:</strong></p>\n<p>Thông tin có thể được suy ra từ: <em>\"Vui lòng gửi báo cáo nêu rõ nhiệm vụ và trách nhiệm mới của mỗi công nhân đối với thiết bị này chậm nhất là 5 giờ chiều.\"</em></p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6140138865d71f3a51f62d82",
+      "questionText": "From: Rick Campbell, Director of R&amp;D <br>To: R&amp;D Department <br>Subject: Change in staff <br>Date: Tuesday, April 4, 3:40 P.M. <br>-----------------------------------------------------------------------------------------------------------------------------------<br>I am writing to share news with you regarding the recent changes in the Research and Development office. Starting April 7, Bob Denkle will be our new project manager in the Research and Development Department. He has just completed a month-long training session and will replace Benjamin Palmer by the end of the week. <br>Mike Garcia, the HR director, will post an announcement of several openings throughout the departments by next week. For those who wish to transfer into a different department within the company, now would be a good time to apply. <br>Please congratulate Benjamin Palmer, as he will transition into a new position in Ion Industries, and welcome Bob Denkle, as he will join our department.",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62d8f",
+          "questionText": "What is expected to happen by next week?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A new department will be formed.",
+            "(B) Job postings will be announced.",
+            "(C) An interview will be conducted.",
+            "(D) A training session will take place"
+          ],
+          "correctOptions": [
+            "(B) Job postings will be announced."
+          ],
+          "transcript": "<p>The information is in: <em>\"Mike Garcia, the HR director, will post an announcement of several openings throughout the departments by next week.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch: </strong></p>\n<p>Điều gì có thể sẽ xảy ra nhất vào tuần tới?</p>\n<p>(A) Một bộ phận mới sẽ được thành lập.</p>\n<p>(B) Các tin tuyển dụng sẽ được công bố.</p>\n<p>(C) Một cuộc phỏng vấn sẽ được tiến hành.</p>\n<p>(D) Một buổi đào tạo sẽ diễn ra</p>\n<p><strong>Thông tin:</strong></p>\n<p>Thông tin có trong: <em>\"Mike Garcia, giám đốc nhân sự, sẽ đăng thông báo về một số vị trí tuyển dụng trên khắp các phòng ban vào tuần tới.\"</em></p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d90",
+          "questionText": "<p>Who is leaving the company?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Bob Denkle",
+            "(B) Mike Garcia",
+            "(C) Rick Campbell",
+            "(D) Benjamin Palmer"
+          ],
+          "correctOptions": [
+            "(D) Benjamin Palmer"
+          ],
+          "transcript": "<p>The information can be inferred from: <em>\"Please congratulate Benjamin Palmer, as he will transition into a new position in Ion Industries, and welcome Bob Denkle, as he will join our department.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Ai sẽ rời khỏi công ty?</p>\n<p>(A) Bob Denkle</p>\n<p>(B) Mike Garcia</p>\n<p>(C) Rick Campbell</p>\n<p>(D) Benjamin Palmer</p>\n<p><strong>Thông tin:</strong></p>\n<p>Thông tin có thể được suy ra từ:<em> \"Xin chúc mừng Benjamin Palmer, vì anh ấy sẽ chuyển sang vị trí mới trong Ion Industries, và chào mừng Bob Denkle, vì anh ấy sẽ gia nhập bộ phận của chúng tôi.\"</em></p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6140138865d71f3a51f62d83",
+      "questionText": "<h4 align=\"center\">Re-Fit Closing Stores</h4>\n<p>February 9-Nemway Group has announced that 80 Re-Fit stores will be closing down around the country in the next six months with 100 more to follow within the year. - [1] - However, the last ten years has seen a steady decline in sales as consumers turned to other clothing retailers such as Zanas and HRM. - [2] - \"I don’t know, I just found the clothing to be outdated,” says a former customer. “They should have updated the styles and offered non-sporty options.”<br>CEO Derrick Greenwich agrees, “We focused so much on particular styles of sportswear that we <strong>lost sight of</strong> the changing tastes of consumers. We’re working on restructuring the company and offering consumers what they want. We’ll come back bigger than ever.” - [3] -<br>An internal review of the losses will continue to be conducted as nervous shareholders consider their next moves. - [4] - Nemway is hoping that a good portion of the Re-Fit stores will remain in operation as the company struggles to reinvent the brand.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62d91",
+          "questionText": "What is indicated about the Re-Fit brand?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Its popularity has dropped dramatically.",
+            "(B) It specializes in sports gear.",
+            "(C) The CEO is renaming the company.",
+            "(D) The brand has a 100-year history."
+          ],
+          "correctOptions": [
+            "(A) Its popularity has dropped dramatically."
+          ],
+          "transcript": "<p>It can be inferred from: <em>\"Nemway Group has announced that 80 Re-Fit stores will be closing down around the country in the next six months with 100 more to follow within the year.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Điều gì được chỉ ra về thương hiệu Re-Fit?</p>\n<p>(A) Mức độ phổ biến của nó đã giảm đáng kể.</p>\n<p>(B) Nó chuyên về dụng cụ thể thao.</p>\n<p>(C) Giám đốc điều hành đang đổi tên công ty.</p>\n<p>(D) Thương hiệu này có lịch sử 100 năm.</p>\n<p><strong>Thông tin:</strong></p>\n<p>Có thể suy ra từ: <em>\"Tập đoàn Nemway đã thông báo rằng 80 cửa hàng Re-Fit sẽ đóng cửa trên khắp đất nước trong sáu tháng tới và 100 cửa hàng nữa sẽ đóng cửa trong năm nay.\"</em></p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d92",
+          "questionText": "The phrase “lost sight of” in the second paragraph is closest in meaning to:",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Restricted",
+            "(B) Were not blinded by",
+            "(C) Ignored",
+            "(D) Selected"
+          ],
+          "correctOptions": [
+            "(C) Ignored"
+          ],
+          "transcript": "<p>(A) Restricted:&nbsp;limited or small in size or amount</p>\n\n<p>(B) Were not blinded by:&nbsp;to make somebody able to think clearly or behave in a sensible way</p>\n\n<p>(C) Ignored:&nbsp;to intentionally not listen or give attention to</p>\n\n<p>(D) Selected:&nbsp;to choose somebody/something from a group of people or things, usually according to a system</p>\n\n<p>Based on the meaning of the word</p>\n\n<p><strong>=&gt; Choose C</strong></p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Cụm từ “lost sight of” trong đoạn thứ hai có nghĩa gần nhất với:</p>\n<p>(A) Bị hạn chế</p>\n<p>(B) Không bị mù quáng bởi</p>\n<p>(C) Bỏ qua</p>\n<p>(D) Đã chọn</p>\n<p>-&gt; Dựa vào nghĩa của từ khi đặt trong câu cảnh cả câu <em>\"We focused so much on particular styles of sportswear that we<strong> lost sight of </strong>the changing tastes of consumers.\" (Chúng tôi tập trung quá nhiều vào những kiểu dáng cụ thể của trang phục thể thao đến nỗi <strong>bỏ quên mất</strong> thị hiếu đang thay đổi của người tiêu dùng.)</em></p>\n<p><strong> =&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d93",
+          "questionText": "<p>In which of the positions marked [1], [2], [3] and [4] does the following sentence best belong? <br>“The clothing store, best known for its affordable but trendy sportswear, was very popular in the 90’s and early 2000’s.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(A) [1]"
+          ],
+          "transcript": "<p>Because it mentions about the popular style of clothes, which is opposite to the sentence after [2].</p>\n",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Câu sau đây thuộc về vị trí nào được đánh dấu [1], [2], [3] và [4]?<br>“Cửa hàng quần áo, nổi tiếng với đồ thể thao hợp thời trang nhưng giá cả phải chăng, rất nổi tiếng vào những năm 90 và đầu những năm 2000.”</p>\n<p>(A) [1]</p>\n<p>(B) [2]</p>\n<p>(C) [3]</p>\n<p>(D) [4]</p>\n<p><strong>Thông tin:</strong></p>\n<p>Bởi vì nó đề cập đến kiểu quần áo phổ biến, trái ngược với câu sau câu [2].</p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6140138865d71f3a51f62d84",
+      "questionText": "<div>\n<table style=\"border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-collapse: collapse; width: 1000px;\" width=\"558\">\n\t<colgroup>\n\t\t<col width=\"279\">\n\t\t<col width=\"279\">\n\t</colgroup>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td colspan=\"2\" style=\"border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:279px\">\n\t\t\t<h4 style=\"line-height:1.38; text-align:center; margin-top:16px; margin-bottom:3px\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:700\"><span style=\"font-style:normal\"><span style=\"text-decoration:none\">CONTENTS</span></span></span></span></span></span></span></span></h4>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td style=\"border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:279px\">\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:700\"><span style=\"font-style:italic\"><span style=\"text-decoration:none\">9 Easy Snacks</span></span></span></span></span></span></span></span></p>\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:400\"><span style=\"font-style:normal\"><span style=\"text-decoration:none\">Donald Cohen provides recipes that are suitable for those who are always on the move.</span></span></span></span></span></span></span></span></p>\n\t\t\t&nbsp;\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:700\"><span style=\"font-style:italic\"><span style=\"text-decoration:none\">14 The Perfect Resort</span></span></span></span></span></span></span></span></p>\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:400\"><span style=\"font-style:normal\"><span style=\"text-decoration:none\">Melissa Green discusses the features of the top 10 famous resorts.</span></span></span></span></span></span></span></span></p>\n\t\t\t&nbsp;\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:700\"><span style=\"font-style:italic\"><span style=\"text-decoration:none\">19 Passport Guide</span></span></span></span></span></span></span></span></p>\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:400\"><span style=\"font-style:normal\"><span style=\"text-decoration:none\">Henry Carroll shows you how to apply for a passport in 5 easy steps.</span></span></span></span></span></span></span></span></p>\n\t\t\t&nbsp;\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:700\"><span style=\"font-style:italic\"><span style=\"text-decoration:none\">23 Safety First</span></span></span></span></span></span></span></span></p>\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:400\"><span style=\"font-style:normal\"><span style=\"text-decoration:none\">Tricia Oldham discusses basic first aid to first-time travelers.</span></span></span></span></span></span></span></span></p>\n\t\t\t</td>\n\t\t\t<td style=\"border-bottom:1px solid #000000; vertical-align:top; padding:7px 7px 7px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:279px\">\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:700\"><span style=\"font-style:italic\"><span style=\"text-decoration:none\">26 Wish You Were Here</span></span></span></span></span></span></span></span></p>\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:400\"><span style=\"font-style:normal\"><span style=\"text-decoration:none\">Rebecca Barajas shares her pictures from her amazing trip to New Zealand.</span></span></span></span></span></span></span></span></p>\n\t\t\t&nbsp;\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:700\"><span style=\"font-style:italic\"><span style=\"text-decoration:none\">30 Delicious Diners</span></span></span></span></span></span></span></span></p>\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:400\"><span style=\"font-style:normal\"><span style=\"text-decoration:none\">Barry Eason shares his tasty experiences while on the road.</span></span></span></span></span></span></span></span></p>\n\t\t\t&nbsp;\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:700\"><span style=\"font-style:italic\"><span style=\"text-decoration:none\">33 On a Budget</span></span></span></span></span></span></span></span></p>\n\t\t\t&nbsp;\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:400\"><span style=\"font-style:normal\"><span style=\"text-decoration:none\">Edward Boyd shares tips on how to save money when planning trips.</span></span></span></span></span></span></span></span></p>\n\t\t\t&nbsp;\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:700\"><span style=\"font-style:italic\"><span style=\"text-decoration:none\">35 Light My Way</span></span></span></span></span></span></span></span></p>\n\n\t\t\t<p style=\"line-height:1.38; text-align:center\"><span style=\"overflow:hidden\"><span style=\"overflow-wrap:break-word\"><span style=\"font-size:11pt; font-variant:normal; white-space:pre-wrap\"><span style=\"font-family:Arial,sans-serif\"><span style=\"color:#000000\"><span style=\"font-weight:400\"><span style=\"font-style:normal\"><span style=\"text-decoration:none\">Reviews of the most popular Guidebooks</span></span></span></span></span></span></span></span></p>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n</div>\n\n<p>&nbsp;</p>\n\n<table align=\"center\" border=\"1\" cellpadding=\"10\" cellspacing=\"10\" style=\"border-collapse: collapse;\" width=\"90%\">\n</table>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62d94",
+          "questionText": "What is the focus of the booklet?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Food",
+            "(B) Transportation",
+            "(C) Environment",
+            "(D) Traveling"
+          ],
+          "correctOptions": [
+            "(D) Traveling"
+          ],
+          "transcript": "<p>The booklet mentions about resortsm travelers, trip,..</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Trọng tâm của cuốn sách là gì?</p>\n<p>(A) Thực phẩm</p>\n<p>(B) Vận chuyển</p>\n<p>(C) Môi trường</p>\n<p>(D) Du lịch</p>\n<p><strong>Thông tin:</strong></p>\n<p>Cuốn sách đề cập đến khách du lịch nghỉ dưỡng, chuyến đi,..</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d95",
+          "questionText": "Where in the booklet would the pictures most likely be found?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) On page 9",
+            "(B) On page 19",
+            "(C) On page 26",
+            "(D) On page 30"
+          ],
+          "correctOptions": [
+            "(C) On page 26"
+          ],
+          "transcript": "<p>The information can be inferred from: <em>\"Rebecca Barajas shares her pictures from her amazing trip to New Zealand.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Những bức ảnh có thể được tìm thấy ở đâu trong tập sách này?</p>\n<p>(A) Ở trang 9</p>\n<p>(B) Ở trang 19</p>\n<p>(C) Ở trang 26</p>\n<p>(D) Ở trang 30</p>\n<p><strong>Thông tin:</strong></p>\n<p>Thông tin có thể được suy ra từ: <em>\"Rebecca Barajas chia sẻ những bức ảnh của cô ấy về chuyến đi tuyệt vời đến New Zealand.\"</em></p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d96",
+          "questionText": "<p>According to the table of contents, who talks about using less money?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Ms. Green",
+            "(B) Mr. Carroll",
+            "(C) Mr. Eason",
+            "(D) Mr. Boyd"
+          ],
+          "correctOptions": [
+            "(D) Mr. Boyd"
+          ],
+          "transcript": "<p>It can be inferred from: <em>\"Edward Boyd shares tips on how to save money when planning trips.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Theo mục lục, ai nói về việc sử dụng ít tiền hơn?</p>\n<p>(A) Ms. Green</p>\n<p>(B) Mr. Carroll</p>\n<p>(C) Mr. Eason</p>\n<p>(D) Mr. Boyd</p>\n<p><strong>Thông tin:</strong></p>\n<p>Có thể suy ra từ: <em>“Edward Boyd chia sẻ những lời khuyên về cách tiết kiệm tiền khi lên kế hoạch cho những chuyến đi”.</em></p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6140138865d71f3a51f62d85",
+      "questionText": "<p>Ginger Lin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [4:59]&nbsp; &nbsp; &nbsp; &nbsp;Just a reminder to everyone to please clear all your desks and shut down all electronic devices before you leave today. The floors will be polished and cleaned over the weekend.</p>\n\n<p>Dimitri Roberts&nbsp; &nbsp; &nbsp;[5:00]&nbsp; &nbsp; &nbsp; &nbsp;Should we lock all the cabinets and drawers as well?</p>\n\n<p>Ginger Lin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [5:01]&nbsp; &nbsp; &nbsp; &nbsp;Yes. Please make sure that when the furniture is moved around, nothing falls out.</p>\n\n<p>Dimitri Roberts&nbsp; &nbsp; &nbsp;[5:02]&nbsp; &nbsp; &nbsp; &nbsp; I'll make sure that everything is secure and locked before I leave.</p>\n\n<p>Janet Leigh&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [5:03]&nbsp; &nbsp; &nbsp; &nbsp; Ginger, I'm done with our budget reports. I'll have a copy e-mailed to you soon before I send them off.</p>\n\n<p>Ginger Lin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [5:04]&nbsp; &nbsp; &nbsp; &nbsp; Thank you. And Lance, you'll have to reschedule your meeting with your client tomorrow.</p>\n\n<p>Lance Sibley&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[5:04]&nbsp; &nbsp; &nbsp; &nbsp; I've already rescheduled our meeting to the following Monday. And to be on the safe side in case our offices are not ready by then, we'll be meeting at a café not far from here.</p>\n\n<p>Ginger Lin&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[5:05]&nbsp; &nbsp; &nbsp; &nbsp; Alright. It looks like most things are in order. Let me know if I missed anything.</p>\n\n<p>Janet Leigh&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[5:06]&nbsp; &nbsp; &nbsp; &nbsp; Actually, not everyone sent me their overtime hours. I was still able to confirm through the sign-up sheets but I need everyone to confirm over e-mail before I send the payment forms to the Finance Department.</p>\n\n<p>Dimitri Roberts&nbsp; &nbsp; &nbsp; [5:07]&nbsp; &nbsp; &nbsp; &nbsp;Oops, that's me. I'll send an e-mail now.</p>\n\n<p>Karen Walker&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;[5:07]&nbsp; &nbsp; &nbsp; &nbsp;Me too.</p>\n\n<p>Janet Leigh&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [5:08]&nbsp; &nbsp; &nbsp; &nbsp;That's good. I can send the forms once I get your e-mails.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62d97",
+          "questionText": "What will take place on Saturday and Sunday?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) An office party",
+            "(B) A meeting with clients",
+            "(C) A renovation",
+            "(D) Cleaning services"
+          ],
+          "correctOptions": [
+            "(D) Cleaning services"
+          ],
+          "transcript": "<p>The information is in: <em>\"The floors will be polished and cleaned over the weekend.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Điều gì sẽ diễn ra vào thứ bảy và chủ nhật?</p>\n<p>(A) Một bữa tiệc văn phòng</p>\n<p>(B) Một cuộc họp với khách hàng</p>\n<p>(C) Một cuộc cải tạo</p>\n<p>(D) Dịch vụ vệ sinh</p>\n<p><strong>Thông tin:</strong></p>\n<p>Thông tin có trong: \"Sàn nhà sẽ được đánh bóng và làm sạch vào cuối tuần.\"</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d98",
+          "questionText": "Who most likely is Ginger Lin?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The secretary",
+            "(B) The manager",
+            "(C) The technician",
+            "(D) The security guard"
+          ],
+          "correctOptions": [
+            "(B) The manager"
+          ],
+          "transcript": "<p>Based on her reminding and managing everyone's tasks.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Ai có nhiều khả năng nhất là Ginger Lin?</p>\n<p>(A) Thư ký</p>\n<p>(B) Quản lý</p>\n<p>(C) Kỹ thuật viên</p>\n<p>(D) Nhân viên bảo vệ</p>\n<p><strong>Thông tin:</strong></p>\n<p>Dựa vào việc cô nhắc nhở và quản lý công việc của mọi người.</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d99",
+          "questionText": "At 5:04, what does Lance Sibley mean by “to be on the safe side”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The offices may not be safe.",
+            "(B) The client may need help.",
+            "(C) Just as a precaution",
+            "(D) He’s given a warning."
+          ],
+          "correctOptions": [
+            "(C) Just as a precaution"
+          ],
+          "transcript": "<p>If you say you are doing something to be on the safe side, you mean that you are doing it in case something undesirable happens, even though this may be unnecessary.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Vào lúc 5:04, Lance Sibley có ý gì khi nói “to be on the safe side”?</p>\n<p>(A) Văn phòng có thể không an toàn.</p>\n<p>(B) Khách hàng có thể cần giúp đỡ.</p>\n<p>(C) Chỉ như một biện pháp phòng ngừa</p>\n<p>(D) Anh ấy đã bị cảnh cáo.</p>\n<p><strong>Thông tin:</strong></p>\n<p>Nếu bạn nói rằng bạn đang làm điều gì đó để đảm bảo an toàn, bạn có nghĩa là bạn đang làm điều đó đề phòng trường hợp có điều gì đó không mong muốn xảy ra, mặc dù điều này có thể không cần thiết.</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d9a",
+          "questionText": "<p>What will Janet Leigh most likely do next?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Check her e-mail",
+            "(B) Contact the Finance Department",
+            "(C) Call some employees",
+            "(D) Print out some reports"
+          ],
+          "correctOptions": [
+            "(A) Check her e-mail"
+          ],
+          "transcript": "<p>Because Dimitri Roberts and Karen Walker both said they would send an e-mail.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Janet Leigh rất có thể sẽ làm gì tiếp theo?</p>\n<p>(A) Kiểm tra e-mail của cô ấy</p>\n<p>(B) Liên hệ với Phòng Tài chính</p>\n<p>(C) Gọi một số nhân viên</p>\n<p>(D) In ​​ra một số báo cáo</p>\n<p><strong>Thông tin:</strong></p>\n<p>Bởi vì Dimitri Roberts và Karen Walker đều nói rằng họ sẽ gửi e-mail.</p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6140138865d71f3a51f62d86",
+      "questionText": "<h4 align=\"center\">Helping Hands</h4>\n\n<p align=\"center\">8732 Bakersfield Avenue, Santa Clara, California</p>\n\n<p align=\"center\">www.helpinghands.com</p>\n\n<p align=\"center\">Regional Manager—Employment Opportunity</p>\n\n<p>Helping Hands has been dedicated to providing quality, affordable housing for low-income individuals and families. For over 25 years, we have been acquiring multifamily communities and improving the properties to maintain their availability for those earning less than 50 percent of the area's average income. Our properties are currently located in cities throughout the state of Texas—including Austin, Dallas, and Houston—with plans to expand to make more homes available to more people.<br>\nWe are looking for someone for the position of regional manager. The new manager will be stationed in Austin and will supervise and evaluate the performance of on-site management and ensure that the properties are well- maintained. The candidate must have a bachelor’s degree or higher in a business or management field, have a minimum of three years of experience in supervising other personnel, and possess certain certificates (more details in the application page).<br>\nApplications can be submitted in person Monday through Friday from 9:00 A.M. to 5:00 P.M. or through mail or e-mail. They will be accepted only if they are received before 5:00 P.M. on October 14.</p>",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62d9b",
+          "questionText": "What is mentioned about Helping Hands?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It offers community service for senior citizens.",
+            "(B) It is committed to nature conservation.",
+            "(C) It is sponsored by the government.",
+            "(D) It is supplying homes to a disadvantaged group."
+          ],
+          "correctOptions": [
+            "(D) It is supplying homes to a disadvantaged group."
+          ],
+          "transcript": "<p>The information can be inferred from: <em>\"Helping Hands has been dedicated to providing quality, affordable housing for low-income individuals and families.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Những gì được đề cập về Helping Hands?</p>\n<p>(A) Nó cung cấp dịch vụ cộng đồng cho người cao tuổi.</p>\n<p>(B) Nó cam kết bảo tồn thiên nhiên.</p>\n<p>(C) Nó được tài trợ bởi chính phủ.</p>\n<p>(D) Nó đang cung cấp nhà ở cho một nhóm có hoàn cảnh khó khăn.</p>\n<p><strong>Thông tin:</strong></p>\n<p>Thông tin có thể được suy ra từ: <em>\"Helping Hands đã tận tâm cung cấp nhà ở chất lượng, giá cả phải chăng cho các cá nhân và gia đình có thu nhập thấp.\"</em></p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d9c",
+          "questionText": "Where is the successful candidate required to work?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) In Santa Clara",
+            "(B) In Austin",
+            "(C) In Dallas",
+            "(D) In Houston"
+          ],
+          "correctOptions": [
+            "(B) In Austin"
+          ],
+          "transcript": "<p>The information is in: <em>\"The new manager will be stationed in Austin\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Ứng viên thành công được yêu cầu làm việc ở đâu?</p>\n<p>(A) Ở Santa Clara</p>\n<p>(B) Ở Austin</p>\n<p>(C) Ở Dallas</p>\n<p>(D) Ở Houston</p>\n<p><strong>Thông tin:</strong></p>\n<p>Thông tin có trong: \"Người quản lý mới sẽ đóng quân ở Austin\"</p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d9d",
+          "questionText": "<p>What is NOT suggested about the position?</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It includes supervision of the local staff.",
+            "(B) It requires an academic degree.",
+            "(C) It needs official documents.",
+            "(D) It is limited to only California residents."
+          ],
+          "correctOptions": [
+            "(D) It is limited to only California residents."
+          ],
+          "transcript": "<p>(A) - The new manager will be stationed in Austin and will supervise and evaluate the performance of on-site management and ensure that the properties are well- maintained.<br>(B) - The candidate must have a bachelor’s degree or higher in a business or management field<br>(C) - The candidate must have a minimum of three years of experience in supervising other personnel, and possess certain certificates (more details in the application page).</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Điều gì KHÔNG được đề xuất về vị trí này?</p>\n<p>(A) Nó bao gồm sự giám sát của nhân viên địa phương.</p>\n<p>(B) Nó đòi hỏi bằng cấp học thuật.</p>\n<p>(C) Nó cần các tài liệu chính thức.</p>\n<p>(D) Nó chỉ giới hạn cho cư dân California.</p>\n<p><strong>Thông tin:</strong></p>\n<p>(A) - Người quản lý mới sẽ đóng quân tại Austin và sẽ giám sát và đánh giá hiệu quả quản lý tại chỗ cũng như đảm bảo rằng tài sản được bảo trì tốt.<br>(B) - Ứng viên phải có bằng cử nhân trở lên trong lĩnh vực kinh doanh hoặc quản lý<br>(C) - Ứng viên phải có tối thiểu ba năm kinh nghiệm giám sát nhân sự khác và có các chứng chỉ nhất định (chi tiết tại trang ứng tuyển).</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6140138865d71f3a51f62d87",
+      "questionText": "To: cmason@centersports.com <br>From: sdixon@instaprinting.com <br>Date: November 3 <br>Subject: Your Inquiry<br><br>Dear Mr. Mason, <br>We are responding to the inquiry you made through our website yesterday. Insta Printing promises to provide faster, cheaper, and more reliable service than any of our competitors in the area. And we also guarantee to beat any price offered by a competitor. <br>As per your request, our company would be happy to help design and print jerseys for your soccer team. Besides casual wear, our company also has plenty of experience producing athletic wear for sports teams and clubs. <br>Customers can choose from a variety of materials and printing methods. These include denim, cotton, flannel, nylon and many more, and there are several printing methods including screen printing, heat press, and direct-to-garment printing. <br>Please feel free to contact me directly at 712-555-9804 to discuss the details <b>further</b> about working with Insta Printing. We look forward to working with you and helping your organization achieve its goals. <br><br>Sincerely, <br>Stephen Dixon<br>Client Relations Representative, Insta Printing",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62d9e",
+          "questionText": "Why did Mr. Dixon send the e-mail?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To give a quote for a project",
+            "(B) To explain a new policy",
+            "(C) To persuade a client to agree on a deal",
+            "(D) To confirm a reservation"
+          ],
+          "correctOptions": [
+            "(C) To persuade a client to agree on a deal"
+          ],
+          "transcript": "<p>Based on the information given in: \"We are responding to the inquiry you made through our website yesterday... We look forward to working with you and helping your organization achieve its goals.\"</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Tại sao ông Dixon lại gửi e-mail này?</p>\n<p>(A) Để đưa ra báo giá cho một dự án</p>\n<p>(B) Để giải thích một chính sách mới</p>\n<p>(C) Để thuyết phục khách hàng đồng ý thỏa thuận</p>\n<p>(D) Để xác nhận việc đặt chỗ</p>\n<p><strong>Thông tin:</strong></p>\n<p>Dựa trên thông tin được cung cấp trong: \"Chúng tôi đang phản hồi yêu cầu mà bạn đưa ra thông qua trang web của chúng tôi ngày hôm qua... Chúng tôi mong được làm việc với bạn và giúp tổ chức của bạn đạt được mục tiêu.\"</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62d9f",
+          "questionText": "What does Mr. Mason want to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Purchase a set of shirts",
+            "(B) Apply for a position",
+            "(C) Devise a new printing technique",
+            "(D) Expand business internationally"
+          ],
+          "correctOptions": [
+            "(A) Purchase a set of shirts"
+          ],
+          "transcript": "<p>It can be inferred from: <em>\"As per your request, our company would be happy to help design and print jerseys for your soccer team.\"</em> that Mr. Mason's request is to design and print jerseys for his soccer team.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Ông Mason muốn làm gì?</p>\n<p>(A) Mua bộ áo sơ mi</p>\n<p>(B) Ứng tuyển vào một vị trí</p>\n<p>(C) Phát minh ra một kỹ thuật in ấn mới</p>\n<p>(D) Mở rộng kinh doanh ra quốc tế</p>\n<p><strong>Thông tin:</strong></p>\n<p>Có thể suy ra từ: <em>\"Theo yêu cầu của bạn, công ty chúng tôi rất sẵn lòng giúp thiết kế và in áo đấu cho đội bóng đá của bạn.\" rằng yêu cầu của ông Mason là thiết kế và in áo thi đấu cho đội bóng đá của ông.</em></p>\n<p><strong>=&gt; Chọn đáp án A</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62da0",
+          "questionText": "What is mentioned about Insta Printing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It opened a second branch yesterday.",
+            "(B) It offers various production options.",
+            "(C) It only produces athletic wear.",
+            "(D) It sponsors a local soccer team."
+          ],
+          "correctOptions": [
+            "(B) It offers various production options."
+          ],
+          "transcript": "<p>The information can be inferred from: <em>\"Besides casual wear, our company also has plenty of experience producing athletic wear for sports teams and clubs. Customers can choose from a variety of materials and printing methods. These include denim, cotton, flannel, nylon and many more, and there are several printing methods including screen printing, heat press, and direct-to-garment printing.\"</em></p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Điều gì được đề cập về Insta Printing?</p>\n<p>(A) Hôm qua nó đã mở chi nhánh thứ hai.</p>\n<p>(B) Nó cung cấp nhiều lựa chọn sản xuất khác nhau.</p>\n<p>(C) Nó chỉ sản xuất quần áo thể thao.</p>\n<p>(D) Nó tài trợ cho một đội bóng đá địa phương.</p>\n<p><strong>Thông tin:</strong></p>\n<p>Thông tin có thể được suy ra từ: <em>\"Bên cạnh trang phục thường ngày, công ty chúng tôi còn có nhiều kinh nghiệm sản xuất trang phục thể thao cho các đội và câu lạc bộ thể thao. Khách hàng có thể lựa chọn nhiều loại chất liệu và phương pháp in ấn. Bao gồm denim, cotton, flannel, nylon và nhiều hơn nữa, và có một số phương pháp in bao gồm in lụa, ép nhiệt và in trực tiếp lên quần áo.\"</em></p>\n<p><strong>=&gt; Chọn đáp án B</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62da1",
+          "questionText": "<p>The word “further” in paragraph 4, line 1, is closest in meaning to</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) urgently",
+            "(B) officially",
+            "(C) additionally",
+            "(D) carefully"
+          ],
+          "correctOptions": [
+            "(C) additionally"
+          ],
+          "transcript": "<p><strong>further: </strong>more or extra.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Từ “further” ở đoạn 4, dòng 1, có nghĩa gần nhất với</p>\n<p>(A) khẩn trương</p>\n<p>(B) chính thức</p>\n<p>(C) thêm vào</p>\n<p>(D) cẩn thận</p>\n<p>further: nhiều hơn.</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        }
+      ]
+    },
+    {
+      "id": "6140138865d71f3a51f62d88",
+      "questionText": "(Man) - [1] - I remember when Sergio Hernandez first came to work here at Trout &amp; Lee. He was a young man of thirty with a heart and mind filled with ambition and drive. - [2] - It is that ambition and drive, along with a lot of integrity and intelligence, that made him one of the most valuable players in the garment business and US one of the most successful companies. <br>- [3] - I can’t help but remember how emotional I was when I left the company to pursue a life of leisure last year. - [4] - I know the speech Serg. gave then came back to help me during the difficult transition into living without an office to go to and colleagues to be continually inspired by, and I hope the few humble words I’ve strung together will remind him of how well-respected he is and what an astounding life he has lived as he goes through the same process",
+      "image": "",
+      "sound": "",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "",
+      "explanationVi": "",
+      "childQuestions": [
+        {
+          "id": "6140138865d71f3a51f62da2",
+          "questionText": "What is implied about Mr. Hernandez?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is the CEO of Trout & Lee.",
+            "(B) He is receiving a promotion.",
+            "(C) He is transferring to a new department.",
+            "(D) He is retiring from the company."
+          ],
+          "correctOptions": [
+            "(D) He is retiring from the company."
+          ],
+          "transcript": "<p>According to the content of the passage, this man is showing his gratitude to Sergio Hernandez, from the time Sergio Hernandez joined the company.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Điều gì được ngụ ý về ông Hernandez?</p>\n<p>(A) Anh ấy là Giám đốc điều hành của Trout &amp; Lee.</p>\n<p>.(B) Anh ấy đang được thăng chức.</p>\n<p>(C) Anh ấy đang chuyển sang một bộ phận mới.</p>\n<p>(D) Anh ấy sắp nghỉ hưu ở công ty.</p>\n<p><strong>Thông tin:</strong></p>\n<p>Theo nội dung đoạn văn, người đàn ông này đang thể hiện lòng biết ơn của mình đối với Sergio Hernandez, kể từ khi Sergio Hernandez gia nhập công ty.</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62da3",
+          "questionText": "What is indicated about Trout &amp; Lee?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is an international company.",
+            "(B) It is a real estate company.",
+            "(C) It has manufacturing plants in the U.S.",
+            "(D) It has existed for many decades."
+          ],
+          "correctOptions": [
+            "(D) It has existed for many decades."
+          ],
+          "transcript": "<p>It can be inferred from: <em>\"He was a young man of thirty with a heart and mind filled with ambition and drive. - [2] - It is that ambition and drive, along with a lot of integrity and intelligence, that made him one of the most valuable players in the garment business and US one of the most successful companies.\"</em> that Sergio Hernandez has been working in Trout &amp; Lee for years, therefore, Trout &amp; Lee has existed for many decades.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Điều gì được chỉ ra về Trout &amp; Lee?</p>\n<p>(A) Nó là một công ty quốc tế.</p>\n<p>(B) Nó là một công ty bất động sản.</p>\n<p>(C) Nó có nhà máy sản xuất ở Mỹ</p>\n<p>(D) Nó đã tồn tại trong nhiều thập kỷ.</p>\n<p><strong>Thông tin:</strong></p>\n<p>Có thể suy ra từ<em>: “Ông là một thanh niên ba mươi tuổi với trái tim và khối óc đầy hoài bão và nghị lực. - [2] - Chính hoài bão và nghị lực đó, cùng với sự liêm chính và thông minh đã khiến ông trở thành một trong số những công ty có giá trị nhất trong ngành may mặc và Hoa Kỳ là một trong những công ty thành công nhất.\"</em> rằng Sergio Hernandez đã làm việc ở Trout &amp; Lee trong nhiều năm, do đó, Trout &amp; Lee đã tồn tại trong nhiều thập kỷ.</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62da4",
+          "questionText": "What is NOT mentioned about Mr. Hernandez?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) When he started working for the company",
+            "(B) The type of employee he was",
+            "(C) The type of industry he worked in",
+            "(D) His position in the company"
+          ],
+          "correctOptions": [
+            "(D) His position in the company"
+          ],
+          "transcript": "<p>(A) - I remember when Sergio Hernandez first came to work here at Trout &amp; Lee. He was a young man of thirty with a heart and mind filled with ambition and drive.<br>(B) - It is that ambition and drive, along with a lot of integrity and intelligence<br>(C) - ...that made him one of the most valuable players in the garment business and US one of the most successful companies.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Điều gì KHÔNG được đề cập về ông Hernandez?</p>\n<p>(A) Khi anh ấy bắt đầu làm việc cho công ty</p>\n<p>(B) Kiểu nhân viên của anh ấy</p>\n<p>(C) Loại ngành mà anh ấy làm việc</p>\n<p>(D) Vị trí của anh ấy trong công ty</p>\n<p><strong>Thông tin:</strong></p>\n<p>(A) - Tôi nhớ khi Sergio Hernandez lần đầu tiên đến làm việc tại Trout &amp; Lee. Anh là một chàng trai trẻ ba mươi tuổi với trái tim và khối óc tràn đầy tham vọng và nghị lực.<br>(B) - Chính tham vọng và nghị lực đó, cùng với đó là sự chính trực và thông minh<br>(C) - ...điều đó khiến anh ấy trở thành một trong những người chơi có giá trị nhất trong ngành may mặc và là một trong những công ty thành công nhất Hoa Kỳ.</p>\n<p><strong>=&gt; Chọn đáp án D</strong></p>"
+        },
+        {
+          "id": "6140138865d71f3a51f62da5",
+          "questionText": "<p>In which of the marked positions [1], [2], [3], or [4] does this sentence best belong? <br>“I feel it a great honor to be asked to speak about him here today.”</p>",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) [1]",
+            "(B) [2]",
+            "(C) [3]",
+            "(D) [4]"
+          ],
+          "correctOptions": [
+            "(C) [3]"
+          ],
+          "transcript": "<p>Because the first passage has mentioned about Sergio Hernandez.</p>",
+          "explanationVi": "<p><strong>Tạm dịch:</strong></p>\n<p>Câu này thuộc về vị trí được đánh dấu [1], [2], [3] hoặc [4] nào?<br>“Tôi cảm thấy thật vinh dự khi được nói chuyện về anh ấy ở đây ngày hôm nay.”</p>\n<p>(A) [1]</p>\n<p>(B) [2]</p>\n<p>(C) [3]</p>\n<p>(D) [4]</p>\n<p><strong>Thông tin:</strong></p>\n<p>Bởi vì đoạn đầu tiên đã đề cập đến Sergio Hernandez.</p>\n<p><strong>=&gt; Chọn đáp án C</strong></p>"
+        }
+      ]
+    }
+  ]
+}

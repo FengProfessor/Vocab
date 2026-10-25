@@ -1,0 +1,465 @@
+{
+  "id": "vstep-listening-16",
+  "title": "Luyện Nghe VSTEP Part 1-2-3 — Đề Số 16",
+  "duration": 40,
+  "sections": [
+    {
+      "type": "listening",
+      "label": "Listening",
+      "timeLimit": 40,
+      "totalQuestions": 35,
+      "tasks": [
+        {
+          "id": "part1",
+          "instructions": "<b>Directions:</b> In this part, you will hear EIGHT short announcements or instructions. There is one question for each announcement or instruction. For each question, choose the right answer A, B, C or D. Then, on the answer sheet, find the number of the question and fill in the space that corresponds to the letter of the answer that you have chosen.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-16/part1-1.mp3"
+          },
+          "tapescript": "<p><b>Q.1: Where would you probably hear this announcement?</b></p><ul><li>Good morning, everyone. Please remember, we have a meeting today in the large meeting hall on the second floor at 10 o'clock this morning. All staff must attend. We will talk about the move to our new office building. We will move next Monday. So, you need to know what to do, and where you need to be on Monday. So please make sure that you are on time for today's meeting.</li></ul><p><b>Q.2: Where would someone hear this message?</b></p><ul><li>Thank you for calling the law offices of Jones and Leung. If you are looking for a lawyer to help you with a problem, please press 7 *. If you are a lawyer from another company, please press 2'. If you are a journalist, please press 3' to speak with our office manager. For all other questions, press '0' and someone will be with you soon. To hear this message again, press '9'.</li></ul><p><b>Q.3: How long are the classes?</b></p><ul><li>Remember. Everyone needs to attend the Sales Training this Wednesday. The first class will start at 9 o'clock. At 10:30 we'll have a short coffee break. The second class will start at 10:45. We'll have lunch from 12:15. The third class will start at 1:30 pm, then a short break. The last class will start at 3:15 and finish at 4:45. That's the day after tomorrow. Don't forget.</li></ul><p><b>Q.4: What should Jen do tomorrow?</b></p><ul><li>Hi, everyone. Meet Jen, she'll be joining our team starting today. Jen worked in the head office for five years, but from today, she'll be working with us. Please note that Jens email address is her home address because she doesn't have her new office email address yet. When Jen gets her new office email address tomorrow, she'll give her new address to everyone.</li></ul><p><b>Q.5: What is the purpose of this announcement?</b></p><ul><li>May I have your attention? Because of the weather, flight number 446 is going to be a bit late leaving. It's just too dangerous to take off in this high wind. As soon as this thunderstorm passes, we will take off. We apologize for the inconvenience.</li></ul><p><b>Q.6: What is the main point of this announcement?</b></p><ul><li>Thank you for coming to see the Pacific Art Museum's exhibition of eighteenth century landscape paintings. The museum will be closing in fifteen minutes. Please begin moving to the museum exits.</li></ul><p><b>Q.7: Who is Gary Reynolds?</b></p><ul><li>Hi, this is Gary Reynolds, from Skyline Airlines. You recently bought a ticket for February 16th on flight number 681 from Los Angeles to San Francisco. Unfortunately, there was an error on our website. That flight actually takes off at 9:40 am, not 10:40 as it said on the website. If that is a problem, please call me at the customer service line, 334-445-9284, and we will reschedule you to another flight. I'm sorry for the confusion.</li></ul><p><b>Q.8: What does the woman recommend the listeners to do?</b></p><ul><li>Ladies and Gentlemen. I'm very sorry we woke you up in the middle of the night. There was a small fire in the hotel's kitchen, but everything is okay now. The Fire Department has put out the fire. You can return to your rooms. It's completely safe. We're very sorry for the trouble.</li></ul>",
+          "questions": [
+            {
+              "id": "L1Q1",
+              "type": "mcq",
+              "question": "Where would you probably hear this announcement?",
+              "options": [
+                "In a moving van",
+                "In a school",
+                "In an office building",
+                "In an office supply shop"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q2",
+              "type": "mcq",
+              "question": "Where would someone hear this message?",
+              "options": [
+                "Calling a newspaper company",
+                "Calling a journalist",
+                "Calling a telephone company",
+                "Calling a law firm"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q3",
+              "type": "mcq",
+              "question": "How long are the classes?",
+              "options": [
+                "45 minutes",
+                "An hour",
+                "An hour and a half",
+                "Two hours"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L1Q4",
+              "type": "mcq",
+              "question": "What should Jen do tomorrow?",
+              "options": [
+                "Turn her cell phone back on",
+                "Check her email, even if it is at home",
+                "Make sure she gets an office address",
+                "Give people her new contact information"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q5",
+              "type": "mcq",
+              "question": "What is the purpose of this announcement?",
+              "options": [
+                "To discuss the news",
+                "To give information",
+                "To ask for help",
+                "To demand a report"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q6",
+              "type": "mcq",
+              "question": "What is the main point of this announcement?",
+              "options": [
+                "To welcome visitors",
+                "To ask people to leave soon",
+                "To tell people about the exhibition",
+                "To ask people to come"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L1Q7",
+              "type": "mcq",
+              "question": "Who is Gary Reynolds?",
+              "options": [
+                "A security officer",
+                "An airline pilot",
+                "A flight attendant",
+                "An airline employee"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L1Q8",
+              "type": "mcq",
+              "question": "What does the woman recommend the listeners to do?",
+              "options": [
+                "Go to the website",
+                "Go back to their rooms",
+                "Talk to the hotel manager",
+                "Wait for more information"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part2",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE conversations. The conversations will not be repeated. There are four questions for each conversation. For each question, choose the correct answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-16/part1-2.mp3"
+          },
+          "tapescript": "<p><b>Conversation 1: Questions 9-12</b></p><ul><li><b>M:</b> Hi, Professor Smith. Do you have a few minutes?</li><li><b>W:</b> Sure. How can I help?</li><li><b>M:</b> I want to know how to write a good essay.</li><li><b>W:</b> I see. What exactly is the problem?</li><li><b>M:</b> Well, I'm not sure. I mean I take many notes, and I understand the lessons. It's just that my essays aren't very good.</li><li><b>W:</b> Ah, yes. A good essay needs organization. Let's go over the format for an essay.</li><li><b>M:</b> That would be great.</li><li><b>W:</b> So there are three parts to an essay. First, there's the introduction. You need a strong introduction. This gives the main idea for your whole essay. OK?</li><li><b>M:</b> OK.</li><li><b>M:</b> That makes sense.</li><li><b>W:</b> Next, there are the body paragraphs. They provide evidence or details for your main idea.</li><li><b>M:</b> OK. [Slowly] I think I should write this down.</li><li><b>W:</b> Yes, that is a good idea.</li><li><b>M:</b> OK [Quickly] Can you tell me about body paragraphs again?</li><li><b>W:</b> Sure. The body paragraphs provide evidence or details.</li><li><b>M:</b> Ahhh right.</li><li><b>W:</b> And then there's your conclusion. The conclusion is just a summary of your main idea.</li><li><b>M:</b> Wow! I've never thought of it that way.</li><li><b>W:</b> Yes, it can make a big difference. Good organization is important for essay writing.</li></ul><p><b>Conversation 2: Questions 13-16</b></p><ul><li><b>M:</b> Hi. Are you in charge of the Student Tutoring Center?</li><li><b>W:</b> No, but I do tutor here.</li><li><b>M:</b> Well, I need help with my mathematics class work. Can you help me?</li><li><b>W:</b> That's fine. I'm actually a math major. I can help you. But, before we begin, I need to clarify the rules.</li><li><b>M:</b> Rules? What rules?</li><li><b>W:</b> Well, there are some things I can help you with, and some things I can't help you with. Let me explain.</li><li><b>W:</b> First of all, our school has rules about cheating. It's pretty standard for schools nowadays. Anyway, according to the rules, if you cheat, then you can get kicked out of school.</li><li><b>M:</b> That makes sense. I don't want them to punish either one of us because of tutoring.</li><li><b>W:</b> Exactly. OK, so I can help you with things like learning strategies for studying, and studying from your notes. I can even help you take notes. However, when it comes to class work and homework, you're on your own. Are we all clear?</li><li><b>M:</b> I think that's fair.</li><li><b>W:</b> Good. OK, let's get started.</li></ul><p><b>Conversation 3: Questions 17-20</b></p><ul><li><b>M:</b> Hi. Can I help you with anything?</li><li><b>W:</b> Hi, Professor. Well, it's about our project that's due next week. I was wondering if I could get an extension. Can I get an extra week to do it?</li><li><b>M:</b> Why are you asking?</li><li><b>W:</b> I normally wouldn't, but I've been really sick and I was absent for a few of your lectures.</li><li><b>M:</b> Well, I'm sorry but I can't give you an extension. However, I can suggest a couple of ways to make up for lost time.</li><li><b>W:</b> I hope so. I really need a good grade or I could lose my scholarship. Then I wouldn't be able to pay my tuition.</li><li><b>M:</b> You'll be fine. Here's what you can do: borrow one of your classmate's notes from the lectures that you missed. Ask if he or she can help explain them to you.</li><li><b>W:</b> OK.</li><li><b>M:</b> Or you can go to the library and do the research yourself. I can give you an outline of the lectures that you missed. You can look up the main information. Either way, you should be fine.</li><li><b>W:</b> Yeah, I guess you're right. I should get started. Thanks.</li></ul>",
+          "questions": [
+            {
+              "id": "L2Q9",
+              "type": "mcq",
+              "question": "What is the main topic of this conversation?",
+              "options": [
+                "How to get a better grade in class",
+                "How to write a better essay",
+                "How to write a paragraph",
+                "How to organize an essay"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q10",
+              "type": "mcq",
+              "question": "According to professor Smith, what is important for essay writing?",
+              "options": [
+                "Many good ideas",
+                "Strong introduction",
+                "Summary",
+                "Organization"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L2Q11",
+              "type": "mcq",
+              "question": "How many parts are there in an essay?",
+              "options": [
+                "Two",
+                "Three",
+                "Four",
+                "Five"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q12",
+              "type": "mcq",
+              "question": "What are the functions of the body paragraphs?",
+              "options": [
+                "To summarize the main ideas",
+                "To provide examples and ideas",
+                "To provide evidences and details",
+                "To give main ideas for an essay"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q13",
+              "type": "mcq",
+              "question": "What is the main topic of this conversation?",
+              "options": [
+                "Taking a math test",
+                "Getting a tutor",
+                "Taking a midterm test",
+                "Having a part-time job"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q14",
+              "type": "mcq",
+              "question": "What does the man ask the woman to do?",
+              "options": [
+                "Help him finish his homework",
+                "Tutor him with a subject at school",
+                "Teach him English",
+                "Find him a good math teacher"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q15",
+              "type": "mcq",
+              "question": "What will happen if the students cheat?",
+              "options": [
+                "They will be expelled from school.",
+                "They cannot take the final exam.",
+                "They will be fined.",
+                "They will have to study again."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q16",
+              "type": "mcq",
+              "question": "Which of the following the tutor CANNOT do for the student?",
+              "options": [
+                "The learning strategies",
+                "Taking notes",
+                "Homework",
+                "Learning tips"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L2Q17",
+              "type": "mcq",
+              "question": "What is the main topic of this conversation?",
+              "options": [
+                "Ways a student can make up for missed lectures",
+                "How to avoid getting sick and missing school",
+                "How to get a scholarship",
+                "How to get high scores"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q18",
+              "type": "mcq",
+              "question": "Why did the woman miss the lessons?",
+              "options": [
+                "Because of her sickness",
+                "Because of the accident",
+                "Because of the severe weather",
+                "Because of her laziness"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L2Q19",
+              "type": "mcq",
+              "question": "What does the woman want the man to do for her?",
+              "options": [
+                "Lend her his notes",
+                "Give her an extension",
+                "Give her a scholarship",
+                "Explain the lessons"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L2Q20",
+              "type": "mcq",
+              "question": "What should the woman probably do next?",
+              "options": [
+                "Go on a vacation",
+                "Go to the library to do some research",
+                "Hang out with her classmates",
+                "Apply for a scholarship"
+              ],
+              "answer": 1
+            }
+          ]
+        },
+        {
+          "id": "part3",
+          "instructions": "<b>Directions:</b> In this part, you will hear THREE talks, lectures or conversations. The talks, lectures, or conversations will not be repeated. There are five questions for each talk, lecture, or conversation. For each question, choose the right answer A, B, C or D.",
+          "media": {
+            "audio": "https://r2tadr.oucommunity.dev/exam-emulator/listening-16/part1-3.mp3"
+          },
+          "tapescript": "<p><strong>Conversation 1 (Questions 21-25)</strong></p><ul><li><b>M:</b> So I really appreciate your talking with me about this.</li><li><b>W:</b> Well, I was concerned. Generally I think students should get a grade based on your overall work—but I could see that you didn’t do as well on the last test… and you had done very well on the first two exams.</li><li><b>M:</b> I know. I was right in the middle of moving out of my dorm at the end of the semester and that was my last exam. Normally, I wouldn’t ask to take an incomplete, but I just didn’t feel that a lower grade really represented my work.</li><li><b>W:</b> I agree. But, again, I don’t usually like to do change-of-grade forms.</li><li><b>M:</b> OK.</li><li><b>M:</b> OK. I understand</li><li><b>W:</b> So … well, I was thinking. Perhaps if you want to do an extra credit project … Let’s say, something that will help you pull your grade back up to an A minus?</li><li><b>M:</b> I can do that. Look… it’s so important that I maintain very good grades. My financial aid package requires that I do…</li><li><b>W:</b> I can understand that.</li><li><b>M:</b> So what should I do?</li><li><b>W:</b> OK, here’s the deal: You write a five-page paper on Shakespeare’s worst play—and I mean, you have to read all of them to decide what his worst play was. And tell me why you think so.</li><li><b>M:</b> Uh, wow… that’s…</li><li><b>W:</b> You want to get that change of grade, right?</li><li><b>M:</b> Right, yeah. Of course.</li><li><b>W:</b> Fine, so you’ll have two weeks to write this paper. Shouldn’t take you too long if you have done your reading.</li><li><b>M:</b> Oh, I have. I’ve read all the plays. And I think I know which one I’m going to choose.</li><li><b>W:</b> Fine. Don’t tell me… surprise me.</li><li><b>M:</b> I will. So, what happens if I do a good job on the paper?</li><li><b>W:</b> Then I will fill out the forms for a change of grade. It takes a few weeks after that, but the new grade should go on your transcript afterwards.</li><li><b>M:</b> OK… I guess I will have to go to the library over semester break… thanks for your understanding.</li></ul><p><strong>Conversation 2 (Questions 26-30)</strong></p><ul><li><b>W:</b> Hi. I really need your help. I’ve got to prepare for a presentation and I haven’t got a clue about how to do a visual slide show…</li><li><b>M:</b> Well, that’s why we’re here. We have tutors who know all the word-processing and presentation programs. Uh, do you know what presentation viewer program you want to use?</li><li><b>W:</b> I have no idea. Which is best?</li><li><b>M:</b> That depends on what you want to do. Is your presentation just text or do you want to use visuals with all the bells and whistles?</li><li><b>W:</b> Um, you mean like images and graphics, and things that move around on the screen?</li><li><b>M:</b> Exactly. You can include sounds or video too…</li><li><b>W:</b> Yes, absolutely … the better it looks, the better I hope my grade will be.</li><li><b>M:</b> Oh I think it is important that a presentation looks good—but you have to have the substance too.</li><li><b>W:</b> I guess so… uh…</li><li><b>M:</b> You know what I mean …if you have a good foundation for your presentation, you’ll be fine.</li><li><b>W:</b> Oh, right.</li><li><b>M:</b> Anyway, I would advise you to use this presentation viewer program because it’s pretty intuitive—you can figure it out as you go along.</li><li><b>W:</b> I’ve never really tried it.</li><li><b>M:</b> After your tutorial, I think you’ll find it is pretty simple. Speaking of which, uh, when do you want to schedule your tutoring session?</li><li><b>W:</b> As soon as possible! My presentation is next week and I’m nervous about speaking in front of other people anyway. It would be bad if I had no time to practice using the program.</li><li><b>M:</b> That’s true. So… then, how about tomorrow at 2 p.m.? Bring your outline.</li><li><b>W:</b> Great. I’ll do that. Can I bring my laptop with me?</li><li><b>M:</b> Sure… see you then.</li></ul><p><strong>Conversation 3 (Questions 31-35)</strong></p><p>With unemployment rampant in the economic depression of the 1930s, the government established a program to put people to work. It was called the Works Progress Administration, or WPA. The WPA funded the construction and maintenance of schools, parks and highways. A small subdivision of the WPA, uh, the Federal Arts Project, or FAP, was dedicated to employing artists. The reasoning behind the FAP was that the arts, as much as schools and bridges, contributed to the public welfare. And of course artists at the time of the Depression were extremely vulnerable. Photographers were uniquely suited to the requirements of the FAP, not least because much of their work constituted documenting the achievements of the WPA. But documentation in the larger sense of capturing the reality of an entire country was the mission of many of the FAP photographers. One of the photographers funded by the FAP beginning in 1935 was Berenice Abbott. It was perfect timing for Berenice Abbott—she’d been photographing New York City since her return from Paris in 1929. Long before the FAP came into being, her stated purpose was to document and interpret America with love, but without sentimentality. And she felt that New York represented the essence of the changing nature of American society. I want to just go back to that word, sentimentality. Because it relates to how we can define Abbott’s approach to her art. As we talked about last week, photography in its initial stages had been used in a very painterly fashion. People like Abbott realized early on that photography’s strengths had not been recognized or utilized. Abbott and her contemporaries rebelled against the widespread painterly use of soft focus—in favor of the sharpness and clarity naturally inherent in photography. And they also rejected the sentimentality of typical pastoral scenes and landscapes in favor of a realistic depiction of fast-paced, modern urban life. It was this sensibility that she brought with her to New York from Paris, where she had been living for eight years. Abbott’s project was, simply put, to photograph New York City. She called her project \"Changing New York.\" And the way she approached this project was to try to depict, through photography, the interaction between human beings and solid architectural constructs. Or something like that …I don’t have the exact quote. See, she was trying to find a balance between buildings and activity. So she decided to use more than just a hand-held camera… which was perfect for, you know, capturing the hustle and bustle of the city, but would not have done justice to the giant buildings that also define the city. At the same time, she didn’t want to just overshadow everything with those buildings. So she began to use a large format camera. One of those rather bulky cameras you have to put on a tripod and then you have to view the image under a black hood… difficult to carry around, but it widened her vision. It allowed her to capture the size of massive modern buildings and also to juxtapose them in a shot with older, humbler ones. And to keep the life in her shots she would often wait until someone passed by and make sure they were in the frame. Or she would ask people to walk through or stand in the frame. So, she ended up using the large view camera for most of the work. Well, this \"Changing New York\" collection of 305 photographs is really a remarkable achievement. Its images are so powerful that Abbott is considered by many to be one of the twentieth century’s greatest photographers. In fact, one more contemporary photographer— Douglas Levere—was inspired by her work that in the 1990s he decided to re-photograph Abbott’s New York photos. Imagine this: Levere went to the same locations, on the same day and same time with the identical camera that Abbott had used. He reframed Abbott’s shots as exactly as possible. Why would someone do that? I have to admit; when I first heard about this I was skeptical of one artist copying another so completely. But then I saw the photographs. And the amazing thing about them is that if you put them side by side with Abbott’s, you see that they are a logical extension of her work. They take you even deeper into the contrast between the old and the new that Abbott so expertly revealed in the 1930s.</p>",
+          "questions": [
+            {
+              "id": "L3Q21",
+              "type": "mcq",
+              "question": "What is the student's problem?",
+              "options": [
+                "He didn't do well on his final exam.",
+                "He didn't do all his coursework.",
+                "He missed too many classes.",
+                "He moved away from the school."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q22",
+              "type": "mcq",
+              "question": "What does the student want the professor to do?",
+              "options": [
+                "He wants her to give him a new test.",
+                "He wants an immediate change of grade.",
+                "He wants her to let him take the class again.",
+                "He wants her to give him an incomplete in the class."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q23",
+              "type": "mcq",
+              "question": "What does the professor mean when she says this?",
+              "options": [
+                "You have to deal with this.",
+                "This is the solution.",
+                "I can't deal with this.",
+                "Let's come to an agreement."
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q24",
+              "type": "mcq",
+              "question": "What is the professor's solution to the student's problem?",
+              "options": [
+                "He has to write 2 critical essays.",
+                "He has to fill out a lot of paperworks.",
+                "He has to re-read all of Shakespeare's plays.",
+                "He has to have read all the Shakespeare's plays."
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q25",
+              "type": "mcq",
+              "question": "What is the student's attitude toward the solution?",
+              "options": [
+                "Relieved",
+                "Disappointed",
+                "Shocked",
+                "Ungrateful"
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q26",
+              "type": "mcq",
+              "question": "Why does the student go to the tutoring center?",
+              "options": [
+                "Because she doesn't have a clue how to use a computer",
+                "Because she wants to help putting her presentation together",
+                "Because she's never used the presentation viewer program before",
+                "Because she's nervous about speaking in front of people"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q27",
+              "type": "mcq",
+              "question": "What does the man mean when he says this?",
+              "options": [
+                "He wants to know if her presentation will have graphics and animation.",
+                "He wants to know if she needs a whistle.",
+                "He wants to know if she needs a timer.",
+                "He wants to know if she needs sound."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q28",
+              "type": "mcq",
+              "question": "What does the man say about using the presentation viewer program?",
+              "options": [
+                "It is an easy program to use.",
+                "It is a very complicated program.",
+                "It is not part of the tutoring subjects at the center.",
+                "It doesn't have as many interesting features as the word processing."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q29",
+              "type": "mcq",
+              "question": "What is the student concerned about?",
+              "options": [
+                "Researching her topic",
+                "Working with the computer",
+                "Speaking in front of other people",
+                "How to operate the power source on her computer"
+              ],
+              "answer": 2
+            },
+            {
+              "id": "L3Q30",
+              "type": "mcq",
+              "question": "What does the man advise the student to bring to the tutoring session?",
+              "options": [
+                "Her research paper",
+                "Her outline",
+                "The program",
+                "Her laptop"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q31",
+              "type": "mcq",
+              "question": "What is the focus of the lecture?",
+              "options": [
+                "Doug Levere's re-photography of Abbott's work",
+                "Berenice Abbott's Changing New York project",
+                "Two examples of photography supported by the FAP",
+                "The effect of the Depression on Berenice Abbott's work"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q32",
+              "type": "mcq",
+              "question": "According to the professor, why was Abbott a good candidate for the FAP?",
+              "options": [
+                "She had already been documenting America.",
+                "She had a fresh perspective due to her return.",
+                "She was willing to change her approach to fit the FAP.",
+                "She was a widely recognized figure in the art world."
+              ],
+              "answer": 0
+            },
+            {
+              "id": "L3Q33",
+              "type": "mcq",
+              "question": "Based on the lecture, what artistic characteristics did Abbott reject in her art?",
+              "options": [
+                "Modern urban life",
+                "Depiction of older buildings",
+                "Meticulous composition",
+                "Rural settings and landscapes"
+              ],
+              "answer": 3
+            },
+            {
+              "id": "L3Q34",
+              "type": "mcq",
+              "question": "What did Abbott do to \"keep the life in her shots\"?",
+              "options": [
+                "Use a hand-held camera",
+                "Include random people in the frame",
+                "Frame scenes of urban activity",
+                "Juxtapose old and new buildings"
+              ],
+              "answer": 1
+            },
+            {
+              "id": "L3Q35",
+              "type": "mcq",
+              "question": "What is the professor's attitude toward Levere's re-photography of Abbott's work?",
+              "options": [
+                "Concerned",
+                "Unimpressed",
+                "Disappointed",
+                "Complimentary"
+              ],
+              "answer": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Button, Card, Col, Empty, Row, Skeleton, Space } from 'antd';
+import { Badge, Button, Card, Col, Empty, Row, Skeleton, Space } from '@/components/ui/Primitives';
 import { FlashcardCard } from '@/features/vocab/components/FlashcardCard';
 import { FlashcardRatingBar } from '@/features/vocab/components/FlashcardRatingBar';
 import { FsrsMetricsCard } from '@/features/vocab/components/FsrsMetricsCard';

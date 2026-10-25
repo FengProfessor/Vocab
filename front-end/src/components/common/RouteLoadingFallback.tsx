@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spin } from 'antd';
+import { Spin } from '@/components/ui/Primitives';
 import styles from '@/components/common/RouteLoadingFallback.module.css';
 
 /**

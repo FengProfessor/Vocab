@@ -1,0 +1,909 @@
+'use client';
+
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import type { StudentProgress } from '@/lib/supabase';
+import {
+  Users, UserPlus, Trash2, ChevronRight, AlertCircle,
+  Loader2, HelpCircle, X, Search, Filter, Clock, Trophy, BookOpen
+} from 'lucide-react';
+import { toast } from 'sonner';
+import { authFetch } from '@/lib/auth-fetch';
+import StudentDetailSheet from './StudentDetailSheet';
+import { prefetchStudent } from './teacher-cache';
+import { calculatePedagogicalStatus } from '@/lib/activity/universal-activity';
+
+export type StudentFilter = 'all' | 'at_risk' | 'cramming' | 'dormant' | 'rising_star';
+export type StudentStatusKey = 'at_risk' | 'cramming' | 'dormant' | 'rising_star' | 'normal';
+
+export interface StudentStatusInfo {
+  key: StudentStatusKey;
+  dot: string;
+  label: string;
+  badgeClass: string;
+  color: string;
+  tag: string;
+  title: string;
+  advice: string;
+}
+
+export function formatLastActive(dateStr?: string | null): { text: string; isToday: boolean; isYesterday: boolean; isRecent: boolean } {
+  if (!dateStr) return { text: 'Chưa hoạt động', isToday: false, isYesterday: false, isRecent: false };
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return { text: 'Chưa hoạt động', isToday: false, isYesterday: false, isRecent: false };
+
+  const now = new Date();
+  const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const dStart = new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const diffCalendarDays = Math.round((todayStart.getTime() - dStart.getTime()) / (1000 * 60 * 60 * 24));
+
+  const hours = String(d.getHours()).padStart(2, '0');
+  const minutes = String(d.getMinutes()).padStart(2, '0');
+  const timeStr = `${hours}:${minutes}`;
+
+  if (diffCalendarDays <= 0) return { text: `Hôm nay ${timeStr}`, isToday: true, isYesterday: false, isRecent: true };
+  if (diffCalendarDays === 1) return { text: `Hôm qua ${timeStr}`, isToday: false, isYesterday: true, isRecent: true };
+
+  if (diffCalendarDays < 7) return { text: `${diffCalendarDays} ngày trước`, isToday: false, isYesterday: false, isRecent: false };
+
+  return {
+    text: d.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' }),
+    isToday: false,
+    isYesterday: false,
+    isRecent: false,
+  };
+}
+
+export function formatQuizSummary(s: StudentProgress): { text: string; subtext?: string; isGood?: boolean; hasQuiz: boolean } {
+  if (s.latest_quiz) {
+    const acc = s.latest_quiz.accuracy ?? (s.latest_quiz.total_questions > 0 ? s.latest_quiz.score / s.latest_quiz.total_questions : 0);
+    const isGood = acc >= 0.8;
+    const scoreStr = `Quiz: ${s.latest_quiz.score}/${s.latest_quiz.total_questions}`;
+    const sub = (s.quizzes_taken || 0) > 1
+      ? `${s.quizzes_taken} bài (TB ${Math.round((s.avg_quiz_accuracy || 0) * 100)}%)`
+      : `${Math.round(acc * 100)}% chính xác`;
+    return { text: scoreStr, subtext: sub, isGood, hasQuiz: true };
+  }
+  if ((s.quizzes_taken || 0) > 0) {
+    const acc = s.avg_quiz_accuracy || 0;
+    return {
+      text: `${s.quizzes_taken} bài Quiz (TB ${Math.round(acc * 100)}%)`,
+      isGood: acc >= 0.8,
+      hasQuiz: true,
+    };
+  }
+  return { text: 'Chưa làm quiz', hasQuiz: false };
+}
+
+export function formatWordsSummary(s: StudentProgress): { text: string; subtext?: string } {
+  const reviewed = s.words_reviewed || s.total_words || 0;
+  const saved = s.saved_words_count || 0;
+
+  if (reviewed > 0 && saved > 0) {
+    return { text: `${reviewed} từ đã nạp`, subtext: `+${saved} từ đã lưu` };
+  }
+  if (reviewed > 0) {
+    return { text: `${reviewed} từ đã nạp`, subtext: undefined };
+  }
+  if (saved > 0) {
+    return { text: `${saved} từ đã lưu`, subtext: 'Chưa nạp flashcard' };
+  }
+  return { text: '0 từ', subtext: 'Chưa học từ nào' };
+}
+
+interface StudentsPanelProps {
+  classroomId: string;
+  classroomName: string;
+  inviteCode: string;
+  students: StudentProgress[];
+  onRefresh: () => void;
+  activeFilter?: StudentFilter;
+  onFilterChange?: (filter: StudentFilter) => void;
+}
+
+export function getStudentStatus(s: StudentProgress): StudentStatusInfo {
+  const activeTimestamp = s.true_last_active ?? s.last_active ?? null;
+  return calculatePedagogicalStatus({
+    trueLastActive: activeTimestamp,
+    vms: s.vms,
+    wordsReviewed: s.words_reviewed,
+    lcs: s.lcs,
+    avgQuizAccuracy: s.avg_quiz_accuracy,
+    quizzesTaken: s.quizzes_taken,
+  });
+}
+
+export default function StudentsPanel({
+  classroomId,
+  classroomName,
+  inviteCode,
+  students,
+  onRefresh,
+  activeFilter: externalFilter,
+  onFilterChange: externalOnFilterChange,
+}: StudentsPanelProps) {
+  const [internalFilter, setInternalFilter] = useState<StudentFilter>('all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedStudentId, setSelectedStudentId] = useState<string | null>(null);
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  // Add / remove student modals
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [studentEmail, setStudentEmail] = useState('');
+  const [studentName, setStudentName] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [studentToRemove, setStudentToRemove] = useState<StudentProgress | null>(null);
+  const [isRemoving, setIsRemoving] = useState(false);
+
+  const currentFilter = externalFilter !== undefined ? externalFilter : internalFilter;
+
+  const handleFilterChange = (filter: StudentFilter) => {
+    if (externalOnFilterChange) {
+      externalOnFilterChange(filter);
+    } else {
+      setInternalFilter(filter);
+    }
+  };
+
+  // Sync deep link ?student=UUID on initial load and handle browser back/forward
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const syncFromUrl = () => {
+      const params = new URLSearchParams(window.location.search);
+      const studentParam = params.get('student');
+      if (studentParam && students.some((s) => s.student_id === studentParam)) {
+        setSelectedStudentId(studentParam);
+        setIsSheetOpen(true);
+      } else if (!studentParam) {
+        setIsSheetOpen(false);
+      }
+    };
+
+    syncFromUrl();
+    window.addEventListener('popstate', syncFromUrl);
+    return () => window.removeEventListener('popstate', syncFromUrl);
+  }, [students]);
+
+  // Update URL query param when sheet opens / closes
+  const openSheetForStudent = useCallback((studentId: string) => {
+    setSelectedStudentId(studentId);
+    setIsSheetOpen(true);
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      params.set('student', studentId);
+      window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+    }
+  }, []);
+
+  const closeSheet = useCallback(() => {
+    setIsSheetOpen(false);
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      params.delete('student');
+      const query = params.toString();
+      window.history.replaceState({}, '', `${window.location.pathname}${query ? '?' + query : ''}`);
+    }
+  }, []);
+
+  // Compute category counts for filter chips
+  const counts = useMemo(() => {
+    const res = { all: students.length, at_risk: 0, cramming: 0, dormant: 0, rising_star: 0 };
+    for (const s of students) {
+      const st = getStudentStatus(s);
+      if (st.key === 'at_risk') res.at_risk++;
+      else if (st.key === 'cramming') res.cramming++;
+      else if (st.key === 'dormant') res.dormant++;
+      else if (st.key === 'rising_star') res.rising_star++;
+    }
+    return res;
+  }, [students]);
+
+  // Filtered student list
+  const filteredStudents = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    return students.filter((s) => {
+      // Category filter
+      if (currentFilter !== 'all') {
+        const st = getStudentStatus(s);
+        if (st.key !== currentFilter) return false;
+      }
+      // Text search
+      if (q) {
+        const name = (s.student_name || '').toLowerCase();
+        const email = (s.email || '').toLowerCase();
+        return name.includes(q) || email.includes(q);
+      }
+      return true;
+    });
+  }, [students, currentFilter, searchQuery]);
+
+  // Current selected student index in filteredStudents for stepper navigation
+  const currentIndex = useMemo(() => {
+    if (!selectedStudentId) return -1;
+    return filteredStudents.findIndex((s) => s.student_id === selectedStudentId);
+  }, [selectedStudentId, filteredStudents]);
+
+  const sheetStudents = useMemo(() => {
+    return filteredStudents.length > 0 && currentIndex !== -1 ? filteredStudents : students;
+  }, [filteredStudents, currentIndex, students]);
+
+  const effectiveIndex = useMemo(() => {
+    if (currentIndex !== -1) return currentIndex;
+    return students.findIndex((s) => s.student_id === selectedStudentId);
+  }, [currentIndex, students, selectedStudentId]);
+
+  const selectedStudent = useMemo(() => {
+    if (!selectedStudentId) return null;
+    return students.find((s) => s.student_id === selectedStudentId) || null;
+  }, [selectedStudentId, students]);
+
+  const handleNavigate = useCallback(
+    (newIndex: number) => {
+      if (newIndex >= 0 && newIndex < sheetStudents.length) {
+        const next = sheetStudents[newIndex];
+        if (next) openSheetForStudent(next.student_id);
+      }
+    },
+    [sheetStudents, openSheetForStudent]
+  );
+
+  const handleAddStudent = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const email = studentEmail.trim().toLowerCase();
+    if (!email || !email.includes('@')) {
+      toast.error('Vui lòng nhập địa chỉ email hợp lệ');
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const res = await authFetch('/api/teacher/students/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          classroomId,
+          email,
+          name: studentName.trim() || undefined,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Không thể thêm học sinh');
+      }
+
+      toast.success(data.message || `Đã thêm ${email} vào lớp.`);
+      setIsAddModalOpen(false);
+      setStudentEmail('');
+      setStudentName('');
+      onRefresh();
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Lỗi khi thêm học sinh';
+      toast.error(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleRemoveStudent = async () => {
+    if (!studentToRemove) return;
+    setIsRemoving(true);
+    try {
+      const res = await authFetch('/api/teacher/students/remove', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          classroomId,
+          studentId: studentToRemove.student_id,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || 'Không thể xóa học sinh');
+      }
+
+      toast.success(data.message || 'Đã xóa học sinh khỏi lớp');
+      setStudentToRemove(null);
+      if (selectedStudentId === studentToRemove.student_id) {
+        closeSheet();
+      }
+      onRefresh();
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Lỗi khi xóa học sinh';
+      toast.error(msg);
+    } finally {
+      setIsRemoving(false);
+    }
+  };
+
+  return (
+    <div className="bg-background border rounded-2xl shadow-sm overflow-hidden space-y-0">
+      {/* Header Bar */}
+      <div className="px-5 sm:px-6 py-4 border-b flex items-center justify-between gap-4 flex-wrap">
+        <div className="flex items-center gap-3">
+          <div className="bg-primary/10 p-2.5 rounded-xl text-primary">
+            <Users className="h-5 w-5" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h2 className="font-bold text-base sm:text-lg">Danh sách học sinh</h2>
+              <span className="font-mono text-xs font-semibold px-2 py-0.5 rounded-full bg-muted text-muted-foreground tabular-nums">
+                {filteredStudents.length} / {students.length}
+              </span>
+            </div>
+            <p className="text-xs text-muted-foreground">
+              Bấm vào học sinh để mở chẩn đoán sư phạm & can thiệp nhanh
+              <span className="hidden sm:inline"> &bull; Hỗ trợ phím tắt [↑/↓/C/Esc]</span>
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={() => setIsAddModalOpen(true)}
+          className="inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl hover:bg-primary/90 transition-all active:scale-[0.98] shadow-sm max-sm:w-full touch-manipulation"
+        >
+          <UserPlus className="h-4 w-4" />
+          Thêm học sinh
+        </button>
+      </div>
+
+      {/* Stripe-style Segment Filter Chips & Search Bar */}
+      <div className="p-4 border-b bg-muted/20 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        {/* Chips */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0 scrollbar-none touch-pan-x">
+          <button
+            onClick={() => handleFilterChange('all')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap border flex items-center gap-1.5 ${
+              currentFilter === 'all'
+                ? 'bg-background text-foreground shadow-sm border-border font-bold'
+                : 'bg-transparent text-muted-foreground border-transparent hover:bg-muted/60'
+            }`}
+          >
+            <span>Tất cả</span>
+            <span className="text-[11px] font-mono tabular-nums opacity-75">({counts.all})</span>
+          </button>
+
+          <button
+            onClick={() => handleFilterChange('at_risk')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap border flex items-center gap-1.5 ${
+              currentFilter === 'at_risk'
+                ? 'bg-rose-50 text-rose-800 shadow-sm border-rose-300 font-bold'
+                : 'bg-transparent text-muted-foreground border-transparent hover:bg-muted/60'
+            }`}
+          >
+            <span>🔴 Cần củng cố</span>
+            <span className="text-[11px] font-mono tabular-nums opacity-75">({counts.at_risk})</span>
+          </button>
+
+          <button
+            onClick={() => handleFilterChange('cramming')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap border flex items-center gap-1.5 ${
+              currentFilter === 'cramming'
+                ? 'bg-amber-50 text-amber-800 shadow-sm border-amber-300 font-bold'
+                : 'bg-transparent text-muted-foreground border-transparent hover:bg-muted/60'
+            }`}
+          >
+            <span>🟡 Học dồn</span>
+            <span className="text-[11px] font-mono tabular-nums opacity-75">({counts.cramming})</span>
+          </button>
+
+          <button
+            onClick={() => handleFilterChange('dormant')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap border flex items-center gap-1.5 ${
+              currentFilter === 'dormant'
+                ? 'bg-rose-50 text-rose-800 shadow-sm border-rose-300 font-bold'
+                : 'bg-transparent text-muted-foreground border-transparent hover:bg-muted/60'
+            }`}
+          >
+            <span>💤 Vắng mặt</span>
+            <span className="text-[11px] font-mono tabular-nums opacity-75">({counts.dormant})</span>
+          </button>
+
+          <button
+            onClick={() => handleFilterChange('rising_star')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all whitespace-nowrap border flex items-center gap-1.5 ${
+              currentFilter === 'rising_star'
+                ? 'bg-emerald-50 text-emerald-800 shadow-sm border-emerald-300 font-bold'
+                : 'bg-transparent text-muted-foreground border-transparent hover:bg-muted/60'
+            }`}
+          >
+            <span>🟢 Tích cực</span>
+            <span className="text-[11px] font-mono tabular-nums opacity-75">({counts.rising_star})</span>
+          </button>
+        </div>
+
+        {/* Search Input */}
+        <div className="relative w-full sm:w-64 shrink-0">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+          <input
+            type="text"
+            placeholder="Tìm theo tên hoặc email..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full bg-background border rounded-lg pl-8 pr-8 py-1.5 text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-primary/30"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Main Student Data Table */}
+      {students.length === 0 ? (
+        <div className="p-12 text-center">
+          <Users className="h-12 w-12 text-muted-foreground/30 mx-auto mb-4" />
+          <p className="font-semibold text-foreground text-base">Chưa có học sinh nào trong lớp</p>
+          <p className="text-sm text-muted-foreground mt-1 max-w-md mx-auto">
+            Bấm nút &ldquo;Thêm học sinh&rdquo; để thêm trực tiếp bằng email (tự cấp 1 năm Pro), hoặc gửi mã mời{' '}
+            <span className="font-mono font-bold text-primary">{inviteCode}</span> cho học sinh.
+          </p>
+          <button
+            onClick={() => setIsAddModalOpen(true)}
+            className="mt-5 inline-flex items-center gap-2 bg-primary/10 text-primary font-bold text-sm px-5 py-2.5 rounded-xl hover:bg-primary/20 transition-colors"
+          >
+            <UserPlus className="h-4 w-4" /> Thêm học sinh đầu tiên
+          </button>
+        </div>
+      ) : filteredStudents.length === 0 ? (
+        <div className="p-12 text-center">
+          <Filter className="h-10 w-10 text-muted-foreground/30 mx-auto mb-3" />
+          <p className="font-semibold text-sm">Không tìm thấy học sinh phù hợp với bộ lọc</p>
+          <p className="text-xs text-muted-foreground mt-1">
+            Thử thay đổi từ khóa tìm kiếm hoặc chọn bộ lọc &ldquo;Tất cả&rdquo;.
+          </p>
+          <button
+            onClick={() => {
+              handleFilterChange('all');
+              setSearchQuery('');
+            }}
+            className="mt-4 text-xs font-semibold text-primary hover:underline"
+          >
+            Đặt lại bộ lọc
+          </button>
+        </div>
+      ) : (
+        <>
+          {/* Mobile Card View (< md) */}
+          <div className="md:hidden divide-y divide-border/60">
+            {filteredStudents.map((s) => {
+              const st = getStudentStatus(s);
+              const lastActiveInfo = formatLastActive(s.true_last_active ?? s.last_active);
+              const quizInfo = formatQuizSummary(s);
+              const wordsInfo = formatWordsSummary(s);
+              const isSelected = selectedStudentId === s.student_id && isSheetOpen;
+
+              return (
+                <div
+                  key={s.student_id}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => openSheetForStudent(s.student_id)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      openSheetForStudent(s.student_id);
+                    }
+                  }}
+                  onMouseEnter={() => prefetchStudent(s.student_id, classroomId)}
+                  onTouchStart={() => prefetchStudent(s.student_id, classroomId)}
+                  className={`p-4 transition-all cursor-pointer touch-manipulation active:bg-muted/60 ${
+                    isSelected ? 'bg-primary/5 border-l-4 border-l-primary' : 'hover:bg-muted/30'
+                  }`}
+                >
+                  {/* Top Row: Avatar initial, Name, Email, CEFR badge, Status badge with dot */}
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary font-bold flex items-center justify-center text-sm shrink-0">
+                        {s.student_name?.trim()
+                          ? s.student_name.trim().charAt(0).toUpperCase()
+                          : s.email?.trim()
+                          ? s.email.trim().charAt(0).toUpperCase()
+                          : 'H'}
+                      </div>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <p className="font-semibold text-sm truncate text-foreground">
+                            {s.student_name || 'Học sinh'}
+                          </p>
+                          <span
+                            className={`px-1.5 py-0.5 rounded text-[10px] font-black tracking-tighter shrink-0 ${
+                              s.cefr_level?.startsWith('C')
+                                ? 'bg-amber-100 text-amber-700 border border-amber-200'
+                                : s.cefr_level?.startsWith('B')
+                                ? 'bg-sky-100 text-sky-700 border border-sky-200'
+                                : 'bg-slate-100 text-slate-600 border border-slate-200'
+                            }`}
+                          >
+                            {s.cefr_level || 'A1'}
+                          </span>
+                        </div>
+                        <p className="text-xs text-muted-foreground truncate">{s.email}</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <span
+                        className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold border ${st.badgeClass}`}
+                      >
+                        <span>{st.dot}</span>
+                        <span>{st.label}</span>
+                      </span>
+                      <ChevronRight className="h-4 w-4 text-muted-foreground/70" />
+                    </div>
+                  </div>
+
+                  {/* Concrete Activity Strip: Last Active, Quiz, Words */}
+                  <div className="mt-3 pt-3 border-t border-border/40 grid grid-cols-3 gap-2 text-xs">
+                    {/* Last Active */}
+                    <div className="bg-muted/30 rounded-xl p-2 space-y-1 min-w-0" title={lastActiveInfo.text}>
+                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                        <Clock className="h-3 w-3 shrink-0" />
+                        <span className="truncate">Gần nhất</span>
+                      </div>
+                      <p className={`font-semibold text-[11px] truncate ${lastActiveInfo.isToday ? 'text-emerald-700' : 'text-foreground'}`}>
+                        {lastActiveInfo.text}
+                      </p>
+                    </div>
+
+                    {/* Quiz Summary */}
+                    <div className="bg-muted/30 rounded-xl p-2 space-y-1 min-w-0" title={quizInfo.text}>
+                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                        <Trophy className="h-3 w-3 shrink-0" />
+                        <span className="truncate">Quiz</span>
+                      </div>
+                      <p className={`font-semibold text-[11px] truncate ${quizInfo.isGood ? 'text-emerald-700' : quizInfo.hasQuiz ? 'text-amber-700' : 'text-muted-foreground'}`}>
+                        {quizInfo.text}
+                      </p>
+                    </div>
+
+                    {/* Words Studied */}
+                    <div className="bg-muted/30 rounded-xl p-2 space-y-1 min-w-0" title={wordsInfo.text}>
+                      <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
+                        <BookOpen className="h-3 w-3 shrink-0" />
+                        <span className="truncate">Từ vựng</span>
+                      </div>
+                      <p className="font-semibold text-[11px] text-foreground truncate">
+                        {wordsInfo.text}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Metrics Row: VMS (Active/Passive) & LCS consistency */}
+                  <div className="mt-2.5 grid grid-cols-2 gap-2 text-[11px]">
+                    <div className="bg-muted/20 rounded-lg px-2 py-1.5 flex items-center justify-between">
+                      <span className="text-muted-foreground">Trí nhớ (VMS)</span>
+                      <span className="font-mono tabular-nums font-bold text-emerald-600">
+                        A {s.active_vms || 0}% • P {s.vms || 0}%
+                      </span>
+                    </div>
+                    <div className="bg-muted/20 rounded-lg px-2 py-1.5 flex items-center justify-between">
+                      <span className="text-muted-foreground flex items-center gap-0.5">
+                        <span>Chăm chỉ</span>
+                        {(s.lcs || 0) >= 70 && <span>🔥</span>}
+                      </span>
+                      <span className="font-mono tabular-nums font-bold text-sky-700">
+                        {s.lcs || 0}%
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Desktop Table View (>= md) */}
+          <div className="hidden md:block overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-muted/40 border-b text-xs font-semibold uppercase tracking-wider text-muted-foreground select-none">
+                <tr>
+                  {/* Column 1: # */}
+                  <th className="px-4 py-3 w-12 text-center">#</th>
+                  {/* Column 2: Học sinh */}
+                  <th className="px-4 py-3 min-w-[200px]">Học sinh</th>
+                  {/* Column 3: Hoạt động gần nhất */}
+                  <th className="px-4 py-3 min-w-[150px]">Hoạt động gần nhất</th>
+                  {/* Column 4: Bài Quiz gần nhất */}
+                  <th className="px-4 py-3 min-w-[160px]">Bài Quiz gần nhất</th>
+                  {/* Column 5: Từ vựng đã học */}
+                  <th className="px-4 py-3 min-w-[150px]">Từ vựng đã học</th>
+                  {/* Column 6: Độ bền trí nhớ (VMS · P/A) */}
+                  <th className="px-4 py-3 text-center min-w-[150px]">
+                    <div className="inline-flex items-center gap-1 group relative cursor-help">
+                      <span>Trí nhớ (VMS · P/A)</span>
+                      <HelpCircle className="h-3.5 w-3.5 text-muted-foreground" />
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 bg-slate-900 text-white text-[11px] rounded-lg p-2.5 shadow-xl normal-case font-normal z-50 pointer-events-none">
+                        <strong>VMS (Độ bền trí nhớ theo FSRS):</strong>
+                        <br />&bull; <strong>A (Active):</strong> Từ chủ động, dùng cho viết/nói.
+                        <br />&bull; <strong>P (Passive):</strong> Từ thụ động, nhận biết nghĩa (&gt;15 ngày).
+                      </div>
+                    </div>
+                  </th>
+                  {/* Column 7: Tình trạng & Thao tác */}
+                  <th className="px-4 py-3 text-right min-w-[130px]">Tình trạng</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y text-sm">
+                {filteredStudents.map((s, i) => {
+                  const st = getStudentStatus(s);
+                  const lastActiveInfo = formatLastActive(s.true_last_active ?? s.last_active);
+                  const quizInfo = formatQuizSummary(s);
+                  const wordsInfo = formatWordsSummary(s);
+                  const isSelected = selectedStudentId === s.student_id && isSheetOpen;
+
+                  return (
+                    <tr
+                      key={s.student_id}
+                      onClick={() => openSheetForStudent(s.student_id)}
+                      onMouseEnter={() => prefetchStudent(s.student_id, classroomId)}
+                      className={`cursor-pointer transition-colors group ${
+                        isSelected
+                          ? 'bg-primary/5 border-l-4 border-l-primary font-medium'
+                          : 'hover:bg-muted/40'
+                      }`}
+                    >
+                      {/* Column 1: Index */}
+                      <td className="px-4 py-3.5 text-center">
+                        <div className="w-6 h-6 mx-auto rounded-md bg-muted/80 text-muted-foreground flex items-center justify-center font-mono font-bold text-xs shrink-0 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                          {i + 1}
+                        </div>
+                      </td>
+
+                      {/* Column 2: Học sinh & CEFR */}
+                      <td className="px-4 py-3.5">
+                        <div className="flex items-center gap-2.5">
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <p className="font-semibold text-sm group-hover:text-primary transition-colors truncate">
+                                {s.student_name || 'Học sinh'}
+                              </p>
+                              <span
+                                className={`px-1.5 py-0.5 rounded text-[10px] font-black tracking-tighter shrink-0 ${
+                                  s.cefr_level?.startsWith('C')
+                                    ? 'bg-amber-100 text-amber-700 border border-amber-200'
+                                    : s.cefr_level?.startsWith('B')
+                                    ? 'bg-sky-100 text-sky-700 border border-sky-200'
+                                    : 'bg-slate-100 text-slate-600 border border-slate-200'
+                                }`}
+                              >
+                                {s.cefr_level || 'A1'}
+                              </span>
+                            </div>
+                            <p className="text-xs text-muted-foreground truncate">{s.email}</p>
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Column 3: Hoạt động gần nhất */}
+                      <td className="px-4 py-3.5">
+                        <div className="flex items-center gap-1.5">
+                          <Clock className={`h-3.5 w-3.5 shrink-0 ${lastActiveInfo.isToday ? 'text-emerald-600' : 'text-muted-foreground'}`} />
+                          <span
+                            className={`text-xs font-semibold px-2 py-0.5 rounded-md border ${
+                              lastActiveInfo.isToday
+                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                : lastActiveInfo.isYesterday
+                                ? 'bg-sky-50 text-sky-700 border-sky-200'
+                                : 'bg-muted/40 text-muted-foreground border-transparent'
+                            }`}
+                          >
+                            {lastActiveInfo.text}
+                          </span>
+                        </div>
+                      </td>
+
+                      {/* Column 4: Bài Quiz gần nhất */}
+                      <td className="px-4 py-3.5">
+                        <div className="space-y-0.5">
+                          <div className="flex items-center gap-1.5">
+                            <Trophy className={`h-3.5 w-3.5 shrink-0 ${quizInfo.isGood ? 'text-emerald-500' : quizInfo.hasQuiz ? 'text-amber-500' : 'text-muted-foreground/50'}`} />
+                            <span className={`text-xs font-bold ${quizInfo.isGood ? 'text-emerald-700' : quizInfo.hasQuiz ? 'text-amber-700' : 'text-muted-foreground font-normal'}`}>
+                              {quizInfo.text}
+                            </span>
+                          </div>
+                          {quizInfo.subtext && (
+                            <p className="text-[11px] text-muted-foreground pl-5 font-mono">{quizInfo.subtext}</p>
+                          )}
+                        </div>
+                      </td>
+
+                      {/* Column 5: Từ vựng đã học */}
+                      <td className="px-4 py-3.5">
+                        <div className="space-y-0.5">
+                          <div className="flex items-center gap-1.5">
+                            <BookOpen className="h-3.5 w-3.5 text-violet-500 shrink-0" />
+                            <span className="text-xs font-bold text-foreground">
+                              {wordsInfo.text}
+                            </span>
+                          </div>
+                          {wordsInfo.subtext && (
+                            <p className="text-[11px] text-muted-foreground pl-5 font-medium">{wordsInfo.subtext}</p>
+                          )}
+                        </div>
+                      </td>
+
+                      {/* Column 6: Độ bền trí nhớ (VMS · P/A) with monospaced tabular numbers */}
+                      <td className="px-4 py-3.5 text-center">
+                        <div className="inline-flex flex-col items-center">
+                          <div className="font-mono tabular-nums text-xs font-semibold">
+                            <span className="text-emerald-600 font-bold">A {s.active_vms || 0}%</span>
+                            <span className="text-muted-foreground mx-1">&bull;</span>
+                            <span className="text-slate-600">P {s.vms || 0}%</span>
+                          </div>
+                          <div className="w-24 h-1.5 bg-muted rounded-full mt-1.5 overflow-hidden flex">
+                            <div
+                              className="h-full bg-emerald-500 rounded-full"
+                              style={{ width: `${s.active_vms || 0}%` }}
+                            />
+                            <div
+                              className="h-full bg-emerald-200"
+                              style={{ width: `${Math.max(0, (s.vms || 0) - (s.active_vms || 0))}%` }}
+                            />
+                          </div>
+                        </div>
+                      </td>
+
+                      {/* Column 7: Linear-style Status Dots & Action */}
+                      <td className="px-4 py-3.5 text-right">
+                        <div className="flex items-center justify-end gap-2">
+                          <span
+                            className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold border ${st.badgeClass}`}
+                          >
+                            <span>{st.dot}</span>
+                            <span>{st.label}</span>
+                          </span>
+                          <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      {/* Linear/Raycast Slide-Over Peek Sheet */}
+      <StudentDetailSheet
+        student={selectedStudent}
+        classroomId={classroomId}
+        classroomName={classroomName}
+        allStudents={sheetStudents}
+        currentIndex={effectiveIndex}
+        isOpen={isSheetOpen}
+        onClose={closeSheet}
+        onNavigate={handleNavigate}
+      />
+
+      {/* MODAL: Thêm học sinh */}
+      {isAddModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-background border rounded-2xl w-full max-w-md p-6 shadow-2xl relative max-h-[90dvh] overflow-y-auto">
+            <button
+              onClick={() => !isSubmitting && setIsAddModalOpen(false)}
+              className="absolute top-4 right-4 p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+                <UserPlus className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg">Thêm học sinh vào lớp</h3>
+                <p className="text-xs text-muted-foreground">Lớp: {classroomName}</p>
+              </div>
+            </div>
+
+            <div className="bg-muted/40 border rounded-xl p-3.5 mb-5 text-xs text-muted-foreground">
+              Học sinh sẽ được thêm vào lớp. Gói học tập hiện tại của tài khoản không thay đổi.
+            </div>
+
+            <form onSubmit={handleAddStudent} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1.5">
+                  Email học sinh <span className="text-destructive">*</span>
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder="vidu: hocsinh@gmail.com"
+                  value={studentEmail}
+                  onChange={(e) => setStudentEmail(e.target.value)}
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1.5">
+                  Họ và tên (không bắt buộc)
+                </label>
+                <input
+                  type="text"
+                  placeholder="vidu: Nguyễn Minh Anh"
+                  value={studentName}
+                  onChange={(e) => setStudentName(e.target.value)}
+                  className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  disabled={isSubmitting}
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setIsAddModalOpen(false)}
+                  disabled={isSubmitting}
+                  className="px-4 py-2.5 text-sm font-semibold text-muted-foreground hover:bg-muted rounded-xl transition-colors"
+                >
+                  Hủy
+                </button>
+                <button
+                  type="submit"
+                  disabled={isSubmitting || !studentEmail.trim()}
+                  className="inline-flex items-center gap-2 bg-primary text-white font-semibold text-sm px-5 py-2.5 rounded-xl hover:bg-primary/90 transition-all disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      Đang xử lý...
+                    </>
+                  ) : (
+                    <>
+                      <UserPlus className="h-4 w-4" />
+                      Thêm học sinh
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL: Xác nhận xóa học sinh khỏi lớp */}
+      {studentToRemove && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-background border rounded-2xl w-full max-w-sm p-6 shadow-2xl relative max-h-[90dvh] overflow-y-auto">
+            <div className="w-11 h-11 rounded-full bg-destructive/10 text-destructive flex items-center justify-center mb-4 mx-auto">
+              <AlertCircle className="h-6 w-6" />
+            </div>
+
+            <h3 className="font-bold text-lg text-center mb-2">Xóa học sinh khỏi lớp?</h3>
+            <p className="text-xs text-muted-foreground text-center leading-relaxed mb-6">
+              Bạn có chắc muốn xóa <strong className="text-foreground">{studentToRemove.student_name || studentToRemove.email}</strong> khỏi lớp{' '}
+              <strong className="text-foreground">{classroomName}</strong>? Học sinh sẽ không còn truy cập được từ vựng của lớp này.
+            </p>
+
+            <div className="flex items-center justify-center gap-3">
+              <button
+                type="button"
+                onClick={() => setStudentToRemove(null)}
+                disabled={isRemoving}
+                className="flex-1 px-4 py-2.5 text-sm font-semibold border rounded-xl hover:bg-muted transition-colors"
+              >
+                Hủy
+              </button>
+              <button
+                type="button"
+                onClick={handleRemoveStudent}
+                disabled={isRemoving}
+                className="flex-1 inline-flex items-center justify-center gap-1.5 bg-destructive text-destructive-foreground font-semibold text-sm px-4 py-2.5 rounded-xl hover:bg-destructive/90 transition-all disabled:opacity-50"
+              >
+                {isRemoving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
+                Xác nhận xóa
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

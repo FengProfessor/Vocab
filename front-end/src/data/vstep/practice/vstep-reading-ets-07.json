@@ -1,0 +1,510 @@
+{
+  "id": "vstep-reading-ets-07",
+  "title": "VSTEP B1, B2, C1 Reading - Full Test 007 (EnglishTestStore Practice)",
+  "duration": 60,
+  "date": "2026-09-12",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 60,
+      "totalQuestions": 30,
+      "tasks": [
+        {
+          "id": "ets-r07-task-1",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 1 to 5.",
+          "passage": {
+            "title": "Passage 1",
+            "text": "The locust is perhaps nature's most awesome example of the collective destructive power of a species which, individually, is practically harmless. An adult locust weighs a maximum of two grams - it takes over 225 to outweigh a can of beans. The destructive power is based on two facts. One each locust can eat its own weight daily. Two, the moving swarm may carpet the ground with anywhere from 30 to 60 locust a square yard; therefore a square mile will typically contain from 100 million to 200 million of the creatures. Seldom, furthermore, will a swarm occupy a mere square mile; swarms more than 400 square miles in area have been recorded. A swarm that size weighs more than 80,000 tons and numbers around 40 billion insects eating the weight of the Queen Mary every day it is on the move and it never stops. A million locusts take a tremendous toll and each day eat as much as 20 elephants or 500 people. And their voracity is not only in numbers; pound for pound the locust eats 60 to 100 times as much as a human being."
+          },
+          "questions": [
+            {
+              "id": "ets-r07-q01",
+              "type": "mcq",
+              "question": "This article is mainly concerned with",
+              "options": [
+                "the harmlessness of individual locusts",
+                "the Queen Mary locust plague",
+                "the destructive capacity of locusts",
+                "the importance of locusts to man"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 1
+            },
+            {
+              "id": "ets-r07-q02",
+              "type": "mcq",
+              "question": "Locusts",
+              "options": [
+                "existed only in the Bible",
+                "are extremely destructive in swarms",
+                "ate the Queen Mary in one day",
+                "eat as much as twenty elephants"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 2
+            },
+            {
+              "id": "ets-r07-q03",
+              "type": "mcq",
+              "question": "A locust",
+              "options": [
+                "can fly over long distances",
+                "always travels in swarms",
+                "is no larger than a bean",
+                "can eat its own weight daily"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 3
+            },
+            {
+              "id": "ets-r07-q04",
+              "type": "mcq",
+              "question": "The destructiveness of locusts in swarms results from all of the following except",
+              "options": [
+                "the large area covered by the swarm",
+                "the large number of locusts in a swarm",
+                "their collective voracity",
+                "the extreme weight of a locust swarm"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 4
+            },
+            {
+              "id": "ets-r07-q05",
+              "type": "mcq",
+              "question": "The author uses",
+              "options": [
+                "contrast and comparison",
+                "factual description",
+                "simile and metaphor",
+                "biased opinion"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 1",
+              "orderNumber": 5
+            }
+          ]
+        },
+        {
+          "id": "ets-r07-task-2",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 6 to 10.",
+          "passage": {
+            "title": "PASSAGE 2",
+            "text": "Let children learn to judge their own work. A child learning to talk does not learn by being corrected all the time: if corrected too much, he will stop talking. He notices a thousand times a day the difference between the language he uses and the language those around him use. Bit by bit, he makes the necessary changes to make his language like other people’s. In the same way, children learning to do all the other things they learn to do without being taught – to walk, run, climb, whistle, ride a bicycle – compare their own performances with those of more skilled people, and slowly make the needed changes. But in school we never give a child a chance to find out his mistakes for himself, let alone correct them. We do it all for him. We act as if we thought that he would never notice a mistake unless it was pointed out to him, or correct it unless he was made to. Soon he becomes dependent on the teacher. Let him do it himself. Let him work out, with the help of other children if he wants it, what this word says, what the answer is to that problem, whether this is a good way of saying or doing this or not.\nIf it is a matter of right answers, as it may be in mathematics or science, give him the answer book. Let him correct his own papers. Why should we teachers waste time on such routine work? Our job should be to help the child when he tells us that he can’t find the way to get the right answer. Let’s end all this nonsense of grades, exams, marks. Let us throw them all out, and let the children learn what all educated persons must some day learn, how to measure their own understanding, how to know what they know or do not know.\nLet them get on with this job in the way that seems most sensible to them, with our help as school teachers if they ask for it. The idea that there is a body of knowledge to be learnt at school and used for the rest of one’s life is nonsense in a world as complicated and rapidly changing as ours. Anxious parents and teachers say, ‘But suppose they fail to learn something essential, something they will need to get on in the world?’ Don’t worry! If it is essential, they will go out into the world and learn it."
+          },
+          "questions": [
+            {
+              "id": "ets-r07-q06",
+              "type": "mcq",
+              "question": "What does the other think is the best way for children to learn things?",
+              "options": [
+                "by copying what other people do",
+                "by making mistakes and having them corrected",
+                "by listening to explanations from skilled people",
+                "by asking a great many questions"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 6
+            },
+            {
+              "id": "ets-r07-q07",
+              "type": "mcq",
+              "question": "What does the other think teachers do which they should not do?",
+              "options": [
+                "They give children correct answers.",
+                "They point out children’s mistakes to them.",
+                "They allow children to mark their own work.",
+                "They encourage children to copy from one another."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 7
+            },
+            {
+              "id": "ets-r07-q08",
+              "type": "mcq",
+              "question": "The passage suggests that learning to speak and learning to ride a bicycle are.",
+              "options": [
+                "not really important skills.",
+                "more important than other skills.",
+                "basically different from learning adult skills.",
+                "basically the same as learning other skills."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 8
+            },
+            {
+              "id": "ets-r07-q09",
+              "type": "mcq",
+              "question": "Exams, grades and marks should be abolished because children’s progress should only be estimated by ___________.",
+              "options": [
+                "educated persons.",
+                "the children themselves.",
+                "teachers.",
+                "parents."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 9
+            },
+            {
+              "id": "ets-r07-q10",
+              "type": "mcq",
+              "question": "The author fears that children will grow up into adults who are.",
+              "options": [
+                "too independent of others.",
+                "too critical of themselves.",
+                "unable to think for themselves.",
+                "unable to use basic skills."
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 2",
+              "orderNumber": 10
+            }
+          ]
+        },
+        {
+          "id": "ets-r07-task-3",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 11 to 19.",
+          "passage": {
+            "title": "PASSAGE 3",
+            "text": "Another early Native American tribe in what is now the southwestern part of the United States was the Anasazi. By A.D. 800 the Anasazi Indians were constructing multistory pueblos - massive, stone apartment compounds. Each one was virtually a stone town, which is why the Spanish would later call them pueblos, the Spanish word for towns. These pueblos represent one of the Anasazis’ supreme achievements. At least a dozen large stone houses took shape below the bluffs of Chaco Canyon in northwest New Mexico. They were built with masonry walls more than a meter thick and adjoining apartments to accommodate dozens even hundreds, of families. The largest, later named Pueblo Bonito (Pretty Town) by the Spanish, rose in five terraced stories, contained more than 800 rooms, and could have housed a population of 1,000 or more.\nBesides living quarters, each pueblo included one or more kivas ― circular underground chambers faced with stone. They functioned as sanctuaries where the elders met to plan festival, perform ritual dances, settle pueblo affairs, and impart tribal lore to the younger generation. Some kivas were enormous. Of the 30 or so at Pueblo Bonito, two measured 20 meters across. They contained niches for ceremonial objects, a central fire pit, and holes in the floor for communicating with the spirits of tribal ancestors.  Each pueblo represented an astonishing amount of well-organized labor. Using only stone and wood tools, and without benefit of wheels or draft animals, the builders quarried ton upon ton of sandstone from the canyon walls, cut it into small blocks, hauled the blocks to the construction site, and fitted them together with mud mortar.  Roof beams of pine or fir had to be carried from logging areas in the mountain forests many kilometers away. Then, to connect the pueblos and to give access to the surrounding tableland, the architects laid out a system of public roads with stone staircases for ascending cliff faces. In time, the roads reached out to more than 80 satellite villages within a 60-kilometer radius."
+          },
+          "questions": [
+            {
+              "id": "ets-r07-q11",
+              "type": "mcq",
+              "question": "What is the main topic of the passage?",
+              "options": [
+                "The Anasazi pueblos",
+                "Anasazi festivals of New Mexico",
+                "The organization of the Anasazi tribe",
+                "The use of Anasazi sanctuaries"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 11
+            },
+            {
+              "id": "ets-r07-q12",
+              "type": "mcq",
+              "question": "The word \"supreme\" is closest in meaning to",
+              "options": [
+                "most common",
+                "most outstanding",
+                "most expensive",
+                "most convenient"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 12
+            },
+            {
+              "id": "ets-r07-q13",
+              "type": "mcq",
+              "question": "The word \"They\" refers to",
+              "options": [
+                "houses",
+                "bluffs",
+                "walls",
+                "families"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 13
+            },
+            {
+              "id": "ets-r07-q14",
+              "type": "mcq",
+              "question": "The author mentions that Pueblo Bonito had more than 800 rooms as an example of which of the following?",
+              "options": [
+                "How overcrowded the pueblos could be",
+                "How many ceremonial areas it contained",
+                "How much sandstone was needed to build it",
+                "How big a pueblo could be"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 14
+            },
+            {
+              "id": "ets-r07-q15",
+              "type": "mcq",
+              "question": "The word \"settle\" is closest in meaning to",
+              "options": [
+                "sink",
+                "decide",
+                "clarify",
+                "locate"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 15
+            },
+            {
+              "id": "ets-r07-q16",
+              "type": "mcq",
+              "question": "It can be inferred from passage that building a pueblo probably",
+              "options": [
+                "required many workers",
+                "cost a lot of money",
+                "involved the use of farm animals",
+                "relied on sophisticated technology"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 16
+            },
+            {
+              "id": "ets-r07-q17",
+              "type": "mcq",
+              "question": "The word \"ascending\" is closest in meaning to",
+              "options": [
+                "arriving at",
+                "carving",
+                "connecting",
+                "climbing"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 17
+            },
+            {
+              "id": "ets-r07-q18",
+              "type": "mcq",
+              "question": "It can be inferred from the passage that in addition to pueblos the Anasazis were skilled at building which of the following?",
+              "options": [
+                "Roads",
+                "Barns",
+                "Monuments",
+                "Water systems"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 18
+            },
+            {
+              "id": "ets-r07-q19",
+              "type": "mcq",
+              "question": "The pueblos are considered one of the Anasazis' supreme achievements for all of the following reasons EXCEPT that they were",
+              "options": [
+                "very large",
+                "located in forests",
+                "built with simple tools",
+                "connected in a systematic way"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 3",
+              "orderNumber": 19
+            }
+          ]
+        },
+        {
+          "id": "ets-r07-task-4",
+          "type": "reading_passage",
+          "instructions": "Read the following passage and choose the best answer for questions 20 to 30.",
+          "passage": {
+            "title": "Passage 4",
+            "text": "Large animals that inhabit the desert have evolved a number of adaptations for reducing the effects of extreme heat. One adaptation is to be light in color, and to reflect rather than absorb the Sun's rays. Desert mammals also depart from the normal mammalian practice of maintaining a constant body temperature. Instead of trying to keep down the body temperature deep inside the body, which would involve the expenditure of water and energy, desert mammals allow their temperatures to rise to what would normally be fever height, and temperatures as high as 46 degrees Celsius have been measured in Grant's gazelles. The overheated body then cools down during the cold desert night, and indeed the temperature may fall unusually low by dawn, as low as 34 degrees Celsius in the camel. This is an advantage since the heat of the first few hours of daylight is absorbed in warming up the body, and an excessive buildup of heat does not begin until well into the day.\n          Another strategy of large desert animals is to tolerate the loss of body water to a point that would be fatal for non-adapted animals. The camel can lose up to 30 percent of its body weight as water without harm to itself, whereas human beings die after losing only 12 to 13 percent of their body weight. An equally important adaptation is the ability to replenish this water loss at one drink. Desert animals can drink prodigious volumes in a short time, and camels have been known to imbibe over 100 liters in a few minutes. A very dehydrated person, on the other hand, cannot drink enough water to rehydrate at one session, because the human stomach is not sufficiently big and because a too rapid dilution of the body fluids causes death from water intoxication. The tolerance of water loss is of obvious advantage in the desert, as animals do not have to remain near a water hole but can obtain food from grazing sparse and far-flung pastures. Desert-adapted mammals have the further ability to feed normally when extremely dehydrated, it is a common experience in people that appetite is lost even under conditions of moderate thirst."
+          },
+          "questions": [
+            {
+              "id": "ets-r07-q20",
+              "type": "mcq",
+              "question": "What is the main topic of the passage?",
+              "options": [
+                "Weather variations in the desert",
+                "Adaptations of desert animals",
+                "Diseased of desert animals",
+                "Human use of desert animals."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 20
+            },
+            {
+              "id": "ets-r07-q21",
+              "type": "mcq",
+              "question": "According to the passage, why is light coloring an advantage to large desert animals?",
+              "options": [
+                "It helps them hide from predators.",
+                "It does not absorb sunlight as much as dark colors.",
+                "It helps them see their young at night",
+                "It keeps them cool at night."
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 21
+            },
+            {
+              "id": "ets-r07-q22",
+              "type": "mcq",
+              "question": "The word \"maintaining\" is closest in meaning to",
+              "options": [
+                "measuring",
+                "inheriting",
+                "preserving",
+                "delaying"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 22
+            },
+            {
+              "id": "ets-r07-q23",
+              "type": "mcq",
+              "question": "The author uses of Grant's gazelle as an example of",
+              "options": [
+                "an animal with a low average temperature",
+                "an animal that is not as well adapted as the camel",
+                "a desert animal that can withstand high body temperatures",
+                "a desert animal with a constant body temperature"
+              ],
+              "answer": 2,
+              "explanationVi": "Đáp án đúng là phương án C. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 23
+            },
+            {
+              "id": "ets-r07-q24",
+              "type": "mcq",
+              "question": "When is the internal temperature of a large desert mammal lower?",
+              "options": [
+                "Just before sunrise",
+                "In the middle of the day",
+                "Just after sunset",
+                "Just after drinking"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 24
+            },
+            {
+              "id": "ets-r07-q25",
+              "type": "mcq",
+              "question": "The word \"tolerate\" is closest in meaning to",
+              "options": [
+                "endure",
+                "replace",
+                "compensate",
+                "reduce"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 25
+            },
+            {
+              "id": "ets-r07-q26",
+              "type": "mcq",
+              "question": "What causes water intoxication?",
+              "options": [
+                "Drinking too much water very quickly",
+                "Drinking polluted water",
+                "Bacteria in water",
+                "Lack of water"
+              ],
+              "answer": 0,
+              "explanationVi": "Đáp án đúng là phương án A. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 26
+            },
+            {
+              "id": "ets-r07-q27",
+              "type": "mcq",
+              "question": "What does the author imply about desert-adapted mammals?",
+              "options": [
+                "They do not need to eat much food",
+                "They can eat large quantities quickly",
+                "They easily lose their appetites",
+                "They can travel long distances looking for food"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 27
+            },
+            {
+              "id": "ets-r07-q28",
+              "type": "mcq",
+              "question": "Why does the author mention humans in the second paragraph?",
+              "options": [
+                "To show how they use camels",
+                "To contrast them to desert mammals",
+                "To give instructions about desert survival",
+                "To show how they have adapted to desert life"
+              ],
+              "answer": 1,
+              "explanationVi": "Đáp án đúng là phương án B. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 28
+            },
+            {
+              "id": "ets-r07-q29",
+              "type": "mcq",
+              "question": "The word \"obtain\" is closest in meaning to",
+              "options": [
+                "digest",
+                "carry",
+                "save",
+                "get"
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 29
+            },
+            {
+              "id": "ets-r07-q30",
+              "type": "mcq",
+              "question": "Which of the following is NOT mentioned as an adaptation of large desert animals?",
+              "options": [
+                "Variation in body temperatures",
+                "Eating while dehydrated",
+                "Drinking water quickly",
+                "Being active at night."
+              ],
+              "answer": 3,
+              "explanationVi": "Đáp án đúng là phương án D. [Nguồn trích xuất: EnglishTestStore Standard Question Bank].",
+              "part": "Passage 4",
+              "orderNumber": 30
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

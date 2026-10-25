@@ -1,0 +1,1868 @@
+{
+  "id": "vnu-bac3-test-07",
+  "title": "[Đề 11] Bộ Đề Thực Chiến B1 Số 07 — Chuẩn Đầu Ra ULIS (Surfing)",
+  "series": "VNU-BAC-3",
+  "description": "Đề luyện thi thực chiến VNU Test Bậc 3 chuẩn hóa theo khung năng lực ngoại ngữ Bậc 3 (CEFR B1). Bài đọc thực tế: Surfing (Part 2), Unusual Women of the Past (Part 3), Steve Cummins: Starting His Own Business (Part 4).",
+  "durationMinutes": 65,
+  "targetLevel": "B1",
+  "totalQuestions": 45,
+  "isSampleTest": false,
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 25,
+      "tasks": [
+        {
+          "id": "reading-part1",
+          "partNumber": 1,
+          "title": "Part 1: Signs & Notices",
+          "instructions": "There are 7 questions in this part. Choose the best answer (A, B, or C) that matches the meaning of each sign, message, or notice.",
+          "questions": [
+            {
+              "id": "vnu3-07-r-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Hi Dave,\nI hope you can still play football today. The time of the game has changed to 5.00 p.m. See you there.\nMike",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Dave and Mike will go to the game together."
+                },
+                {
+                  "key": "B",
+                  "text": "Mike thinks Dave wants to change the time of the game."
+                },
+                {
+                  "key": "C",
+                  "text": "Mike wants Dave to know the time of the game."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Tin nhắn của Mike viết: 'The time of the game has changed to 5.00 p.m. See you there.' (Giờ thi đấu đã đổi sang 5 giờ chiều. Hẹn gặp bạn ở đó nhé). Điều này cho thấy Mike muốn báo cho Dave biết thời gian mới của trận bóng đá ('Mike wants Dave to know the time of the game'). Phương án A sai vì 'See you there' nghĩa là hai người tự đến sân gặp nhau. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "change",
+                  "ipa": "/tʃeɪndʒ/",
+                  "meaning": "thay đổi",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "game",
+                  "ipa": "/ɡeɪm/",
+                  "meaning": "trận đấu",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "WANTED: Cleaner\nNo experience needed\nMust be hard worker\nPhone: 07654 321111",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Somebody wants a cleaner with no experience."
+                },
+                {
+                  "key": "B",
+                  "text": "Somebody wants a cleaner and experience is not important."
+                },
+                {
+                  "key": "C",
+                  "text": "Somebody wants a hard-working cleaner with no experience."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Mẫu quảng cáo tuyển dụng ghi: 'No experience needed' (Không yêu cầu kinh nghiệm). Điều này có nghĩa là có kinh nghiệm hay không đều không quan trọng ('experience is not important'), chứ không phải bắt buộc ứng viên phải chưa có kinh nghiệm (nên A và C sai). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "experience",
+                  "ipa": "/ɪkˈspɪə.ri.əns/",
+                  "meaning": "kinh nghiệm làm việc",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "hard worker",
+                  "ipa": "/ˌhɑːd ˈwɜː.kər/",
+                  "meaning": "người làm việc chăm chỉ",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "To: Diana\nFrom: Ruth\n\nDiana,\nSorry, I will be late for our meeting today. Please start the meeting without me and I will join you when I can.\nRuth",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Ruth will come to the meeting after it starts."
+                },
+                {
+                  "key": "B",
+                  "text": "Ruth wants Diana to wait for her before the meeting."
+                },
+                {
+                  "key": "C",
+                  "text": "Ruth will start the meeting later than she planned to start it."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Ruth nhắn cho Diana: 'Sorry, I will be late for our meeting today. Please start the meeting without me and I will join you when I can.' (Xin lỗi, hôm nay mình sẽ đến muộn. Hãy cứ bắt đầu cuộc họp mà không có mình và mình sẽ tham gia ngay khi có thể). Như vậy Ruth sẽ đến cuộc họp sau khi nó đã bắt đầu. Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "without",
+                  "ipa": "/wɪˈðaʊt/",
+                  "meaning": "mà không có",
+                  "partOfSpeech": "preposition"
+                },
+                {
+                  "word": "join",
+                  "ipa": "/dʒɔɪn/",
+                  "meaning": "tham gia cùng",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Special Supermarket Offer!\nToday only!\n5 bananas for £2\nOffer ends at 5 p.m.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "After 5 p.m. bananas will be more expensive."
+                },
+                {
+                  "key": "B",
+                  "text": "You can only buy bananas today."
+                },
+                {
+                  "key": "C",
+                  "text": "Before 5 p.m. there is no special offer."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Bảng khuyến mãi tại siêu thị ghi: 'Special Supermarket Offer! Today only! 5 bananas for £2. Offer ends at 5 p.m.' (Ưu đãi đặc biệt kết thúc lúc 5 giờ chiều). Điều này có nghĩa là sau 5 giờ chiều, chương trình giảm giá kết thúc nên chuối sẽ đắt hơn mức giá ưu đãi. Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "special offer",
+                  "ipa": "/ˌspeʃ.əl ˈɒf.ər/",
+                  "meaning": "chương trình khuyến mãi đặc biệt",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "expensive",
+                  "ipa": "/ɪkˈspen.sɪv/",
+                  "meaning": "đắt đỏ",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Henry,\nI forgot eggs. We don't need many, but I want you to bake a cake. Can you get some on your way home?\nMonika",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Monika wants to bake a cake."
+                },
+                {
+                  "key": "B",
+                  "text": "Monika wants Henry to buy eggs."
+                },
+                {
+                  "key": "C",
+                  "text": "Monika doesn't need eggs."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Monika viết cho Henry: 'I forgot eggs. We don't need many, but I want you to bake a cake. Can you get some on your way home?' (Mình quên mua trứng rồi... Bạn có thể mua một ít trên đường về nhà được không?). Như vậy Monika muốn Henry mua trứng. Phương án A sai vì Monika muốn Henry nướng bánh ('I want you to bake a cake'). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "bake a cake",
+                  "ipa": "/beɪk ə keɪk/",
+                  "meaning": "nướng bánh ngọt",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "on one's way home",
+                  "ipa": "/ɒn wʌnz weɪ həʊm/",
+                  "meaning": "trên đường về nhà",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "LATE NIGHT SHOPPING!\nUntil 8 p.m. in the week and until 10 p.m. at the weekend",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "On Mondays you can shop at 9 p.m."
+                },
+                {
+                  "key": "B",
+                  "text": "On Fridays you can only shop after 8 p.m."
+                },
+                {
+                  "key": "C",
+                  "text": "On Saturdays and Sundays you can shop at 9 p.m."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Thông báo ghi: 'Until 8 p.m. in the week and until 10 p.m. at the weekend' (Mở cửa mua sắm muộn đến 8 giờ tối các ngày trong tuần và đến 10 giờ tối vào dịp cuối tuần). Vì thứ Bảy và Chủ nhật là cuối tuần ('at the weekend') mở đến 10 giờ tối, khách hàng có thể mua sắm lúc 9 giờ tối. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "in the week",
+                  "ipa": "/ɪn ðə wiːk/",
+                  "meaning": "vào các ngày trong tuần (thứ Hai đến thứ Sáu)",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "at the weekend",
+                  "ipa": "/æt ðə ˌwiːkˈend/",
+                  "meaning": "vào dịp cuối tuần",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "20% STUDENT DISCOUNT!\nJUST PRESENT A VALID STUDENT CARD!",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Your card must be carried with you when you are on campus."
+                },
+                {
+                  "key": "B",
+                  "text": "If students show their valid card, they pay less money."
+                },
+                {
+                  "key": "C",
+                  "text": "Students must use whatever cards they have."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Biển thông báo viết: '20% STUDENT DISCOUNT! JUST PRESENT A VALID STUDENT CARD!' (Giảm giá 20% cho sinh viên! Chỉ cần xuất trình thẻ sinh viên còn hiệu lực!). Điều này có nghĩa là nếu sinh viên xuất trình thẻ hợp lệ, họ sẽ được giảm giá, tức trả ít tiền hơn ('pay less money'). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "discount",
+                  "ipa": "/ˈdɪs.kaʊnt/",
+                  "meaning": "sự giảm giá, chiết khấu",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "valid",
+                  "ipa": "/ˈvæl.ɪd/",
+                  "meaning": "còn hiệu lực, hợp lệ",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cloze Test",
+          "instructions": "Read the text below and choose the best answer (A, B, or C) for each blank from 8 to 15.",
+          "passage": {
+            "title": "Surfing",
+            "text": "Surfing grew throughout the 20th century to (8) ________ a popular sport all over the world, but surfers have been around for many years. The explorer James Cook saw surfing in action in 1778 during an (9) ________ to the Pacific. In fact, surfing took (10) ________ in the same areas then that have since become popular surfing resorts now, such as Hawaii and Tahiti.\n\nSurfing wasn't encouraged by local officials (11) ________ the 19th century, but young Hawaiians took up the activity again in the early 1900s. Following the invention of lighter surfboards, it became (12) ________ for ordinary people to try the sport, and surfing attracted fans around the world. The 1960s saw a huge increase in the (13) ________ of surfers as the activity was promoted through the media and popular music. Today, the hobby has become a professional sport that (14) ________ jobs to thousands of people, and (15) ________ and national organisations hold major competitions every year.",
+            "wordCount": 165
+          },
+          "questions": [
+            {
+              "id": "vnu3-07-r-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Surfing grew throughout the 20th century to (8) ________ a popular sport all over the world...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "create"
+                },
+                {
+                  "key": "B",
+                  "text": "turn"
+                },
+                {
+                  "key": "C",
+                  "text": "become"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Động từ liên kết 'become + cụm danh từ' ('become a popular sport': trở thành một môn thể thao phổ biến). Nếu dùng 'turn' phải có giới từ 'into' ('turn into'). 'create' là tạo ra. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "become",
+                  "ipa": "/bɪˈkʌm/",
+                  "meaning": "trở thành, trở nên",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "throughout",
+                  "ipa": "/θruːˈaʊt/",
+                  "meaning": "xuyên suốt, khắp",
+                  "partOfSpeech": "preposition"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "The explorer James Cook saw surfing in action in 1778 during an (9) ________ to the Pacific.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "expedition"
+                },
+                {
+                  "key": "B",
+                  "text": "travel"
+                },
+                {
+                  "key": "C",
+                  "text": "drive"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Sau mạo từ 'an' cần một danh từ đếm được số ít bắt đầu bằng nguyên âm. 'an expedition to the Pacific' có nghĩa là một chuyến thám hiểm tới Thái Bình Dương. 'travel' là danh từ không đếm được, 'drive' là chuyến đi bằng ô tô. Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "expedition",
+                  "ipa": "/ˌek.spəˈdɪʃ.ən/",
+                  "meaning": "chuyến thám hiểm, cuộc viễn chinh",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "explorer",
+                  "ipa": "/ɪkˈsplɔː.rər/",
+                  "meaning": "nhà thám hiểm",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "In fact, surfing took (10) ________ in the same areas then that have since become popular surfing resorts now...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "part"
+                },
+                {
+                  "key": "B",
+                  "text": "place"
+                },
+                {
+                  "key": "C",
+                  "text": "point"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cụm từ cố định 'take place' mang nghĩa diễn ra, xảy ra ('surfing took place in the same areas': hoạt động lướt sóng đã diễn ra ở chính những khu vực đó). 'take part in' là tham gia vào (dành cho chủ ngữ chỉ người). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "take place",
+                  "ipa": "/teɪk pleɪs/",
+                  "meaning": "diễn ra, xảy ra",
+                  "partOfSpeech": "idiom"
+                },
+                {
+                  "word": "resort",
+                  "ipa": "/rɪˈzɔːt/",
+                  "meaning": "khu nghỉ dưỡng",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Surfing wasn't encouraged by local officials (11) ________ the 19th century...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "while"
+                },
+                {
+                  "key": "B",
+                  "text": "for"
+                },
+                {
+                  "key": "C",
+                  "text": "during"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Giới từ 'during + mốc/giai đoạn lịch sử xác định' ('during the 19th century': trong suốt thế kỷ 19). 'while' đi với mệnh đề, 'for' đi với khoảng thời gian đếm được (ví dụ 'for a hundred years'). Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "encourage",
+                  "ipa": "/ɪnˈkʌr.ɪdʒ/",
+                  "meaning": "khuyến khích, khích lệ",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "local official",
+                  "ipa": "/ˈləʊ.kəl əˈfɪʃ.əl/",
+                  "meaning": "quan chức địa phương",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Following the invention of lighter surfboards, it became (12) ________ for ordinary people to try the sport...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "possible"
+                },
+                {
+                  "key": "B",
+                  "text": "general"
+                },
+                {
+                  "key": "C",
+                  "text": "ready"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Cấu trúc 'it became possible for somebody to do something' (việc ai đó làm gì trở nên khả thi / có thể thực hiện được). 'general' là chung chung, 'ready' là sẵn sàng (dùng cho chủ ngữ chỉ người/vật trực tiếp, không dùng trong cấu trúc giả 'it became ready for someone'). Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "possible",
+                  "ipa": "/ˈpɒs.ə.bəl/",
+                  "meaning": "khả thi, có thể thực hiện được",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "invention",
+                  "ipa": "/ɪnˈven.ʃən/",
+                  "meaning": "sự phát minh",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "The 1960s saw a huge increase in the (13) ________ of surfers as the activity was promoted through the media...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "group"
+                },
+                {
+                  "key": "B",
+                  "text": "total"
+                },
+                {
+                  "key": "C",
+                  "text": "number"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cụm danh từ chuẩn: 'an increase in the number of + danh từ đếm được số nhiều' ('a huge increase in the number of surfers': sự gia tăng mạnh mẽ về số lượng người lướt sóng). Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "the number of",
+                  "ipa": "/ðə ˈnʌm.bər ɒv/",
+                  "meaning": "số lượng của...",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "promote",
+                  "ipa": "/prəˈməʊt/",
+                  "meaning": "quảng bá, thúc đẩy",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "Today, the hobby has become a professional sport that (14) ________ jobs to thousands of people...",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "has"
+                },
+                {
+                  "key": "B",
+                  "text": "wins"
+                },
+                {
+                  "key": "C",
+                  "text": "gives"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cấu trúc 'give jobs to somebody' mang nghĩa mang lại việc làm cho ai đó ('gives jobs to thousands of people'). Không dùng 'has jobs to' hay 'wins jobs to'. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "professional",
+                  "ipa": "/prəˈfeʃ.ən.əl/",
+                  "meaning": "chuyên nghiệp",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q15",
+              "questionNumber": 15,
+              "partNumber": 2,
+              "type": "cloze",
+              "prompt": "...and (15) ________ and national organisations hold major competitions every year.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "near"
+                },
+                {
+                  "key": "B",
+                  "text": "close"
+                },
+                {
+                  "key": "C",
+                  "text": "local"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Cụm kết hợp từ cố định: 'local and national organisations' (các tổ chức cấp địa phương và cấp quốc gia). 'near' và 'close' chỉ khoảng cách gần chứ không mang nghĩa hành chính/địa phương. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "local",
+                  "ipa": "/ˈləʊ.kəl/",
+                  "meaning": "thuộc về địa phương",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "organisation",
+                  "ipa": "/ˌɔː.ɡən.aɪˈzeɪ.ʃən/",
+                  "meaning": "tổ chức, hiệp hội",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part3",
+          "partNumber": 3,
+          "title": "Part 3: True / False",
+          "instructions": "Read the text below and decide whether the statements from 16 to 20 are True or False. Choose A for True and B for False.",
+          "passage": {
+            "title": "Unusual Women of the Past",
+            "text": "You may think that no women went to sea or joined the army until the twentieth century, but this is not true. Although they usually had to pretend to be men, there are a few true stories of women who fought for both good reasons and bad ones.\n\nOne English woman soldier in the seventeenth century was Christian Walsh, the wife of a man who was made to join the army, although he did not want to be a soldier. Christian refused to accept the situation, unlike most women in those days. She cut off her hair, dressed as a man and joined the army, calling herself Kit Cavanagh, in order to look for her husband. It was thirteen years before she found him and during that time she fought in several different countries. She was only discovered to be a woman when doctors were operating on her for an injury she had received while fighting.\n\nA rather different example, from around the same time, is Anne Bonney. It is not certain why she left Ireland, where she was born, and went to the islands which are now called the Bahamas. However, we know that when she got there, she fell in love with a sailor called John Rackham. She worked with John to steal a ship from the local port. They obviously chose the ship carefully, because it was the fastest one in the port at the time. For the next ten years they sailed round the Caribbean, attacking other ships and stealing everything valuable from them, as well as taking sailors to help on their own ship.\n\nOne day, Anne was surprised to discover that a boy they had taken off another ship in this way was really a young woman. She told Anne her name was Mary Read. She said she had dressed like a man to increase her opportunities, because in those days of course most women were expected to stay at home. Earlier, Mary had fought in the army, but had stopped pretending to be a man for a short time when she married a soldier who had realised that she was a woman. Unfortunately her husband died, and so Mary started to dress as a man once again and became a sailor.\n\nAnne and Mary continued their criminal career with John Rackham, but in the end their ship was caught by the navy. The two women went on fighting even after all the men were taken prisoner, but they avoided punishment and disappeared. Nobody knows what happened to them after that. Perhaps they pretended to be men and joined another ship, or maybe they got married.",
+            "wordCount": 438
+          },
+          "questions": [
+            {
+              "id": "vnu3-07-r-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "The writer says many women joined armies before the twentieth century.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn 1 nêu rõ: 'Although they usually had to pretend to be men, there are a few true stories of women who fought...' (Chỉ có một vài câu chuyện có thật về những người phụ nữ đã chiến đấu, chứ không phải 'many women' - nhiều phụ nữ). Do đó nhận định là SAI (False).",
+              "vocabularyNotes": [
+                {
+                  "word": "pretend",
+                  "ipa": "/prɪˈtend/",
+                  "meaning": "giả vờ, đóng giả",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Kit Cavanagh spent thirteen years in the army.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn 2 viết: 'She cut off her hair, dressed as a man and joined the army, calling herself Kit Cavanagh, in order to look for her husband. It was thirteen years before she found him and during that time she fought in several different countries.' Như vậy bà đã ở trong quân đội suốt 13 năm. Nhận định là ĐÚNG (True).",
+              "vocabularyNotes": [
+                {
+                  "word": "operate on",
+                  "ipa": "/ˈɒp.ər.eɪt ɒn/",
+                  "meaning": "phẫu thuật cho ai",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "injury",
+                  "ipa": "/ˈɪn.dʒər.i/",
+                  "meaning": "vết thương, chấn thương",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Anne Bonney went to the Bahamas to find John Rackham.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn 3 viết: 'It is not certain why she left Ireland, where she was born, and went to the islands which are now called the Bahamas. However, we know that when she got there, she fell in love with a sailor called John Rackham.' Không rõ lý do vì sao bà tới Bahamas, chỉ sau khi đến đó bà mới gặp và yêu John Rackham. Nhận định là SAI (False).",
+              "vocabularyNotes": [
+                {
+                  "word": "valuable",
+                  "ipa": "/ˈvæl.jə.bəl/",
+                  "meaning": "có giá trị, quý giá",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Mary was already working on a ship before she met Anne.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn 3 và 4 viết: nhóm của Anne bắt các thủy thủ từ tàu khác sang làm việc cho tàu mình ('taking sailors to help on their own ship'), và 'Anne was surprised to discover that a boy they had taken off another ship in this way was really a young woman. She told Anne her name was Mary Read... Mary started to dress as a man once again and became a sailor.' Như vậy Mary đã làm thủy thủ trên một con tàu khác trước khi gặp Anne. Nhận định là ĐÚNG (True).",
+              "vocabularyNotes": [
+                {
+                  "word": "opportunity",
+                  "ipa": "/ˌɒp.əˈtjuː.nə.ti/",
+                  "meaning": "cơ hội",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Anne and Mary went to prison after John Rackham.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "True"
+                },
+                {
+                  "key": "B",
+                  "text": "False"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Đoạn cuối viết: 'The two women went on fighting even after all the men were taken prisoner, but they avoided punishment and disappeared.' (Hai người phụ nữ tránh được hình phạt và biến mất). Họ không bị đi tù sau John Rackham. Nhận định là SAI (False).",
+              "vocabularyNotes": [
+                {
+                  "word": "avoid punishment",
+                  "ipa": "/əˈvɔɪd ˈpʌn.ɪʃ.mənt/",
+                  "meaning": "tránh được hình phạt",
+                  "partOfSpeech": "verb phrase"
+                },
+                {
+                  "word": "take prisoner",
+                  "ipa": "/teɪk ˈprɪz.ən.ər/",
+                  "meaning": "bắt làm tù binh",
+                  "partOfSpeech": "idiom"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "reading-part4",
+          "partNumber": 4,
+          "title": "Part 4: Reading Comprehension",
+          "instructions": "Read the following passage and choose the best answer (A, B, or C) for each question from 21 to 25.",
+          "passage": {
+            "title": "Steve Cummins: Starting His Own Business",
+            "text": "I'd worked for the company for almost ten years. They were good employers and the money wasn't that bad. They trusted in my ability and always left me to get on with my work. And I shared an office and met some lovely people, so I certainly wasn't unhappy there. But I just couldn't stop wondering how better my life would be if I had my own business and could make my own decisions. And so one year ago this week I left my job.\n\nWe don't have a spare room at home, so the kitchen table has been my office. It was difficult to begin with, but I soon got used to working in this way. I started by visiting small businesses in the area to see if I could interest them in my services. My proudest moment was making my first sale, a website for a local cake shop. Soon after, I started getting calls from other people asking for help with websites of their own and I found myself getting quite busy.\n\nOf course, there have been challenges. I'm not earning quite as much as before but it's enough. I don't have to pay for transport to work anymore so that means I'm not spending quite so much. My biggest problem has been managing my time. There's no boss to tell me what to do and I'm sometimes a little lazy. I have this rule that work stops on a Friday afternoon so I can spend time with the family at weekends, so I need to pay more attention to this.\n\nSo, I wouldn't say it's been easy, but I don't regret my decision at all. I've enjoyed being my own boss and I'm quite hopeful about the future. During the next 12 months I plan to rent some office space as I'd like to be able to separate work from my home life. I'm going to need to earn more money to pay for it but I think it will help me to focus on my work.",
+            "wordCount": 348
+          },
+          "questions": [
+            {
+              "id": "vnu3-07-r-q21",
+              "questionNumber": 21,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "Why did Steve leave his job?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "He didn't like attending meetings."
+                },
+                {
+                  "key": "B",
+                  "text": "He wanted more control of his work."
+                },
+                {
+                  "key": "C",
+                  "text": "He had a great idea for a product."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Trong đoạn 1, Steve chia sẻ: 'But I just couldn't stop wondering how better my life would be if I had my own business and could make my own decisions. And so one year ago this week I left my job.' Anh nghỉ việc vì muốn tự làm chủ và tự đưa ra quyết định trong công việc ('wanted more control of his work'). Phương án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "employer",
+                  "ipa": "/ɪmˈplɔɪ.ər/",
+                  "meaning": "nhà tuyển dụng, chủ sử dụng lao động",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "make one's own decisions",
+                  "ipa": "/meɪk wʌnz əʊn dɪˈsɪʒ.ənz/",
+                  "meaning": "tự đưa ra quyết định của riêng mình",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q22",
+              "questionNumber": 22,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "Steve's greatest pleasure so far has been",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "getting his first customer."
+                },
+                {
+                  "key": "B",
+                  "text": "not having to drive to work."
+                },
+                {
+                  "key": "C",
+                  "text": "having his own office."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn 2 nêu rõ: 'My proudest moment was making my first sale, a website for a local cake shop.' (Khoảnh khắc tự hào nhất của tôi là thực hiện được đơn hàng đầu tiên — thiết kế website cho một tiệm bánh địa phương). Điều này đồng nghĩa với việc có được vị khách hàng đầu tiên ('getting his first customer'). Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "spare room",
+                  "ipa": "/ˌspeər ˈruːm/",
+                  "meaning": "phòng trống, phòng dự phòng",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "proudest moment",
+                  "ipa": "/ˈpraʊ.dɪst ˈməʊ.mənt/",
+                  "meaning": "khoảnh khắc tự hào nhất",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q23",
+              "questionNumber": 23,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What does Steve say is the most difficult about working for himself?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "working hard enough"
+                },
+                {
+                  "key": "B",
+                  "text": "not having a regular salary"
+                },
+                {
+                  "key": "C",
+                  "text": "feeling lonely"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Đoạn 3 viết: 'My biggest problem has been managing my time. There's no boss to tell me what to do and I'm sometimes a little lazy.' (Vấn đề lớn nhất của tôi là quản lý thời gian. Không có sếp nhắc nhở phải làm gì nên đôi khi tôi hơi lười biếng). Điều này tương ứng với việc tự kỷ luật để làm việc đủ chăm chỉ ('working hard enough'). Phương án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "challenge",
+                  "ipa": "/ˈtʃæl.ɪndʒ/",
+                  "meaning": "thử thách, khó khăn",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "manage time",
+                  "ipa": "/ˈmæn.ɪdʒ taɪm/",
+                  "meaning": "quản lý thời gian",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q24",
+              "questionNumber": 24,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "In the next year, Steve thinks",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "he will get an office job."
+                },
+                {
+                  "key": "B",
+                  "text": "he will earn less money."
+                },
+                {
+                  "key": "C",
+                  "text": "he might not need to work in his kitchen."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Đoạn 4 viết: 'During the next 12 months I plan to rent some office space as I'd like to be able to separate work from my home life.' (Trong 12 tháng tới tôi dự định thuê không gian văn phòng để tách biệt công việc khỏi cuộc sống gia đình). Khi đó anh sẽ không cần phải làm việc trên bàn ăn nhà bếp nữa ('might not need to work in his kitchen'). Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "regret",
+                  "ipa": "/rɪˈɡret/",
+                  "meaning": "hối tiếc, ân hận",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "separate",
+                  "ipa": "/ˈsep.ə.reɪt/",
+                  "meaning": "tách biệt, phân tách",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-r-q25",
+              "questionNumber": 25,
+              "partNumber": 4,
+              "type": "mcq",
+              "prompt": "What would be a good introduction to this article?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "In this article, Steve Cummins explains the problems of starting your own business and dealing with difficult customers."
+                },
+                {
+                  "key": "B",
+                  "text": "Thinking of starting your own business? Steve Cummins did just that and now wishes he had done it sooner."
+                },
+                {
+                  "key": "C",
+                  "text": "Steve Cummins made a big decision last year to leave his job. Read on to find out about the ups and downs of being your own boss."
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Toàn bộ bài viết kể về quyết định nghỉ việc vào năm ngoái của Steve Cummins để khởi nghiệp riêng, cùng những niềm vui và thử thách ('ups and downs') khi tự làm chủ ('being your own boss'). Phương án A sai vì bài không nói về khách hàng khó tính; phương án B sai vì Steve không hề nói anh ước gì mình làm điều đó sớm hơn. Phương án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "ups and downs",
+                  "ipa": "/ˌʌps ən ˈdaʊnz/",
+                  "meaning": "những thăng trầm, lúc thuận lợi lúc khó khăn",
+                  "partOfSpeech": "idiom"
+                },
+                {
+                  "word": "be one's own boss",
+                  "ipa": "/biː wʌnz əʊn bɒs/",
+                  "meaning": "tự làm chủ bản thân",
+                  "partOfSpeech": "idiom"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "listening",
+      "label": "Listening (Nghe Hiểu)",
+      "timeLimitMinutes": 25,
+      "totalQuestions": 20,
+      "tasks": [
+        {
+          "id": "listening-part1",
+          "partNumber": 1,
+          "title": "Part 1: Short Recordings",
+          "instructions": "There are 7 questions in this part. For each question, you will listen to one short recording TWICE. Choose the right answer (A, B, or C).",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-07/listening-part1.mp3"
+          },
+          "transcript": "[Recording 1 - Where is the station?]:\nWoman: Excuse me, can you tell us the way to the station?\nMan: Take the second on the right and it's at the end of that road.\n\n[Recording 2 - Where did the woman put the calculator?]:\nMan: Have you used my calculator?\nWoman: Yes, can't you find it? I put it back on the desk.\nMan: Where?\nWoman: Next to the lamp, I think. No, wait a minute, it's on that pile of books.\n\n[Recording 3 - Where is Helen?]:\nMan: Is Helen here?\nWoman: Yes, she's over there, next to the man in the shorts.\nMan: Who's that with her?\nWoman: Her brother, I think.\n\n[Recording 4 - Which building was hit by lightning?]:\nMan 1: Did you hear the storm last night?\nMan 2: Of course. It was right over our apartment and seemed to hit something near the hotel.\nMan 1: Yes, the factory near the church was hit by lightning. It's lucky no one was at work.\n\n[Recording 5 - What does the woman want to buy?]:\nWoman: Now I've bought this skirt, I think I need some new shoes to go with it.\nMan: Can't you wear your boots?\nWoman: No, they're too old. I think it would look better with flat shoes.\nMan: Come on then, let's try that shop over the road.\n\n[Recording 6 - Which picture does the woman decide to send?]:\nWoman: My mother wants me to send her a photo of our new house. Which one shall I send?\nMan: This one is nice, with the children playing in the back garden.\nWoman: I prefer this one with you standing by the front door.\nMan: Well, send her that one then.\n\n[Recording 7 - Which hotel has the man chosen?]:\nWoman: Have you decided which hotel you're going to stay in?\nMan: Oh yes. It's the largest in the area, it's got four floors and it's right on the seashore … and there's an outdoor pool as well. So we'll be able to swim every day.",
+          "questions": [
+            {
+              "id": "vnu3-07-l-q1",
+              "questionNumber": 1,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Where is the station?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "At the end of the first road on the right"
+                },
+                {
+                  "key": "B",
+                  "text": "At the end of the second road on the right"
+                },
+                {
+                  "key": "C",
+                  "text": "On the second road on the left"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Người đàn ông chỉ đường tới nhà ga: 'Take the second on the right and it's at the end of that road.' (Rẽ vào ngã rẽ thứ hai bên tay phải và nhà ga nằm ở cuối con đường đó). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "the second on the right",
+                  "ipa": "/ðə ˈsek.ənd ɒn ðə raɪt/",
+                  "meaning": "ngã rẽ thứ hai bên tay phải",
+                  "partOfSpeech": "phrase"
+                },
+                {
+                  "word": "at the end of",
+                  "ipa": "/æt ði end ɒv/",
+                  "meaning": "ở cuối (con đường, hành lang)",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q2",
+              "questionNumber": 2,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Where did the woman put the calculator?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "On the desk next to the lamp"
+                },
+                {
+                  "key": "B",
+                  "text": "Under the desk"
+                },
+                {
+                  "key": "C",
+                  "text": "On the pile of books"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Ban đầu người phụ nữ tưởng mình để máy tính cạnh chiếc đèn bàn ('Next to the lamp, I think'), nhưng ngay sau đó cô nhớ lại chính xác: 'No, wait a minute, it's on that pile of books.' (Không, đợi chút, nó nằm ở trên chồng sách kia). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "calculator",
+                  "ipa": "/ˈkæl.kjə.leɪ.tər/",
+                  "meaning": "máy tính cầm tay",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "pile of books",
+                  "ipa": "/paɪl ɒv bʊks/",
+                  "meaning": "chồng sách",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q3",
+              "questionNumber": 3,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Where is Helen?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Standing next to the man wearing shorts"
+                },
+                {
+                  "key": "B",
+                  "text": "Standing next to the man in a suit"
+                },
+                {
+                  "key": "C",
+                  "text": "Sitting at a table on her own"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Khi được hỏi Helen có ở đây không, người phụ nữ chỉ: 'Yes, she's over there, next to the man in the shorts.' (Có, cô ấy ở đằng kia, ngay cạnh người đàn ông mặc quần đùi). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "shorts",
+                  "ipa": "/ʃɔːts/",
+                  "meaning": "quần đùi, quần soóc",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q4",
+              "questionNumber": 4,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which building was hit by lightning?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The apartment block"
+                },
+                {
+                  "key": "B",
+                  "text": "The factory"
+                },
+                {
+                  "key": "C",
+                  "text": "The church"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Người đàn ông thứ nhất xác nhận: 'Yes, the factory near the church was hit by lightning. It's lucky no one was at work.' (Đúng vậy, nhà máy gần nhà thờ đã bị sét đánh trúng). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "lightning",
+                  "ipa": "/ˈlaɪt.nɪŋ/",
+                  "meaning": "tia sét",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "factory",
+                  "ipa": "/ˈfæk.tər.i/",
+                  "meaning": "nhà máy, xí nghiệp",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q5",
+              "questionNumber": 5,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "What does the woman want to buy?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A pair of boots"
+                },
+                {
+                  "key": "B",
+                  "text": "High-heeled shoes"
+                },
+                {
+                  "key": "C",
+                  "text": "A pair of flat shoes"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Người phụ nữ nói đôi bốt ('boots') của cô đã quá cũ và chiếc chân váy mới sẽ hợp hơn với một đôi giày đế bệt: 'I think it would look better with flat shoes.' Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "flat shoes",
+                  "ipa": "/flæt ʃuːz/",
+                  "meaning": "giày đế bệt",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "go with",
+                  "ipa": "/ɡəʊ wɪð/",
+                  "meaning": "hợp với, ăn nhập với (trang phục)",
+                  "partOfSpeech": "phrasal verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q6",
+              "questionNumber": 6,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which picture does the woman decide to send?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "The photo of the man standing by the front door"
+                },
+                {
+                  "key": "B",
+                  "text": "The photo of the children playing in the back garden"
+                },
+                {
+                  "key": "C",
+                  "text": "The photo of the house with no one outside"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Người đàn ông gợi ý bức ảnh bọn trẻ chơi ở vườn sau, nhưng người phụ nữ nói: 'I prefer this one with you standing by the front door.' (Em thích bức ảnh có anh đứng cạnh cửa trước hơn) và người đàn ông đồng ý gửi bức đó. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "front door",
+                  "ipa": "/ˌfrʌnt ˈdɔːr/",
+                  "meaning": "cửa chính, cửa trước",
+                  "partOfSpeech": "noun phrase"
+                },
+                {
+                  "word": "prefer",
+                  "ipa": "/prɪˈfɜːr/",
+                  "meaning": "thích hơn",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q7",
+              "questionNumber": 7,
+              "partNumber": 1,
+              "type": "mcq",
+              "prompt": "Which hotel has the man chosen?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "A four-floor hotel on the seashore without a pool"
+                },
+                {
+                  "key": "B",
+                  "text": "A small two-floor hotel with an outdoor pool"
+                },
+                {
+                  "key": "C",
+                  "text": "A large four-floor hotel on the seashore with an outdoor pool"
+                }
+              ],
+              "correctAnswer": "C",
+              "answerIndex": 2,
+              "explanationVi": "Người đàn ông mô tả khách sạn mình đã chọn: 'It's the largest in the area, it's got four floors and it's right on the seashore … and there's an outdoor pool as well.' (Khách sạn lớn nhất khu vực, cao 4 tầng, nằm ngay sát bờ biển và có thêm bể bơi ngoài trời). Đáp án C đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "seashore",
+                  "ipa": "/ˈsiː.ʃɔːr/",
+                  "meaning": "bờ biển",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "outdoor pool",
+                  "ipa": "/ˈaʊt.dɔːr puːl/",
+                  "meaning": "hồ bơi ngoài trời",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "listening-part2",
+          "partNumber": 2,
+          "title": "Part 2: Short Conversations",
+          "instructions": "There are 7 questions in this part. You will listen to six short conversations TWICE. Choose the right answer (A, B, or C) for questions 8 to 14.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-07/listening-part2.mp3"
+          },
+          "transcript": "[Conversation 8 - Two friends talking about a film]:\nMan: So, Storm Cloud. You saw the film last night, didn't you?\nWoman: Yes, me and lots of teenagers all excited about seeing their action heroes. I enjoyed it! I think anyone would like it, whatever their age - lots of action, an exciting plot, a happy ending.\nMan: It's quite a change for the director isn't it? An action film, I mean.\nWoman: Yes. This is his first attempt at a film like this - he's mainly worked on TV programmes.\n\n[Conversation 9 - Two friends talking about someone the woman lives with]:\nMan: I hear you're still having a problem with the new person in your flat?\nWoman: Yes, his name's Steve. He doesn't do anything to keep the place tidy. He refuses to do any washing-up and never offers to cook. He says he just forgets to do things and that I should leave a note to remind him of jobs that need doing.\nMan: I think you should ask him to find somewhere else to live.\nWoman: Well, I didn't really want to do that, but I think you're right. He's never going to change.\n\n[Conversation 10 - A woman telling a friend about a holiday she is going on]:\nMan: So, are you looking forward to your holiday next week?\nWoman: Yes, I really am. I'll be leaving next Friday. I booked it just in time before the price went up.\nMan: You're very brave to go on your own, aren't you? Won't you feel a bit lonely?\nWoman: Well, I'll be visiting friends once I'm there and they've promised to introduce me to their friends, so I don't think that will be a problem. I'm hoping to do some long walks in the countryside if the weather isn't too bad.\n\n[Conversation 11 - Two friends talking about meeting a relation at the airport]:\nMan: Yes, so I'm meeting my cousin at the airport. Her plane arrives at about 9.00. I can't wait to see her for the first time and find out what she's like.\nWoman: You've never seen each other before? How are you going to recognise each other?\nMan: Well, I was going to take a sign so that she could find me in the crowds, but everybody carries them, don't they? So, I've decided I'm going to wear something colourful instead. I haven't told her yet, so I need to send her an email.\n\n[Conversation 12 - Two friends talking about getting to the train station]:\nWoman: What time shall we leave for the station in the morning?\nMan: I was thinking about 9.00. That will give us time to catch the train.\nWoman: Shall I come to your house or will you come to mine?\nMan: Well, you're nearer to the station so I could get the bus to you. But they take ages at that time in the morning and I'm worried we'll be late and miss the train. It's more expensive, but a taxi might be quicker. I can order it and come to you.\nWoman: OK. Let's do that.\n\n[Conversation 13 - Two friends talking about a new laptop]:\nMan: I see you've bought a new laptop.\nWoman: Yes, I've had the old one for years and I thought I'd get a newer model.\nMan: What do you think of it?\nWoman: It starts up really quickly, though to be fair the old one wasn't that slow. But it's so much lighter. I stopped taking the old one to work in the end as it was so heavy.\nMan: Oh, the new one sounds much better, I'm sure you'll be pleased with it.",
+          "questions": [
+            {
+              "id": "vnu3-07-l-q8",
+              "questionNumber": 8,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a film. What does the woman say about it?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It's only suitable for young people."
+                },
+                {
+                  "key": "B",
+                  "text": "The director doesn't usually make action films."
+                },
+                {
+                  "key": "C",
+                  "text": "It has already been on TV."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Khi người đàn ông nhận xét phim hành động là sự thay đổi lớn của vị đạo diễn, người phụ nữ đồng tình: 'Yes. This is his first attempt at a film like this - he's mainly worked on TV programmes.' (Đây là lần đầu tiên ông ấy thử sức với thể loại phim hành động như thế này — trước nay ông chủ yếu làm chương trình truyền hình). Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "attempt",
+                  "ipa": "/əˈtempt/",
+                  "meaning": "lần thử sức, nỗ lực",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "plot",
+                  "ipa": "/plɒt/",
+                  "meaning": "cốt truyện",
+                  "partOfSpeech": "noun"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q9",
+              "questionNumber": 9,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about someone the woman lives with. They think it would be a good idea",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to ask him to leave."
+                },
+                {
+                  "key": "B",
+                  "text": "to remind him to do the washing-up."
+                },
+                {
+                  "key": "C",
+                  "text": "to leave him a note of things to do."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Người đàn ông khuyên: 'I think you should ask him to find somewhere else to live.' (Mình nghĩ bạn nên yêu cầu anh ta tìm nơi khác để ở) và người phụ nữ đồng ý: 'Well, I didn't really want to do that, but I think you're right. He's never going to change.' Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "washing-up",
+                  "ipa": "/ˌwɒʃ.ɪŋˈʌp/",
+                  "meaning": "việc rửa bát đĩa",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "refuse",
+                  "ipa": "/rɪˈfjuːz/",
+                  "meaning": "từ chối",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q10",
+              "questionNumber": 10,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear a woman telling a friend about a holiday she is going on. How does she feel about it?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She is worried it might be expensive."
+                },
+                {
+                  "key": "B",
+                  "text": "She doesn't think she will be lonely."
+                },
+                {
+                  "key": "C",
+                  "text": "She doesn't like doing long walks."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Khi bạn hỏi liệu đi một mình có cảm thấy cô đơn không ('Won't you feel a bit lonely?'), người phụ nữ trả lời: 'Well, I'll be visiting friends once I'm there and they've promised to introduce me to their friends, so I don't think that will be a problem.' Cô ấy không nghĩ mình sẽ bị cô đơn. Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "lonely",
+                  "ipa": "/ˈləʊn.li/",
+                  "meaning": "cô đơn, lẻ loi",
+                  "partOfSpeech": "adjective"
+                },
+                {
+                  "word": "just in time",
+                  "ipa": "/dʒʌst ɪn taɪm/",
+                  "meaning": "vừa kịp lúc",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q11",
+              "questionNumber": 11,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about meeting a relation at the airport. To help the person find him, the man has decided",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "to take a sign."
+                },
+                {
+                  "key": "B",
+                  "text": "to wear something colourful."
+                },
+                {
+                  "key": "C",
+                  "text": "to email her when she arrives."
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Người đàn ông nói ban đầu anh định cầm biển tên ('take a sign') nhưng ai cũng cầm biển như vậy, nên anh đã quyết định mặc trang phục sặc sỡ: 'So, I've decided I'm going to wear something colourful instead.' Đáp án B đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "recognise",
+                  "ipa": "/ˈrek.əɡ.naɪz/",
+                  "meaning": "nhận ra",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "colourful",
+                  "ipa": "/ˈkʌl.ə.fəl/",
+                  "meaning": "nhiều màu sắc, sặc sỡ",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q12",
+              "questionNumber": 12,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about getting to the train station. The man thinks",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "the bus will take a long time."
+                },
+                {
+                  "key": "B",
+                  "text": "a taxi is too expensive."
+                },
+                {
+                  "key": "C",
+                  "text": "the train will be late."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Người đàn ông nói: 'so I could get the bus to you. But they take ages at that time in the morning and I'm worried we'll be late and miss the train.' Cụm 'take ages' đồng nghĩa với 'take a long time' (mất rất nhiều thời gian). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "take ages",
+                  "ipa": "/teɪk ˈeɪ.dʒɪz/",
+                  "meaning": "tốn rất nhiều thời gian",
+                  "partOfSpeech": "idiom"
+                },
+                {
+                  "word": "catch the train",
+                  "ipa": "/kætʃ ðə treɪn/",
+                  "meaning": "bắt kịp chuyến tàu",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q13",
+              "questionNumber": 13,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "You will hear two friends talking about a new laptop. What does the speaker say about the old one?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "She took it to work for a while."
+                },
+                {
+                  "key": "B",
+                  "text": "It was slow to start."
+                },
+                {
+                  "key": "C",
+                  "text": "It stopped working."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Người phụ nữ chia sẻ về chiếc laptop cũ: 'though to be fair the old one wasn't that slow. But it's so much lighter. I stopped taking the old one to work in the end as it was so heavy.' (Cô đã từng mang chiếc máy cũ đi làm một thời gian trước khi ngừng mang vì nó quá nặng). Phương án B sai vì máy cũ khởi động không chậm; C sai vì máy cũ vẫn hoạt động. Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "start up",
+                  "ipa": "/stɑːt ʌp/",
+                  "meaning": "khởi động (máy tính)",
+                  "partOfSpeech": "phrasal verb"
+                },
+                {
+                  "word": "to be fair",
+                  "ipa": "/tuː biː feər/",
+                  "meaning": "công bằng mà nói",
+                  "partOfSpeech": "phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q14",
+              "questionNumber": 14,
+              "partNumber": 2,
+              "type": "mcq",
+              "prompt": "In the same conversation about the laptop (Recording 13), why is the woman pleased with her new laptop?",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "It is much lighter than her old laptop."
+                },
+                {
+                  "key": "B",
+                  "text": "It has a much bigger screen for work."
+                },
+                {
+                  "key": "C",
+                  "text": "It cost less than her previous model."
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Ở phần cuối đoạn hội thoại số 13, người phụ nữ nhấn mạnh ưu điểm lớn nhất của chiếc laptop mới: 'It starts up really quickly, though to be fair the old one wasn't that slow. But it's so much lighter.' (Nhưng nó nhẹ hơn rất nhiều). Đáp án A đúng.",
+              "vocabularyNotes": [
+                {
+                  "word": "model",
+                  "ipa": "/ˈmɒd.əl/",
+                  "meaning": "mẫu máy, đời máy",
+                  "partOfSpeech": "noun"
+                },
+                {
+                  "word": "pleased with",
+                  "ipa": "/pliːzd wɪð/",
+                  "meaning": "hài lòng với",
+                  "partOfSpeech": "adjective phrase"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "listening-part3",
+          "partNumber": 3,
+          "title": "Part 3: Longer Conversation",
+          "instructions": "There are 6 questions in this part. You will listen to a conversation between a father and his daughter, Sonia, TWICE. For questions 15 to 20, decide whether each statement is Correct (True) or Incorrect (False). Choose A for True and B for False.",
+          "playCountLimit": 2,
+          "media": {
+            "audioUrl": "/audio/vnu-bac3/test-07/listening-part3.mp3"
+          },
+          "transcript": "Father: So – this time next week you'll be eighteen!\nSonia: I can't believe it.\nFather: Neither can I – you don't seem a day over ten!\nSonia: Thank you!\nFather: Anyway, have you thought what you'd like for your birthday?\nSonia: Well, I wondered whether I could have driving lessons.\nFather: But we don't have a car!\nSonia: I know, but it would be useful to know how for when I have my own car.\nFather: But you're still at school. How could you afford a car?!\nSonia: But most people in my class are having driving lessons.\nFather: Well maybe their parents can afford a car. There's no point in having lessons if you can't practise.\nSonia: Maria says I can practise with her family's car.\nFather: Oh, so you've discussed it with Maria! And I wonder what her parents would say if they knew. Do you know how much car insurance costs?\nSonia: Yes – it's expensive. But I could get a job on Saturday or Sunday and help pay for it. If I could drive I could probably get a job more easily – you know, delivering things or taking people to places.\nFather: Yes – why not – my daughter Sonia with her own taxi service! Where do you think you're going to get a car?\nSonia: I thought I would drive other people's.\nFather: Look, I know you want to be like your friends but it's not sensible to think of driving until you can afford your own car. Why don't I pay for you to have a lesson so that you can see what it's like? And, if the day ever comes when I'm rich, I'll be happy to help you buy a car. Now – what would you like for your birthday?\nSonia: OK, Dad – you win! But I'd still like to begin saving. Anyway, until then what I'd really like would be to go out to dinner with you and Mum to save Mum cooking.\nFather: That's a good idea and I'll tell you what – we'll go by taxi!",
+          "questions": [
+            {
+              "id": "vnu3-07-l-q15",
+              "questionNumber": 15,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Sonia would like a car for her birthday.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Khi bố hỏi Sonia muốn quà gì cho sinh nhật 18 tuổi, Sonia đáp: 'Well, I wondered whether I could have driving lessons.' (Con tự hỏi liệu con có thể xin các buổi học lái xe không), chứ cô không xin mua ô tô. Câu nhận định là SAI (False). Đáp án B.",
+              "vocabularyNotes": [
+                {
+                  "word": "driving lessons",
+                  "ipa": "/ˈdraɪ.vɪŋ ˌles.ənz/",
+                  "meaning": "các buổi học lái xe",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q16",
+              "questionNumber": 16,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Sonia's friend Maria has her own car.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Sonia nói: 'Maria says I can practise with her family's car.' (Maria nói con có thể tập lái bằng xe của gia đình bạn ấy). Đó là xe của gia đình Maria ('her family's car') chứ không phải xe riêng của Maria ('her own car'). Câu nhận định là SAI (False). Đáp án B.",
+              "vocabularyNotes": [
+                {
+                  "word": "there's no point in",
+                  "ipa": "/ðeəz nəʊ pɔɪnt ɪn/",
+                  "meaning": "chẳng có ích lợi gì khi làm gì",
+                  "partOfSpeech": "idiom"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q17",
+              "questionNumber": 17,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Sonia has talked to Maria about learning to drive.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Sonia kể rằng Maria bảo cô có thể tập lái bằng xe gia đình bạn ấy, và người bố thốt lên: 'Oh, so you've discussed it with Maria!' (Ồ, vậy là con đã bàn chuyện đó với Maria rồi!). Câu nhận định là ĐÚNG (True). Đáp án A.",
+              "vocabularyNotes": [
+                {
+                  "word": "discuss",
+                  "ipa": "/dɪˈskʌs/",
+                  "meaning": "thảo luận, bàn bạc",
+                  "partOfSpeech": "verb"
+                },
+                {
+                  "word": "car insurance",
+                  "ipa": "/ˈkɑːr ɪnˌʃɔː.rəns/",
+                  "meaning": "bảo hiểm xe ô tô",
+                  "partOfSpeech": "noun phrase"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q18",
+              "questionNumber": 18,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Sonia offers to get a job at weekends.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Khi bố nhắc đến chi phí bảo hiểm đắt đỏ, Sonia đề nghị: 'But I could get a job on Saturday or Sunday and help pay for it.' (Nhưng con có thể đi làm vào thứ Bảy hoặc Chủ nhật để phụ trả tiền). Câu nhận định là ĐÚNG (True). Đáp án A.",
+              "vocabularyNotes": [
+                {
+                  "word": "deliver",
+                  "ipa": "/dɪˈlɪv.ər/",
+                  "meaning": "giao hàng",
+                  "partOfSpeech": "verb"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q19",
+              "questionNumber": 19,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Sonia's father understands how his daughter feels.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "A",
+              "answerIndex": 0,
+              "explanationVi": "Người bố nói với giọng thông cảm: 'Look, I know you want to be like your friends...' (Nghe này, bố hiểu con muốn được giống như bạn bè của mình...) và đề nghị trả tiền cho con học thử 1 buổi. Ông rất hiểu tâm lý của con gái. Câu nhận định là ĐÚNG (True). Đáp án A.",
+              "vocabularyNotes": [
+                {
+                  "word": "sensible",
+                  "ipa": "/ˈsen.sə.bəl/",
+                  "meaning": "hợp lý, thiết thực",
+                  "partOfSpeech": "adjective"
+                }
+              ]
+            },
+            {
+              "id": "vnu3-07-l-q20",
+              "questionNumber": 20,
+              "partNumber": 3,
+              "type": "true_false",
+              "prompt": "Sonia suggests cooking a meal on her birthday.",
+              "options": [
+                {
+                  "key": "A",
+                  "text": "Correct (True)"
+                },
+                {
+                  "key": "B",
+                  "text": "Incorrect (False)"
+                }
+              ],
+              "correctAnswer": "B",
+              "answerIndex": 1,
+              "explanationVi": "Cuối đoạn hội thoại, Sonia nói: 'what I'd really like would be to go out to dinner with you and Mum to save Mum cooking.' (Điều con thực sự muốn là đi ăn tối ở ngoài cùng bố và mẹ để mẹ đỡ phải nấu nướng), chứ không phải tự nấu ăn. Câu nhận định là SAI (False). Đáp án B.",
+              "vocabularyNotes": [
+                {
+                  "word": "go out to dinner",
+                  "ipa": "/ɡəʊ aʊt tuː ˈdɪn.ər/",
+                  "meaning": "ra ngoài ăn tối (ở nhà hàng)",
+                  "partOfSpeech": "verb phrase"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "writing",
+      "label": "Writing (Viết)",
+      "timeLimitMinutes": 40,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "writing-task1",
+          "partNumber": 1,
+          "title": "Task 1: Customer Service Excellence Award",
+          "instructions": "Write a paragraph of at least 80 words for your company's newsletter introducing the staff member who won the 'Customer Service Excellence Award'. Use all the information in the box.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "vnu3-07-w-t1",
+              "taskNumber": 1,
+              "title": "Customer Service Excellence Award Announcement",
+              "instructions": "Write at least 80 words introducing Tran Minh Tuan. Use all the given facts clearly.",
+              "minWords": 80,
+              "dataCard": {
+                "Award": "Customer Service Excellence Award 2026",
+                "Winner": "Tran Minh Tuan — Senior Customer Support Specialist",
+                "Years with Company": "6 years at GlobalTech Solutions",
+                "Key Achievements": "Maintained a 99% customer satisfaction rating; Trained 15 new support staff members",
+                "Prize": "A certificate of merit and a 5,000,000 VND travel voucher"
+              },
+              "sampleAnswer": "We are delighted to announce that Mr. Tran Minh Tuan has won the Customer Service Excellence Award for 2026. Mr. Tuan has worked as a Senior Customer Support Specialist at GlobalTech Solutions for six years. During his time with our company, he has always shown great patience and dedication to our clients. This past year, he achieved an impressive 99% customer satisfaction rating and trained 15 new staff members in our support department. As a reward for his hard work, he will receive a certificate of merit and a 5,000,000 VND travel voucher. Please join us in congratulating Mr. Tuan on this wonderful achievement!"
+            }
+          ]
+        },
+        {
+          "id": "writing-task2",
+          "partNumber": 2,
+          "title": "Task 2: Opinion / Solutions Paragraph (Choice)",
+          "instructions": "Choose ONE of the two topics below and write a paragraph of at least 100 words. State your main idea clearly and support it with clear reasons and examples.",
+          "questions": [],
+          "writingPrompts": [
+            {
+              "id": "vnu3-07-w-t2",
+              "taskNumber": 2,
+              "title": "Choose Topic 2.1 or Topic 2.2",
+              "instructions": "Choose ONE topic and write a well-structured paragraph of at least 100 words.",
+              "minWords": 100,
+              "topicChoices": [
+                {
+                  "code": "2.1",
+                  "topic": "Write a paragraph about the benefits and drawbacks of allowing students to use smartphones in class.",
+                  "guidelines": [
+                    "Looking up new vocabulary and educational materials quickly",
+                    "Risk of distraction from social media and games during lessons",
+                    "Need for clear classroom rules set by teachers"
+                  ]
+                },
+                {
+                  "code": "2.2",
+                  "topic": "Write a paragraph about the advantages of living in a nuclear family (parents and children only).",
+                  "guidelines": [
+                    "Greater privacy and personal freedom for family members",
+                    "Fewer conflicts between different generations",
+                    "Stronger and closer daily communication between parents and children"
+                  ]
+                }
+              ],
+              "sampleAnswer": "Living in a nuclear family brings several important advantages to modern life. Firstly, family members can enjoy greater privacy and personal freedom in their daily routines. Because there are only parents and children living together, everyone has enough space to study and relax comfortably. Secondly, a small household helps reduce misunderstandings caused by the generation gap. For example, young parents can make quick decisions about their children's education without having arguments with older relatives. Finally, parents and children often build closer relationships because they spend every evening talking and sharing housework together. In short, a nuclear family creates a peaceful, independent, and supportive home environment."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "speaking",
+      "label": "Speaking (Nói)",
+      "timeLimitMinutes": 8,
+      "totalQuestions": 2,
+      "tasks": [
+        {
+          "id": "speaking-part1",
+          "partNumber": 1,
+          "title": "Part 1: Social Interaction (3 minutes)",
+          "instructions": "In this part, you will answer 5 questions about yourself and familiar everyday topics. Give clear, natural answers of 2 to 3 sentences each.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "vnu3-07-s-p1",
+              "partNumber": 1,
+              "title": "Social Interaction — Practice Test 5",
+              "instructions": "Answer the examiner's questions naturally.",
+              "durationMinutes": 3,
+              "questions": [
+                "Do you prefer to live in the country or in the city?",
+                "How often do you use the internet for your studies or work?",
+                "Do you think it is important to wear a watch? Why?",
+                "What sports do you like?",
+                "Where did you learn how to do it?"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "speaking-part2",
+          "partNumber": 2,
+          "title": "Part 2: Cue-based Description (5 minutes)",
+          "instructions": "Choose ONE of the two given cards. You have 1 minute to prepare and 2 minutes to speak, followed by two follow-up questions.",
+          "questions": [],
+          "speakingPrompts": [
+            {
+              "id": "vnu3-07-s-p2",
+              "partNumber": 2,
+              "title": "Cue Cards — Practice Test 5",
+              "instructions": "Choose Card 1 or Card 2 and talk for 1.5 to 2 minutes.",
+              "durationMinutes": 5,
+              "cueCards": [
+                {
+                  "code": "Card 1",
+                  "title": "Describe something you own which is very important to you.",
+                  "prompts": [
+                    "what it is and what it looks like",
+                    "what it is made of",
+                    "how long you have had it",
+                    "and explain why it is important to you."
+                  ],
+                  "furtherQuestions": [
+                    "Would it be easy to replace this object?",
+                    "Do your friends like this object?"
+                  ],
+                  "sampleResponse": "I would like to talk about my laptop, which is the most important object I own. It is a thin silver computer made of light aluminum, with a fourteen-inch screen. My parents gave it to me as a gift two years ago when I passed my university entrance exam. I use it every single day to attend online classes, write essays, and practice English listening tests. It also stores all my family photos and study documents, so it is truly essential to my daily life."
+                },
+                {
+                  "code": "Card 2",
+                  "title": "Describe a person who helped you.",
+                  "prompts": [
+                    "where you met the person",
+                    "what relationship this person was to you",
+                    "what was special about them",
+                    "and explain how this person helped you."
+                  ],
+                  "furtherQuestions": [
+                    "Would you like to help someone in this way?",
+                    "Should we ask our family for help, or should we try being independent?"
+                  ],
+                  "sampleResponse": "I would like to describe Ms. Lan, my high school English teacher, who helped me a lot. I met her three years ago when I was in grade ten. What was special about her was her warm smile and incredible patience with slow learners. At that time, I was very shy and afraid of speaking English, so she spent thirty minutes after school twice a week practicing pronunciation with me for free. Thanks to her kind encouragement, I became much more confident and passed my English exam with high marks."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": "vstep-reading-onthi-47",
+  "title": "Luyện Đọc VSTEP: Reading Part 1 - Test 02 (Reading Part 1 - Test 02)",
+  "duration": 15,
+  "date": "2026-04-07",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 15,
+      "totalQuestions": 10,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Reading Part 1 - Test 02",
+            "text": "<p style=\"text-align:center;\"><strong>TEXT A - Local News</strong></p>\n<p style=\"font-size: 18px;\"><strong>New Central Park Opens This Weekend</strong></p>\n<p style=\"text-align:justify;\">The city's newest <strong>recreational</strong> facility will open Saturday at 10 AM. This represents a significant <strong>investment</strong> in community wellness. Mayor Anderson says it will provide a <strong>vital</strong> green space for families. Local businesses have been <strong>generous</strong> in supporting the project.</p>\n</div>\n\n<div style=\"background: #fff9e6; padding: 15px; margin: 20px 0; border-left: 4px solid #ff9800;\">\n<p style=\"text-align:center;\"><strong>TEXT B - Restaurant Review</strong></p>\n<p style=\"text-align:center;\"><strong>La Bella Cucina</strong> ★★★★☆</p>\n<p style=\"text-align:justify;\">The <strong>ambiance</strong> was warm and inviting with soft lighting. The menu offers an <strong>extensive</strong> selection of authentic Italian dishes. My seafood risotto was <strong>exquisite</strong>. The service was <strong>attentive</strong> without being intrusive. Highly recommended!</p>\n</div>\n\n<div style=\"background: #ffe5e5; padding: 15px; margin: 20px 0; border-left: 4px solid #e74c3c;\">\n<p style=\"text-align:center;\"><strong>TEXT C - Apartment Notice</strong></p>\n<p><strong>IMPORTANT: Elevator Maintenance</strong></p>\n<p style=\"text-align:justify;\">We are scheduling <strong>essential</strong> elevator maintenance next week. This work is <strong>mandatory</strong> for safety. If you have <strong>mobility</strong> issues, contact the manager. We <strong>appreciate</strong> your cooperation.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r47-q1",
+              "type": "mcq",
+              "question": "In TEXT A, what does \"recreational\" mean?",
+              "options": [
+                "related to leisure and enjoyment",
+                "educational",
+                "medical",
+                "industrial"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r47-q2",
+              "type": "mcq",
+              "question": "The word \"investment\" in TEXT A is closest in meaning to?",
+              "options": [
+                "waste of money",
+                "allocation of resources for future benefit",
+                "decoration",
+                "destruction"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r47-q3",
+              "type": "mcq",
+              "question": "What does \"vital\" mean in TEXT A?",
+              "options": [
+                "unimportant",
+                "optional",
+                "essential or extremely important",
+                "temporary"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r47-q4",
+              "type": "mcq",
+              "question": "The word \"generous\" in TEXT A means?",
+              "options": [
+                "selfish",
+                "giving and kind",
+                "hesitant",
+                "critical"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r47-q5",
+              "type": "mcq",
+              "question": "In TEXT B, what does \"ambiance\" refer to?",
+              "options": [
+                "the menu selection",
+                "the atmosphere or mood of a place",
+                "the price",
+                "the location"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            },
+            {
+              "id": "otv-r47-q6",
+              "type": "mcq",
+              "question": "The word \"extensive\" in TEXT B means?",
+              "options": [
+                "limited",
+                "expensive",
+                "comprehensive or wide-ranging",
+                "confusing"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 6
+            },
+            {
+              "id": "otv-r47-q7",
+              "type": "mcq",
+              "question": "What does \"exquisite\" mean in TEXT B?",
+              "options": [
+                "ordinary",
+                "extremely beautiful or delicious",
+                "cold",
+                "spicy"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 7
+            },
+            {
+              "id": "otv-r47-q8",
+              "type": "mcq",
+              "question": "The word \"attentive\" in TEXT B is closest in meaning to?",
+              "options": [
+                "neglectful",
+                "rude",
+                "careful and considerate",
+                "slow"
+              ],
+              "answer": 2,
+              "explanationVi": "<p>Đáp án chính xác là <b>C</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 8
+            },
+            {
+              "id": "otv-r47-q9",
+              "type": "mcq",
+              "question": "In TEXT C, what does \"essential\" mean?",
+              "options": [
+                "optional",
+                "absolutely necessary",
+                "expensive",
+                "quick"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 9
+            },
+            {
+              "id": "otv-r47-q10",
+              "type": "mcq",
+              "question": "The word \"mandatory\" in TEXT C means?",
+              "options": [
+                "voluntary",
+                "required or compulsory",
+                "forbidden",
+                "postponed"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

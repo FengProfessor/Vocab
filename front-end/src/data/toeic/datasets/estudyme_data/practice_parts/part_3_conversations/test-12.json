@@ -1,0 +1,829 @@
+{
+  "topicId": "62fa1abf5948b5402da82f6f",
+  "name": "Test 12",
+  "slug": "test-12",
+  "part": "part_3_conversations",
+  "totalQuestions": 39,
+  "totalCards": 13,
+  "cards": [
+    {
+      "id": "62fb08005948b5402da82fa9",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/11068760.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nM: We&rsquo;ve just arrived at the Cumberland House. This was the home of John Cumberland, who founded our city more than 200 years ago. It&rsquo;s now been turned into a museum. Why don&rsquo;t you all take a look around it for an hour or so?<br />\nW: Are there any pamphlets we can get to learn more about the house and its history?<br />\nM: Yes, there are. You can pick up some free pamphlets at the information desk right beside the front door. They&rsquo;ll tell you everything you need to know about this place. Be sure to be back at the bus by 11:30 so that we can depart here and visit the Landers Art Gallery next.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nM: Chúng ta đã đến Cumberland House. Đây là nhà của John Cumberland, người đã thành lập thành phố của chúng ta cách đây hơn 200 năm. Giờ đây, nơi này đã được chuyển thành bảo tàng. Tất cả mọi người sẽ tham quan xung quanh trong khoảng một giờ nhỉ, được chứ?<br />\nW: Có tờ rơi nào để chúng tôi có thể tìm hiểu thêm về ngôi nhà và lịch sử xung quanh nó không?<br />\nM: Có chứ. Cô có thể lấy một số tờ rơi miễn phí tại quầy thông tin ngay cạnh cửa trước. Chúng sẽ cung cấp mọi thứ mà cô cần biết về nơi này. Hãy nhớ quay lại xe buýt trước 11:30, sau đó chúng ta sẽ khởi hành đến điểm tham quan tiếp theo là Phòng trưng bày nghệ thuật Landers.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fb6",
+          "questionText": "What is the man’s job?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A museum curator",
+            "(B) A bus driver",
+            "(C) A tour guide",
+            "(D) An artist"
+          ],
+          "correctOptions": [
+            "(C) A tour guide"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fb7",
+          "questionText": "What does the woman ask about?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The availability of pamphlets",
+            "(B) The price of tickets",
+            "(C) The history of the building",
+            "(D) The life of John Cumberland"
+          ],
+          "correctOptions": [
+            "(A) The availability of pamphlets"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fb8",
+          "questionText": "What will happen at 11:30?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A museum will be visited.",
+            "(B) The bus will leave.",
+            "(C) The visitors will enter an art gallery.",
+            "(D) A history lecture will be heard."
+          ],
+          "correctOptions": [
+            "(B) The bus will leave."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82faa",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/53502420.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nW: Hello. My name is Wendy Sanders, and I&rsquo;d love to dedicate some time to your organization. What&rsquo;s the process for becoming a volunteer?<br />\nM: Thanks for calling, Ms. Sanders. We at the Seaside Charity Organization are always willing to accept offers to work. We&rsquo;re having a fundraiser for orphans this Saturday and could use some more volunteers. Are you interested?<br />\nW: That sounds perfect. I have nothing scheduled for then, so I&rsquo;d be glad to be of assistance.<br />\nM: If you visit our website, you can learn about the event, and you&#39;ll also see what kinds of volunteers we need. How about checking out our website and then calling me right back to tell me what you&rsquo;d like to do?</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nW: Xin chào. Tôi tên là Wendy Sanders, và tôi rất muốn tham gia vào tổ chức của các bạn. Quy trình để trở thành tình nguyện viên là gì vậy?<br />\nM: Cảm ơn cô Sanders đã gọi điện. Tại Tổ chức từ thiện Seaside, chúng tôi luôn sẵn sàng chấp nhận những lời đề nghị tham gia của các tình nguyện viên. Chúng tôi sẽ tổ chức một buổi gây quỹ cho trẻ mồ côi vào thứ Bảy này và có thể cần thêm một số tình nguyện viên. Cô có hứng thú chứ?<br />\nW: Nghe có vẻ tuyệt. Tôi không có lịch trình gì trong ngày hôm đó, vì vậy tôi rất vui được hỗ trợ.<br />\nM: Nếu cô truy cập trang web của chúng tôi, cô có thể tìm hiểu về sự kiện và cô cũng sẽ thấy chúng tôi cần những loại tình nguyện viên như thế nào. Cô có thể truy cập trang web của chúng tôi rồi sau đó gọi lại cho tôi để thông báo về những vị trí mà cô muốn đảm nhận, được chứ?</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fb9",
+          "questionText": "What is the purpose of the woman’s call?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To ask the man to provide some assistance",
+            "(B) To schedule a job interview",
+            "(C) To offer to work for free",
+            "(D) To learn about an upcoming event"
+          ],
+          "correctOptions": [
+            "(C) To offer to work for free"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fba",
+          "questionText": "What is scheduled for Saturday?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A beach party",
+            "(B) A charity event",
+            "(C) A special dinner",
+            "(D) A book reading"
+          ],
+          "correctOptions": [
+            "(B) A charity event"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fbb",
+          "questionText": "What does the man request that the woman do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Visit his organization’s web page",
+            "(B) Meet him in his office",
+            "(C) Call him tomorrow afternoon",
+            "(D) Send her donation by bank transfer"
+          ],
+          "correctOptions": [
+            "(A) Visit his organization’s web page"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fab",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/36089286.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nW: Excuse me, but I have a ticket for the express train to Boston. Can you tell me which gate it&rsquo;s leaving from?<br />\nM: I&rsquo;m very sorry, ma&rsquo;am, but it pulled out of the station about three minutes ago. I&#39;m afraid you need to wait for the next train for Boston to depart. I think that&rsquo;s going to be around 7 o&rsquo;clock.<br />\nW: Oh, no. I can&rsquo;t believe I missed my train. It&rsquo;s my first time to visit this station, so I got lost on my way here. Anyway, it looks like I&rsquo;ve got to wait for an hour. I guess I&rsquo;ve got time to grab a bite to eat.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nW: Xin lỗi, nhưng vé của tôi là vé tàu tốc hành đến Boston. Anh có thể cho tôi biết tàu khởi hành từ cổng nào không?<br />\nM: Tôi rất xin lỗi, thưa bà, nhưng tàu đã rời ga cách đây khoảng ba phút. Tôi e là bà phải đợi chuyến tàu tiếp theo đến Boston. Tôi nghĩ là vào khoảng 7 giờ sẽ có chuyến tiếp theo.<br />\nW: Ồ, không. Tôi không thể tin là mình đã lỡ chuyến tàu. Đây là lần đầu tiên tôi đến ga này, vì vậy tôi đã bị lạc đường trên đường đến đây. Dù sao thì, có vẻ như tôi phải đợi một tiếng rồi. Tôi đoán là tôi có thời gian để ăn một chút gì đó.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fbc",
+          "questionText": "Where does the conversation take place?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) On a subway",
+            "(B) In a bus terminal",
+            "(C) In an airport",
+            "(D) At a train station"
+          ],
+          "correctOptions": [
+            "(D) At a train station"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fbd",
+          "questionText": "What is the woman’s problem?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She bought the wrong ticket.",
+            "(B) She does not have enough money.",
+            "(C) She arrived at her destination late.",
+            "(D) She forgot where she had to go."
+          ],
+          "correctOptions": [
+            "(C) She arrived at her destination late."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fbe",
+          "questionText": "What will the woman probably do next?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Get some food",
+            "(B) Purchase a ticket",
+            "(C) Request a refund",
+            "(D) Do some shopping"
+          ],
+          "correctOptions": [
+            "(A) Get some food"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fac",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/19100390.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nM: Elaine, nobody here in the office can access the Internet again. This is the third time in four days that we&rsquo;ve lost the connection. We&#39;d better consider changing Internet providers.<br />\nW: I couldn&rsquo;t agree more. To be honest, I was going to suggest the same thing at the staff meeting this afternoon. I even went ahead and found a company I believe would be a good fit for us.<br />\nM: Way to show initiative, Elaine. Which company is it? <br />\nW: It&#39;s Info Solutions. The law firm I was employed at prior to coming here used its services, and we never had any problems during the five years I worked there.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nM: Elaine, không ai trong văn phòng có thể truy cập Internet nữa. Đây là lần mất mạng thứ ba trong bốn ngày qua rồi. Tốt hơn là chúng ta nên cân nhắc thay đổi nhà cung cấp mạng Internet.<br />\nW: Tôi hoàn toàn đồng ý. Thành thật mà nói, tôi cũng định đề xuất điều tương tự tại cuộc họp nhân viên chiều nay. Tôi thậm chí còn đã tìm được một công ty mà tôi tin là phù hợp với chúng ta hơn.<br />\nM: Elaine, cô chủ động quá. Đó là công ty nào vậy? <br />\nW: Là Info Solutions. Công ty luật mà tôi làm việc trước đây đã sử dụng dịch vụ của công ty này và chưa bao giờ xảy ra vấn đề gì trong suốt năm năm tôi làm việc ở đó.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fbf",
+          "questionText": "Where most likely are the speakers?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a law firm",
+            "(B) In a computer laboratory",
+            "(C) In an office",
+            "(D) In a meeting room"
+          ],
+          "correctOptions": [
+            "(C) In an office"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fc0",
+          "questionText": "Why does the man praise the woman?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She negotiated a contract with a company.",
+            "(B) She found a solution to a problem.",
+            "(C) She saved the company some money.",
+            "(D) She rescheduled a staff meeting."
+          ],
+          "correctOptions": [
+            "(B) She found a solution to a problem."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fc1",
+          "questionText": "What does the woman say about Info Solutions?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It has lawyers working at it.",
+            "(B) It charges low prices.",
+            "(C) It has the best maintenance staff.",
+            "(D) It provides effective services."
+          ],
+          "correctOptions": [
+            "(D) It provides effective services."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fad",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/72206279.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nW: Hello. This is the Rosedale Community Center. How may I be of assistance?<br />\nM: Hi. Um, I&#39;m calling to find out about the classes you&rsquo;re offering this winter.<br />\nW: Which one are you interested in?<br />\nM: Is it true that Cathy Pollard will be teaching a class on painting?<br />\nW: Yes, it is. But there&rsquo;s only one spot left, so if you want to take it, you&rsquo;d better sign up right now.<br />\nM: This must be my lucky day. I&rsquo;d definitely like to reserve that seat. What do you need to know?<br />\nW: Your name and telephone number. And I have to get your credit card information so that you can pay the $100 fee. Just so you know, the price includes the cost of the materials you&rsquo;re going to use.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nW: Xin chào. Đây là Trung tâm cộng đồng Rosedale. Tôi có thể giúp gì cho quý khách?<br />\nM: Xin chào. Ừm, tôi gọi để tìm hiểu về các lớp học mà trung tâm đang cung cấp vào mùa đông này.<br />\nW: Anh quan tâm đến lớp học nào vậy?<br />\nM: Có đúng là Cathy Pollard sẽ dạy một lớp học về hội họa không?<br />\nW: Vâng, đúng vậy. Nhưng chỉ còn một chỗ trống, vì vậy nếu anh muốn tham gia, bạn nên đăng ký ngay bây giờ.<br />\nM: Hôm nay hẳn là ngày may mắn của tôi. Chắc chắn muốn đăng ký chỗ đó rồi. Cô cần biết những gì về tôi?<br />\nW: Tên và số điện thoại của anh. Và tôi cần thông tin thẻ tín dụng của anh để anh có thể thanh toán khoản phí 100 đô la. Anh chỉ cần biết rằng giá này đã bao gồm chi phí vật liệu mà anh sẽ sử dụng.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fc2",
+          "questionText": "What is the purpose of the man’s call?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To cancel his registration",
+            "(B) To ask to speak to a teacher",
+            "(C) To inquire about a class",
+            "(D) To learn when a class will be held"
+          ],
+          "correctOptions": [
+            "(C) To inquire about a class"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fc3",
+          "questionText": "What is suggested about Ms. Pollard?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She has sold many paintings.",
+            "(B) She works full time at the community center.",
+            "(C) She teaches classes on oil painting.",
+            "(D) She is a popular teacher."
+          ],
+          "correctOptions": [
+            "(D) She is a popular teacher."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fc4",
+          "questionText": "What does the man mean when he says, “This must be my lucky day”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) He is fortunate that there is room in the class.",
+            "(B) He is lucky that he has enough money to pay for the class.",
+            "(C) He is happy that he has met Ms. Pollard before.",
+            "(D) He is pleased that he has free time during the winter."
+          ],
+          "correctOptions": [
+            "(A) He is fortunate that there is room in the class."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fae",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/63606776.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nW: Why haven&#39;t the wastebaskets been emptied? Didn&rsquo;t the cleaning crew come last night?<br />\nM: They did, but they don&rsquo;t appear to have done a thorough job.<br />\nW: Uh-oh. Aside from not taking out the trash, what else didn&rsquo;t they do?<br />\nM: The carpet in the Sales Department wasn&#39;t vacuumed, and the employee lounge is an absolute mess.<br />\nW: Didn&rsquo;t we change cleaning services recently? We never had any problems with the previous company.<br />\nM: That&#39;s true, but B&amp;G, Inc. raised its rates too much. That&rsquo;s why we hired the new company.<br />\nW: Well, I&rsquo;m going to give the person in charge there a call and insist that the work crews do a better job from now on. This kind of shoddy work is simply not acceptable</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nW: Tại sao thùng rác vẫn chưa được đổ? Đội vệ sinh không đến vào đêm qua sao?<br />\nM: Họ đã đến, nhưng có vẻ như họ đã không kiểm tra kỹ lưỡng.<br />\nW: Ồ không. Ngoài việc không đổ rác, còn điều gì sai sót nữa không?<br />\nM: Thảm ở Phòng kinh doanh không được hút bụi, và phòng chờ của nhân viên thì bừa bộn vô cùng.<br />\nW: Chúng ta mới đổi dịch vụ vệ sinh gần đây à? Chúng ta chưa bao giờ gặp vấn đề gì với công ty trước đây.<br />\nM: Đúng vậy, nhưng Công ty B&G, Inc. đã tăng giá quá nhiều. Đó là lý do tại sao chúng ta thuê công ty mới.<br />\nW: Được rồi, tôi sẽ gọi điện cho người phụ trách ở đó và yêu cầu đội vệ sinh làm việc cẩn thận hơn từ bây giờ. Kiểu làm việc cẩu thả này hoàn toàn không thể chấp nhận được</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fc5",
+          "questionText": "Why is the woman upset?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Her carpet was not vacuumed.",
+            "(B) Her office was not cleaned.",
+            "(C) The bathrooms are a mess.",
+            "(D) The trashcans were not emptied."
+          ],
+          "correctOptions": [
+            "(D) The trashcans were not emptied."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fc6",
+          "questionText": "What does the man suggest about B&G, Inc.?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is going to go out of business soon.",
+            "(B) It does not hire people who do good work.",
+            "(C) It charges more than the current cleaning service.",
+            "(D) It was not selected for a job due to poor performance."
+          ],
+          "correctOptions": [
+            "(C) It charges more than the current cleaning service."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fc7",
+          "questionText": "What will the woman most likely do next?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Arrange a meeting",
+            "(B) Make a phone call",
+            "(C) Send an e-mail",
+            "(D) Visit a vendor"
+          ],
+          "correctOptions": [
+            "(B) Make a phone call"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82faf",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/70393390.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nW: My computer just got disconnected from the Internet again. Do you know what the problem is?<br />\nM: I haven&rsquo;t the slightest idea. The same thing has also happened to me several times this morning.<br />\nW: We ought to do something about this.<br />\nM: Let&rsquo;s speak with the Maintenance Department. We can get a repairman here to determine the cause of the problem.<br />\nW: Okay. How about if you call them while I ask around to see if anyone else is having connectivity issues?<br />\nM: Good thinking. Oh, do you happen to know the number for the Maintenance Department?<br />\nW: Sorry, but I&rsquo;ve never called anyone there before. Just dial 0, and the receptionist can connect you.<br />\nM: Right. Why didn&rsquo;t I think of that?</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nW: Máy tính của tôi lại bị ngắt kết nối Internet. Anh có biết vấn đề là gì không?<br />\nM: Tôi không biết tí gì cả. Tôi cũng gặp phải tình trạng tương tự nhiều lần vào sáng nay.<br />\nW: Chúng ta nên làm gì đó để khắc phục vấn đề này.<br />\nM: Hãy nói chuyện với Phòng bảo trì. Chúng ta có thể gọi thợ sửa chữa đến để xác định nguyên nhân của vấn đề.<br />\nW: Được. Anh hãy gọi cho họ trong khi tôi hỏi xung quanh xem có ai gặp sự cố kết nối tương tư như chúng ta không?<br />\nM: Ý hay đấy. À, cô có biết số của Phòng bảo trì không?<br />\nW: Xin lỗi, tôi chưa bao giờ gọi cho ai ở phòng đó trước đây cả. Anh chỉ cần quay số 0 và nhân viên lễ tân có thể kết nối cho anh.<br />\nM: Đúng rồi. Sao tôi không nghĩ ra nhỉ?</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fc8",
+          "questionText": "What is the problem?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) A computer has stopped working.",
+            "(B) The electricity keeps going out.",
+            "(C) The Internet cannot be accessed.",
+            "(D) Some software has problems."
+          ],
+          "correctOptions": [
+            "(C) The Internet cannot be accessed."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fc9",
+          "questionText": "What does the man want to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Request the services of a repairperson",
+            "(B) File a report with his supervisor",
+            "(C) Ask his boss to purchase new equipment",
+            "(D) Try to log onto the Internet again"
+          ],
+          "correctOptions": [
+            "(A) Request the services of a repairperson"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fca",
+          "questionText": "What does the woman tell the man to do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Visit the Maintenance Department",
+            "(B) Speak with the receptionist",
+            "(C) Look up the correct extension",
+            "(D) Stop trying to repair the problem"
+          ],
+          "correctOptions": [
+            "(B) Speak with the receptionist"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fb0",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/36022189.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nMan A: Here are your schedules for next week. Please note that both of you are working slightly different shifts than normal.<br />\nMan B: Why did they change?<br />\nMan A: We&rsquo;ve got many new employees, and you&#39;re our most experienced workers. I want you two working different shifts to provide as much assistance as possible for the inexperienced people.<br />\nWoman: Um, Brad, there&#39;s a slight problem here.<br />\nMan A: What is it?<br />\nWoman: I can&#39;t work on Wednesday evening. My sister is flying in from Sydney, and I have to pick her up then. Did you forget I mentioned this to you earlier in the week?<br />\nMan A: Yeah, it completely slipped my mind.<br />\nMan B: I can switch shifts with you on Wednesday, Stacy. <br />\nW: Thanks so much, Dean. You&rsquo;re a lifesaver.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nM1: Đây là lịch trình của hai người cho tuần tới. Xin lưu ý rằng cả hai người đều làm việc theo ca hơi khác so với bình thường.<br />\nM2: Tại sao lại có sự thay đổi này vậy?<br />\nM1: Chúng ta có nhiều nhân viên mới và hai người là những công nhân có kinh nghiệm nhất. Tôi muốn hai người làm việc theo ca khác nhau để hỗ trợ cho những người chưa có kinh nghiệm nhiều nhất có thể.<br />\nW: Ừm, Brad, có một vấn đề nhỏ ở đây.<br />\nM1: Có chuyện gì vậy?<br />\nW: Tôi không thể làm việc vào tối thứ Tư. Chị gái tôi sẽ bay từ Sydney về, và tôi phải đón chị ấy vào lúc đó. Anh quên là tôi đã đề cập với anh chuyện này vào đầu tuần rồi à?<br />\nM1: Ôi, tôi quên béng mất rồi.<br />\nM2: Tôi có thể đổi ca với cô vào thứ Tư, Stacy. <br />\nW: Cảm ơn anh rất nhiều, Dean. Anh đúng là vị cứu tinh của tôi.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fcb",
+          "questionText": "What are the speakers discussing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Their new schedules",
+            "(B) Training some employees",
+            "(C) The company’s incoming workers",
+            "(D) Their vacation plans"
+          ],
+          "correctOptions": [
+            "(A) Their new schedules"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fcc",
+          "questionText": "According to the woman, what is the problem?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Her travel plans have been delayed.",
+            "(B) She does not get along well with her sister.",
+            "(C) There are too many inexperienced people on her shift.",
+            "(D) She cannot work at a time she is scheduled to."
+          ],
+          "correctOptions": [
+            "(D) She cannot work at a time she is scheduled to."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fcd",
+          "questionText": "Why is the woman pleased?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) She has not seen her sister for many years.",
+            "(B) Dean can work on Wednesday evening.",
+            "(C) Brad is going to help her train the workers.",
+            "(D) She is going to travel to Sydney soon."
+          ],
+          "correctOptions": [
+            "(B) Dean can work on Wednesday evening."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fb1",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/36219294.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nM: We need to add one more person to the negotiating team heading to Madrid tomorrow. Who would be ideal?<br />\nW: Ray Walker would make a great addition to the team. How about asking him?<br />\nM: I did, but he informed me that his passport has expired. I also considered asking Tina Andrews, but she doesn&rsquo;t speak the language there.<br />\nW: Oh... The person ought to speak Spanish. Well, I took a few semesters in college, and I&rsquo;ve vacationed in Spain three times.<br />\nM: That&rsquo;s sufficient. You have a passport, don&rsquo;t you?<br />\nW: Yes, and it&rsquo;s not going to expire for a couple more years. <br />\nM: Great. You&#39;re on the team. I&rsquo;ll tell Diana Matthews that you&rsquo;re going with her. You&rsquo;d better leave work immediately so that you can pack your bags.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nM: Chúng ta cần thêm một người nữa tham gia vào nhóm đàm phán sẽ đến Madrid vào ngày mai. Ai sẽ là người thích hợp đây?<br />\nW: Ray Walker sẽ là sự bổ sung tuyệt vời cho nhóm. Anh có thể hỏi anh ấy không?<br />\nM: Tôi đã hỏi rồi, nhưng anh ấy thông báo với tôi rằng hộ chiếu của anh ấy đã hết hạn. Tôi cũng cân nhắc đến việc hỏi Tina Andrews, nhưng cô ấy không nói được ngôn ngữ ở đó.<br />\nW: Ồ... Đó phải là một người có thể nói tiếng Tây Ban Nha. Tôi đã học ngôn ngữ đó trong một vài học kỳ ở trường đại học và đã đi nghỉ ở Tây Ban Nha ba lần.<br />\nM: Vậy đủ tiêu chuẩn rồi. Cô có hộ chiếu, đúng chứ?<br />\nW: Vâng, và hộ chiếu của tôi vẫn còn hiệu lực trong vài năm nữa. <br />\nM: Tuyệt. Cô sẽ ở trong nhóm đàm phán. Tôi sẽ nói với Diana Matthews rằng cô sẽ đi cùng cô ấy. Tốt hơn hết là cô nên về nhà ngay lập tức để có thể thu dọn đồ đạc.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fce",
+          "questionText": "When is the negotiating team going to go to Madrid?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) After work",
+            "(B) Tomorrow",
+            "(C) The day after tomorrow",
+            "(D) This weekend"
+          ],
+          "correctOptions": [
+            "(B) Tomorrow"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fcf",
+          "questionText": "Why does the man say, “That’s sufficient”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) To express his satisfaction with the woman’s statement",
+            "(B) To encourage the woman to provide more information",
+            "(C) To reject the suggestion that the woman makes",
+            "(D) To point out a problem with the woman’s solution"
+          ],
+          "correctOptions": [
+            "(A) To express his satisfaction with the woman’s statement"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fd0",
+          "questionText": "What does the man suggest that the woman do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Leave the office soon",
+            "(B) Call Diana Matthews",
+            "(C) Start studying Spanish",
+            "(D) Update her passport"
+          ],
+          "correctOptions": [
+            "(A) Leave the office soon"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fb2",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/71751161.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nW: Good morning, sir. Where are you headed today?<br />\nM: I&rsquo;m going on a business trip to Tokyo. Here are my ticket and passport.<br />\nW: Thank you very much. Do you have any luggage to check?<br />\nM: I&rsquo;ve got one bag here that I need to check in, and I&rsquo;m carrying my laptop on board with me.<br />\nW: Okay. Let me get a luggage tag for you... Oh, I&rsquo;m sorry, sir, but your bag weighs too much. You&rsquo;re only allowed 20 kilograms, but it weighs 23 kilograms.<br />\nM: Should I remove some of my belongings?<br />\nW: You can either do that, or you can pay an overweight bag fee.<br />\nM: I&rsquo;ll pay the fee. How much do I owe?<br />\nW: That will be forty-five dollars, please.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nW: Chào buổi sáng, thưa ông. Hôm nay ông định đi đâu vậy?<br />\nM: Tôi sắp đi công tác ở Tokyo. Đây là vé máy bay và hộ chiếu của tôi.<br />\nW: Cảm ơn ông rất nhiều. Ông có hành lý nào cần ký gửi không?<br />\nM: Tôi có một túi hành lý cần ký gửi và tôi mang theo máy tính xách tay lên máy bay.<br />\nW: Được. Để tôi lấy thẻ hành lý cho ông... Ồ, tôi xin lỗi, thưa ông, nhưng túi của ông quá nặng. Ông chỉ được phép mang 20 kg, nhưng túi của ông nặng tới 23 kg.<br />\nM: Tôi có nên lấy bớt một số đồ đạc ra không?<br />\nW: Ông có thể làm vậy hoặc trả phí hành lý quá cân.<br />\nM: Tôi sẽ trả phí. Tôi phải trả bao nhiêu?<br />\nW: Làm ơn trả bốn mươi lăm đô la.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fd1",
+          "questionText": "Where most likely does the conversation take place?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At an immigration desk",
+            "(B) At a baggage claim area",
+            "(C) At a check-in counter",
+            "(D) At a boarding gate"
+          ],
+          "correctOptions": [
+            "(C) At a check-in counter"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fd2",
+          "questionText": "What does the man suggest?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Carrying his bags on board",
+            "(B) Filing a claim for a lost bag",
+            "(C) Taking some items out of his bag",
+            "(D) Having his bag X-rayed"
+          ],
+          "correctOptions": [
+            "(C) Taking some items out of his bag"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fd3",
+          "questionText": "What does the woman request that the man do?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) Pay an extra fee",
+            "(B) Keep his boarding pass",
+            "(C) Write his name on his bag",
+            "(D) Lock his luggage"
+          ],
+          "correctOptions": [
+            "(A) Pay an extra fee"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fb3",
+      "questionText": "",
+      "image": "",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/22243543.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nW: Now that you&#39;ve seen my presentation, do you have any questions about the DV5000?<br />\nM1: How is our product different from the other ones on the market?<br />\nW: It&rsquo;s capable of ironing clothes in less time than any other products.<br />\nM2: How does it do that?<br />\nW: Simple. It uses more heat than other irons, so that lets it remove wrinkles from clothes more quickly.<br />\nM1: Can&rsquo;t that hurt the people using it? We don&rsquo;t want anyone getting severe burns.<br />\nW: That&#39;s a distinct possibility. However, we&#39;re planning to market it to dry cleaners and other professionals. They know how to take the proper precautions.<br />\nM2: So the DV5000 isn&rsquo;t for home use?<br />\nW: Precisely. We anticipate 98% of all sales will be to professional users.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nW: Bây giờ anh đã xem bài thuyết trình của tôi rồi, liệu anh có thắc mắc gì về DV5000 không?<br />\nM1: Sản phẩm của chúng ta khác biệt như thế nào so với các sản phẩm khác trên thị trường?<br />\nW: Sản phẩm của chúng ta có khả năng ủi quần áo nhanh hơn bất kỳ sản phẩm nào khác.<br />\nM2: Nó làm được điều đó bằng cách nào?<br />\nW: Đơn giản. Nó sử dụng nhiều nhiệt hơn các loại bàn là khác, do đó nó có thể loại bỏ nếp nhăn trên quần áo nhanh hơn.<br />\nM1: Cơ chế đó liệu có gây hại cho người dùng không? Chúng ta chắc chắn không muốn bất kỳ ai bị bỏng nặng.<br />\nW: Đó là một nguy cơ tiềm ẩn. Tuy nhiên, các kế hoạch tiếp thị sản phẩm đến các tiệm giặt khô và các thợ giặt là chuyên nghiệp đang được tiến hành. Họ biết cách thực hiện các biện pháp phòng ngừa thích hợp.<br />\nM2: Vậy DV5000 không dành cho mục đích sử dụng tại nhà sao?<br />\nW: Chính xác. Chúng tôi dự đoán 98% tổng doanh số sẽ đến từ các tiệm giặt là chuyên nghiệp.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fd4",
+          "questionText": "What is suggested about the speakers?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) They work for the same company.",
+            "(B) They are giving a joint presentation.",
+            "(C) They are employed as engineers.",
+            "(D) They helped design the DV5000."
+          ],
+          "correctOptions": [
+            "(A) They work for the same company."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fd5",
+          "questionText": "What does the woman mean when she says, “That’s a distinct possibility”?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The engineers may want to redesign the DV5000.",
+            "(B) The DV5000 will probably sell very well.",
+            "(C) There could be problems marketing the DV5000.",
+            "(D) Some people who use the DV5000 may get injured."
+          ],
+          "correctOptions": [
+            "(D) Some people who use the DV5000 may get injured."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fd6",
+          "questionText": "What is mentioned about the DV5000?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It is the most expensive iron on the market.",
+            "(B) It has a 98% satisfaction rate.",
+            "(C) Most of its buyers will be able to use it properly.",
+            "(D) The company will market it to young adults."
+          ],
+          "correctOptions": [
+            "(C) Most of its buyers will be able to use it properly."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fb4",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/19/44750602.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/51409965.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nW: Pardon me, but would you happen to know this part of town well? I&rsquo;m visiting this neighborhood for the first time, and I&#39;m afraid I&rsquo;ve gotten lost.<br />\nM: I should be able to provide some assistance. Where are you heading?<br />\nW: I&rsquo;m looking for the local branch of Trust Bank. I thought it was here on State Street, but that doesn&#39;t seem to be the case.<br />\nM: Ah, it used to be here, but it moved to another building in November.<br />\nW: I see. Does that building happen to be nearby?<br />\nM: Yes, you can walk there easily. Go straight to the corner and take a right on Carter street. You want the second building on the left-hand side of the street.<br />\nW: Thank you for your assistance. You&rsquo;ve been a tremendous help.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nW: Xin lỗi, nhưng anh có biết rõ về khu vực này của thị trấn không? Tôi đến khu phố này lần đầu tiên và tôi e là mình đã bị lạc.<br />\nM: Tôi có thể giúp cô một chút. Cô đang muốn đi đến đâu vậy?<br />\nW: Tôi đang tìm chi nhánh địa phương của Trust Bank. Tôi nghĩ là nó ở đây trên phố State, nhưng có vẻ không phải vậy.<br />\nM: À, trước đây nó ở đây, nhưng đã chuyển đến một tòa nhà khác vào tháng 11 rồi.<br />\nW: Tôi hiểu rồi. Tòa nhà đó có ở gần đây không?<br />\nM: Gần, cô có thể đi bộ đến đó dễ dàng. Đi thẳng đến góc phố và rẽ phải vào đường Carter. Đó là tòa nhà thứ hai ở phía bên trái của đường.<br />\nW: Cảm ơn anh đã giúp đỡ. Sự giúp đỡ rất nhiệt tình.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fd7",
+          "questionText": "Where most likely are the speakers?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) At a bank",
+            "(B) On a street",
+            "(C) In an office",
+            "(D) At a bus stop"
+          ],
+          "correctOptions": [
+            "(B) On a street"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fd8",
+          "questionText": "What does the man say about the bank?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It has changed locations.",
+            "(B) He keeps his money there.",
+            "(C) The woman should take the bus there.",
+            "(D) It is going to close soon."
+          ],
+          "correctOptions": [
+            "(A) It has changed locations."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fd9",
+          "questionText": "Look at the graphic. Where is the woman’s final destination?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) 1",
+            "(B) 2",
+            "(C) 3",
+            "(D) 4"
+          ],
+          "correctOptions": [
+            "(A) 1"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    },
+    {
+      "id": "62fb08005948b5402da82fb5",
+      "questionText": "",
+      "image": "https://storage.googleapis.com/estudyme/dev/2022/08/19/12920855.png",
+      "sound": "https://storage.googleapis.com/estudyme/dev/2022/08/19/11608131.mp3",
+      "options": [],
+      "correctOptions": [],
+      "transcript": "<p><strong>Transcript:</strong><br /> \nM: How were our sales during the past seven days?<br />\nW: As you can see on the graph, we sold more than $25,000 in clothes last week.<br />\nM: That&rsquo;s incredible. We&rsquo;ve never had a week that good before, have we?<br />\nW: I don&rsquo;t believe so. We appear to be gaining popularity with many shoppers in the mall.<br />\nM: And it looks like we sold more men&rsquo;s clothes than anything else. I never imagined that would happen.<br />\nW: Actually, there&rsquo;s a mistake on the graph you&rsquo;re looking at. <br />\nM What&rsquo;s wrong with it?<br />\nW: The figure you&rsquo;re looking at has been labeled incorrectly. We need to reverse the numbers for men&#39;s and women&#39;s clothes.<br />\nM: I see. Okay, the new numbers make a lot more sense now.<br />\nW: You&rsquo;re right, still, the numbers are all positive and have been improving recently.</p>\n",
+      "explanationVi": "<p><strong>Transcript:</strong><br />\nM: Doanh số của chúng ta trong bảy ngày qua thế nào?<br />\nW: Như anh có thể thấy trên biểu đồ, chúng ta đã bán được hơn 25.000 đô la cho mặt hàng trang phục vào tuần trước.<br />\nM: Thật không thể tin được. Chúng ta chưa bao giờ có một tuần tốt như vậy trước đây, phải không?<br />\nW: Không hẳn vậy. Chúng ta dường như đang trở nên phổ biến với các khách hàng mua sắm trong trung tâm thương mại.<br />\nM: Và có vẻ như chúng ta đã bán được nhiều quần áo nam hơn bất kỳ mặt hàng nào khác. Tôi không bao giờ nghĩ điều đó sẽ xảy ra.<br />\nW: Thực ra, có một lỗi trên biểu đồ mà bạn đang xem.<br />\nM: Có vấn đề gì vậy?<br />\nW: Số liệu mà anh đang thấy đã bị dán nhãn sai. Chúng ta cần đảo ngược các con số cho quần áo nam và nữ.<br />\nM: Tôi hiểu rồi. Được rồi, những con số mới có ý nghĩa hơn nhiều rồi.<br />\nW: Anh nói đúng, tất cả các con số đều là số dương và doanh số gần đây đã được cải thiện.</p>\n",
+      "childQuestions": [
+        {
+          "id": "62fb08005948b5402da82fda",
+          "questionText": "What are the speakers mainly discussing?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) The need to sell more clothes",
+            "(B) The poor sales of men’s clothes",
+            "(C) The style of clothes being sold",
+            "(D) The store’s weekly performance"
+          ],
+          "correctOptions": [
+            "(D) The store’s weekly performance"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fdb",
+          "questionText": "What is suggested about the store?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) It hired some new salespeople.",
+            "(B) It is located in a shopping center.",
+            "(C) It opened a few months ago.",
+            "(D) It sells brand-name items."
+          ],
+          "correctOptions": [
+            "(B) It is located in a shopping center."
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        },
+        {
+          "id": "62fb08005948b5402da82fdc",
+          "questionText": "Look at the graphic. What was the value of the men’s clothes sold last week?",
+          "image": "",
+          "sound": "",
+          "options": [
+            "(A) $3,500",
+            "(B) $4,000",
+            "(C) $5,500",
+            "(D) $13,000"
+          ],
+          "correctOptions": [
+            "(C) $5,500"
+          ],
+          "transcript": "",
+          "explanationVi": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Alert, Button, Card, Space, Tag, Typography } from 'antd';
-import { AudioMutedOutlined, AudioOutlined } from '@ant-design/icons';
+import { Alert, Button, Card, Space, Tag, Typography } from '@/components/ui/Primitives';
+import { AudioMutedOutlined, AudioOutlined } from '@/components/ui/Icons';
 import styles from '@/components/audio/AudioRecorder.module.css';
 import { AudioRecorderProps } from '@/components/types/AudioRecorderProps';
 import { CLARITY_RATING_OPTIONS } from '@/config/clarityRatingOptions';

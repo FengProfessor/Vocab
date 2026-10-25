@@ -1,0 +1,775 @@
+{
+  "id": "video-wp-19",
+  "youtubeId": "O6h8qq5rBi0",
+  "title": "Leading High-Performance Cross-Functional Teams",
+  "channel": "Harvard Business Review",
+  "duration": 580,
+  "durationDisplay": "09:40",
+  "durationCategory": "short",
+  "cefrLevel": "B2",
+  "topic": "workplace",
+  "topicDisplay": "Công việc & Sự nghiệp",
+  "thumbnailUrl": "https://img.youtube.com/vi/O6h8qq5rBi0/hqdefault.jpg",
+  "description": "Bí quyết lãnh đạo nhóm liên phòng ban: phá vỡ rào cản silo và thống nhất mục tiêu.",
+  "coreVocabulary": [
+    {
+      "word": "alignment",
+      "phonetic": "/əˈlaɪnmənt/",
+      "viDefinition": "sự thống nhất, căn chỉnh mục tiêu",
+      "contextSentence": "Organizational alignment ensures engineering and sales pursue unified KPIs."
+    },
+    {
+      "word": "silo",
+      "phonetic": "/ˈsaɪləʊ/",
+      "viDefinition": "sự cô lập cục bộ (tư duy bè phái trong công ty)",
+      "contextSentence": "Dismantling corporate silos unleashes rapid, multi-disciplinary innovation."
+    },
+    {
+      "word": "accountability",
+      "phonetic": "/əˌkaʊntəˈbɪləti/",
+      "viDefinition": "trách nhiệm giải trình",
+      "contextSentence": "Shared cross-functional accountability prevents finger-pointing during failures."
+    }
+  ],
+  "transcript": [
+    {
+      "id": "video-wp-19-cue-1",
+      "start": 0.0,
+      "end": 2.61,
+      "en": "Hello and welcome to Real Easy English.",
+      "vi": "Xin chào và chào mừng bạn đến với Real Easy English."
+    },
+    {
+      "id": "video-wp-19-cue-2",
+      "start": 2.61,
+      "end": 8.76,
+      "en": "In this podcast, we have real conversations in easy English to help you understand. I'm Neil.",
+      "vi": "Trong podcast này, chúng tôi có những cuộc trò chuyện thực tế bằng tiếng Anh dễ hiểu để giúp bạn hiểu. Tôi là Neil."
+    },
+    {
+      "id": "video-wp-19-cue-3",
+      "start": 8.76,
+      "end": 10.24,
+      "en": "And I'm Beth.",
+      "vi": "Và tôi là Beth."
+    },
+    {
+      "id": "video-wp-19-cue-4",
+      "start": 10.24,
+      "end": 13.4,
+      "en": "You can watch a video of this podcast",
+      "vi": "Bạn có thể xem video của podcast này"
+    },
+    {
+      "id": "video-wp-19-cue-5",
+      "start": 13.4,
+      "end": 18.96,
+      "en": "and find a worksheet to help you learn on our website, bbclearningenglish.com.",
+      "vi": "và tìm một bảng tính để giúp bạn học trên trang web của chúng tôi, bbclearningenglish.com."
+    },
+    {
+      "id": "video-wp-19-cue-6",
+      "start": 26.12,
+      "end": 27.72,
+      "en": "Hi Beth, how are you today?",
+      "vi": "Chào Beth, hôm nay bạn thế nào?"
+    },
+    {
+      "id": "video-wp-19-cue-7",
+      "start": 27.72,
+      "end": 29.32,
+      "en": "I'm very good, Neil. How are you?",
+      "vi": "Tôi rất ổn, Neil. Bạn có khỏe không?"
+    },
+    {
+      "id": "video-wp-19-cue-8",
+      "start": 29.32,
+      "end": 32.0,
+      "en": "I'm very well. What are we talking about?",
+      "vi": "Tôi rất khỏe. Chúng ta đang nói về cái gì vậy?"
+    },
+    {
+      "id": "video-wp-19-cue-9",
+      "start": 32.0,
+      "end": 35.88,
+      "en": "Today we are talking about work and the office.",
+      "vi": "Hôm nay chúng ta nói về công việc và văn phòng."
+    },
+    {
+      "id": "video-wp-19-cue-10",
+      "start": 35.88,
+      "end": 41.32,
+      "en": "An office is a place with desks and computers where people do their jobs.",
+      "vi": "Văn phòng là nơi có bàn làm việc và máy tính, nơi mọi người thực hiện công việc của mình."
+    },
+    {
+      "id": "video-wp-19-cue-11",
+      "start": 41.32,
+      "end": 46.92,
+      "en": "OK. We are in a studio in the office, but we'll go back to the office after this.",
+      "vi": "Được rồi. Chúng tôi đang ở trong một studio trong văn phòng, nhưng sau đó chúng tôi sẽ quay lại văn phòng."
+    },
+    {
+      "id": "video-wp-19-cue-12",
+      "start": 46.92,
+      "end": 50.6,
+      "en": "Yes we will. So, Neil, where do you work?",
+      "vi": "Vâng, chúng tôi sẽ làm vậy. Vậy, Neil, anh làm việc ở đâu?"
+    },
+    {
+      "id": "video-wp-19-cue-13",
+      "start": 50.6,
+      "end": 53.88,
+      "en": "Do you work at home or do you work in the office?",
+      "vi": "Bạn làm việc ở nhà hay làm việc ở văn phòng?"
+    },
+    {
+      "id": "video-wp-19-cue-14",
+      "start": 53.88,
+      "end": 56.76,
+      "en": "Well, I do both of those things.",
+      "vi": "À, tôi làm cả hai việc đó."
+    },
+    {
+      "id": "video-wp-19-cue-15",
+      "start": 56.76,
+      "end": 60.76,
+      "en": "I work in the office usually three days a week,",
+      "vi": "Tôi thường làm việc ở văn phòng ba ngày một tuần,"
+    },
+    {
+      "id": "video-wp-19-cue-16",
+      "start": 60.76,
+      "end": 63.44,
+      "en": "and I work from home two days a week.",
+      "vi": "và tôi làm việc ở nhà hai ngày một tuần."
+    },
+    {
+      "id": "video-wp-19-cue-17",
+      "start": 63.44,
+      "end": 66.16,
+      "en": "OK. I'm the same.",
+      "vi": "Được rồi. Tôi cũng vậy."
+    },
+    {
+      "id": "video-wp-19-cue-18",
+      "start": 66.16,
+      "end": 70.44,
+      "en": "We have the same schedule. So, yeah, at home twice,",
+      "vi": "Chúng tôi có cùng lịch trình. Vì vậy, vâng, ở nhà hai lần,"
+    },
+    {
+      "id": "video-wp-19-cue-19",
+      "start": 70.44,
+      "end": 76.6,
+      "en": "where I have a sort of place that could be considered a home office.",
+      "vi": "nơi tôi có một nơi có thể được coi là văn phòng tại nhà."
+    },
+    {
+      "id": "video-wp-19-cue-20",
+      "start": 76.6,
+      "end": 79.48,
+      "en": "Do you like working in the office?",
+      "vi": "Bạn có thích làm việc ở văn phòng không?"
+    },
+    {
+      "id": "video-wp-19-cue-21",
+      "start": 79.48,
+      "end": 82.7,
+      "en": "I do like working in the office.",
+      "vi": "Tôi thích làm việc ở văn phòng."
+    },
+    {
+      "id": "video-wp-19-cue-22",
+      "start": 82.7,
+      "end": 87.08,
+      "en": "I think it's easy to get work done in the office",
+      "vi": "Tôi nghĩ làm việc ở văn phòng rất dễ dàng"
+    },
+    {
+      "id": "video-wp-19-cue-23",
+      "start": 87.08,
+      "end": 89.76,
+      "en": "because it's an office environment.",
+      "vi": "vì đây là môi trường văn phòng."
+    },
+    {
+      "id": "video-wp-19-cue-24",
+      "start": 89.76,
+      "end": 92.44,
+      "en": "It's a workplace.",
+      "vi": "Đó là nơi làm việc."
+    },
+    {
+      "id": "video-wp-19-cue-25",
+      "start": 92.44,
+      "end": 96.6,
+      "en": "But I also quite like working from home sometimes",
+      "vi": "Nhưng đôi khi tôi cũng khá thích làm việc ở nhà"
+    },
+    {
+      "id": "video-wp-19-cue-26",
+      "start": 96.6,
+      "end": 99.56,
+      "en": "because, commuting – London is a big city.",
+      "vi": "bởi vì, đi lại – London là một thành phố lớn."
+    },
+    {
+      "id": "video-wp-19-cue-27",
+      "start": 99.56,
+      "end": 104.76,
+      "en": "You know, coming to work and going back is really tiring if you do it every day.",
+      "vi": "Bạn biết đấy, đi làm và về nhà thực sự rất mệt mỏi nếu ngày nào cũng làm việc đó."
+    },
+    {
+      "id": "video-wp-19-cue-28",
+      "start": 104.76,
+      "end": 107.04,
+      "en": "Yeah, I know what you mean.",
+      "vi": "Vâng, tôi hiểu ý bạn."
+    },
+    {
+      "id": "video-wp-19-cue-29",
+      "start": 107.04,
+      "end": 111.8,
+      "en": "I... I like working from home occasionally,",
+      "vi": "Tôi... thỉnh thoảng tôi thích làm việc ở nhà,"
+    },
+    {
+      "id": "video-wp-19-cue-30",
+      "start": 111.8,
+      "end": 115.68,
+      "en": "but I definitely prefer being in the office.",
+      "vi": "nhưng tôi chắc chắn thích ở văn phòng hơn."
+    },
+    {
+      "id": "video-wp-19-cue-31",
+      "start": 115.68,
+      "end": 121.64,
+      "en": "I think being with colleagues around you and I need people, and then I can work better.",
+      "vi": "Tôi nghĩ rằng ở bên những đồng nghiệp xung quanh bạn và tôi cần mọi người, khi đó tôi có thể làm việc tốt hơn."
+    },
+    {
+      "id": "video-wp-19-cue-32",
+      "start": 121.64,
+      "end": 125.39,
+      "en": "Yeah. So, what's wrong with working from home?",
+      "vi": "Vâng. Vậy thì có gì sai khi làm việc ở nhà?"
+    },
+    {
+      "id": "video-wp-19-cue-33",
+      "start": 125.39,
+      "end": 128.24,
+      "en": "A lot!",
+      "vi": "Rất nhiều!"
+    },
+    {
+      "id": "video-wp-19-cue-34",
+      "start": 128.24,
+      "end": 134.12,
+      "en": "I think, when you're in the office, yeah, it's louder than at home,",
+      "vi": "Tôi nghĩ, khi bạn ở văn phòng, nó ồn ào hơn ở nhà,"
+    },
+    {
+      "id": "video-wp-19-cue-35",
+      "start": 134.12,
+      "end": 136.6,
+      "en": "but I like having the people around me.",
+      "vi": "nhưng tôi thích có mọi người xung quanh mình."
+    },
+    {
+      "id": "video-wp-19-cue-36",
+      "start": 136.6,
+      "end": 139.52,
+      "en": "I like being able to have conversations.",
+      "vi": "Tôi thích có thể trò chuyện."
+    },
+    {
+      "id": "video-wp-19-cue-37",
+      "start": 139.52,
+      "end": 143.56,
+      "en": "I find it's easier to work in an office environment",
+      "vi": "Tôi thấy làm việc ở môi trường văn phòng dễ dàng hơn"
+    },
+    {
+      "id": "video-wp-19-cue-38",
+      "start": 143.56,
+      "end": 146.04,
+      "en": "because everyone else is working.",
+      "vi": "vì mọi người khác đang làm việc."
+    },
+    {
+      "id": "video-wp-19-cue-39",
+      "start": 146.04,
+      "end": 150.92,
+      "en": "But I feel more lonely at home because it's just me.",
+      "vi": "Nhưng ở nhà tôi thấy cô đơn hơn vì chỉ có mình tôi."
+    },
+    {
+      "id": "video-wp-19-cue-40",
+      "start": 150.92,
+      "end": 153.56,
+      "en": "So, yeah.",
+      "vi": "Đúng vậy."
+    },
+    {
+      "id": "video-wp-19-cue-41",
+      "start": 153.56,
+      "end": 156.2,
+      "en": "Yeah, I understand what you mean.",
+      "vi": "Vâng, tôi hiểu ý bạn."
+    },
+    {
+      "id": "video-wp-19-cue-42",
+      "start": 156.2,
+      "end": 159.96,
+      "en": "I also have a bit of a problem with working from home,",
+      "vi": "Tôi cũng gặp chút vấn đề khi làm việc ở nhà,"
+    },
+    {
+      "id": "video-wp-19-cue-43",
+      "start": 159.96,
+      "end": 166.96,
+      "en": "because the boundary or the line between work and home is not so clear.",
+      "vi": "vì ranh giới hay ranh giới giữa công việc và gia đình không quá rõ ràng."
+    },
+    {
+      "id": "video-wp-19-cue-44",
+      "start": 166.96,
+      "end": 171.48,
+      "en": "So when you finish your day, you close your computer",
+      "vi": "Vì vậy, khi kết thúc một ngày, bạn đóng máy tính lại"
+    },
+    {
+      "id": "video-wp-19-cue-45",
+      "start": 171.48,
+      "end": 174.32,
+      "en": "and you think, oh, hang on, I'm still at home.",
+      "vi": "và bạn nghĩ, ồ, chờ đã, tôi vẫn ở nhà."
+    },
+    {
+      "id": "video-wp-19-cue-46",
+      "start": 174.32,
+      "end": 176.04,
+      "en": "This is where I've been working all day.",
+      "vi": "Đây là nơi tôi đã làm việc cả ngày."
+    },
+    {
+      "id": "video-wp-19-cue-47",
+      "start": 176.04,
+      "end": 182.12,
+      "en": "And sometimes you feel like you should be doing things for home when you're actually working.",
+      "vi": "Và đôi khi bạn cảm thấy mình nên làm mọi việc ở nhà trong khi thực ra bạn đang làm việc."
+    },
+    {
+      "id": "video-wp-19-cue-48",
+      "start": 182.12,
+      "end": 184.92,
+      "en": "Yeah, it's a bit weirder.",
+      "vi": "Ừ, nó lạ hơn một chút."
+    },
+    {
+      "id": "video-wp-19-cue-49",
+      "start": 184.92,
+      "end": 190.08,
+      "en": "Like, it's... it's strange being at home because it's harder to know",
+      "vi": "Kiểu như... ở nhà thì lạ vì khó biết hơn"
+    },
+    {
+      "id": "video-wp-19-cue-50",
+      "start": 190.08,
+      "end": 195.16,
+      "en": "whether you should be working or doing a bit of housework. In the office,",
+      "vi": "bạn nên làm việc hay làm một chút việc nhà. Trong văn phòng,"
+    },
+    {
+      "id": "video-wp-19-cue-51",
+      "start": 195.16,
+      "end": 199.12,
+      "en": "it's easier to just sit and be with your laptop, be with your colleagues",
+      "vi": "sẽ dễ dàng hơn khi bạn chỉ cần ngồi và sử dụng máy tính xách tay, ở bên đồng nghiệp của mình"
+    },
+    {
+      "id": "video-wp-19-cue-52",
+      "start": 199.16,
+      "end": 203.6,
+      "en": "and just be... be working.",
+      "vi": "và cứ... làm việc."
+    },
+    {
+      "id": "video-wp-19-cue-53",
+      "start": 203.64,
+      "end": 206.64,
+      "en": "Have you ever worked somewhere that is not an office?",
+      "vi": "Bạn đã từng làm việc ở đâu không phải là văn phòng chưa?"
+    },
+    {
+      "id": "video-wp-19-cue-54",
+      "start": 206.64,
+      "end": 210.4,
+      "en": "Yes. So, I used to work at a farm.",
+      "vi": "Có. Vì vậy, tôi đã từng làm việc tại một trang trại."
+    },
+    {
+      "id": "video-wp-19-cue-55",
+      "start": 210.4,
+      "end": 211.96,
+      "en": "It was a farm park.",
+      "vi": "Đó là một công viên trang trại."
+    },
+    {
+      "id": "video-wp-19-cue-56",
+      "start": 211.96,
+      "end": 215.36,
+      "en": "So, lots of children playing and there was a cafe.",
+      "vi": "Vì vậy, có rất nhiều trẻ em chơi đùa và có một quán cà phê."
+    },
+    {
+      "id": "video-wp-19-cue-57",
+      "start": 215.36,
+      "end": 219.24,
+      "en": "There was a play area, go-karts, being with animals.",
+      "vi": "Có một khu vui chơi, xe go-kart, chơi với động vật."
+    },
+    {
+      "id": "video-wp-19-cue-58",
+      "start": 219.24,
+      "end": 222.48,
+      "en": "So, lots of different areas.",
+      "vi": "Vì vậy, có rất nhiều lĩnh vực khác nhau."
+    },
+    {
+      "id": "video-wp-19-cue-59",
+      "start": 222.48,
+      "end": 223.56,
+      "en": "And it was fun.",
+      "vi": "Và nó rất vui."
+    },
+    {
+      "id": "video-wp-19-cue-60",
+      "start": 223.56,
+      "end": 224.76,
+      "en": "Lots of variety.",
+      "vi": "Rất đa dạng."
+    },
+    {
+      "id": "video-wp-19-cue-61",
+      "start": 224.76,
+      "end": 226.2,
+      "en": "So, that wasn't an office.",
+      "vi": "Vậy đó không phải là một văn phòng."
+    },
+    {
+      "id": "video-wp-19-cue-62",
+      "start": 226.2,
+      "end": 227.28,
+      "en": "What about you?",
+      "vi": "Còn bạn thì sao?"
+    },
+    {
+      "id": "video-wp-19-cue-63",
+      "start": 227.28,
+      "end": 232.28,
+      "en": "I've worked in all kinds of places, especially when I was a student.",
+      "vi": "Tôi đã làm việc ở nhiều nơi, đặc biệt khi còn là sinh viên."
+    },
+    {
+      "id": "video-wp-19-cue-64",
+      "start": 232.28,
+      "end": 236.32,
+      "en": "I worked in factories, farms.",
+      "vi": "Tôi làm việc ở các nhà máy, trang trại."
+    },
+    {
+      "id": "video-wp-19-cue-65",
+      "start": 236.32,
+      "end": 241.48,
+      "en": "I've worked in restaurants, bars, all kinds of places that are not offices.",
+      "vi": "Tôi đã từng làm việc ở các nhà hàng, quán bar, đủ mọi nơi không phải văn phòng."
+    },
+    {
+      "id": "video-wp-19-cue-66",
+      "start": 241.48,
+      "end": 242.69,
+      "en": "You've done it all.",
+      "vi": "Bạn đã làm được tất cả."
+    },
+    {
+      "id": "video-wp-19-cue-67",
+      "start": 242.69,
+      "end": 243.97,
+      "en": "I've done it all.",
+      "vi": "Tôi đã làm được tất cả."
+    },
+    {
+      "id": "video-wp-19-cue-68",
+      "start": 250.52,
+      "end": 254.8,
+      "en": "Let's recap some of the vocabulary we heard in this podcast.",
+      "vi": "Hãy cùng tóm tắt lại một số từ vựng chúng ta đã nghe được trong podcast này nhé."
+    },
+    {
+      "id": "video-wp-19-cue-69",
+      "start": 254.8,
+      "end": 260.8,
+      "en": "We had 'office' – a place with desks and computers where people go to work.",
+      "vi": "Chúng tôi có 'văn phòng' – nơi có bàn làm việc và máy tính để mọi người đến làm việc."
+    },
+    {
+      "id": "video-wp-19-cue-70",
+      "start": 260.8,
+      "end": 264.84,
+      "en": "Sometimes, at BBC Learning English, we work in the office.",
+      "vi": "Đôi khi, tại BBC Learning English, chúng tôi làm việc tại văn phòng."
+    },
+    {
+      "id": "video-wp-19-cue-71",
+      "start": 264.84,
+      "end": 270.32,
+      "en": "We had 'working remotely', which we often also call 'working from home',",
+      "vi": "Chúng tôi có 'làm việc từ xa', mà chúng tôi thường gọi là 'làm việc tại nhà',"
+    },
+    {
+      "id": "video-wp-19-cue-72",
+      "start": 270.32,
+      "end": 274.92,
+      "en": "and that means working somewhere that isn't the office, for example, your home.",
+      "vi": "và điều đó có nghĩa là làm việc ở một nơi không phải là văn phòng, chẳng hạn như nhà của bạn."
+    },
+    {
+      "id": "video-wp-19-cue-73",
+      "start": 274.92,
+      "end": 277.88,
+      "en": "But it could also be a cafe or something.",
+      "vi": "Nhưng cũng có thể là quán cà phê hay gì đó."
+    },
+    {
+      "id": "video-wp-19-cue-74",
+      "start": 277.88,
+      "end": 282.48,
+      "en": "And we also had 'colleagues' – these are the people that you work with.",
+      "vi": "Và chúng tôi cũng có 'đồng nghiệp' - đây là những người mà bạn làm việc cùng."
+    },
+    {
+      "id": "video-wp-19-cue-75",
+      "start": 282.48,
+      "end": 288.96,
+      "en": "And we compared working from home with working from an office, and we used lots of comparatives.",
+      "vi": "Và chúng tôi đã so sánh làm việc tại nhà với làm việc tại văn phòng và chúng tôi đã sử dụng rất nhiều so sánh."
+    },
+    {
+      "id": "video-wp-19-cue-76",
+      "start": 288.96,
+      "end": 292.36,
+      "en": "So, it's harder to concentrate at home",
+      "vi": "Vì vậy, ở nhà khó tập trung hơn"
+    },
+    {
+      "id": "video-wp-19-cue-77",
+      "start": 292.36,
+      "end": 296.8,
+      "en": "or it's more difficult to get your work done in the office.",
+      "vi": "hoặc sẽ khó hoàn thành công việc ở văn phòng hơn."
+    },
+    {
+      "id": "video-wp-19-cue-78",
+      "start": 296.8,
+      "end": 301.32,
+      "en": "Yes. And it's louder in the office, but sometimes that's better.",
+      "vi": "Có. Và nó to hơn trong văn phòng, nhưng đôi khi điều đó lại tốt hơn."
+    },
+    {
+      "id": "video-wp-19-cue-79",
+      "start": 301.32,
+      "end": 306.44,
+      "en": "That's it for this episode of Real Easy English, you can test what you've learned with a worksheet,",
+      "vi": "Vậy là xong tập này của Real Easy English, bạn có thể kiểm tra những gì mình đã học bằng bảng tính,"
+    },
+    {
+      "id": "video-wp-19-cue-80",
+      "start": 306.44,
+      "end": 310.93,
+      "en": "which you can download for free from our website, bbclearningenglish.com.",
+      "vi": "mà bạn có thể tải xuống miễn phí từ trang web của chúng tôi, bbclearningenglish.com."
+    },
+    {
+      "id": "video-wp-19-cue-81",
+      "start": 310.93,
+      "end": 312.76,
+      "en": "Bye!",
+      "vi": "Tạm biệt!"
+    }
+  ],
+  "clozeItems": [
+    {
+      "id": "video-wp-19-cloze-1",
+      "cueId": "video-wp-19-cue-17",
+      "sentence": "{{blank}} requires assembling cross-functional squads spanning engineering, design, and sales.",
+      "blankWord": "success",
+      "hintVi": "Nghĩa gợi ý: Thành công đòi hỏi phải tập hợp các đội ...",
+      "timestamp": 116,
+      "options": [
+        "vulnerable",
+        "framework",
+        "extensive",
+        "success"
+      ]
+    },
+    {
+      "id": "video-wp-19-cloze-2",
+      "cueId": "video-wp-19-cue-33",
+      "sentence": "The leader's {{blank}} duty is forging absolute strategic alignment.",
+      "blankWord": "foremost",
+      "hintVi": "Nghĩa gợi ý: Nhiệm vụ hàng đầu của người lãnh đạo là ...",
+      "timestamp": 232,
+      "options": [
+        "foremost",
+        "accurate",
+        "spontaneous",
+        "convenient"
+      ]
+    },
+    {
+      "id": "video-wp-19-cloze-3",
+      "cueId": "video-wp-19-cue-57",
+      "sentence": "{{blank}} shared collective accountability: the entire team wins or loses together.",
+      "blankWord": "institute",
+      "hintVi": "Nghĩa gợi ý: Thiết lập trách nhiệm giải trình tập thể...",
+      "timestamp": 406,
+      "options": [
+        "institute",
+        "temporary",
+        "strategy",
+        "favorable"
+      ]
+    }
+  ],
+  "comprehensionQuestions": [
+    {
+      "id": "video-wp-19-q1",
+      "question": "What is the primary focus of the video 'Leading High-Performance Cross-Functional Teams'?",
+      "options": [
+        "To entertain listeners with fictional storytelling.",
+        "To critique ancient philosophies without practical relevance.",
+        "To explain and practice leading high-performance cross-functional teams effectively.",
+        "To advertise a commercial product for online shoppers."
+      ],
+      "correctIndex": 2,
+      "explanation": "The entire video systematically explores leading high-performance cross-functional teams, as highlighted in the opening and throughout the discussion.",
+      "timestampSeek": 58
+    },
+    {
+      "id": "video-wp-19-q2",
+      "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+      "options": [
+        "It contradicts the speaker's earlier recommendations.",
+        "It claims the subject is irrelevant in everyday modern life.",
+        "It advises viewers to disregard standard precautions completely.",
+        "It emphasizes that: The leader's foremost duty is forging absolute strategic ali..."
+      ],
+      "correctIndex": 3,
+      "explanation": "In this segment, the speaker clarifies: 'The leader's foremost duty is forging absolute strategic alignment.', showing its practical importance.",
+      "timestampSeek": 232
+    },
+    {
+      "id": "video-wp-19-q3",
+      "question": "What core conclusion or takeaway does the speaker offer at the end?",
+      "options": [
+        "Applying these principles leads to: High-performance cross-functional collaboration is the ultimate c...",
+        "The speaker concludes that mastery is entirely unachievable.",
+        "Viewers should abandon ongoing efforts and start over.",
+        "No further practice or mindfulness is necessary."
+      ],
+      "correctIndex": 0,
+      "explanation": "The concluding message emphasizes that High-performance cross-functional collaboration is the ultimate competitive advantage., providing a meaningful summary for learners.",
+      "timestampSeek": 522
+    }
+  ],
+  "exercises": {
+    "clozeItems": [
+      {
+        "id": "video-wp-19-cloze-1",
+        "cueId": "video-wp-19-cue-17",
+        "sentence": "{{blank}} requires assembling cross-functional squads spanning engineering, design, and sales.",
+        "blankWord": "success",
+        "hintVi": "Nghĩa gợi ý: Thành công đòi hỏi phải tập hợp các đội ...",
+        "timestamp": 116,
+        "options": [
+          "vulnerable",
+          "framework",
+          "extensive",
+          "success"
+        ]
+      },
+      {
+        "id": "video-wp-19-cloze-2",
+        "cueId": "video-wp-19-cue-33",
+        "sentence": "The leader's {{blank}} duty is forging absolute strategic alignment.",
+        "blankWord": "foremost",
+        "hintVi": "Nghĩa gợi ý: Nhiệm vụ hàng đầu của người lãnh đạo là ...",
+        "timestamp": 232,
+        "options": [
+          "foremost",
+          "accurate",
+          "spontaneous",
+          "convenient"
+        ]
+      },
+      {
+        "id": "video-wp-19-cloze-3",
+        "cueId": "video-wp-19-cue-57",
+        "sentence": "{{blank}} shared collective accountability: the entire team wins or loses together.",
+        "blankWord": "institute",
+        "hintVi": "Nghĩa gợi ý: Thiết lập trách nhiệm giải trình tập thể...",
+        "timestamp": 406,
+        "options": [
+          "institute",
+          "temporary",
+          "strategy",
+          "favorable"
+        ]
+      }
+    ],
+    "comprehensionQuestions": [
+      {
+        "id": "video-wp-19-q1",
+        "question": "What is the primary focus of the video 'Leading High-Performance Cross-Functional Teams'?",
+        "options": [
+          "To entertain listeners with fictional storytelling.",
+          "To critique ancient philosophies without practical relevance.",
+          "To explain and practice leading high-performance cross-functional teams effectively.",
+          "To advertise a commercial product for online shoppers."
+        ],
+        "correctIndex": 2,
+        "explanation": "The entire video systematically explores leading high-performance cross-functional teams, as highlighted in the opening and throughout the discussion.",
+        "timestampSeek": 58
+      },
+      {
+        "id": "video-wp-19-q2",
+        "question": "According to the speaker, what key point is discussed regarding 'The...'?",
+        "options": [
+          "It contradicts the speaker's earlier recommendations.",
+          "It claims the subject is irrelevant in everyday modern life.",
+          "It advises viewers to disregard standard precautions completely.",
+          "It emphasizes that: The leader's foremost duty is forging absolute strategic ali..."
+        ],
+        "correctIndex": 3,
+        "explanation": "In this segment, the speaker clarifies: 'The leader's foremost duty is forging absolute strategic alignment.', showing its practical importance.",
+        "timestampSeek": 232
+      },
+      {
+        "id": "video-wp-19-q3",
+        "question": "What core conclusion or takeaway does the speaker offer at the end?",
+        "options": [
+          "Applying these principles leads to: High-performance cross-functional collaboration is the ultimate c...",
+          "The speaker concludes that mastery is entirely unachievable.",
+          "Viewers should abandon ongoing efforts and start over.",
+          "No further practice or mindfulness is necessary."
+        ],
+        "correctIndex": 0,
+        "explanation": "The concluding message emphasizes that High-performance cross-functional collaboration is the ultimate competitive advantage., providing a meaningful summary for learners.",
+        "timestampSeek": 522
+      }
+    ]
+  }
+}

@@ -3,7 +3,7 @@ import {
   CustomerServiceOutlined,
   FontColorsOutlined,
   ReadOutlined,
-} from '@ant-design/icons';
+} from '@/components/ui/Icons';
 import { SkillMasteryDefinition } from '@/config/types/SkillMasteryDefinition';
 
 /**

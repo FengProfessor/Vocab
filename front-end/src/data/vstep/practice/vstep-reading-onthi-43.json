@@ -1,0 +1,101 @@
+{
+  "id": "vstep-reading-onthi-43",
+  "title": "Luyện Đọc VSTEP: Urban Farming: Feeding the Cities of Tomorrow (VstepR5-Test 15 (27-03-2026))",
+  "duration": 10,
+  "date": "2026-03-27",
+  "sections": [
+    {
+      "type": "reading",
+      "label": "Reading (Đọc Hiểu)",
+      "timeLimit": 10,
+      "totalQuestions": 5,
+      "tasks": [
+        {
+          "id": "task1",
+          "instructions": "<b>Directions:</b> Read the passage and choose the best answer (A, B, C, or D) for each question.",
+          "passage": {
+            "title": "Urban Farming: Feeding the Cities of Tomorrow",
+            "text": "<p style=\"text-align:justify;\">As global urbanization accelerates and climate uncertainty threatens traditional agricultural supply chains, urban farming — the practice of growing food within city environments — has moved from a hobbyist pursuit to a serious component of urban food policy. From rooftop gardens and vertical farms in Singapore and Tokyo to community gardens in Detroit and Berlin, cities around the world are exploring how locally grown produce can supplement or partially replace food imported from distant rural areas. Advocates argue that urban agriculture can shorten supply chains, reduce food waste, create green spaces, and strengthen community bonds.</p>\n<p style=\"text-align:justify;\">Vertical farming — perhaps the most technologically ambitious form of urban agriculture — involves growing crops in stacked layers inside climate-controlled buildings, using LED lighting, hydroponics, and sensors to optimize growth conditions. Proponents claim that vertical farms can produce yields up to 100 times greater per square meter than conventional outdoor agriculture, using 95% less water and no pesticides. Critics, however, note that the high energy costs of artificial lighting currently make vertical farming economically unviable for most staple crops, and question whether it can scale to meet meaningful portions of urban food demand without major breakthroughs in renewable energy.</p>\n<p style=\"text-align:justify;\">Community gardens offer a very different model — lower technology, more socially oriented, and rooted in neighborhood participation. Research consistently finds that access to community gardens improves diet quality, reduces food insecurity in low-income neighborhoods, and provides psychological benefits including stress reduction and improved social cohesion. Despite these benefits, community gardens in many cities face pressure from land developers who covet the space for housing or commercial projects. The tension between food security, green space, and urban densification reflects broader questions about the values a city chooses to prioritize.</p>"
+          },
+          "questions": [
+            {
+              "id": "otv-r43-q1",
+              "type": "mcq",
+              "question": "What is the author's overall tone in this passage?",
+              "options": [
+                "Strongly in favor of replacing all conventional farming with urban farming",
+                "Balanced and informative, presenting both potential and limitations",
+                "Highly skeptical of all forms of urban farming",
+                "Concerned that urban farming is environmentally dangerous"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 1
+            },
+            {
+              "id": "otv-r43-q2",
+              "type": "mcq",
+              "question": "What is the main purpose of paragraph 2?",
+              "options": [
+                "To explain the social benefits of gardening in urban areas",
+                "To examine vertical farming — its advantages and its current limitations",
+                "To compare indoor farming with community gardening in economic terms",
+                "To argue that vertical farms should be banned due to energy consumption"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 2
+            },
+            {
+              "id": "otv-r43-q3",
+              "type": "mcq",
+              "question": "The word \"covet\" in paragraph 3 suggests that developers view community garden land as?",
+              "options": [
+                "environmentally contaminated and in need of cleanup",
+                "something they strongly desire for their own use",
+                "legally protected and therefore difficult to acquire",
+                "publicly owned and therefore freely available"
+              ],
+              "answer": 1,
+              "explanationVi": "<p>Đáp án chính xác là <b>B</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 3
+            },
+            {
+              "id": "otv-r43-q4",
+              "type": "mcq",
+              "question": "What does the author mean by \"the values a city chooses to prioritize\" in paragraph 3?",
+              "options": [
+                "Cities must decide between competing goods such as community food gardens and housing development.",
+                "All cities should prioritize maximum economic growth above other considerations.",
+                "Cities with community gardens are morally superior to cities without them.",
+                "Urban planning decisions should be made by community members, not governments."
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 4
+            },
+            {
+              "id": "otv-r43-q5",
+              "type": "mcq",
+              "question": "How is the passage organized?",
+              "options": [
+                "General introduction to urban farming → high-tech approach and its trade-offs → community-based approach and its challenges",
+                "A chronological history of urban farming from the earliest examples to the present",
+                "A debate structure alternating between supporters and critics of urban farming",
+                "A comparison of urban farming practices in Asia versus Europe and North America"
+              ],
+              "answer": 0,
+              "explanationVi": "<p>Đáp án chính xác là <b>A</b>. Căn cứ theo dẫn chứng và nội dung đối chiếu trong bài đọc.</p>",
+              "part": "Reading",
+              "orderNumber": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
