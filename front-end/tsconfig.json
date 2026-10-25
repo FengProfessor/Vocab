@@ -26,8 +26,20 @@
       "next/image": ["./src/shims/next-image.tsx"],
       "next/dynamic": ["./src/shims/next-dynamic.tsx"],
       "next/font/google": ["./src/shims/next-font-google.ts"],
+      "next/server": ["./src/shims/next-server.ts"],
+      "next/og": ["./src/shims/next-og.tsx"],
       "next": ["./src/shims/next-types.ts"]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.mts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "scripts",
+    "src/data"
+  ]
 }

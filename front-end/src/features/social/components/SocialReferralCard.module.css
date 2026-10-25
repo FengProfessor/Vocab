@@ -1,8 +1,0 @@
-.balance :global(.ant-statistic-content-value) {
-  color: var(--lp-color-success);
-  font-weight: 700;
-}
-
-.actions {
-  margin-top: 12px;
-}

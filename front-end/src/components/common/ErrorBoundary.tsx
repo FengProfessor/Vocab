@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Result } from '@/components/ui/Primitives';
 import { ErrorBoundaryProps } from '@/components/types/ErrorBoundaryProps';
 import { ErrorBoundaryState } from '@/components/types/ErrorBoundaryState';
 
@@ -25,16 +24,23 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   public override render(): React.ReactNode {
     if (this.state.hasError) {
       return (
-        <Result
-          status="error"
-          title="Đã xảy ra sự cố hiển thị giao diện"
-          subTitle={this.state.errorMessage}
-          extra={
-            <Button type="primary" onClick={() => window.location.reload()}>
+        <div className="min-h-screen flex flex-col items-center justify-center p-6 text-center bg-slate-50 dark:bg-slate-950">
+          <div className="max-w-md rounded-2xl border border-rose-200 dark:border-rose-900/50 bg-white dark:bg-slate-900 p-6 shadow-sm">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+              Đã xảy ra sự cố hiển thị giao diện
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-5 break-words">
+              {this.state.errorMessage}
+            </p>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold transition-colors"
+            >
               Tải lại trang
-            </Button>
-          }
-        />
+            </button>
+          </div>
+        </div>
       );
     }
 
