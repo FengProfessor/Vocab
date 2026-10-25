@@ -7,6 +7,7 @@ using LingoPro.Domain.Entities.Billing;
 using LingoPro.Domain.Entities.Social;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.AdminCrm;
@@ -45,7 +46,7 @@ public sealed class GetAdminCrmDashboardQueryHandlerTests
             new PayoutRequest { UserId = u2, Amount = 100000, Status = PayoutRequestStatus.Pending },
             new PayoutRequest { UserId = u2, Amount = 200000, Status = PayoutRequestStatus.Completed });
         await db.SaveChangesAsync();
-        var handler = new GetAdminCrmDashboardQueryHandler(db);
+        var handler = new GetAdminCrmDashboardQueryHandler(new AdminCrmRepository(db));
 
         // Act
         var response = await handler.Handle(new GetAdminCrmDashboardQuery(), CancellationToken.None);
@@ -71,7 +72,7 @@ public sealed class GetAdminCrmDashboardQueryHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new GetAdminCrmDashboardQueryHandler(db);
+        var handler = new GetAdminCrmDashboardQueryHandler(new AdminCrmRepository(db));
 
         // Act
         var response = await handler.Handle(new GetAdminCrmDashboardQuery(), CancellationToken.None);
@@ -91,7 +92,7 @@ public sealed class GetAdminCrmDashboardQueryHandlerTests
         await using var db = TestHelpers.CreateDb();
         var user = TestHelpers.CreateUser(Guid.NewGuid(), role);
         var behavior = new AuthorizationBehavior<GetAdminCrmDashboardQuery, ApiResponse<CrmDashboardSummaryDto>>(user);
-        var handler = new GetAdminCrmDashboardQueryHandler(db);
+        var handler = new GetAdminCrmDashboardQueryHandler(new AdminCrmRepository(db));
         var query = new GetAdminCrmDashboardQuery();
 
         // Act
@@ -126,7 +127,7 @@ public sealed class GetAdminCrmDashboardQueryHandlerTests
             new Profile { Id = Guid.NewGuid(), Email = "expired@t.local", Plan = SubscriptionPlanType.Pro, PlanExpiresAt = DateTime.UtcNow.AddDays(-5) },
             new Profile { Id = Guid.NewGuid(), Email = "free@t.local", Plan = SubscriptionPlanType.Free });
         await db.SaveChangesAsync();
-        var handler = new GetAdminCrmDashboardQueryHandler(db);
+        var handler = new GetAdminCrmDashboardQueryHandler(new AdminCrmRepository(db));
 
         // Act
         var response = await handler.Handle(new GetAdminCrmDashboardQuery(), CancellationToken.None);

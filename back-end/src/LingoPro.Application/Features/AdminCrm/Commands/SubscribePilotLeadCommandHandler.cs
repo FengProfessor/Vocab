@@ -1,23 +1,21 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Admin;
 using LingoPro.Domain.Enums;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.AdminCrm.Commands;
 
 /// <summary>
 /// Handles registering or returning an existing pilot lead by email.
 /// </summary>
-public sealed class SubscribePilotLeadCommandHandler(IApplicationDbContext dbContext)
+public sealed class SubscribePilotLeadCommandHandler(IAdminCrmRepository adminCrmRepository)
     : IRequestHandler<SubscribePilotLeadCommand, ApiResponse<Guid>>
 {
     public async Task<ApiResponse<Guid>> Handle(SubscribePilotLeadCommand request, CancellationToken ct)
     {
         var normalizedEmail = request.Email.Trim().ToLowerInvariant();
-        var existing = await dbContext.PilotLeads
-            .FirstOrDefaultAsync(x => x.Email == normalizedEmail, ct);
+        var existing = await adminCrmRepository.GetPilotLeadByEmailAsync(normalizedEmail, ct);
 
         if (existing is not null)
         {
@@ -34,8 +32,8 @@ public sealed class SubscribePilotLeadCommandHandler(IApplicationDbContext dbCon
             Status = PilotLeadStatus.New
         };
 
-        dbContext.PilotLeads.Add(lead);
-        await dbContext.SaveChangesAsync(ct);
+        adminCrmRepository.AddPilotLead(lead);
+        await adminCrmRepository.SaveChangesAsync(ct);
 
         return ApiResponse<Guid>.Created(lead.Id, "Pilot lead subscribed successfully.");
     }

@@ -1,9 +1,9 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Dictionary.Queries;
 
@@ -11,16 +11,14 @@ namespace LingoPro.Application.Features.Dictionary.Queries;
 /// Retrieves a global dictionary headword entry from the database and optionally disambiguates its sense in context via AI.
 /// </summary>
 public class SmartLookupQueryHandler(
-    IApplicationDbContext dbContext,
+    IDictionaryRepository dictionaryRepository,
     IAiRouterService aiRouter) : IRequestHandler<SmartLookupQuery, ApiResponse<DictionaryEntryDto>>
 {
     public async Task<ApiResponse<DictionaryEntryDto>> Handle(SmartLookupQuery request, CancellationToken ct)
     {
         string normalized = request.Term.Trim().ToLowerInvariant();
 
-        var entry = await dbContext.GlobalDictionaries
-            .AsNoTracking()
-            .FirstOrDefaultAsync(d => d.Word == normalized, ct)
+        var entry = await dictionaryRepository.GetByWordAsNoTrackingAsync(normalized, ct)
             ?? throw new NotFoundException("GlobalDictionary", normalized);
 
         // global_dictionary stores the whole entry in a single jsonb column (data); the DTO's per-field JSON is extracted from it.
@@ -80,4 +78,5 @@ public class SmartLookupQueryHandler(
     private static string PickText(JsonDocument doc, params string[] keys)
         => TryFind(doc, keys, out var v)
             ? (v.ValueKind == JsonValueKind.String ? v.GetString() ?? string.Empty : v.GetRawText())
-            : string.Empty;}
+            : string.Empty;
+}

@@ -1,11 +1,11 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Billing;
 using LingoPro.Domain.Entities.Gamification;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Billing.Commands;
 
@@ -14,7 +14,7 @@ namespace LingoPro.Application.Features.Billing.Commands;
 /// </summary>
 public class CreateOrderCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<CreateOrderCommand, ApiResponse<OrderDto>>
+    IBillingRepository billingRepository) : IRequestHandler<CreateOrderCommand, ApiResponse<OrderDto>>
 {
     public async Task<ApiResponse<OrderDto>> Handle(CreateOrderCommand request, CancellationToken ct)
     {
@@ -29,12 +29,7 @@ public class CreateOrderCommandHandler(
         if (!string.IsNullOrWhiteSpace(request.CouponCode))
         {
             normalizedCoupon = request.CouponCode.Trim().ToUpperInvariant();
-            var coupon = await dbContext.Coupons.FirstOrDefaultAsync(c =>
-                c.Code == normalizedCoupon &&
-                c.IsActive == true &&
-                (c.MaxUses == null || c.UsedCount < c.MaxUses) &&
-                (c.ValidFrom == null || c.ValidFrom <= DateTime.UtcNow) &&
-                (c.ValidUntil == null || c.ValidUntil > DateTime.UtcNow), ct)
+            var coupon = await billingRepository.GetActiveValidCouponAsync(normalizedCoupon, DateTime.UtcNow, ct)
                 ?? throw new DomainException("The coupon code is invalid, expired, or has reached its usage limit.", "INVALID_COUPON");
 
             // SQL coupons carry either discount_pct or a fixed discount_amount (no max-discount cap column).
@@ -63,13 +58,13 @@ public class CreateOrderCommandHandler(
             CouponCode = normalizedCoupon
         };
 
-        dbContext.Orders.Add(order);
+        billingRepository.AddOrder(order);
 
         // SQL orders have no target_challenge_id column: the order<->challenge link is the pending
         // challenge_participants row carrying order_id.
         if (request.OrderKind == OrderKind.Challenge && request.TargetChallengeId.HasValue)
         {
-            dbContext.ChallengeParticipants.Add(new ChallengeParticipant
+            billingRepository.AddChallengeParticipant(new ChallengeParticipant
             {
                 ChallengeId = request.TargetChallengeId.Value,
                 UserId = userId,
@@ -78,7 +73,7 @@ public class CreateOrderCommandHandler(
             });
         }
 
-        await dbContext.SaveChangesAsync(ct);
+        await billingRepository.SaveChangesAsync(ct);
 
         string qrUrl = $"https://img.vietqr.io/image/MB-0123456789-compact2.png?amount={order.Amount}&addInfo={order.PaymentRef}";
 

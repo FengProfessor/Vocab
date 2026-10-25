@@ -1,8 +1,8 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Classrooms.Commands;
 
@@ -11,15 +11,13 @@ namespace LingoPro.Application.Features.Classrooms.Commands;
 /// </summary>
 public class AssignDrillCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<AssignDrillCommand, ApiResponse<int>>
+    IClassroomRepository classroomRepository) : IRequestHandler<AssignDrillCommand, ApiResponse<int>>
 {
     public async Task<ApiResponse<int>> Handle(AssignDrillCommand request, CancellationToken ct)
     {
         var teacherId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
 
-        var classroom = await dbContext.Classrooms
-            .AsNoTracking()
-            .FirstOrDefaultAsync(c => c.Id == request.ClassroomId, ct)
+        var classroom = await classroomRepository.GetClassroomByIdAsNoTrackingAsync(request.ClassroomId, ct)
             ?? throw new NotFoundException("Classroom", request.ClassroomId);
 
         if (classroom.IsPersonal || (classroom.TeacherId != teacherId && !currentUser.IsAdmin))
@@ -27,9 +25,7 @@ public class AssignDrillCommandHandler(
             throw new ForbiddenAccessException("You are not authorized to manage this classroom.");
         }
 
-        bool isEnrolled = await dbContext.Enrollments
-            .AsNoTracking()
-            .AnyAsync(e => e.ClassroomId == request.ClassroomId && e.StudentId == request.StudentId, ct);
+        bool isEnrolled = await classroomRepository.IsStudentEnrolledAsync(request.ClassroomId, request.StudentId, ct);
 
         if (!isEnrolled)
         {
@@ -37,20 +33,13 @@ public class AssignDrillCommandHandler(
         }
 
         var today = DateOnly.FromDateTime(DateTime.UtcNow);
-        var query = dbContext.SrsProgresses.Where(s => s.UserId == request.StudentId);
-
-        if (request.WordIds is { Count: > 0 })
-        {
-            query = query.Where(s => request.WordIds.Contains(s.WordId));
-        }
-
-        var itemsToDrill = await query.ToListAsync(ct);
+        var itemsToDrill = await classroomRepository.GetStudentSrsProgressesForDrillAsync(request.StudentId, request.WordIds, ct);
         foreach (var item in itemsToDrill)
         {
             item.NextReviewDate = today.ToDateTime(TimeOnly.MinValue);
         }
 
-        await dbContext.SaveChangesAsync(ct);
+        await classroomRepository.SaveChangesAsync(ct);
 
         return ApiResponse<int>.Ok(itemsToDrill.Count, "Vocabulary drill assigned to student successfully.");
     }

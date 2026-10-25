@@ -1,6 +1,7 @@
 using LingoPro.Application.Features.Social.Queries;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Social;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.Social;
@@ -37,7 +38,7 @@ public sealed class GetReferralHubQueryHandlerTests
             Log(me, "fraud_flagged"),
             Log(Guid.NewGuid(), "activated"));
         await db.SaveChangesAsync();
-        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), db);
+        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), new SocialRepository(db));
 
         // Act
         var response = await handler.Handle(new GetReferralHubQuery(), CancellationToken.None);
@@ -59,7 +60,7 @@ public sealed class GetReferralHubQueryHandlerTests
         // Arrange
         var me = Guid.NewGuid();
         await using var db = TestHelpers.CreateDb();
-        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), db);
+        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), new SocialRepository(db));
 
         // Act
         var first = await handler.Handle(new GetReferralHubQuery(), CancellationToken.None);
@@ -96,7 +97,7 @@ public sealed class GetReferralHubQueryHandlerTests
             new RewardTransaction { UserId = me, RewardType = "affiliate_cash", Amount = 70000, Status = "withdrawn" },
             new RewardTransaction { UserId = Guid.NewGuid(), RewardType = "affiliate_cash", Amount = 1000000, Status = "available" });
         await db.SaveChangesAsync();
-        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), db);
+        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), new SocialRepository(db));
 
         // Act
         var response = await handler.Handle(new GetReferralHubQuery(), CancellationToken.None);
@@ -131,7 +132,7 @@ public sealed class GetReferralHubQueryHandlerTests
                 AvailableAt = DateTime.UtcNow.AddDays(5)
             });
         await db.SaveChangesAsync();
-        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), db);
+        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), new SocialRepository(db));
 
         // Act
         var response = await handler.Handle(new GetReferralHubQuery(), CancellationToken.None);
@@ -153,7 +154,7 @@ public sealed class GetReferralHubQueryHandlerTests
         db.StudyGroups.AddRange(mine, other);
         db.GroupMembers.Add(new GroupMember { GroupId = mine.Id, UserId = me });
         await db.SaveChangesAsync();
-        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), db);
+        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), new SocialRepository(db));
 
         // Act
         var response = await handler.Handle(new GetReferralHubQuery(), CancellationToken.None);
@@ -178,7 +179,7 @@ public sealed class GetReferralHubQueryHandlerTests
             new RewardTransaction { UserId = me, RewardType = "affiliate_cash", Amount = 100000, Status = "available" },
             new RewardTransaction { UserId = me, RewardType = "payout_debit", Amount = -100000, Status = "deducted" });
         await db.SaveChangesAsync();
-        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), db);
+        var handler = new GetReferralHubQueryHandler(TestHelpers.CreateUser(me), new SocialRepository(db));
 
         // Act
         var response = await handler.Handle(new GetReferralHubQuery(), CancellationToken.None);

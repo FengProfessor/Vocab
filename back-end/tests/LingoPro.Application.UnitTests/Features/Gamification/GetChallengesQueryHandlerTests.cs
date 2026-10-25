@@ -2,6 +2,7 @@ using LingoPro.Application.Features.Gamification.Queries;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Gamification;
 using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.Gamification;
@@ -60,7 +61,7 @@ public sealed class GetChallengesQueryHandlerTests
             new ChallengeParticipant { ChallengeId = second.Id, UserId = Guid.NewGuid() },
             new ChallengeParticipant { ChallengeId = first.Id, UserId = Guid.NewGuid() });
         await db.SaveChangesAsync();
-        var handler = new GetChallengesQueryHandler(db);
+        var handler = new GetChallengesQueryHandler(new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(new GetChallengesQuery(), CancellationToken.None);
@@ -92,7 +93,7 @@ public sealed class GetChallengesQueryHandlerTests
             NewChallenge("CreatedFirstStartsLast", 20, createdAt: now.AddDays(-5)),
             NewChallenge("CreatedLastStartsFirst", 1, createdAt: now.AddDays(-1)));
         await db.SaveChangesAsync();
-        var handler = new GetChallengesQueryHandler(db);
+        var handler = new GetChallengesQueryHandler(new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(new GetChallengesQuery(), CancellationToken.None);
@@ -115,7 +116,7 @@ public sealed class GetChallengesQueryHandlerTests
             dailyCriteria: "{\"min_srs_reviews\": 35, \"min_quizzes\": 1, \"min_reading_sessions\": 0, \"min_listening_sessions\": 0}");
         db.Challenges.Add(challenge);
         await db.SaveChangesAsync();
-        var handler = new GetChallengesQueryHandler(db);
+        var handler = new GetChallengesQueryHandler(new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(new GetChallengesQuery(), CancellationToken.None);
@@ -137,7 +138,7 @@ public sealed class GetChallengesQueryHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new GetChallengesQueryHandler(db);
+        var handler = new GetChallengesQueryHandler(new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(new GetChallengesQuery(), CancellationToken.None);
@@ -158,7 +159,7 @@ public sealed class GetChallengesQueryHandlerTests
             NewChallenge("Visible", 1, ChallengeStatus.Open),
             NewChallenge("Hidden", 2, ChallengeStatus.Draft));
         await db.SaveChangesAsync();
-        var handler = new GetChallengesQueryHandler(db);
+        var handler = new GetChallengesQueryHandler(new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(new GetChallengesQuery(), CancellationToken.None);

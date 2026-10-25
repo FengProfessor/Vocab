@@ -7,6 +7,7 @@ using LingoPro.Domain.Entities.Social;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -79,7 +80,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile();
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, months: months));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
         var before = DateTime.UtcNow;
 
         // Act
@@ -109,7 +110,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile();
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, months: 3));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(79000m), CancellationToken.None);
@@ -134,7 +135,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         var profile = NewProfile();
         var order = NewOrder(profile.Id);
         await using var db = await SeedAsync(profile, order);
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(79000m), CancellationToken.None);
@@ -162,7 +163,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, couponCode: "SAVE20"));
         db.Coupons.Add(new Coupon { Code = "SAVE20", DiscountPct = 20, UsedCount = 0 });
         await db.SaveChangesAsync();
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(79000m), CancellationToken.None);
@@ -180,7 +181,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         var currentExpiry = DateTime.UtcNow.AddDays(10);
         var profile = NewProfile(SubscriptionPlanType.Pro, currentExpiry);
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, months: 1));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(79000m), CancellationToken.None);
@@ -202,7 +203,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile(SubscriptionPlanType.Pro, DateTime.UtcNow.AddDays(-20));
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, months: 1));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
         var before = DateTime.UtcNow;
 
         // Act
@@ -222,7 +223,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile();
         await using var db = await SeedAsync(profile, NewOrder(profile.Id));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
         await handler.Handle(Pay(79000m, tx: "GW-1"), CancellationToken.None);
         var firstExpiry = (await db.Profiles.SingleAsync()).PlanExpiresAt;
         var firstPaidAt = (await db.Orders.SingleAsync()).PaidAt;
@@ -251,7 +252,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile();
         await using var db = await SeedAsync(profile, NewOrder(profile.Id));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         var response = await handler.Handle(Pay(79000m, code: "  lp260101abc123 "), CancellationToken.None);
@@ -268,7 +269,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile();
         await using var db = await SeedAsync(profile, NewOrder(profile.Id));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(
@@ -287,7 +288,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         var currentExpiry = DateTime.UtcNow.AddDays(30);
         var profile = NewProfile(SubscriptionPlanType.Premium, currentExpiry);
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, plan: SubscriptionPlanType.Pro, months: 1));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(79000m), CancellationToken.None);
@@ -310,7 +311,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         var profile = NewProfile(SubscriptionPlanType.Pro, DateTime.UtcNow.AddDays(5));
         await using var db = await SeedAsync(
             profile, NewOrder(profile.Id, plan: SubscriptionPlanType.Premium, amount: 129000));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(129000m), CancellationToken.None);
@@ -327,7 +328,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile();
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, amount: 79000));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         var ex = Assert.ThrowsAsync<DomainException>(
@@ -351,7 +352,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile();
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, amount: 79000));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         var response = await handler.Handle(Pay(paid), CancellationToken.None);
@@ -369,7 +370,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile();
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, amount: 79000));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         var response = await handler.Handle(Pay(78000m), CancellationToken.None);
@@ -387,7 +388,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         var profile = NewProfile();
         await using var db = await SeedAsync(
             profile, NewOrder(profile.Id, OrderKind.Group, months: 3, amount: 526500, seats: 5));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
         var before = DateTime.UtcNow;
 
         // Act
@@ -440,7 +441,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var (db, _, _) = await SeedGroupRenewalAsync();
         await using var dbLease = db;
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(195000m), CancellationToken.None);
@@ -468,7 +469,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var (db, _, _) = await SeedGroupRenewalAsync();
         await using var dbLease = db;
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
         var before = DateTime.UtcNow;
 
         // Act
@@ -488,7 +489,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var (db, _, oldGroup) = await SeedGroupRenewalAsync(groupStatus: "expired");
         await using var dbLease = db;
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(195000m), CancellationToken.None);
@@ -514,7 +515,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         db.Profiles.Add(member);
         db.GroupMembers.Add(new GroupMember { GroupId = group.Id, UserId = member.Id });
         await db.SaveChangesAsync();
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(195000m), CancellationToken.None);
@@ -546,7 +547,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
             Status = ChallengeParticipantStatus.Pending
         });
         await db.SaveChangesAsync();
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         await handler.Handle(Pay(100000m), CancellationToken.None);
@@ -580,7 +581,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
             Status = ChallengeParticipantStatus.Pending
         });
         await db.SaveChangesAsync();
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act
         var response = await handler.Handle(Pay(100000m), CancellationToken.None);
@@ -604,7 +605,7 @@ public sealed class ConfirmOrderPaidCommandHandlerTests
         // Arrange
         var profile = NewProfile();
         await using var db = await SeedAsync(profile, NewOrder(profile.Id, status: status));
-        var handler = new ConfirmOrderPaidCommandHandler(db);
+        var handler = new ConfirmOrderPaidCommandHandler(new BillingRepository(db));
 
         // Act & Assert
         Assert.CatchAsync<DomainException>(

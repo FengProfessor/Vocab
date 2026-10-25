@@ -4,6 +4,7 @@ using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -34,7 +35,7 @@ public sealed class SubmitPlacementCommandHandlerTests
         // Arrange (original scores correctness; C# only counts the number of keys)
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
         var answers = Enumerable.Range(1, 16).ToDictionary(i => $"q{i}", _ => string.Empty);
 
         // Act
@@ -52,7 +53,7 @@ public sealed class SubmitPlacementCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
 
         // Act
         var response = await handler.Handle(
@@ -77,7 +78,7 @@ public sealed class SubmitPlacementCommandHandlerTests
         // Arrange (original: 400 when the level is not in the track's level list, e.g. CEFR + lop-10)
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -98,7 +99,7 @@ public sealed class SubmitPlacementCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
         var answers = new Dictionary<string, string> { ["q1"] = "a" };
 
         // Act + Assert
@@ -114,7 +115,7 @@ public sealed class SubmitPlacementCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
 
         // Act
         await handler.Handle(new SubmitPlacementCommand(RoadmapTrackType.Cefr, RoadmapLevelId.A1, null), CancellationToken.None);
@@ -137,7 +138,7 @@ public sealed class SubmitPlacementCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
         await handler.Handle(new SubmitPlacementCommand(RoadmapTrackType.Cefr, RoadmapLevelId.A1, null), CancellationToken.None);
 
         // Act
@@ -159,7 +160,7 @@ public sealed class SubmitPlacementCommandHandlerTests
         // Arrange
         var (db, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new SubmitPlacementCommandHandler(TestHelpers.CreateUser(null), new RoadmapRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(

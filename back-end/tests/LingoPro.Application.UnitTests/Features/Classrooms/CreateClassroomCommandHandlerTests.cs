@@ -4,6 +4,7 @@ using LingoPro.Application.Features.Classrooms.Commands;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.Classrooms;
@@ -25,7 +26,7 @@ public sealed class CreateClassroomCommandHandlerTests
         using var db = TestHelpers.CreateDb();
         var currentUser = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Student);
         var authBehavior = new AuthorizationBehavior<CreateClassroomCommand, ApiResponse<ClassroomDto>>(currentUser);
-        var handler = new CreateClassroomCommandHandler(currentUser, db);
+        var handler = new CreateClassroomCommandHandler(currentUser, new ClassroomRepository(db));
         var command = new CreateClassroomCommand("TOEIC 800+ Intensive", "Evening class");
 
         // Act & Assert
@@ -47,7 +48,7 @@ public sealed class CreateClassroomCommandHandlerTests
         var teacherId = Guid.NewGuid();
         var currentUser = TestHelpers.CreateUser(teacherId, UserRole.Teacher);
         var authBehavior = new AuthorizationBehavior<CreateClassroomCommand, ApiResponse<ClassroomDto>>(currentUser);
-        var handler = new CreateClassroomCommandHandler(currentUser, db);
+        var handler = new CreateClassroomCommandHandler(currentUser, new ClassroomRepository(db));
         var command = new CreateClassroomCommand("IELTS Academic 7.5", "Advanced cohort");
 
         // Act
@@ -77,7 +78,7 @@ public sealed class CreateClassroomCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateClassroomCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new CreateClassroomCommandHandler(TestHelpers.CreateUser(null), new ClassroomRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<UnauthorizedAccessException>(

@@ -3,6 +3,7 @@ using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -52,7 +53,7 @@ public sealed class JoinClassroomCommandHandlerTests
         var (db, classroom) = await SeedAsync();
         await using var dbLease = db;
         var studentId = Guid.NewGuid();
-        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(studentId), db);
+        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(studentId), new ClassroomRepository(db));
 
         // Act
         var response = await handler.Handle(new JoinClassroomCommand("  abc123 "), CancellationToken.None);
@@ -82,7 +83,7 @@ public sealed class JoinClassroomCommandHandlerTests
         // Arrange
         var (db, _) = await SeedAsync(existingStudents: 2);
         await using var dbLease = db;
-        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new ClassroomRepository(db));
 
         // Act
         var response = await handler.Handle(new JoinClassroomCommand(InviteCode), CancellationToken.None);
@@ -103,7 +104,7 @@ public sealed class JoinClassroomCommandHandlerTests
         // Arrange
         var (db, _) = await SeedAsync(existingStudents: 2);
         await using var dbLease2 = db;
-        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new ClassroomRepository(db));
         await handler.Handle(new JoinClassroomCommand(InviteCode), CancellationToken.None);
 
         // Act
@@ -126,7 +127,7 @@ public sealed class JoinClassroomCommandHandlerTests
         // Arrange
         var (db, _) = await SeedAsync();
         await using var dbLease = db;
-        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new ClassroomRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(
@@ -142,7 +143,7 @@ public sealed class JoinClassroomCommandHandlerTests
         // Arrange
         var (db, _) = await SeedAsync();
         await using var dbLease = db;
-        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(null), new ClassroomRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<UnauthorizedAccessException>(
@@ -158,7 +159,7 @@ public sealed class JoinClassroomCommandHandlerTests
         // Arrange
         var (db, _) = await SeedAsync(name: "__personal__", inviteCode: "PERS01");
         await using var dbLease = db;
-        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new ClassroomRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<ForbiddenAccessException>(
@@ -176,7 +177,7 @@ public sealed class JoinClassroomCommandHandlerTests
         var teacherId = Guid.NewGuid();
         var (db, _) = await SeedAsync(teacherId: teacherId);
         await using var dbLease = db;
-        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(teacherId), db);
+        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(teacherId), new ClassroomRepository(db));
 
         // Act & Assert
         Assert.CatchAsync<DomainException>(
@@ -193,7 +194,7 @@ public sealed class JoinClassroomCommandHandlerTests
         var (db, _) = await SeedAsync(existingStudents: 499);
         await using var dbLease = db;
         var studentId = Guid.NewGuid();
-        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(studentId), db);
+        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(studentId), new ClassroomRepository(db));
 
         // Act
         var response = await handler.Handle(new JoinClassroomCommand(InviteCode), CancellationToken.None);
@@ -216,7 +217,7 @@ public sealed class JoinClassroomCommandHandlerTests
         // Arrange
         var (db, _) = await SeedAsync(existingStudents: 500);
         await using var dbLease = db;
-        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new ClassroomRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<ForbiddenAccessException>(

@@ -1,9 +1,8 @@
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
-using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Auth.Commands;
 
@@ -13,15 +12,13 @@ namespace LingoPro.Application.Features.Auth.Commands;
 /// </summary>
 public class RegisterCommandHandler(
     ISupabaseAuthService supabaseAuth,
-    IApplicationDbContext dbContext) : IRequestHandler<RegisterCommand, ApiResponse<AuthTokensDto>>
+    IAuthRepository authRepository) : IRequestHandler<RegisterCommand, ApiResponse<AuthTokensDto>>
 {
     public async Task<ApiResponse<AuthTokensDto>> Handle(RegisterCommand request, CancellationToken ct)
     {
         var normalizedEmail = request.Email.Trim().ToLowerInvariant();
 
-        bool emailExists = await dbContext.Profiles
-            .AsNoTracking()
-            .AnyAsync(p => p.Email.ToLower() == normalizedEmail, ct);
+        bool emailExists = await authRepository.EmailExistsAsync(normalizedEmail, ct);
 
         if (emailExists)
         {
@@ -29,7 +26,7 @@ public class RegisterCommandHandler(
         }
 
         var authResult = await supabaseAuth.SignUpWithPasswordAsync(normalizedEmail, request.Password, request.FullName, ct);
-        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(dbContext, authResult, ct, request.Role);
+        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(authRepository, authResult, ct, request.Role);
         var dto = ProfileSyncHelper.MapToAuthTokensDto(profile, authResult);
 
         var message = string.IsNullOrWhiteSpace(authResult.AccessToken)

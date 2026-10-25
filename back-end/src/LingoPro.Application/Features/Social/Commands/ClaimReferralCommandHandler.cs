@@ -1,11 +1,10 @@
-using LingoPro.Application.Features.Social.Queries;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.Social.Queries;
 using LingoPro.Domain.Entities.Social;
-using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Social.Commands;
 
@@ -15,7 +14,7 @@ namespace LingoPro.Application.Features.Social.Commands;
 /// </summary>
 public sealed class ClaimReferralCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<ClaimReferralCommand, ApiResponse<ClaimReferralResultDto>>
+    ISocialRepository socialRepository) : IRequestHandler<ClaimReferralCommand, ApiResponse<ClaimReferralResultDto>>
 {
     public async Task<ApiResponse<ClaimReferralResultDto>> Handle(ClaimReferralCommand request, CancellationToken ct)
     {
@@ -23,9 +22,7 @@ public sealed class ClaimReferralCommandHandler(
             ?? throw new UnauthorizedAccessException("User is not authenticated.");
         var code = request.ReferralCode.Trim().ToUpperInvariant();
 
-        var existing = await dbContext.ReferralLogs
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.RefereeId == userId, ct);
+        var existing = await socialRepository.GetReferralLogByRefereeIdAsNoTrackingAsync(userId, ct);
         if (existing is not null)
         {
             return ApiResponse<ClaimReferralResultDto>.Ok(
@@ -33,9 +30,7 @@ public sealed class ClaimReferralCommandHandler(
                 "Referral already attributed to this account.");
         }
 
-        var link = await dbContext.ReferralLinks
-            .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.ReferralCode == code, ct)
+        var link = await socialRepository.GetReferralLinkByCodeAsNoTrackingAsync(code, ct)
             ?? throw new NotFoundException("ReferralCode", code);
 
         if (link.UserId == userId)
@@ -43,14 +38,9 @@ public sealed class ClaimReferralCommandHandler(
             throw new DomainException("You cannot use your own referral code.", "SELF_REFERRAL");
         }
 
-        var campaignId = await dbContext.ReferralCampaigns
-            .AsNoTracking()
-            .Where(x => x.IsActive)
-            .OrderByDescending(x => x.CreatedAt)
-            .Select(x => (Guid?)x.Id)
-            .FirstOrDefaultAsync(ct);
+        var campaignId = await socialRepository.GetLatestActiveReferralCampaignIdAsync(ct);
 
-        dbContext.ReferralLogs.Add(new ReferralLog
+        socialRepository.AddReferralLog(new ReferralLog
         {
             ReferrerId = link.UserId,
             RefereeId = userId,
@@ -58,7 +48,7 @@ public sealed class ClaimReferralCommandHandler(
             ReferralCode = code,
             Status = "registered"
         });
-        await dbContext.SaveChangesAsync(ct);
+        await socialRepository.SaveChangesAsync(ct);
 
         return ApiResponse<ClaimReferralResultDto>.Ok(
             new ClaimReferralResultDto(false, code),

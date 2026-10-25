@@ -1,9 +1,9 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Classrooms.Commands;
 
@@ -12,28 +12,26 @@ namespace LingoPro.Application.Features.Classrooms.Commands;
 /// </summary>
 public class JoinClassroomCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<JoinClassroomCommand, ApiResponse<ClassroomDto>>
+    IClassroomRepository classroomRepository) : IRequestHandler<JoinClassroomCommand, ApiResponse<ClassroomDto>>
 {
     public async Task<ApiResponse<ClassroomDto>> Handle(JoinClassroomCommand request, CancellationToken ct)
     {
         var studentId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
         string normalizedCode = request.InviteCode.Trim().ToUpperInvariant();
 
-        var classroom = await dbContext.Classrooms
-            .Include(c => c.Enrollments)
-            .FirstOrDefaultAsync(c => c.InviteCode == normalizedCode && c.Name != "__personal__", ct)
+        var classroom = await classroomRepository.GetPublicClassroomWithEnrollmentsByInviteCodeAsync(normalizedCode, ct)
             ?? throw new NotFoundException("Classroom", normalizedCode);
 
         bool alreadyEnrolled = classroom.Enrollments.Any(e => e.StudentId == studentId);
         if (!alreadyEnrolled)
         {
-            dbContext.Enrollments.Add(new Enrollment
+            classroomRepository.AddEnrollment(new Enrollment
             {
                 ClassroomId = classroom.Id,
                 StudentId = studentId,
                 JoinedAt = DateTime.UtcNow
             });
-            await dbContext.SaveChangesAsync(ct);
+            await classroomRepository.SaveChangesAsync(ct);
         }
 
         return ApiResponse<ClassroomDto>.Ok(

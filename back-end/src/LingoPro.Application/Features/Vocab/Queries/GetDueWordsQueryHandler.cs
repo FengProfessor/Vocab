@@ -1,17 +1,17 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Enums;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Vocab.Queries;
 
 /// <summary>
-/// Retrieves the user's due vocabulary review queue directly from the database without caching.
+/// Retrieves the user's due vocabulary review queue via the vocabulary repository.
 /// </summary>
 public class GetDueWordsQueryHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<GetDueWordsQuery, ApiResponse<IReadOnlyList<WordWithSrsDto>>>
+    IVocabRepository vocabRepository) : IRequestHandler<GetDueWordsQuery, ApiResponse<IReadOnlyList<WordWithSrsDto>>>
 {
     public async Task<ApiResponse<IReadOnlyList<WordWithSrsDto>>> Handle(GetDueWordsQuery request, CancellationToken ct)
     {
@@ -21,13 +21,7 @@ public class GetDueWordsQueryHandler(
 
         var dueUntil = today.AddDays(1).ToDateTime(TimeOnly.MinValue, DateTimeKind.Utc);
 
-        var rows = await dbContext.SrsProgresses
-            .AsNoTracking()
-            .Include(s => s.Word)
-            .Where(s => s.UserId == userId && s.NextReviewDate != null && s.NextReviewDate < dueUntil)
-            .OrderBy(s => s.NextReviewDate)
-            .Take(limit)
-            .ToListAsync(ct);
+        var rows = await vocabRepository.GetDueSrsProgressesWithWordAsync(userId, dueUntil, limit, ct);
 
         // public.words has no topic or CEFR level columns, so Topic/Level are returned as null.
         IReadOnlyList<WordWithSrsDto> dueItems = rows.Select(s => new WordWithSrsDto(

@@ -1,12 +1,11 @@
-﻿using LingoPro.Application.Common.Helpers;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Algorithms;
 using LingoPro.Domain.Entities.Grammar;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Grammar.Commands;
 
@@ -15,7 +14,7 @@ namespace LingoPro.Application.Features.Grammar.Commands;
 /// </summary>
 public class SubmitGrammarProgressCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<SubmitGrammarProgressCommand, ApiResponse<GrammarProgressDto>>
+    IGrammarRepository grammarRepository) : IRequestHandler<SubmitGrammarProgressCommand, ApiResponse<GrammarProgressDto>>
 {
     public async Task<ApiResponse<GrammarProgressDto>> Handle(SubmitGrammarProgressCommand request, CancellationToken ct)
     {
@@ -24,16 +23,10 @@ public class SubmitGrammarProgressCommandHandler(
         var nowUtc = DateTime.UtcNow;
 
         // grammar_progress is keyed by lesson_id: resolve the topic slug to its first lesson.
-        var lessonId = await dbContext.GrammarLessons
-            .AsNoTracking()
-            .Where(l => l.Topic.Slug == slug)
-            .OrderBy(l => l.OrderIndex)
-            .Select(l => (Guid?)l.Id)
-            .FirstOrDefaultAsync(ct)
+        var lessonId = await grammarRepository.GetFirstLessonIdByTopicSlugAsync(slug, ct)
             ?? throw new NotFoundException("GrammarTopic", slug);
 
-        var progress = await dbContext.GrammarProgresses
-            .FirstOrDefaultAsync(g => g.UserId == userId && g.LessonId == lessonId, ct);
+        var progress = await grammarRepository.GetGrammarProgressAsync(userId, lessonId, ct);
 
         var rating = FsrsEngine.MapAccuracyToRating(request.AccuracyPercent);
         var input = progress == null
@@ -67,7 +60,7 @@ public class SubmitGrammarProgressCommandHandler(
                 State = stateText,
                 LastReviewedAt = nowUtc
             };
-            dbContext.GrammarProgresses.Add(progress);
+            grammarRepository.AddGrammarProgress(progress);
         }
         else
         {
@@ -82,9 +75,9 @@ public class SubmitGrammarProgressCommandHandler(
             progress.LastReviewedAt = nowUtc;
         }
 
-        await GamificationXp.AwardAsync(dbContext, userId, scheduled.XpAwarded, DateOnly.FromDateTime(nowUtc), ct);
+        await grammarRepository.AwardXpAsync(userId, scheduled.XpAwarded, DateOnly.FromDateTime(nowUtc), ct);
 
-        await dbContext.SaveChangesAsync(ct);
+        await grammarRepository.SaveChangesAsync(ct);
 
         var dto = new GrammarProgressDto(
             slug,

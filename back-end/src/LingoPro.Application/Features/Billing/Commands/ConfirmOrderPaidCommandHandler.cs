@@ -1,24 +1,22 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Social;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Billing.Commands;
 
 /// <summary>
 /// Marks an order as paid idempotently and grants individual, group, or challenge entitlements.
 /// </summary>
-public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
+public class ConfirmOrderPaidCommandHandler(IBillingRepository billingRepository)
     : IRequestHandler<ConfirmOrderPaidCommand, ApiResponse<OrderDto>>
 {
     public async Task<ApiResponse<OrderDto>> Handle(ConfirmOrderPaidCommand request, CancellationToken ct)
     {
         string normalizedCode = request.TransferCode.Trim().ToUpperInvariant();
-        var order = await dbContext.Orders
-            .FirstOrDefaultAsync(o => o.PaymentRef == normalizedCode, ct)
+        var order = await billingRepository.GetOrderByPaymentRefAsync(normalizedCode, ct)
             ?? throw new NotFoundException("Order", normalizedCode);
 
         if (order.Status == OrderStatus.Paid)
@@ -59,8 +57,8 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
             order.Note = $"gateway_tx:{request.GatewayTransactionId}";
         }
 
-        var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == order.UserId, ct)
-            ?? throw new NotFoundException("Profile", order.UserId);
+        var profile = await billingRepository.GetProfileByIdAsync(order.UserId, ct)
+            ?? throw new NotFoundException("Profile", order.UserId ?? Guid.Empty);
 
         if (order.OrderKind == OrderKind.Individual)
         {
@@ -71,9 +69,7 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
         }
         else if (order.OrderKind == OrderKind.Group)
         {
-            var existingGroup = await dbContext.StudyGroups
-                .Include(g => g.Members)
-                .FirstOrDefaultAsync(g => g.OwnerId == profile.Id, ct);
+            var existingGroup = await billingRepository.GetStudyGroupWithMembersByOwnerIdAsync(profile.Id, ct);
 
             DateTime baseExpiry = existingGroup != null && existingGroup.ExpiresAt > nowUtc
                 ? existingGroup.ExpiresAt.Value
@@ -91,8 +87,8 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
                     OrderId = order.Id,
                     ExpiresAt = newExpiry
                 };
-                dbContext.StudyGroups.Add(existingGroup);
-                dbContext.GroupMembers.Add(new GroupMember
+                billingRepository.AddStudyGroup(existingGroup);
+                billingRepository.AddGroupMember(new GroupMember
                 {
                     GroupId = existingGroup.Id,
                     UserId = profile.Id,
@@ -110,9 +106,7 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
         }
         else if (order.OrderKind == OrderKind.Challenge)
         {
-            var participant = await dbContext.ChallengeParticipants
-                .FirstOrDefaultAsync(cp =>
-                    cp.OrderId == order.Id, ct);
+            var participant = await billingRepository.GetChallengeParticipantByOrderIdAsync(order.Id, ct);
 
             if (participant != null)
             {
@@ -121,7 +115,7 @@ public class ConfirmOrderPaidCommandHandler(IApplicationDbContext dbContext)
             }
         }
 
-        await dbContext.SaveChangesAsync(ct);
+        await billingRepository.SaveChangesAsync(ct);
 
         string qrUrl = $"https://img.vietqr.io/image/MB-0123456789-compact2.png?amount={order.Amount}&addInfo={order.PaymentRef}";
         var dto = new OrderDto(

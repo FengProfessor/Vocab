@@ -1,6 +1,7 @@
 using LingoPro.Application.Features.Grammar.Queries;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Grammar;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.Grammar;
@@ -26,7 +27,7 @@ public sealed class GetCanonicalGrammarTopicsQueryHandlerTests
         await using var db = TestHelpers.CreateDb();
         db.GrammarTopics.AddRange(Topic("c", 3), Topic("a", 1), Topic("b", 2));
         await db.SaveChangesAsync();
-        var handler = new GetCanonicalGrammarTopicsQueryHandler(db);
+        var handler = new GetCanonicalGrammarTopicsQueryHandler(new GrammarRepository(db));
 
         // Act
         var response = await handler.Handle(new GetCanonicalGrammarTopicsQuery(), CancellationToken.None);
@@ -47,7 +48,7 @@ public sealed class GetCanonicalGrammarTopicsQueryHandlerTests
         await using var db = TestHelpers.CreateDb();
         db.GrammarTopics.Add(new GrammarTopic { Slug = "present-simple", Title = "Present Simple", TitleVi = "Hien tai don", Level = "A1", OrderIndex = 1 });
         await db.SaveChangesAsync();
-        var handler = new GetCanonicalGrammarTopicsQueryHandler(db);
+        var handler = new GetCanonicalGrammarTopicsQueryHandler(new GrammarRepository(db));
 
         // Act
         var response = await handler.Handle(new GetCanonicalGrammarTopicsQuery(), CancellationToken.None);
@@ -76,7 +77,7 @@ public sealed class GetCanonicalGrammarTopicsQueryHandlerTests
         await using var db = TestHelpers.CreateDb();
         db.GrammarTopics.AddRange(Topic("adv-first", 1, "advanced"), Topic("beg-late", 5, "beginner"), Topic("int-mid", 3, "intermediate"));
         await db.SaveChangesAsync();
-        var handler = new GetCanonicalGrammarTopicsQueryHandler(db);
+        var handler = new GetCanonicalGrammarTopicsQueryHandler(new GrammarRepository(db));
 
         // Act
         var response = await handler.Handle(new GetCanonicalGrammarTopicsQuery(), CancellationToken.None);

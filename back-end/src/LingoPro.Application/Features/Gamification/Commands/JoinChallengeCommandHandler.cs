@@ -1,11 +1,11 @@
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Billing;
 using LingoPro.Domain.Entities.Gamification;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Gamification.Commands;
 
@@ -14,15 +14,13 @@ namespace LingoPro.Application.Features.Gamification.Commands;
 /// </summary>
 public class JoinChallengeCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<JoinChallengeCommand, ApiResponse<JoinChallengeResponseDto>>
+    IGamificationRepository gamificationRepository) : IRequestHandler<JoinChallengeCommand, ApiResponse<JoinChallengeResponseDto>>
 {
     public async Task<ApiResponse<JoinChallengeResponseDto>> Handle(JoinChallengeCommand request, CancellationToken ct)
     {
         var userId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
 
-        var challenge = await dbContext.Challenges
-            .Include(c => c.Participants)
-            .FirstOrDefaultAsync(c => c.Id == request.ChallengeId, ct)
+        var challenge = await gamificationRepository.GetChallengeWithParticipantsByIdAsync(request.ChallengeId, ct)
             ?? throw new NotFoundException("Challenge", request.ChallengeId);
 
         if (challenge.MaxParticipants.HasValue && challenge.Participants.Count >= challenge.MaxParticipants.Value)
@@ -60,7 +58,7 @@ public class JoinChallengeCommandHandler(
                 // SQL orders have no transfer_code/target_challenge_id: transfer code goes in payment_ref; challenge is linked via challenge_participants.order_id.
                 PaymentRef = transferCode
             };
-            dbContext.Orders.Add(order);
+            gamificationRepository.AddOrder(order);
             orderId = order.Id;
         }
 
@@ -72,8 +70,8 @@ public class JoinChallengeCommandHandler(
             Status = initialStatus
         };
 
-        dbContext.ChallengeParticipants.Add(participant);
-        await dbContext.SaveChangesAsync(ct);
+        gamificationRepository.AddChallengeParticipant(participant);
+        await gamificationRepository.SaveChangesAsync(ct);
 
         return ApiResponse<JoinChallengeResponseDto>.Ok(
             new JoinChallengeResponseDto(participant.Id, challenge.Id, participant.Status ?? ChallengeParticipantStatus.Pending, orderId, transferCode),

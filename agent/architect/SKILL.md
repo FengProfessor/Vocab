@@ -105,4 +105,16 @@ Skill này định nghĩa các nguyên tắc kiến trúc cốt lõi và quy chu
 4. [03_DATABASE_EFCORE_POSTGRESQL.md](./03_DATABASE_EFCORE_POSTGRESQL.md) — Thiết kế toàn bộ Entities & Business Enums (`CertLevel`, ...) ánh xạ trực tiếp từ `supabase/schema.sql` và `supabase/migrations/` với EF Core 10.
 5. [04_FRONTEND_REACT_ARCHITECTURE.md](./04_FRONTEND_REACT_ARCHITECTURE.md) — Kiến trúc Hybrid: Server-Side Rendered Landing/SEO + Login bàn giao phiên sang React 19 SPA sử dụng **Ant Design (`antd` v5)**, đồng bộ Business Enums (`CertLevel`) và `ApiResponse<T>`.
 6. [05_MODULE_MAPPING_SRS.md](./05_MODULE_MAPPING_SRS.md) — Bản đồ ánh xạ 15 phân hệ SRS (`SRS_01` $\rightarrow$ `SRS_15`) vào các tầng Clean Architecture, phân quyền `RequireTeacher`, phân loại Selective Cache và NUnit Test Suites.
+7. [06_REVIEW_AND_UI_DIRECTION.md](./06_REVIEW_AND_UI_DIRECTION.md) — Đánh giá tổng hợp PR #26 → PR #35 và chốt định hướng giữ 100% UI Next.js (`src/`) + tập trung hoàn thiện Core Backend `.NET 10` (`back-end/`).
+
+---
+
+## 3. Quy Tắc Bổ Sung Ngữ Cảnh Khi Thiếu Thông Tin (Context Lookup Protocol)
+
+Khi thực hiện bất kỳ task nào trên dự án LingoPro mà thiếu thông tin ngữ cảnh về tiến độ, kiến trúc thực tế hoặc độ lệch giữa tài liệu ban đầu và code hiện tại, **luôn đọc bộ tài liệu tổng hợp tại thư mục gốc `/agent` trước**:
+- [`../README.md`](../README.md): Bản đồ dẫn đường & bảng tra cứu nhanh theo tình huống.
+- [`../01_PROJECT_OVERVIEW_AND_ARCHITECTURE.md`](../01_PROJECT_OVERVIEW_AND_ARCHITECTURE.md): Tổng quan dự án, cấu trúc Monorepo và kiến trúc thực tế của `back-end/` (.NET 10).
+- [`../02_IMPLEMENTATION_PROGRESS_REPORT.md`](../02_IMPLEMENTATION_PROGRESS_REPORT.md): Báo cáo tiến độ chi tiết PR #26 → PR #35, trạng thái 15 phân hệ, 568 NUnit tests và 80 điểm `KnownDeviation`.
+- [`../03_AGENT_DOCS_CURRENT_STATE_ANALYSIS.md`](../03_AGENT_DOCS_CURRENT_STATE_ANALYSIS.md): Phân tích hiện trạng 24 file trong `/agent` và 5 điểm cập nhật kiến trúc trong code thực tế (Supabase JWKS Auth, `AuthorizationBehavior`, `SnakeCaseEnumConverter`, tách `UserGamification`, và giữ UI `src/`).
+
 

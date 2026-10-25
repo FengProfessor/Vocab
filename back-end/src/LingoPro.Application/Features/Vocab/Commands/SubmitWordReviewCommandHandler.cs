@@ -1,21 +1,20 @@
-﻿using LingoPro.Application.Common.Helpers;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Algorithms;
 using LingoPro.Domain.Entities.Vocab;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Vocab.Commands;
 
 /// <summary>
-/// Handles a vocabulary flashcard review using the FSRS v5 engine with idempotency token protection.
+/// Handles a vocabulary flashcard review using the FSRS v5 engine via the vocabulary repository.
 /// </summary>
 public class SubmitWordReviewCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<SubmitWordReviewCommand, ApiResponse<SrsReviewResponseDto>>
+    IVocabRepository vocabRepository) : IRequestHandler<SubmitWordReviewCommand, ApiResponse<SrsReviewResponseDto>>
 {
     public async Task<ApiResponse<SrsReviewResponseDto>> Handle(SubmitWordReviewCommand request, CancellationToken ct)
     {
@@ -23,13 +22,12 @@ public class SubmitWordReviewCommandHandler(
         var nowUtc = DateTime.UtcNow;
         var rating = FsrsEngine.MapQualityToRating(request.Quality);
 
-        var srs = await dbContext.SrsProgresses
-            .FirstOrDefaultAsync(s => s.UserId == userId && s.WordId == request.WordId, ct);
+        var srs = await vocabRepository.GetSrsProgressAsync(userId, request.WordId, ct);
 
         // NOTE: public.srs_progress has no last_review_id column, so the per-card idempotency token check
         // is no longer persisted; request.ReviewId is accepted but cannot be de-duplicated server-side.
 
-        var wordExists = await dbContext.Words.AsNoTracking().AnyAsync(w => w.Id == request.WordId, ct);
+        var wordExists = await vocabRepository.WordExistsAsync(request.WordId, ct);
         if (!wordExists)
         {
             throw new NotFoundException("Word", request.WordId);
@@ -63,7 +61,7 @@ public class SubmitWordReviewCommandHandler(
                 State = scheduled.State,
                 LastReviewedAt = nowUtc
             };
-            dbContext.SrsProgresses.Add(srs);
+            vocabRepository.AddSrsProgress(srs);
         }
         else
         {
@@ -77,10 +75,8 @@ public class SubmitWordReviewCommandHandler(
             srs.LastReviewedAt = nowUtc;
         }
 
-        await GamificationXp.AwardAsync(dbContext, userId, scheduled.XpAwarded, DateOnly.FromDateTime(nowUtc), ct);
-
-
-        await dbContext.SaveChangesAsync(ct);
+        await vocabRepository.AwardXpAsync(userId, scheduled.XpAwarded, DateOnly.FromDateTime(nowUtc), ct);
+        await vocabRepository.SaveChangesAsync(ct);
 
         return ApiResponse<SrsReviewResponseDto>.Ok(
             new SrsReviewResponseDto(

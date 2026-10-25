@@ -4,6 +4,7 @@ using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Social;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -51,7 +52,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         var group = Group();
         db.StudyGroups.Add(group);
         await db.SaveChangesAsync();
-        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(userId), new SocialRepository(db));
 
         // Act
         var response = await handler.Handle(new JoinStudyGroupCommand(" grp123 "), CancellationToken.None);
@@ -75,7 +76,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new SocialRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(
@@ -93,7 +94,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         db.StudyGroups.Add(Group(expiresAt: DateTime.UtcNow.AddSeconds(-1)));
         await db.SaveChangesAsync();
-        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new SocialRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<ForbiddenAccessException>(
@@ -114,7 +115,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         db.StudyGroups.Add(group);
         await db.SaveChangesAsync();
         await SeedMembersAsync(db, group.Id, existing);
-        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new SocialRepository(db));
 
         // Act
         await handler.Handle(new JoinStudyGroupCommand("GRP123"), CancellationToken.None);
@@ -136,7 +137,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         db.StudyGroups.Add(group);
         await db.SaveChangesAsync();
         await SeedMembersAsync(db, group.Id, existing);
-        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new SocialRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<ForbiddenAccessException>(
@@ -154,7 +155,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         db.StudyGroups.Add(Group(status: "cancelled"));
         await db.SaveChangesAsync();
-        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new SocialRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<ForbiddenAccessException>(
@@ -175,7 +176,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         db.StudyGroups.Add(group);
         db.GroupMembers.Add(new GroupMember { GroupId = group.Id, UserId = userId });
         await db.SaveChangesAsync();
-        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(userId), new SocialRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<ConflictException>(
@@ -200,7 +201,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         db.StudyGroups.Add(group);
         db.GroupMembers.Add(new GroupMember { GroupId = group.Id, UserId = userId });
         await db.SaveChangesAsync();
-        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(userId), new SocialRepository(db));
 
         // Act
         var ex = Assert.CatchAsync<DomainException>(
@@ -224,7 +225,7 @@ public sealed class JoinStudyGroupCommandHandlerTests
         var group = Group(expiresAt: DateTime.UtcNow.AddDays(45));
         db.StudyGroups.Add(group);
         await db.SaveChangesAsync();
-        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new JoinStudyGroupCommandHandler(TestHelpers.CreateUser(userId), new SocialRepository(db));
 
         // Act
         await handler.Handle(new JoinStudyGroupCommand("GRP123"), CancellationToken.None);

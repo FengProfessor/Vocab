@@ -3,6 +3,7 @@ using LingoPro.Application.Features.Classrooms.Queries;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -75,7 +76,7 @@ public sealed class ClassroomQueriesAndValidationTests
         // Arrange
         var teacherId = Guid.NewGuid();
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateClassroomCommandHandler(TestHelpers.CreateUser(teacherId, UserRole.Teacher), db);
+        var handler = new CreateClassroomCommandHandler(TestHelpers.CreateUser(teacherId, UserRole.Teacher), new ClassroomRepository(db));
 
         // Act
         var response = await handler.Handle(
@@ -101,7 +102,7 @@ public sealed class ClassroomQueriesAndValidationTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+        var handler = new CreateClassroomCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), new ClassroomRepository(db));
 
         // Act
         var first = await handler.Handle(new CreateClassroomCommand("A", null), CancellationToken.None);
@@ -132,7 +133,7 @@ public sealed class ClassroomQueriesAndValidationTests
             new Enrollment { ClassroomId = owned.Id, StudentId = Guid.NewGuid() },
             new Enrollment { ClassroomId = unrelated.Id, StudentId = Guid.NewGuid() });
         await db.SaveChangesAsync();
-        var handler = new GetClassroomsQueryHandler(TestHelpers.CreateUser(me), db);
+        var handler = new GetClassroomsQueryHandler(TestHelpers.CreateUser(me), new ClassroomRepository(db));
 
         // Act
         var response = await handler.Handle(new GetClassroomsQuery(), CancellationToken.None);
@@ -152,7 +153,7 @@ public sealed class ClassroomQueriesAndValidationTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new GetClassroomsQueryHandler(TestHelpers.CreateUser(null), db);
+        var handler = new GetClassroomsQueryHandler(TestHelpers.CreateUser(null), new ClassroomRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<UnauthorizedAccessException>(

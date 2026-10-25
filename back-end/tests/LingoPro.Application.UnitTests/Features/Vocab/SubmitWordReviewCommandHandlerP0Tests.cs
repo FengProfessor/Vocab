@@ -1,11 +1,12 @@
 using LingoPro.Application.Features.Vocab.Commands;
+using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Entities.Vocab;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
-using LingoPro.Application.UnitTests.Common;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -46,7 +47,7 @@ public sealed class SubmitWordReviewCommandHandlerP0Tests
         // Arrange
         var (db, userId, word) = await SeedAsync();
         await using var _ = db;
-        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
 
         // Act
         var response = await handler.Handle(new SubmitWordReviewCommand(word.Id, 4, Guid.NewGuid().ToString()), CancellationToken.None);
@@ -80,7 +81,7 @@ public sealed class SubmitWordReviewCommandHandlerP0Tests
         // Arrange
         var (db, userId, word) = await SeedAsync();
         await using var _ = db;
-        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
         var reviewId = Guid.NewGuid().ToString();
         await handler.Handle(new SubmitWordReviewCommand(word.Id, 5, reviewId), CancellationToken.None);
         var xpAfterFirst = (await db.UserGamifications.AsNoTracking().FirstAsync(g => g.UserId == userId)).TotalXp;
@@ -107,7 +108,7 @@ public sealed class SubmitWordReviewCommandHandlerP0Tests
         // Arrange
         var (db, userId, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -122,7 +123,7 @@ public sealed class SubmitWordReviewCommandHandlerP0Tests
         // Arrange
         var (db, _, word) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(null), new VocabRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -150,7 +151,7 @@ public sealed class SubmitWordReviewCommandHandlerP0Tests
         db.Classrooms.Add(foreignClassroom);
         db.Words.Add(foreignWord);
         await db.SaveChangesAsync();
-        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -178,7 +179,7 @@ public sealed class SubmitWordReviewCommandHandlerP0Tests
         db.Words.Add(classWord);
         db.Enrollments.Add(new Enrollment { StudentId = userId, ClassroomId = classroom.Id });
         await db.SaveChangesAsync();
-        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
 
         // Act
         var response = await handler.Handle(new SubmitWordReviewCommand(classWord.Id, 4, Guid.NewGuid().ToString()), CancellationToken.None);
@@ -194,7 +195,7 @@ public sealed class SubmitWordReviewCommandHandlerP0Tests
         // Arrange
         var (db, userId, word) = await SeedAsync();
         await using var _ = db;
-        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitWordReviewCommandHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
         var before = await db.Words.AsNoTracking().CountAsync();
 
         // Act

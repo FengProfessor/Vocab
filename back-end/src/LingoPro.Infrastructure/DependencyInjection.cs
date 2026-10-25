@@ -1,9 +1,11 @@
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Infrastructure.BackgroundJobs;
 using LingoPro.Infrastructure.Caching;
 using LingoPro.Infrastructure.Options;
 using LingoPro.Infrastructure.Persistence;
 using LingoPro.Infrastructure.Persistence.Interceptors;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using LingoPro.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -14,7 +16,7 @@ using Microsoft.Extensions.Options;
 namespace LingoPro.Infrastructure;
 
 /// <summary>
-/// Registers Infrastructure layer services including PostgreSQL DbContext, Phased Caching (Phase 1 NoOp / Phase 2 Hybrid L1+Redis),
+/// Registers Infrastructure layer services including PostgreSQL DbContext, Repositories, Phased Caching (Phase 1 NoOp / Phase 2 Hybrid L1+Redis),
 /// Supabase BFF Gateways (validated on startup), and Background Workers.
 /// </summary>
 public static class DependencyInjection
@@ -53,6 +55,22 @@ public static class DependencyInjection
 
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<LingoProDbContext>());
         services.AddScoped<ICurrentUserService, CurrentUserService>();
+
+        // Register Domain/Feature Repositories (Persistence Layer)
+        services.AddScoped<IAdminCrmRepository, AdminCrmRepository>();
+        services.AddScoped<IAuthRepository, AuthRepository>();
+        services.AddScoped<IBillingRepository, BillingRepository>();
+        services.AddScoped<IClassroomRepository, ClassroomRepository>();
+        services.AddScoped<IDictionaryRepository, DictionaryRepository>();
+        services.AddScoped<IExamRepository, ExamRepository>();
+        services.AddScoped<IGamificationRepository, GamificationRepository>();
+        services.AddScoped<IGrammarRepository, GrammarRepository>();
+        services.AddScoped<IReadingRepository, ReadingRepository>();
+        services.AddScoped<IRoadmapRepository, RoadmapRepository>();
+        services.AddScoped<ISeoRepository, SeoRepository>();
+        services.AddScoped<ISocialRepository, SocialRepository>();
+        services.AddScoped<ISpeakingFoundationRepository, SpeakingFoundationRepository>();
+        services.AddScoped<IVocabRepository, VocabRepository>();
 
         // Validate Supabase configuration eagerly on startup instead of scattering runtime checks.
         services

@@ -5,6 +5,7 @@ using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Speaking;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -30,7 +31,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
         var learner = Guid.NewGuid();
         var concept = "concept_hello";
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), db);
+        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), new SpeakingFoundationRepository(db));
 
         // Act
         var response = await handler.Handle(Evidence(concept, true), CancellationToken.None);
@@ -59,7 +60,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
         var learner = Guid.NewGuid();
         var concept = "concept_hello";
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), db);
+        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), new SpeakingFoundationRepository(db));
 
         // Act
         ApiResponse<LexicalStatusBucket> response = null!;
@@ -95,7 +96,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
             UncertaintyScore = 0.5m
         });
         await db.SaveChangesAsync();
-        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), db);
+        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), new SpeakingFoundationRepository(db));
 
         // Act
         await handler.Handle(Evidence(concept, false), CancellationToken.None);
@@ -123,7 +124,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
         var learner = Guid.NewGuid();
         var concept = "concept_hello";
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), db);
+        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(learner), new SpeakingFoundationRepository(db));
 
         // Act
         await handler.Handle(Evidence(concept, true, "  productive_recall  "), CancellationToken.None);
@@ -151,7 +152,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new SpeakingFoundationRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(
@@ -166,7 +167,7 @@ public sealed class RecordLexicalEvidenceCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new RecordLexicalEvidenceCommandHandler(TestHelpers.CreateUser(null), new SpeakingFoundationRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<UnauthorizedAccessException>(
@@ -232,7 +233,7 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
         var teacher = Guid.NewGuid();
         var concept = "concept_hello";
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(teacher, UserRole.Teacher), db);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(teacher, UserRole.Teacher), new SpeakingFoundationRepository(db));
 
         // Act
         var first = await handler.Handle(Obs(student, concept, true), CancellationToken.None);
@@ -259,7 +260,7 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), new SpeakingFoundationRepository(db));
 
         // Act
         var response = await handler.Handle(Obs(Guid.NewGuid(), "concept_hello", false), CancellationToken.None);
@@ -282,7 +283,7 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         var user = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Student);
         var behavior = new AuthorizationBehavior<RecordTeacherLexicalObservationCommand, ApiResponse<LexicalStatusBucket>>(user);
-        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), new SpeakingFoundationRepository(db));
         var command = Obs(Guid.NewGuid(), "concept_hello", true);
 
         // Act & Assert
@@ -300,7 +301,7 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         var user = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher);
         var behavior = new AuthorizationBehavior<RecordTeacherLexicalObservationCommand, ApiResponse<LexicalStatusBucket>>(user);
-        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), new SpeakingFoundationRepository(db));
         var command = Obs(Guid.NewGuid(), "concept_hello", true);
 
         // Act
@@ -319,7 +320,7 @@ public sealed class RecordTeacherLexicalObservationCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+        var handler = new RecordTeacherLexicalObservationCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), new SpeakingFoundationRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(

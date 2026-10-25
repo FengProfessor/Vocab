@@ -1,10 +1,10 @@
-using LingoPro.Application.Features.Roadmap.Queries;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.Roadmap.Queries;
 using LingoPro.Domain.Entities.Roadmap;
 using LingoPro.Domain.Enums;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Roadmap.Commands;
 
@@ -13,7 +13,7 @@ namespace LingoPro.Application.Features.Roadmap.Commands;
 /// </summary>
 public class SubmitPlacementCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<SubmitPlacementCommand, ApiResponse<RoadmapProgressDto>>
+    IRoadmapRepository roadmapRepository) : IRequestHandler<SubmitPlacementCommand, ApiResponse<RoadmapProgressDto>>
 {
     public async Task<ApiResponse<RoadmapProgressDto>> Handle(SubmitPlacementCommand request, CancellationToken ct)
     {
@@ -24,8 +24,7 @@ public class SubmitPlacementCommandHandler(
 
         var placementJson = System.Text.Json.JsonSerializer.Serialize(new { level = assignedLevel.ToString(), self_selected = request.SelfSelectLevelId.HasValue });
 
-        var roadmap = await dbContext.UserRoadmaps
-            .FirstOrDefaultAsync(r => r.UserId == userId && r.Track == request.Track, ct);
+        var roadmap = await roadmapRepository.GetUserRoadmapAsync(userId, request.Track, ct);
 
         if (roadmap == null)
         {
@@ -37,7 +36,7 @@ public class SubmitPlacementCommandHandler(
                 // SQL has no placement_completed column: placement is marked by a non-null placement JSON.
                 Placement = placementJson
             };
-            dbContext.UserRoadmaps.Add(roadmap);
+            roadmapRepository.AddUserRoadmap(roadmap);
         }
         else
         {
@@ -46,9 +45,9 @@ public class SubmitPlacementCommandHandler(
             roadmap.UpdatedAt = DateTime.UtcNow;
         }
 
-        await dbContext.SaveChangesAsync(ct);
+        await roadmapRepository.SaveChangesAsync(ct);
 
-        var steps = await dbContext.UserRoadmapSteps.AsNoTracking().Where(s => s.UserId == userId).ToListAsync(ct);
+        var steps = await roadmapRepository.GetUserRoadmapStepsAsNoTrackingAsync(userId, ct);
 
         var dto = new RoadmapProgressDto(
             request.Track,

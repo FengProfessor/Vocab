@@ -4,6 +4,7 @@ using LingoPro.Application.Features.Dictionary.Queries;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Vocab;
 using LingoPro.Domain.Exceptions;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -38,7 +39,7 @@ public sealed class SmartLookupQueryHandlerTests
         db.GlobalDictionaries.Add(entry);
         await db.SaveChangesAsync();
         var router = Substitute.For<IAiRouterService>();
-        var handler = new SmartLookupQueryHandler(db, router);
+        var handler = new SmartLookupQueryHandler(new DictionaryRepository(db), router);
 
         // Act
         var response = await handler.Handle(new SmartLookupQuery("  STEM "), CancellationToken.None);
@@ -80,7 +81,7 @@ public sealed class SmartLookupQueryHandlerTests
                 + "\"synonyms\":[\"trunk\"],\"antonyms\":[]}"
         });
         await db.SaveChangesAsync();
-        var handler = new SmartLookupQueryHandler(db, Substitute.For<IAiRouterService>());
+        var handler = new SmartLookupQueryHandler(new DictionaryRepository(db), Substitute.For<IAiRouterService>());
 
         // Act
         var response = await handler.Handle(new SmartLookupQuery("stem"), CancellationToken.None);
@@ -101,7 +102,7 @@ public sealed class SmartLookupQueryHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new SmartLookupQueryHandler(db, Substitute.For<IAiRouterService>());
+        var handler = new SmartLookupQueryHandler(new DictionaryRepository(db), Substitute.For<IAiRouterService>());
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(
@@ -121,7 +122,7 @@ public sealed class SmartLookupQueryHandlerTests
         var router = Substitute.For<IAiRouterService>();
         router.SelectSmartSenseIndexAsync("stem", "stemmed the flow", Arg.Any<IReadOnlyList<string>>(), Arg.Any<CancellationToken>())
             .Returns(1);
-        var handler = new SmartLookupQueryHandler(db, router);
+        var handler = new SmartLookupQueryHandler(new DictionaryRepository(db), router);
 
         // Act
         var response = await handler.Handle(new SmartLookupQuery("Stem", "stemmed the flow"), CancellationToken.None);
@@ -142,7 +143,7 @@ public sealed class SmartLookupQueryHandlerTests
         db.GlobalDictionaries.Add(Entry());
         await db.SaveChangesAsync();
         var router = Substitute.For<IAiRouterService>();
-        var handler = new SmartLookupQueryHandler(db, router);
+        var handler = new SmartLookupQueryHandler(new DictionaryRepository(db), router);
 
         // Act
         var response = await handler.Handle(new SmartLookupQuery("stem", "   "), CancellationToken.None);

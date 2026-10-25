@@ -5,6 +5,7 @@ using LingoPro.Domain.Entities.Roadmap;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -52,7 +53,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
 
         // Act
         var response = await handler.Handle(
@@ -75,7 +76,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync(RoadmapLevelId.A0, RoadmapTrackType.Cefr, "A0-u1-s1", "A0-u1-s2", "A0-u1-s3");
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
 
         // Act
         var response = await handler.Handle(
@@ -139,7 +140,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
         var command = new CompleteRoadmapStepCommand(RoadmapTrackType.Cefr, "A0-u1-s1", false, null);
         await handler.Handle(command, CancellationToken.None);
 
@@ -162,7 +163,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
         await handler.Handle(new CompleteRoadmapStepCommand(RoadmapTrackType.Cefr, "A0-u1-s1", false, 90.0), CancellationToken.None);
 
         // Act
@@ -180,7 +181,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync(RoadmapLevelId.A1);
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Free), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Free), new RoadmapRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -196,7 +197,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync(level);
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Free), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Free), new RoadmapRepository(db));
 
         // Act
         var response = await handler.Handle(
@@ -219,7 +220,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange (step id is A1, the enrolled level is B1)
         var (db, userId) = await SeedAsync(RoadmapLevelId.B1);
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Free), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Free), new RoadmapRepository(db));
 
         // Act
         var response = await handler.Handle(
@@ -241,7 +242,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync(RoadmapLevelId.Toeic650, RoadmapTrackType.Toeic);
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Free), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Free), new RoadmapRepository(db));
 
         // Act
         var response = await handler.Handle(
@@ -258,7 +259,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange (original: 400 "Chua ghi danh lo trinh nay", progress/route.ts:53-55)
         var (db, userId) = await SeedAsync(RoadmapLevelId.A0, RoadmapTrackType.Cefr);
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -273,7 +274,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange (user_roadmap_steps PK = (user_id, step_id); current_unit_id is updated, progress/route.ts:129-142)
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
 
         // Act
         await handler.Handle(new CompleteRoadmapStepCommand(RoadmapTrackType.Cefr, "A0-u1-s1", false, 85.4), CancellationToken.None);
@@ -297,7 +298,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange
         var (db, userId) = await SeedAsync(RoadmapLevelId.B1);
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Pro), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId, plan: SubscriptionPlanType.Pro), new RoadmapRepository(db));
 
         // Act
         var response = await handler.Handle(
@@ -315,7 +316,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange (original: 400 missingSteps when earlier steps are not completed)
         var (db, userId) = await SeedAsync();
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(userId), new RoadmapRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -330,7 +331,7 @@ public sealed class CompleteRoadmapStepCommandHandlerTests
         // Arrange
         var (db, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new CompleteRoadmapStepCommandHandler(TestHelpers.CreateUser(null), new RoadmapRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(

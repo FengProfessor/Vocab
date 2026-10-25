@@ -1,10 +1,10 @@
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Features.Vocab.Commands;
-using LingoPro.Application.Features.Vocab.Queries;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Vocab;
 using LingoPro.Domain.Enums;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NSubstitute;
 using NUnit.Framework;
@@ -53,7 +53,7 @@ public sealed class SubmitWordReviewCommandHandlerTests
         currentUser.UserId.Returns(userId);
         currentUser.IsAuthenticated.Returns(true);
 
-        var handler = new SubmitWordReviewCommandHandler(currentUser, db);
+        var handler = new SubmitWordReviewCommandHandler(currentUser, new VocabRepository(db));
         var command = new SubmitWordReviewCommand(word.Id, Quality: 5, ReviewId: Guid.NewGuid().ToString());
 
         // Act

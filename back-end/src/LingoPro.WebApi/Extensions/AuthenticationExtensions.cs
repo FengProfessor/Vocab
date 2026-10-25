@@ -160,7 +160,7 @@ public static class AuthenticationExtensions
             var dbContext = context.HttpContext.RequestServices.GetRequiredService<IApplicationDbContext>();
             var profile = await dbContext.Profiles
                 .AsNoTracking()
-                .Where(p => p.Id == userId)
+                .Where(p => p.Id == userId && p.IsDeleted != true)
                 .Select(p => new { p.Role, p.Plan })
                 .FirstOrDefaultAsync(context.HttpContext.RequestAborted);
 

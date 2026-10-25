@@ -2,6 +2,7 @@ using LingoPro.Application.Features.Reading.Queries;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Reading;
 using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.Reading;
@@ -29,7 +30,7 @@ public sealed class GetReadingArticlesQueryHandlerTests
             Article("draft", CertLevel.B1, "draft"),
             Article("arch", CertLevel.B1, "archived"));
         await db.SaveChangesAsync();
-        var handler = new GetReadingArticlesQueryHandler(db);
+        var handler = new GetReadingArticlesQueryHandler(new ReadingRepository(db));
 
         // Act
         var response = await handler.Handle(new GetReadingArticlesQuery(), CancellationToken.None);
@@ -49,7 +50,7 @@ public sealed class GetReadingArticlesQueryHandlerTests
             Article("b2", CertLevel.B2, "published"),
             Article("b2-draft", CertLevel.B2, "draft"));
         await db.SaveChangesAsync();
-        var handler = new GetReadingArticlesQueryHandler(db);
+        var handler = new GetReadingArticlesQueryHandler(new ReadingRepository(db));
 
         // Act
         var response = await handler.Handle(new GetReadingArticlesQuery(CertLevel.B2), CancellationToken.None);
@@ -70,7 +71,7 @@ public sealed class GetReadingArticlesQueryHandlerTests
             Article("newest", CertLevel.B1, "published", now),
             Article("middle", CertLevel.B1, "published", now.AddDays(-2)));
         await db.SaveChangesAsync();
-        var handler = new GetReadingArticlesQueryHandler(db);
+        var handler = new GetReadingArticlesQueryHandler(new ReadingRepository(db));
 
         // Act
         var response = await handler.Handle(new GetReadingArticlesQuery(), CancellationToken.None);
@@ -91,7 +92,7 @@ public sealed class GetReadingArticlesQueryHandlerTests
             WordCount = 120, Passage = "<p>Hello</p>", Questions = "[{\"q\":\"?\"}]", Status = "published"
         });
         await db.SaveChangesAsync();
-        var handler = new GetReadingArticlesQueryHandler(db);
+        var handler = new GetReadingArticlesQueryHandler(new ReadingRepository(db));
 
         // Act
         var response = await handler.Handle(new GetReadingArticlesQuery(), CancellationToken.None);

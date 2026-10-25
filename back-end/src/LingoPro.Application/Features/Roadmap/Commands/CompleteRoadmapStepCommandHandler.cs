@@ -1,12 +1,11 @@
-using LingoPro.Application.Features.Roadmap.Queries;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
-using LingoPro.Domain.Entities.Auth;
+using LingoPro.Application.Features.Roadmap.Queries;
 using LingoPro.Domain.Entities.Roadmap;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Roadmap.Commands;
 
@@ -15,7 +14,7 @@ namespace LingoPro.Application.Features.Roadmap.Commands;
 /// </summary>
 public class CompleteRoadmapStepCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<CompleteRoadmapStepCommand, ApiResponse<CompleteStepResultDto>>
+    IRoadmapRepository roadmapRepository) : IRequestHandler<CompleteRoadmapStepCommand, ApiResponse<CompleteStepResultDto>>
 {
     private static readonly HashSet<string> ProRequiredPrefixes =
         ["A2", "B1", "B2", "C1", "C2", "toeic-600", "toeic-800", "lop-11", "lop-12"];
@@ -35,8 +34,7 @@ public class CompleteRoadmapStepCommandHandler(
                 "PRO_REQUIRED");
         }
 
-        var roadmap = await dbContext.UserRoadmaps
-            .FirstOrDefaultAsync(r => r.UserId == userId && r.Track == request.Track, ct)
+        var roadmap = await roadmapRepository.GetUserRoadmapAsync(userId, request.Track, ct)
             ?? throw new NotFoundException("UserRoadmap", request.Track);
 
         bool requiresProByLevel = roadmap.LevelId is
@@ -58,14 +56,14 @@ public class CompleteRoadmapStepCommandHandler(
         }
 
         // user_roadmap_steps is keyed by (user_id, step_id) with no track/roadmap FK.
-        var existingStep = await dbContext.UserRoadmapSteps.FirstOrDefaultAsync(s => s.UserId == userId && s.StepId == request.StepId, ct);
+        var existingStep = await roadmapRepository.GetUserRoadmapStepAsync(userId, request.StepId, ct);
         int? requestScore = request.Score.HasValue ? (int)Math.Round(request.Score.Value) : null;
         if (existingStep is { Status: RoadmapStepStatus.Completed })
         {
             if (requestScore.HasValue && (!existingStep.Score.HasValue || requestScore > existingStep.Score))
             {
                 existingStep.Score = requestScore;
-                await dbContext.SaveChangesAsync(ct);
+                await roadmapRepository.SaveChangesAsync(ct);
             }
 
             return ApiResponse<CompleteStepResultDto>.Ok(
@@ -84,7 +82,7 @@ public class CompleteRoadmapStepCommandHandler(
                 Score = requestScore,
                 CompletedAt = nowUtc
             };
-            dbContext.UserRoadmapSteps.Add(existingStep);
+            roadmapRepository.AddUserRoadmapStep(existingStep);
         }
         else
         {
@@ -96,15 +94,8 @@ public class CompleteRoadmapStepCommandHandler(
         roadmap.CurrentUnitId = request.StepId;
         roadmap.UpdatedAt = nowUtc;
 
-        var gamification = await dbContext.UserGamifications.FirstOrDefaultAsync(g => g.UserId == userId, ct);
-        if (gamification == null)
-        {
-            gamification = new UserGamification { UserId = userId };
-            dbContext.UserGamifications.Add(gamification);
-        }
-        gamification.AwardXpAndUpdateStreak(xpAwarded, DateOnly.FromDateTime(nowUtc));
-
-        await dbContext.SaveChangesAsync(ct);
+        await roadmapRepository.AwardXpAsync(userId, xpAwarded, DateOnly.FromDateTime(nowUtc), ct);
+        await roadmapRepository.SaveChangesAsync(ct);
 
         return ApiResponse<CompleteStepResultDto>.Ok(
             new CompleteStepResultDto(request.StepId, RoadmapStepStatus.Completed, xpAwarded),

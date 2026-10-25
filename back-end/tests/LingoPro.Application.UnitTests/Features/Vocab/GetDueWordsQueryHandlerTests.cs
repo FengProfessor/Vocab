@@ -2,6 +2,7 @@ using LingoPro.Application.Features.Vocab.Queries;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Vocab;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.Vocab;
@@ -37,7 +38,7 @@ public sealed class GetDueWordsQueryHandlerTests
             new SrsProgress { UserId = userId, WordId = future.Id, NextReviewDate = Today.AddDays(2) },
             new SrsProgress { UserId = otherId, WordId = others.Id, NextReviewDate = Today.AddDays(-1) });
         await db.SaveChangesAsync();
-        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
 
         // Act
         var response = await handler.Handle(new GetDueWordsQuery(), CancellationToken.None);
@@ -67,7 +68,7 @@ public sealed class GetDueWordsQueryHandlerTests
             new SrsProgress { UserId = userId, WordId = w2.Id, NextReviewDate = Today.AddDays(-5) },
             new SrsProgress { UserId = userId, WordId = w3.Id, NextReviewDate = Today.AddDays(-3) });
         await db.SaveChangesAsync();
-        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
 
         // Act
         var response = await handler.Handle(new GetDueWordsQuery(), CancellationToken.None);
@@ -82,7 +83,7 @@ public sealed class GetDueWordsQueryHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(null), db);
+        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(null), new VocabRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -107,7 +108,7 @@ public sealed class GetDueWordsQueryHandlerTests
         db.Words.Add(word);
         db.SrsProgresses.Add(new SrsProgress { UserId = userId, WordId = word.Id, NextReviewDate = DateTime.UtcNow.AddHours(3) });
         await db.SaveChangesAsync();
-        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
 
         // Act
         var response = await handler.Handle(new GetDueWordsQuery(), CancellationToken.None);
@@ -134,7 +135,7 @@ public sealed class GetDueWordsQueryHandlerTests
         db.Words.Add(word);
         db.SrsProgresses.Add(new SrsProgress { UserId = userId, WordId = word.Id, NextReviewDate = Today.AddDays(-1) });
         await db.SaveChangesAsync();
-        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new GetDueWordsQueryHandler(TestHelpers.CreateUser(userId), new VocabRepository(db));
 
         // Act
         var response = await handler.Handle(new GetDueWordsQuery(), CancellationToken.None);

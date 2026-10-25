@@ -4,6 +4,7 @@ using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Reading;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -38,7 +39,7 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         // Arrange
         var (db, userId, exercise) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
 
         // Act
         var response = await handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 4, 5, 3, 5), CancellationToken.None);
@@ -62,7 +63,7 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         // Arrange
         var (db, userId, exercise) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
         await handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 4, 5, 3, 5), CancellationToken.None);
 
         // Act
@@ -85,7 +86,7 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         // Arrange
         var (db, userId, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
 
         // Act + Assert (original silently answers success because the FK upsert only logs a warning, route.ts:372-374;
         // a NotFound error is the accepted representation in the new API)
@@ -102,7 +103,7 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         // Arrange (SRS E2: partial submissions are merged, earlier part is preserved)
         var (db, userId, exercise) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
         await handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 3, 5, 0, 0), CancellationToken.None);
 
         // Act
@@ -127,7 +128,7 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         // Arrange (original clamps every score/total to 0..100)
         var (db, userId, exercise) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
 
         // Act
         await handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 150, 150, -5, 10), CancellationToken.None);
@@ -155,7 +156,7 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         // Arrange
         var (db, userId, exercise) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
         await handler.Handle(new SubmitDailyReadingCommand(exercise.Id, 2, 5, 1, 5), CancellationToken.None);
 
         // Act
@@ -177,7 +178,7 @@ public sealed class SubmitDailyReadingCommandHandlerTests
         // Arrange
         var (db, _, exercise) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new SubmitDailyReadingCommandHandler(TestHelpers.CreateUser(null), new ReadingRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(

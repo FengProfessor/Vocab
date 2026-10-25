@@ -1,5 +1,5 @@
-﻿using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using MediatR;
 
@@ -11,7 +11,7 @@ namespace LingoPro.Application.Features.Auth.Commands;
 /// </summary>
 public class RefreshTokenCommandHandler(
     ISupabaseAuthService supabaseAuth,
-    IApplicationDbContext dbContext) : IRequestHandler<RefreshTokenCommand, ApiResponse<AuthTokensDto>>
+    IAuthRepository authRepository) : IRequestHandler<RefreshTokenCommand, ApiResponse<AuthTokensDto>>
 {
     public async Task<ApiResponse<AuthTokensDto>> Handle(RefreshTokenCommand request, CancellationToken ct)
     {
@@ -23,7 +23,7 @@ public class RefreshTokenCommandHandler(
         var authResult = await supabaseAuth.RefreshSessionAsync(request.RefreshToken, ct);
 
         // Role and plan are never trusted from the token; the profile row is the authority.
-        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(dbContext, authResult, ct);
+        var profile = await ProfileSyncHelper.EnsureUserProfileAsync(authRepository, authResult, ct);
         var dto = ProfileSyncHelper.MapToAuthTokensDto(profile, authResult);
 
         return ApiResponse<AuthTokensDto>.Ok(dto, "Session refreshed successfully.");
