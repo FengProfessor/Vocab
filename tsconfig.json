@@ -14,6 +14,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
+    "allowArbitraryExtensions": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
@@ -38,8 +39,19 @@
   ],
   "exclude": [
     "node_modules",
+    ".next",
+    "out",
+    "build",
     "scripts",
+    "crawlers",
     "scratch",
-    "tmp"
+    "tmp",
+    "tmp-*",
+    "ios",
+    "android",
+    "agent",
+    "research",
+    "public",
+    "docs"
   ]
 }

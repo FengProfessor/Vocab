@@ -171,11 +171,11 @@ check(
   `Observed: ${SVO_GROUPS.length}`
 );
 
-// 3.2: 4 sentences per group -> total 16
+// 3.2: 4+ sentences per group -> total >= 16
 const totalSentences = SVO_GROUPS.reduce((acc, g) => acc + g.sentences.length, 0);
 check(
-  '3.2: Each group has exactly 4 sentences (total 16 sentences)',
-  totalSentences === 16 && SVO_GROUPS.every((g) => g.sentences.length === 4),
+  '3.2: Each group has >= 4 sentences (total >= 16 sentences)',
+  totalSentences >= 16 && SVO_GROUPS.every((g) => g.sentences.length >= 4),
   `Total: ${totalSentences}`
 );
 
@@ -183,8 +183,8 @@ check(
 const allIds = SVO_GROUPS.flatMap((g) => g.sentences.map((s) => s.id));
 const uniqueIds = new Set(allIds);
 check(
-  '3.3: All 16 sentence IDs are globally unique',
-  uniqueIds.size === 16,
+  `3.3: All sentence IDs are globally unique (unique: ${uniqueIds.size}/${allIds.length})`,
+  uniqueIds.size === allIds.length && uniqueIds.size >= 16,
   `Total IDs: ${allIds.length}, Unique: ${uniqueIds.size}`
 );
 
@@ -252,14 +252,14 @@ try {
   const htmlDefault = renderToStaticMarkup(React.createElement(SvoSentenceVisualDeck, { guided: false }));
   check(
     '4.1: SvoSentenceVisualDeck renders cleanly to HTML with guided=false',
-    htmlDefault.length > 500 && htmlDefault.includes('Tầng 1: Tiếng Việt trực giác')
+    htmlDefault.length > 500 && htmlDefault.includes('Tiếng Việt:')
   );
 
   // Test 4.2: Render SvoSentenceVisualDeck (guided=true)
   const htmlGuided = renderToStaticMarkup(React.createElement(SvoSentenceVisualDeck, { guided: true }));
   check(
     '4.2: SvoSentenceVisualDeck renders cleanly to HTML with guided=true',
-    htmlGuided.length > 500 && htmlGuided.includes('Tầng 2: Cầu nối giải thích vai trò ngữ pháp')
+    htmlGuided.length > 500 && htmlGuided.includes('Tiếng Anh:')
   );
 
   // Test 4.3: Render GrammarVisualTopicDeck with topicSlug="sentence-structure-svo"

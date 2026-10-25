@@ -443,7 +443,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 </>
               )}
             </div>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground leading-tight">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground leading-tight">
               Lộ trình Ngữ pháp Tiếng Anh Toàn diện
             </h1>
             <p className="text-xs sm:text-sm text-muted-foreground mt-1.5 max-w-2xl leading-relaxed">
@@ -463,7 +463,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     Chặng {nextRecommendedTopic.level} • #{nextRecommendedTopic.order < 10 ? '0' : ''}{nextRecommendedTopic.order}
                   </span>
                 </div>
-                <div className="text-sm sm:text-base font-serif font-bold text-foreground mt-1">
+                <div className="text-sm sm:text-base font-bold text-foreground mt-1">
                   {nextRecommendedTopic.title_vi}{' '}
                   <span className="font-mono text-xs font-normal text-muted-foreground">
                     ({nextRecommendedTopic.title})
@@ -560,7 +560,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
         {filteredTopics.length === 0 ? (
           <div className="border border-border p-8 sm:p-12 text-center bg-card rounded-none flex flex-col items-center justify-center gap-4">
             <Search className="h-8 w-8 text-muted-foreground/40" />
-            <h3 className="font-serif font-bold text-lg">Không tìm thấy chủ điểm phù hợp</h3>
+            <h3 className="font-bold text-lg">Không tìm thấy chủ điểm phù hợp</h3>
             <p className="text-sm text-muted-foreground max-w-sm">
               Không có chủ điểm ngữ pháp nào khớp với từ khóa &ldquo;{searchQuery}&rdquo;. Vui lòng thử từ khóa khác.
             </p>
@@ -720,7 +720,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         </div>
 
                         {/* Bilingual Titles: Vietnamese prominent for instant comprehension + English standard term */}
-                        <h2 className="text-base font-serif font-bold text-foreground leading-snug group-hover/card:text-primary transition-colors">
+                        <h2 className="text-base font-bold text-foreground leading-snug group-hover/card:text-primary transition-colors">
                           {topic.title_vi}
                         </h2>
                         <div className="text-xs font-mono text-muted-foreground mt-0.5 font-medium">
@@ -783,7 +783,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   </span>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <DialogPrimitive.Title className="text-sm sm:text-base lg:text-lg font-serif font-bold text-foreground leading-snug line-clamp-2 sm:truncate">
+                  <DialogPrimitive.Title className="text-sm sm:text-base lg:text-lg font-bold text-foreground leading-snug line-clamp-2 sm:truncate">
                     {activeTopic.title_vi}
                     <span className="text-xs font-normal text-muted-foreground ml-2 font-sans hidden md:inline">
                       ({activeTopic.title})
@@ -1301,7 +1301,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                       return (
                         <div key={i} className="border border-border p-3.5 bg-background space-y-1.5 rounded-none flex items-start justify-between gap-3">
                           <div className="space-y-1 flex-1 min-w-0">
-                            <div className="font-semibold text-foreground text-sm font-serif break-words">
+                            <div className="font-semibold text-foreground text-sm break-words">
                               <HighlightedSentence text={ex.en || ''} highlight={kw} />
                             </div>
                             <div className="text-xs text-muted-foreground break-words">

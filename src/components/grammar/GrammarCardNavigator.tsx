@@ -161,7 +161,7 @@ export default function GrammarCardNavigator({
               title={pills ? `Ngôi: ${item.label}${item.subLabel ? ` → ${item.subLabel}` : ''}` : `Ý ${item.label}${item.subLabel ? `: ${item.subLabel}` : ''}`}
             >
               <span className="text-xs sm:text-sm font-bold tracking-tight shrink-0">{item.label}</span>
-              {item.subLabel && (
+              {item.subLabel && !item.subLabel.toLowerCase().startsWith(item.label.toLowerCase()) && item.subLabel !== item.label && (
                 <span
                   className={`text-[9px] sm:text-xs font-normal opacity-90 truncate max-w-full leading-tight inline ${
                     isSelected ? 'text-primary-foreground' : 'text-muted-foreground'

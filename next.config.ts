@@ -32,6 +32,27 @@ const nextConfig: NextConfig = {
     '/api/toeic/**': ['./src/data/toeic/datasets/**/*'],
     '/api/vstep/**': ['./src/data/vstep/**/*.json'],
   },
+  // Chặn @vercel/nft quét và copy 2.5GB+ thư mục rác/video/scripts/crawlers vào .next/standalone
+  outputFileTracingExcludes: {
+    '*': [
+      './out/**/*',
+      './crawlers/**/*',
+      './scripts/**/*',
+      './ios/**/*',
+      './android/**/*',
+      './scratch/**/*',
+      './tmp/**/*',
+      './tmp-*/**/*',
+      './tests/**/*',
+      './research/**/*',
+      './agent/**/*',
+      './.chrome-bot-profiles/**/*',
+      './docs/vnu-bac-3/**/*',
+      './*.mp4',
+      './*.webm',
+      './*.log',
+    ],
+  },
   // Tránh Turbopack nhầm root lên D:\Vibe (nhiều lockfile) → API 404
   turbopack: {
     root: configDir,
