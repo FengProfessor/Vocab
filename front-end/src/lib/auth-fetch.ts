@@ -574,39 +574,120 @@ async function handleApiRequest(urlStr: string, init: RequestInit = {}): Promise
     return jsonResponse({ success: res.ok, data: json?.data, ...json?.data }, res.status);
   }
 
-  // 7. Exams (TOEIC, VSTEP, Writing)
-  if (pathname === '/api/toeic/submit' && method === 'POST') {
-    const body = await parseBodyJson(init);
-    const res = await rawFetch(`${API_BASE}/exams/toeic/submit`, {
-      method: 'POST',
+  // 7. Exams & Tests (TOEIC, VSTEP, VNU Bac 3, Roadmap Checkpoints, Grammar Quiz)
+  // Local Exam & Quiz Data Loaders / Single-Question Explainers / Media Proxy
+  if (
+    pathname === '/api/toeic/test' ||
+    pathname === '/api/toeic/explain' ||
+    pathname === '/api/toeic/media/proxy' ||
+    pathname === '/api/vstep/test' ||
+    pathname === '/api/vstep/explain' ||
+    pathname === '/api/vnu-bac-3' ||
+    pathname === '/api/vnu-bac-3/test' ||
+    pathname === '/api/vnu-bac-3/explain' ||
+    pathname === '/api/roadmap/checkpoint' ||
+    pathname === '/api/roadmap/assessment' ||
+    pathname === '/api/grammar/quiz' ||
+    pathname === '/api/quiz/save'
+  ) {
+    const localRoutePath = pathname.replace(/^\/api\//, '/__local_api/');
+    return rawFetch(`${localRoutePath}${search}`, {
+      ...init,
+      headers,
       credentials: 'include',
-      headers: {
-        ...Object.fromEntries(headers.entries()),
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
+      cache: 'no-store',
     });
-    const json = (await res.json().catch(() => null)) as { data?: any; message?: string } | null;
-    return jsonResponse({ success: res.ok, data: json?.data, ...json?.data }, res.status);
   }
 
-  if (pathname === '/api/vstep/submit' && method === 'POST') {
+  if (pathname === '/api/toeic/submit' && method === 'POST') {
     const body = await parseBodyJson(init);
-    const res = await rawFetch(`${API_BASE}/exams/vstep/submit`, {
+    // 1. Score and build rich review questions using the TOEIC grading handler
+    const localRes = await rawFetch('/__local_api/toeic/submit', {
+      method: 'POST',
+      headers: {
+        ...Object.fromEntries(headers.entries()),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    }).catch(() => null);
+
+    const localJson = localRes ? ((await localRes.json().catch(() => null)) as Record<string, any> | null) : null;
+
+    // 2. Sync scored attempt to .NET 10 backend (/api/v1/exams/toeic/submit)
+    const scoreResult = localJson?.scoreResult;
+    rawFetch(`${API_BASE}/exams/toeic/submit`, {
       method: 'POST',
       credentials: 'include',
       headers: {
         ...Object.fromEntries(headers.entries()),
         'Content-Type': 'application/json',
       },
+      body: JSON.stringify({
+        examId: body.testId || body.examId || 'toeic-practice',
+        listeningCorrectCount: Number(scoreResult?.listeningCorrect ?? body.listeningCorrectCount ?? 0),
+        readingCorrectCount: Number(scoreResult?.readingCorrect ?? body.readingCorrectCount ?? 0),
+        durationSeconds: Number(body.timeTakenSeconds ?? body.durationSeconds ?? 0),
+      }),
+    }).catch(() => null);
+
+    if (localRes && localJson) {
+      return jsonResponse(localJson, localRes.status);
+    }
+
+    return jsonResponse({ error: 'Không thể chấm điểm bài thi TOEIC.' }, 500);
+  }
+
+  if ((pathname === '/api/vstep/submit' || pathname === '/api/vnu-bac-3/submit') && method === 'POST') {
+    const body = await parseBodyJson(init);
+    const localEndpoint = pathname.includes('vnu-bac-3')
+      ? '/__local_api/vnu-bac-3/submit'
+      : '/__local_api/vstep/submit';
+
+    // 1. Score and build review Exam using the VSTEP / VNU-Bac-3 grading handler
+    const localRes = await rawFetch(localEndpoint, {
+      method: 'POST',
+      headers: {
+        ...Object.fromEntries(headers.entries()),
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(body),
-    });
-    const json = (await res.json().catch(() => null)) as { data?: any; message?: string } | null;
-    return jsonResponse({ success: res.ok, data: json?.data, ...json?.data }, res.status);
+    }).catch(() => null);
+
+    const localJson = localRes ? ((await localRes.json().catch(() => null)) as Record<string, any> | null) : null;
+    const resultObj = localJson?.result || localJson?.scoreResult || {};
+
+    // 2. Sync scored attempt to .NET 10 backend (/api/v1/exams/vstep/submit)
+    rawFetch(`${API_BASE}/exams/vstep/submit`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        ...Object.fromEntries(headers.entries()),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        examId: body.testId || body.examId || 'vstep-practice',
+        listeningScore: Number(resultObj.listeningScore ?? body.listeningScore ?? 0),
+        readingScore: Number(resultObj.readingScore ?? body.readingScore ?? 0),
+        writingScore: Number(resultObj.writingScore ?? body.writingScore ?? 0),
+        speakingScore: Number(resultObj.speakingScore ?? body.speakingScore ?? 0),
+        durationSeconds: Number(body.timeSpentSeconds ?? body.durationSeconds ?? 0),
+      }),
+    }).catch(() => null);
+
+    if (localRes && localJson) {
+      return jsonResponse(localJson, localRes.status);
+    }
+
+    return jsonResponse({ error: 'Không thể chấm điểm bài thi.' }, 500);
   }
 
   if ((pathname === '/api/vstep/writing-eval' || pathname === '/api/vnu-bac-3/writing-eval') && method === 'POST') {
     const body = await parseBodyJson(init);
+    const localEndpoint = pathname.includes('vnu-bac-3')
+      ? '/__local_api/vnu-bac-3/writing-eval'
+      : '/__local_api/vstep/writing-eval';
+
+    // Try .NET 10 AI writing evaluation first, with local heuristic/Gemini fallback
     const res = await rawFetch(`${API_BASE}/exams/writing/evaluate`, {
       method: 'POST',
       credentials: 'include',
@@ -617,11 +698,25 @@ async function handleApiRequest(urlStr: string, init: RequestInit = {}): Promise
       body: JSON.stringify({
         examType: pathname.includes('vnu') ? 'VnuBac3' : 'Vstep',
         taskPrompt: body.prompt || body.taskPrompt || '',
-        essayContent: body.essay || body.essayContent || body.text || '',
+        essayContent: body.essay || body.essayContent || body.userText || body.text || '',
       }),
+    }).catch(() => null);
+
+    if (res && res.ok) {
+      const json = (await res.json().catch(() => null)) as { data?: any; message?: string } | null;
+      if (json?.data) {
+        return jsonResponse({ success: true, data: json.data, evaluation: json.data, ...json.data }, res.status);
+      }
+    }
+
+    return rawFetch(localEndpoint, {
+      method: 'POST',
+      headers: {
+        ...Object.fromEntries(headers.entries()),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
     });
-    const json = (await res.json().catch(() => null)) as { data?: any; message?: string } | null;
-    return jsonResponse({ success: res.ok, data: json?.data, ...json?.data }, res.status);
   }
 
   // 8. Reading Library & Daily Reading
