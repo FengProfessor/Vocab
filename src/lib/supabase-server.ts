@@ -1,4 +1,5 @@
-import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let cachedServiceClient: SupabaseClient<any, 'public', any> | null = null;
