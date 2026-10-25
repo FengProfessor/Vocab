@@ -32,11 +32,11 @@ export const p3L06CauseEffectDeepAnalysis: SpeakingCurriculumLesson = {
       'Người Việt hay đọc lướt đuôi "-sions" thành "sân" mà bỏ quên âm rung /z/ ở cuối, làm mất đi sự chuẩn xác học thuật. Hãy chú ý giữ luồng hơi và rung thanh quản nhẹ ở âm kết thúc.',
     phonemes: ['/ˌriː.pərˈkʌʃ.ənz/', '/ˈkæt̬.əl.ɪst/', '/ˌdɑːʊn.striːm/', '/kæsˈkeɪ.dɪŋ/'],
     video: {
-      youtubeVideoId: 'V9a8i2dF_mQ',
-      channelName: "Rachel's English",
-      startSeconds: 60,
-      endSeconds: 165,
-      title: 'How to Pronounce -TION and -SION Endings Clearly',
+      youtubeVideoId: 'Vsc03jsFLL0',
+      channelName: 'Learn English with Gill · engVid',
+      startSeconds: 0,
+      endSeconds: 375,
+      title: 'Say it correctly in English! -TION, -SION, -CIAN, -TIAN, -CION Pronunciation',
       mouthTipSummaryVi:
         'Hạ cằm ở âm tiết trọng âm và lướt nhanh đuôi schwa /ʃənz/ với âm rung /z/ rõ nét.',
     },

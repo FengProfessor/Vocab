@@ -103,34 +103,28 @@ export async function GET(req: Request): Promise<NextResponse> {
       userQuery = userQuery.eq('exercise_date', targetDate);
     }
 
+    const [y14, m14, d14] = todayVN.split('-').map(Number);
+    const dt14 = new Date(Date.UTC(y14, m14 - 1, d14 - 14));
+    const cutoff14 = dt14.toISOString().slice(0, 10);
+
+    const latestQuery = supabase
+      .from('daily_reading_exercises')
+      .select('*')
+      .eq('target_user_id', auth.userId)
+      .eq('status', 'ready')
+      .gte('exercise_date', cutoff14)
+      .order('exercise_date', { ascending: false })
+      .limit(10);
+
     let userExercises: ExerciseRow[] = [];
     try {
-      const { data: userRows, error: userErr } = await userQuery;
-      if (!userErr && userRows) {
-        userExercises = userRows as unknown as ExerciseRow[];
+      const [userRes, latestRes] = await Promise.all([userQuery, latestQuery]);
+      if (!userRes.error && userRes.data) {
+        userExercises = userRes.data as unknown as ExerciseRow[];
       }
-    } catch {
-      // Table may not exist yet or query failed
-    }
-
-    // Ensure any recent ready exercises from the last 14 days are included so uncompleted exercises are never hidden
-    try {
-      const [y, m, d] = todayVN.split('-').map(Number);
-      const dt14 = new Date(Date.UTC(y, m - 1, d - 14));
-      const cutoff14 = dt14.toISOString().slice(0, 10);
-
-      const { data: latestRows } = await supabase
-        .from('daily_reading_exercises')
-        .select('*')
-        .eq('target_user_id', auth.userId)
-        .eq('status', 'ready')
-        .gte('exercise_date', cutoff14)
-        .order('exercise_date', { ascending: false })
-        .limit(10);
-
-      if (latestRows && latestRows.length > 0) {
+      if (latestRes.data && latestRes.data.length > 0) {
         const existingIds = new Set(userExercises.map((e) => e.id));
-        for (const row of latestRows) {
+        for (const row of latestRes.data) {
           if (!existingIds.has(row.id)) {
             userExercises.push(row as unknown as ExerciseRow);
             existingIds.add(row.id);
@@ -138,7 +132,9 @@ export async function GET(req: Request): Promise<NextResponse> {
         }
       }
       userExercises.sort((a, b) => b.exercise_date.localeCompare(a.exercise_date));
-    } catch {}
+    } catch {
+      // Table may not exist yet or query failed
+    }
 
     // 2. Classroom-wide exercises only when explicitly requested via ?mode=classroom
     // R4 requirement: If user has no personalized exercise today, show friendly empty state
@@ -190,37 +186,39 @@ export async function GET(req: Request): Promise<NextResponse> {
       return true;
     });
 
-    // Check completion status for each exercise
+    // Check completion status and classroom names concurrently
     const exerciseIds = unique.map((e) => e.id);
+    const clsIds = [...new Set(unique.map((e) => e.classroom_id).filter(Boolean))] as string[];
     let completions: CompletionRow[] = [];
-    if (exerciseIds.length > 0) {
-      try {
-        const { data: compRows } = await supabase
-          .from('daily_reading_completions')
-          .select('exercise_id, mcq_score, mcq_total, cloze_score, cloze_total, completed_at')
-          .eq('user_id', auth.userId)
-          .in('exercise_id', exerciseIds);
-        if (compRows) completions = compRows as unknown as CompletionRow[];
-      } catch {
-        // completions table may not exist yet
-      }
+    let nameMap = new Map<string, string>();
+
+    const [compRes, clsRes] = await Promise.all([
+      exerciseIds.length > 0
+        ? Promise.resolve(
+            supabase
+              .from('daily_reading_completions')
+              .select('exercise_id, mcq_score, mcq_total, cloze_score, cloze_total, completed_at')
+              .eq('user_id', auth.userId)
+              .in('exercise_id', exerciseIds),
+          ).catch(() => ({ data: null }))
+        : Promise.resolve({ data: null }),
+      clsIds.length > 0
+        ? Promise.resolve(
+            supabase.from('classrooms').select('id, name').in('id', clsIds),
+          ).catch(() => ({ data: null }))
+        : Promise.resolve({ data: null }),
+    ]);
+
+    if (compRes?.data) {
+      completions = compRes.data as unknown as CompletionRow[];
+    }
+    if (clsRes?.data) {
+      nameMap = new Map(
+        clsRes.data.map((c) => [c.id, c.name === '__personal__' ? 'Cá nhân' : c.name]),
+      );
     }
 
     const completionMap = new Map(completions.map((c) => [c.exercise_id, c]));
-
-    // Get classroom names for display
-    const clsIds = [...new Set(unique.map((e) => e.classroom_id).filter(Boolean))];
-    let nameMap = new Map<string, string>();
-    if (clsIds.length > 0) {
-      try {
-        const { data: clsNames } = await supabase.from('classrooms').select('id, name').in('id', clsIds);
-        if (clsNames) {
-          nameMap = new Map(
-            clsNames.map((c) => [c.id, c.name === '__personal__' ? 'Cá nhân' : c.name]),
-          );
-        }
-      } catch {}
-    }
 
     const result = unique.map((e) => {
       const completion = completionMap.get(e.id);

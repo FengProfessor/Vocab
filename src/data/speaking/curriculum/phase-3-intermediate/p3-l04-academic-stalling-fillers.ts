@@ -32,11 +32,11 @@ export const p3L04AcademicStallingFillers: SpeakingCurriculumLesson = {
       'Người học Việt Nam khi bối rối thường kêu "ờ... à..." hoặc nói quá nhanh các cụm đệm khiến âm bị dính vào nhau và mất trọng âm. Hãy thả lỏng cơ mặt, duy trì giao tiếp mắt tự tin với giám khảo và phát âm từng cụm từ một cách chậm rãi, đĩnh đạc.',
     phonemes: ['/ˌmʌl.tiˈfæs.ə.t̬ɪd/', '/ˈwɔːr.ənts/', '/ˌsoʊ.si.oʊˌiː.kəˈnɑː.mɪk/', '/lens/'],
     video: {
-      youtubeVideoId: 'F9U8dK9jW-8',
-      channelName: "Rachel's English",
-      startSeconds: 25,
-      endSeconds: 130,
-      title: 'How to Sound Thoughtful: Intonation of Fillers in English',
+      youtubeVideoId: 'bRJJD6YpONs',
+      channelName: 'IELTS Prep by LeapScholar',
+      startSeconds: 0,
+      endSeconds: 601,
+      title: 'IELTS Speaking: How to use fillers effectively ?',
       mouthTipSummaryVi:
         'Sử dụng ngữ điệu trầm xuống và ngắt nhịp đĩnh đạc ở các cụm từ đệm để thể hiện sự chín chắn trong tư duy học thuật.',
     },

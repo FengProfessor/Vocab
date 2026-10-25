@@ -70,7 +70,7 @@ const MilestonePopup = dynamic(
   () => import('@/components/gamification/MilestonePopup').then((m) => m.MilestonePopup),
   { ssr: false }
 );
-import { useStudentContext, fetchWordSummaryOnce } from '@/components/student/StudentProvider';
+import { useStudentContext, fetchWordSummaryOnce, fetchProfileOnce } from '@/components/student/StudentProvider';
 const ChallengeWidget = dynamic(
   () => import('@/components/challenge/ChallengeWidget').then((m) => m.ChallengeWidget),
   { ssr: false }
@@ -235,6 +235,10 @@ export default function StudentDashboard() {
   useEffect(() => {
     levelCountsRef.current = levelCounts;
   }, [levelCounts]);
+  const totalWordsRef = useRef<number>(totalWords);
+  useEffect(() => {
+    totalWordsRef.current = totalWords;
+  }, [totalWords]);
   /** Sẵn sàng hiển thị số đếm ngay từ Frame 0 nếu đã có cache */
   const [countsReady, setCountsReady] = useState(() => {
     const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
@@ -364,10 +368,9 @@ export default function StudentDashboard() {
           }
         }
 
-        void fetchClassrooms();
-
         if (!loadStartedRef.current) {
           loadStartedRef.current = true;
+          void fetchClassrooms();
           loadData(session.user.id, initialScope);
         }
       } else {
@@ -383,10 +386,10 @@ export default function StudentDashboard() {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session?.user) {
-        void fetchClassrooms();
         // Chỉ reload khi chưa load (tránh double với getSession)
         if (!loadStartedRef.current) {
           loadStartedRef.current = true;
+          void fetchClassrooms();
           loadData(session.user.id, currentClassScopeRef.current);
         }
       } else if (event === 'SIGNED_OUT') {
@@ -595,9 +598,9 @@ export default function StudentDashboard() {
       })
       .catch(() => {});
 
-    // Chỉ gọi fallback ?summary=1&levels=1 nếu sau summary=1 ban đầu levelCounts vẫn toàn số 0
+    // Chỉ gọi fallback ?summary=1&levels=1 nếu user có từ (>0) nhưng sau summary=1 ban đầu levelCounts vẫn toàn số 0
     const loadLevelsFallback = () => {
-      if (levelCountsRef.current.some((n) => n > 0)) return;
+      if (totalWordsRef.current === 0 || levelCountsRef.current.some((n) => n > 0)) return;
       void authFetch(`/api/words?summary=1&levels=1${scopeParam}`, {})
         .then((r) => r.json())
         .then((sum) => {
@@ -622,13 +625,9 @@ export default function StudentDashboard() {
          * Critical path: profile + words kèm counts (shell nhanh).
          * Secondary (heatmap / đếm từ / levels / packs / daily reading): fire-and-forget sau shell.
          */
-        const profPromise = (studentCtx?.profile || profile)
+        const profPromise: Promise<{ data: Profile | null; error: { message?: string } | null }> = (studentCtx?.profile || profile)
           ? Promise.resolve({ data: studentCtx?.profile || profile, error: null })
-          : supabase
-              .from('profiles')
-              .select('id, full_name, email, role, avatar_url, plan, created_at')
-              .eq('id', userId)
-              .single();
+          : fetchProfileOnce(userId).then((data) => ({ data, error: null }));
 
         if (!scope || scope === '__personal__') {
           void fetchWordSummaryOnce(userId).then((sum) => {
@@ -653,8 +652,9 @@ export default function StudentDashboard() {
             .catch(() => null),
         ]);
 
-        if (profRes.error) {
-          console.error('[Student] Load profile failed:', profRes.error.message);
+        const profileErr = (profRes as { error?: { message?: string } | null })?.error;
+        if (profileErr) {
+          console.error('[Student] Load profile failed:', profileErr.message || profileErr);
           setWordsLoading(false);
           return;
         }

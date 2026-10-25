@@ -32,11 +32,11 @@ export const p3L07OpinionDefenseCounterArguments: SpeakingCurriculumLesson = {
       'Người Việt khi muốn bảo vệ quan điểm thường nói quá nhanh và cao giọng ở cuối câu (uptalk), khiến người nghe có cảm giác như bạn đang phòng thủ hoặc thiếu chắc chắn. Hãy nhớ: Hạ giọng ở cuối câu khẳng định để biểu thị tính chân lý và uy quyền học thuật.',
     phonemes: ['/flɔːd/', '/ˈprem.ɪs/', '/ˈkaʊn.tər/', '/ˌʃɔːrtˈsaɪ.t̬ɪd/'],
     video: {
-      youtubeVideoId: 'U8_X9Q12i3g',
-      channelName: "Rachel's English",
-      startSeconds: 40,
-      endSeconds: 150,
-      title: 'How to Sound Assertive and Confident in English Debates',
+      youtubeVideoId: 'cI-ZGVumD00',
+      channelName: 'British Council | English',
+      startSeconds: 0,
+      endSeconds: 141,
+      title: 'How to disagree politely (and not so politely!) - a Mini English Lesson',
       mouthTipSummaryVi:
         'Hạ giọng mạnh ở từ trọng tâm cuối câu để khẳng định tính chân lý và sự vững vàng trong lập luận.',
     },

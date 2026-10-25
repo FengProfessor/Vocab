@@ -29,11 +29,11 @@ export const p1L01GreetingsSelfIntro: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Giữ khẩu hình ở vị trí kết thúc thêm 0.5 giây để cảm nhận độ rung nhẹ trong xoang mũi, tuyệt đối không nuốt âm làm mất nghĩa của từ.',
     video: {
-      youtubeVideoId: 'scCesnn-0XY',
-      channelName: "Rachel's English",
-      startSeconds: 25,
-      endSeconds: 95,
-      title: 'How to Pronounce Nasal Sounds M, N, NG',
+      youtubeVideoId: 'vozEaqMOTuw',
+      channelName: 'Pronunciation with Emma',
+      startSeconds: 0,
+      endSeconds: 398,
+      title: 'How to Pronounce Nasal Sounds in English | /m/ /n/ /ŋ/',
       mouthTipSummaryVi:
         'Quan sát độ rung xoang mũi và vị trí hạ hàm tự nhiên của giáo viên bản ngữ khi phát âm các âm mũi.',
     },

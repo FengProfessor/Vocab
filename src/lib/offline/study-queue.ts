@@ -127,17 +127,19 @@ export async function prefetchStudyQueue(
       await setSyncMetadata(meta);
     }
 
-    // Background bulk audio caching ONLY on unmetered Wi-Fi / Ethernet.
-    // On cellular (4G/5G) or mobile devices, audio is prefetched in small 3-5 word rolling windows during study.
+    // Background audio warm-up: only prefetch the first 2 cards after a calm delay
+    // so 10–30 concurrent users opening the dashboard on shared Wi-Fi do not trigger
+    // a 150–450 request stampede on /api/tts. Active study screens use prefetchAudioWindow(4).
     if (wordsToPersist.length > 0 && policy.canBulkPrefetchMedia) {
-      const wordsForAudio = wordsToPersist.slice(0, 15);
+      const wordsForAudio = wordsToPersist.slice(0, 2);
       setTimeout(() => {
         void (async () => {
           for (const w of wordsForAudio) {
             await cacheWordAudio(w.word);
+            await new Promise((r) => setTimeout(r, 600));
           }
         })();
-      }, 800);
+      }, 4000);
     }
   } catch (err) {
     // Silent degradation

@@ -29,11 +29,11 @@ export const p1L09OrderingFoodDrink: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Khi nói "cup": khép hai môi lại chặn luồng hơi rồi nhả khẽ; khi nói "hot": đầu lưỡi áp lên chân răng trên chặn luồng hơi; khi nói "please": mỉm cười và nhấc bổng giọng lên nửa tông.',
     video: {
-      youtubeVideoId: 'wXq5k9eR6e8',
-      channelName: "Rachel's English",
-      startSeconds: 25,
-      endSeconds: 95,
-      title: "Stop Consonants P, T, K - Rachel's English",
+      youtubeVideoId: '4j2wAzZDDJc',
+      channelName: 'SpeechModification',
+      startSeconds: 0,
+      endSeconds: 562,
+      title: 'How to Say P, T, K, D, G, B at the Ends of Words in American English (Unreleased Stop Consonants)',
       mouthTipSummaryVi:
         'Quan sát cách luồng hơi bị chặn lại một tích tắc trong khoang miệng trước khi nhả nhẹ ra ngoài.',
     },

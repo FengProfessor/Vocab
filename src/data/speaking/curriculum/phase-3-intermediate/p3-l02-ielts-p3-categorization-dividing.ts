@@ -32,11 +32,11 @@ export const p3L02IeltsP3CategorizationDividing: SpeakingCurriculumLesson = {
       'Người Việt thường phát âm các từ dài bằng cách nhấn đều tất cả các âm tiết với thanh bằng, làm người bản xứ rất khó bắt từ. Hãy nhớ quy tắc: Âm mang trọng âm đọc To hơn - Cao hơn - Dài hơn gấp đôi; các âm còn lại lướt nhẹ thành âm gió hoặc schwa /ə/.',
     phonemes: ['/ˌdem.əˈɡræf.ɪk/', '/ˌdʒen.əˈreɪ.ʃən.əl/', '/ˌkæt̬.ə.ɡər.əˈzeɪ.ʃən/', '/ˌsaɪ.kəˈlɑː.dʒɪ.kəl/'],
     video: {
-      youtubeVideoId: 'f0wG-U-D2w8',
-      channelName: "Rachel's English",
-      startSeconds: 30,
-      endSeconds: 140,
-      title: 'Word Stress on Words Ending in -IC and -TION',
+      youtubeVideoId: '6l2fx2wXESo',
+      channelName: 'American English',
+      startSeconds: 0,
+      endSeconds: 83,
+      title: 'Syllable Stress: Words Ending in -tion',
       mouthTipSummaryVi:
         'Quy tắc vàng: Trọng âm chính luôn rơi vào âm tiết đứng ngay trước các hậu tố -ic, -tion, -sion.',
     },

@@ -1,5 +1,35 @@
 > Áp dụng khi tiếp tục sửa P0 trong repository Vocab. Mục đích: ghi trạng thái kiểm chứng ngắn gọn.
 
+# Tiến độ Dự Án
+
+## GOAL-READING-LIBRARY-A1-A2 — Bổ Sung Bài Đọc A1-A2, Split-Pane Reader & UI Kho Từ Vựng (2026-10-25)
+
+- **Bổ sung kho bài đọc A1 & A2 đa dạng chủ đề**:
+  - Viết và chạy thành công script `scripts/generate-a1-a2-reading-corpus.ts` nạp 31 bài đọc chuẩn hóa A1 & A2 vào bảng `public.reading_articles` trên Supabase (tổng số bài trong DB tăng từ 588 lên 619 bài).
+  - Phủ đều 15 chủ đề: `daily-life`, `food`, `travel`, `friendship-feelings`, `nature-animals`, `health`, `sports`, `shopping-money`, `school-study`, `technology`, `media-entertainment`, `environment`, `science`, `society`, `work-career`.
+  - Mỗi bài đều có đầy đủ: đoạn văn phân đoạn, bản dịch tiếng Việt song ngữ chuẩn xác, 4–6 từ vựng trọng tâm kèm phát âm IPA, bài tập đục lỗ (cloze), và 3–4 câu hỏi trắc nghiệm đọc hiểu kèm lời giải chi tiết (`explain`).
+- **Thay đổi UI Reader & Sửa lỗi giãn cách chữ**:
+  - Sửa dứt điểm lỗi tách chữ 17px do tokenization regex: dấu câu (`.`, `,`, `!`, `?`) bám sát từ tự nhiên, căn chỉnh font serif, line-height 1.8 chuẩn công thái học chống mỏi mắt.
+  - Tái cấu trúc layout **Split-Pane** hiện đại trên Desktop:
+    - Cột trái (`col-span-7`): Bài đọc, nút nghe audio đọc bài, tăng giảm cỡ chữ (A-/A+), bản dịch song ngữ bật tắt, tra từ điển tức thì khi nhấp vào từ.
+    - Cột phải (`col-span-5` sticky): Khung câu hỏi & đáp án hiển thị song song cạnh bài đọc. Tab trắc nghiệm hiển thị trực quan các đáp án A/B/C/D, chấm điểm và hiện giải thích chi tiết ngay bên cạnh từng câu hỏi để người học đối chiếu trực tiếp với bài đọc bên trái.
+  - Tối ưu giao diện Mobile (`< lg`):
+    - Thanh chuyển chế độ nhanh `[📖 Bài đọc]` | `[🎯 Bài tập & Đáp án]`.
+    - Accordion "👀 Xem nhanh bài đọc" mở rộng ngay phía trên câu hỏi, cho phép người dùng lướt xem bài đọc mà không mất ngữ cảnh hay trạng thái làm bài.
+    - Nút hành động nhanh "🎯 Sang phần bài tập & trắc nghiệm →" ở cuối bài đọc.
+- **Ẩn hoàn toàn tính năng tạo bài đọc AI chọn từ**:
+  - Loại bỏ thẻ `pack-reading` khỏi Hub Luyện tập `/practice`.
+  - Đặt chuyển hướng tự động `router.replace('/practice/reading-library')` tại `/practice/pack-reading/page.tsx`.
+  - Cập nhật các nút liên kết trong `ActionSelectionModal.tsx` và `LearnMode.tsx` trỏ thẳng về `/practice/reading-library`.
+- **Nghiên cứu kiến trúc & bố cục Kho Từ Vựng 2.0**:
+  - Xuất bản tài liệu nghiên cứu chuyên sâu `VOCABULARY_LIBRARY_UI_REDESIGN_RESEARCH.md` đề xuất mô hình Dual-Hub (Kho bộ từ chuẩn hóa + Sổ từ cá nhân FSRS), thanh tìm kiếm toàn cục Omnibox, và thẻ bài học dạng hàng ngang gọn nhẹ tối ưu ngón tay cái trên di động.
+- **Kiểm chứng chất lượng**:
+  - `npm run typecheck`: PASS 100% (code 0).
+  - Security regressions: PASS 100% (`phase3a-low.test.mjs`, `phase2c-browser-boundaries.test.mjs`).
+  - Next.js build: PASS 100% (191/191 pages generated).
+
+---
+
 # Tiến độ P0
 
 ## P0-1 — Migration workflow (2026-09-24)
@@ -1234,3 +1264,13 @@
   - `npx eslint`: PASS (0 error).
   - Workflow GitHub Actions `#38856536167`: Cả 3 jobs (Quality gate, Migration, Deploy to Ubuntu Server) đều PASS.
   - Live HTTPS probes: `/api/health` 200 OK, `/toeic` 200 OK, `/toeic?tab=full_test` 200 OK, `/toeic?tab=review_flagged` 200 OK, `/practice` 200 OK, `/journey` 200 OK.
+
+### Kiểm toán chất lượng Speaking local (2026-10-25)
+
+- Báo cáo và bằng chứng: `research/speaking-quality-2026-10-25/bao-cao.md`, `metrics.json`, `media-check.json`, `content-audit.json`, `validation.md`.
+- Script tái lập: `scripts/speaking/audit-database-quality.ts`; thêm `--check-media` để xác minh HTTP tài nguyên ngoài.
+- Kiểm kê: 32 bài curriculum, 229 chủ đề, 19 bài ingested, 26 kịch bản tutor; nội dung chính nằm trong TS/JSON.
+- Phát hiện: 67 chủ đề chung bộ 5 từ, 93 chủ đề chung 5 dòng thoại; 408 bản dịch ở 68 chủ đề dùng `translationVi` nhưng UI đọc `textVi`.
+- SafeHarbor: từ khóa đảo thứ tự vẫn đạt ở 32/32 bài; 21/88 acceptable variations bị từ chối. Catalog ingested: 30/38 URL audio 404, 8 URL là HTML YouTube; 19/19 bài vẫn qualityScore 100.
+- Test curriculum 67/67, ingested 29/29; Foundation 154/157, ba assertion fail cùng clip 469 giây vượt giới hạn test. Compiler/lint: xem `validation.md`.
+- Chỉ nghiên cứu và thêm công cụ/báo cáo; không sửa học liệu, logic ứng dụng hoặc database production. Ưu tiên tiếp theo: chấm đúng phạm vi, chuẩn schema bản dịch, sửa media và viết lại bộ tình huống theo khuôn.

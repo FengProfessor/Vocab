@@ -10,8 +10,8 @@ export interface RachelVideoMeta {
   startSeconds: number;
   /** End time in seconds marking the end of demonstration clip */
   endSeconds: number;
-  /** Canonical channel branding ensuring instructor consistency */
-  channelName: "Rachel's English";
+  /** Channel shown as the source; Rachel's English by default, other channels allowed when verified via oEmbed */
+  channelName: "Rachel's English" | (string & {});
   /** Concise pedagogical tip extracted from Rachel's instruction */
   videoTip: string;
   /** Optional human-readable clip title */

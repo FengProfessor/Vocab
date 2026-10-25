@@ -55,7 +55,7 @@ async function redis(command: (string | number)[]): Promise<unknown> {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
       body: JSON.stringify(command),
-      signal: AbortSignal.timeout(1500),
+      signal: AbortSignal.timeout(3500),
       cache: 'no-store',
     });
     if (!response.ok) throw new SessionStoreUnavailableError();

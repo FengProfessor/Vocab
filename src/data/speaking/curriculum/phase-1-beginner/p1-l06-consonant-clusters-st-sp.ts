@@ -29,11 +29,11 @@ export const p1L06ConsonantClustersStSp: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Với /st/ trong "stay": Đặt đầu lưỡi chạm sẵn vào vòm lợi răng trên, xì gió /s/ rồi kéo lưỡi xuống phát âm "tey" ngay lập tức. Giữ hàm răng gần sát nhau suốt quá trình.',
     video: {
-      youtubeVideoId: 'k3Vq_r5qLBs',
-      channelName: "Rachel's English",
-      startSeconds: 30,
-      endSeconds: 105,
-      title: "Consonant Clusters with S - Rachel's English",
+      youtubeVideoId: 'J2NDsQgbL-Y',
+      channelName: 'Rachel\'s English',
+      startSeconds: 0,
+      endSeconds: 183,
+      title: 'S Consonant Clusters -- American English Pronunciation',
       mouthTipSummaryVi:
         'Quan sát cách miệng không bao giờ mở ra giữa âm S và phụ âm kế tiếp để tránh tạo ra nguyên âm thừa.',
     },

@@ -32,11 +32,11 @@ export const p3L09SocialIssuesEnvironmentUrban: SpeakingCurriculumLesson = {
       'Người Việt hay đọc các từ này bằng cách lướt nhanh không rõ âm tiết hoặc đổi dấu thanh tiếng Việt ("e-qui-li-bờ-ri-um"). Hãy phân định rõ ràng các nhịp đập: nhịp nhấn cao vang, các nhịp phụ lướt nhẹ nhàng.',
     phonemes: ['/ˌiː.kwəˈlɪb.ri.əm/', '/ˌbaɪ.oʊ.daɪˈvɜːr.sə.t̬i/', '/kəˌmɜːr.ʃəl.əˈzeɪ.ʃən/', '/ˌoʊ.vɚˈtʊr.ɪ.zəm/'],
     video: {
-      youtubeVideoId: 'U_i2qM5aR_4',
-      channelName: "Rachel's English",
-      startSeconds: 55,
-      endSeconds: 165,
-      title: 'Polysyllabic Word Stress: Long Academic English Words',
+      youtubeVideoId: 'FMLiSef3B5Q',
+      channelName: 'Heather Hansen - Unmuted',
+      startSeconds: 0,
+      endSeconds: 240,
+      title: 'Word Stress Patterns in Longer Words - Pronunciation Pointer (Heather Hansen)',
       mouthTipSummaryVi:
         'Tập trung phát âm chính xác âm tiết mang trọng âm chính và thả lỏng các âm tiết yếu về schwa /ə/.',
     },

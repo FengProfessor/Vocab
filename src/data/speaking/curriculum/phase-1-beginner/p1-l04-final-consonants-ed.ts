@@ -29,11 +29,11 @@ export const p1L04FinalConsonantsEd: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Hãy ghi nhớ: "worked" chỉ có 1 âm tiết duy nhất (/wɜːkt/), kết thúc bằng một tiếng bật bật nhẹ của đầu lưỡi ở chân răng trên, không được tách thành hai từ.',
     video: {
-      youtubeVideoId: 'j32SurxnE4s',
-      channelName: "Rachel's English",
-      startSeconds: 35,
-      endSeconds: 115,
-      title: "How to Pronounce -ED Endings in English - Rachel's English",
+      youtubeVideoId: 'gftHWQ6CLu8',
+      channelName: 'Rachel\'s English',
+      startSeconds: 0,
+      endSeconds: 1174,
+      title: 'ED ENDINGS (1/3) American English Accent Training: PERFECT PRONUNCIATION',
       mouthTipSummaryVi:
         'Quan sát cách giáo viên bản ngữ bật âm /t/ dứt khoát sau âm vô thanh và chỉ tăng thêm âm tiết ở các từ kết thúc bằng T hoặc D.',
     },

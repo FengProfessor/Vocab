@@ -32,11 +32,11 @@ export const p3L08AbstractTopicsAiTechnology: SpeakingCurriculumLesson = {
       'Người Việt hay đọc "AI" thành "ây-ai" rời rạc, hoặc phát âm "algorithm" thành "an-gô-rít". Hãy luyện đúng phiên âm IPA chuẩn: /ˈæl.ɡə.rɪ.ðəm/ với âm /æ/ hạ cằm và âm /ð/ kẹp lưỡi nhẹ giữa hai hàm răng.',
     phonemes: ['/ɔːˈtɑː.nə.məs/', '/sɚˈveɪ.ləns/', '/ˈæl.ɡə.rɪ.ðəm/', '/ˈkɑːɡ.nə.tɪv/'],
     video: {
-      youtubeVideoId: 'f0wG-U-D2w8',
-      channelName: "Rachel's English",
-      startSeconds: 50,
-      endSeconds: 160,
-      title: 'How to Pronounce TECHNOLOGY and ARTIFICIAL INTELLIGENCE',
+      youtubeVideoId: 'SGRIyLimIwU',
+      channelName: 'BBC Learning English',
+      startSeconds: 0,
+      endSeconds: 272,
+      title: 'Stop Saying... Stress in long words',
       mouthTipSummaryVi:
         'Hạ quai hàm ở các âm tiết trọng âm và phát âm chuẩn âm lưỡi-răng /ð/ trong "algorithm".',
     },

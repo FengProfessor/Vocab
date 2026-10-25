@@ -463,26 +463,32 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           setWordSummary(wordSum);
         }
 
-        // Milestone 2: Background prefetch offline study queue & primary tab JSON snapshots during idle time
-        if (typeof window !== 'undefined') {
+        // Milestone 2: Background prefetch offline study queue & primary tab JSON snapshots during idle time.
+        // Staggered sequentially after initial dashboard load settles (6s delay + 500ms spacing)
+        // so 10–50 concurrent users opening the app never cause a simultaneous API request storm.
+        if (typeof window !== 'undefined' && window.location) {
           const triggerPrefetch = () => {
-            void import('@/lib/offline/study-queue')
-              .then((mod) => mod.prefetchStudyQueue(userId))
-              .catch(() => {});
-
+            if (isCancelled) return;
             void (async () => {
               try {
                 const { getNetworkPolicy } = await import('@/lib/offline/network-policy');
                 if (!getNetworkPolicy().canPrefetchJson) return;
+
+                const studyMod = await import('@/lib/offline/study-queue');
+                await studyMod.prefetchStudyQueue(userId);
+                if (isCancelled) return;
 
                 const warmupKey = `lp:tabs_warmup_ts:${userId}`;
                 const lastWarmup = Number(sessionStorage.getItem(warmupKey) || 0);
                 if (Date.now() - lastWarmup < 5 * 60 * 1000) return;
                 sessionStorage.setItem(warmupKey, String(Date.now()));
 
+                const pause = () => new Promise((r) => setTimeout(r, 500));
                 const snapMod = await import('@/lib/dashboard-snapshot-cache');
-                if (!snapMod.readLibraryCatalogCache()) {
-                  void authFetch('/api/import/packages')
+
+                if (!snapMod.readLibraryCatalogCache() && !isCancelled) {
+                  await pause();
+                  await authFetch('/api/import/packages')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.routes)) {
@@ -495,8 +501,10 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     })
                     .catch(() => {});
                 }
-                if (!snapMod.readLastRoadmapCache('cefr', userId)) {
-                  void authFetch('/api/roadmap?track=cefr')
+
+                if (!snapMod.readLastRoadmapCache('cefr', userId) && !isCancelled) {
+                  await pause();
+                  await authFetch('/api/roadmap?track=cefr')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && d.data && typeof d.data === 'object') {
@@ -506,18 +514,12 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     })
                     .catch(() => {});
                 }
-                if (!snapMod.readLastProfileStatsCache(userId)) {
-                  void authFetch('/api/student/stats')
-                    .then((r) => r.json())
-                    .then((d) => {
-                      if (d?.success && d.data) {
-                        snapMod.writeProfileStatsCache(userId, d.data);
-                      }
-                    })
-                    .catch(() => {});
-                }
-                if (!snapMod.readLastDailyReadingCache(userId)) {
-                  void authFetch('/api/practice/daily-reading')
+
+                // Skip daily-reading warmup if already on /student (StudentDashboard fetches it directly)
+                const onMainDashboard = window.location?.pathname === '/student';
+                if (!onMainDashboard && !snapMod.readLastDailyReadingCache(userId) && !isCancelled) {
+                  await pause();
+                  await authFetch('/api/practice/daily-reading')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.exercises)) {
@@ -532,8 +534,10 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     })
                     .catch(() => {});
                 }
-                if (!localStorage.getItem('lingo_grammar_topic_progress')) {
-                  void authFetch('/api/grammar/progress?view=topics')
+
+                if (!localStorage.getItem('lingo_grammar_topic_progress') && !isCancelled) {
+                  await pause();
+                  await authFetch('/api/grammar/progress?view=topics')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.data)) {
@@ -555,11 +559,14 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
               }
             })();
           };
-          if ('requestIdleCallback' in window) {
-            (window as any).requestIdleCallback(triggerPrefetch, { timeout: 3000 });
-          } else {
-            setTimeout(triggerPrefetch, 1000);
-          }
+          setTimeout(() => {
+            if (isCancelled) return;
+            if ('requestIdleCallback' in window) {
+              (window as any).requestIdleCallback(triggerPrefetch, { timeout: 4000 });
+            } else {
+              triggerPrefetch();
+            }
+          }, 6000);
         }
       } finally {
         if (!isCancelled) {

@@ -32,11 +32,11 @@ export const p3L10TwoMinuteMonologueMastery: SpeakingCurriculumLesson = {
       'Tuyệt đối không tăng tốc độ nói khi sắp hết ý. Ngược lại, khi cảm thấy cần suy nghĩ, hãy kéo dài trường độ của các tính từ và trạng từ mô tả ("absolutely extraordinary", "truly transformative") thay vì chèn âm "ờ, à".',
     phonemes: ['/ˈpeɪ.sɪŋ/', '/ˌret.rəˈspekt/', '/ˈvɪv.ɪd.li/', '/ˈsaɪn.poʊsts/'],
     video: {
-      youtubeVideoId: 'V9a8i2dF_mQ',
-      channelName: "Rachel's English",
-      startSeconds: 70,
-      endSeconds: 180,
-      title: 'Speech Pacing and Rhythm for Long Monologues in English',
+      youtubeVideoId: 'HoFZezONChI',
+      channelName: 'IELTSanswers',
+      startSeconds: 0,
+      endSeconds: 95,
+      title: 'speaking speed in your IELTS test',
       mouthTipSummaryVi:
         'Luyện thở bằng cơ hoành và giữ nhịp độ nói ổn định từ 120-140 từ mỗi phút trong suốt bài độc thoại 2 phút.',
     },

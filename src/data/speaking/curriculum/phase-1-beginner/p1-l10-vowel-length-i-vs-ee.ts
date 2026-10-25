@@ -30,10 +30,10 @@ export const p1L10VowelLengthIVsEe: SpeakingCurriculumLesson = {
       'Hãy ghi nhớ câu khẩu quyết: "Cười tươi căng mép là âm dài /iː/, thả lỏng rơi cằm là âm ngắn /ɪ/".',
     video: {
       youtubeVideoId: 'scCesnn-0XY',
-      channelName: "Rachel's English",
-      startSeconds: 40,
-      endSeconds: 115,
-      title: "How to Pronounce EE [i:] and IH [ɪ] Vowels - Rachel's English",
+      channelName: 'Rachel\'s English',
+      startSeconds: 0,
+      endSeconds: 258,
+      title: 'EE vs. IH, Long and Short Vowels - American English',
       mouthTipSummaryVi:
         'Quan sát sự đối lập giữa hai khóe môi kéo căng góc rộng ở /iː/ và cơ miệng thả lỏng hoàn toàn ở /ɪ/.',
     },

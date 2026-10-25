@@ -29,11 +29,11 @@ export const p1L02FinalConsonantsSz: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Đặt ngón tay lên hõm cổ họng: khi phát âm /s/ trong "cats" bạn chỉ thấy gió mát luồn qua răng; khi phát âm /z/ trong "dogs" bạn sẽ cảm nhận rõ rệt độ rung rần rần của dây thanh quản.',
     video: {
-      youtubeVideoId: 'f0W_2Z81R7A',
-      channelName: "Rachel's English",
-      startSeconds: 40,
-      endSeconds: 110,
-      title: "How to Pronounce S and Z Sounds - Rachel's English",
+      youtubeVideoId: 'xl-7mSeybmI',
+      channelName: 'Rachel\'s English',
+      startSeconds: 0,
+      endSeconds: 177,
+      title: 'English Sounds - S [s] and Z [z] Consonants - How to make the S and Z Consonants',
       mouthTipSummaryVi:
         'Quan sát sự tiếp xúc giữa hai hàm răng và luồng khí đẩy qua đầu lưỡi của giáo viên bản ngữ.',
     },

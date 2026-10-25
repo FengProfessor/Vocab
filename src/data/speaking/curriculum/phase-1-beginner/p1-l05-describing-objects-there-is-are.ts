@@ -29,11 +29,11 @@ export const p1L05DescribingObjectsThereIsAre: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Hãy nhìn vào gương: bạn phải nhìn thấy đầu lưỡi thò ra giữa hai hàm răng trước khi phát ra âm thanh. Nếu lưỡi vẫn ở trong khoang miệng thì chắc chắn bạn đang nói âm "đ" tiếng Việt.',
     video: {
-      youtubeVideoId: 'o3gS8wS4tqE',
-      channelName: "Rachel's English",
-      startSeconds: 45,
-      endSeconds: 120,
-      title: "How to Pronounce the Voiced TH Sound - Rachel's English",
+      youtubeVideoId: 'bWDhQgScD4g',
+      channelName: 'Pronunciation with Emma',
+      startSeconds: 0,
+      endSeconds: 59,
+      title: 'How to Pronounce "th" (Voiced TH /ð/) in English (this, that, these, those)',
       mouthTipSummaryVi:
         'Quan sát chuyển động đầu lưỡi chạm nhẹ vào cạnh dưới của răng cửa hàm trên và độ rung hữu thanh liên tục.',
     },

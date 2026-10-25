@@ -27,6 +27,7 @@ import {
 } from '@/data/speaking/curriculum';
 import type { SpeakingPhaseId } from '@/types/speaking-curriculum';
 import { MasterSpeakingRoadmap } from '@/components/speaking/MasterSpeakingRoadmap';
+import { LessonSceneThumb } from '@/components/speaking/curriculum/LessonVisuals';
 
 export default function SpeakingCurriculumCatalogPage() {
   const [activePhase, setActivePhase] = useState<SpeakingPhaseId>('phase-1-beginner');
@@ -249,6 +250,9 @@ export default function SpeakingCurriculumCatalogPage() {
                         <span>{lesson.estimatedMinutes} phút</span>
                       </div>
                     </div>
+
+                    {/* Scene picture strip */}
+                    <LessonSceneThumb lessonId={lesson.id} />
 
                     {/* Lesson Titles */}
                     <div>

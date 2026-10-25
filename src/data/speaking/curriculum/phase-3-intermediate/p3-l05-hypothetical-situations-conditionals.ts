@@ -32,11 +32,11 @@ export const p3L05HypotheticalSituationsConditionals: SpeakingCurriculumLesson =
       'Người Việt hay đọc tách bạch từng từ "út - he - vờ" làm câu nói bị giật cục và mất tự nhiên. Hãy tập lướt nhanh /wʊdəv/ hoặc /kʊdəv/ như một từ đơn có 2 âm tiết với trọng âm rơi vào âm tiết đầu.',
     phonemes: ['/ˈwʊd.əv/', '/ˈkʊd.əv/', '/ˌhaɪ.pəˈθet̬.ɪ.kəl/', '/ɪnˈvɜːr.ʒən/'],
     video: {
-      youtubeVideoId: 'U_i2qM5aR_4',
-      channelName: "Rachel's English",
-      startSeconds: 35,
-      endSeconds: 155,
-      title: 'How to Pronounce WOULD HAVE / WOULD OF in Conversational English',
+      youtubeVideoId: 'D_npkVsb25o',
+      channelName: 'Rachel\'s English',
+      startSeconds: 0,
+      endSeconds: 273,
+      title: 'Shoulda, Woulda, Coulda - American English Pronunciation!',
       mouthTipSummaryVi:
         'Luyện phát âm yếu "would have" thành /ˈwʊdəv/ để câu điều kiện loại 3 trở nên trôi chảy và tự nhiên.',
     },

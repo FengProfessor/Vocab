@@ -29,11 +29,11 @@ export const p1L03DailyRoutinesPresentSimple: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Đừng dừng luồng hơi sau phụ âm đuôi. Hãy giữ chuyển động môi lưỡi liên tục như đang trượt trên một dốc thoai thoải, tạo nhịp điệu trôi chảy tự nhiên.',
     video: {
-      youtubeVideoId: 'U_54fT9E93U',
-      channelName: "Rachel's English",
-      startSeconds: 30,
-      endSeconds: 100,
-      title: "Linking Consonant to Vowel in American English - Rachel's English",
+      youtubeVideoId: '7tsljuK4f2E',
+      channelName: 'Rachel\'s English',
+      startSeconds: 0,
+      endSeconds: 215,
+      title: 'English Pronunciation - Linking: Consonant to Vowel -- American Accent',
       mouthTipSummaryVi:
         'Quan sát sự liền mạch giữa phụ âm cuối của từ thứ nhất với nguyên âm mở đầu của từ thứ hai mà không hề ngắt hơi.',
     },

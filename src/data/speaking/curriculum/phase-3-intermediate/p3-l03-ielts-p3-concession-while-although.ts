@@ -32,11 +32,11 @@ export const p3L03IeltsP3ConcessionWhileAlthough: SpeakingCurriculumLesson = {
       'Người Việt hay đọc phẳng cả hai vế khiến giám khảo không phân biệt được đâu là ý nhượng bộ (phụ) và đâu là luận điểm chính (trọng tâm). Hãy nhớ: Vế While đọc nhẹ và lên giọng ở cuối mệnh đề; vế sau đọc to bản, dứt khoát và hạ giọng ở từ khóa cuối.',
     phonemes: ['/ˌʌn.dɪˈnaɪ.ə.bli/', '/kənˈseʃ.ən/', '/ˈkaʊn.tərˌɑːrɡ.jə.mənt/', '/dɪˈspaɪt/'],
     video: {
-      youtubeVideoId: '1U8U0Z4G7Gk',
-      channelName: "Rachel's English",
-      startSeconds: 40,
-      endSeconds: 145,
-      title: 'Intonation in Complex Sentences with Although and While',
+      youtubeVideoId: 'IkEJqs-dYE4',
+      channelName: 'VOA Learning English',
+      startSeconds: 0,
+      endSeconds: 139,
+      title: 'How To Pronounce: Contrastive Stress',
       mouthTipSummaryVi:
         'Lên giọng nhẹ ở cuối mệnh đề phụ thuộc và hạ giọng rõ ràng ở cuối mệnh đề độc lập để tạo nhịp điệu tranh biện thuyết phục.',
     },

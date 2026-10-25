@@ -53,7 +53,9 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const [userId, setUserId] = useState<string | null>(() => readLastProfileCache()?.id ?? null);
   const [phase, setPhase] = useState<Phase>('loading');
   const phaseRef = useRef<Phase>('loading');
-  phaseRef.current = phase;
+  useEffect(() => {
+    phaseRef.current = phase;
+  }, [phase]);
   const [batch, setBatch] = useState<WordItem[]>([]);
   const [remainingNew, setRemainingNew] = useState(0);
 
@@ -940,11 +942,11 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
           <Button
             className="w-full h-14 rounded-2xl bg-teal-600 hover:bg-teal-700 text-white font-black text-base shadow-lg shadow-teal-200 border-b-4 border-teal-800 active:translate-y-0.5 active:border-b-0 flex items-center justify-center gap-2"
             onClick={() => {
-              const wordsStr = batch.map((w) => w.word).join(',');
-              router.push(`/practice/pack-reading?words=${encodeURIComponent(wordsStr)}`);
+              void batch;
+              router.push('/practice/reading-library');
             }}
           >
-            <BookOpen className="h-5 w-5" /> 📖 Luyện đọc & Đục lỗ {batch.length} từ vừa học
+            <BookOpen className="h-5 w-5" /> 📖 Khám phá Thư viện bài đọc
           </Button>
         )}
 

@@ -30,7 +30,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       channelName: "Rachel's English",
       startSeconds: 45,
       endSeconds: 115,
-      title: "How to Pronounce EE [i:] and IH [ɪ] Vowels - Rachel's English",
+      title: "EE vs. IH, Long and Short Vowels - American English",
       videoTip:
         'For /iː/, mouth corners pull wide in a tight smile and tongue blade arches high near the roof. For /ɪ/, mouth corners relax completely and jaw drops slightly.',
       mouthTipSummary: 'Quan sát khóe môi căng cười ở /iː/ đối lập với cơ miệng thả lỏng hoàn toàn ở /ɪ/.',
@@ -99,7 +99,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       channelName: "Rachel's English",
       startSeconds: 35,
       endSeconds: 105,
-      title: "How to Pronounce EH [e] and AA [æ] Vowels - Rachel's English",
+      title: "American English Pronunciation: EH [ɛ] vs. AA [æ] Vowels",
       videoTip:
         'For /e/, mouth opens moderately like in "bed". For /æ/, drop your jaw down substantially, flatten the tongue, and flare mouth corners outward like in "bad".',
       mouthTipSummary: 'Hạ cằm sâu tối đa và ép phẳng lưỡi cho âm /æ/ bẹt.',
@@ -164,11 +164,11 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
     mouthTipVi:
       'Âm /uː/: Chu môi tròn nhỏ như đang huýt sáo, cơ môi siết căng, đẩy luồng âm ngân dài. Âm /ʊ/: Thả lỏng toàn bộ cơ môi (môi mở nhẹ hình oval), không chu môi nhọn, hạ nhẹ cằm và phát âm dứt khoát.',
     video: {
-      youtubeVideoId: 'IwahymIkGJ0',
+      youtubeVideoId: 'ukKuV4fXdTA',
       channelName: "Rachel's English",
-      startSeconds: 38,
-      endSeconds: 100,
-      title: "How to Pronounce OO [u:] and UH [ʊ] Vowels - Rachel's English",
+      startSeconds: 0,
+      endSeconds: 469,
+      title: "How to Pronounce POOL vs. PULL:  English Conversation",
       videoTip:
         'For /uː/, lips form a tight, tense whistle circle. For /ʊ/, lips and jaw relax completely into a soft neutral round shape with no lip tension.',
       mouthTipSummary: 'Chu môi căng tròn huýt sáo /uː/ đối lập với môi thả lỏng tự nhiên ở /ʊ/.',
@@ -230,7 +230,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       channelName: "Rachel's English",
       startSeconds: 25,
       endSeconds: 85,
-      title: "How to Pronounce the TH Consonants - Rachel's English",
+      title: "English Sounds - The Two TH Consonants [θ] and [ð]",
       videoTip:
         'For voiceless /θ/, place the tip of your tongue lightly between your top and bottom teeth. Push air gently through the dental gap without biting down.',
       mouthTipSummary: 'Đặt đầu lưỡi chạm nhẹ mép răng cửa và đẩy luồng hơi êm.',
@@ -299,7 +299,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       channelName: "Rachel's English",
       startSeconds: 85,
       endSeconds: 145,
-      title: "How to Pronounce the Voiced TH [ð] Consonant - Rachel's English",
+      title: "English Sounds - The Two TH Consonants [θ] and [ð]",
       videoTip:
         'Place tongue tip lightly between teeth just like /θ/, but activate your vocal cords to create a heavy buzz sensation against your front teeth.',
       mouthTipSummary: 'Đầu lưỡi kẹp nhẹ giữa răng và rung thanh quản có độ rè đặc trưng.',
@@ -361,7 +361,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       channelName: "Rachel's English",
       startSeconds: 30,
       endSeconds: 95,
-      title: "How to Pronounce the SH [ʃ] and S [s] Consonants - Rachel's English",
+      title: "How to Pronounce S [s] vs. SH [ʃ] - American English",
       videoTip:
         'For /s/, mouth corners pull wide and teeth touch lightly with air hissing forward. For /ʃ/, lips flare into a round funnel shape like telling someone "shh!".',
       mouthTipSummary: 'Chu môi tròn phễu thổi hơi trầm /ʃ/ vs khóe miệng bè sang bên xì hơi sắc /s/.',
@@ -430,7 +430,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       channelName: "Rachel's English",
       startSeconds: 25,
       endSeconds: 88,
-      title: "How to Pronounce Plural & 3rd Person S Endings - Rachel's English",
+      title: "English Sounds - S [s] and Z [z] Consonants - How to make the S and Z Consonants",
       videoTip:
         'Final -S has 3 rules: voiceless sounds take /-s/ (cups), voiced sounds take buzzing /-z/ (dogs), and sibilant hissing sounds add an extra syllable /-ɪz/ (buses).',
       mouthTipSummary: 'Đặt tay lên cổ họng: /-z/ bắt buộc rung dây thanh quản, /-ɪz/ thêm một nhịp âm rõ rệt.',
@@ -491,7 +491,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       channelName: "Rachel's English",
       startSeconds: 42,
       endSeconds: 108,
-      title: "How to Pronounce Final Stop Consonants - Rachel's English",
+      title: "How to Pronounce Stop Consonants:  American English",
       videoTip:
         'Stop consonants block airflow momentarily: lips for /p/, tongue blade for /t/, tongue back for /k/. Never swallow the sound; release a crisp puff of air.',
       mouthTipSummary: 'Nén luồng hơi lại rồi mở cơ quan phát âm để nghe thấy tiếng nổ bật khẽ.',
@@ -552,7 +552,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       channelName: "Rachel's English",
       startSeconds: 40,
       endSeconds: 115,
-      title: "How to Pronounce Regular Past Tense -ED Endings - Rachel's English",
+      title: "ED ENDINGS (1/3) American English Accent Training: PERFECT PRONUNCIATION",
       videoTip:
         'Only words ending in /t/ or /d/ add a new syllable /-ɪd/ (wanted). Voiceless endings become crisp /-t/ (stopped), and voiced endings become vibrant /-d/ (played).',
       mouthTipSummary: 'Chỉ thêm âm tiết /-ɪd/ khi gặp /t, d/, còn lại chỉ bật /-t/ hoặc /-d/ nhanh.',
@@ -612,7 +612,7 @@ export const STAGE_0_PHONETIC_LESSONS: Stage0PhoneticLesson[] = [
       channelName: "Rachel's English",
       startSeconds: 35,
       endSeconds: 105,
-      title: 'Connected Speech: Consonant to Vowel Linking in American English',
+      title: "English Pronunciation - Linking: Consonant to Vowel -- American Accent",
       videoTip:
         'Smoothly connect the final consonant of one word into the starting vowel of the next: "Can I have a" sounds like "ca-ni-ha-va", creating fluid native cadence.',
       mouthTipSummary: 'Nối trơn tru phụ âm cuối vào nguyên âm sau, không dừng ngắt giữa chừng.',

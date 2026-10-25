@@ -29,11 +29,11 @@ export const p1L11AskingAnsweringQuestions: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Với Wh-questions: Hãy hạ giọng xuống ngực ở từ cuối cùng; với Yes/No questions: Hãy nhấc bổng giọng lên mang tai ở từ cuối cùng như khi bạn đang ngạc nhiên.',
     video: {
-      youtubeVideoId: 'U_kPzN8vB2A',
-      channelName: "Rachel's English",
-      startSeconds: 30,
-      endSeconds: 105,
-      title: "Intonation in English Questions - Rachel's English",
+      youtubeVideoId: 'ImWCV5iRoq8',
+      channelName: 'Pronunciation with Emma',
+      startSeconds: 0,
+      endSeconds: 360,
+      title: 'How to use QUESTION INTONATION in ENGLISH | RISING and FALLING QUESTION INTONATION',
       mouthTipSummaryVi:
         'Quan sát sự đối lập giữa đường cong âm điệu đi xuống ở câu hỏi Wh- và đi vút lên ở câu hỏi Yes/No.',
     },

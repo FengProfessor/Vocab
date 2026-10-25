@@ -22,6 +22,7 @@ import {
   Award,
   Clock,
   Compass,
+  Image as ImageIcon,
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
@@ -29,6 +30,20 @@ import {
   DualSpeedAudioButton,
   SafeHarborRecorder,
 } from '@/components/speaking';
+import { InteractiveIpaVideoPlayer } from '@/components/pronunciation/InteractiveIpaVideoPlayer';
+import {
+  LessonSceneCard,
+  MiniWordPicture,
+  OpenSourceCredits,
+  PictureWordCard,
+  SpeakerAvatar,
+} from '@/components/speaking/curriculum/LessonVisuals';
+import {
+  getLessonVisual,
+  getWordCefrLevel,
+  getWordPictureUrl,
+  isLearnerSpeaker,
+} from '@/lib/speaking/lesson-visuals';
 import {
   getCurriculumLessonById,
   allCurriculumLessons,
@@ -151,6 +166,7 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
   }
 
   // Determine neighboring lessons for smooth sequential progression
+  const lessonVisual = getLessonVisual(lesson.id);
   const currentIndex = allCurriculumLessons.findIndex((l) => l.id === lesson.id);
   const prevLesson = currentIndex > 0 ? allCurriculumLessons[currentIndex - 1] : null;
   const nextLesson =
@@ -339,12 +355,80 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                   </div>
                 </div>
 
+                {/* Picture context: where you are, who you talk to, what you must say */}
+                <LessonSceneCard
+                  lessonId={lesson.id}
+                  contextVi={lesson.stage3GuidedDialogue.contextVi}
+                  variant="compact"
+                />
+
+                {/* Verified demonstration video (IDs checked via YouTube oEmbed in scripts/speaking/audit-content.ts) */}
+                {lesson.stage1Phonetics.video && (
+                  <div className="space-y-2">
+                    <h3 className="text-base font-bold text-white flex items-center gap-2">
+                      <Play className="size-4 text-rose-400" /> Video thị phạm khẩu hình
+                      <span className="text-xs font-normal text-slate-400">
+                        · Nguồn: {lesson.stage1Phonetics.video.channelName ?? 'YouTube'}
+                      </span>
+                    </h3>
+                    <div className="rounded-2xl overflow-hidden border border-slate-800 bg-slate-950">
+                      <InteractiveIpaVideoPlayer
+                        video={{
+                          youtubeVideoId: lesson.stage1Phonetics.video.youtubeVideoId,
+                          startSeconds: lesson.stage1Phonetics.video.startSeconds,
+                          endSeconds: lesson.stage1Phonetics.video.endSeconds,
+                          channelName: lesson.stage1Phonetics.video.channelName ?? 'YouTube',
+                          clipTitle: lesson.stage1Phonetics.video.title,
+                          mouthTipSummary: lesson.stage1Phonetics.video.mouthTipSummaryVi,
+                          videoTip:
+                            lesson.stage1Phonetics.video.mouthTipSummaryVi ||
+                            lesson.stage1Phonetics.mouthTipVi ||
+                            '',
+                        }}
+                        ipa={lesson.stage1Phonetics.focusSound}
+                        title={lesson.stage1Phonetics.video.title}
+                        cleanMode={true}
+                        keyArticulationTip={lesson.stage1Phonetics.mouthTipVi}
+                        className="w-full"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Picture word cards (look → listen → say) */}
+                {lesson.stage1Phonetics.targetPracticeWords &&
+                  lesson.stage1Phonetics.targetPracticeWords.length > 0 && (
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between flex-wrap gap-2">
+                        <h3 className="text-base font-bold text-white flex items-center gap-2">
+                          <ImageIcon className="size-4 text-sky-400" /> Từ luyện âm có tranh
+                        </h3>
+                        <span className="text-xs text-slate-400">
+                          Nhìn tranh → nghe 0.8x → đọc to theo 1.0x
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        {lesson.stage1Phonetics.targetPracticeWords.map((w, wIdx) => (
+                          <PictureWordCard
+                            key={`${w.word}-${wIdx}`}
+                            word={w.word}
+                            ipa={w.ipa}
+                            meaningVi={w.meaningVi}
+                            audioUrl={w.audioUrl}
+                            pictureUrl={getWordPictureUrl(lesson.id, w.word)}
+                            level={getWordCefrLevel(w.word)}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                 {/* Minimal Pairs Drill Section */}
                 {lesson.stage1Phonetics.minimalPairs && lesson.stage1Phonetics.minimalPairs.length > 0 && (
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
                       <h3 className="text-base font-bold text-white flex items-center gap-2">
-                        <Sparkles className="size-4 text-amber-400" /> Cặp Âm Tối Thiểu (Minimal Pairs Drill)
+                        <Sparkles className="size-4 text-amber-400" /> Cặp Âm Đối Chiếu (Minimal &amp; Contrast Pairs)
                       </h3>
                       <span className="text-xs text-slate-400">
                         Nghe đối chiếu 0.8x & 1.0x để phân biệt
@@ -361,7 +445,8 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                             {/* Word A */}
                             <div className="space-y-1.5 pr-2">
                               <div className="flex items-baseline justify-between">
-                                <span className="text-base sm:text-lg font-bold text-white">
+                                <span className="text-base sm:text-lg font-bold text-white inline-flex items-center gap-1.5">
+                                  <MiniWordPicture url={getWordPictureUrl(lesson.id, pair.wordA)} alt={pair.meaningA} />
                                   {pair.wordA}
                                 </span>
                                 <span className="text-xs font-mono text-amber-300">
@@ -381,7 +466,8 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                             {/* Word B */}
                             <div className="space-y-1.5 pl-3">
                               <div className="flex items-baseline justify-between">
-                                <span className="text-base sm:text-lg font-bold text-white">
+                                <span className="text-base sm:text-lg font-bold text-white inline-flex items-center gap-1.5">
+                                  <MiniWordPicture url={getWordPictureUrl(lesson.id, pair.wordB)} alt={pair.meaningB} />
                                   {pair.wordB}
                                 </span>
                                 <span className="text-xs font-mono text-cyan-300">
@@ -608,27 +694,17 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                       </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {lesson.stage2CorePatterns.highFrequencyVocab.map((vocab, vIdx) => (
-                          <div
-                            key={vIdx}
-                            className="p-3 rounded-lg border border-slate-800 bg-slate-900/40 space-y-1"
-                          >
-                            <div className="flex items-baseline justify-between">
-                              <span className="font-bold text-white text-sm">
-                                {vocab.term}
-                              </span>
-                              {vocab.partOfSpeech && (
-                                <span className="text-[10px] text-indigo-400 uppercase font-mono">
-                                  {vocab.partOfSpeech}
-                                </span>
-                              )}
-                            </div>
-                            <p className="text-xs text-slate-300">{vocab.meaningVi}</p>
-                            {vocab.collocationHintVi && (
-                              <p className="text-[11px] text-amber-300/80 italic">
-                                💡 {vocab.collocationHintVi}
-                              </p>
-                            )}
-                          </div>
+                          <PictureWordCard
+                            key={`${vocab.term}-${vIdx}`}
+                            word={vocab.term}
+                            ipa={vocab.ipa}
+                            meaningVi={
+                              vocab.partOfSpeech ? `(${vocab.partOfSpeech}) ${vocab.meaningVi}` : vocab.meaningVi
+                            }
+                            hint={vocab.collocationHintVi}
+                            pictureUrl={getWordPictureUrl(lesson.id, vocab.term)}
+                            level={getWordCefrLevel(vocab.term)}
+                          />
                         ))}
                       </div>
                     </div>
@@ -656,19 +732,26 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                   <h2 className="text-xl sm:text-2xl font-black text-white">
                     {lesson.stage3GuidedDialogue.titleVi}
                   </h2>
+                </div>
 
+                {/* Full picture scene with props */}
+                {lessonVisual ? (
+                  <LessonSceneCard lessonId={lesson.id} contextVi={lesson.stage3GuidedDialogue.contextVi} />
+                ) : (
                   <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     <strong>Bối cảnh thực tế:</strong> {lesson.stage3GuidedDialogue.contextVi}
                   </p>
-                </div>
+                )}
 
                 {/* Turn-by-turn dialogue list */}
                 <div className="space-y-4">
                   {lesson.stage3GuidedDialogue.turns.map((turn, tIdx) => {
-                    const isLearner =
-                      turn.speaker.toLowerCase().includes('b') ||
-                      turn.speaker.toLowerCase().includes('learner') ||
-                      turn.speaker.toLowerCase().includes('bạn');
+                    const isLearner = isLearnerSpeaker(turn.speaker);
+                    const person = lessonVisual
+                      ? isLearner
+                        ? lessonVisual.learner
+                        : lessonVisual.partner
+                      : null;
 
                     return (
                       <div
@@ -679,23 +762,25 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                             : 'bg-slate-900/70 border-slate-800 mr-0 sm:mr-8'
                         }`}
                       >
-                        <div className="flex items-start justify-between gap-3 mb-2">
+                        <div className="flex items-start justify-between gap-3 mb-2 flex-wrap">
                           <div className="flex items-center gap-2">
-                            <span
-                              className={`size-6 rounded-full flex items-center justify-center text-xs font-extrabold ${
-                                isLearner
-                                  ? 'bg-emerald-600 text-white'
-                                  : 'bg-indigo-600 text-white'
-                              }`}
-                            >
-                              {turn.speaker.substring(0, 1).toUpperCase()}
-                            </span>
+                            {person ? (
+                              <SpeakerAvatar hex={person.hex} name={person.name} learner={isLearner} />
+                            ) : (
+                              <span
+                                className={`size-6 rounded-full flex items-center justify-center text-xs font-extrabold ${
+                                  isLearner ? 'bg-emerald-600 text-white' : 'bg-indigo-600 text-white'
+                                }`}
+                              >
+                                {turn.speaker.substring(0, 1).toUpperCase()}
+                              </span>
+                            )}
                             <span
                               className={`text-xs font-bold uppercase tracking-wider ${
                                 isLearner ? 'text-emerald-400' : 'text-indigo-300'
                               }`}
                             >
-                              Người nói {turn.speaker} {isLearner ? '(Vai của bạn)' : '(Đối tác)'}
+                              {person?.name ?? turn.speaker} {isLearner ? '(Vai của bạn)' : '(Đối tác)'}
                             </span>
                           </div>
 
@@ -917,6 +1002,10 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                 </Button>
               </Link>
             )}
+          </div>
+
+          <div className="mt-4">
+            <OpenSourceCredits />
           </div>
         </main>
       </div>

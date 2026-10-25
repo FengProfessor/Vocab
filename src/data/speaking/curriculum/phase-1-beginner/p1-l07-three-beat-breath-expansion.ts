@@ -29,11 +29,11 @@ export const p1L07ThreeBeatBreathExpansion: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Hãy đập tay xuống bàn theo từng từ được viết hoa: "I READ BOOKS (đập 1) / in my BED-room (đập 2) / be-CAUSE it re-LAX-es me (đập 3)". Các từ nhỏ ở giữa trượt nhẹ theo quán tính.',
     video: {
-      youtubeVideoId: 'U9_8q8y9Qk4',
-      channelName: "Rachel's English",
-      startSeconds: 30,
-      endSeconds: 110,
-      title: "Rhythm and Sentence Stress in English - Rachel's English",
+      youtubeVideoId: 'rnJCKda4oWU',
+      channelName: 'Oxford Online English',
+      startSeconds: 0,
+      endSeconds: 803,
+      title: 'Sentence Stress in English Pronunciation',
       mouthTipSummaryVi:
         'Quan sát cách các từ khóa nội dung được phát âm với cao độ vút lên và độ dài gấp đôi các từ phụ.',
     },

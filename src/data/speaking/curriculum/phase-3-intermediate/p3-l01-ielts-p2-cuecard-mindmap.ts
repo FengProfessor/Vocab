@@ -32,11 +32,11 @@ export const p3L01IeltsP2CueCardMindmap: SpeakingCurriculumLesson = {
       'Người Việt hay đọc lướt bằng phẳng từng âm tiết hoặc dừng sai chỗ (ngắt giữa chừng cụm từ cố định). Hãy nhớ quy tắc: Chỉ dừng nghỉ ở ranh giới giữa các mệnh đề hoặc sau cụm giới từ, tuyệt đối không ngắt giữa động từ và tân ngữ trực tiếp.',
     phonemes: ['/θɔːt ɡruːps/', '/ˈpɔː.zɪŋ/', '/ˈkɑːn.tekst/', '/ˌrez.əˈluː.ʃən/'],
     video: {
-      youtubeVideoId: 'V9a8i2dF_mQ',
-      channelName: "Rachel's English",
-      startSeconds: 45,
-      endSeconds: 150,
-      title: 'Thought Groups and Pausing in English Speech',
+      youtubeVideoId: 'hV0mjc23PLY',
+      channelName: 'IELTS Energy TV',
+      startSeconds: 0,
+      endSeconds: 702,
+      title: 'How Pausing for Thought Groups Raises IELTS Pronunciation Scores - IELTS Energy Podcast Bonus',
       mouthTipSummaryVi:
         'Học cách chia nhỏ câu dài thành các khối tư duy và thở nhẹ ở các điểm ngắt nhịp mà không làm mất tính trôi chảy.',
     },

@@ -165,10 +165,14 @@ export async function createVerifiedAppSession(req: Request, session: Session): 
   };
 }
 
-export async function verifiedAppSession(req: Request): Promise<VerifiedAppSession | null> {
-  assertAppRequest(req, !['GET', 'HEAD'].includes(req.method));
-  const id = requestCookie(req, sessionCookieName());
-  if (!id) return null;
+/**
+ * Single-flight in-flight deduplication for concurrent requests carrying the same session ID.
+ * Prevents 10 parallel requests on dashboard mount from multiplying into 60 external HTTPS calls
+ * while keeping 0ms post-request caching (preserving immediate revocation/logout semantics).
+ */
+const inFlightSessionVerifications = new Map<string, Promise<VerifiedAppSession | null>>();
+
+async function verifySessionById(id: string): Promise<VerifiedAppSession | null> {
   try {
     let stored = await readSessionVault(id);
     if (!stored) return null;
@@ -234,6 +238,21 @@ export async function verifiedAppSession(req: Request): Promise<VerifiedAppSessi
   }
 }
 
+export async function verifiedAppSession(req: Request): Promise<VerifiedAppSession | null> {
+  assertAppRequest(req, !['GET', 'HEAD'].includes(req.method));
+  const id = requestCookie(req, sessionCookieName());
+  if (!id) return null;
+
+  const existing = inFlightSessionVerifications.get(id);
+  if (existing) return existing;
+
+  const promise = verifySessionById(id).finally(() => {
+    inFlightSessionVerifications.delete(id);
+  });
+  inFlightSessionVerifications.set(id, promise);
+  return promise;
+}
+
 /** Browser-only API identity; legacy bearer/extension credentials cannot mint a web session. */
 export async function getWebUser(req: Request) {
   const hasCookie = (req.headers.get('cookie') ?? '').split(';')
@@ -271,4 +290,3 @@ export const ALLOWED_DATA_TABLES = new Set([
 ]);
 
 export const ALLOWED_DATA_RPCS = new Set(['claim_teacher_role', 'claim_onboarding_xp']);
-

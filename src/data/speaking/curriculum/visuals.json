@@ -1,0 +1,1318 @@
+{
+  "$comment": "Manifest tranh minh họa cho 32 bài Speaking. Mã hex = tên file SVG của OpenMoji (github.com/hfg-gmuend/openmoji, CC BY-SA 4.0). Chạy npx tsx scripts/speaking/build-visual-assets.ts sau khi sửa để tải SVG về public/speaking/openmoji/.",
+  "lessons": {
+    "p1-l01-greetings-self-intro": {
+      "place": {
+        "hex": "2615",
+        "labelVi": "Quán cà phê trung tâm"
+      },
+      "partner": {
+        "hex": "1F9D4",
+        "name": "John"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F4D6",
+          "labelVi": "Bạn đang đọc sách"
+        },
+        {
+          "hex": "1FA91",
+          "labelVi": "Chỗ trống cạnh bạn"
+        },
+        {
+          "hex": "1F44B",
+          "labelVi": "Chào hỏi"
+        },
+        {
+          "hex": "1F91D",
+          "labelVi": "Làm quen"
+        }
+      ],
+      "goalVi": "Mời John ngồi, rồi giới thiệu tên – quê – nghề nghiệp của bạn.",
+      "words": {
+        "name": "1FAAA",
+        "morning": "1F305",
+        "English": "1F1EC-1F1E7",
+        "ten": "1F51F",
+        "sum": "2795",
+        "sun": "2600",
+        "rum": "1F943",
+        "run": "1F3C3",
+        "sing": "1F3A4",
+        "hometown": "1F3E1",
+        "occupation": "1F4BC"
+      }
+    },
+    "p1-l02-final-consonants-sz": {
+      "place": {
+        "hex": "1F3E2",
+        "labelVi": "Văn phòng giờ nghỉ trưa"
+      },
+      "partner": {
+        "hex": "1F469",
+        "name": "Sarah"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F371",
+          "labelVi": "Bữa trưa"
+        },
+        {
+          "hex": "1F381",
+          "labelVi": "Quà sinh nhật"
+        },
+        {
+          "hex": "1F382",
+          "labelVi": "Bánh sinh nhật"
+        },
+        {
+          "hex": "1F465",
+          "labelVi": "Hai người bạn trong nhóm"
+        }
+      ],
+      "goalVi": "Kể sở thích của hai người bạn, đọc rõ đuôi -s / -z.",
+      "words": {
+        "books": "1F4DA",
+        "dogs": "1F415",
+        "plays": "1F3AE",
+        "watches": "1F4FA",
+        "places": "1F5FA",
+        "likes": "1F44D",
+        "bus": "1F68C",
+        "buzz": "1F41D",
+        "price": "1F3F7",
+        "prize": "1F3C6",
+        "hiss": "1F40D",
+        "peace": "1F54A"
+      }
+    },
+    "p1-l03-daily-routines-present-simple": {
+      "place": {
+        "hex": "1F3E2",
+        "labelVi": "Phòng nghỉ công ty, sáng thứ Hai"
+      },
+      "partner": {
+        "hex": "1F468",
+        "name": "Mark"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "23F0",
+          "labelVi": "Báo thức"
+        },
+        {
+          "hex": "1FAA5",
+          "labelVi": "Đánh răng"
+        },
+        {
+          "hex": "2615",
+          "labelVi": "Cà phê sáng"
+        },
+        {
+          "hex": "1F305",
+          "labelVi": "Bình minh"
+        }
+      ],
+      "goalVi": "Kể thói quen buổi sáng bằng thì hiện tại đơn.",
+      "words": {
+        "wake up": "23F0",
+        "get up": "1F6CF",
+        "turn on": "1F4A1",
+        "look at": "1F440",
+        "cup of": "2615",
+        "clean up": "1F9F9",
+        "walk up": "1F6B6",
+        "pack up": "1F9F3",
+        "brush": "1FAA5",
+        "routine": "1F4C5",
+        "leave": "1F6AA"
+      }
+    },
+    "p1-l04-final-consonants-ed": {
+      "place": {
+        "hex": "1F3E2",
+        "labelVi": "Văn phòng trước giờ làm"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Đồng nghiệp"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F634",
+          "labelVi": "Trông buồn ngủ"
+        },
+        {
+          "hex": "1F319",
+          "labelVi": "Tối hôm qua"
+        },
+        {
+          "hex": "1F4FA",
+          "labelVi": "Xem TV"
+        },
+        {
+          "hex": "1F4BB",
+          "labelVi": "Làm việc muộn"
+        }
+      ],
+      "goalVi": "Kể tối qua bạn đã làm gì, đọc đúng đuôi -ed /t/ /d/ /ɪd/.",
+      "words": {
+        "worked": "1F4BB",
+        "watched": "1F4FA",
+        "played": "1F3AE",
+        "cleaned": "1F9F9",
+        "started": "1F3C1",
+        "plate": "1F37D",
+        "mist": "1F32B",
+        "yesterday": "1F4C6",
+        "finished": "2705"
+      }
+    },
+    "p1-l05-describing-objects-there-is-are": {
+      "place": {
+        "hex": "1F3E2",
+        "labelVi": "Bàn làm việc ngày đầu nhận việc"
+      },
+      "partner": {
+        "hex": "1F469-200D-1F4BC",
+        "name": "Emma"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F5A5",
+          "labelVi": "Màn hình"
+        },
+        {
+          "hex": "1F4BB",
+          "labelVi": "Laptop"
+        },
+        {
+          "hex": "1FA91",
+          "labelVi": "Ghế"
+        },
+        {
+          "hex": "1F5C2",
+          "labelVi": "Tài liệu"
+        }
+      ],
+      "goalVi": "Kiểm tra bàn làm việc và mô tả bằng There is / There are.",
+      "words": {
+        "laptop": "1F4BB",
+        "notebook": "1F4D3",
+        "backpack": "1F392"
+      }
+    },
+    "p1-l06-consonant-clusters-st-sp": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Buổi sinh hoạt CLB tiếng Anh"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F3EB",
+        "name": "Alex"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F5E3",
+          "labelVi": "Alex nói nhanh"
+        },
+        {
+          "hex": "1F442",
+          "labelVi": "Bạn chưa nghe kịp"
+        },
+        {
+          "hex": "1F64B",
+          "labelVi": "Giơ tay xin nói"
+        },
+        {
+          "hex": "1F422",
+          "labelVi": "Nhờ nói chậm lại"
+        }
+      ],
+      "goalVi": "Lịch sự nhờ Alex nói chậm lại hoặc nhắc lại.",
+      "words": {
+        "start": "1F3C1",
+        "stop": "1F6D1",
+        "station": "1F689",
+        "speak": "1F5E3",
+        "sport": "26BD",
+        "say": "1F4AC",
+        "pill": "1F48A",
+        "sit": "1FA91",
+        "store": "1F3EA",
+        "slowly": "1F422"
+      }
+    },
+    "p1-l07-three-beat-breath-expansion": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "CLB tiếng Anh cuối tuần"
+      },
+      "partner": {
+        "hex": "1F9D1",
+        "name": "Bạn CLB"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F4D6",
+          "labelVi": "Đọc sách"
+        },
+        {
+          "hex": "1F6CF",
+          "labelVi": "Phòng ngủ"
+        },
+        {
+          "hex": "1F306",
+          "labelVi": "Buổi tối"
+        },
+        {
+          "hex": "1F60C",
+          "labelVi": "Thư giãn"
+        }
+      ],
+      "goalVi": "Trả lời câu hỏi sở thích theo 3 nhịp: Ý chính → Chi tiết → Lý do.",
+      "words": {
+        "reading": "1F4D6",
+        "bedroom": "1F6CF",
+        "evening": "1F306",
+        "relaxes": "1F60C",
+        "peaceful": "1F54A",
+        "read": "1F4D6",
+        "bed": "1F6CF",
+        "relax": "1F60C",
+        "energy": "26A1"
+      }
+    },
+    "p1-l08-consonant-clusters-pl-gr": {
+      "place": {
+        "hex": "1F3DE",
+        "labelVi": "Công viên chiều nắng"
+      },
+      "partner": {
+        "hex": "1F468",
+        "name": "Chris"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "2600",
+          "labelVi": "Trời nắng"
+        },
+        {
+          "hex": "1F94F",
+          "labelVi": "Trò chơi đồng đội"
+        },
+        {
+          "hex": "1F333",
+          "labelVi": "Cây xanh"
+        },
+        {
+          "hex": "1F44B",
+          "labelVi": "Chris vẫy tay rủ"
+        }
+      ],
+      "goalVi": "Nhận lời rủ chơi, đọc rõ cụm phụ âm /pl/, /gr/, /gl/.",
+      "words": {
+        "play": "26BD",
+        "green": "1F7E2",
+        "great": "1F44D",
+        "glad": "1F60A",
+        "pray": "1F64F",
+        "glass": "1F95B",
+        "grass": "1F33F",
+        "grow": "1F331",
+        "crash": "1F4A5"
+      }
+    },
+    "p1-l09-ordering-food-drink": {
+      "place": {
+        "hex": "2708",
+        "labelVi": "Quầy cà phê ở sân bay"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F373",
+        "name": "Barista"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "2615",
+          "labelVi": "Đồ uống"
+        },
+        {
+          "hex": "1F370",
+          "labelVi": "Bánh ngọt"
+        },
+        {
+          "hex": "1F961",
+          "labelVi": "Mang đi"
+        },
+        {
+          "hex": "1F4B3",
+          "labelVi": "Thanh toán thẻ"
+        }
+      ],
+      "goalVi": "Gọi đồ uống, chọn đá/đường, mang đi và thanh toán.",
+      "words": {
+        "cup": "2615",
+        "hot": "1F525",
+        "drink": "1F964",
+        "cake": "1F370",
+        "please": "1F64F",
+        "cut": "2702",
+        "bake": "1F35E",
+        "coat": "1F9E5",
+        "iced": "1F9CA",
+        "total": "1F9FE",
+        "takeaway": "1F961"
+      }
+    },
+    "p1-l10-vowel-length-i-vs-ee": {
+      "place": {
+        "hex": "26F4",
+        "labelVi": "Sảnh chờ bến tàu"
+      },
+      "partner": {
+        "hex": "1F471",
+        "name": "Du khách"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F4BC",
+        "name": "Bạn (lễ tân)"
+      },
+      "props": [
+        {
+          "hex": "1F552",
+          "labelVi": "Giờ tàu chạy"
+        },
+        {
+          "hex": "1F3AB",
+          "labelVi": "Vé tàu"
+        },
+        {
+          "hex": "1F4BA",
+          "labelVi": "Ghế chờ"
+        },
+        {
+          "hex": "1F6A2",
+          "labelVi": "Con tàu"
+        }
+      ],
+      "goalVi": "Báo giờ tàu và ân cần mời khách ngồi chờ.",
+      "words": {
+        "seat": "1F4BA",
+        "sit": "1FA91",
+        "sheep": "1F411",
+        "ship": "1F6A2",
+        "leave": "1F6B6",
+        "live": "1F3E0",
+        "heat": "1F525",
+        "hit": "1F44A",
+        "wait": "23F3",
+        "comfortable": "1F6CB"
+      }
+    },
+    "p1-l11-asking-answering-questions": {
+      "place": {
+        "hex": "2708",
+        "labelVi": "Quầy thông tin sân bay"
+      },
+      "partner": {
+        "hex": "1F481",
+        "name": "Nhân viên quầy"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "2139",
+          "labelVi": "Quầy thông tin"
+        },
+        {
+          "hex": "1F5FA",
+          "labelVi": "Bản đồ"
+        },
+        {
+          "hex": "1F689",
+          "labelVi": "Ga tàu"
+        },
+        {
+          "hex": "2753",
+          "labelVi": "Câu hỏi"
+        }
+      ],
+      "goalVi": "Hỏi đường vào trung tâm bằng câu hỏi Wh- (giọng xuống) và Yes/No (giọng lên).",
+      "words": {
+        "where": "2753",
+        "nearest": "1F4CD",
+        "station": "1F689",
+        "pharmacy": "1F48A",
+        "direction": "1F9ED"
+      }
+    },
+    "p1-l12-final-review-safeharbor-reflex": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Buổi phỏng vấn cuối Chặng 1"
+      },
+      "partner": {
+        "hex": "1F469-200D-1F3EB",
+        "name": "Cô Sarah"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F3A4",
+          "labelVi": "Phỏng vấn nói"
+        },
+        {
+          "hex": "23F1",
+          "labelVi": "Phản xạ nhanh"
+        },
+        {
+          "hex": "1F914",
+          "labelVi": "Mua thời gian suy nghĩ"
+        },
+        {
+          "hex": "1F4DD",
+          "labelVi": "Đánh giá"
+        }
+      ],
+      "goalVi": "Trả lời phỏng vấn tự nhiên, dùng cụm mua thời gian khi bí ý.",
+      "words": {
+        "think": "1F914",
+        "study": "1F4DA",
+        "confident": "1F4AA",
+        "progress": "1F4C8",
+        "tree": "1F333",
+        "mouth": "1F444",
+        "mouse": "1F401"
+      }
+    },
+    "p2-l01-expanding-answers-prep": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 1"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F3D9",
+          "labelVi": "Thành phố bạn sống"
+        },
+        {
+          "hex": "1F4B0",
+          "labelVi": "Chi phí sinh hoạt"
+        },
+        {
+          "hex": "1F3E5",
+          "labelVi": "Tiện ích công cộng"
+        },
+        {
+          "hex": "1F3DE",
+          "labelVi": "Công viên"
+        }
+      ],
+      "goalVi": "Trả lời “Bạn sống ở đâu?” theo 4 bước P → R → E → P.",
+      "words": {
+        "an aim": "1F3AF",
+        "a name": "1FAAA",
+        "ticket": "1F3AB",
+        "bustling": "1F3D9",
+        "cost of living": "1F4B0",
+        "public amenities": "1F3E5"
+      }
+    },
+    "p2-l02-narrating-past-simple": {
+      "place": {
+        "hex": "26F0",
+        "labelVi": "Chuyến phượt cuối tuần"
+      },
+      "partner": {
+        "hex": "1F9D1",
+        "name": "Bạn thân"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F3CD",
+          "labelVi": "Xe máy"
+        },
+        {
+          "hex": "1F5FA",
+          "labelVi": "Lịch trình"
+        },
+        {
+          "hex": "1F35C",
+          "labelVi": "Đặc sản địa phương"
+        },
+        {
+          "hex": "1F4F8",
+          "labelVi": "Khoảnh khắc đáng nhớ"
+        }
+      ],
+      "goalVi": "Kể lại chuyến đi theo trình tự First → Then → Finally.",
+      "words": {
+        "walked": "1F6B6",
+        "played": "1F3AE",
+        "breathtaking": "1F3DE",
+        "itinerary": "1F5FA",
+        "local delicacy": "1F35C",
+        "memorable": "1F4F8"
+      }
+    },
+    "p2-l03-cooking-cuisine": {
+      "place": {
+        "hex": "1F373",
+        "labelVi": "Căn bếp"
+      },
+      "partner": {
+        "hex": "1F469",
+        "name": "Bạn quốc tế"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F373",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F357",
+          "labelVi": "Thịt gà"
+        },
+        {
+          "hex": "1F36F",
+          "labelVi": "Mật ong"
+        },
+        {
+          "hex": "1F525",
+          "labelVi": "Nướng"
+        },
+        {
+          "hex": "23F2",
+          "labelVi": "Hẹn giờ"
+        }
+      ],
+      "goalVi": "Hướng dẫn làm gà nướng mật ong từng bước bằng từ nối quy trình.",
+      "words": {
+        "leaf": "1F343",
+        "van": "1F690",
+        "simmer": "1F372",
+        "stir-fry": "1F958",
+        "crispy": "1F35F",
+        "tangy": "1F34B",
+        "tender": "1F357",
+        "vine": "1F347"
+      }
+    },
+    "p2-l04-future-intentions-going-to": {
+      "place": {
+        "hex": "1F3E2",
+        "labelVi": "Buổi đánh giá định kỳ"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Quản lý"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F3AF",
+          "labelVi": "Mục tiêu"
+        },
+        {
+          "hex": "1F4C5",
+          "labelVi": "Lộ trình"
+        },
+        {
+          "hex": "1F4C8",
+          "labelVi": "Thăng tiến"
+        },
+        {
+          "hex": "1F3C6",
+          "labelVi": "Thành tích"
+        }
+      ],
+      "goalVi": "Trình bày mục tiêu tương lai với be going to / will.",
+      "words": {
+        "hill": "26F0",
+        "ambition": "1F3AF",
+        "career path": "1F6E3",
+        "milestone": "1F6A9",
+        "promotion": "1F4C8"
+      }
+    },
+    "p2-l05-comparison-contrast-adjectives": {
+      "place": {
+        "hex": "1F3EC",
+        "labelVi": "Trung tâm mua sắm"
+      },
+      "partner": {
+        "hex": "1F9D1",
+        "name": "Bạn thân"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F6D2",
+          "labelVi": "Mua tại cửa hàng"
+        },
+        {
+          "hex": "1F4F1",
+          "labelVi": "Mua online"
+        },
+        {
+          "hex": "1F4E6",
+          "labelVi": "Giao hàng"
+        },
+        {
+          "hex": "1F3F7",
+          "labelVi": "Giá cả"
+        }
+      ],
+      "goalVi": "So sánh mua online và mua tại cửa hàng (hơn, nhất, ngang bằng).",
+      "words": {
+        "convenient": "1F4F1",
+        "cost-effective": "1F4B0",
+        "time-consuming": "23F3"
+      }
+    },
+    "p2-l06-discourse-markers-connectors": {
+      "place": {
+        "hex": "1F3E1",
+        "labelVi": "Làm việc từ xa"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BB",
+        "name": "Đồng nghiệp"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F4BB",
+          "labelVi": "Họp online"
+        },
+        {
+          "hex": "1F3E2",
+          "labelVi": "Văn phòng"
+        },
+        {
+          "hex": "2696",
+          "labelVi": "Cân bằng"
+        },
+        {
+          "hex": "1F4AC",
+          "labelVi": "Trao đổi quan điểm"
+        }
+      ],
+      "goalVi": "Nêu quan điểm về làm từ xa với First / However / Therefore.",
+      "words": {
+        "work-life balance": "2696",
+        "ten": "1F51F",
+        "bat": "1F987"
+      }
+    },
+    "p2-l07-peel-paragraph-expansion": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F3B5",
+          "labelVi": "Âm nhạc"
+        },
+        {
+          "hex": "1F3AC",
+          "labelVi": "Điện ảnh"
+        },
+        {
+          "hex": "1F3A7",
+          "labelVi": "Nghe nhạc thư giãn"
+        },
+        {
+          "hex": "1F9E0",
+          "labelVi": "Suy ngẫm"
+        }
+      ],
+      "goalVi": "Giải thích vai trò của âm nhạc và phim ảnh theo P → E → E → L.",
+      "words": {
+        "mind": "1F9E0",
+        "thought-provoking": "1F9E0",
+        "therapeutic": "1F9D8",
+        "unwind": "1F60C",
+        "watch": "1F4FA"
+      }
+    },
+    "p2-l08-5w1h-storytelling-technique": {
+      "place": {
+        "hex": "2615",
+        "labelVi": "Quán cà phê"
+      },
+      "partner": {
+        "hex": "1F9D1",
+        "name": "Bạn thân"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F3D4",
+          "labelVi": "Ngọn núi"
+        },
+        {
+          "hex": "1F9D7",
+          "labelVi": "Leo núi"
+        },
+        {
+          "hex": "1F97E",
+          "labelVi": "Giày leo núi"
+        },
+        {
+          "hex": "1F305",
+          "labelVi": "Bình minh trên đỉnh"
+        }
+      ],
+      "goalVi": "Kể chuyến leo núi đủ Who – What – Where – When – Why – How.",
+      "words": {
+        "climb": "1F9D7",
+        "train": "1F686",
+        "camaraderie": "1F91D",
+        "conquer": "1F3D4",
+        "daunting": "1F630"
+      }
+    },
+    "p2-l09-expressing-feelings-reactions": {
+      "place": {
+        "hex": "1F3E8",
+        "labelVi": "Sảnh khách sạn"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Quản lý tiền sảnh"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F6CE",
+          "labelVi": "Quầy lễ tân"
+        },
+        {
+          "hex": "1F511",
+          "labelVi": "Chìa khóa phòng"
+        },
+        {
+          "hex": "1F50A",
+          "labelVi": "Phòng bị ồn"
+        },
+        {
+          "hex": "1F6CF",
+          "labelVi": "Sai loại phòng"
+        }
+      ],
+      "goalVi": "Phàn nàn lịch sự về phòng ồn và đề xuất cách giải quyết.",
+      "words": {
+        "frustrated": "1F624",
+        "disappointed": "1F61E",
+        "exhausted": "1F62B",
+        "thrilled": "1F929",
+        "frustrating": "1F624",
+        "overwhelmed": "1F635",
+        "courteous": "1F647"
+      }
+    },
+    "p2-l10-asking-clarification-conversation-control": {
+      "place": {
+        "hex": "1F942",
+        "labelVi": "Sự kiện networking"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Đối tác"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB",
+        "name": "Bạn"
+      },
+      "props": [
+        {
+          "hex": "1F91D",
+          "labelVi": "Kết nối"
+        },
+        {
+          "hex": "2753",
+          "labelVi": "Câu hỏi bất ngờ"
+        },
+        {
+          "hex": "1F914",
+          "labelVi": "Mua thời gian"
+        },
+        {
+          "hex": "1F50D",
+          "labelVi": "Hỏi lại cho rõ"
+        }
+      ],
+      "goalVi": "Mua thời gian, hỏi lại cho rõ phạm vi rồi mới trả lời.",
+      "words": {
+        "receipt": "1F9FE",
+        "clarify": "1F50D",
+        "off the top of my head": "1F4AD"
+      }
+    },
+    "p3-l01-ielts-p2-cuecard-mindmap": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 2"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F5D2",
+          "labelVi": "Thẻ đề Cue Card"
+        },
+        {
+          "hex": "23F1",
+          "labelVi": "1 phút chuẩn bị"
+        },
+        {
+          "hex": "1F9ED",
+          "labelVi": "Hành trình thử thách"
+        },
+        {
+          "hex": "1F3D4",
+          "labelVi": "Vượt khó"
+        }
+      ],
+      "goalVi": "Lập sơ đồ 4 ô rồi nói liên tục 2 phút về một hành trình khó khăn.",
+      "words": {
+        "turning point": "1F504",
+        "incident": "26A0",
+        "invent": "1F4A1",
+        "accident": "1F4A5",
+        "eye-opener": "1F440"
+      }
+    },
+    "p3-l02-ielts-p3-categorization-dividing": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 3"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F3D9",
+          "labelVi": "Thành phố lớn"
+        },
+        {
+          "hex": "1F33E",
+          "labelVi": "Làng quê yên bình"
+        },
+        {
+          "hex": "1F9D1-200D-1F393",
+          "labelVi": "Người trẻ"
+        },
+        {
+          "hex": "1F474",
+          "labelVi": "Người lớn tuổi"
+        }
+      ],
+      "goalVi": "Chia nhóm (người trẻ / người lớn tuổi) để trả lời đa chiều.",
+      "words": {
+        "demographic": "1F4CA",
+        "generational": "1F46A",
+        "device": "1F4F1",
+        "divide": "2797",
+        "on the flip side": "1FA99"
+      }
+    },
+    "p3-l03-ielts-p3-concession-while-although": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 3"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F3E0",
+          "labelVi": "Làm việc tại nhà"
+        },
+        {
+          "hex": "1F3E2",
+          "labelVi": "Văn phòng truyền thống"
+        },
+        {
+          "hex": "1F4BB",
+          "labelVi": "Công nghệ"
+        },
+        {
+          "hex": "2696",
+          "labelVi": "Cân nhắc hai mặt"
+        }
+      ],
+      "goalVi": "Thừa nhận một mặt (While…), rồi phản biện mặt còn lại.",
+      "words": {
+        "irreplaceable": "1F48E",
+        "turn a blind eye to": "1F648"
+      }
+    },
+    "p3-l04-academic-stalling-fillers": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 3"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F3DB",
+          "labelVi": "Công trình lịch sử"
+        },
+        {
+          "hex": "1F9E0",
+          "labelVi": "Sức khỏe tinh thần"
+        },
+        {
+          "hex": "1F914",
+          "labelVi": "Câu hỏi trừu tượng"
+        },
+        {
+          "hex": "23F3",
+          "labelVi": "Mua thời gian"
+        }
+      ],
+      "goalVi": "Dùng câu mua thời gian học thuật, chọn một góc nhìn rồi trả lời.",
+      "words": {
+        "off the top of my head": "1F4AD",
+        "socioeconomic lens": "1F50D",
+        "lens": "1F50D",
+        "faucet": "1F6B0",
+        "thought-provoking": "1F9E0"
+      }
+    },
+    "p3-l05-hypothetical-situations-conditionals": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 3"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F3D9",
+          "labelVi": "Thành phố hiện đại"
+        },
+        {
+          "hex": "1F6B2",
+          "labelVi": "Giao thông xanh"
+        },
+        {
+          "hex": "1F333",
+          "labelVi": "Không gian xanh"
+        },
+        {
+          "hex": "1F4AD",
+          "labelVi": "Giả định “Nếu…”"
+        }
+      ],
+      "goalVi": "Đề xuất một chính sách đô thị bằng câu điều kiện loại 2 / đảo ngữ.",
+      "words": {
+        "wood": "1FAB5",
+        "catastrophic": "1F4A5"
+      }
+    },
+    "p3-l06-cause-effect-deep-analysis": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 3"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F455",
+          "labelVi": "Quần áo giá rẻ"
+        },
+        {
+          "hex": "1F6CD",
+          "labelVi": "Mua sắm liên tục"
+        },
+        {
+          "hex": "1F5D1",
+          "labelVi": "Vứt bỏ nhanh"
+        },
+        {
+          "hex": "1F3ED",
+          "labelVi": "Ô nhiễm sản xuất"
+        }
+      ],
+      "goalVi": "Phân tích chuỗi 3 tầng: Nguyên nhân → Hệ quả → Tác động lan rộng.",
+      "words": {
+        "cattle": "1F404"
+      }
+    },
+    "p3-l07-opinion-defense-counter-arguments": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 3"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F916",
+          "labelVi": "AI & tự động hóa"
+        },
+        {
+          "hex": "1F4BB",
+          "labelVi": "Lập trình"
+        },
+        {
+          "hex": "1F3A8",
+          "labelVi": "Mỹ thuật"
+        },
+        {
+          "hex": "1F3BB",
+          "labelVi": "Âm nhạc"
+        }
+      ],
+      "goalVi": "Chỉ ra tiền đề sai và phản bác bằng lập luận có bằng chứng.",
+      "words": {
+        "empirical evidence": "1F4CA",
+        "supercharge": "26A1"
+      }
+    },
+    "p3-l08-abstract-topics-ai-technology": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 3"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F4F1",
+          "labelVi": "Tiện lợi số"
+        },
+        {
+          "hex": "1F512",
+          "labelVi": "Quyền riêng tư"
+        },
+        {
+          "hex": "1F4F9",
+          "labelVi": "Giám sát"
+        },
+        {
+          "hex": "1F916",
+          "labelVi": "Trí tuệ nhân tạo"
+        }
+      ],
+      "goalVi": "Phân tích sự đánh đổi giữa quyền riêng tư và sự tiện lợi.",
+      "words": {
+        "surveillance": "1F4F9",
+        "autonomous": "1F916",
+        "trade-off": "2696",
+        "double-edged sword": "1F5E1",
+        "guardrail": "1F6A7",
+        "ubiquitous": "1F4F1"
+      }
+    },
+    "p3-l09-social-issues-environment-urban": {
+      "place": {
+        "hex": "1F3DB",
+        "labelVi": "Phố cổ di sản"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F465",
+          "labelVi": "Du lịch đại trà"
+        },
+        {
+          "hex": "1F9F3",
+          "labelVi": "Du khách"
+        },
+        {
+          "hex": "1F30F",
+          "labelVi": "Môi trường"
+        },
+        {
+          "hex": "2696",
+          "labelVi": "Cân bằng"
+        }
+      ],
+      "goalVi": "Nêu vấn đề quá tải du lịch và đề xuất giải pháp cân bằng.",
+      "words": {
+        "overtourism": "1F465",
+        "delicate equilibrium": "2696",
+        "heritage": "1F3DB"
+      }
+    },
+    "p3-l10-2-minute-monologue-mastery": {
+      "place": {
+        "hex": "1F3EB",
+        "labelVi": "Phòng thi IELTS Part 2"
+      },
+      "partner": {
+        "hex": "1F9D1-200D-1F4BC",
+        "name": "Giám khảo"
+      },
+      "learner": {
+        "hex": "1F9D1-1F3FB-200D-1F393",
+        "name": "Bạn (thí sinh)"
+      },
+      "props": [
+        {
+          "hex": "1F5D2",
+          "labelVi": "Thẻ đề Cue Card"
+        },
+        {
+          "hex": "23F1",
+          "labelVi": "Nói đủ 2 phút"
+        },
+        {
+          "hex": "1F6A8",
+          "labelVi": "Tình huống khẩn cấp"
+        },
+        {
+          "hex": "1F4AA",
+          "labelVi": "Bản lĩnh vượt qua"
+        }
+      ],
+      "goalVi": "Nói trọn 2 phút theo 4 giai đoạn: Mở – Bối cảnh – Xử lý – Bài học.",
+      "words": {
+        "sheer resilience": "1F4AA",
+        "monologue": "1F5E3",
+        "dialogue": "1F4AC",
+        "predicament": "26A0"
+      }
+    }
+  }
+}

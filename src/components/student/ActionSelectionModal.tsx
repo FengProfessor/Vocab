@@ -81,7 +81,7 @@ export function ActionSelectionModal({
         const routesByType: Record<ActionSelectionType, string[]> = {
           review: ['/review/session'],
           listening: ['/practice/listening', '/sat-thu-toeic-listening'],
-          reading: ['/practice/daily-reading', '/practice/pack-reading', '/toeic'],
+          reading: ['/practice/daily-reading', '/practice/reading-library', '/toeic'],
           learn: ['/flashcard', '/import', '/library'],
           toeic: ['/toeic', '/toeic/learn'],
         };
@@ -241,9 +241,9 @@ export function ActionSelectionModal({
         {
           id: 'level-reading',
           icon: <Layers className="w-4 h-4 text-sky-600" />,
-          title: 'Theo cấp độ',
-          description: 'Luyện đọc phân tầng CEFR A1–C2',
-          href: '/practice/pack-reading',
+          title: 'Thư viện bài đọc',
+          description: 'Kho bài đọc A1–C2 đa dạng chủ đề',
+          href: '/practice/reading-library',
           badge: 'A1–C2',
           badgeColor: 'bg-sky-600 text-white',
           iconBg: 'bg-sky-50/80 text-sky-600',

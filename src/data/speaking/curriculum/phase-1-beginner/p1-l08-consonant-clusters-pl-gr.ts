@@ -29,11 +29,11 @@ export const p1L08ConsonantClustersPlGr: SpeakingCurriculumLesson = {
     mouthTipVi:
       'Với /pr/ và /gr/: Chu môi hơi tròn nhẹ về phía trước như chuẩn bị huýt sáo trước khi phát âm, kéo đầu lưỡi về cuống họng để âm /r/ thật trầm và ấm.',
     video: {
-      youtubeVideoId: '1eOeVZ-o1zI',
-      channelName: "Rachel's English",
-      startSeconds: 35,
-      endSeconds: 110,
-      title: "R and L Consonant Clusters - Rachel's English",
+      youtubeVideoId: 'xe9nxBQD3OU',
+      channelName: 'From Aka-Kara English',
+      startSeconds: 0,
+      endSeconds: 134,
+      title: 'Consonant Clusters with L and R',
       mouthTipSummaryVi:
         'Quan sát sự khác biệt rõ rệt giữa đầu lưỡi chạm nướu ở âm L và đầu lưỡi cuộn treo lơ lửng ở âm R.',
     },

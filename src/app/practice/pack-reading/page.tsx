@@ -8,7 +8,7 @@
 
 import { Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import {
   ArrowRight,
   BookOpen,
@@ -298,7 +298,13 @@ function renderClozeText(
 }
 
 function PackReadingInner() {
+  const router = useRouter();
   const searchParams = useSearchParams();
+
+  // Tự động chuyển hướng sang Thư viện bài đọc chuẩn hóa
+  useEffect(() => {
+    router.replace('/practice/reading-library');
+  }, [router]);
   const paramPackId = searchParams.get('packId');
   const paramWords = searchParams.get('words');
   const paramTheme = searchParams.get('themeId');

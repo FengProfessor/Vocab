@@ -43,13 +43,13 @@ export const p2L03Lesson: SpeakingCurriculumLesson = {
       'Chạm mép răng trên vào 1/3 phía trong môi dưới. Phát âm "fry" rồi chuyển sang rung môi "vinegar". Phát âm "oven" bằng cách mở miệng tự nhiên như âm "á" ngắn, không tròn môi.',
     minimalPairs: [
       {
-        wordA: 'fry',
-        ipaA: '/fraɪ/',
-        wordB: 'vie',
-        ipaB: '/vaɪ/',
-        meaningA: 'chiên, rán (âm /f/ xì hơi)',
-        meaningB: 'ganh đua (âm /v/ rung thanh quản)',
-        distinctionVi: 'fry chỉ xì hơi không rung cổ, vie rung thanh quản rõ rệt.',
+        wordA: 'fine',
+        ipaA: '/faɪn/',
+        wordB: 'vine',
+        ipaB: '/vaɪn/',
+        meaningA: 'ổn, tốt (âm /f/ xì hơi)',
+        meaningB: 'cây nho, dây leo (âm /v/ rung thanh quản)',
+        distinctionVi: 'Hai từ chỉ khác âm đầu: fine chỉ xì hơi không rung cổ, vine rung thanh quản rõ rệt (đặt tay lên cổ để cảm nhận).',
       },
       {
         wordA: 'safe',

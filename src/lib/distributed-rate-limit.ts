@@ -54,7 +54,7 @@ export async function checkRateLimitAsync(
       method: 'POST',
       headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
       body: JSON.stringify(['EVAL', RATE_LIMIT_SCRIPT, '1', `rl:${key}`, String(windowMs)]),
-      signal: AbortSignal.timeout(1500),
+      signal: AbortSignal.timeout(3500),
       cache: 'no-store',
     });
     if (!response.ok) throw new RateLimitUnavailableError();
