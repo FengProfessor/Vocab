@@ -10,10 +10,12 @@ import { Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } f
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import {
+  ArrowRight,
   BookOpen,
   Check,
   ChevronLeft,
   Crown,
+  Library,
   Loader2,
   Search,
   Sparkles,
@@ -81,6 +83,73 @@ function quizHitsLabel(n: number): string {
   if (n > 3) return '>3';
   return String(n);
 }
+
+export const STARTER_WORD_PACKS = [
+  {
+    id: 'starter-work',
+    name: 'Công sở & Đàm phán',
+    icon: '💼',
+    desc: 'Luyện đọc các tình huống dự án, họp hành và thương thảo',
+    words: [
+      { word: 'negotiate', translation: 'đàm phán, thương lượng' },
+      { word: 'deadline', translation: 'hạn chót hoàn thành' },
+      { word: 'collaborate', translation: 'hợp tác, phối hợp' },
+      { word: 'proposal', translation: 'đề xuất, phương án' },
+      { word: 'efficient', translation: 'hiệu quả, năng suất' },
+      { word: 'feedback', translation: 'ý kiến phản hồi' },
+      { word: 'presentation', translation: 'bài thuyết trình' },
+      { word: 'schedule', translation: 'lịch trình, thời gian biểu' },
+    ],
+  },
+  {
+    id: 'starter-travel',
+    name: 'Du lịch & Khám phá',
+    icon: '✈️',
+    desc: 'Hành trình trải nghiệm, văn hóa ẩm thực và điểm đến',
+    words: [
+      { word: 'destination', translation: 'điểm đến du lịch' },
+      { word: 'itinerary', translation: 'lịch trình chuyến đi' },
+      { word: 'hospitality', translation: 'lòng hiếu khách' },
+      { word: 'scenery', translation: 'phong cảnh thiên nhiên' },
+      { word: 'reservation', translation: 'đặt chỗ trước' },
+      { word: 'adventure', translation: 'chuyến phiêu lưu' },
+      { word: 'memorable', translation: 'đáng nhớ, ấn tượng' },
+      { word: 'explore', translation: 'khám phá vùng đất mới' },
+    ],
+  },
+  {
+    id: 'starter-environment',
+    name: 'Môi trường & Khoa học',
+    icon: '🌍',
+    desc: 'Các chủ đề sinh thái, biến đổi khí hậu và phát triển bền vững',
+    words: [
+      { word: 'ecosystem', translation: 'hệ sinh thái' },
+      { word: 'sustainable', translation: 'bền vững, lâu dài' },
+      { word: 'renewable', translation: 'có thể tái tạo' },
+      { word: 'biodiversity', translation: 'đa dạng sinh học' },
+      { word: 'pollution', translation: 'ô nhiễm môi trường' },
+      { word: 'conservation', translation: 'sự bảo tồn thiên nhiên' },
+      { word: 'carbon', translation: 'khí thải các-bon' },
+      { word: 'climate', translation: 'khí hậu toàn cầu' },
+    ],
+  },
+  {
+    id: 'starter-daily',
+    name: 'Đời sống & Giao tiếp',
+    icon: '☕',
+    desc: 'Các tình huống ứng xử, thói quen và tương tác thường nhật',
+    words: [
+      { word: 'appreciate', translation: 'trân trọng, đánh giá cao' },
+      { word: 'convenient', translation: 'thuận tiện, tiện lợi' },
+      { word: 'habit', translation: 'thói quen hàng ngày' },
+      { word: 'routine', translation: 'nếp sinh hoạt thường nhật' },
+      { word: 'polite', translation: 'lịch sự, nhã nhặn' },
+      { word: 'encounter', translation: 'bắt gặp, tình cờ gặp' },
+      { word: 'recommend', translation: 'khuyên dùng, giới thiệu' },
+      { word: 'confidence', translation: 'sự tự tin' },
+    ],
+  },
+];
 
 interface PassageQuestion {
   q: string;
@@ -234,7 +303,7 @@ function PackReadingInner() {
   const paramWords = searchParams.get('words');
   const paramTheme = searchParams.get('themeId');
 
-  const { isPaid, plan, loading: planLoading } = usePlan();
+  const { isPaid, plan: _plan, loading: planLoading } = usePlan();
   const [step, setStep] = useState<Step>(1);
   const [pool, setPool] = useState<PoolWord[]>([]);
   const [poolSource, setPoolSource] = useState<'mine' | 'empty'>('empty');
@@ -315,9 +384,35 @@ function PackReadingInner() {
     return () => { cancelled = true; };
   }, [paramPackId, paramWords, paramTheme]);
 
-  // Load chỉ từ ĐÃ HỌC + SRS bucket + lần đúng quiz (giống quiz / đặt câu)
+  const applyStarterPack = useCallback((pack: (typeof STARTER_WORD_PACKS)[0]) => {
+    const customPool: PoolWord[] = pack.words.map((w, idx) => ({
+      id: `starter-${pack.id}-${idx}`,
+      word: w.word,
+      translation: w.translation,
+      review_count: 1,
+      srsLevel: 1,
+      stability: 1,
+      isDue: false,
+      mastery: 50,
+      bucket: 'learning' as MemoryBucket,
+    }));
+
+    setPool(customPool);
+    setPoolSource('mine');
+    setSelectedKeys(new Set(pack.words.map((w) => normalize(w.word))));
+    setBucket('learning');
+    setStep(2);
+    setError(null);
+  }, []);
+
+  // Load từ vựng của user (hỗ trợ cả từ có SRS và từ mới thêm) + lần đúng quiz
   useEffect(() => {
     let cancelled = false;
+    const controller = new AbortController();
+    const timer = setTimeout(() => {
+      controller.abort();
+    }, 6000); // 6s timeout max, never hang indefinitely
+
     (async () => {
       setPoolLoading(true);
       try {
@@ -325,33 +420,37 @@ function PackReadingInner() {
         const mapped: PoolWord[] = [];
         const seen = new Set<string>();
 
-        for (let page = 0; page < 6; page++) {
-          const offset = page * 50;
-          const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
-          let json: {
-            success?: boolean;
-            data?: Array<{
-              id?: string;
-              word?: string;
-              translation?: string;
-              pos?: string;
-              isDue?: boolean;
-              srsLevel?: number;
-              mastery?: number;
-              reviewCount?: number;
-              srs?: {
-                stability?: number;
-                review_count?: number;
-                last_reviewed_at?: string | null;
-              } | null;
-            }>;
-          };
-          try {
-            json = (await readJsonSafe(res)) as typeof json;
-          } catch {
-            break;
-          }
-          if (!json.success || !Array.isArray(json.data)) break;
+        // Query /api/words với noCount=1 để tránh count exact đè DB
+        const res = await authFetch('/api/words?limit=50&offset=0&noCount=1', {
+          signal: controller.signal,
+        });
+
+        let json: {
+          success?: boolean;
+          data?: Array<{
+            id?: string;
+            word?: string;
+            translation?: string;
+            pos?: string;
+            isDue?: boolean;
+            srsLevel?: number;
+            mastery?: number;
+            reviewCount?: number;
+            srs?: {
+              stability?: number;
+              review_count?: number;
+              last_reviewed_at?: string | null;
+            } | null;
+          }>;
+        };
+
+        try {
+          json = (await readJsonSafe(res)) as typeof json;
+        } catch {
+          json = {};
+        }
+
+        if (json.success && Array.isArray(json.data)) {
           for (const w of json.data) {
             const word = (w.word || '').trim();
             if (!word || word.length > 50) continue;
@@ -363,13 +462,14 @@ function PackReadingInner() {
               continue;
             }
             const review_count = w.srs?.review_count ?? w.reviewCount ?? 0;
-            if (review_count <= 0) continue;
             const stability = Number(w.srs?.stability ?? 0);
             const srsLevel = Number(w.srsLevel ?? 1);
             const isDue = Boolean(w.isDue);
             const mastery = Number(w.mastery ?? 0);
             const mem = { review_count, srsLevel, stability, isDue };
             const quizHits = quizMap[key] ?? 0;
+            // Cho phép cả từ review_count === 0 xếp vào 'learning'
+            const b: MemoryBucket = review_count > 0 ? bucketForMemory(mem) : 'learning';
             mapped.push({
               id: w.id,
               word,
@@ -379,13 +479,12 @@ function PackReadingInner() {
               srsLevel,
               stability,
               isDue,
-              mastery,
+              mastery: mastery > 0 ? mastery : 30,
               quizHits,
-              bucket: bucketForMemory(mem),
+              bucket: b,
             });
             if (mapped.length >= MAX_LEARNED_POOL) break;
           }
-          if (json.data.length < 50 || mapped.length >= MAX_LEARNED_POOL) break;
         }
 
         if (cancelled) return;
@@ -393,7 +492,7 @@ function PackReadingInner() {
         if (mapped.length > 0) {
           setPool(mapped);
           setPoolSource('mine');
-          // Ưu tiên nhóm yếu
+          // Ưu tiên nhóm yếu hoặc đang học
           const order: MemoryBucket[] = ['weak', 'learning', 'solid'];
           let startBucket: MemoryBucket = 'weak';
           for (const b of order) {
@@ -404,7 +503,6 @@ function PackReadingInner() {
             if (mapped.filter((w) => w.bucket === b).length > 0) startBucket = b;
           }
           setBucket(startBucket);
-          // Không auto-chọn — user tự chọn (+ nhóm / từng từ)
           setSelectedKeys(new Set());
         } else {
           setPool([]);
@@ -417,11 +515,15 @@ function PackReadingInner() {
           setPoolSource('empty');
         }
       } finally {
-        if (!cancelled) setPoolLoading(false);
+        clearTimeout(timer);
+        setPoolLoading(false);
       }
     })();
+
     return () => {
       cancelled = true;
+      controller.abort();
+      clearTimeout(timer);
     };
   }, []);
 
@@ -460,7 +562,7 @@ function PackReadingInner() {
     [themeId],
   );
 
-  const selectedLevel: PackReadingLevel | null = useMemo(
+  const _selectedLevel: PackReadingLevel | null = useMemo(
     () => PACK_READING_LEVELS.find((l) => l.id === readingLevelId) ?? null,
     [readingLevelId],
   );
@@ -654,6 +756,44 @@ function PackReadingInner() {
           <BookOpen className="h-5 w-5 shrink-0 text-teal-600" />
         </div>
 
+        {/* Sub-nav switcher: Pack Reading vs Reading Library */}
+        <div className="flex items-center gap-1 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl text-xs font-bold">
+          <span className="flex-1 py-1.5 px-3 rounded-lg bg-white dark:bg-slate-900 text-teal-700 dark:text-teal-400 shadow-2xs flex items-center justify-center gap-1.5 text-center">
+            <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+            <span>Luyện đọc theo từ (AI)</span>
+          </span>
+          <Link
+            href="/practice/reading-library"
+            className="flex-1 py-1.5 px-3 rounded-lg text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 flex items-center justify-center gap-1.5 text-center transition-colors"
+          >
+            <Library className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+            <span>Thư viện 588 bài đọc</span>
+            <span className="px-1.5 py-0.2 rounded-full text-[10px] bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 font-extrabold">
+              Mới
+            </span>
+          </Link>
+        </div>
+
+        {/* Reading Library highlight callout */}
+        <div className="rounded-xl border border-emerald-200 bg-emerald-50/70 p-3 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 dark:border-emerald-800/60 dark:bg-emerald-950/40">
+          <div className="space-y-0.5 min-w-0">
+            <div className="font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-1.5">
+              <Library className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span>Kho bài đọc đa dạng A1–C2 có sẵn</span>
+            </div>
+            <p className="text-[11px] text-emerald-800/80 dark:text-emerald-300/80 leading-relaxed">
+              588 bài đọc VSTEP, TOEIC, VOA & OpenStax kèm trắc nghiệm, đục lỗ, podcast & sơ đồ tư duy.
+            </p>
+          </div>
+          <Link
+            href="/practice/reading-library"
+            className="shrink-0 inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs hover:bg-emerald-700 transition shadow-2xs"
+          >
+            <span>Khám phá ngay</span>
+            <ArrowRight className="h-3 w-3" />
+          </Link>
+        </div>
+
         {/* Stepper: bar + label 1 dòng */}
         <div className="flex items-center gap-2">
           <div className="flex min-w-0 flex-1 gap-1">
@@ -702,15 +842,56 @@ function PackReadingInner() {
                 <Loader2 className="h-4 w-4 animate-spin" /> Đang tải…
               </div>
             ) : poolSource === 'empty' ? (
-              <div className="rounded-lg border border-amber-200 bg-amber-50 px-2.5 py-3 text-xs text-amber-900">
-                Chưa có từ đã học.{' '}
-                <Link href="/flashcard" className="font-bold underline">
-                  Học flashcard
-                </Link>
-                {' · '}
-                <Link href="/import" className="font-bold underline">
-                  Thêm từ
-                </Link>
+              <div className="space-y-3 p-1">
+                <div className="rounded-xl border border-amber-200 bg-amber-50/80 px-3 py-2.5 text-xs text-amber-950 dark:border-amber-800/60 dark:bg-amber-950/40 dark:text-amber-200">
+                  <p className="font-bold">Bạn chưa có từ vựng nào trong danh sách học.</p>
+                  <p className="text-[11px] text-amber-900/80 dark:text-amber-300/80 mt-0.5">
+                    Hãy chọn một bộ từ gợi ý bên dưới để AI tạo bài đọc ngay, hoặc{' '}
+                    <Link href="/practice/reading-library" className="font-bold underline text-emerald-700 dark:text-emerald-400">
+                      khám phá Thư viện 588 bài đọc có sẵn
+                    </Link>.
+                  </p>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs font-bold text-slate-800 dark:text-slate-200">
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles className="h-3.5 w-3.5 text-teal-600" />
+                      <span>Chọn nhanh gói từ theo chủ đề:</span>
+                    </span>
+                    <span className="text-[10px] text-slate-500 font-normal">Click để luyện ngay</span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {STARTER_WORD_PACKS.map((sp) => (
+                      <button
+                        key={sp.id}
+                        type="button"
+                        onClick={() => applyStarterPack(sp)}
+                        className="text-left p-2.5 rounded-xl border border-slate-200 hover:border-teal-500 hover:bg-teal-50/40 dark:border-slate-800 dark:hover:border-teal-600 dark:hover:bg-teal-950/20 bg-card transition space-y-1.5 group cursor-pointer shadow-2xs"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs font-bold text-foreground group-hover:text-teal-700 dark:group-hover:text-teal-400 flex items-center gap-1.5">
+                            <span>{sp.icon}</span>
+                            <span>{sp.name}</span>
+                          </span>
+                          <span className="text-[10px] font-mono text-teal-600 dark:text-teal-400 font-bold group-hover:translate-x-0.5 transition-transform flex items-center gap-0.5">
+                            8 từ <ArrowRight className="h-2.5 w-2.5" />
+                          </span>
+                        </div>
+                        <p className="text-[11px] text-muted-foreground line-clamp-1">{sp.desc}</p>
+                        <div className="flex flex-wrap gap-1 pt-0.5">
+                          {sp.words.slice(0, 4).map((w) => (
+                            <span key={w.word} className="px-1.5 py-0.5 rounded bg-muted text-[10px] font-mono text-muted-foreground">
+                              {w.word}
+                            </span>
+                          ))}
+                          <span className="text-[10px] text-muted-foreground/60 self-center">+4 từ</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
             ) : (
               <>
@@ -877,6 +1058,32 @@ function PackReadingInner() {
                           ? 'Chạm từ để chọn'
                           : `Cần ≥${PACK_PASSAGE_MIN_WORDS} từ`}
                     </button>
+                  </div>
+                </details>
+
+                <details className="rounded-xl border border-slate-200 bg-slate-50/50">
+                  <summary className="cursor-pointer list-none px-3 py-2 text-[11px] font-bold text-slate-500 hover:text-slate-800 flex items-center justify-between">
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles className="h-3 w-3 text-teal-600" />
+                      <span>Hoặc chọn nhanh bộ từ có sẵn (Công sở, Du lịch, Môi trường...)</span>
+                    </span>
+                    <span className="text-[10px] text-slate-400">mở</span>
+                  </summary>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 border-t border-slate-100">
+                    {STARTER_WORD_PACKS.map((sp) => (
+                      <button
+                        key={sp.id}
+                        type="button"
+                        onClick={() => applyStarterPack(sp)}
+                        className="text-left p-2 rounded-lg border border-slate-200 hover:border-teal-500 hover:bg-teal-50/40 bg-white transition space-y-1 group cursor-pointer"
+                      >
+                        <div className="flex items-center justify-between text-xs font-bold">
+                          <span>{sp.icon} {sp.name}</span>
+                          <span className="text-[10px] text-teal-600 font-mono">8 từ →</span>
+                        </div>
+                        <p className="text-[10px] text-slate-400 line-clamp-1">{sp.desc}</p>
+                      </button>
+                    ))}
                   </div>
                 </details>
               </>

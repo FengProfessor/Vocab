@@ -79,12 +79,12 @@ const MODES = [
   {
     href: '/practice/pack-reading',
     emoji: '📖',
-    title: 'Luyện đọc',
-    desc: 'Từ đã học · Yếu/Đang nhớ/Vững · đọc đoạn + quiz',
-    ring: 'border-teal-200 bg-teal-50/70 hover:border-teal-400 hover:bg-teal-50',
+    title: 'Luyện đọc theo gói từ · AI',
+    desc: 'Chọn từ vựng muốn luyện hoặc gói mẫu → AI viết đoạn đọc, đục lỗ & trắc nghiệm',
+    ring: 'border-teal-200 bg-teal-50/70 hover:border-teal-400 hover:bg-teal-50 dark:border-teal-800 dark:bg-teal-950/30',
     badge: 'bg-teal-600',
-    text: 'text-teal-900',
-    sub: 'text-teal-700/75',
+    text: 'text-teal-900 dark:text-teal-100',
+    sub: 'text-teal-700/75 dark:text-teal-300',
     arrow: 'text-teal-400',
   },
   {
