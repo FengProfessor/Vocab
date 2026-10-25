@@ -2,6 +2,7 @@ using LingoPro.Application.Features.Exams.Commands;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -21,7 +22,7 @@ public sealed class SubmitVstepExamCommandHandlerTests
         var db = TestHelpers.CreateDb();
         db.Profiles.Add(new Profile { Id = userId, Email = "vstep@test.local", FullName = "Vstep Tester" });
         await db.SaveChangesAsync();
-        return (new SubmitVstepExamCommandHandler(TestHelpers.CreateUser(userId), db), db, userId);
+        return (new SubmitVstepExamCommandHandler(TestHelpers.CreateUser(userId), new ExamRepository(db)), db, userId);
     }
 
     private static SubmitVstepExamCommand Uniform(double score, ExamType type = ExamType.Vstep) =>

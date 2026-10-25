@@ -1,7 +1,7 @@
 using LingoPro.Application.Features.SpeakingFoundation.Queries;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Speaking;
-using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.SpeakingFoundation;
@@ -33,7 +33,7 @@ public sealed class GetNextDiagnosticProbeQueryHandlerTests
         db.FoundationLexicalConcepts.AddRange(
             Concept("b", 2), Concept("a", 2), Concept("z", 1), Concept("x", 3));
         await db.SaveChangesAsync();
-        var handler = new GetNextDiagnosticProbeQueryHandler(db);
+        var handler = new GetNextDiagnosticProbeQueryHandler(new SpeakingFoundationRepository(db));
 
         // Act
         var response = await handler.Handle(new GetNextDiagnosticProbeQuery(), CancellationToken.None);
@@ -55,7 +55,7 @@ public sealed class GetNextDiagnosticProbeQueryHandlerTests
         }
 
         await db.SaveChangesAsync();
-        var handler = new GetNextDiagnosticProbeQueryHandler(db);
+        var handler = new GetNextDiagnosticProbeQueryHandler(new SpeakingFoundationRepository(db));
 
         // Act
         var response = await handler.Handle(new GetNextDiagnosticProbeQuery(null, 3), CancellationToken.None);
@@ -78,7 +78,7 @@ public sealed class GetNextDiagnosticProbeQueryHandlerTests
         }
 
         await db.SaveChangesAsync();
-        var handler = new GetNextDiagnosticProbeQueryHandler(db);
+        var handler = new GetNextDiagnosticProbeQueryHandler(new SpeakingFoundationRepository(db));
 
         // Act
         var response = await handler.Handle(new GetNextDiagnosticProbeQuery(null, 50), CancellationToken.None);

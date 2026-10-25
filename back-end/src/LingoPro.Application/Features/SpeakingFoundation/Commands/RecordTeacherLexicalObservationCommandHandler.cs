@@ -1,18 +1,18 @@
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Speaking;
 using LingoPro.Domain.Enums;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.SpeakingFoundation.Commands;
 
 /// <summary>
-/// Handles teacher-evaluated lexical observations for a student.
+/// Handles teacher-evaluated lexical observations for a student via the speaking foundation repository.
 /// </summary>
 public sealed class RecordTeacherLexicalObservationCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<RecordTeacherLexicalObservationCommand, ApiResponse<LexicalStatusBucket>>
+    ISpeakingFoundationRepository speakingFoundationRepository) : IRequestHandler<RecordTeacherLexicalObservationCommand, ApiResponse<LexicalStatusBucket>>
 {
     public async Task<ApiResponse<LexicalStatusBucket>> Handle(
         RecordTeacherLexicalObservationCommand request,
@@ -35,19 +35,18 @@ public sealed class RecordTeacherLexicalObservationCommandHandler(
             CreatedAt = DateTime.UtcNow
         };
 
-        dbContext.LearnerLexicalEvidences.Add(evidence);
+        speakingFoundationRepository.AddLexicalEvidence(evidence);
 
-        var state = await dbContext.LearnerLexicalStates
-            .FirstOrDefaultAsync(s => s.LearnerId == request.StudentUserId && s.ConceptId == request.ConceptId, ct);
+        var state = await speakingFoundationRepository.GetLexicalStateAsync(request.StudentUserId, request.ConceptId, ct);
 
         if (state == null)
         {
             state = LexicalStateUpdater.CreateInitial(request.StudentUserId, request.ConceptId);
-            dbContext.LearnerLexicalStates.Add(state);
+            speakingFoundationRepository.AddLexicalState(state);
         }
 
         LexicalStateUpdater.Apply(state, request.IsSuccessful, 0.45m, request.SupportLevel, request.ResponseLatencyMs, LexicalStatusBucket.Recheck);
-        await dbContext.SaveChangesAsync(ct);
+        await speakingFoundationRepository.SaveChangesAsync(ct);
 
         return ApiResponse<LexicalStatusBucket>.Ok(
             state.StatusBucket,

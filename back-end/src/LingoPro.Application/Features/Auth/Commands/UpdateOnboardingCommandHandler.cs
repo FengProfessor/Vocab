@@ -1,10 +1,10 @@
-﻿using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
+using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Auth.Commands;
 
@@ -13,12 +13,12 @@ namespace LingoPro.Application.Features.Auth.Commands;
 /// </summary>
 public class UpdateOnboardingCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<UpdateOnboardingCommand, ApiResponse<ProfileDto>>
+    IAuthRepository authRepository) : IRequestHandler<UpdateOnboardingCommand, ApiResponse<ProfileDto>>
 {
     public async Task<ApiResponse<ProfileDto>> Handle(UpdateOnboardingCommand request, CancellationToken ct)
     {
         var userId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
-        var profile = await dbContext.Profiles.FirstOrDefaultAsync(p => p.Id == userId, ct)
+        var profile = await authRepository.GetProfileByIdAsync(userId, ct)
             ?? throw new NotFoundException("Profile", userId);
 
         // The SQL schema has no onboarding_completed / learning_goal / daily_target_mins columns:
@@ -26,12 +26,12 @@ public class UpdateOnboardingCommandHandler(
         // persisted as user_gamification.daily_goal. LearningGoal is accepted but not persisted.
         profile.FullName = request.FullName;
 
-        var gamification = await dbContext.UserGamifications.FirstOrDefaultAsync(g => g.UserId == userId, ct);
+        var gamification = await authRepository.GetUserGamificationAsync(userId, ct);
         bool firstTimeOnboarding = gamification == null;
         if (gamification == null)
         {
             gamification = new UserGamification { UserId = userId };
-            dbContext.UserGamifications.Add(gamification);
+            authRepository.AddUserGamification(gamification);
         }
         gamification.DailyGoal = request.DailyTargetMins;
 
@@ -40,10 +40,9 @@ public class UpdateOnboardingCommandHandler(
             gamification.AwardXpAndUpdateStreak(25, DateOnly.FromDateTime(DateTime.UtcNow));
         }
 
-        await dbContext.SaveChangesAsync(ct);
+        await authRepository.SaveChangesAsync(ct);
 
         var dto = ProfileDtoMapper.ToDto(profile, gamification);
         return ApiResponse<ProfileDto>.Ok(dto, "Onboarding preferences updated successfully.");
     }
 }
-

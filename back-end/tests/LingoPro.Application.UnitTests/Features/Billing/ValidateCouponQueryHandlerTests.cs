@@ -3,6 +3,7 @@ using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Billing;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.Billing;
@@ -37,7 +38,7 @@ public sealed class ValidateCouponQueryHandlerTests
             MaxUses = 10,
             UsedCount = 9
         });
-        var handler = new ValidateCouponQueryHandler(db);
+        var handler = new ValidateCouponQueryHandler(new BillingRepository(db));
 
         // Act
         var response = await handler.Handle(new ValidateCouponQuery("  save20 "), CancellationToken.None);
@@ -63,7 +64,7 @@ public sealed class ValidateCouponQueryHandlerTests
     {
         // Arrange
         await using var db = await SeedAsync(new Coupon { Code = "OFF30K", DiscountAmount = 30000 });
-        var handler = new ValidateCouponQueryHandler(db);
+        var handler = new ValidateCouponQueryHandler(new BillingRepository(db));
 
         // Act
         var response = await handler.Handle(new ValidateCouponQuery("OFF30K"), CancellationToken.None);
@@ -89,7 +90,7 @@ public sealed class ValidateCouponQueryHandlerTests
             new Coupon { Code = "EXPIRED", DiscountPct = 10, ValidUntil = DateTime.UtcNow.AddMinutes(-1) },
             new Coupon { Code = "EXHAUSTED", DiscountPct = 10, MaxUses = 3, UsedCount = 3 },
             new Coupon { Code = "NOTYET", DiscountPct = 10, ValidFrom = DateTime.UtcNow.AddDays(1) });
-        var handler = new ValidateCouponQueryHandler(db);
+        var handler = new ValidateCouponQueryHandler(new BillingRepository(db));
 
         // Act
         var ex = Assert.ThrowsAsync<DomainException>(
@@ -107,7 +108,7 @@ public sealed class ValidateCouponQueryHandlerTests
         // Arrange
         await using var db = await SeedAsync(
             new Coupon { Code = "FUTURE", DiscountPct = 15, ValidUntil = DateTime.UtcNow.AddDays(1) });
-        var handler = new ValidateCouponQueryHandler(db);
+        var handler = new ValidateCouponQueryHandler(new BillingRepository(db));
 
         // Act
         var response = await handler.Handle(new ValidateCouponQuery("FUTURE"), CancellationToken.None);

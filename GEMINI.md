@@ -52,3 +52,16 @@
 ## 4. Offline-First Authentication & Network Resiliency
 - **Preserve Session on Network Failure**: When checking or refreshing authentication sessions (e.g. on window focus), never clear the account cache or emit a `SIGNED_OUT` event if the failure is due to a temporary network issue or a 5xx server error.
 - **Graceful Degradation**: Always catch network errors and return the previously cached session state, allowing the offline-first application to continue functioning seamlessly without kicking the user back to the login screen.
+
+
+## 5. Context Recovery & Mandatory Knowledge Base Lookup (`/agent`)
+- **Khi bắt đầu phiên làm việc mới hoặc khi thiếu thông tin ngữ cảnh (Context Recovery Protocol)**:
+  Trước khi suy đoán hoặc hỏi lại các thông tin đã có sẵn về kiến trúc dự án, tiến độ hiện tại, quy tắc nghiệp vụ hoặc phân vai giữa `src/`, `back-end/` (.NET 10) và `front-end/`, **bắt buộc đọc các file tổng hợp trong thư mục `/agent` theo thứ tự ưu tiên sau**:
+  1. **`agent/README.md`**: Bản đồ dẫn đường toàn bộ thư mục `/agent` và bảng ánh xạ tra cứu nhanh theo tình huống.
+  2. **`agent/01_PROJECT_OVERVIEW_AND_ARCHITECTURE.md`**: Cấu trúc tổng thể Monorepo (`src/`, `back-end/`, `front-end/`, `supabase/`), 15 phân hệ nghiệp vụ và kiến trúc thực tế của `.NET 10` Clean Architecture.
+  3. **`agent/02_IMPLEMENTATION_PROGRESS_REPORT.md`**: Báo cáo chi tiết những gì đã thực hiện được từ PR #26 → PR #35 (373 file C#, 47 Entities, 48 Enums, 16 Controllers, 568 NUnit tests), các chỗ đang dùng Stub (`AiRouterService.cs`) và danh sách 80 test `[Category("KnownDeviation")]` cần hoàn thiện.
+  4. **`agent/03_AGENT_DOCS_CURRENT_STATE_ANALYSIS.md`**: Phân tích hiện trạng 24 file trong `/agent` và **5 điểm thay đổi kiến trúc (Architecture Drift)** giữa tài liệu thiết kế ban đầu (`agent/architect/01` → `05`) so với code thực tế (chuyển sang xác thực Supabase JWKS, `AuthorizationBehavior`, `SnakeCaseEnumConverter`, tách `UserGamification`).
+  5. **`agent/architect/06_REVIEW_AND_UI_DIRECTION.md`**: Định hướng phối hợp mới nhất — **Giữ 100% UI Next.js hiện tại (`src/`)** và tập trung hoàn thiện **Core Backend `.NET 10` (`back-end/`)** (không làm tiếp `front-end/` Ant Design hay `.cshtml`).
+- **Tra cứu sâu theo nhu cầu thực thi**:
+  - Khi viết/sửa code trong `back-end/` (.NET 10): Đọc **`agent/architect/SKILL.md`** và **`agent/architect/01` → `05`** để tuân thủ tuyệt đối chuẩn SOLID, `1 File = 1 Class/Type`, 100% comment tiếng Anh, Business Enums và `ApiResponse<T>` có `StatusCode`.
+  - Khi cần kiểm tra logic nghiệp vụ gốc của hệ thống hoặc các lỗi/lỗ hổng bảo mật cần tránh: Đọc **`agent/docs/README.md`** và file **`agent/docs/SRS_01` → `SRS_15`** tương ứng với phân hệ đang làm.

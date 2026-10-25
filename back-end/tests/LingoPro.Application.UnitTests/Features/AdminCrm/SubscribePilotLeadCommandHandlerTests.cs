@@ -1,6 +1,7 @@
 using LingoPro.Application.Features.AdminCrm.Commands;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -21,7 +22,7 @@ public sealed class SubscribePilotLeadCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new SubscribePilotLeadCommandHandler(db);
+        var handler = new SubscribePilotLeadCommandHandler(new AdminCrmRepository(db));
         var command = new SubscribePilotLeadCommand("  Nguyen Van A ", "  Teacher@School.EDU ", " 0901234567 ", " ABC School ", " landing ");
 
         // Act
@@ -49,7 +50,7 @@ public sealed class SubscribePilotLeadCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new SubscribePilotLeadCommandHandler(db);
+        var handler = new SubscribePilotLeadCommandHandler(new AdminCrmRepository(db));
         var first = await handler.Handle(new SubscribePilotLeadCommand("A", "dup@t.local"), CancellationToken.None);
 
         // Act
@@ -71,7 +72,7 @@ public sealed class SubscribePilotLeadCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new SubscribePilotLeadCommandHandler(db);
+        var handler = new SubscribePilotLeadCommandHandler(new AdminCrmRepository(db));
         var command = new SubscribePilotLeadCommand("Name", "nophone@t.local", null!);
 
         // Act

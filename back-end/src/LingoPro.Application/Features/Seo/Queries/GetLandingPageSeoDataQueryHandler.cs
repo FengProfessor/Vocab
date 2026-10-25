@@ -1,36 +1,20 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
-using LingoPro.Domain.Enums;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Seo.Queries;
 
 /// <summary>
-/// Handles retrieving SEO metadata and public catalog counts from the database for the server-side rendered landing page.
+/// Handles retrieving SEO metadata and public catalog counts for the server-side rendered landing page.
 /// </summary>
-public sealed class GetLandingPageSeoDataQueryHandler(IApplicationDbContext dbContext)
+public sealed class GetLandingPageSeoDataQueryHandler(ISeoRepository seoRepository)
     : IRequestHandler<GetLandingPageSeoDataQuery, ApiResponse<LandingPageSeoDto>>
 {
     public async Task<ApiResponse<LandingPageSeoDto>> Handle(
         GetLandingPageSeoDataQuery request,
         CancellationToken ct)
     {
-        var totalLearners = await dbContext.Profiles
-            .AsNoTracking()
-            .CountAsync(ct);
-
-        var wordsCount = await dbContext.Words
-            .AsNoTracking()
-            .CountAsync(ct); // SQL public.words has no approval status column: count all non-deleted words.
-
-        var grammarCount = await dbContext.GrammarTopics
-            .AsNoTracking()
-            .CountAsync(ct);
-
-        var readingCount = await dbContext.ReadingArticles
-            .AsNoTracking()
-            .CountAsync(x => x.Status == "published", ct);
+        var (totalLearners, wordsCount, grammarCount, readingCount) = await seoRepository.GetCatalogCountsAsync(ct);
 
         var dto = new LandingPageSeoDto(
             PageTitle: "LingoPro — Học từ vựng tiếng Anh, tra từ 1 chạm, nhớ lâu với FSRS",

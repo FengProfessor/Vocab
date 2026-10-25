@@ -4,6 +4,7 @@ using LingoPro.Domain.Entities.Gamification;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -80,7 +81,7 @@ public sealed class JoinChallengeCommandHandlerTests
         var userId = Guid.NewGuid();
         var challenge = NewChallenge(deposit: 0);
         await using var db = await SeedAsync(challenge);
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(userId), new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(new JoinChallengeCommand(challenge.Id), CancellationToken.None);
@@ -108,7 +109,7 @@ public sealed class JoinChallengeCommandHandlerTests
         var userId = Guid.NewGuid();
         var challenge = NewChallenge(deposit: 150000);
         await using var db = await SeedAsync(challenge);
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(userId), new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(new JoinChallengeCommand(challenge.Id), CancellationToken.None);
@@ -143,7 +144,7 @@ public sealed class JoinChallengeCommandHandlerTests
         // Arrange
         var challenge = NewChallenge(deposit: 150000);
         await using var db = await SeedAsync(challenge);
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new GamificationRepository(db));
         var first = await handler.Handle(new JoinChallengeCommand(challenge.Id), CancellationToken.None);
 
         // Act
@@ -168,7 +169,7 @@ public sealed class JoinChallengeCommandHandlerTests
         // Arrange
         var challenge = NewChallenge(maxParticipants: 3);
         await using var db = await SeedAsync(challenge, Others(2, ChallengeParticipantStatus.Active));
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(new JoinChallengeCommand(challenge.Id), CancellationToken.None);
@@ -189,7 +190,7 @@ public sealed class JoinChallengeCommandHandlerTests
         // Arrange
         var challenge = NewChallenge(maxParticipants: 3);
         await using var db = await SeedAsync(challenge, Others(3, ChallengeParticipantStatus.Active));
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new GamificationRepository(db));
 
         // Act
         var ex = Assert.ThrowsAsync<ConflictException>(
@@ -218,7 +219,7 @@ public sealed class JoinChallengeCommandHandlerTests
             challenge,
             (ChallengeParticipantStatus.Active, null),
             (ChallengeParticipantStatus.Pending, null));
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(new JoinChallengeCommand(challenge.Id), CancellationToken.None);
@@ -237,7 +238,7 @@ public sealed class JoinChallengeCommandHandlerTests
         // Arrange
         var challenge = NewChallenge(status: status);
         await using var db = await SeedAsync(challenge);
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new GamificationRepository(db));
 
         // Act & Assert
         Assert.CatchAsync<DomainException>(
@@ -255,7 +256,7 @@ public sealed class JoinChallengeCommandHandlerTests
         // Arrange
         var challenge = NewChallenge(registrationOpensInDays: opensInDays, registrationClosesInDays: closesInDays);
         await using var db = await SeedAsync(challenge);
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new GamificationRepository(db));
 
         // Act & Assert
         Assert.CatchAsync<DomainException>(
@@ -270,7 +271,7 @@ public sealed class JoinChallengeCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new GamificationRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(
@@ -285,7 +286,7 @@ public sealed class JoinChallengeCommandHandlerTests
         // Arrange
         var challenge = NewChallenge();
         await using var db = await SeedAsync(challenge);
-        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new JoinChallengeCommandHandler(TestHelpers.CreateUser(null), new GamificationRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<UnauthorizedAccessException>(

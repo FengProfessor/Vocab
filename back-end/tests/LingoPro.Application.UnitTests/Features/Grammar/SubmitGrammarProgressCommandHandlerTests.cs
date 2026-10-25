@@ -3,6 +3,7 @@ using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Grammar;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -78,7 +79,7 @@ public sealed class SubmitGrammarProgressCommandHandlerTests
         // Arrange
         var (db, userId, lessonId) = await SeedAsync("present-simple");
         await using var _db = db;
-        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), new GrammarRepository(db));
 
         // Act
         var response = await handler.Handle(new SubmitGrammarProgressCommand("Present-Simple ", 75), CancellationToken.None);
@@ -107,7 +108,7 @@ public sealed class SubmitGrammarProgressCommandHandlerTests
         // Arrange
         var (db, userId, firstLessonId) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), new GrammarRepository(db));
 
         // Act
         await handler.Handle(new SubmitGrammarProgressCommand("articles", 60), CancellationToken.None);
@@ -132,7 +133,7 @@ public sealed class SubmitGrammarProgressCommandHandlerTests
         // Arrange
         var (db, userId, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), new GrammarRepository(db));
 
         // Act
         var response = await handler.Handle(new SubmitGrammarProgressCommand("articles", accuracy), CancellationToken.None);
@@ -153,7 +154,7 @@ public sealed class SubmitGrammarProgressCommandHandlerTests
         // Arrange
         var (db, userId, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), new GrammarRepository(db));
 
         // Act
         var response = await handler.Handle(new SubmitGrammarProgressCommand("articles", accuracy), CancellationToken.None);
@@ -174,7 +175,7 @@ public sealed class SubmitGrammarProgressCommandHandlerTests
         // Arrange (original: currentScore >= oldScore => currentScore, route.ts:373-376)
         var (db, userId, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), new GrammarRepository(db));
         await handler.Handle(new SubmitGrammarProgressCommand("articles", 60), CancellationToken.None);
 
         // Act
@@ -197,7 +198,7 @@ public sealed class SubmitGrammarProgressCommandHandlerTests
         // Arrange
         var (db, userId, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), new GrammarRepository(db));
         await handler.Handle(new SubmitGrammarProgressCommand("articles", first), CancellationToken.None);
 
         // Act
@@ -219,7 +220,7 @@ public sealed class SubmitGrammarProgressCommandHandlerTests
         // Arrange
         var (db, userId, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(userId), new GrammarRepository(db));
 
         // Act
         var response = await handler.Handle(new SubmitGrammarProgressCommand("articles", 0.9), CancellationToken.None);
@@ -235,7 +236,7 @@ public sealed class SubmitGrammarProgressCommandHandlerTests
         // Arrange
         var (db, _, _) = await SeedAsync();
         await using var _db = db;
-        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new SubmitGrammarProgressCommandHandler(TestHelpers.CreateUser(null), new GrammarRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(

@@ -7,6 +7,7 @@ using LingoPro.Domain.Entities.Vocab;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -87,7 +88,7 @@ public sealed class AssignDrillCommandHandlerTests
     };
 
     private static AssignDrillCommandHandler HandlerFor(Scenario s, Guid callerId, UserRole role = UserRole.Teacher) =>
-        new(TestHelpers.CreateUser(callerId, role), s.Db);
+        new(TestHelpers.CreateUser(callerId, role), new ClassroomRepository(s.Db));
 
     /// <summary>CLS-10: assigning explicit class words reschedules exactly those cards to today and reports the count.</summary>
     [Test]
@@ -196,7 +197,7 @@ public sealed class AssignDrillCommandHandlerTests
         await using var dbLease = s.Db;
         var unknown = new AssignDrillCommand(Guid.NewGuid(), s.StudentId, null);
         var known = new AssignDrillCommand(s.Classroom.Id, s.StudentId, null);
-        var anonymous = new AssignDrillCommandHandler(TestHelpers.CreateUser(null), s.Db);
+        var anonymous = new AssignDrillCommandHandler(TestHelpers.CreateUser(null), new ClassroomRepository(s.Db));
 
         // Act & Assert
         Assert.Multiple(() =>
@@ -282,7 +283,7 @@ public sealed class AssignDrillCommandHandlerTests
         await using var dbLease = s.Db;
         var user = TestHelpers.CreateUser(s.TeacherId, UserRole.Student);
         var behavior = new AuthorizationBehavior<AssignDrillCommand, ApiResponse<int>>(user);
-        var handler = new AssignDrillCommandHandler(user, s.Db);
+        var handler = new AssignDrillCommandHandler(user, new ClassroomRepository(s.Db));
         var command = new AssignDrillCommand(s.Classroom.Id, s.StudentId, null);
 
         // Act & Assert

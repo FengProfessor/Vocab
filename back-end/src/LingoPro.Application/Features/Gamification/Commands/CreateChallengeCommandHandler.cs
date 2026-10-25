@@ -1,4 +1,5 @@
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Gamification;
 using LingoPro.Domain.Enums;
@@ -11,7 +12,7 @@ namespace LingoPro.Application.Features.Gamification.Commands;
 /// </summary>
 public class CreateChallengeCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<CreateChallengeCommand, ApiResponse<ChallengeDto>>
+    IGamificationRepository gamificationRepository) : IRequestHandler<CreateChallengeCommand, ApiResponse<ChallengeDto>>
 {
     public async Task<ApiResponse<ChallengeDto>> Handle(CreateChallengeCommand request, CancellationToken ct)
     {
@@ -39,8 +40,8 @@ public class CreateChallengeCommandHandler(
             Status = ChallengeStatus.Active
         };
 
-        dbContext.Challenges.Add(challenge);
-        await dbContext.SaveChangesAsync(ct);
+        gamificationRepository.AddChallenge(challenge);
+        await gamificationRepository.SaveChangesAsync(ct);
 
         var dto = new ChallengeDto(
             challenge.Id,

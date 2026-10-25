@@ -1,10 +1,9 @@
 using System.Text.Json;
-using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Application.Features.Gamification.Commands;
 using LingoPro.Domain.Enums;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Gamification.Queries;
 
@@ -12,29 +11,13 @@ namespace LingoPro.Application.Features.Gamification.Queries;
 /// Retrieves commitment challenges and participant counts directly from the database.
 /// </summary>
 public sealed class GetChallengesQueryHandler(
-    IApplicationDbContext dbContext) : IRequestHandler<GetChallengesQuery, ApiResponse<IReadOnlyList<ChallengeDto>>>
+    IGamificationRepository gamificationRepository) : IRequestHandler<GetChallengesQuery, ApiResponse<IReadOnlyList<ChallengeDto>>>
 {
     public async Task<ApiResponse<IReadOnlyList<ChallengeDto>>> Handle(
         GetChallengesQuery request,
         CancellationToken ct)
     {
-        var rows = await dbContext.Challenges
-            .AsNoTracking()
-            .OrderByDescending(c => c.StartsAt)
-            .Select(c => new
-            {
-                c.Id,
-                c.Name,
-                c.Description,
-                c.StartsAt,
-                c.EndsAt,
-                c.DailyCriteria,
-                c.MaxParticipants,
-                ParticipantCount = c.Participants.Count,
-                c.DepositAmount,
-                c.Status
-            })
-            .ToListAsync(ct);
+        var rows = await gamificationRepository.GetChallengesWithParticipantCountsAsync(ct);
 
         // SQL has no daily_target_words column: derive it from daily_criteria.min_srs_reviews.
         var challenges = rows.Select(c => new ChallengeDto(

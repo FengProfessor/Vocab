@@ -4,6 +4,7 @@ using LingoPro.Domain.Entities.Billing;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using LingoPro.Infrastructure.Persistence;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -30,7 +31,7 @@ public sealed class CreateOrderCommandHandlerTests
         }
 
         var user = TestHelpers.CreateUser(Guid.NewGuid());
-        return (db, new CreateOrderCommandHandler(user, db));
+        return (db, new CreateOrderCommandHandler(user, new BillingRepository(db)));
     }
 
     /// <summary>
@@ -357,7 +358,7 @@ public sealed class CreateOrderCommandHandlerTests
         // Arrange
         var userId = Guid.NewGuid();
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateOrderCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new CreateOrderCommandHandler(TestHelpers.CreateUser(userId), new BillingRepository(db));
         var command = new CreateOrderCommand(SubscriptionPlanType.Pro, OrderKind.Individual, 3, SeatLimit: 15);
 
         // Act
@@ -390,7 +391,7 @@ public sealed class CreateOrderCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateOrderCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), db);
+        var handler = new CreateOrderCommandHandler(TestHelpers.CreateUser(Guid.NewGuid()), new BillingRepository(db));
         var command = new CreateOrderCommand(
             SubscriptionPlanType.Pro, OrderKind.Group, 1, SeatLimit: requestedSeats);
 
@@ -418,7 +419,7 @@ public sealed class CreateOrderCommandHandlerTests
         var userId = Guid.NewGuid();
         var challengeId = Guid.NewGuid();
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateOrderCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new CreateOrderCommandHandler(TestHelpers.CreateUser(userId), new BillingRepository(db));
         var command = new CreateOrderCommand(
             SubscriptionPlanType.Pro, OrderKind.Challenge, 1, TargetChallengeId: challengeId);
 
@@ -445,7 +446,7 @@ public sealed class CreateOrderCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateOrderCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new CreateOrderCommandHandler(TestHelpers.CreateUser(null), new BillingRepository(db));
         var command = new CreateOrderCommand(SubscriptionPlanType.Pro, OrderKind.Individual, 1);
 
         // Act & Assert

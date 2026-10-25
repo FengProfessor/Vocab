@@ -1,4 +1,5 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Classroom;
 using MediatR;
@@ -10,7 +11,7 @@ namespace LingoPro.Application.Features.Classrooms.Commands;
 /// </summary>
 public class CreateClassroomCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<CreateClassroomCommand, ApiResponse<ClassroomDto>>
+    IClassroomRepository classroomRepository) : IRequestHandler<CreateClassroomCommand, ApiResponse<ClassroomDto>>
 {
     public async Task<ApiResponse<ClassroomDto>> Handle(CreateClassroomCommand request, CancellationToken ct)
     {
@@ -25,8 +26,8 @@ public class CreateClassroomCommandHandler(
             TeacherId = teacherId
         };
 
-        dbContext.Classrooms.Add(classroom);
-        await dbContext.SaveChangesAsync(ct);
+        classroomRepository.AddClassroom(classroom);
+        await classroomRepository.SaveChangesAsync(ct);
 
         var dto = new ClassroomDto(
             classroom.Id,

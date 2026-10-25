@@ -49,12 +49,12 @@ public sealed class SubscriptionAndReminderWorker : BackgroundService
         var nowUtc = DateTime.UtcNow;
 
         var expiredProfiles = await dbContext.Profiles
-            .Where(p => p.Plan != SubscriptionPlanType.Free && p.PlanExpiresAt != null && p.PlanExpiresAt <= nowUtc)
+            .Where(p => p.IsDeleted != true && p.Plan != SubscriptionPlanType.Free && p.PlanExpiresAt != null && p.PlanExpiresAt <= nowUtc)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(p => p.Plan, SubscriptionPlanType.Free), ct);
 
         var expiredGroups = await dbContext.StudyGroups
-            .Where(g => g.Status == "active" && g.ExpiresAt <= nowUtc)
+            .Where(g => g.IsDeleted != true && g.Status == "active" && g.ExpiresAt <= nowUtc)
             .ExecuteUpdateAsync(s => s
                 .SetProperty(g => g.Status, "expired"), ct);
 

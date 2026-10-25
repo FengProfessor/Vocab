@@ -1,4 +1,5 @@
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Infrastructure;
 using LingoPro.Infrastructure.Caching;
 using MediatR;
@@ -56,6 +57,20 @@ public sealed class DependencyInjectionValidationTests
         var currentUser = sp.GetRequiredService<ICurrentUserService>();
         var cacheService = sp.GetRequiredService<ICacheService>();
         var aiRouter = sp.GetRequiredService<IAiRouterService>();
+        var adminCrmRepo = sp.GetRequiredService<IAdminCrmRepository>();
+        var authRepo = sp.GetRequiredService<IAuthRepository>();
+        var billingRepo = sp.GetRequiredService<IBillingRepository>();
+        var classroomRepo = sp.GetRequiredService<IClassroomRepository>();
+        var dictionaryRepo = sp.GetRequiredService<IDictionaryRepository>();
+        var examRepo = sp.GetRequiredService<IExamRepository>();
+        var gamificationRepo = sp.GetRequiredService<IGamificationRepository>();
+        var grammarRepo = sp.GetRequiredService<IGrammarRepository>();
+        var readingRepo = sp.GetRequiredService<IReadingRepository>();
+        var roadmapRepo = sp.GetRequiredService<IRoadmapRepository>();
+        var seoRepo = sp.GetRequiredService<ISeoRepository>();
+        var socialRepo = sp.GetRequiredService<ISocialRepository>();
+        var speakingRepo = sp.GetRequiredService<ISpeakingFoundationRepository>();
+        var vocabRepo = sp.GetRequiredService<IVocabRepository>();
 
         // Assert
         Assert.Multiple(() =>
@@ -65,6 +80,20 @@ public sealed class DependencyInjectionValidationTests
             Assert.That(currentUser, Is.Not.Null);
             Assert.That(aiRouter, Is.Not.Null);
             Assert.That(cacheService, Is.InstanceOf(expectedCacheServiceType));
+            Assert.That(adminCrmRepo, Is.Not.Null);
+            Assert.That(authRepo, Is.Not.Null);
+            Assert.That(billingRepo, Is.Not.Null);
+            Assert.That(classroomRepo, Is.Not.Null);
+            Assert.That(dictionaryRepo, Is.Not.Null);
+            Assert.That(examRepo, Is.Not.Null);
+            Assert.That(gamificationRepo, Is.Not.Null);
+            Assert.That(grammarRepo, Is.Not.Null);
+            Assert.That(readingRepo, Is.Not.Null);
+            Assert.That(roadmapRepo, Is.Not.Null);
+            Assert.That(seoRepo, Is.Not.Null);
+            Assert.That(socialRepo, Is.Not.Null);
+            Assert.That(speakingRepo, Is.Not.Null);
+            Assert.That(vocabRepo, Is.Not.Null);
         });
     }
 }

@@ -1,9 +1,8 @@
-﻿using LingoPro.Application.Common.Interfaces;
-using LingoPro.Application.Features.Auth.Queries;
+using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Enums;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Auth.Commands;
 
@@ -13,7 +12,7 @@ namespace LingoPro.Application.Features.Auth.Commands;
 internal static class ProfileSyncHelper
 {
     public static async Task<Profile> EnsureUserProfileAsync(
-        IApplicationDbContext dbContext,
+        IAuthRepository authRepository,
         SupabaseAuthResult authResult,
         CancellationToken ct,
         UserRole initialRole = UserRole.Student)
@@ -21,8 +20,7 @@ internal static class ProfileSyncHelper
         var effectiveRole = initialRole == UserRole.Teacher ? UserRole.Teacher : UserRole.Student;
         var normalizedEmail = authResult.Email.Trim().ToLowerInvariant();
 
-        var profile = await dbContext.Profiles
-            .FirstOrDefaultAsync(p => p.Id == authResult.UserId || p.Email.ToLower() == normalizedEmail, ct);
+        var profile = await authRepository.GetProfileByIdOrEmailAsync(authResult.UserId, normalizedEmail, ct);
 
         if (profile == null)
         {
@@ -38,8 +36,6 @@ internal static class ProfileSyncHelper
                 Plan = SubscriptionPlanType.Free
             };
 
-            dbContext.Profiles.Add(profile);
-
             // Provision the personal vocabulary workspace classroom automatically
             var personalClassroom = new ClassroomEntity
             {
@@ -49,13 +45,13 @@ internal static class ProfileSyncHelper
                 InviteCode = $"PERS-{Guid.NewGuid().ToString("N")[..8].ToUpperInvariant()}",
                 TeacherId = profile.Id
             };
-            dbContext.Classrooms.Add(personalClassroom);
-            await dbContext.SaveChangesAsync(ct);
+            authRepository.AddProfileWithPersonalClassroom(profile, personalClassroom);
+            await authRepository.SaveChangesAsync(ct);
         }
         else if (string.IsNullOrEmpty(profile.AvatarUrl) && !string.IsNullOrEmpty(authResult.AvatarUrl))
         {
             profile.AvatarUrl = authResult.AvatarUrl;
-            await dbContext.SaveChangesAsync(ct);
+            await authRepository.SaveChangesAsync(ct);
         }
 
         return profile;
@@ -76,7 +72,7 @@ internal static class ProfileSyncHelper
         return new AuthTokensDto(
             profile.Id,
             profile.Email,
-            profile.FullName,
+            profile.FullName ?? string.Empty,
             profile.AvatarUrl,
             profile.Role,
             profile.Plan ?? SubscriptionPlanType.Free,
@@ -88,4 +84,3 @@ internal static class ProfileSyncHelper
             authResult.ExpiresIn);
     }
 }
-

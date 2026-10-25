@@ -1,20 +1,20 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Algorithms;
 using LingoPro.Domain.Entities.Exam;
 using LingoPro.Domain.Enums;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Toeic.Commands;
 
 /// <summary>
-/// Grades a submitted TOEIC exam using the ETS barem engine and records the attempt in PostgreSQL.
+/// Grades a submitted TOEIC exam using the ETS barem engine and records the attempt via the exam repository.
 /// </summary>
 public class SubmitToeicExamCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<SubmitToeicExamCommand, ApiResponse<ToeicSubmissionResponseDto>>
+    IExamRepository examRepository) : IRequestHandler<SubmitToeicExamCommand, ApiResponse<ToeicSubmissionResponseDto>>
 {
     public async Task<ApiResponse<ToeicSubmissionResponseDto>> Handle(SubmitToeicExamCommand request, CancellationToken ct)
     {
@@ -41,9 +41,9 @@ public class SubmitToeicExamCommandHandler(
 
         const int xpAwarded = 50;
 
-        dbContext.ToeicTestResults.Add(resultEntity);
-        await LingoPro.Application.Features.Auth.Commands.GamificationAwardHelper.AwardXpAsync(dbContext, userId, xpAwarded, ct);
-        await dbContext.SaveChangesAsync(ct);
+        examRepository.AddToeicTestResult(resultEntity);
+        await examRepository.AwardXpAsync(userId, xpAwarded, DateOnly.FromDateTime(DateTime.UtcNow), ct);
+        await examRepository.SaveChangesAsync(ct);
 
         var dto = new ToeicSubmissionResponseDto(
             resultEntity.Id,

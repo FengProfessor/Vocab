@@ -1,8 +1,8 @@
-using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Features.Toeic.Commands;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Enums;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -36,7 +36,7 @@ public sealed class SubmitToeicExamCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         db.Profiles.Add(SeedProfile(userId));
         await db.SaveChangesAsync();
-        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(userId), new ExamRepository(db));
 
         // Act
         var response = await handler.Handle(Cmd(100, 100), CancellationToken.None);
@@ -70,7 +70,7 @@ public sealed class SubmitToeicExamCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(null), new ExamRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<UnauthorizedAccessException>(
@@ -92,7 +92,7 @@ public sealed class SubmitToeicExamCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         db.Profiles.Add(SeedProfile(userId));
         await db.SaveChangesAsync();
-        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(userId), new ExamRepository(db));
 
         // Act
         var response = await handler.Handle(
@@ -118,7 +118,7 @@ public sealed class SubmitToeicExamCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         db.Profiles.Add(SeedProfile(userId));
         await db.SaveChangesAsync();
-        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(userId), new ExamRepository(db));
 
         // Act
         await handler.Handle(Cmd(50, 50), CancellationToken.None);
@@ -139,7 +139,7 @@ public sealed class SubmitToeicExamCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         db.Profiles.Add(SeedProfile(userId));
         await db.SaveChangesAsync();
-        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new SubmitToeicExamCommandHandler(TestHelpers.CreateUser(userId), new ExamRepository(db));
 
         // Act
         var response = await handler.Handle(Cmd(0, 0), CancellationToken.None);

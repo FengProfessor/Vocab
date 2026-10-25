@@ -4,6 +4,7 @@ using LingoPro.Application.Features.Gamification.Commands;
 using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -46,7 +47,7 @@ public sealed class CreateChallengeCommandHandlerTests
         var teacherId = Guid.NewGuid();
         await using var db = TestHelpers.CreateDb();
         var user = TestHelpers.CreateUser(teacherId, UserRole.Teacher);
-        var handler = new CreateChallengeCommandHandler(user, db);
+        var handler = new CreateChallengeCommandHandler(user, new GamificationRepository(db));
         var command = NewCommand();
 
         // Act
@@ -81,7 +82,7 @@ public sealed class CreateChallengeCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+        var handler = new CreateChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), new GamificationRepository(db));
 
         // Act
         await handler.Handle(NewCommand(dailyWords: 25), CancellationToken.None);
@@ -103,7 +104,7 @@ public sealed class CreateChallengeCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), db);
+        var handler = new CreateChallengeCommandHandler(TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher), new GamificationRepository(db));
 
         // Act
         var response = await handler.Handle(NewCommand(), CancellationToken.None);
@@ -123,7 +124,7 @@ public sealed class CreateChallengeCommandHandlerTests
     {
         // Arrange
         await using var db = TestHelpers.CreateDb();
-        var handler = new CreateChallengeCommandHandler(TestHelpers.CreateUser(null), db);
+        var handler = new CreateChallengeCommandHandler(TestHelpers.CreateUser(null), new GamificationRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<UnauthorizedAccessException>(
@@ -139,7 +140,7 @@ public sealed class CreateChallengeCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         var user = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Student);
         var behavior = new AuthorizationBehavior<CreateChallengeCommand, ApiResponse<ChallengeDto>>(user);
-        var handler = new CreateChallengeCommandHandler(user, db);
+        var handler = new CreateChallengeCommandHandler(user, new GamificationRepository(db));
         var command = NewCommand();
 
         // Act & Assert
@@ -157,7 +158,7 @@ public sealed class CreateChallengeCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         var user = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Teacher);
         var behavior = new AuthorizationBehavior<CreateChallengeCommand, ApiResponse<ChallengeDto>>(user);
-        var handler = new CreateChallengeCommandHandler(user, db);
+        var handler = new CreateChallengeCommandHandler(user, new GamificationRepository(db));
         var command = NewCommand();
 
         // Act
@@ -182,7 +183,7 @@ public sealed class CreateChallengeCommandHandlerTests
         await using var db = TestHelpers.CreateDb();
         var user = TestHelpers.CreateUser(Guid.NewGuid(), UserRole.Admin);
         var behavior = new AuthorizationBehavior<CreateChallengeCommand, ApiResponse<ChallengeDto>>(user);
-        var handler = new CreateChallengeCommandHandler(user, db);
+        var handler = new CreateChallengeCommandHandler(user, new GamificationRepository(db));
         var command = NewCommand();
 
         // Act & Assert

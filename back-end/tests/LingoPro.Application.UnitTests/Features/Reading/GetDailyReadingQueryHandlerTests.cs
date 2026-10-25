@@ -3,6 +3,7 @@ using LingoPro.Application.UnitTests.Common;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Reading;
 using LingoPro.Domain.Exceptions;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using NUnit.Framework;
 
 namespace LingoPro.Application.UnitTests.Features.Reading;
@@ -40,7 +41,7 @@ public sealed class GetDailyReadingQueryHandlerTests
         };
         db.DailyReadingExercises.Add(exercise);
         await db.SaveChangesAsync();
-        var handler = new GetDailyReadingQueryHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new GetDailyReadingQueryHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
 
         // Act
         var before = await handler.Handle(new GetDailyReadingQuery(), CancellationToken.None);
@@ -71,7 +72,7 @@ public sealed class GetDailyReadingQueryHandlerTests
         var userId = Guid.NewGuid();
         db.DailyReadingExercises.Add(new DailyReadingExercise { TargetUserId = Guid.NewGuid(), ExerciseDate = Today });
         await db.SaveChangesAsync();
-        var handler = new GetDailyReadingQueryHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new GetDailyReadingQueryHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -95,7 +96,7 @@ public sealed class GetDailyReadingQueryHandlerTests
             Title = "Class reading"
         });
         await db.SaveChangesAsync();
-        var handler = new GetDailyReadingQueryHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new GetDailyReadingQueryHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(
@@ -119,7 +120,7 @@ public sealed class GetDailyReadingQueryHandlerTests
         var userId = Guid.NewGuid();
         db.DailyReadingExercises.Add(new DailyReadingExercise { TargetUserId = userId, ExerciseDate = Today, Title = "Not ready", Status = status });
         await db.SaveChangesAsync();
-        var handler = new GetDailyReadingQueryHandler(TestHelpers.CreateUser(userId), db);
+        var handler = new GetDailyReadingQueryHandler(TestHelpers.CreateUser(userId), new ReadingRepository(db));
 
         // Act + Assert
         await Assert.ThatAsync(

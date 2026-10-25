@@ -1,10 +1,9 @@
-﻿using LingoPro.Application.Common.Helpers;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Entities.Reading;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Reading.Commands;
 
@@ -13,27 +12,26 @@ namespace LingoPro.Application.Features.Reading.Commands;
 /// </summary>
 public class SubmitDailyReadingCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<SubmitDailyReadingCommand, ApiResponse<int>>
+    IReadingRepository readingRepository) : IRequestHandler<SubmitDailyReadingCommand, ApiResponse<int>>
 {
     public async Task<ApiResponse<int>> Handle(SubmitDailyReadingCommand request, CancellationToken ct)
     {
         var userId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
 
-        var exerciseExists = await dbContext.DailyReadingExercises.AsNoTracking().AnyAsync(e => e.Id == request.ExerciseId, ct);
+        var exerciseExists = await readingRepository.DailyReadingExerciseExistsAsync(request.ExerciseId, ct);
         if (!exerciseExists)
         {
             throw new NotFoundException("DailyReadingExercise", request.ExerciseId);
         }
 
-        var existing = await dbContext.DailyReadingCompletions
-            .FirstOrDefaultAsync(c => c.UserId == userId && c.ExerciseId == request.ExerciseId, ct);
+        var existing = await readingRepository.GetDailyReadingCompletionAsync(userId, request.ExerciseId, ct);
 
         if (existing != null)
         {
             return ApiResponse<int>.Ok(0, "Daily reading exercise was already completed today.");
         }
 
-        dbContext.DailyReadingCompletions.Add(new DailyReadingCompletion
+        readingRepository.AddDailyReadingCompletion(new DailyReadingCompletion
         {
             UserId = userId,
             ExerciseId = request.ExerciseId,
@@ -45,10 +43,9 @@ public class SubmitDailyReadingCommandHandler(
         });
 
         const int xpAwarded = 30;
-        await GamificationXp.AwardAsync(dbContext, userId, xpAwarded, DateOnly.FromDateTime(DateTime.UtcNow), ct);
+        await readingRepository.AwardXpAsync(userId, xpAwarded, DateOnly.FromDateTime(DateTime.UtcNow), ct);
 
-
-        await dbContext.SaveChangesAsync(ct);
+        await readingRepository.SaveChangesAsync(ct);
 
         return ApiResponse<int>.Ok(xpAwarded, "Daily reading completion recorded successfully.");
     }

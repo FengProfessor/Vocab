@@ -4,6 +4,7 @@ using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Social;
 using LingoPro.Domain.Enums; // SubscriptionPlanType
 using LingoPro.Domain.Exceptions;
+using LingoPro.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 
@@ -43,7 +44,7 @@ public sealed class ClaimReferralCommandHandlerTests
         var inactive = new ReferralCampaign { Name = "inactive", IsActive = false, CreatedAt = DateTime.UtcNow };
         db.ReferralCampaigns.AddRange(old, latest, inactive);
         await db.SaveChangesAsync();
-        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referee), db);
+        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referee), new SocialRepository(db));
 
         // Act
         var response = await handler.Handle(new ClaimReferralCommand("  ref-abc123 "), CancellationToken.None);
@@ -71,7 +72,7 @@ public sealed class ClaimReferralCommandHandlerTests
         // Arrange
         var (db, _, referee) = await ArrangeAsync();
         await using var _db = db;
-        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referee), db);
+        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referee), new SocialRepository(db));
 
         // Act
         await handler.Handle(new ClaimReferralCommand("REF-ABC123"), CancellationToken.None);
@@ -93,7 +94,7 @@ public sealed class ClaimReferralCommandHandlerTests
         // Arrange
         var (db, referrer, _) = await ArrangeAsync();
         await using var _db = db;
-        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referrer), db);
+        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referrer), new SocialRepository(db));
 
         // Act
         var ex = Assert.ThrowsAsync<DomainException>(
@@ -115,7 +116,7 @@ public sealed class ClaimReferralCommandHandlerTests
         // Arrange
         var (db, _, referee) = await ArrangeAsync();
         await using var _db = db;
-        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referee), db);
+        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referee), new SocialRepository(db));
 
         // Act & Assert
         Assert.ThrowsAsync<NotFoundException>(
@@ -137,7 +138,7 @@ public sealed class ClaimReferralCommandHandlerTests
         profile.Plan = SubscriptionPlanType.Pro;
         profile.PlanExpiresAt = expiry;
         await db.SaveChangesAsync();
-        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referee), db);
+        var handler = new ClaimReferralCommandHandler(TestHelpers.CreateUser(referee), new SocialRepository(db));
 
         // Act
         await handler.Handle(new ClaimReferralCommand("REF-ABC123"), CancellationToken.None);

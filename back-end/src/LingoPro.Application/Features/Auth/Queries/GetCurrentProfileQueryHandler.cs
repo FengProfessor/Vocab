@@ -1,8 +1,8 @@
-﻿using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Exceptions;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Auth.Queries;
 
@@ -11,24 +11,19 @@ namespace LingoPro.Application.Features.Auth.Queries;
 /// </summary>
 public class GetCurrentProfileQueryHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<GetCurrentProfileQuery, ApiResponse<ProfileDto>>
+    IAuthRepository authRepository) : IRequestHandler<GetCurrentProfileQuery, ApiResponse<ProfileDto>>
 {
     public async Task<ApiResponse<ProfileDto>> Handle(GetCurrentProfileQuery request, CancellationToken ct)
     {
         var userId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
         var normalizedEmail = currentUser.Email?.Trim().ToLowerInvariant();
 
-        var profile = await dbContext.Profiles
-            .AsNoTracking()
-            .FirstOrDefaultAsync(
-                p => p.Id == userId || (normalizedEmail != null && p.Email.ToLower() == normalizedEmail),
-                ct)
+        var profile = await authRepository.GetProfileByIdOrEmailAsNoTrackingAsync(userId, normalizedEmail, ct)
             ?? throw new NotFoundException("Profile", userId);
 
-        var gamification = await dbContext.UserGamifications.AsNoTracking().FirstOrDefaultAsync(g => g.UserId == profile.Id, ct);
+        var gamification = await authRepository.GetUserGamificationAsNoTrackingAsync(profile.Id, ct);
         var dto = ProfileDtoMapper.ToDto(profile, gamification);
 
         return ApiResponse<ProfileDto>.Ok(dto, "User profile retrieved successfully.");
     }
 }
-

@@ -1,10 +1,10 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using LingoPro.Application.Common.Interfaces;
+using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
 using LingoPro.Domain.Algorithms;
 using LingoPro.Domain.Entities.Exam;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Application.Features.Exams.Commands;
 
@@ -13,7 +13,7 @@ namespace LingoPro.Application.Features.Exams.Commands;
 /// </summary>
 public class SubmitVstepExamCommandHandler(
     ICurrentUserService currentUser,
-    IApplicationDbContext dbContext) : IRequestHandler<SubmitVstepExamCommand, ApiResponse<VstepScoreResult>>
+    IExamRepository examRepository) : IRequestHandler<SubmitVstepExamCommand, ApiResponse<VstepScoreResult>>
 {
     public async Task<ApiResponse<VstepScoreResult>> Handle(SubmitVstepExamCommand request, CancellationToken ct)
     {
@@ -47,12 +47,12 @@ public class SubmitVstepExamCommandHandler(
             })
         };
 
-        dbContext.ToeicTestResults.Add(resultEntity);
+        examRepository.AddToeicTestResult(resultEntity);
 
         const int xpAwarded = 50;
-        await LingoPro.Application.Features.Auth.Commands.GamificationAwardHelper.AwardXpAsync(dbContext, userId, xpAwarded, ct);
+        await examRepository.AwardXpAsync(userId, xpAwarded, DateOnly.FromDateTime(DateTime.UtcNow), ct);
 
-        await dbContext.SaveChangesAsync(ct);
+        await examRepository.SaveChangesAsync(ct);
 
         return ApiResponse<VstepScoreResult>.Ok(result, "Standardized exam graded and recorded successfully.");
     }
