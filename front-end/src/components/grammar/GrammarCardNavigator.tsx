@@ -90,7 +90,7 @@ export default function GrammarCardNavigator({
 
   if (total <= 1) {
     return (
-      <div className="flex items-center justify-between text-xs font-mono text-muted-foreground pb-1">
+      <div className="flex items-center justify-between text-xs font-sans text-muted-foreground pb-1">
         <span className="font-semibold text-foreground">{titles[0] || 'Nội dung bài học'}</span>
         <span className="px-2 py-0.5 border border-border bg-muted/30">1 ý trọng tâm</span>
       </div>
@@ -114,7 +114,7 @@ export default function GrammarCardNavigator({
   return (
     <nav
       aria-label={pills ? 'Điều hướng 7 đại từ nhân xưng' : 'Điều hướng nội dung bài học'}
-      className="flex items-center gap-1 sm:gap-1.5 min-w-0 bg-muted/20 border border-border p-1 rounded-none select-none touch-manipulation"
+      className="flex items-center gap-1 sm:gap-1.5 min-w-0 bg-muted/20 border border-border p-1 rounded-lg select-none touch-manipulation"
     >
       <button
         type="button"
@@ -124,7 +124,7 @@ export default function GrammarCardNavigator({
         onClick={handlePrev}
         className={`${
           pills ? 'hidden sm:flex' : 'flex'
-        } min-h-[44px] min-w-[44px] border border-border bg-card hover:bg-muted items-center justify-center disabled:opacity-30 disabled:pointer-events-none rounded-none text-foreground transition-colors shrink-0 touch-manipulation`}
+        } min-h-[44px] min-w-[44px] border border-border bg-card hover:bg-muted items-center justify-center disabled:opacity-30 disabled:pointer-events-none rounded-lg text-foreground transition-colors shrink-0 touch-manipulation`}
       >
         <ChevronLeft className="h-4 w-4" />
       </button>
@@ -153,7 +153,7 @@ export default function GrammarCardNavigator({
               aria-selected={isSelected}
               tabIndex={isSelected ? 0 : -1}
               onClick={() => selectTab(pIdx)}
-              className={`min-h-[42px] sm:min-h-[44px] px-1 sm:px-2 py-1 font-mono transition-all flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1 text-center rounded-none cursor-pointer touch-manipulation min-w-0 ${
+              className={`min-h-[42px] sm:min-h-[44px] px-1 sm:px-2 py-1 font-sans transition-all flex flex-col sm:flex-row items-center justify-center gap-0.5 sm:gap-1 text-center rounded-lg cursor-pointer touch-manipulation min-w-0 ${
                 isSelected
                   ? 'bg-primary text-primary-foreground font-bold shadow-xs border border-primary'
                   : 'bg-card text-muted-foreground hover:text-foreground hover:bg-muted/60 border border-border/70'
@@ -197,9 +197,9 @@ export default function GrammarCardNavigator({
           pills ? 'hidden sm:flex' : 'flex'
         } min-h-[44px] ${
           isLastStep && onComplete
-            ? 'px-2.5 bg-primary text-primary-foreground border-primary hover:bg-primary/90 font-mono text-[11px] font-bold uppercase tracking-wider gap-1'
+            ? 'px-2.5 bg-primary text-primary-foreground border-primary hover:bg-primary/90 font-sans text-[11px] font-bold uppercase tracking-wider gap-1'
             : 'min-w-[44px] bg-card hover:bg-muted text-foreground border-border'
-        } border items-center justify-center disabled:opacity-30 disabled:pointer-events-none rounded-none transition-colors shrink-0 touch-manipulation`}
+        } border items-center justify-center disabled:opacity-30 disabled:pointer-events-none rounded-lg transition-colors shrink-0 touch-manipulation`}
       >
         {isLastStep && onComplete && (
           <span className="hidden md:inline">{completeLabel || 'Luyện tập'}</span>

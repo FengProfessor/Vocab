@@ -15,7 +15,7 @@ type PageModule = {
   default: React.ComponentType<any>;
 };
 
-// Auto-discovers all 99 page.tsx routes ported from /src/app
+// Auto-discovers all page.tsx routes ported from /src/app
 const PAGE_MODULES = import.meta.glob<PageModule>('./**/page.tsx');
 
 // Creates a React 19 compatible pre-fulfilled Thenable Promise so pages calling
@@ -118,6 +118,10 @@ export const AppRouter: React.FC = () => {
           element={<Navigate to="/grammar?level=A1" replace />}
         />
         <Route path="/grammar/learn" element={<Navigate to="/grammar" replace />} />
+        <Route
+          path="/practice"
+          element={<Navigate to="/student/speaking/foundation" replace />}
+        />
         <Route
           path="/practice/reading"
           element={<Navigate to="/practice/reading-library" replace />}

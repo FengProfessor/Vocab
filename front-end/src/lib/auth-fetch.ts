@@ -1,6 +1,6 @@
 import { appConfig } from '@/config/appConfig';
 import { TokenStore } from '@/lib/auth/TokenStore';
-import { hydrateSessionFromAuthTokens, buildSessionFromDto, type DotNetAuthTokensDto } from '@/lib/app-auth-client';
+import { appAuth, hydrateSessionFromAuthTokens, buildSessionFromDto, type DotNetAuthTokensDto } from '@/lib/app-auth-client';
 import { getRoadmapLevels, type RoadmapTrack } from '@/lib/roadmap';
 
 const API_BASE = appConfig.apiBaseUrl; // e.g. http://localhost:5000/api/v1
@@ -219,21 +219,13 @@ async function handleApiRequest(urlStr: string, init: RequestInit = {}): Promise
   }
 
   if (pathname === '/api/auth/session' || pathname === '/api/profile') {
-    const res = await rawFetch(`${API_BASE}/auth/profile`, {
-      method: 'GET',
-      credentials: 'include',
-      headers,
-    });
-    if (!res.ok) {
-      return jsonResponse({ session: null, user: null }, res.status === 401 ? 200 : res.status);
-    }
-    const json = (await res.json().catch(() => null)) as { data?: DotNetAuthTokensDto } | null;
-    const session = json?.data ? buildSessionFromDto(json.data) : null;
+    const { data } = await appAuth.getSession();
+    const session = data.session;
     return jsonResponse({
-      success: true,
+      success: Boolean(session),
       session,
       user: session?.user ?? null,
-      data: json?.data ?? null,
+      data: session?.user ?? null,
     });
   }
 
@@ -268,6 +260,161 @@ async function handleApiRequest(urlStr: string, init: RequestInit = {}): Promise
 
   // 2. Vocabulary & FSRS endpoints (/api/words, /api/words/srs)
   if (pathname === '/api/words' && method === 'GET') {
+    const classroomId = parsed.searchParams.get('classroomId') || '';
+    const isSummaryOnly = parsed.searchParams.get('summary') === '1';
+    const limitParam = parsed.searchParams.get('limit');
+    const offsetParam = parsed.searchParams.get('offset');
+    const limit = isSummaryOnly ? 0 : limitParam ? Number(limitParam) : 500;
+    const offset = offsetParam ? Number(offsetParam) : 0;
+
+    const qs = new URLSearchParams();
+    if (classroomId) qs.set('classroomId', classroomId);
+    qs.set('limit', String(limit));
+    qs.set('offset', String(offset));
+
+    const res = await rawFetch(`${API_BASE}/vocab/analytics?${qs.toString()}`, {
+      method: 'GET',
+      credentials: 'include',
+      headers,
+    });
+    const json = (await res.json().catch(() => null)) as { data?: any } | null;
+    const dto = json?.data || {};
+    const rawWords = Array.isArray(dto.words) ? dto.words : [];
+    const nowMs = Date.now();
+
+    const words = rawWords.map((d: any) => {
+      const reviewCount = Number(d.reviewCount ?? d.review_count ?? 0);
+      const nextReviewStr = d.nextReviewDate || d.next_review_date || null;
+      const isDue =
+        reviewCount === 0 ||
+        !nextReviewStr ||
+        new Date(nextReviewStr).getTime() <= nowMs;
+      return {
+        id: d.id,
+        classroom_id: d.classroomId || d.classroom_id || dto.classroomId || '',
+        word: d.word || d.term || '',
+        ipa: d.ipa || null,
+        translation: d.translation || '',
+        pos: d.pos || d.partOfSpeech || null,
+        image_url: d.imageUrl || d.image_url || null,
+        example: d.example || d.exampleSentence || null,
+        example_vi: d.exampleVi || d.exampleTranslation || d.example_vi || null,
+        created_at: d.createdAt || d.created_at || new Date().toISOString(),
+        isDue,
+        srsLevel: Number(d.srsLevel ?? 1),
+        srs: {
+          id: d.id,
+          user_id: '',
+          word_id: d.id,
+          stability: Number(d.stability ?? 0),
+          difficulty: Number(d.difficulty ?? 5),
+          interval_days: Number(d.intervalDays ?? 0),
+          next_review_date: nextReviewStr ?? new Date().toISOString(),
+          last_reviewed_at: d.lastReviewedAt || d.last_reviewed_at || undefined,
+          review_count: reviewCount,
+          ease_factor: 2.5,
+        },
+      };
+    });
+
+    const levelCounts: number[] =
+      Array.isArray(dto.levelCounts) && dto.levelCounts.length === 6
+        ? dto.levelCounts.map((n: unknown) => Number(n) || 0)
+        : [0, 0, 0, 0, 0, 0];
+
+    return jsonResponse({
+      success: res.ok,
+      classroomId: dto.classroomId ?? null,
+      total: Number(dto.total ?? words.length),
+      newCount: Number(dto.newCount ?? 0),
+      reviewDueCount: Number(dto.reviewDueCount ?? 0),
+      dueCount: Number(dto.dueCount ?? 0),
+      grammarDueCount: Number(dto.grammarDueCount ?? 0),
+      levelCounts,
+      avgStabilityDays: Number(dto.avgStabilityDays ?? 0),
+      retentionRatePercent: Number(dto.retentionRatePercent ?? 0),
+      skillScores: dto.skillScores ?? null,
+      weakWords: Array.isArray(dto.weakWords) ? dto.weakWords : [],
+      data: words,
+      words,
+    });
+  }
+
+  if (pathname === '/api/student/stats' && method === 'GET') {
+    const isLite = parsed.searchParams.get('lite') === '1';
+    const res = await rawFetch(`${API_BASE}/vocab/analytics?limit=0&offset=0`, {
+      method: 'GET',
+      credentials: 'include',
+      headers,
+    });
+    const json = (await res.json().catch(() => null)) as { data?: any } | null;
+    const dto = json?.data || {};
+    const lc: number[] =
+      Array.isArray(dto.levelCounts) && dto.levelCounts.length === 6
+        ? dto.levelCounts.map((n: unknown) => Number(n) || 0)
+        : [0, 0, 0, 0, 0, 0];
+    const totalWords = Number(dto.total ?? lc.reduce((a, b) => a + b, 0));
+    const newCount = Number(dto.newCount ?? 0);
+    const reviewDueCount = Number(dto.reviewDueCount ?? 0);
+    const dueCount = Number(dto.dueCount ?? newCount + reviewDueCount);
+    const reviewedWords = Math.max(0, totalWords - newCount);
+
+    const statsData = {
+      lite: isLite,
+      totalWords,
+      reviewedWords,
+      dueCount,
+      newCount,
+      reviewDueCount,
+      grammarDueCount: Number(dto.grammarDueCount ?? 0),
+      studyStreak: Number(dto.studyStreak ?? 0),
+      longestStreak: Number(dto.longestStreak ?? 0),
+      totalXp: Number(dto.totalXp ?? 0),
+      todayXp: Number(dto.todayXp ?? 0),
+      dailyGoal: Number(dto.dailyGoal ?? 20),
+      todayWords: Number(dto.todayWords ?? 0),
+      todayNewWords: Number(dto.todayNewWords ?? 0),
+      todayReviewWords: Number(dto.todayReviewWords ?? 0),
+      avgStability: Number(dto.avgStabilityDays ?? 0),
+      retentionRate: Number(dto.retentionRatePercent ?? 0),
+      wordBreakdown: {
+        level1: lc[0],
+        level2: lc[1],
+        level3: lc[2],
+        level4: lc[3],
+        level5: lc[4],
+        level6: lc[5],
+        l1: lc[0],
+        l2: lc[1],
+        l3: lc[2],
+        l4: lc[3],
+        l5: lc[4],
+        l6: lc[5],
+        total: totalWords,
+      },
+      skillScores: dto.skillScores || {
+        vocabScore: 0,
+        grammarScore: 0,
+        reflexScore: 0,
+        readingScore: 0,
+        listeningScore: 0,
+      },
+      dailyActivity: Array.isArray(dto.dailyActivity) ? dto.dailyActivity : [],
+      quizHistory: Array.isArray(dto.quizHistory) ? dto.quizHistory : [],
+      weakWords: Array.isArray(dto.weakWords) ? dto.weakWords : [],
+    };
+    return jsonResponse({
+      success: res.ok,
+      ...statsData,
+      data: statsData,
+    });
+  }
+
+  if (pathname === '/api/vocab/packs' && method === 'GET') {
+    return jsonResponse({ success: true, packs: [], data: [] });
+  }
+
+  if (pathname === '/api/words/legacy-due' && method === 'GET') {
     const res = await rawFetch(`${API_BASE}/vocab/due${search}`, {
       method: 'GET',
       credentials: 'include',
@@ -413,6 +560,21 @@ async function handleApiRequest(urlStr: string, init: RequestInit = {}): Promise
       created_at: new Date().toISOString(),
     }));
     return jsonResponse({ success: true, data: topics, topics });
+  }
+
+  if (pathname === '/api/grammar/progress' && method === 'GET') {
+    const res = await rawFetch(`${API_BASE}/vocab/analytics?limit=0&offset=0`, {
+      method: 'GET',
+      credentials: 'include',
+      headers,
+    });
+    const json = (await res.json().catch(() => null)) as { data?: any } | null;
+    const grammarDueCount = Number(json?.data?.grammarDueCount ?? 0);
+    return jsonResponse({
+      success: res.ok,
+      dueCount: grammarDueCount,
+      data: [],
+    });
   }
 
   if ((pathname === '/api/grammar/progress' || pathname === '/api/grammar/review') && method === 'POST') {
@@ -588,6 +750,10 @@ async function handleApiRequest(urlStr: string, init: RequestInit = {}): Promise
     pathname === '/api/roadmap/checkpoint' ||
     pathname === '/api/roadmap/assessment' ||
     pathname === '/api/grammar/quiz' ||
+    pathname === '/api/grammar/theory' ||
+    pathname === '/api/grammar/lessons' ||
+    pathname === '/api/grammar/annotate' ||
+    (pathname === '/api/grammar/review' && method === 'GET') ||
     pathname === '/api/quiz/save'
   ) {
     const localRoutePath = pathname.replace(/^\/api\//, '/__local_api/');

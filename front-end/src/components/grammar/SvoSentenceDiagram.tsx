@@ -16,7 +16,7 @@ export default function SvoSentenceDiagram() {
           <Layers className="h-4 w-4 text-primary" />
           <h3 className="font-sans font-bold text-foreground text-base sm:text-lg leading-snug">Sơ đồ cấu trúc câu cơ bản (S – V – O)</h3>
         </div>
-        <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground/80">
+        <span className="text-[11px] font-sans uppercase tracking-widest text-muted-foreground/80">
           Cấu trúc nền tảng
         </span>
       </div>
@@ -27,62 +27,62 @@ export default function SvoSentenceDiagram() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {/* S */}
-        <div className="p-4 bg-muted/20 border border-border rounded-none flex flex-col justify-between space-y-3">
+        <div className="p-4 bg-muted/20 border border-border rounded-lg flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="h-7 w-7 rounded-none border border-sky-300 dark:border-sky-800 bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 font-bold text-sm flex items-center justify-center font-mono">S</span>
-              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-none border border-sky-500/30 bg-sky-500/10 text-sky-700 dark:text-sky-300">
+              <span className="h-7 w-7 rounded-lg border border-sky-300 dark:border-sky-800 bg-sky-100 dark:bg-sky-950/80 text-sky-700 dark:text-sky-300 font-bold text-sm flex items-center justify-center font-sans">S</span>
+              <span className="text-[10px] font-sans font-semibold px-2 py-0.5 rounded-lg border border-sky-500/30 bg-sky-500/10 text-sky-700 dark:text-sky-300">
                 Subject
               </span>
             </div>
             <h4 className="font-semibold text-sm text-foreground">Chủ ngữ (Ai? Cái gì?)</h4>
             <p className="text-xs text-muted-foreground mt-1">Danh từ, đại từ hoặc cụm danh từ thực hiện hành động.</p>
           </div>
-          <div className="p-2 rounded-none border border-border/40 bg-muted/40 text-xs font-mono font-medium text-foreground">
+          <div className="p-2 rounded-lg border border-border/40 bg-muted/40 text-xs font-sans font-medium text-foreground">
             <span>My sister / Lan / They</span>
           </div>
         </div>
 
         {/* V */}
-        <div className="p-4 bg-muted/20 border border-border rounded-none flex flex-col justify-between space-y-3">
+        <div className="p-4 bg-muted/20 border border-border rounded-lg flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="h-7 w-7 rounded-none border border-indigo-300 dark:border-indigo-800 bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 font-bold text-sm flex items-center justify-center font-mono">V</span>
-              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-none border border-indigo-500/30 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300">
+              <span className="h-7 w-7 rounded-lg border border-indigo-300 dark:border-indigo-800 bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-indigo-300 font-bold text-sm flex items-center justify-center font-sans">V</span>
+              <span className="text-[10px] font-sans font-semibold px-2 py-0.5 rounded-lg border border-indigo-500/30 bg-indigo-500/10 text-indigo-700 dark:text-indigo-300">
                 Verb
               </span>
             </div>
             <h4 className="font-semibold text-sm text-foreground">Động từ (Làm gì? Là gì?)</h4>
             <p className="text-xs text-muted-foreground mt-1">Trọng tâm của câu: động từ to-be (am/is/are) hoặc Động từ thường.</p>
           </div>
-          <div className="p-2 rounded-none border border-border/40 bg-muted/40 text-xs font-mono font-medium text-foreground">
+          <div className="p-2 rounded-lg border border-border/40 bg-muted/40 text-xs font-sans font-medium text-foreground">
             <span>is / works / studies</span>
           </div>
         </div>
 
         {/* O */}
-        <div className="p-4 bg-muted/20 border border-border rounded-none flex flex-col justify-between space-y-3">
+        <div className="p-4 bg-muted/20 border border-border rounded-lg flex flex-col justify-between space-y-3">
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="h-7 px-2 min-w-[28px] whitespace-nowrap rounded-none border border-emerald-300 dark:border-emerald-800 bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-bold text-xs sm:text-sm flex items-center justify-center font-mono">O / C</span>
-              <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-none border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
+              <span className="h-7 px-2 min-w-[28px] whitespace-nowrap rounded-lg border border-emerald-300 dark:border-emerald-800 bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 font-bold text-xs sm:text-sm flex items-center justify-center font-sans">O / C</span>
+              <span className="text-[10px] font-sans font-semibold px-2 py-0.5 rounded-lg border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
                 Object / Comp
               </span>
             </div>
             <h4 className="font-semibold text-sm text-foreground">Tân ngữ / Bổ ngữ</h4>
             <p className="text-xs text-muted-foreground mt-1">Đối tượng nhận tác động hoặc bổ sung ý nghĩa cho chủ ngữ.</p>
           </div>
-          <div className="p-2 rounded-none border border-border/40 bg-muted/40 text-xs font-mono font-medium text-foreground">
+          <div className="p-2 rounded-lg border border-border/40 bg-muted/40 text-xs font-sans font-medium text-foreground">
             <span>a doctor / English</span>
           </div>
         </div>
       </div>
 
       {/* Interactive Example */}
-      <div className="p-3.5 bg-muted/20 border border-border rounded-none flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm">
+      <div className="p-3.5 bg-muted/20 border border-border rounded-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm">
         <div className="flex items-center gap-2">
           <span className="font-semibold text-foreground">Ví dụ minh họa:</span>
-          <span className="font-mono text-foreground font-semibold">
+          <span className="font-sans text-foreground font-semibold">
             <span className="text-sky-600 dark:text-sky-400 underline decoration-sky-400/60">My sister</span>{' '}
             <span className="text-indigo-600 dark:text-indigo-400 underline decoration-indigo-400/60">is</span>{' '}
             <span className="text-emerald-600 dark:text-emerald-400 underline decoration-emerald-400/60">a student</span>.
@@ -91,7 +91,7 @@ export default function SvoSentenceDiagram() {
         <button
           type="button"
           onClick={() => speakSentence('My sister is a student.')}
-          className="px-3 py-1.5 rounded-none border border-border bg-muted/40 hover:bg-muted text-foreground font-mono font-medium text-xs flex items-center gap-1.5 transition-colors shrink-0"
+          className="px-3 py-1.5 rounded-lg border border-border bg-muted/40 hover:bg-muted text-foreground font-sans font-medium text-xs flex items-center gap-1.5 transition-colors shrink-0"
         >
           <Volume2 className="h-3.5 w-3.5 text-muted-foreground" />
           <span>Nghe phát âm</span>

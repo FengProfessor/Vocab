@@ -7,6 +7,7 @@ import { ClientBoot } from '@/components/ClientBoot';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { StudentProvider } from '@/components/student/StudentProvider';
 import { Toaster } from '@/components/ui/sonner';
+import { GlobalThemeDock } from '@/components/common/ThemeToggle';
 import { AppProvidersProps } from '@/app/types/AppProvidersProps';
 
 /**
@@ -35,9 +36,15 @@ export const AppProviders: React.FC<AppProvidersProps> = ({ children }) => {
       <ErrorBoundary>
         <PostHogProvider>
           <QueryClientProvider client={queryClient}>
-            <NextThemesProvider attribute="class" defaultTheme="light" enableSystem>
+            <NextThemesProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              storageKey="lingopro-theme"
+            >
               <ClientBoot />
               <StudentProvider>{children}</StudentProvider>
+              <GlobalThemeDock />
               <Toaster position="bottom-right" richColors />
             </NextThemesProvider>
           </QueryClientProvider>

@@ -419,14 +419,14 @@ function PronounCardItem({
       role="tabpanel"
       id={`pronoun-panel-${item.subject}`}
       aria-labelledby={`card-nav-tab-${item.subject}`}
-      className={`relative overflow-hidden border border-border bg-card hover:border-foreground/40 transition-all duration-200 flex flex-col justify-between shadow-xs rounded-none group ${
+      className={`relative overflow-hidden border border-border bg-card hover:border-foreground/40 transition-all duration-200 flex flex-col justify-between shadow-xs rounded-lg group ${
         hoveredIdx !== null ? 'z-20' : 'z-10'
       }`}
     >
       {/* 1. Core Grammar Transformation Bar: Subject (S) ➔ Object (O) */}
-      <div className="bg-muted/30 border-b border-border px-2.5 sm:px-4 py-1.5 sm:py-2.5 flex items-center justify-between gap-1.5 sm:gap-2 text-xs font-mono shrink-0">
+      <div className="bg-muted/30 border-b border-border px-2.5 sm:px-4 py-1.5 sm:py-2.5 flex items-center justify-between gap-1.5 sm:gap-2 text-xs font-sans shrink-0">
         <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
-          <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+          <span className="text-[10px] font-sans uppercase tracking-wider text-muted-foreground font-semibold">
             Biến đổi:
           </span>
           <div className="flex items-center gap-1 text-[11px] sm:text-xs">
@@ -451,7 +451,7 @@ function PronounCardItem({
           </span>
         </div>
 
-        <div className="flex items-center gap-1 sm:gap-1.5 text-xs font-mono text-muted-foreground shrink-0">
+        <div className="flex items-center gap-1 sm:gap-1.5 text-xs font-sans text-muted-foreground shrink-0">
           <span className="px-1 sm:px-1.5 py-0.5 bg-muted/70 border border-border text-foreground font-medium text-[10px] sm:text-[11px]">
             {item.subject === 'You' ? 'Số ít/nhiều' : item.type === 'singular' ? 'Số ít' : 'Số nhiều'}
           </span>
@@ -462,16 +462,16 @@ function PronounCardItem({
       </div>
 
       {showDetailForms && (
-        <div className="border-b border-border bg-muted/15 px-2.5 sm:px-4 py-2 grid grid-cols-3 gap-1.5 font-mono text-[11px] shrink-0">
-          <div className="border border-border/60 bg-background px-2 py-1 rounded-none">
+        <div className="border-b border-border bg-muted/15 px-2.5 sm:px-4 py-2 grid grid-cols-3 gap-1.5 font-sans text-[11px] shrink-0">
+          <div className="border border-border/60 bg-background px-2 py-1 rounded-lg">
             <span className="text-[10px] uppercase text-muted-foreground block">TT Sở hữu</span>
             <span className="font-bold text-foreground">{item.forms.possessiveAdj}</span>
           </div>
-          <div className="border border-border/60 bg-background px-2 py-1 rounded-none">
+          <div className="border border-border/60 bg-background px-2 py-1 rounded-lg">
             <span className="text-[10px] uppercase text-muted-foreground block">ĐT Sở hữu</span>
             <span className="font-bold text-foreground">{item.forms.possessivePronoun}</span>
           </div>
-          <div className="border border-border/60 bg-background px-2 py-1 rounded-none">
+          <div className="border border-border/60 bg-background px-2 py-1 rounded-lg">
             <span className="text-[10px] uppercase text-muted-foreground block">Phản thân</span>
             <span className="font-bold text-foreground">{item.forms.reflexive}</span>
           </div>
@@ -481,7 +481,7 @@ function PronounCardItem({
       <div className={exampleLimit ? 'sm:grid sm:grid-cols-12 sm:items-stretch min-w-0' : undefined}>
         {/* Dynamic Image Stage & Memory Tip - Left Column */}
         <div
-          className={`relative bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border rounded-none flex flex-col justify-between ${
+          className={`relative bg-muted/20 overflow-hidden border-b sm:border-b-0 sm:border-r border-border rounded-lg flex flex-col justify-between ${
             exampleLimit ? 'sm:col-span-5' : 'h-48 sm:h-52'
           }`}
         >
@@ -492,14 +492,14 @@ function PronounCardItem({
                 src={currentImage}
                 alt={`${item.subject} - ${currentExample.en}`}
                 fill
-                className="object-cover transition-all duration-300 group-hover:scale-102 rounded-none"
+                className="object-cover transition-all duration-300 group-hover:scale-102 rounded-lg"
                 sizes="(max-width: 768px) 100vw, 33vw"
                 onError={() => setFailedImageSrc(currentImage)}
                 unoptimized
               />
             ) : (
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-muted flex flex-col items-center justify-center p-4 text-center">
-                <span className="font-serif text-2xl font-bold text-primary">{item.subject}</span>
+                <span className="font-sans text-2xl font-bold text-primary">{item.subject}</span>
                 <span className="text-xs text-muted-foreground mt-1">{item.meaning}</span>
               </div>
             )}
@@ -508,7 +508,7 @@ function PronounCardItem({
             {/* Top Badge: Person role & Speaker button (Min 44x44px touch target) */}
             <div className="absolute top-2 left-2 right-2 flex items-center justify-between z-10">
               <span
-                className={`font-mono text-[11px] font-bold uppercase px-2 py-0.5 border backdrop-blur-md shadow-xs rounded-none ${item.badgeBg}`}
+                className={`font-sans text-[11px] font-bold uppercase px-2 py-0.5 border backdrop-blur-md shadow-xs rounded-lg ${item.badgeBg}`}
               >
                 {item.role}
               </span>
@@ -520,7 +520,7 @@ function PronounCardItem({
                   }
                   onPlaySpeech(`subject-${item.subject}`, item.subject, item.audio);
                 }}
-                className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border transition-all shadow-sm rounded-none touch-manipulation ${
+                className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border transition-all shadow-sm rounded-lg touch-manipulation ${
                   isPlayingSubject
                     ? 'bg-primary text-primary-foreground scale-105'
                     : 'bg-background/90 text-foreground hover:bg-primary hover:text-primary-foreground'
@@ -534,9 +534,9 @@ function PronounCardItem({
 
             {/* Bottom Image Overlay Tag with Active Sentence & Bold Target Pronoun */}
             <div className="absolute bottom-2 left-2 right-2 z-10 space-y-1.5">
-              <div className="bg-background/95 backdrop-blur-md border border-border px-2.5 py-1 flex items-baseline justify-between shadow-xs rounded-none">
+              <div className="bg-background/95 backdrop-blur-md border border-border px-2.5 py-1 flex items-baseline justify-between shadow-xs rounded-lg">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-serif text-lg sm:text-xl font-extrabold tracking-tight text-foreground">
+                  <span className="font-sans text-lg sm:text-xl font-extrabold tracking-tight text-foreground">
                     {item.subject}
                   </span>
                   <span className="font-sans text-xs font-bold text-primary">
@@ -545,8 +545,8 @@ function PronounCardItem({
                 </div>
               </div>
               {currentExample && (
-                <div className="bg-background/95 backdrop-blur-md border border-border p-2 shadow-xs rounded-none space-y-0.5">
-                  <div className="text-xs sm:text-sm font-serif font-semibold text-foreground leading-snug">
+                <div className="bg-background/95 backdrop-blur-md border border-border p-2 shadow-xs rounded-lg space-y-0.5">
+                  <div className="text-xs sm:text-sm font-sans font-semibold text-foreground leading-snug">
                     <HighlightedSentence text={currentExample.en} highlight={currentExample.highlightWord} />
                   </div>
                   {currentExample.vi && (
@@ -576,9 +576,9 @@ function PronounCardItem({
           }`}
         >
           <div className="space-y-1.5">
-            <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-wider text-muted-foreground pb-0.5">
+            <div className="flex items-center justify-between font-sans text-[11px] uppercase tracking-wider text-muted-foreground pb-0.5">
               <span className="font-semibold text-foreground">4 ví dụ song ngữ</span>
-              <span className="text-primary font-mono text-[10px] font-bold">
+              <span className="text-primary font-sans text-[10px] font-bold">
                 {currentIdx + 1}/4 câu
               </span>
             </div>
@@ -609,7 +609,7 @@ function PronounCardItem({
                         ex.audio || (exIdx === 0 ? item.audio : undefined)
                       );
                     }}
-                    className={`min-h-[40px] px-2.5 py-1.5 border transition-all duration-150 rounded-none cursor-pointer flex items-center justify-between gap-2 touch-manipulation ${
+                    className={`min-h-[40px] px-2.5 py-1.5 border transition-all duration-150 rounded-lg cursor-pointer flex items-center justify-between gap-2 touch-manipulation ${
                       isHovered || isSelected
                         ? 'border-primary bg-primary/[0.08] shadow-xs ring-1 ring-primary/25'
                         : isPlayingThis
@@ -618,7 +618,7 @@ function PronounCardItem({
                     }`}
                   >
                     <div className="space-y-0.5 min-w-0 flex-1 text-left">
-                      <p className="font-serif text-xs sm:text-sm font-semibold text-foreground leading-snug">
+                      <p className="font-sans text-xs sm:text-sm font-semibold text-foreground leading-snug">
                         <HighlightedSentence text={ex.en} highlight={ex.highlightWord} />
                       </p>
                       {ex.vi && (
@@ -642,7 +642,7 @@ function PronounCardItem({
                           ex.audio || (exIdx === 0 ? item.audio : undefined)
                         );
                       }}
-                      className={`min-h-[36px] min-w-[36px] flex items-center justify-center p-1.5 rounded-none shrink-0 transition-colors touch-manipulation ${
+                      className={`min-h-[36px] min-w-[36px] flex items-center justify-center p-1.5 rounded-lg shrink-0 transition-colors touch-manipulation ${
                         isPlayingThis || isSelected
                           ? 'bg-primary text-primary-foreground border border-primary'
                           : 'text-muted-foreground hover:text-foreground border border-transparent hover:border-border hover:bg-muted'
@@ -716,11 +716,11 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
           exampleLimit={4}
         />
         {/* Bottom progression / end-of-deck CTA bar */}
-        <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none touch-manipulation">
+        <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-lg touch-manipulation">
           {isLastPronoun ? (
             <>
               <div className="text-xs text-foreground font-medium">
-                <span className="font-mono text-[11px] font-bold uppercase text-emerald-600 dark:text-emerald-400 mr-1.5">
+                <span className="font-sans text-[11px] font-bold uppercase text-emerald-600 dark:text-emerald-400 mr-1.5">
                   ✓ Đã xem đủ 7/7 đại từ
                 </span>
                 Bạn đã nắm trọn bộ Chủ ngữ & Tân ngữ!
@@ -732,7 +732,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
                     grammarAudio.stopAll();
                     setCardIndex(0);
                   }}
-                  className="min-h-[40px] px-3 py-1.5 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-mono text-xs uppercase tracking-wider rounded-none inline-flex items-center gap-1.5 transition-colors touch-manipulation"
+                  className="min-h-[40px] px-3 py-1.5 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-sans text-xs uppercase tracking-wider rounded-lg inline-flex items-center gap-1.5 transition-colors touch-manipulation"
                 >
                   <RotateCcw className="h-3.5 w-3.5 shrink-0" />
                   <span>Xem lại từ I</span>
@@ -740,7 +740,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
                 <Link
                   href="/grammar/practice?topic=personal-pronouns"
                   onClick={() => grammarAudio.stopAll()}
-                  className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-bold rounded-none inline-flex items-center gap-1.5 transition-colors touch-manipulation"
+                  className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-sans text-xs uppercase tracking-wider font-bold rounded-lg inline-flex items-center gap-1.5 transition-colors touch-manipulation"
                 >
                   <Dumbbell className="h-3.5 w-3.5 shrink-0" />
                   <span>Làm bài tập ngay</span>
@@ -750,7 +750,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
             </>
           ) : (
             <>
-              <div className="text-xs text-muted-foreground font-mono">
+              <div className="text-xs text-muted-foreground font-sans">
                 Đang ở <strong className="text-foreground">{PRONOUN_VISUAL_ITEMS[cardIndex].subject} ({cardIndex + 1}/7)</strong> • Tiếp theo:{' '}
                 <span className="text-foreground font-semibold">
                   {PRONOUN_VISUAL_ITEMS[cardIndex + 1].subject} ({PRONOUN_VISUAL_ITEMS[cardIndex + 1].meaning})
@@ -762,7 +762,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
                   grammarAudio.stopAll();
                   setCardIndex(cardIndex + 1);
                 }}
-                className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-semibold rounded-none inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors touch-manipulation"
+                className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-sans text-xs uppercase tracking-wider font-semibold rounded-lg inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors touch-manipulation"
               >
                 <span>Qua ngôi {PRONOUN_VISUAL_ITEMS[cardIndex + 1].subject}</span>
                 <ArrowRight className="h-3.5 w-3.5 shrink-0" />
@@ -777,9 +777,9 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
   return (
     <div className="space-y-5">
       {/* Top Banner & Filter Controls */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-muted/20 border border-border rounded-none">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-muted/20 border border-border rounded-lg">
         <div>
-          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-primary font-bold">
+          <div className="flex items-center gap-2 font-sans text-xs uppercase tracking-wider text-primary font-bold">
             <Sparkles className="h-4 w-4" />
             <span>Khám phá 7 Đại từ nhân xưng qua Ảnh sắc nét & Ví dụ đơn giản</span>
           </div>
@@ -790,11 +790,11 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
 
         <div className="flex items-center gap-2 flex-wrap shrink-0">
           {/* Filter Pills */}
-          <div className="inline-flex border border-border bg-background p-0.5 font-mono text-xs shadow-xs rounded-none">
+          <div className="inline-flex border border-border bg-background p-0.5 font-sans text-xs shadow-xs rounded-lg">
             <button
               type="button"
               onClick={() => setFilter('all')}
-              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors rounded-none flex items-center justify-center touch-manipulation ${
+              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors rounded-lg flex items-center justify-center touch-manipulation ${
                 filter === 'all'
                   ? 'bg-foreground text-background font-bold'
                   : 'text-muted-foreground hover:text-foreground'
@@ -805,7 +805,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
             <button
               type="button"
               onClick={() => setFilter('singular')}
-              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors flex items-center justify-center gap-1 rounded-none touch-manipulation ${
+              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors flex items-center justify-center gap-1 rounded-lg touch-manipulation ${
                 filter === 'singular'
                   ? 'bg-foreground text-background font-bold'
                   : 'text-muted-foreground hover:text-foreground'
@@ -817,7 +817,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
             <button
               type="button"
               onClick={() => setFilter('plural')}
-              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors flex items-center justify-center gap-1 rounded-none touch-manipulation ${
+              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 transition-colors flex items-center justify-center gap-1 rounded-lg touch-manipulation ${
                 filter === 'plural'
                   ? 'bg-foreground text-background font-bold'
                   : 'text-muted-foreground hover:text-foreground'
@@ -832,7 +832,7 @@ export default function PronounVisualDeck({ compact = false, guided = false }: {
           <button
             type="button"
             onClick={() => setShowDetailForms(!showDetailForms)}
-            className={`min-h-[36px] sm:min-h-[44px] border px-3 py-1.5 font-mono text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1 shadow-xs rounded-none touch-manipulation ${
+            className={`min-h-[36px] sm:min-h-[44px] border px-3 py-1.5 font-sans text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-1 shadow-xs rounded-lg touch-manipulation ${
               showDetailForms
                 ? 'border-primary bg-primary text-primary-foreground font-semibold'
                 : 'border-border bg-background text-muted-foreground hover:text-foreground'

@@ -18,6 +18,8 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { StudentShell } from '@/components/student/StudentShell';
+import { LearningAnalyticsPanel } from '@/components/student/LearningAnalyticsPanel';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { XpBadge } from '@/components/gamification/XpBadge';
 import { Button } from '@/components/ui/button';
@@ -549,8 +551,51 @@ export default function ProfilePage() {
                   </div>
                 </div>
               )}
+
+              {/* Chuyên sâu: Biểu đồ Phân tích FSRS & Đa kỹ năng */}
+              <div className="pt-2">
+                <LearningAnalyticsPanel
+                  compact
+                  stats={{
+                    total: stats.wordStats.total,
+                    due: 0,
+                    new: stats.wordStats.levelCounts[0] ?? 0,
+                    learned: Math.max(0, stats.wordStats.total - (stats.wordStats.levelCounts[0] ?? 0)),
+                  }}
+                  wordBreakdown={{
+                    l1: stats.wordStats.levelCounts[0] ?? 0,
+                    l2: stats.wordStats.levelCounts[1] ?? 0,
+                    l3: stats.wordStats.levelCounts[2] ?? 0,
+                    l4: stats.wordStats.levelCounts[3] ?? 0,
+                    l5: stats.wordStats.levelCounts[4] ?? 0,
+                    l6: stats.wordStats.levelCounts[5] ?? 0,
+                  }}
+                  weakWords={stats.weakWords.map((w) => ({
+                    word: w.word || w.word_id,
+                    meaning: w.translation || '',
+                    level: w.level,
+                    stability: Number((w.level <= 1 ? 1.0 : w.level * 1.8).toFixed(1)),
+                  }))}
+                  currentStreak={displayStreak}
+                  longestStreak={gamification.longest_streak}
+                  totalXp={gamification.total_xp}
+                  todayXp={gamification.today_xp}
+                  dailyGoal={gamification.daily_goal}
+                />
+              </div>
             </>
           )}
+        </section>
+
+        {/* Cài đặt Giao diện Sáng / Tối / Hệ thống */}
+        <section className="space-y-3 rounded-xl border bg-background p-4 shadow-sm">
+          <div>
+            <h3 className="text-sm font-black">Giao diện Hiển thị (Sáng / Tối)</h3>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              Tùy chỉnh chế độ màu sắc theo sở thích cá nhân hoặc đồng bộ tự động theo hệ thống thiết bị
+            </p>
+          </div>
+          <ThemeToggle variant="cards" />
         </section>
 
         {/* Settings gộp */}

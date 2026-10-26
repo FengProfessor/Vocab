@@ -31,6 +31,7 @@ import {
 import catalogIndexRaw from '@/data/toeic/toeic-catalog-index.json';
 import { toast } from 'sonner';
 import { ExamLegalDisclaimer } from '@/components/exam/ExamLegalDisclaimer';
+import { StudentShell } from '@/components/student/StudentShell';
 import {
   getPartProgressStats,
   resetPartProgress,
@@ -540,6 +541,21 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
     return list;
   }, [testFilter, searchQuery]);
 
+  // Pagination for Full Tests Catalog
+  const TESTS_PER_PAGE = 10;
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [testFilter, searchQuery]);
+
+  const totalTestPages = Math.max(1, Math.ceil(displayedFullTests.length / TESTS_PER_PAGE));
+  const safeTestPage = Math.min(currentPage, totalTestPages);
+  const paginatedFullTests = useMemo(() => {
+    const start = (safeTestPage - 1) * TESTS_PER_PAGE;
+    return displayedFullTests.slice(start, start + TESTS_PER_PAGE);
+  }, [displayedFullTests, safeTestPage]);
+
   // Tab 2 Practice Config for Selected Part
   const currentPartMeta = useMemo(() => {
     return PART_DEFINITIONS.find((p) => p.part === selectedPart) || PART_DEFINITIONS[0];
@@ -579,15 +595,7 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3">
             {/* Left: Title & Subtitle */}
             <div>
-              <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500 dark:text-slate-400">
-                <Link href="/student" className="hover:text-slate-900 dark:hover:text-white transition-colors">
-                  LingoPro
-                </Link>
-                <span>/</span>
-                <span className="text-slate-700 dark:text-slate-300 font-semibold">Khảo Thí TOEIC</span>
-              </div>
-
-              <h1 className="mt-1 text-lg sm:text-xl font-black tracking-tight uppercase text-slate-900 dark:text-white">
+              <h1 className="text-lg sm:text-xl font-black tracking-tight uppercase text-slate-900 dark:text-white">
                 Hệ Thống Khảo Thí & Luyện Thi TOEIC
               </h1>
 
@@ -880,7 +888,8 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
             {/* View Mode 1: Compact List View (Default) */}
             {displayedFullTests.length > 0 && displayLayout === 'list' && (
               <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800/80 shadow-xs min-w-0">
-                {displayedFullTests.map((test, index) => {
+                {paginatedFullTests.map((test, idx) => {
+                  const index = (safeTestPage - 1) * TESTS_PER_PAGE + idx;
                   const meta = getTestMeta(test, index);
                   const status = userExamStatus[test.id];
 
@@ -979,7 +988,8 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
             {/* View Mode 2: Enhanced Grid View */}
             {displayedFullTests.length > 0 && displayLayout === 'grid' && (
               <div className="grid gap-3.5 sm:grid-cols-2">
-                {displayedFullTests.map((test, index) => {
+                {paginatedFullTests.map((test, idx) => {
+                  const index = (safeTestPage - 1) * TESTS_PER_PAGE + idx;
                   const meta = getTestMeta(test, index);
                   const status = userExamStatus[test.id];
 
@@ -1077,6 +1087,63 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
                     </div>
                   );
                 })}
+              </div>
+            )}
+            {/* Full Tests Pagination Bar */}
+            {displayedFullTests.length > TESTS_PER_PAGE && (
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3.5 py-3 shadow-xs">
+                <div className="text-xs font-mono text-slate-500 dark:text-slate-400 tabular-nums">
+                  Hiển thị{' '}
+                  <span className="font-bold text-slate-900 dark:text-white">
+                    {(safeTestPage - 1) * TESTS_PER_PAGE + 1}–
+                    {Math.min(safeTestPage * TESTS_PER_PAGE, displayedFullTests.length)}
+                  </span>{' '}
+                  trong tổng số{' '}
+                  <span className="font-bold text-slate-900 dark:text-white">
+                    {displayedFullTests.length}
+                  </span>{' '}
+                  đề thi
+                </div>
+
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <button
+                    type="button"
+                    disabled={safeTestPage <= 1}
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    className="inline-flex h-8 items-center gap-1 rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-2.5 text-xs font-mono font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:pointer-events-none transition-colors cursor-pointer"
+                  >
+                    <ChevronLeft className="h-3.5 w-3.5" />
+                    <span>Trước</span>
+                  </button>
+
+                  {Array.from({ length: totalTestPages }, (_, i) => i + 1).map((pageNum) => {
+                    const isCurrent = pageNum === safeTestPage;
+                    return (
+                      <button
+                        key={pageNum}
+                        type="button"
+                        onClick={() => setCurrentPage(pageNum)}
+                        className={`inline-flex h-8 min-w-[32px] items-center justify-center rounded-sm border px-2 text-xs font-mono font-bold tabular-nums transition-colors cursor-pointer ${
+                          isCurrent
+                            ? 'border-slate-900 bg-slate-900 text-white dark:border-white dark:bg-white dark:text-slate-900'
+                            : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                        }`}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  })}
+
+                  <button
+                    type="button"
+                    disabled={safeTestPage >= totalTestPages}
+                    onClick={() => setCurrentPage((p) => Math.min(totalTestPages, p + 1))}
+                    className="inline-flex h-8 items-center gap-1 rounded-sm border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-2.5 text-xs font-mono font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 disabled:opacity-40 disabled:pointer-events-none transition-colors cursor-pointer"
+                  >
+                    <span>Sau</span>
+                    <ChevronRight className="h-3.5 w-3.5" />
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -2029,9 +2096,11 @@ function ToeicCatalogContent({ tabParam, partParam }: { tabParam: string | null;
 export default function ToeicHubPage({ searchParams }: { searchParams: Promise<PageSearchParams> }) {
   const params = use(searchParams);
   return (
-    <ToeicCatalogContent
-      tabParam={firstParam(params.tab)}
-      partParam={firstParam(params.part)}
-    />
+    <StudentShell title="Thi thử TOEIC chuẩn ETS" contentClassName="p-0">
+      <ToeicCatalogContent
+        tabParam={firstParam(params.tab)}
+        partParam={firstParam(params.part)}
+      />
+    </StudentShell>
   );
 }

@@ -1,209 +1,545 @@
 'use client';
 
-import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, ChevronLeft, Gamepad2, Loader2, Trophy } from 'lucide-react';
+import {
+  ArrowLeft,
+  Brain,
+  Gamepad2,
+  Layers,
+  Play,
+  Shuffle,
+  Sparkles,
+  Trophy,
+  Zap,
+} from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
-import { useStudentContext } from '@/components/student/StudentProvider';
 import { EnglishGameSession } from '@/components/games/EnglishGameSession';
-import { GAME_MODES, GAME_TOPICS, type GameMode, type GameTopic, type GameWord } from '@/data/english-games';
-import { cleanGameWords, parseGameRecords, playableWords } from '@/lib/english-games';
-import { authFetch } from '@/lib/auth-fetch';
+import { supabase } from '@/lib/supabase';
+import {
+  GAME_MODES,
+  GAME_TOPICS,
+  type GameMode,
+  type GameTopic,
+  type GameWord,
+} from '@/data/english-games';
+import {
+  cleanGameWords,
+  parseGameRecords,
+  playableWords,
+  type GameResult,
+} from '@/lib/english-games';
 
-type Source = GameTopic | 'saved';
+const RECORD_KEY = 'lingopro_english_game_records_v1';
 
-function subscribeRecords(listener: () => void) {
-  window.addEventListener('storage', listener);
-  window.addEventListener('lingopro-game-record', listener);
-  return () => { window.removeEventListener('storage', listener); window.removeEventListener('lingopro-game-record', listener); };
-}
-const serverRecords = () => null;
+const GAME_ARENA_META: Record<
+  GameMode,
+  {
+    categoryTag: string;
+    reflexAttr: number;
+    memoryAttr: number;
+    gradient: string;
+    borderGlow: string;
+    accentBadge: string;
+  }
+> = {
+  memory: {
+    categoryTag: 'TRÍ NHỚ KHÔNG GIAN',
+    reflexAttr: 70,
+    memoryAttr: 98,
+    gradient:
+      'from-violet-500/15 via-purple-500/5 to-transparent dark:from-violet-500/20 dark:via-purple-950/20',
+    borderGlow: 'hover:border-violet-400 dark:hover:border-violet-500',
+    accentBadge:
+      'bg-violet-100 text-violet-800 border-violet-300 dark:bg-violet-950/80 dark:text-violet-300 dark:border-violet-800',
+  },
+  sprint: {
+    categoryTag: 'TỐC ĐỘ · 60 GIÂY',
+    reflexAttr: 98,
+    memoryAttr: 80,
+    gradient:
+      'from-amber-500/15 via-orange-500/5 to-transparent dark:from-amber-500/20 dark:via-orange-950/20',
+    borderGlow: 'hover:border-amber-400 dark:hover:border-amber-500',
+    accentBadge:
+      'bg-amber-100 text-amber-800 border-amber-300 dark:bg-amber-950/80 dark:text-amber-300 dark:border-amber-800',
+  },
+  scramble: {
+    categoryTag: 'GIẢI MÃ CHÍNH TẢ',
+    reflexAttr: 82,
+    memoryAttr: 90,
+    gradient:
+      'from-teal-500/15 via-cyan-500/5 to-transparent dark:from-teal-500/20 dark:via-cyan-950/20',
+    borderGlow: 'hover:border-teal-400 dark:hover:border-teal-500',
+    accentBadge:
+      'bg-teal-100 text-teal-800 border-teal-300 dark:bg-teal-950/80 dark:text-teal-300 dark:border-teal-800',
+  },
+  detective: {
+    categoryTag: 'PHÁ BẪY NGỮ PHÁP',
+    reflexAttr: 88,
+    memoryAttr: 94,
+    gradient:
+      'from-rose-500/15 via-red-500/5 to-transparent dark:from-rose-500/20 dark:via-red-950/20',
+    borderGlow: 'hover:border-rose-400 dark:hover:border-rose-500',
+    accentBadge:
+      'bg-rose-100 text-rose-800 border-rose-300 dark:bg-rose-950/80 dark:text-rose-300 dark:border-rose-800',
+  },
+  grammar: {
+    categoryTag: 'CẤU TRÚC 750–900+',
+    reflexAttr: 85,
+    memoryAttr: 95,
+    gradient:
+      'from-indigo-500/15 via-blue-500/5 to-transparent dark:from-indigo-500/20 dark:via-indigo-950/20',
+    borderGlow: 'hover:border-indigo-400 dark:hover:border-indigo-500',
+    accentBadge:
+      'bg-indigo-100 text-indigo-800 border-indigo-300 dark:bg-indigo-950/80 dark:text-indigo-300 dark:border-indigo-800',
+  },
+  sentence: {
+    categoryTag: 'LẮP RÁP CÂU PHỨC',
+    reflexAttr: 78,
+    memoryAttr: 92,
+    gradient:
+      'from-emerald-500/15 via-teal-500/5 to-transparent dark:from-emerald-500/20 dark:via-teal-950/20',
+    borderGlow: 'hover:border-emerald-400 dark:hover:border-emerald-500',
+    accentBadge:
+      'bg-emerald-100 text-emerald-800 border-emerald-300 dark:bg-emerald-950/80 dark:text-emerald-300 dark:border-emerald-800',
+  },
+};
 
 export default function EnglishGamesPage() {
-  const student = useStudentContext();
-  const [category, setCategory] = useState('all');
-  const [source, setSource] = useState<Source>('daily');
-  const [wordLoad, setWordLoad] = useState<{ key: string; words: GameWord[]; error: string } | null>(null);
-  const [reload, setReload] = useState(0);
-  const [session, setSession] = useState<{ mode: GameMode; words: GameWord[] } | null>(null);
-  const [storageError, setStorageError] = useState(false);
-  const userId = student?.session?.user.id;
-  const classroomId = student?.wordSummary.classroomId;
-  const recordKey = `lingopro:english-games:v1:${userId ?? 'guest'}`;
-  const readRecords = useCallback(() => {
-    try { return localStorage.getItem(recordKey); } catch { return null; }
-  }, [recordKey]);
-  const records = parseGameRecords(useSyncExternalStore(subscribeRecords, readRecords, serverRecords));
-  const loadKey = `${userId}:${classroomId}:${reload}`;
-  const savedWords = wordLoad?.key === loadKey ? wordLoad.words : [];
-  const loadError = wordLoad?.key === loadKey ? wordLoad.error : '';
-  const loading = source === 'saved' && Boolean(userId) && wordLoad?.key !== loadKey;
+  const [source, setSource] = useState<'topic' | 'personal'>('topic');
+  const [topic, setTopic] = useState<GameTopic>('daily');
+  const [personalWords, setPersonalWords] = useState<GameWord[]>([]);
+  const [loadingPersonal, setLoadingPersonal] = useState(true);
+  const [activeMode, setActiveMode] = useState<GameMode | null>(null);
+  const [records, setRecords] = useState<Partial<Record<GameMode, number>>>({});
+  const [lastResult, setLastResult] = useState<
+    (GameResult & { mode: GameMode }) | null
+  >(null);
 
   useEffect(() => {
-    if (source !== 'saved' || !userId) return;
-    const controller = new AbortController();
-    const query = new URLSearchParams({ limit: '50', noCount: '1' });
-    if (classroomId) query.set('classroomId', classroomId);
-    authFetch(`/api/words?${query}`, { signal: controller.signal })
-      .then(async (response) => {
-        if (!response.ok) throw new Error('Không tải được bộ từ');
-        const payload: unknown = await response.json();
-        if (!payload || typeof payload !== 'object' || !('success' in payload) || !payload.success || !('data' in payload)) throw new Error('Dữ liệu chưa sẵn sàng');
-        if (!controller.signal.aborted) setWordLoad({ key: loadKey, words: cleanGameWords(payload.data), error: '' });
-      })
-      .catch(() => { if (!controller.signal.aborted) setWordLoad({ key: loadKey, words: [], error: 'Chưa tải được từ đã lưu. Thử lại hoặc chọn bộ từ chủ đề nhé.' }); });
-    return () => controller.abort();
-  }, [source, userId, classroomId, loadKey]);
+    setRecords(
+      parseGameRecords(
+        typeof window !== 'undefined' ? localStorage.getItem(RECORD_KEY) : null
+      )
+    );
+    let cancelled = false;
+    (async () => {
+      try {
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
+        if (!user) return;
+        const { data } = await supabase
+          .from('words')
+          .select('word, translation, example')
+          .eq('user_id', user.id)
+          .limit(60);
+        if (!cancelled) setPersonalWords(cleanGameWords(data ?? []));
+      } finally {
+        if (!cancelled) setLoadingPersonal(false);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
-  const recordScore = useCallback((mode: GameMode, score: number) => {
-    try {
-      const current = parseGameRecords(localStorage.getItem(recordKey));
-      const next = { ...current, [mode]: Math.max(current[mode] ?? 0, score) };
-      localStorage.setItem(recordKey, JSON.stringify(next));
-      window.dispatchEvent(new Event('lingopro-game-record'));
-    } catch { setStorageError(true); }
-  }, [recordKey]);
+  const words = useMemo(() => {
+    if (source === 'personal' && personalWords.length >= 6) return personalWords;
+    return GAME_TOPICS[topic].words;
+  }, [personalWords, source, topic]);
 
-  const pool = source === 'saved' ? userId ? savedWords : [] : GAME_TOPICS[source].words;
+  const sourceLabel =
+    source === 'personal' && personalWords.length >= 6
+      ? `Kho từ cá nhân (${personalWords.length} từ)`
+      : `${GAME_TOPICS[topic].emoji} ${GAME_TOPICS[topic].title}`;
+
+  function handleFinish(mode: GameMode, result: GameResult) {
+    setLastResult({ ...result, mode });
+    setRecords((prev) => {
+      const next = {
+        ...prev,
+        [mode]: Math.max(prev[mode] ?? 0, result.score),
+      };
+      try {
+        localStorage.setItem(RECORD_KEY, JSON.stringify(next));
+      } catch {
+        // ignore storage quota
+      }
+      return next;
+    });
+  }
+
+  const arcadeStats = useMemo(() => {
+    const scores = Object.values(records).filter(
+      (s): s is number => typeof s === 'number'
+    );
+    const totalScore = scores.reduce((a, b) => a + b, 0);
+    const modesPlayed = scores.filter((s) => s > 0).length;
+
+    let rankTitle = 'Tân Binh Đấu Trường';
+    let nextRankTarget = 1000;
+    let rankBadgeColor = 'from-slate-500 to-slate-700';
+
+    if (totalScore >= 3500) {
+      rankTitle = 'Đại Kiện Tướng Ngôn Ngữ';
+      nextRankTarget = 5000;
+      rankBadgeColor = 'from-amber-400 via-orange-500 to-rose-500';
+    } else if (totalScore >= 1800) {
+      rankTitle = 'Cao Thủ Phản Xạ';
+      nextRankTarget = 3500;
+      rankBadgeColor = 'from-indigo-500 via-violet-500 to-purple-600';
+    } else if (totalScore >= 600) {
+      rankTitle = 'Chiến Binh Tinh Anh';
+      nextRankTarget = 1800;
+      rankBadgeColor = 'from-emerald-500 to-teal-600';
+    }
+
+    const rankPct = Math.min(
+      100,
+      Math.round((totalScore / nextRankTarget) * 100)
+    );
+
+    return {
+      totalScore,
+      modesPlayed,
+      rankTitle,
+      nextRankTarget,
+      rankBadgeColor,
+      rankPct,
+    };
+  }, [records]);
+
+  const handleRandomMode = () => {
+    const randomIdx = Math.floor(Math.random() * GAME_MODES.length);
+    setActiveMode(GAME_MODES[randomIdx].id);
+  };
 
   return (
-    <StudentShell title="Đấu trường Phản xạ Học thuật" requireAuth={false}>
-      <div className="mx-auto max-w-5xl px-1 pb-24 pt-3 text-slate-900 sm:px-4 dark:text-slate-100">
-        {storageError && <p role="status" className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900 dark:border-amber-800/40 dark:bg-amber-950/30 dark:text-amber-200">Trình duyệt chưa lưu được kỷ lục. Bạn vẫn có thể tiếp tục rèn luyện.</p>}
-        {session ? <EnglishGameSession mode={session.mode} words={session.words} onExit={() => setSession(null)} onRecord={recordScore} /> : <>
-          <Link href="/practice" className="mb-4 inline-flex items-center gap-1.5 py-2 text-xs font-semibold text-slate-500 hover:text-indigo-600 transition"><ChevronLeft size={16} /> Quay lại Sử dụng từ & Luyện tập</Link>
+    <StudentShell title="Đấu Trường Trò Chơi">
+      <div
+        className="mx-auto max-w-5xl space-y-6 pb-12"
+        data-testid="games-arena-hub"
+      >
+        {activeMode ? (
+          <EnglishGameSession
+            mode={activeMode}
+            words={words}
+            sourceLabel={sourceLabel}
+            bestScore={records[activeMode] ?? 0}
+            onBack={() => setActiveMode(null)}
+            onFinish={(result) => handleFinish(activeMode, result)}
+          />
+        ) : (
+          <>
+            {/* ── ARCADE ARENA HERO BANNER ── */}
+            <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-violet-950 text-white p-6 sm:p-8 shadow-xl border border-indigo-500/30">
+              <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl" />
+              <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-fuchsia-500/15 blur-3xl" />
 
-          {/* Hero: Technical Minimalist Speed Training Facility */}
-          <section className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 p-6 text-white sm:p-8">
-            <div className="relative max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-md border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-1 text-xs font-mono font-semibold text-indigo-300">
-                <Gamepad2 size={14} /> SPEED DRILLS · PHẢN XẠ ĐỀ THI CHUẨN HÓA
-              </div>
-              <h1 className="mt-4 text-2xl font-black tracking-tight sm:text-3xl text-white">
-                Rèn Phản Xạ Dưới 2 Giây.<br />Bứt Phá Điểm Số Part 5 & Part 7.
-              </h1>
-              <p className="mt-3 text-sm leading-relaxed text-slate-300 sm:text-base">
-                Phòng huấn luyện tốc độ cao dành cho thí sinh TOEIC (600–990), VSTEP (B2–C1) và IELTS Academic. Chuyển hóa Collocation, Paraphrasing và Bẫy ngữ pháp kinh điển thành phản xạ vô điều kiện dưới áp lực phòng thi.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-2 text-xs font-mono font-medium">
-                {['🎯 Target 650–900+ TOEIC', '📐 Săn bẫy ETS Part 5', '🔗 Collocations & AWL', '⚡ Rèn tốc độ < 2s/câu'].map((label) => (
-                  <span key={label} className="rounded-md border border-slate-700 bg-slate-900/90 px-2.5 py-1.5 text-slate-300">{label}</span>
-                ))}
-              </div>
-            </div>
-          </section>
+              <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div className="space-y-3 max-w-2xl">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/25 border border-indigo-400/30 text-xs font-extrabold uppercase tracking-wider text-indigo-200">
+                      <Gamepad2 className="w-3.5 h-3.5 text-amber-400" />
+                      Reflex &amp; Memory Arena
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-xs font-bold text-emerald-300">
+                      <Sparkles className="w-3 h-3" /> 6 Chế độ Tương tác
+                    </span>
+                  </div>
 
-          {/* Word Corpus Selector */}
-          <section className="mt-6 rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 dark:border-slate-800 dark:bg-slate-900" aria-labelledby="word-source-title">
-            <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-              <h2 id="word-source-title" className="text-sm font-bold text-slate-900 dark:text-slate-100">Kho Ngữ Liệu Luyện Phản Xạ</h2>
-              <span className="text-xs font-mono text-slate-500">Phân hệ Ngữ pháp sử dụng ngân hàng bẫy đề thi độc lập</span>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {([...Object.keys(GAME_TOPICS), 'saved'] as Source[]).map((key) => (
-                <button
-                  key={key}
-                  onClick={() => setSource(key)}
-                  aria-pressed={source === key}
-                  className={`min-h-[44px] rounded-xl border px-3.5 py-2 text-xs sm:text-sm font-semibold transition ${
-                    source === key
-                      ? 'border-indigo-600 bg-indigo-600 text-white shadow-sm'
-                      : 'border-slate-200 text-slate-600 hover:border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800'
-                  }`}
-                >
-                  {key === 'saved' ? '📚 Kho từ cá nhân đã lưu' : `${GAME_TOPICS[key].emoji} ${GAME_TOPICS[key].title}`}
-                </button>
-              ))}
-            </div>
-            {source === 'saved' ? (
-              <div className="mt-3 text-sm text-slate-500" role="status">
-                {!userId ? (
-                  <Link href="/auth" className="font-semibold text-indigo-600 underline">Đăng nhập để luyện với kho từ FSRS cá nhân</Link>
-                ) : loading ? (
-                  <span className="inline-flex items-center gap-2"><Loader2 className="animate-spin" size={16} />Đang tải dữ liệu từ vựng…</span>
-                ) : loadError ? (
-                  <span>{loadError} <button onClick={() => setReload((value) => value + 1)} className="px-2 py-2 font-bold text-indigo-600 underline">Thử lại</button></span>
-                ) : (
-                  <span>Đã tải {savedWords.length} thuật ngữ hợp lệ từ kho cá nhân.{savedWords.length < 4 ? ' Cần tối thiểu 4 từ để bắt đầu đường đua phản xạ; hãy chọn kho ngữ liệu đề thi chuẩn hóa bên trên.' : ''}</span>
-                )}
-              </div>
-            ) : (
-              <p className="mt-3 text-xs font-mono text-slate-500">{pool.length} thuật ngữ & collocations · Đảo ngẫu nhiên mỗi lượt · Đầy đủ ngữ cảnh đề thi</p>
-            )}
-          </section>
+                  <h1 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
+                    Đấu Trường Phản Xạ &amp; Giải Mã Ngôn Ngữ
+                  </h1>
 
-          {/* Mode Category Filter */}
-          <div className="mb-4 mt-7 flex flex-wrap items-center justify-between gap-3">
-            <h2 className="text-base font-bold text-slate-900 dark:text-slate-100">Chọn Chế Độ Huấn Luyện</h2>
-            <div className="flex gap-1 rounded-xl border border-slate-200 bg-slate-100 p-1 dark:border-slate-800 dark:bg-slate-800" aria-label="Lọc chế độ">
-              {[['all', 'Tất cả'], ['vocab', 'Từ vựng & Cụm từ'], ['grammar', 'Bẫy Ngữ pháp & Cấu trúc']].map(([id, label]) => (
-                <button
-                  key={id}
-                  onClick={() => setCategory(id)}
-                  aria-pressed={category === id}
-                  className={`min-h-[38px] rounded-lg px-3 text-xs sm:text-sm font-semibold transition ${
-                    category === id
-                      ? 'bg-white text-indigo-700 shadow-sm dark:bg-slate-700 dark:text-indigo-200'
-                      : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-200'
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </div>
+                  <p className="text-indigo-100/85 text-sm sm:text-base leading-relaxed">
+                    Biến việc ôn từ vựng học thuật (AWL/ETS) và cấu trúc ngữ pháp nâng cao thành phản xạ tốc độ cao. Tích lũy chuỗi{' '}
+                    <strong className="text-amber-300">Combo Fever 🔥</strong>, mở khóa danh hiệu và phá kỷ lục cá nhân!
+                  </p>
 
-          {/* Drill Mode Cards Grid */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {GAME_MODES.filter((game) => category === 'all' || game.category === category).map((game) => {
-              const available = playableWords(game.id, pool);
-              const minimum = game.id === 'sprint' ? 4 : game.id === 'memory' ? 2 : 1;
-              const disabled = game.category === 'vocab' && ((source === 'saved' && (loading || Boolean(loadError))) || available.length < minimum);
-              return (
-                <article
-                  key={game.id}
-                  className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
-                >
-                  <div>
-                    <div className="flex items-start justify-between">
-                      <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br text-2xl shadow-sm ${game.color}`}>
-                        {game.emoji}
+                  <div className="pt-1 flex flex-wrap items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={handleRandomMode}
+                      data-testid="arcade-random-start-btn"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-amber-500/25 hover:brightness-105 active:scale-95 transition-all cursor-pointer min-h-[44px]"
+                    >
+                      <Shuffle className="w-4 h-4 stroke-[2.5]" />
+                      Khiêu Chiến Ngẫu Nhiên Ngay
+                    </button>
+
+                    <Link
+                      href="/practice"
+                      className="inline-flex items-center gap-1.5 px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 border border-white/15 text-xs sm:text-sm font-bold text-white transition-colors min-h-[44px]"
+                    >
+                      <ArrowLeft className="w-4 h-4" />
+                      Về Trung tâm Luyện tập
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right: Player Arcade Rank & Power Card */}
+                <div className="lg:w-72 shrink-0 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 p-4 space-y-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2.5">
+                      <div
+                        className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${arcadeStats.rankBadgeColor} flex items-center justify-center shadow-md`}
+                      >
+                        <Trophy className="w-5 h-5 text-white" />
                       </div>
-                      <span className="rounded-md border border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-mono font-semibold text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
-                        {game.label}
+                      <div>
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-indigo-200">
+                          Hạng Đấu Trường
+                        </div>
+                        <div className="text-sm font-black text-white">
+                          {arcadeStats.rankTitle}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 pt-1">
+                    <div className="rounded-xl bg-black/25 px-3 py-2 border border-white/10">
+                      <div className="text-[10px] text-indigo-200/80 font-semibold">
+                        Tổng Điểm Kỷ Lục
+                      </div>
+                      <div className="text-lg font-black text-amber-300 tabular-nums">
+                        {arcadeStats.totalScore}
+                      </div>
+                    </div>
+                    <div className="rounded-xl bg-black/25 px-3 py-2 border border-white/10">
+                      <div className="text-[10px] text-indigo-200/80 font-semibold">
+                        Chế Độ Chinh Phục
+                      </div>
+                      <div className="text-lg font-black text-emerald-300 tabular-nums">
+                        {arcadeStats.modesPlayed}/{GAME_MODES.length}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between text-[11px] font-bold text-indigo-200">
+                      <span>Tiến trình thăng hạng</span>
+                      <span className="tabular-nums">
+                        {arcadeStats.totalScore}/{arcadeStats.nextRankTarget} PTS
                       </span>
                     </div>
-                    <h3 className="mt-4 text-base font-bold text-slate-900 dark:text-slate-100">{game.title}</h3>
-                    <p className="mt-1.5 text-xs leading-relaxed text-slate-600 dark:text-slate-400">{game.description}</p>
+                    <div className="h-2 w-full rounded-full bg-black/40 overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-amber-400 to-orange-500 transition-all duration-500"
+                        style={{ width: `${arcadeStats.rankPct}%` }}
+                      />
+                    </div>
                   </div>
+                </div>
+              </div>
+            </div>
 
-                  <div className="mt-5">
-                    <p className="mb-3 flex items-center gap-1.5 text-xs font-mono font-medium text-amber-600 dark:text-amber-400">
-                      <Trophy size={13} /> Kỷ lục: <span className="font-bold tabular-nums">{records[game.id] ?? 0}</span> pts
-                    </p>
+            {/* Recent Session Banner if available */}
+            {lastResult && (
+              <div className="rounded-2xl border border-emerald-300/80 dark:border-emerald-800/70 bg-emerald-50/70 dark:bg-emerald-950/30 p-3.5 px-4 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold text-emerald-900 dark:text-emerald-200">
+                <span className="flex items-center gap-2">
+                  <Trophy className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  <span>
+                    Lượt vừa xong (
+                    {GAME_MODES.find((m) => m.id === lastResult.mode)?.title}):{' '}
+                    <strong>{lastResult.score} điểm</strong> · Chính xác{' '}
+                    {lastResult.correct}/{lastResult.attempts} · Combo tối đa x
+                    {lastResult.bestCombo}
+                  </span>
+                </span>
+              </div>
+            )}
+
+            {/* ── CORPUS POWER-DECK SELECTOR ── */}
+            <section className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-5 shadow-xs space-y-3.5">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                  <h2 className="text-sm font-extrabold text-slate-900 dark:text-slate-100">
+                    1. Chọn Bộ Nạp Từ Vựng Thi Đấu (Game Deck)
+                  </h2>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setSource('topic')}
+                    className={`rounded-xl px-3.5 py-1.5 text-xs font-extrabold transition-all cursor-pointer min-h-[36px] ${
+                      source === 'topic'
+                        ? 'bg-indigo-600 text-white shadow-xs'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    Chủ đề chuẩn ETS/IELTS
+                  </button>
+                  <button
+                    type="button"
+                    disabled={personalWords.length < 6}
+                    onClick={() => setSource('personal')}
+                    className={`rounded-xl px-3.5 py-1.5 text-xs font-extrabold transition-all cursor-pointer min-h-[36px] disabled:opacity-50 disabled:cursor-not-allowed ${
+                      source === 'personal'
+                        ? 'bg-indigo-600 text-white shadow-xs'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                    }`}
+                  >
+                    Kho từ cá nhân ({loadingPersonal ? '…' : personalWords.length})
+                  </button>
+                </div>
+              </div>
+
+              {source === 'topic' ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+                  {(
+                    Object.entries(GAME_TOPICS) as [
+                      GameTopic,
+                      (typeof GAME_TOPICS)[GameTopic],
+                    ][]
+                  ).map(([key, item]) => {
+                    const active = topic === key;
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => setTopic(key)}
+                        data-testid={`game-topic-${key}`}
+                        className={`rounded-2xl border-2 p-3.5 text-left transition-all cursor-pointer min-h-[44px] ${
+                          active
+                            ? 'border-indigo-600 dark:border-indigo-400 bg-indigo-50/70 dark:bg-indigo-950/50 shadow-xs'
+                            : 'border-slate-200/80 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40 hover:border-indigo-300 dark:hover:border-slate-700'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between gap-2 mb-1">
+                          <span className="text-xl">{item.emoji}</span>
+                          <span
+                            className={`px-2 py-0.5 rounded-full text-[10px] font-black ${
+                              active
+                                ? 'bg-indigo-600 text-white'
+                                : 'bg-slate-200/80 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                            }`}
+                          >
+                            {item.words.length} từ
+                          </span>
+                        </div>
+                        <p className="text-xs font-extrabold text-slate-900 dark:text-slate-100 leading-snug">
+                          {item.title}
+                        </p>
+                      </button>
+                    );
+                  })}
+                </div>
+              ) : (
+                <p className="text-xs font-medium text-slate-600 dark:text-slate-400">
+                  Đang dùng <b>{personalWords.length}</b> từ trong kho cá nhân của bạn cho các chế độ Ghép cặp, Phản xạ 60s và Giải mã chữ cái.
+                </p>
+              )}
+            </section>
+
+            {/* ── 6 CREATIVE ARCADE CABINET CARDS ── */}
+            <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {GAME_MODES.map((game) => {
+                const enoughWords =
+                  game.category === 'grammar' ||
+                  playableWords(game.id, words).length >= 4;
+                const best = records[game.id] ?? 0;
+                const meta = GAME_ARENA_META[game.id];
+
+                return (
+                  <div
+                    key={game.id}
+                    data-testid={`game-mode-card-${game.id}`}
+                    className={`group relative rounded-3xl border-2 border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 shadow-xs hover:shadow-xl transition-all duration-200 flex flex-col justify-between overflow-hidden ${meta.borderGlow}`}
+                  >
+                    <div
+                      className={`pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b ${meta.gradient}`}
+                    />
+
+                    <div className="relative z-10">
+                      <div className="flex items-start justify-between gap-3 mb-4">
+                        <div className="w-14 h-14 rounded-2xl bg-white dark:bg-slate-800 border-2 border-slate-200/80 dark:border-slate-700 shadow-sm flex items-center justify-center text-3xl group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-200">
+                          {game.emoji}
+                        </div>
+
+                        <div className="flex flex-col items-end gap-1.5">
+                          <span
+                            className={`px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border ${meta.accentBadge}`}
+                          >
+                            {meta.categoryTag}
+                          </span>
+
+                          {best > 0 ? (
+                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/70 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-800/60 text-xs font-black tabular-nums">
+                              <Trophy className="w-3 h-3 text-amber-500" />
+                              Kỷ lục: {best}
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[11px] font-semibold">
+                              Chưa mở kỷ lục
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 tracking-tight">
+                        {game.title}
+                      </h3>
+                      <p className="text-xs font-bold text-indigo-600 dark:text-indigo-400 mt-0.5">
+                        {game.label}
+                      </p>
+                      <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                        {game.description}
+                      </p>
+
+                      {/* Mini Attribute Bars (Reflex & Brain Load) */}
+                      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 grid grid-cols-2 gap-3 text-[11px]">
+                        <div>
+                          <div className="flex items-center justify-between font-bold text-slate-500 dark:text-slate-400 mb-1">
+                            <span className="flex items-center gap-1">
+                              <Zap className="w-3 h-3 text-amber-500" /> Phản xạ
+                            </span>
+                            <span>{meta.reflexAttr}%</span>
+                          </div>
+                          <div className="h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                            <div
+                              className="h-full rounded-full bg-amber-500"
+                              style={{ width: `${meta.reflexAttr}%` }}
+                            />
+                          </div>
+                        </div>
+
+                        <div>
+                          <div className="flex items-center justify-between font-bold text-slate-500 dark:text-slate-400 mb-1">
+                            <span className="flex items-center gap-1">
+                              <Brain className="w-3 h-3 text-indigo-500" /> Tư duy
+                            </span>
+                            <span>{meta.memoryAttr}%</span>
+                          </div>
+                          <div className="h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                            <div
+                              className="h-full rounded-full bg-indigo-500"
+                              style={{ width: `${meta.memoryAttr}%` }}
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <button
-                      disabled={disabled}
-                      onClick={() => setSession({ mode: game.id, words: available })}
-                      className="flex min-h-[44px] w-full items-center justify-between rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-bold text-white transition hover:bg-indigo-600 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400 dark:bg-indigo-600 dark:text-white dark:hover:bg-indigo-500 dark:disabled:bg-slate-800 dark:disabled:text-slate-500"
-                      aria-label={`Bắt đầu rèn luyện ${game.title}`}
+                      type="button"
+                      disabled={!enoughWords}
+                      onClick={() => setActiveMode(game.id)}
+                      data-testid={`start-game-${game.id}`}
+                      className="relative z-10 mt-5 w-full py-3 px-4 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] disabled:opacity-50 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-indigo-500/20 cursor-pointer min-h-[44px]"
                     >
-                      <span>{disabled ? (loading ? 'Đang nạp từ…' : `Cần tối thiểu ${minimum} thuật ngữ`) : 'Bắt đầu huấn luyện'}</span>
-                      <ArrowRight size={16} />
+                      <Play className="w-4 h-4 fill-current" />
+                      <span>Vào Đấu Trường</span>
                     </button>
-                    {disabled && game.id === 'scramble' && !loading && (
-                      <p className="mt-2 text-[11px] text-slate-500">Thuật ngữ yêu cầu 3–14 ký tự không dấu cách.</p>
-                    )}
                   </div>
-                </article>
-              );
-            })}
-          </div>
-
-          <p className="mt-8 text-center text-xs font-mono text-slate-500">
-            Dữ liệu huấn luyện phản xạ tốc độ cao · Tối ưu cho kỳ thi TOEIC, VSTEP & IELTS.<br />
-            Duy trì trí nhớ dài hạn song song với thuật toán <Link href="/review" className="font-semibold text-indigo-600 underline underline-offset-2 hover:text-indigo-700">Ôn tập ngắt quãng (FSRS)</Link>.
-          </p>
-        </>}
+                );
+              })}
+            </section>
+          </>
+        )}
       </div>
     </StudentShell>
   );

@@ -1,3 +1,4 @@
+using LingoPro.Application.Features.Vocab.Queries;
 using LingoPro.Domain.Entities.Vocab;
 
 namespace LingoPro.Application.Common.Interfaces.Repositories;
@@ -19,6 +20,13 @@ public interface IVocabRepository
         Guid userId,
         DateTime dueUntilUtc,
         int limit,
+        CancellationToken ct = default);
+
+    Task<VocabAnalyticsDto> GetVocabAnalyticsAsync(
+        Guid userId,
+        string? classroomScope,
+        int limit,
+        int offset,
         CancellationToken ct = default);
 
     Task<int> SaveChangesAsync(CancellationToken ct = default);

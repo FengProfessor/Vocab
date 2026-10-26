@@ -210,16 +210,16 @@ export default function CategorizationPractice({
   const scoreResult = submitted ? calculateScore() : null;
 
   return (
-    <div className="border border-border bg-card rounded-none p-5 space-y-5 my-6">
+    <div className="border border-border bg-card rounded-lg p-5 space-y-5 my-6">
       {/* Header Bar */}
       <div className="flex flex-wrap items-center justify-between border-b border-border pb-3 gap-2">
         <div className="flex items-center gap-2">
           <Layers className="h-4 w-4 text-primary shrink-0" />
-          <h4 className="font-serif text-sm font-semibold text-foreground">
+          <h4 className="font-sans text-sm font-semibold text-foreground">
             <FormattedText text={resolvedQuestion} />
           </h4>
         </div>
-        <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-none border border-border">
+        <span className="font-sans text-[10px] uppercase tracking-wider text-muted-foreground bg-muted/30 px-2 py-0.5 rounded-lg border border-border">
           DẠNG BÀI: PHÂN LOẠI KHÁI NIỆM
         </span>
       </div>
@@ -227,7 +227,7 @@ export default function CategorizationPractice({
       {/* Unassigned Item Pool */}
       {!submitted && (
         <div className="space-y-2">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-mono text-xs text-muted-foreground">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 font-sans text-xs text-muted-foreground">
             <span className="tabular-nums">
               DANH SÁCH MỤC CẦN PHÂN LOẠI ({unassignedItems.length} mục chưa xếp):
             </span>
@@ -236,7 +236,7 @@ export default function CategorizationPractice({
             </span>
           </div>
 
-          <div className="flex flex-wrap gap-2 min-h-[52px] p-3 bg-muted/20 border border-border rounded-none">
+          <div className="flex flex-wrap gap-2 min-h-[52px] p-3 bg-muted/20 border border-border rounded-lg">
             {unassignedItems.map((item) => (
               <button
                 key={item.id}
@@ -244,7 +244,7 @@ export default function CategorizationPractice({
                 draggable
                 onDragStart={() => handleDragStart(item.id)}
                 onClick={() => setSelectedItemId(selectedItemId === item.id ? null : item.id)}
-                className={`min-h-[40px] px-3 py-1.5 text-xs font-mono font-medium border rounded-none transition-all cursor-pointer ${
+                className={`min-h-[40px] px-3 py-1.5 text-xs font-sans font-medium border rounded-lg transition-all cursor-pointer ${
                   selectedItemId === item.id
                     ? 'bg-primary text-primary-foreground border-primary shadow-sm'
                     : 'bg-card text-foreground border-border hover:border-foreground hover:bg-muted'
@@ -255,7 +255,7 @@ export default function CategorizationPractice({
             ))}
 
             {unassignedItems.length === 0 && (
-              <span className="text-xs text-muted-foreground italic py-1 font-mono">
+              <span className="text-xs text-muted-foreground italic py-1 font-sans">
                 ✓ Đã xếp toàn bộ mục vào các nhóm. Hãy nhấn nút &quot;Kiểm tra phân loại&quot; bên dưới.
               </span>
             )}
@@ -274,7 +274,7 @@ export default function CategorizationPractice({
               onClick={() => handleSelectOrAssign(cat.id)}
               onDragOver={(e) => e.preventDefault()}
               onDrop={() => handleDrop(cat.id)}
-              className={`border-2 p-3.5 sm:p-4 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between rounded-none transition-colors ${
+              className={`border-2 p-3.5 sm:p-4 min-h-[140px] sm:min-h-[160px] flex flex-col justify-between rounded-lg transition-colors ${
                 selectedItemId && !submitted
                   ? 'border-primary border-dashed bg-primary/[0.02] cursor-pointer hover:bg-primary/[0.05]'
                   : 'border-border bg-muted/10 border-dashed'
@@ -282,10 +282,10 @@ export default function CategorizationPractice({
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between border-b border-border pb-1.5">
-                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-foreground">
+                  <span className="font-sans text-xs font-bold uppercase tracking-wider text-foreground">
                     {cat.label}
                   </span>
-                  <span className="font-mono text-[11px] text-muted-foreground tabular-nums">
+                  <span className="font-sans text-[11px] text-muted-foreground tabular-nums">
                     {assignedHere.length} mục
                   </span>
                 </div>
@@ -318,7 +318,7 @@ export default function CategorizationPractice({
                           e.stopPropagation();
                           handleUnassign(item.id);
                         }}
-                        className={`min-h-[36px] px-2.5 py-1 text-xs font-mono border rounded-none inline-flex items-center gap-1.5 transition-colors ${
+                        className={`min-h-[36px] px-2.5 py-1 text-xs font-sans border rounded-lg inline-flex items-center gap-1.5 transition-colors ${
                           !submitted ? 'cursor-pointer hover:border-rose-400 hover:text-rose-600' : ''
                         } ${badgeCls}`}
                         title={
@@ -341,7 +341,7 @@ export default function CategorizationPractice({
                   })}
 
                   {assignedHere.length === 0 && !submitted && (
-                    <span className="text-[11px] font-mono text-muted-foreground italic py-2">
+                    <span className="text-[11px] font-sans text-muted-foreground italic py-2">
                       (Trống — chạm vào đây để xếp)
                     </span>
                   )}
@@ -349,7 +349,7 @@ export default function CategorizationPractice({
               </div>
 
               {selectedItemId && !submitted && (
-                <div className="pt-2 text-[11px] font-mono text-primary flex items-center gap-1">
+                <div className="pt-2 text-[11px] font-sans text-primary flex items-center gap-1">
                   <ArrowRight className="h-3 w-3" />
                   Nhấn vào nhóm này để xếp
                 </div>
@@ -363,7 +363,7 @@ export default function CategorizationPractice({
       {submitted && scoreResult && (
         <div className="space-y-3 pt-3 border-t border-border font-sans">
           <div
-            className={`p-3.5 border rounded-none flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs font-mono font-semibold uppercase tracking-wider tabular-nums ${
+            className={`p-3.5 border rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs font-sans font-semibold uppercase tracking-wider tabular-nums ${
               scoreResult.percentage === 100
                 ? 'bg-emerald-500/10 border-emerald-500 text-emerald-900 dark:text-emerald-300'
                 : 'bg-amber-500/10 border-amber-500 text-amber-900 dark:text-amber-300'
@@ -382,8 +382,8 @@ export default function CategorizationPractice({
           </div>
 
           {resolvedExplanation && (
-            <div className="p-3 bg-muted/20 border border-border rounded-none text-xs text-foreground/90 space-y-1">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">
+            <div className="p-3 bg-muted/20 border border-border rounded-lg text-xs text-foreground/90 space-y-1">
+              <span className="font-sans text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">
                 Phân tích bản chất quy tắc:
               </span>
               <p className="leading-relaxed">
@@ -401,7 +401,7 @@ export default function CategorizationPractice({
             type="button"
             disabled={unassignedItems.length > 0 || normalizedItems.length === 0}
             onClick={handleSubmit}
-            className="min-h-[44px] px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs uppercase font-semibold rounded-none disabled:opacity-30 hover:bg-primary/90 transition-opacity flex items-center justify-center"
+            className="min-h-[44px] px-5 py-2.5 bg-primary text-primary-foreground font-sans text-xs uppercase font-semibold rounded-lg disabled:opacity-30 hover:bg-primary/90 transition-opacity flex items-center justify-center"
           >
             Kiểm tra phân loại
           </button>
@@ -410,7 +410,7 @@ export default function CategorizationPractice({
             <button
               type="button"
               onClick={handleReset}
-              className="min-h-[44px] px-4 py-2.5 border border-border text-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-muted flex items-center justify-center gap-1.5 transition-colors"
+              className="min-h-[44px] px-4 py-2.5 border border-border text-foreground font-sans text-xs uppercase font-semibold rounded-lg hover:bg-muted flex items-center justify-center gap-1.5 transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Làm lại bài này
@@ -419,7 +419,7 @@ export default function CategorizationPractice({
               <button
                 type="button"
                 onClick={onNextQuestion}
-                className="min-h-[44px] px-5 py-2.5 bg-primary text-primary-foreground font-mono text-xs uppercase font-semibold rounded-none hover:bg-primary/90 transition-opacity flex items-center justify-center gap-1.5"
+                className="min-h-[44px] px-5 py-2.5 bg-primary text-primary-foreground font-sans text-xs uppercase font-semibold rounded-lg hover:bg-primary/90 transition-opacity flex items-center justify-center gap-1.5"
               >
                 <span>{nextButtonLabel || 'Câu tiếp theo'}</span>
                 <ArrowRight className="h-3.5 w-3.5" />

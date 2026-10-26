@@ -53,7 +53,7 @@ export default function GrammarCheatSheet({ cheatSheetHtml, lessonTitle }: Gramm
 
   if (!cheatSheetHtml) {
     return (
-      <div className="p-8 text-center rounded-none border border-border bg-muted/20 text-muted-foreground">
+      <div className="p-8 text-center rounded-lg border border-border bg-muted/20 text-muted-foreground">
         <Table className="h-9 w-9 mx-auto mb-2 opacity-40 text-primary" />
         <h4 className="font-semibold text-sm text-foreground">Chưa có bảng tra cứu riêng cho bài này</h4>
         <p className="text-xs mt-1">Vui lòng tra cứu quy tắc và công thức tại tab Lý thuyết chi tiết.</p>
@@ -65,16 +65,16 @@ export default function GrammarCheatSheet({ cheatSheetHtml, lessonTitle }: Gramm
     <div className="space-y-4 my-6 animate-in fade-in duration-300">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-3 border-b border-border/40">
         <div className="flex items-center gap-2.5">
-          <div className="h-8 w-8 rounded-none border border-border bg-primary/10 text-primary flex items-center justify-center shrink-0">
+          <div className="h-8 w-8 rounded-lg border border-border bg-primary/10 text-primary flex items-center justify-center shrink-0">
             <Table className="h-4 w-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-serif font-semibold text-base text-foreground">Bảng tra cứu quy tắc nhanh</h3>
+              <h3 className="font-sans font-semibold text-base text-foreground">Bảng tra cứu quy tắc nhanh</h3>
               <span
                 ref={badgeRef}
                 style={{ display: 'none' }}
-                className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-none border border-emerald-500/30 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300 items-center gap-1"
+                className="text-[10px] font-sans font-semibold px-2 py-0.5 rounded-lg border border-emerald-500/30 bg-emerald-100 text-emerald-800 dark:bg-emerald-950/70 dark:text-emerald-300 items-center gap-1"
               />
             </div>
             <p className="text-xs text-muted-foreground">
@@ -90,13 +90,13 @@ export default function GrammarCheatSheet({ cheatSheetHtml, lessonTitle }: Gramm
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Lọc từ khóa / công thức..."
-            className="w-full pl-8 pr-8 py-1.5 rounded-none border border-border/60 bg-background/60 text-foreground text-xs font-mono focus:outline-none focus:border-primary"
+            className="w-full pl-8 pr-8 py-1.5 rounded-lg border border-border/60 bg-background/60 text-foreground text-xs font-sans focus:outline-none focus:border-primary"
           />
           {searchTerm && (
             <button
               type="button"
               onClick={() => setSearchTerm('')}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-0.5 rounded-none"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground p-0.5 rounded-lg"
             >
               <X className="h-3.5 w-3.5" />
             </button>
@@ -111,7 +111,7 @@ export default function GrammarCheatSheet({ cheatSheetHtml, lessonTitle }: Gramm
         [&_th]:border-b [&_th]:border-border/60 [&_th]:py-3 [&_th]:px-3.5 [&_th]:font-semibold [&_th]:text-xs [&_th]:text-muted-foreground [&_th]:uppercase [&_th]:tracking-wider
         [&_td]:border-t [&_td]:border-border/30 [&_td]:py-3 [&_td]:px-3.5 [&_td]:text-sm [&_td]:text-foreground/90
         [&_tr:hover]:bg-muted/30 [&_tr]:transition-colors
-        [&_h2]:font-serif [&_h2]:text-base [&_h2]:font-semibold [&_h2]:mb-2.5 [&_h2]:text-foreground
+        [&_h2]:font-sans [&_h2]:text-base [&_h2]:font-semibold [&_h2]:mb-2.5 [&_h2]:text-foreground
         [&_ul]:my-1 [&_ul]:pl-4 [&_li]:my-0.5
         [&_.b-table_td:first-child]:font-semibold [&_.b-table_td:first-child]:text-foreground
       "
