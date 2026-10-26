@@ -103,7 +103,7 @@ function DailyReadingCard({ status }: { status: DailyReadingStatus }) {
 
   return (
     <Link
-      href="/practice/daily-reading"
+      href="/practice/reading-library"
       className="flex items-center gap-3 rounded-xl border border-indigo-200 bg-gradient-to-r from-indigo-50 to-white px-3 py-2.5 shadow-sm transition-all hover:border-indigo-300 hover:shadow-md active:scale-[0.99]"
     >
       <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-lg text-white shadow-sm">

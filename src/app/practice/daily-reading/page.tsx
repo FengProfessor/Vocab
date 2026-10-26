@@ -844,149 +844,31 @@ export default function DailyReadingPage() {
             </button>
           </div>
         )}
-
-        {/* Can generate today banner when viewing past exercises */}
-        {!loading && exercises.length > 0 && canGenerateToday && (
-          <div className="rounded-xl border border-indigo-200 bg-gradient-to-r from-indigo-50 to-white dark:border-indigo-900/60 dark:from-indigo-950/40 dark:to-slate-900 p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-2xs">
-            <div className="flex items-center gap-2.5">
-              <div className="p-2 rounded-lg bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 shrink-0">
-                <Sparkles className="h-4 w-4" />
-              </div>
-              <div>
-                <h3 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
-                  Hôm nay bạn chưa có bài đọc mới!
-                </h3>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                  Tạo bài đọc mới tức thì từ từ vựng và lịch ôn tập hôm nay của bạn.
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              disabled={isGenerating}
-              onClick={() => handleGenerateOnDemand()}
-              className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-indigo-600 px-4 py-2 text-xs font-bold text-white shadow-xs hover:bg-indigo-700 active:scale-95 transition-all disabled:opacity-50 shrink-0"
-            >
-              {isGenerating ? (
-                <>
-                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                  <span>{generatingStep || 'Đang tạo bài...'}</span>
-                </>
-              ) : (
-                <>
-                  <Sparkles className="h-3.5 w-3.5" />
-                  <span>Tạo bài đọc hôm nay</span>
-                </>
-              )}
-            </button>
-          </div>
-        )}
-
-        {/* Empty State: No exercises available at all */}
+{/* Empty State: No exercises available at all */}
         {!loading && !error && exercises.length === 0 && (
           <div className="mx-auto max-w-2xl rounded-2xl border border-indigo-100 bg-gradient-to-b from-indigo-50/60 via-white to-indigo-50/20 dark:border-slate-800 dark:from-slate-900 dark:via-slate-900/90 dark:to-indigo-950/30 p-6 text-center shadow-sm">
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 dark:bg-indigo-900/60 dark:text-indigo-300 ring-4 ring-indigo-50 dark:ring-indigo-950/60">
-              <BookMarked className="h-7 w-7" />
+              <Library className="h-7 w-7" />
             </div>
             <h2 className="mt-3 text-base sm:text-lg font-black text-slate-900 dark:text-slate-100">
-              Chưa có bài đọc hôm nay
+              Khám phá Thư viện 619 bài đọc chuẩn A1–C2
             </h2>
             <p className="mt-1.5 text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
-              Hệ thống tự động phân tích từ vựng và tạo bài đọc riêng cho bạn, hoặc bạn có thể tạo ngay bây giờ với AI:
+              Kho bài đọc phong phú bao quát 15 chủ đề đời sống & học thuật, kèm bản dịch song ngữ, tra từ điển tức thì và bài tập trắc nghiệm giải thích chi tiết.
             </p>
 
-            {/* Actionable button: Tạo bài đọc hôm nay với AI */}
             <div className="mt-5">
-              <button
-                type="button"
-                disabled={isGenerating}
-                onClick={() => handleGenerateOnDemand()}
-                className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-indigo-700 active:scale-95 transition-all disabled:opacity-50"
-              >
-                {isGenerating ? (
-                  <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    <span>{generatingStep || 'Đang tạo bài đọc với AI...'}</span>
-                  </>
-                ) : (
-                  <>
-                    <Sparkles className="h-4 w-4" />
-                    <span>⚡ Tạo bài đọc hôm nay với AI</span>
-                  </>
-                )}
-              </button>
-            </div>
-
-            {/* Insufficient words notice */}
-            {insufficientWordsNotice && (
-              <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-left max-w-md mx-auto text-xs text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200">
-                <div className="flex items-center gap-1.5 font-bold mb-1">
-                  <AlertCircle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
-                  <span>Cần thêm từ vựng để tạo bài cá nhân hóa</span>
-                </div>
-                <p className="text-[11px] leading-relaxed">{insufficientWordsNotice}</p>
-              </div>
-            )}
-
-            {/* Starter Packs */}
-            {starterPacks.length > 0 && (
-              <div className="mt-6 border-t border-slate-200/80 dark:border-slate-800 pt-5 text-left">
-                <div className="flex items-center gap-1.5 font-bold text-xs text-slate-800 dark:text-slate-200 mb-3">
-                  <Layers className="h-4 w-4 text-indigo-500" />
-                  <span>Chọn gói bài đọc khởi động có sẵn:</span>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {starterPacks.map((pack) => (
-                    <div
-                      key={pack.id}
-                      className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 flex flex-col justify-between hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors shadow-2xs"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between gap-1 mb-1.5">
-                          <span className="rounded-full bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200 dark:border-indigo-800 px-2 py-0.5 text-[10px] font-bold text-indigo-700 dark:text-indigo-300">
-                            {pack.level}
-                          </span>
-                          <span className="text-[10px] text-slate-400 font-medium">
-                            {pack.wordCount} từ
-                          </span>
-                        </div>
-                        <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 line-clamp-1">
-                          {pack.title}
-                        </h4>
-                        {pack.previewWords && (
-                          <p className="mt-1 text-[10px] text-slate-500 dark:text-slate-400 line-clamp-2">
-                            Từ mẫu: {pack.previewWords.join(', ')}...
-                          </p>
-                        )}
-                      </div>
-                      <button
-                        type="button"
-                        disabled={isGenerating}
-                        onClick={() => handleGenerateOnDemand(pack.id)}
-                        className="mt-3 w-full inline-flex items-center justify-center gap-1 rounded-lg bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/50 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800/80 px-2.5 py-1.5 text-xs font-bold text-indigo-700 dark:text-indigo-300 transition-colors disabled:opacity-50"
-                      >
-                        {isGenerating && generatingPackId === pack.id ? (
-                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                        ) : (
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        )}
-                        <span>Luyện đọc gói này</span>
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Quick links */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
               <Link
                 href="/practice/reading-library"
-                className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-300 bg-emerald-50 px-3.5 py-2 text-xs font-bold text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300 shadow-2xs hover:bg-emerald-100 transition-colors"
+                className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-2.5 text-xs sm:text-sm font-bold text-white shadow-md hover:bg-indigo-700 active:scale-95 transition-all"
               >
-                <Library className="h-3.5 w-3.5" />
-                <span>Kho 588 bài đọc chuẩn</span>
+                <BookOpen className="h-4 w-4" />
+                <span>Mở Thư viện bài đọc ngay →</span>
               </Link>
+            </div>
+
+            {/* Quick links */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2 border-t border-slate-200/80 dark:border-slate-800 pt-4">
               <Link
                 href="/dictionary"
                 className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 px-3.5 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 shadow-2xs hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"

@@ -223,28 +223,28 @@ export function ActionSelectionModal({
 
     case 'reading':
       title = 'Chọn chế độ Luyện đọc';
-      subtitle = 'Bài đọc hàng ngày, theo cấp độ & Part 5-7 TOEIC';
+      subtitle = 'Thư viện 619 bài đọc A1–C2 & Part 5-7 TOEIC';
       containerLayout = 'grid grid-cols-3 gap-2.5 py-1';
       desktopContainerLayout = 'grid grid-cols-3 gap-3.5 py-1';
       desktopMaxWidth = 'max-w-[540px]';
       options = [
         {
-          id: 'daily-reading',
-          icon: <FileText className="w-4 h-4 text-amber-600" />,
-          title: 'Bài đọc ngày',
-          description: 'Đoạn văn cá nhân hóa mỗi ngày',
-          href: '/practice/daily-reading',
-          badge: 'Mỗi ngày',
-          badgeColor: 'bg-amber-500 text-white',
-          iconBg: 'bg-amber-50/80 text-amber-600',
+          id: 'level-reading',
+          icon: <Layers className="w-4 h-4 text-emerald-600" />,
+          title: 'Thư viện bài đọc',
+          description: 'Kho 619 bài A1–C2 có bản dịch & quiz',
+          href: '/practice/reading-library',
+          badge: '619 bài',
+          badgeColor: 'bg-emerald-600 text-white',
+          iconBg: 'bg-emerald-50/80 text-emerald-600',
         },
         {
-          id: 'level-reading',
-          icon: <Layers className="w-4 h-4 text-sky-600" />,
-          title: 'Thư viện bài đọc',
-          description: 'Kho bài đọc A1–C2 đa dạng chủ đề',
+          id: 'daily-reading',
+          icon: <FileText className="w-4 h-4 text-sky-600" />,
+          title: 'Đọc theo chủ đề',
+          description: '15 chủ đề đời sống & học thuật',
           href: '/practice/reading-library',
-          badge: 'A1–C2',
+          badge: '15 chủ đề',
           badgeColor: 'bg-sky-600 text-white',
           iconBg: 'bg-sky-50/80 text-sky-600',
         },

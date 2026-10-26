@@ -80,7 +80,7 @@ const MODES = [
     href: '/practice/reading-library',
     emoji: '📚',
     title: 'Thư viện bài đọc · A1–C2',
-    desc: 'Kho bài đọc đa dạng chủ đề A1–C2, VSTEP, TOEIC, VOA · Đọc hiểu, đục lỗ, trắc nghiệm song song',
+    desc: 'Kho 619 bài đọc đa dạng chủ đề A1–C2, VSTEP, TOEIC, VOA · Đọc hiểu, đục lỗ, trắc nghiệm song song',
     ring: 'border-emerald-200 bg-emerald-50/70 hover:border-emerald-400 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/30',
     badge: 'bg-emerald-600',
     text: 'text-emerald-950 dark:text-emerald-100',
@@ -97,17 +97,6 @@ const MODES = [
     text: 'text-sky-950',
     sub: 'text-sky-800/80',
     arrow: 'text-sky-400',
-  },
-  {
-    href: '/practice/daily-reading',
-    emoji: '🌅',
-    title: 'Bài đọc hàng ngày',
-    desc: 'Tự động tạo đêm qua · đọc + quiz + điền từ + từ mới',
-    ring: 'border-indigo-200 bg-indigo-50/70 hover:border-indigo-400 hover:bg-indigo-50',
-    badge: 'bg-indigo-600',
-    text: 'text-indigo-900',
-    sub: 'text-indigo-700/75',
-    arrow: 'text-indigo-400',
   },
 ] as const;
 
