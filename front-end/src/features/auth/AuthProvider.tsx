@@ -16,7 +16,7 @@ import {
   readLastProfileCache,
   readLastGamificationCache,
 } from '@/lib/dashboard-snapshot-cache';
-import { UserRole } from '@/types/enums/UserRole';
+import { UserRole } from '@/types/enums';
 
 export interface AuthContextValue {
   session: AppSession | null;

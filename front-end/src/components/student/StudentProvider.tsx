@@ -1,4 +1,4 @@
-import { VocabApi } from '@/features/vocab/api';
+﻿import { VocabApi } from '@/features/vocab/api';
 import { SocialApi } from '@/features/social/api';
 import { RoadmapApi } from '@/features/roadmap/api';
 import { ReadingApi } from '@/features/reading/api';
@@ -17,7 +17,7 @@ import type { AppSession as Session } from '@/lib/app-session-types';
 import type { Profile, UserGamification } from '@/lib/supabase';
 import { AuthApi } from '@/features/auth/api';
 import { apiClient } from '@/lib/apiClient';
-import type { ApiResponse } from '@/types/api/ApiResponse';
+import type { ApiResponse } from '@/types/api';
 import { effectiveCurrentStreak } from '@/lib/gamification';
 import { authService, authStateVersion } from '@/features/auth/session';
 import {

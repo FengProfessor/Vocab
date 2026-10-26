@@ -1,4 +1,4 @@
-import { authService } from '@/features/auth/session';
+﻿import { authService } from '@/features/auth/session';
 
 /**
  * Hub thư viện pixel rộng (~100 chỗ), không sidebar.
@@ -17,7 +17,7 @@ import {
 import { useRoomPresence } from '@/hooks/useRoomPresence';
 import { AuthApi } from '@/features/auth/api';
 import { apiClient } from '@/lib/apiClient';
-import type { ApiResponse } from '@/types/api/ApiResponse';
+import type { ApiResponse } from '@/types/api';
 
 export default function HubPage() {
   const [roomId, setRoomId] = useState<string | null>(null);

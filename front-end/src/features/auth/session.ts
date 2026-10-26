@@ -1,7 +1,7 @@
 import type { AppAuthEvent, AppSession, AppUser } from '@/lib/app-session-types';
 import { SESSION_EXPIRED_EVENT, refreshAccessToken } from '@/lib/apiClient';
-import { Pkce } from '@/lib/auth/Pkce';
-import { UserRole } from '@/types/enums/UserRole';
+import { Pkce } from '@/features/auth/lib/pkce';
+import { UserRole } from '@/types/enums';
 import {
   readLastProfileCache,
   writeDashboardProfileCache,

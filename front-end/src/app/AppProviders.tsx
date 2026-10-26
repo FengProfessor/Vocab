@@ -9,7 +9,14 @@ import { AuthProvider } from '@/features/auth/AuthProvider';
 import { StudentProvider } from '@/components/student/StudentProvider';
 import { Toaster } from '@/components/ui/sonner';
 import { GlobalThemeDock } from '@/components/common/ThemeToggle';
-import { AppProvidersProps } from '@/app/types/AppProvidersProps';
+
+/**
+ * Props for the AppProviders wrapper component.
+ */
+export interface AppProvidersProps {
+  /** Application child tree. */
+  children: React.ReactNode;
+}
 
 /**
  * Singleton React Query client with generous stale windows for snappy offline-first transitions.

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { apiClient } from '@/lib/apiClient';
-import { ApiResponse } from '@/types/api/ApiResponse';
-import { AuthTokensPayload } from '@/types/auth/AuthTokensPayload';
-import { UserRole } from '@/types/enums/UserRole';
+import { ApiResponse } from '@/types/api';
+import { AuthTokensPayload } from '@/features/auth/types';
+import { UserRole } from '@/types/enums';
 import type { Profile, UserGamification } from '@/lib/supabase';
 import {
   describeError,

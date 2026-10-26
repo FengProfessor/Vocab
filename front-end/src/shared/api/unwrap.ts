@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { ApiResponse } from '@/types/api/ApiResponse';
+﻿/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ApiResponse } from '@/types/api';
 
 /**
  * Typed error thrown when a .NET `ApiResponse<T>` envelope reports `success: false`

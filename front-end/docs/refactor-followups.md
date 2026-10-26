@@ -9,5 +9,10 @@
 
 ## Các endpoint `.NET 10` cần bổ sung tiếp
 
-- [ ] **Bổ sung các endpoint `.NET 10` cho nhóm thao tác phụ đang gọi qua `callServerOriginApi`.** Bao gồm: CRUD từ vựng (`POST/PUT/DELETE /api/v1/vocab/words`, `PATCH /api/v1/vocab/words/{id}/status`), gói từ vựng (`GET/POST /api/v1/vocab/packages`), thống kê chi tiết giáo viên (`/api/v1/classrooms/analytics`, `student-detail`, `student-errors`, `leaderboard`), dịch/gợi ý từ điển (`/api/v1/dictionary/external`, `suggest`, `translate`), và quản trị đơn hàng/coupon (`GET /api/v1/billing/orders`, `GET/POST/DELETE /api/v1/billing/coupons`).
-- [ ] **Tách tài sản dữ liệu tĩnh (`src/data/toeic`, `src/data/vstep`, `src/data/vnu-bac-3`, `src/data/vocab`) sang endpoint `.NET 10` hoặc static JSON fetch khi cần giảm tiếp kích thước bundle.** Toàn bộ `src/app/api/**`, `src/shims/**`, `src/proxy.ts`, các module server-only trong `src/lib/*`, và directive `'use client'` đã được gỡ bỏ hoàn toàn; các bộ nạp đề thi hiện chạy thuần browser trong `ExamApi`.
+- [ ] **Bổ sung các endpoint `.NET 10` cho nhóm thao tác phụ đang gọi qua `callServerOriginApi`.** Bao gồm: CRUD từ vựng (`POST/PUT/DELETE /api/v1/vocab/words`, `PATCH /api/v1/vocab/words/{id}/status`), gói từ vựng (`GET/POST /api/v1/vocab/packages`), thống kê chi tiết giáo viên (`/api/v1/classrooms/analytics`, `student-detail`, `student-errors`, `leaderboard`), dịch/gợi ý từ điển (`/api/v1/dictionary/external`, `suggest`, `translate`), và quản trị đơn hàng/coupon (`GET /api/v1/billing/orders`, `GET/POST/DELETE /api/v1/billing/coupons`). Khi `.NET 10` bổ sung xong các controller này, chạy `npm run gen:api` khi bật server `.NET 10` ở `http://localhost:5000` để đồng bộ tự động vào `src/types/api/schema.d.ts`.
+- [ ] **Tách tài sản dữ liệu tĩnh (`src/data/toeic`, `src/data/vstep`, `src/data/vnu-bac-3`, `src/data/vocab`) sang endpoint `.NET 10` hoặc static JSON fetch khi cần giảm tiếp kích thước bundle.**
+
+## Tối ưu chất lượng & hiệu năng tiếp theo
+
+- [ ] **Tách nhỏ các god component/page lớn** (`src/app/student/page.tsx`, `StudentShell.tsx`, `StudentProvider.tsx`, `toeic/page.tsx`, `vstep/page.tsx`, `dictionary/page.tsx`) thành các sub-components và custom hooks nhỏ gọn.
+- [ ] **Chuẩn hoá key localStorage/sessionStorage qua helper tập trung** và bật dần các rule lint khắt khe (`no-explicit-any`, `no-console`) trên toàn bộ component cũ.

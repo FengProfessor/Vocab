@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
+﻿import { describe, expect, it } from 'vitest';
 import { ApiError, unwrapApiResponse, withResponseCompat } from '@/shared/api/unwrap';
-import type { ApiResponse } from '@/types/api/ApiResponse';
+import type { ApiResponse } from '@/types/api';
 
 describe('unwrapApiResponse & ApiError', () => {
   it('returns data when envelope is successful and data is defined', () => {

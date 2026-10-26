@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+﻿/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosError, AxiosRequestConfig } from 'axios';
 import { appConfig } from '@/config/appConfig';
 import {
@@ -7,7 +7,7 @@ import {
   refreshAccessToken,
   SESSION_EXPIRED_EVENT,
 } from '@/lib/apiClient';
-import { ApiResponse } from '@/types/api/ApiResponse';
+import { ApiResponse } from '@/types/api';
 import {
   ResponseCompat,
   unwrapApiResponse,

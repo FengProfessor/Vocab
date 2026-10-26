@@ -1,11 +1,11 @@
-import { ClassroomApi } from '@/features/classroom/api';
+﻿import { ClassroomApi } from '@/features/classroom/api';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { AuthApi } from '@/features/auth/api';
 import { apiClient } from '@/lib/apiClient';
-import type { ApiResponse } from '@/types/api/ApiResponse';
+import type { ApiResponse } from '@/types/api';
 import type { Classroom, Profile, StudentProgress } from '@/lib/supabase';
 import Link from '@/shared/router/navigation';
 import { useRouter } from '@/shared/router/navigation';

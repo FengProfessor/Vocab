@@ -1,11 +1,11 @@
-import { DictionaryApi } from '@/features/dictionary/api';
+﻿import { DictionaryApi } from '@/features/dictionary/api';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from '@/shared/router/navigation';
 import { apiClient } from '@/lib/apiClient';
-import type { ApiResponse } from '@/types/api/ApiResponse';
+import type { ApiResponse } from '@/types/api';
 import type { Word, SRSProgress, RichCollocationEntry, WordFamilyEntry, DictionaryMeaning } from '@/lib/supabase';
 import { stabilityToLevel } from '@/lib/srs';
 import { Badge } from '@/components/ui/badge';

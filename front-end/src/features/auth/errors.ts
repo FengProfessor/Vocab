@@ -1,4 +1,4 @@
-import { ApiResponse } from '@/types/api/ApiResponse';
+﻿import { ApiResponse } from '@/types/api';
 
 /**
  * Translates raw identity provider or validation error strings into user-facing Vietnamese messages.

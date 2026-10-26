@@ -1,9 +1,9 @@
-import { ClassroomApi } from '@/features/classroom/api';
+﻿import { ClassroomApi } from '@/features/classroom/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, Suspense } from 'react';
 import { apiClient } from '@/lib/apiClient';
-import type { ApiResponse } from '@/types/api/ApiResponse';
+import type { ApiResponse } from '@/types/api';
 import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   Trophy,

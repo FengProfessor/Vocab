@@ -1,9 +1,18 @@
-import axios, { AxiosError, AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import { appConfig } from '@/config/appConfig';
 import { TokenStore } from '@/features/auth/tokenStore';
-import { ApiResponse } from '@/types/api/ApiResponse';
-import { RetryableRequestConfig } from '@/lib/types/RetryableRequestConfig';
-import { RefreshResponseBody } from '@/lib/types/RefreshResponseBody';
+import { ApiResponse } from '@/types/api';
+
+/**
+ * Extended Axios request config tracking whether a 401 refresh retry has already been attempted.
+ */
+export interface RetryableRequestConfig extends InternalAxiosRequestConfig {
+  _retry?: boolean;
+}
+
+export interface RefreshResponseBody {
+  data?: { accessToken?: string; refreshToken?: string; expiresIn?: number };
+}
 
 /** Header required by the .NET server's CSRF check on every state-changing cookie-authenticated request. */
 export const CSRF_REQUEST_HEADER = 'X-LingoPro-Request';

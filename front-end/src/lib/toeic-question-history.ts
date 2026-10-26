@@ -1,4 +1,4 @@
-import { authService } from '@/features/auth/session';
+﻿import { authService } from '@/features/auth/session';
 
 /**
  * TOEIC Question History Tracker & Cloud Synchronization Protocol
@@ -13,7 +13,7 @@ import { authService } from '@/features/auth/session';
  */
 
 import { apiClient } from '@/lib/apiClient';
-import type { ApiResponse } from '@/types/api/ApiResponse';
+import type { ApiResponse } from '@/types/api';
 
 // ── 1. Storage Keys & Constants ──────────────────────────────────────────────
 

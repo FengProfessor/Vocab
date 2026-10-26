@@ -1,6 +1,23 @@
 import React from 'react';
-import { ErrorBoundaryProps } from '@/components/types/ErrorBoundaryProps';
-import { ErrorBoundaryState } from '@/components/types/ErrorBoundaryState';
+
+/**
+ * Props for the ErrorBoundary component.
+ */
+export interface ErrorBoundaryProps {
+  /** Child React element tree protected by the boundary. */
+  children: React.ReactNode;
+}
+
+/**
+ * Internal state of the ErrorBoundary component.
+ */
+export interface ErrorBoundaryState {
+  /** Whether an unhandled rendering error was caught. */
+  hasError: boolean;
+
+  /** Error message string for diagnostic display. */
+  errorMessage: string;
+}
 
 /**
  * Global React ErrorBoundary that prevents unexpected component exceptions from crashing the SPA.
