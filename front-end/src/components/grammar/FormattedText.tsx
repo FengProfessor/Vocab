@@ -63,7 +63,7 @@ export default function FormattedText({ text, className = '' }: FormattedTextPro
         // Code: `code`
         if (token.startsWith('`') && token.endsWith('`') && token.length >= 2) {
           return (
-            <code key={i} className="font-mono text-[11px] px-1 py-0.5 bg-muted/60 border border-border/60 rounded-none">
+            <code key={i} className="font-sans text-[11px] px-1 py-0.5 bg-muted/60 border border-border/60 rounded-lg">
               {token.slice(1, -1)}
             </code>
           );

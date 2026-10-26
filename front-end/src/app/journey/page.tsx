@@ -37,6 +37,10 @@ import {
   Layers,
   Flame,
   Sparkles,
+  CheckCircle2,
+  Lock,
+  Compass,
+  Trophy,
 } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
 import Link from 'next/link';
@@ -520,6 +524,27 @@ OK = học lại · Cancel = giữ nguyên.`,
     );
     return { start, review };
   }, [tree]);
+
+  const [selectedViewLevelId, setSelectedViewLevelId] = useState<string>('');
+  const [selectedStageUnitId, setSelectedStageUnitId] = useState<string>('');
+
+  const activeLevelObj = useMemo(() => {
+    if (visibleTree.start.length === 0) return null;
+    return (
+      visibleTree.start.find((l) => l.id === selectedViewLevelId) ||
+      visibleTree.start.find((l) => l.id === levelId) ||
+      visibleTree.start[0]
+    );
+  }, [visibleTree.start, selectedViewLevelId, levelId]);
+
+  const activeStageUnit = useMemo(() => {
+    if (!activeLevelObj || activeLevelObj.units.length === 0) return null;
+    return (
+      activeLevelObj.units.find((u) => u.id === selectedStageUnitId) ||
+      activeLevelObj.units.find((u) => u.steps.some((s) => s.status === 'current')) ||
+      activeLevelObj.units[0]
+    );
+  }, [activeLevelObj, selectedStageUnitId]);
 
   const enrolledTracks = useMemo(
     () => new Set(enrollments.map((e) => e.track)),
@@ -1041,7 +1066,7 @@ OK = học lại · Cancel = giữ nguyên.`,
           <div>
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground flex items-center gap-2">
               <span>Lộ Trình Học Tập</span>
-              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 uppercase tracking-wide font-mono">
+              <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-primary/10 text-primary border border-primary/20 uppercase tracking-wide font-sans">
                 {track === 'vocab'
                   ? 'Từ Vựng Cốt Lõi'
                   : track === 'thpt'
@@ -1061,16 +1086,6 @@ OK = học lại · Cancel = giữ nguyên.`,
                 : `Học phần chuẩn khung tham chiếu CEFR ${levelId} · Định hình thời gian & năng lực can-do`}
             </p>
           </div>
-
-          <Link
-            href="/student"
-            className={cn(
-              buttonVariants({ variant: 'outline', size: 'sm' }),
-              'min-h-[36px] rounded px-2.5 flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground shadow-2xs'
-            )}
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> Bảng điều khiển
-          </Link>
         </div>
 
         {/* Multi-Track Switcher */}
@@ -1275,91 +1290,265 @@ OK = học lại · Cancel = giữ nguyên.`,
             </div>
           )}
 
-          {visibleTree.start.map((level) => {
-            const exit = getExitStandard(level.id);
-            const levelUnitsTotal = level.units.length;
-            const levelUnitsDone = level.units.filter((u) =>
-              u.steps.length > 0 && u.steps.every((s) => s.status === 'completed'),
-            ).length;
-
-            return (
-              <section key={level.id} className="space-y-3">
-                {/* Level Banner */}
-                <div
-                  className={`rounded-lg bg-gradient-to-r ${LEVEL_COLORS[level.id] ?? 'from-slate-600 to-slate-700'} p-4 text-white shadow-xs space-y-2.5`}
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <div>
-                      <p className="text-xs font-bold uppercase tracking-wider opacity-85">
-                        {level.id.startsWith('lop-')
-                          ? `Chương Trình Lớp ${level.id.replace('lop-', '')}`
-                          : `Cấp Độ Chuẩn ${level.id}`}
-                      </p>
-                      <h2 className="text-lg sm:text-xl font-bold tracking-tight mt-0.5">
-                        {level.titleVi}
-                      </h2>
-                    </div>
-
-                    <div className="text-right shrink-0">
-                      <span className="text-xs opacity-85 block">Tiến độ cấp</span>
-                      <span className="text-sm sm:text-base font-bold tabular-nums">
-                        {levelUnitsDone}/{levelUnitsTotal} chặng
+          {/* Level / Type Selector Tabs when multiple levels exist */}
+          {visibleTree.start.length > 1 && (
+            <div className="rounded-xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-2 shadow-2xs">
+              <div className="flex items-center justify-between px-1.5 pb-1.5 text-[11px] font-bold uppercase tracking-wider text-muted-foreground">
+                <span>Chọn cấp độ / khối lớp để xem các chặng:</span>
+                <span>{visibleTree.start.length} cấp độ</span>
+              </div>
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 scrollbar-none">
+                {visibleTree.start.map((lvl) => {
+                  const isActiveLvl = activeLevelObj?.id === lvl.id;
+                  const lvlDone = lvl.units.filter(
+                    (u) => u.steps.length > 0 && u.steps.every((s) => s.status === 'completed'),
+                  ).length;
+                  return (
+                    <button
+                      key={lvl.id}
+                      type="button"
+                      onClick={() => {
+                        setSelectedViewLevelId(lvl.id);
+                        setSelectedStageUnitId('');
+                      }}
+                      className={cn(
+                        'min-h-[42px] inline-flex items-center gap-2 rounded-lg border px-3.5 py-2 text-xs font-bold transition-all shrink-0 cursor-pointer',
+                        isActiveLvl
+                          ? 'border-indigo-600 bg-indigo-600 text-white shadow-xs'
+                          : 'border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/50 text-slate-700 dark:text-slate-300 hover:border-indigo-400',
+                      )}
+                    >
+                      <span className="font-extrabold uppercase">
+                        {lvl.id.startsWith('lop-') ? `Lớp ${lvl.id.replace('lop-', '')}` : lvl.id}
                       </span>
+                      <span className="opacity-85 hidden sm:inline">· {lvl.titleVi}</span>
+                      <span
+                        className={cn(
+                          'rounded px-1.5 py-0.5 text-[10px] font-bold tabular-nums',
+                          isActiveLvl
+                            ? 'bg-white/20 text-white'
+                            : 'bg-slate-200/70 dark:bg-slate-700 text-slate-600 dark:text-slate-300',
+                        )}
+                      >
+                        {lvlDone}/{lvl.units.length}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {activeLevelObj &&
+            [activeLevelObj].map((level) => {
+              const exit = getExitStandard(level.id);
+              const levelUnitsTotal = level.units.length;
+              const levelUnitsDone = level.units.filter(
+                (u) => u.steps.length > 0 && u.steps.every((s) => s.status === 'completed'),
+              ).length;
+              const currentStageIdx = activeStageUnit
+                ? level.units.findIndex((u) => u.id === activeStageUnit.id)
+                : 0;
+              const prevStageUnit =
+                currentStageIdx > 0 ? level.units[currentStageIdx - 1] : null;
+              const nextStageUnit =
+                currentStageIdx >= 0 && currentStageIdx + 1 < level.units.length
+                  ? level.units[currentStageIdx + 1]
+                  : null;
+
+              return (
+                <section key={level.id} className="space-y-3">
+                  {/* Level Banner */}
+                  <div
+                    className={`rounded-lg bg-gradient-to-r ${LEVEL_COLORS[level.id] ?? 'from-slate-600 to-slate-700'} p-4 text-white shadow-xs space-y-2.5`}
+                  >
+                    <div className="flex items-center justify-between gap-3">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider opacity-85">
+                          {level.id.startsWith('lop-')
+                            ? `Chương Trình Lớp ${level.id.replace('lop-', '')}`
+                            : `Cấp Độ Chuẩn ${level.id}`}
+                        </p>
+                        <h2 className="text-lg sm:text-xl font-bold tracking-tight mt-0.5">
+                          {level.titleVi}
+                        </h2>
+                      </div>
+
+                      <div className="text-right shrink-0">
+                        <span className="text-xs opacity-85 block">Tiến độ cấp</span>
+                        <span className="text-sm sm:text-base font-bold tabular-nums">
+                          {levelUnitsDone}/{levelUnitsTotal} chặng
+                        </span>
+                      </div>
                     </div>
+
+                    <p className="text-xs opacity-90 leading-relaxed">
+                      {level.description}
+                    </p>
+
+                    {/* Level Exit Standards (Can-Do) */}
+                    {exit && (
+                      <details className="rounded-md bg-black/20 p-2.5 text-xs backdrop-blur-xs transition-all">
+                        <summary className="cursor-pointer font-semibold select-none flex items-center justify-between">
+                          <span className="flex items-center gap-1.5">
+                            <Target className="w-4 h-4" />
+                            Chuẩn đầu ra cấp độ (Can-Do Skills)
+                          </span>
+                          <span className="text-[11px] opacity-80">Chi tiết ▼</span>
+                        </summary>
+
+                        <div className="mt-2 pt-2 border-t border-white/10 space-y-2">
+                          {exit.targetLemmas && (
+                            <p className="text-xs font-semibold text-emerald-200">
+                              Kho từ vựng mục tiêu: {exit.targetLemmas}
+                            </p>
+                          )}
+                          <p className="font-semibold text-xs opacity-90">Năng lực đạt được sau cấp độ:</p>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
+                            {exit.canDo.map((skill, idx) => (
+                              <div key={idx} className="flex items-start gap-1.5">
+                                <span className="text-emerald-300 font-bold shrink-0">✓</span>
+                                <span className="opacity-95">{skill}</span>
+                              </div>
+                            ))}
+                          </div>
+                          {exit.notYet && exit.notYet.length > 0 && (
+                            <p className="text-[11px] opacity-75 pt-0.5">
+                              Chưa bao gồm: {exit.notYet.join(' · ')}
+                            </p>
+                          )}
+                        </div>
+                      </details>
+                    )}
                   </div>
 
-                  <p className="text-xs opacity-90 leading-relaxed">
-                    {level.description}
-                  </p>
-
-                  {/* Level Exit Standards (Can-Do) */}
-                  {exit && (
-                    <details className="rounded-md bg-black/20 p-2.5 text-xs backdrop-blur-xs transition-all">
-                      <summary className="cursor-pointer font-semibold select-none flex items-center justify-between">
-                        <span className="flex items-center gap-1.5">
-                          <Target className="w-4 h-4" />
-                          Chuẩn đầu ra cấp độ (Can-Do Skills)
-                        </span>
-                        <span className="text-[11px] opacity-80">Chi tiết ▼</span>
-                      </summary>
-
-                      <div className="mt-2 pt-2 border-t border-white/10 space-y-2">
-                        {exit.targetLemmas && (
-                          <p className="text-xs font-semibold text-emerald-200">
-                            Kho từ vựng mục tiêu: {exit.targetLemmas}
-                          </p>
-                        )}
-                        <p className="font-semibold text-xs opacity-90">Năng lực đạt được sau cấp độ:</p>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs">
-                          {exit.canDo.map((skill, idx) => (
-                            <div key={idx} className="flex items-start gap-1.5">
-                              <span className="text-emerald-300 font-bold shrink-0">✓</span>
-                              <span className="opacity-95">{skill}</span>
-                            </div>
-                          ))}
+                  {/* ── INTERACTIVE STAGE MAP OVERVIEW (BẢN ĐỒ CHẶNG HỌC TẬP) ── */}
+                  {level.units.length > 0 && (
+                    <div
+                      data-testid={`stage-map-overview-${level.id}`}
+                      className="rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 p-3.5 sm:p-4 shadow-xs"
+                    >
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <div className="flex items-center gap-2">
+                          <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-xs">
+                            <Compass className="w-4 h-4" />
+                          </span>
+                          <div>
+                            <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-slate-100 leading-tight">
+                              Bản đồ Chặng (Chọn Chặng để xem chi tiết)
+                            </h3>
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                              Bấm vào từng Stage để chuyển đổi nội dung lộ trình của chặng đó
+                            </p>
+                          </div>
                         </div>
-                        {exit.notYet && exit.notYet.length > 0 && (
-                          <p className="text-[11px] opacity-75 pt-0.5">
-                            Chưa bao gồm: {exit.notYet.join(' · ')}
-                          </p>
-                        )}
+                        <span className="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-black bg-indigo-50 text-indigo-700 dark:bg-indigo-950/70 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/60 tabular-nums">
+                          {levelUnitsDone}/{levelUnitsTotal} Stage hoàn tất
+                        </span>
                       </div>
-                    </details>
+
+                      {/* Horizontal Connected Stage Map Chain */}
+                      <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 pt-1 scrollbar-none">
+                        {level.units.map((u, idx) => {
+                          const totalS = u.steps?.length || 0;
+                          const doneS = u.steps?.filter((s) => s.status === 'completed').length || 0;
+                          const isDone = totalS > 0 && doneS === totalS;
+                          const isCurr =
+                            nextActionableStep?.unit.id === u.id ||
+                            u.steps.some((s) => s.status === 'current');
+                          const isSelectedStage = activeStageUnit?.id === u.id;
+                          const isUnitLocked =
+                            !isDone &&
+                            !isCurr &&
+                            (u.steps?.every((s) => s.status === 'locked') ?? false);
+                          const pct =
+                            typeof u.progressPct === 'number'
+                              ? u.progressPct
+                              : totalS > 0
+                              ? Math.round((doneS / totalS) * 100)
+                              : 0;
+
+                          return (
+                            <div key={u.id} className="flex items-center shrink-0">
+                              {idx > 0 && (
+                                <div
+                                  className={cn(
+                                    'w-5 sm:w-8 h-1 rounded-full mx-1 transition-colors',
+                                    isDone
+                                      ? 'bg-emerald-500'
+                                      : isCurr
+                                      ? 'bg-gradient-to-r from-emerald-500 to-indigo-500'
+                                      : 'bg-slate-200 dark:bg-slate-800'
+                                  )}
+                                />
+                              )}
+                              <button
+                                type="button"
+                                onClick={() => setSelectedStageUnitId(u.id)}
+                                data-testid={`stage-map-node-${u.id}`}
+                                className={cn(
+                                  'group/node relative flex flex-col items-center px-3 py-2 rounded-2xl border-2 transition-all cursor-pointer min-w-[96px] text-center',
+                                  isSelectedStage
+                                    ? 'border-indigo-600 dark:border-indigo-400 bg-indigo-50/90 dark:bg-indigo-950/60 shadow-sm ring-2 ring-indigo-500/25 scale-[1.03]'
+                                    : isDone
+                                    ? 'border-emerald-300 dark:border-emerald-800 bg-emerald-50/60 dark:bg-emerald-950/30 hover:border-emerald-400'
+                                    : 'border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/40 opacity-85 hover:opacity-100 hover:border-indigo-300'
+                                )}
+                              >
+                                <div
+                                  className={cn(
+                                    'w-8 h-8 rounded-xl flex items-center justify-center text-sm font-black mb-1 shadow-2xs',
+                                    isSelectedStage
+                                      ? 'bg-indigo-600 text-white'
+                                      : isDone
+                                      ? 'bg-emerald-500 text-white'
+                                      : isCurr
+                                      ? 'bg-indigo-500 text-white'
+                                      : 'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                                  )}
+                                >
+                                  {isDone ? (
+                                    <CheckCircle2 className="w-4 h-4" />
+                                  ) : isUnitLocked ? (
+                                    <Lock className="w-3.5 h-3.5" />
+                                  ) : (
+                                    <span>{u.badgeIcon || `S${u.index}`}</span>
+                                  )}
+                                </div>
+                                <span className="text-[10px] font-black uppercase tracking-wider text-slate-900 dark:text-slate-100">
+                                  Stage {u.index}
+                                </span>
+                                <span
+                                  className={cn(
+                                    'text-[10px] font-bold tabular-nums',
+                                    isSelectedStage
+                                      ? 'text-indigo-600 dark:text-indigo-400'
+                                      : isDone
+                                      ? 'text-emerald-600 dark:text-emerald-400'
+                                      : 'text-slate-400 dark:text-slate-500'
+                                  )}
+                                >
+                                  {isDone ? 'Hoàn tất' : isCurr ? `${pct}% · Đang học` : `${pct}%`}
+                                </span>
+                              </button>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
                   )}
-                </div>
 
-                {/* Module Cards Grid */}
-                <div className="space-y-3">
-                  {level.units.map((u) => {
-                    const isCurrentUnit =
-                      nextActionableStep?.unit.id === u.id ||
-                      u.steps.some((s) => s.status === 'current');
-
-                    return (
+                  {/* Active Selected Stage Detail Card */}
+                  {activeStageUnit && (
+                    <div className="space-y-3">
                       <ModuleCard
-                        key={u.id}
-                        unit={u}
-                        isCurrentUnit={isCurrentUnit}
+                        key={activeStageUnit.id}
+                        unit={activeStageUnit}
+                        isCurrentUnit={
+                          nextActionableStep?.unit.id === activeStageUnit.id ||
+                          activeStageUnit.steps.some((s) => s.status === 'current')
+                        }
+                        defaultExpanded={true}
                         busyStepId={busyStep}
                         onStepClick={(step, u) => {
                           setPreviewStep(step);
@@ -1369,12 +1558,40 @@ OK = học lại · Cancel = giữ nguyên.`,
                           setBadgeUnit(u);
                         }}
                       />
-                    );
-                  })}
-                </div>
-              </section>
-            );
-          })}
+
+                      {/* Quick Stage Prev / Next Switcher */}
+                      {level.units.length > 1 && (
+                        <div className="flex items-center justify-between gap-2 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 px-3.5 py-2.5 shadow-2xs">
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            disabled={!prevStageUnit}
+                            onClick={() => prevStageUnit && setSelectedStageUnitId(prevStageUnit.id)}
+                            className="min-h-[38px] text-xs font-bold rounded-xl"
+                          >
+                            ← {prevStageUnit ? `Chặng ${prevStageUnit.index}` : 'Chặng trước'}
+                          </Button>
+                          <span className="text-xs font-bold text-muted-foreground tabular-nums">
+                            Đang xem Chặng {activeStageUnit.index} / {level.units.length}
+                          </span>
+                          <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            disabled={!nextStageUnit}
+                            onClick={() => nextStageUnit && setSelectedStageUnitId(nextStageUnit.id)}
+                            className="min-h-[38px] text-xs font-bold rounded-xl"
+                          >
+                            {nextStageUnit ? `Chặng ${nextStageUnit.index}` : 'Chặng sau'} →
+                          </Button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </section>
+              );
+            })}
         </div>
 
         {/* Lower levels review section (free review) */}

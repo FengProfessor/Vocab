@@ -1174,11 +1174,11 @@ function GrammarVisualTopicDeckInner({
           onPlaySpeech={playSpeech}
         />
         {/* Bottom progression / end-of-deck CTA bar */}
-        <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none">
+        <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-lg">
           {isLastCard ? (
             <>
               <div className="text-xs text-foreground font-medium">
-                <span className="font-mono text-[11px] font-bold uppercase text-emerald-600 dark:text-emerald-400 mr-1.5">
+                <span className="font-sans text-[11px] font-bold uppercase text-emerald-600 dark:text-emerald-400 mr-1.5">
                   ✓ Đã xem hết {cardsToRender.length}/{cardsToRender.length} ý
                 </span>
                 Bạn đã nắm xong phần lý thuyết trực quan của bài này!
@@ -1191,7 +1191,7 @@ function GrammarVisualTopicDeckInner({
                       grammarAudio.stopAll();
                       setCardIndex(0);
                     }}
-                    className="min-h-[40px] px-3 py-1.5 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-mono text-xs uppercase tracking-wider rounded-none inline-flex items-center gap-1.5 transition-colors"
+                    className="min-h-[40px] px-3 py-1.5 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-sans text-xs uppercase tracking-wider rounded-lg inline-flex items-center gap-1.5 transition-colors"
                   >
                     <RotateCcw className="h-3.5 w-3.5 shrink-0" />
                     <span>Xem lại từ Ý 1</span>
@@ -1200,7 +1200,7 @@ function GrammarVisualTopicDeckInner({
                 <Link
                   href={`/grammar/practice?topic=${encodeURIComponent(topicSlug)}`}
                   onClick={() => grammarAudio.stopAll()}
-                  className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-bold rounded-none inline-flex items-center gap-1.5 transition-colors"
+                  className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-sans text-xs uppercase tracking-wider font-bold rounded-lg inline-flex items-center gap-1.5 transition-colors"
                 >
                   <Dumbbell className="h-3.5 w-3.5 shrink-0" />
                   <span>Làm bài tập ngay</span>
@@ -1210,7 +1210,7 @@ function GrammarVisualTopicDeckInner({
             </>
           ) : (
             <>
-              <div className="text-xs text-muted-foreground font-mono">
+              <div className="text-xs text-muted-foreground font-sans">
                 Đang ở <strong className="text-foreground">Ý {index + 1}/{cardsToRender.length}</strong> • Tiếp theo:{' '}
                 <span className="text-foreground font-semibold">{navPills[index + 1]?.subLabel || `Ý ${index + 2}`}</span>
               </div>
@@ -1220,7 +1220,7 @@ function GrammarVisualTopicDeckInner({
                   grammarAudio.stopAll();
                   setCardIndex(index + 1);
                 }}
-                className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-semibold rounded-none inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors"
+                className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-sans text-xs uppercase tracking-wider font-semibold rounded-lg inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors"
               >
                 <span>Qua Ý {index + 2}</span>
                 <ArrowRight className="h-3.5 w-3.5 shrink-0" />
@@ -1235,9 +1235,9 @@ function GrammarVisualTopicDeckInner({
   return (
     <div className="space-y-6">
       {/* Top Banner Header */}
-      <div className="border border-border p-4 bg-muted/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-none">
+      <div className="border border-border p-4 bg-muted/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-lg">
         <div>
-          <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
+          <div className="font-sans text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
             <Sparkles className="h-3.5 w-3.5 text-primary" />
             <span>Thẻ học trực quan & Tình huống thực tế</span>
           </div>
@@ -1247,10 +1247,10 @@ function GrammarVisualTopicDeckInner({
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
-          <span className="font-mono text-xs px-2.5 py-1 bg-background border border-border text-foreground font-semibold rounded-none">
+          <span className="font-sans text-xs px-2.5 py-1 bg-background border border-border text-foreground font-semibold rounded-lg">
             {cardsToRender.length} Tình huống
           </span>
-          <span className="font-mono text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-semibold rounded-none">
+          <span className="font-sans text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-semibold rounded-lg">
             Ví dụ cơ bản A0-A1
           </span>
         </div>
@@ -1258,12 +1258,12 @@ function GrammarVisualTopicDeckInner({
 
       {/* Filter Tabs (if more than 2 categories) */}
       {cardsToRender.length > 2 && (
-        <div className="flex flex-wrap items-center gap-1.5 text-xs font-mono">
+        <div className="flex flex-wrap items-center gap-1.5 text-xs font-sans">
           <span className="text-muted-foreground mr-1 uppercase tracking-wider text-[11px]">Xem:</span>
           <button
             type="button"
             onClick={() => setActiveFilter('all')}
-            className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 border transition-colors rounded-none flex items-center justify-center ${
+            className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 border transition-colors rounded-lg flex items-center justify-center ${
               activeFilter === 'all'
                 ? 'border-foreground bg-foreground text-background font-bold'
                 : 'border-border bg-background text-muted-foreground hover:text-foreground'
@@ -1276,7 +1276,7 @@ function GrammarVisualTopicDeckInner({
               key={i}
               type="button"
               onClick={() => setActiveFilter(c.category || `cat-${i}`)}
-              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 border transition-colors rounded-none flex items-center justify-center ${
+              className={`min-h-[36px] sm:min-h-[44px] px-3 py-1.5 border transition-colors rounded-lg flex items-center justify-center ${
                 activeFilter === (c.category || `cat-${i}`)
                   ? 'border-foreground bg-foreground text-background font-bold'
                   : 'border-border bg-background text-muted-foreground hover:text-foreground'
@@ -1663,7 +1663,7 @@ function VisualTopicCardItem({
       role="tabpanel"
       id={`pronoun-panel-Ý ${cardIndex + 1}`}
       aria-labelledby={`card-nav-tab-Ý ${cardIndex + 1}`}
-      className={`relative overflow-hidden border border-border bg-card rounded-none shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between ${
+      className={`relative overflow-hidden border border-border bg-card rounded-lg shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between ${
         hoveredIdx !== null ? 'z-20' : 'z-10'
       }`}
     >
@@ -1677,7 +1677,7 @@ function VisualTopicCardItem({
             <div className="text-xs text-muted-foreground mt-0.5 leading-snug line-clamp-2 sm:truncate">{card.badge}</div>
           )}
         </div>
-        <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground rounded-none shrink-0 tabular-nums">
+        <span className="font-sans text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 border border-border bg-background text-muted-foreground rounded-lg shrink-0 tabular-nums">
           Ý {cardIndex + 1}
         </span>
       </div>
@@ -1700,7 +1700,7 @@ function VisualTopicCardItem({
             />
             {/* Top Concept Badge */}
             <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1.5">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-background/90 backdrop-blur-xs border border-border text-foreground shadow-xs">
+              <span className="font-sans text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-background/90 backdrop-blur-xs border border-border text-foreground shadow-xs">
                 {card.badge || `Tình huống ${currentIdx + 1}`}
               </span>
             </div>
@@ -1709,7 +1709,7 @@ function VisualTopicCardItem({
             {currentExample && (
               <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-background/95 via-background/85 to-transparent p-2.5 sm:p-3 pt-6 flex items-end justify-between gap-2 border-t border-border/40">
                 <div className="min-w-0 flex-1">
-                  <div className="font-serif text-xs sm:text-sm font-bold text-foreground leading-snug line-clamp-2">
+                  <div className="font-sans text-xs sm:text-sm font-bold text-foreground leading-snug line-clamp-2">
                     <HighlightedSentence text={currentExample.en} highlight={currentHighlight} />
                   </div>
                   {currentExample.vi && (
@@ -1721,7 +1721,7 @@ function VisualTopicCardItem({
                 <button
                   type="button"
                   onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentExample.audio || (currentIdx === 0 ? card.audio : undefined))}
-                  className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 bg-background hover:bg-muted border border-border rounded-none shadow-xs transition-colors shrink-0"
+                  className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 bg-background hover:bg-muted border border-border rounded-lg shadow-xs transition-colors shrink-0"
                   aria-label={`Nghe câu: ${currentExample.en}`}
                   title="Nghe câu ví dụ đang chọn"
                 >
@@ -1737,16 +1737,16 @@ function VisualTopicCardItem({
         ) : (
           <div className={`relative w-full bg-gradient-to-br from-primary/[0.08] via-background to-muted/30 p-4 sm:p-5 flex flex-col justify-between border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[260px]' : 'h-48 sm:h-60'}`}>
             <div className="flex items-center justify-between gap-2">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 border border-primary/30 bg-primary/10 text-primary">
+              <span className="font-sans text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 border border-primary/30 bg-primary/10 text-primary">
                 {card.badge || 'Trọng tâm ngữ pháp'}
               </span>
-              <span className="font-mono text-[10px] text-muted-foreground uppercase">
+              <span className="font-sans text-[10px] text-muted-foreground uppercase">
                 Tình huống 0{currentIdx + 1}/0{card.examples.length}
               </span>
             </div>
 
             <div className="text-center py-2.5 px-1 my-auto space-y-2">
-              <div className="font-serif text-base sm:text-lg font-bold text-foreground tracking-tight leading-snug">
+              <div className="font-sans text-base sm:text-lg font-bold text-foreground tracking-tight leading-snug">
                 <HighlightedSentence text={currentExample.en} highlight={currentHighlight} />
               </div>
               {currentExample.vi && (
@@ -1755,7 +1755,7 @@ function VisualTopicCardItem({
                 </div>
               )}
               {currentExample.highlightNote && (
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/30 text-[11px] text-amber-900 dark:text-amber-200 rounded-none text-left">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/30 text-[11px] text-amber-900 dark:text-amber-200 rounded-lg text-left">
                   <Sparkles className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
                   <span className="font-medium">{currentExample.highlightNote}</span>
                 </div>
@@ -1764,8 +1764,8 @@ function VisualTopicCardItem({
 
             <div className="bg-background/90 backdrop-blur-xs border border-border p-2 sm:p-2.5 flex items-center justify-between gap-2 shadow-xs">
               <div className="min-w-0 flex-1">
-                <div className="font-mono text-[10px] uppercase text-muted-foreground font-semibold">Quy tắc trọng tâm</div>
-                <div className="font-mono text-[11px] text-foreground font-medium truncate">
+                <div className="font-sans text-[10px] uppercase text-muted-foreground font-semibold">Quy tắc trọng tâm</div>
+                <div className="font-sans text-[11px] text-foreground font-medium truncate">
                   {card.ruleSummary || card.title}
                 </div>
               </div>
@@ -1784,9 +1784,9 @@ function VisualTopicCardItem({
 
         {/* Examples List: Touch & Hover In-Place Stage Swap */}
         <div className="p-3.5 space-y-2">
-          <div className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground flex items-center justify-between">
+          <div className="font-sans text-[11px] uppercase tracking-wider text-muted-foreground flex items-center justify-between">
             <span className="font-semibold text-foreground">Chọn câu để xem và nghe</span>
-            <span className="text-primary font-mono text-[10px] font-bold">
+            <span className="text-primary font-sans text-[10px] font-bold">
               {currentIdx + 1}/{visibleExamples.length}{exampleLimit && !showAllExamples && card.examples.length > exampleLimit ? ` (+${card.examples.length - exampleLimit})` : ''}
             </span>
           </div>
@@ -1807,7 +1807,7 @@ function VisualTopicCardItem({
                     }
                   }}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`min-h-[44px] p-2.5 border transition-all duration-150 rounded-none cursor-pointer flex items-center justify-between gap-2 ${
+                  className={`min-h-[44px] p-2.5 border transition-all duration-150 rounded-lg cursor-pointer flex items-center justify-between gap-2 ${
                     isHovered || isSelected
                       ? 'border-primary bg-primary/[0.08] shadow-xs ring-1 ring-primary/25'
                       : isSpeaking
@@ -1821,7 +1821,7 @@ function VisualTopicCardItem({
                     onClick={() => setActiveIdx(exIdx)}
                     className="flex items-start gap-2 min-w-0 flex-1 text-left min-h-[44px]"
                   >
-                    <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 border border-border bg-background text-muted-foreground shrink-0 mt-0.5">
+                    <span className="font-sans text-[10px] font-bold px-1.5 py-0.5 border border-border bg-background text-muted-foreground shrink-0 mt-0.5">
                       0{exIdx + 1}
                     </span>
                     <div className="space-y-0.5 min-w-0 flex-1">
@@ -1840,7 +1840,7 @@ function VisualTopicCardItem({
                       onPlaySpeech(`${card.title}-${exIdx}`, ex.en, ex.audio || (exIdx === 0 ? card.audio : undefined));
                     }}
                     aria-label={`Nghe phát âm: ${ex.en}`}
-                    className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 transition-colors shrink-0 rounded-none ${
+                    className={`min-h-[44px] min-w-[44px] flex items-center justify-center p-2 transition-colors shrink-0 rounded-lg ${
                       isSpeaking || isHovered
                         ? 'text-primary'
                         : 'text-muted-foreground hover:text-foreground'
@@ -1863,7 +1863,7 @@ function VisualTopicCardItem({
                 setHoveredIdx(null);
                 grammarAudio.stopAll();
               }}
-              className="min-h-[44px] w-full text-xs font-mono uppercase tracking-wider text-primary hover:bg-muted border border-border"
+              className="min-h-[44px] w-full text-xs font-sans uppercase tracking-wider text-primary hover:bg-muted border border-border"
             >
               {showAllExamples ? 'Thu gọn ví dụ' : `Xem thêm ${card.examples.length - exampleLimit} ví dụ`}
             </button>
@@ -1875,7 +1875,7 @@ function VisualTopicCardItem({
       {(card.tip || card.ruleSummary) && (
         <div className="p-3 sm:p-3.5 pt-0 space-y-2">
           {card.tip && (
-            <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2 rounded-none">
+            <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 text-xs text-amber-900 dark:text-amber-200 flex items-start gap-2 rounded-lg">
               <Lightbulb className="h-4 w-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
               <div className="leading-relaxed">
                 <strong className="font-semibold text-amber-800 dark:text-amber-300">Mẹo nhớ: </strong>
@@ -1885,7 +1885,7 @@ function VisualTopicCardItem({
           )}
 
           {card.ruleSummary && (
-            <div className="font-mono text-[11px] p-2 bg-muted/20 border border-border/70 text-foreground/80 flex items-center gap-1.5 rounded-none">
+            <div className="font-sans text-[11px] p-2 bg-muted/20 border border-border/70 text-foreground/80 flex items-center gap-1.5 rounded-lg">
               <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />
               <span className="break-words leading-tight"><FormattedText text={card.ruleSummary} /></span>
             </div>

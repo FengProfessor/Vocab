@@ -122,8 +122,8 @@ export default function GrammarReferenceTable({
 
     return (
       <div className="space-y-4 sm:space-y-6">
-        <div className="border border-border p-3.5 sm:p-4 bg-muted/20 rounded-none">
-          <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
+        <div className="border border-border p-3.5 sm:p-4 bg-muted/20 rounded-lg">
+          <div className="font-sans text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
             <Table className="h-3.5 w-3.5 text-primary shrink-0" />
             <span>Bảng chia động từ To Be (Hiện tại & Quá khứ)</span>
           </div>
@@ -135,36 +135,36 @@ export default function GrammarReferenceTable({
         {/* Mobile Stacked Cards */}
         <div className="sm:hidden space-y-2.5">
           {toBeRows.map((row) => (
-            <div key={row.subject} className="border border-border bg-card p-3 space-y-2.5 rounded-none">
+            <div key={row.subject} className="border border-border bg-card p-3 space-y-2.5 rounded-lg">
               <div className="flex items-center justify-between gap-2 border-b border-border/60 pb-2">
                 <div>
-                  <div className="font-mono text-sm font-bold text-foreground">{row.subject}</div>
+                  <div className="font-sans text-sm font-bold text-foreground">{row.subject}</div>
                   <div className="text-[11px] text-muted-foreground font-sans">{row.meaning}</div>
                 </div>
                 <button
                   type="button"
                   onClick={() => grammarAudio.play(row.audioId, row.exampleEn)}
-                  className="min-h-[40px] min-w-[40px] flex items-center justify-center p-2 border border-border bg-muted/20 hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 rounded-none"
+                  className="min-h-[40px] min-w-[40px] flex items-center justify-center p-2 border border-border bg-muted/20 hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 rounded-lg"
                   title="Nghe câu ví dụ"
                   aria-label={`Nghe câu ví dụ: ${row.exampleEn}`}
                 >
                   <Volume2 className="h-4 w-4" />
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-1.5 font-mono text-xs">
-                <div className="p-2 border border-border/60 bg-primary/5 rounded-none">
+              <div className="grid grid-cols-2 gap-1.5 font-sans text-xs">
+                <div className="p-2 border border-border/60 bg-primary/5 rounded-lg">
                   <div className="text-[10px] uppercase text-muted-foreground">Khẳng định (+)</div>
                   <div className="font-bold text-primary">{row.affirmative}</div>
                 </div>
-                <div className="p-2 border border-border/60 bg-rose-500/5 rounded-none">
+                <div className="p-2 border border-border/60 bg-rose-500/5 rounded-lg">
                   <div className="text-[10px] uppercase text-muted-foreground">Phủ định (-)</div>
                   <div className="font-bold text-rose-700 dark:text-rose-400">{row.negative}</div>
                 </div>
-                <div className="p-2 border border-border/60 bg-muted/15 rounded-none">
+                <div className="p-2 border border-border/60 bg-muted/15 rounded-lg">
                   <div className="text-[10px] uppercase text-muted-foreground">Nghi vấn (?)</div>
                   <div className="font-bold text-foreground">{row.question}</div>
                 </div>
-                <div className="p-2 border border-border/60 bg-muted/15 rounded-none">
+                <div className="p-2 border border-border/60 bg-muted/15 rounded-lg">
                   <div className="text-[10px] uppercase text-muted-foreground">Quá khứ đơn</div>
                   <div className="font-bold text-foreground">{row.past}</div>
                 </div>
@@ -180,8 +180,8 @@ export default function GrammarReferenceTable({
         </div>
 
         {/* Desktop Table */}
-        <div className="hidden sm:block border border-border overflow-x-auto rounded-none bg-card">
-          <table className="w-full text-left font-mono text-xs divide-y divide-border">
+        <div className="hidden sm:block border border-border overflow-x-auto rounded-lg bg-card">
+          <table className="w-full text-left font-sans text-xs divide-y divide-border">
             <thead className="bg-muted/40 uppercase text-muted-foreground">
               <tr>
                 <th className="p-3 border-r border-border min-w-[120px] sticky left-0 bg-muted/95 z-10 backdrop-blur-xs">Chủ ngữ (Ngôi)</th>
@@ -316,8 +316,8 @@ export default function GrammarReferenceTable({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-          <div className="border border-border p-3.5 bg-card rounded-none space-y-1">
-            <div className="font-mono uppercase font-bold text-primary flex items-center gap-1.5">
+          <div className="border border-border p-3.5 bg-card rounded-lg space-y-1">
+            <div className="font-sans uppercase font-bold text-primary flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
               1. Vai trò của To Be
             </div>
@@ -325,8 +325,8 @@ export default function GrammarReferenceTable({
               To be kết nối chủ ngữ với tính từ (<em>She is smart</em>), danh từ chỉ nghề nghiệp/danh tính (<em>He is a doctor</em>), hoặc cụm giới từ chỉ địa điểm (<em>We are at home</em>).
             </p>
           </div>
-          <div className="border border-border p-3.5 bg-card rounded-none space-y-1">
-            <div className="font-mono uppercase font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
+          <div className="border border-border p-3.5 bg-card rounded-lg space-y-1">
+            <div className="font-sans uppercase font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
               <AlertCircle className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
               2. Lỗi hay gặp
             </div>
@@ -343,8 +343,8 @@ export default function GrammarReferenceTable({
   if (topicSlug === 'demonstratives') {
     return (
       <div className="space-y-4 sm:space-y-6">
-        <div className="border border-border p-3.5 sm:p-4 bg-muted/20 rounded-none">
-          <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
+        <div className="border border-border p-3.5 sm:p-4 bg-muted/20 rounded-lg">
+          <div className="font-sans text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
             <Table className="h-3.5 w-3.5 text-primary shrink-0" />
             <span>Ma trận Từ chỉ định (Demonstratives Matrix)</span>
           </div>
@@ -355,17 +355,17 @@ export default function GrammarReferenceTable({
 
         {/* Mobile Stacked Cards */}
         <div className="sm:hidden space-y-2.5">
-          <div className="border border-border bg-card p-3 space-y-2 rounded-none">
-            <div className="font-mono text-xs font-bold uppercase text-foreground border-b border-border/60 pb-1.5">
+          <div className="border border-border bg-card p-3 space-y-2 rounded-lg">
+            <div className="font-sans text-xs font-bold uppercase text-foreground border-b border-border/60 pb-1.5">
               Ở gần (Near) — Trong tầm tay / hiện tại
             </div>
-            <div className="grid grid-cols-2 gap-2 font-mono text-xs">
-              <div className="p-2 border border-border/60 bg-primary/5 rounded-none">
+            <div className="grid grid-cols-2 gap-2 font-sans text-xs">
+              <div className="p-2 border border-border/60 bg-primary/5 rounded-lg">
                 <div className="text-[10px] uppercase text-muted-foreground">Số ít (Singular)</div>
                 <div className="text-sm font-bold text-primary">This</div>
                 <div className="text-[11px] font-sans text-muted-foreground">Cái này, người này</div>
               </div>
-              <div className="p-2 border border-border/60 bg-emerald-500/5 rounded-none">
+              <div className="p-2 border border-border/60 bg-emerald-500/5 rounded-lg">
                 <div className="text-[10px] uppercase text-muted-foreground">Số nhiều (Plural)</div>
                 <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">These</div>
                 <div className="text-[11px] font-sans text-muted-foreground">Những cái/người này</div>
@@ -377,17 +377,17 @@ export default function GrammarReferenceTable({
             </div>
           </div>
 
-          <div className="border border-border bg-card p-3 space-y-2 rounded-none">
-            <div className="font-mono text-xs font-bold uppercase text-foreground border-b border-border/60 pb-1.5">
+          <div className="border border-border bg-card p-3 space-y-2 rounded-lg">
+            <div className="font-sans text-xs font-bold uppercase text-foreground border-b border-border/60 pb-1.5">
               Ở xa (Far) — Ngoài tầm với / đã qua
             </div>
-            <div className="grid grid-cols-2 gap-2 font-mono text-xs">
-              <div className="p-2 border border-border/60 bg-primary/5 rounded-none">
+            <div className="grid grid-cols-2 gap-2 font-sans text-xs">
+              <div className="p-2 border border-border/60 bg-primary/5 rounded-lg">
                 <div className="text-[10px] uppercase text-muted-foreground">Số ít (Singular)</div>
                 <div className="text-sm font-bold text-primary">That</div>
                 <div className="text-[11px] font-sans text-muted-foreground">Cái kia, người đó</div>
               </div>
-              <div className="p-2 border border-border/60 bg-emerald-500/5 rounded-none">
+              <div className="p-2 border border-border/60 bg-emerald-500/5 rounded-lg">
                 <div className="text-[10px] uppercase text-muted-foreground">Số nhiều (Plural)</div>
                 <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">Those</div>
                 <div className="text-[11px] font-sans text-muted-foreground">Những cái/người kia</div>
@@ -401,8 +401,8 @@ export default function GrammarReferenceTable({
         </div>
 
         {/* Desktop Table */}
-        <div className="hidden sm:block border border-border overflow-x-auto rounded-none bg-card">
-          <table className="w-full text-left font-mono text-xs divide-y divide-border">
+        <div className="hidden sm:block border border-border overflow-x-auto rounded-lg bg-card">
+          <table className="w-full text-left font-sans text-xs divide-y divide-border">
             <thead className="bg-muted/40 uppercase text-muted-foreground">
               <tr>
                 <th className="p-3 border-r border-border min-w-[120px] sticky left-0 bg-muted/95 z-10 backdrop-blur-xs">Khoảng cách</th>
@@ -453,8 +453,8 @@ export default function GrammarReferenceTable({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-          <div className="border border-border p-3.5 bg-card rounded-none space-y-1">
-            <div className="font-mono uppercase font-bold text-primary flex items-center gap-1.5">
+          <div className="border border-border p-3.5 bg-card rounded-lg space-y-1">
+            <div className="font-sans uppercase font-bold text-primary flex items-center gap-1.5">
               <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
               Sự hòa hợp danh từ
             </div>
@@ -462,8 +462,8 @@ export default function GrammarReferenceTable({
               <em>This / That</em> đi với danh từ số ít hoặc không đếm được (<em>this water, that car</em>). <em>These / Those</em> bắt buộc đi với danh từ số nhiều (<em>these pens, those books</em>).
             </p>
           </div>
-          <div className="border border-border p-3.5 bg-card rounded-none space-y-1">
-            <div className="font-mono uppercase font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
+          <div className="border border-border p-3.5 bg-card rounded-lg space-y-1">
+            <div className="font-sans uppercase font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
               <AlertCircle className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
               Lỗi hay gặp
             </div>
@@ -504,8 +504,8 @@ export default function GrammarReferenceTable({
   return (
     <div className="space-y-4 sm:space-y-6 animate-in fade-in duration-200">
       {/* Table Header */}
-      <div className="border border-border p-3.5 sm:p-4 bg-muted/20 rounded-none">
-        <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
+      <div className="border border-border p-3.5 sm:p-4 bg-muted/20 rounded-lg">
+        <div className="font-sans text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
           <Table className="h-3.5 w-3.5 text-primary shrink-0" />
           <span>Bảng quy tắc chuẩn hóa: {topicTitle}</span>
         </div>
@@ -518,11 +518,11 @@ export default function GrammarReferenceTable({
       <TenseTimeline slug={topicSlug} titleVi={topicTitleVi} />
 
       {/* Chú giải ký hiệu cho người mới bắt đầu (A0/A1) */}
-      <div className="p-2.5 sm:p-3 border border-border bg-muted/15 rounded-none">
-        <div className="font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
+      <div className="p-2.5 sm:p-3 border border-border bg-muted/15 rounded-lg">
+        <div className="font-sans text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
           Chú giải ký hiệu cho người mới:
         </div>
-        <div className="flex flex-wrap gap-1.5 text-[11px] font-mono">
+        <div className="flex flex-wrap gap-1.5 text-[11px] font-sans">
           <span className="px-2 py-0.5 border border-sky-500/40 bg-sky-500/10 text-sky-800 dark:text-sky-300">
             <strong>S</strong> = Chủ ngữ (Ai / Cái gì)
           </span>
@@ -544,7 +544,7 @@ export default function GrammarReferenceTable({
       {/* 1. Core Formula Table */}
       {formulaRows.length > 0 ? (
         <div className="space-y-2">
-          <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1.5">
+          <div className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1.5">
             <BookOpen className="h-3.5 w-3.5 text-primary shrink-0" />
             <span>1. Bảng công thức cú pháp chuẩn</span>
           </div>
@@ -555,46 +555,46 @@ export default function GrammarReferenceTable({
               const exEn = resolveExampleEn(r, i);
               const exVi = resolveExampleVi(r, i);
               return (
-                <div key={i} className="border border-border bg-card p-3 space-y-1.5 rounded-none">
-                  <div className="font-mono text-xs font-bold uppercase text-primary">
+                <div key={i} className="border border-border bg-card p-3 space-y-1.5 rounded-lg">
+                  <div className="font-sans text-xs font-bold uppercase text-primary">
                     <FormattedText text={r.form} />
                   </div>
                   {hasThirdCol ? (
-                    <div className="grid grid-cols-1 gap-1.5 font-mono text-xs">
-                      <div className="p-2 border border-border/60 bg-muted/15 text-foreground rounded-none break-words">
+                    <div className="grid grid-cols-1 gap-1.5 font-sans text-xs">
+                      <div className="p-2 border border-border/60 bg-muted/15 text-foreground rounded-lg break-words">
                         <span className="text-[10px] uppercase text-muted-foreground block">I / You / We / They:</span>
                         <span className="font-bold"><FormattedText text={r.base || r.structure || '—'} /></span>
                       </div>
-                      <div className="p-2 border border-border/60 bg-indigo-500/5 text-indigo-700 dark:text-indigo-400 rounded-none break-words">
+                      <div className="p-2 border border-border/60 bg-indigo-500/5 text-indigo-700 dark:text-indigo-400 rounded-lg break-words">
                         <span className="text-[10px] uppercase text-muted-foreground block">He / She / It:</span>
                         <span className="font-bold"><FormattedText text={r.third || r.thirdPerson || '—'} /></span>
                       </div>
                     </div>
                   ) : hasPluralCol ? (
-                    <div className="grid grid-cols-1 gap-1.5 font-mono text-xs">
-                      <div className="p-2 border border-border/60 bg-muted/15 text-foreground rounded-none break-words">
+                    <div className="grid grid-cols-1 gap-1.5 font-sans text-xs">
+                      <div className="p-2 border border-border/60 bg-muted/15 text-foreground rounded-lg break-words">
                         <span className="text-[10px] uppercase text-muted-foreground block">Số ít (Singular):</span>
                         <span className="font-bold"><FormattedText text={String(r.singular || '—')} /></span>
                       </div>
-                      <div className="p-2 border border-border/60 bg-indigo-500/5 text-indigo-700 dark:text-indigo-400 rounded-none break-words">
+                      <div className="p-2 border border-border/60 bg-indigo-500/5 text-indigo-700 dark:text-indigo-400 rounded-lg break-words">
                         <span className="text-[10px] uppercase text-muted-foreground block">Số nhiều (Plural):</span>
                         <span className="font-bold"><FormattedText text={String(r.plural || '—')} /></span>
                       </div>
                     </div>
                   ) : (
-                    <div className="p-2 border border-border/60 bg-muted/15 font-mono text-xs font-bold text-foreground rounded-none break-words">
+                    <div className="p-2 border border-border/60 bg-muted/15 font-sans text-xs font-bold text-foreground rounded-lg break-words">
                       <FormattedText text={resolveStructure(r)} />
                     </div>
                   )}
                   {Boolean(r.note) && (
-                    <div className="text-[11px] font-mono text-primary/90">
+                    <div className="text-[11px] font-sans text-primary/90">
                       Lưu ý: <FormattedText text={String(r.note)} />
                     </div>
                   )}
                   {exEn && (
                     <div className="text-xs font-sans pt-0.5 space-y-0.5">
                       <div className="font-medium text-foreground">
-                        <span className="font-mono text-[10px] uppercase text-muted-foreground mr-1">VD:</span>
+                        <span className="font-sans text-[10px] uppercase text-muted-foreground mr-1">VD:</span>
                         <FormattedText text={exEn} />
                       </div>
                       {exVi && (
@@ -610,8 +610,8 @@ export default function GrammarReferenceTable({
           </div>
 
           {/* Desktop Table */}
-          <div className="hidden sm:block border border-border overflow-x-auto rounded-none bg-card">
-            <table className="w-full text-left font-mono text-xs divide-y divide-border">
+          <div className="hidden sm:block border border-border overflow-x-auto rounded-lg bg-card">
+            <table className="w-full text-left font-sans text-xs divide-y divide-border">
               <thead className="bg-muted/40 uppercase text-muted-foreground">
                 <tr>
                   <th className="p-3 border-r border-border min-w-[130px] sticky left-0 bg-muted/95 z-10 backdrop-blur-xs">Dạng thể</th>
@@ -736,7 +736,7 @@ export default function GrammarReferenceTable({
           </div>
 
           {formulaNote && (
-            <div className="p-3 border border-border bg-muted/10 text-xs text-muted-foreground flex items-start gap-2 rounded-none">
+            <div className="p-3 border border-border bg-muted/10 text-xs text-muted-foreground flex items-start gap-2 rounded-lg">
               <Info className="h-3.5 w-3.5 text-primary shrink-0 mt-0.5" />
               <span><FormattedText text={formulaNote} /></span>
             </div>
@@ -768,9 +768,9 @@ export default function GrammarReferenceTable({
                 color: 'text-emerald-700 dark:text-emerald-400',
               },
             ].map((item) => (
-              <div key={item.form} className="border border-border bg-card p-3 space-y-1.5 rounded-none">
-                <div className="font-mono text-xs font-bold uppercase text-foreground">{item.form}</div>
-                <div className={`p-2 border border-border/60 bg-muted/15 font-mono text-xs font-bold rounded-none ${item.color}`}>
+              <div key={item.form} className="border border-border bg-card p-3 space-y-1.5 rounded-lg">
+                <div className="font-sans text-xs font-bold uppercase text-foreground">{item.form}</div>
+                <div className={`p-2 border border-border/60 bg-muted/15 font-sans text-xs font-bold rounded-lg ${item.color}`}>
                   {item.structure}
                 </div>
                 <div className="text-xs font-sans pt-0.5">
@@ -781,8 +781,8 @@ export default function GrammarReferenceTable({
             ))}
           </div>
 
-          <div className="hidden sm:block border border-border overflow-x-auto rounded-none bg-card">
-            <table className="w-full text-left font-mono text-xs divide-y divide-border">
+          <div className="hidden sm:block border border-border overflow-x-auto rounded-lg bg-card">
+            <table className="w-full text-left font-sans text-xs divide-y divide-border">
               <thead className="bg-muted/40 uppercase text-muted-foreground">
                 <tr>
                   <th className="p-3 border-r border-border min-w-[130px] sticky left-0 bg-muted/95 z-10 backdrop-blur-xs">Cấu trúc (Form)</th>
@@ -845,7 +845,7 @@ export default function GrammarReferenceTable({
       {/* 2. Morphology / Spelling Rules Table */}
       {rules.length > 0 && (
         <div className="space-y-2">
-          <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1.5">
+          <div className="font-sans text-xs uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1.5">
             <Sparkles className="h-3.5 w-3.5 text-indigo-500 shrink-0" />
             <span>2. Bảng quy tắc biến thể & chia đuôi</span>
           </div>
@@ -853,16 +853,16 @@ export default function GrammarReferenceTable({
           {/* Mobile Stacked Rules Cards */}
           <div className="sm:hidden space-y-2">
             {rules.map((ruleItem, i) => (
-              <div key={i} className="border border-border bg-card p-3 space-y-1.5 rounded-none">
-                <div className="font-mono text-xs font-semibold text-foreground">
+              <div key={i} className="border border-border bg-card p-3 space-y-1.5 rounded-lg">
+                <div className="font-sans text-xs font-semibold text-foreground">
                   <FormattedText text={ruleItem.case} />
                 </div>
-                <div className="p-2 border border-border/60 bg-primary/5 font-mono text-xs font-bold text-primary rounded-none break-words">
+                <div className="p-2 border border-border/60 bg-primary/5 font-sans text-xs font-bold text-primary rounded-lg break-words">
                   <FormattedText text={ruleItem.rule} />
                 </div>
                 {ruleItem.example && (
                   <div className="text-xs text-muted-foreground font-sans pt-0.5">
-                    <span className="font-mono text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
+                    <span className="font-sans text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
                     <HighlightedSentence
                       text={ruleItem.example}
                       highlight={detectGrammarKeywords(ruleItem.example, topicSlug, topicTitle)}
@@ -874,8 +874,8 @@ export default function GrammarReferenceTable({
           </div>
 
           {/* Desktop Table */}
-          <div className="hidden sm:block border border-border overflow-x-auto rounded-none bg-card">
-            <table className="w-full text-left font-mono text-xs divide-y divide-border">
+          <div className="hidden sm:block border border-border overflow-x-auto rounded-lg bg-card">
+            <table className="w-full text-left font-sans text-xs divide-y divide-border">
               <thead className="bg-muted/40 uppercase text-muted-foreground">
                 <tr>
                   <th className="p-3 border-r border-border min-w-[160px]">Trường hợp áp dụng</th>
@@ -909,7 +909,7 @@ export default function GrammarReferenceTable({
       {/* 3. Common Mistakes Comparison Table */}
       {mistakes.length > 0 && (
         <div className="space-y-2">
-          <div className="font-mono text-xs uppercase tracking-wider text-rose-700 dark:text-rose-400 font-semibold flex items-center gap-1.5">
+          <div className="font-sans text-xs uppercase tracking-wider text-rose-700 dark:text-rose-400 font-semibold flex items-center gap-1.5">
             <AlertTriangle className="h-3.5 w-3.5 text-rose-600 shrink-0" />
             <span>3. Lỗi hay gặp & Cách sửa chuẩn xác</span>
           </div>
@@ -917,12 +917,12 @@ export default function GrammarReferenceTable({
           {/* Mobile Stacked Mistakes Cards */}
           <div className="sm:hidden space-y-2">
             {mistakes.map((m, i) => (
-              <div key={i} className="border border-border bg-card p-3 space-y-1.5 rounded-none">
-                <div className="flex items-start gap-2 font-mono text-xs text-rose-700 dark:text-rose-400">
+              <div key={i} className="border border-border bg-card p-3 space-y-1.5 rounded-lg">
+                <div className="flex items-start gap-2 font-sans text-xs text-rose-700 dark:text-rose-400">
                   <span className="font-bold shrink-0">✕ SAI:</span>
                   <span className="break-words"><FormattedText text={m.wrong} /></span>
                 </div>
-                <div className="flex items-start gap-2 font-mono text-xs text-emerald-700 dark:text-emerald-400 font-bold">
+                <div className="flex items-start gap-2 font-sans text-xs text-emerald-700 dark:text-emerald-400 font-bold">
                   <span className="shrink-0">✓ ĐÚNG:</span>
                   <span className="break-words"><FormattedText text={m.right} /></span>
                 </div>
@@ -936,8 +936,8 @@ export default function GrammarReferenceTable({
           </div>
 
           {/* Desktop Table */}
-          <div className="hidden sm:block border border-border overflow-x-auto rounded-none bg-card">
-            <table className="w-full text-left font-mono text-xs divide-y divide-border">
+          <div className="hidden sm:block border border-border overflow-x-auto rounded-lg bg-card">
+            <table className="w-full text-left font-sans text-xs divide-y divide-border">
               <thead className="bg-rose-500/10 uppercase text-muted-foreground border-b border-rose-500/20">
                 <tr>
                   <th className="p-3 border-r border-border text-rose-700 dark:text-rose-400 font-bold min-w-[180px]">
@@ -971,8 +971,8 @@ export default function GrammarReferenceTable({
 
       {/* 4. Signals & Context Clues */}
       {signals.length > 0 && (
-        <div className="p-3.5 border border-border bg-muted/10 space-y-2 rounded-none">
-          <div className="font-mono text-xs uppercase tracking-wider font-semibold text-foreground flex items-center gap-1.5">
+        <div className="p-3.5 border border-border bg-muted/10 space-y-2 rounded-lg">
+          <div className="font-sans text-xs uppercase tracking-wider font-semibold text-foreground flex items-center gap-1.5">
             <Info className="h-3.5 w-3.5 text-primary" />
             <span>Dấu hiệu nhận biết & Từ nhận diện</span>
           </div>
@@ -980,7 +980,7 @@ export default function GrammarReferenceTable({
             {signals.map((sig, i) => (
               <span
                 key={i}
-                className="px-2 py-0.5 font-mono text-xs border border-border bg-background text-foreground rounded-none"
+                className="px-2 py-0.5 font-sans text-xs border border-border bg-background text-foreground rounded-lg"
               >
                 <FormattedText text={sig} />
               </span>
@@ -991,8 +991,8 @@ export default function GrammarReferenceTable({
 
       {/* Summary Notes */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-        <div className="border border-border p-3.5 bg-card rounded-none space-y-1">
-          <div className="font-mono uppercase font-bold text-primary flex items-center gap-1.5">
+        <div className="border border-border p-3.5 bg-card rounded-lg space-y-1">
+          <div className="font-sans uppercase font-bold text-primary flex items-center gap-1.5">
             <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
             Bản chất cấu trúc
           </div>
@@ -1001,8 +1001,8 @@ export default function GrammarReferenceTable({
           </p>
         </div>
 
-        <div className="border border-border p-3.5 bg-card rounded-none space-y-1">
-          <div className="font-mono uppercase font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
+        <div className="border border-border p-3.5 bg-card rounded-lg space-y-1">
+          <div className="font-sans uppercase font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
             <AlertCircle className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
             Lời khuyên khi áp dụng
           </div>

@@ -187,6 +187,8 @@ function getInitialTopicId(): string | null {
 export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) {
   const [selectedStage, setSelectedStage] = useState<1 | 2 | 3>(getInitialStage);
   const [isBedrockExpanded, setIsBedrockExpanded] = useState<boolean>(getInitialBedrock);
+  const [selectedBedrockTier, setSelectedBedrockTier] = useState<1 | 2 | 3 | 4 | 5>(1);
+  const [topicPage, setTopicPage] = useState<number>(1);
   const [expandedTopicId, setExpandedTopicId] = useState<string | null>(getInitialTopicId);
   const [playingWord, setPlayingWord] = useState<string | null>(null);
 
@@ -360,6 +362,7 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
     setSelectedStage(sNum);
     setExpandedTopicId(null);
     setIsBedrockExpanded(false);
+    setTopicPage(1);
   };
 
   const handleTabKeyDown = (
@@ -391,42 +394,63 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
 
   return (
     <div className="space-y-2.5 pb-12 sm:pb-6" data-testid="vocab-roadmap-section">
-      {/* ── R1. STAGE SWITCHER & MICRO PROGRESS ── */}
-      <div className="rounded-md border border-border/80 bg-card/70 p-2 sm:p-2.5 shadow-2xs">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          {/* Stage Tabs */}
+      {/* ── R1. STAGE PROGRESSION MAP & MICRO PROGRESS ── */}
+      <div className="rounded-2xl border-2 border-indigo-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 sm:p-4 shadow-xs">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          {/* Connected 3-Stage Stepper Tabs */}
           <div
             role="tablist"
             aria-label="Chọn chặng lộ trình từ vựng"
-            className="flex items-center gap-1 p-0.5 rounded bg-muted/50 border border-border/50 overflow-x-auto no-scrollbar w-full sm:w-auto"
+            className="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200/70 dark:border-slate-700/70 overflow-x-auto no-scrollbar w-full sm:w-auto"
           >
-            {([1, 2, 3] as const).map((sNum) => {
+            {([1, 2, 3] as const).map((sNum, idx) => {
               const sc = STAGE_CONFIGS[sNum];
               const isCurrent = selectedStage === sNum;
+              const isPassed = sNum < selectedStage;
               return (
-                <button
-                  key={`stage-pill-${sNum}`}
-                  id={`stage-tab-${sNum}`}
-                  type="button"
-                  role="tab"
-                  tabIndex={isCurrent ? 0 : -1}
-                  aria-selected={isCurrent}
-                  aria-controls="stage-tabpanel"
-                  onClick={() => handleStageSelect(sNum)}
-                  onKeyDown={(e) => handleTabKeyDown(e, sNum)}
-                  className={cn(
-                    'min-h-[44px] flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded px-2.5 sm:px-3 py-1 text-xs font-semibold transition-all shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary touch-manipulation',
-                    isCurrent
-                      ? 'bg-background text-foreground shadow-2xs border border-border/80 font-bold'
-                      : 'text-muted-foreground hover:text-foreground hover:bg-background/40'
+                <div key={`stage-pill-${sNum}`} className="flex items-center flex-1 sm:flex-initial">
+                  {idx > 0 && (
+                    <span
+                      className={cn(
+                        'hidden sm:inline-block w-3 h-0.5 mx-0.5 rounded-full',
+                        sNum <= selectedStage
+                          ? 'bg-indigo-500'
+                          : 'bg-slate-300 dark:bg-slate-700'
+                      )}
+                    />
                   )}
-                >
-                  <span className="text-sm">{sc.icon}</span>
-                  <span className="whitespace-nowrap">Chặng {sNum}</span>
-                  <span className="text-[10px] opacity-75 font-semibold whitespace-nowrap hidden sm:inline">
-                    · {sc.level}
-                  </span>
-                </button>
+                  <button
+                    id={`stage-tab-${sNum}`}
+                    type="button"
+                    role="tab"
+                    tabIndex={isCurrent ? 0 : -1}
+                    aria-selected={isCurrent}
+                    aria-controls="stage-tabpanel"
+                    onClick={() => handleStageSelect(sNum)}
+                    onKeyDown={(e) => handleTabKeyDown(e, sNum)}
+                    className={cn(
+                      'min-h-[44px] w-full flex items-center justify-center gap-1.5 rounded-xl px-3 sm:px-3.5 py-1.5 text-xs font-semibold transition-all shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary touch-manipulation cursor-pointer',
+                      isCurrent
+                        ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-500/25 font-extrabold'
+                        : isPassed
+                        ? 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-bold'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-foreground hover:bg-background/60'
+                    )}
+                  >
+                    <span className="text-sm">{sc.icon}</span>
+                    <span className="whitespace-nowrap">Chặng {sNum}</span>
+                    <span
+                      className={cn(
+                        'text-[10px] font-bold whitespace-nowrap hidden sm:inline px-1.5 py-0.2 rounded',
+                        isCurrent
+                          ? 'bg-white/20 text-white'
+                          : 'opacity-75'
+                      )}
+                    >
+                      {sc.level}
+                    </span>
+                  </button>
+                </div>
               );
             })}
           </div>
@@ -561,9 +585,33 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                 </button>
               </div>
 
-              {/* 5 Tiers - Minimalist High Density Layout */}
-              <div className="space-y-2">
-                {([1, 2, 3, 4, 5] as const).map((tierNum) => {
+              {/* 5 Tiers - Interactive Tier Selector Tabs */}
+              <div className="space-y-2.5">
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                  {([1, 2, 3, 4, 5] as const).map((tNum) => {
+                    const isSelectedTier = selectedBedrockTier === tNum;
+                    return (
+                      <button
+                        key={`tier-tab-${tNum}`}
+                        type="button"
+                        onClick={() => setSelectedBedrockTier(tNum)}
+                        className={cn(
+                          'min-h-[36px] inline-flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-bold transition-all shrink-0 cursor-pointer',
+                          isSelectedTier
+                            ? 'border-amber-500 bg-amber-500 text-white shadow-2xs'
+                            : 'border-border/80 bg-background text-muted-foreground hover:text-foreground hover:border-amber-400',
+                        )}
+                      >
+                        <span>Tầng {tNum}</span>
+                        <span className="text-[10px] opacity-85 hidden sm:inline">
+                          · {TIER_META[tNum].badge}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {([selectedBedrockTier] as const).map((tierNum) => {
                   const tierMeta = TIER_META[tierNum];
                   const tierPacks = tierGroups[tierNum] || [];
 
@@ -574,7 +622,7 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                     >
                       <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-1.5">
-                          <span className="rounded border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-mono text-[10px] font-bold text-amber-800 dark:text-amber-300">
+                          <span className="rounded border border-amber-500/20 bg-amber-500/10 px-1.5 py-0.5 font-sans text-[10px] font-bold text-amber-800 dark:text-amber-300">
                             TẦNG {tierNum}
                           </span>
                           <h5 className={`text-xs font-bold ${tierMeta.color}`}>
@@ -729,7 +777,9 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
         </div>
 
         <div className="space-y-1.5">
-          {(currentStageData?.topics || []).map((topic: VocabStageTopic) => {
+          {(currentStageData?.topics || [])
+            .slice((topicPage - 1) * 6, topicPage * 6)
+            .map((topic: VocabStageTopic) => {
             const isExpanded = expandedTopicId === topic.id;
             const topicWordsInMastered = topic.words.filter((w) =>
               masteredWords.has(w.word.toLowerCase())
@@ -994,6 +1044,33 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
             );
           })}
         </div>
+
+        {(currentStageData?.topics || []).length > 6 && (
+          <div className="flex items-center justify-between gap-2 pt-2">
+            <span className="text-xs text-muted-foreground tabular-nums">
+              Hiển thị {(topicPage - 1) * 6 + 1}–
+              {Math.min(topicPage * 6, (currentStageData?.topics || []).length)} /{' '}
+              {(currentStageData?.topics || []).length} chủ đề
+            </span>
+            <div className="flex items-center gap-1.5">
+              {[1, 2].map((pNum) => (
+                <button
+                  key={pNum}
+                  type="button"
+                  onClick={() => setTopicPage(pNum)}
+                  className={cn(
+                    'min-h-[34px] rounded-lg border px-3 py-1 text-xs font-bold transition-colors cursor-pointer',
+                    topicPage === pNum
+                      ? 'border-indigo-600 bg-indigo-600 text-white'
+                      : 'border-border bg-card text-muted-foreground hover:text-foreground',
+                  )}
+                >
+                  Phần {pNum} ({(pNum - 1) * 6 + 1}–{pNum * 6})
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

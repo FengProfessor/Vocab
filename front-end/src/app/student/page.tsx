@@ -27,11 +27,10 @@ import {
   xpToLevel,
 } from '@/lib/gamification';
 import { STREAK_MILESTONES } from '@/lib/encouragement';
-import { Mascot, type MascotMood } from '@/components/gamification/Mascot';
-import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { ProTrialMilestoneCard } from '@/components/gamification/ProTrialMilestoneCard';
 import type { MilestonePopupPayload } from '@/components/gamification/MilestonePopup';
 import { StudentShell } from '@/components/student/StudentShell';
+import { LearningAnalyticsPanel } from '@/components/student/LearningAnalyticsPanel';
 import { NotificationBell } from '@/components/NotificationBell';
 import { EnableNotifications } from '@/components/EnableNotifications';
 import { ActionSelectionModal, type ActionSelectionType } from '@/components/student/ActionSelectionModal';
@@ -51,7 +50,6 @@ import {
   readLastDailyReadingCache,
   writeDailyReadingCache,
 } from '@/lib/dashboard-snapshot-cache';
-import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
 import { STAMPEDE_MODE } from '@/lib/stampede';
 import { parseIpa } from '@/lib/study';
 import { getAllVideoWatchProgress } from '@/lib/listening-recommendation';
@@ -244,6 +242,22 @@ export default function StudentDashboard() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [wordsOffset, setWordsOffset] = useState(() => initialWords?.length ?? 0);
   const WORDS_PAGE_SIZE = 20;
+  const [avgStabilityDays, setAvgStabilityDays] = useState<number | null>(null);
+  const [retentionRate, setRetentionRate] = useState<number | null>(null);
+  const [grammarDueCount, setGrammarDueCount] = useState<number>(0);
+  const [skillScores, setSkillScores] = useState<{
+    vocabScore: number;
+    grammarScore: number;
+    reflexScore: number;
+    readingScore: number;
+    listeningScore: number;
+  } | null>(null);
+  const [quizTrend, setQuizTrend] = useState<
+    { score: number; max_score: number; completed_at: string; quiz_type: string }[]
+  >([]);
+  const [serverWeakWords, setServerWeakWords] = useState<
+    { word: string; meaning: string; level: number; stability: number }[]
+  >([]);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
@@ -415,13 +429,39 @@ export default function StudentDashboard() {
     if (hasNew) setNewCount(data.newCount!);
     if (hasReview) setReviewDueCount(data.reviewDueCount!);
     let parsedLevels: number[] | undefined;
-    // Không ghi đè chart L1–L6 bằng [0,0,…] từ poll summary (không levels)
     if (Array.isArray(data.levelCounts) && data.levelCounts.length === 6) {
       const next = data.levelCounts.map((n) => Number(n) || 0);
-      if (next.some((n) => n > 0)) {
-        parsedLevels = next;
-        setLevelCounts(next);
-      }
+      parsedLevels = next;
+      setLevelCounts(next);
+    }
+    const anyData = data as Record<string, any>;
+    if (typeof anyData.avgStabilityDays === 'number') {
+      setAvgStabilityDays(anyData.avgStabilityDays);
+    }
+    if (typeof anyData.retentionRatePercent === 'number') {
+      setRetentionRate(anyData.retentionRatePercent);
+    }
+    if (typeof anyData.grammarDueCount === 'number') {
+      setGrammarDueCount(anyData.grammarDueCount);
+    }
+    if (anyData.skillScores && typeof anyData.skillScores === 'object') {
+      setSkillScores({
+        vocabScore: Number(anyData.skillScores.vocabScore ?? 0),
+        grammarScore: Number(anyData.skillScores.grammarScore ?? 0),
+        reflexScore: Number(anyData.skillScores.reflexScore ?? 0),
+        readingScore: Number(anyData.skillScores.readingScore ?? 0),
+        listeningScore: Number(anyData.skillScores.listeningScore ?? 0),
+      });
+    }
+    if (Array.isArray(anyData.weakWords)) {
+      setServerWeakWords(
+        anyData.weakWords.map((w: any) => ({
+          word: String(w.word || ''),
+          meaning: String(w.translation || w.meaning || ''),
+          level: Number(w.level ?? 1),
+          stability: Number(Number(w.stability ?? 0).toFixed(1)),
+        })),
+      );
     }
     if (data.classroomId) setClassroomId(data.classroomId);
     setCountsReady(true);
@@ -450,32 +490,83 @@ export default function StudentDashboard() {
     }
   };
 
-  /** Heatmap + streak liên tiếp + phân tách từ mới/ôn tập hôm nay (stats lite). Gọi sau shell. */
+  /** Heatmap + streak liên tiếp + phân tích dữ liệu học tập từ server (/api/student/stats). Gọi sau shell. */
   const loadActivityStats = (userId?: string) => {
     const uid = userId || profile?.id;
-    void authFetch('/api/student/stats?lite=1', {})
+    void authFetch('/api/student/stats', {})
       .then((r) => r.json())
       .then((st) => {
         if (!st?.success) return;
-        const activity: { date: string; count: number }[] = st.data?.dailyActivity ?? [];
+        const payload = st.data || st;
+        const activity: { date: string; count: number }[] = payload.dailyActivity ?? [];
         setDailyActivity(activity);
-        if (typeof st.data?.studyStreak === 'number') {
-          setStudyStreak(st.data.studyStreak);
+        if (typeof payload.studyStreak === 'number') {
+          setStudyStreak(payload.studyStreak);
         }
         const totalToday =
-          typeof st.data?.todayWords === 'number'
-            ? st.data.todayWords
-            : typeof st.data?.todayKey === 'string'
-            ? (activity.find((a) => a.date === st.data.todayKey)?.count ?? 0)
+          typeof payload.todayWords === 'number'
+            ? payload.todayWords
+            : typeof payload.todayKey === 'string'
+            ? (activity.find((a) => a.date === payload.todayKey)?.count ?? 0)
             : 0;
         setTodayWords(totalToday);
-        const nextTodayNew = typeof st.data?.todayNewWords === 'number' ? st.data.todayNewWords : undefined;
-        const nextTodayReview = typeof st.data?.todayReviewWords === 'number' ? st.data.todayReviewWords : undefined;
+        const nextTodayNew = typeof payload.todayNewWords === 'number' ? payload.todayNewWords : undefined;
+        const nextTodayReview = typeof payload.todayReviewWords === 'number' ? payload.todayReviewWords : undefined;
         if (nextTodayNew !== undefined) {
           setTodayNewWords(nextTodayNew);
         }
         if (nextTodayReview !== undefined) {
           setTodayReviewWords(nextTodayReview);
+        }
+        if (typeof payload.avgStability === 'number') {
+          setAvgStabilityDays(payload.avgStability);
+        }
+        if (typeof payload.retentionRate === 'number') {
+          setRetentionRate(payload.retentionRate);
+        }
+        if (typeof payload.grammarDueCount === 'number') {
+          setGrammarDueCount(payload.grammarDueCount);
+        }
+        if (payload.wordBreakdown && typeof payload.wordBreakdown === 'object') {
+          const wb = payload.wordBreakdown;
+          const nextLevels = [
+            Number(wb.l1 ?? wb.level1 ?? 0),
+            Number(wb.l2 ?? wb.level2 ?? 0),
+            Number(wb.l3 ?? wb.level3 ?? 0),
+            Number(wb.l4 ?? wb.level4 ?? 0),
+            Number(wb.l5 ?? wb.level5 ?? 0),
+            Number(wb.l6 ?? wb.level6 ?? 0),
+          ];
+          setLevelCounts(nextLevels);
+        }
+        if (payload.skillScores && typeof payload.skillScores === 'object') {
+          setSkillScores({
+            vocabScore: Number(payload.skillScores.vocabScore ?? 0),
+            grammarScore: Number(payload.skillScores.grammarScore ?? 0),
+            reflexScore: Number(payload.skillScores.reflexScore ?? 0),
+            readingScore: Number(payload.skillScores.readingScore ?? 0),
+            listeningScore: Number(payload.skillScores.listeningScore ?? 0),
+          });
+        }
+        if (Array.isArray(payload.quizHistory)) {
+          setQuizTrend(
+            payload.quizHistory.map((q: any) => ({
+              score: Number(q.score ?? 0),
+              max_score: Number(q.total ?? q.totalQuestions ?? 10),
+              completed_at: String(q.date || q.completedAt || new Date().toISOString()),
+              quiz_type: String(q.type || q.quizType || 'vocabulary'),
+            })),
+          );
+        }
+        if (Array.isArray(payload.weakWords)) {
+          setServerWeakWords(
+            payload.weakWords.map((w: any) => ({
+              word: String(w.word || ''),
+              meaning: String(w.translation || w.meaning || ''),
+              level: Number(w.level ?? 1),
+              stability: Number(Number(w.stability ?? 0).toFixed(1)),
+            })),
+          );
         }
         if (uid) {
           writeDashboardSecondaryCache(uid, {
@@ -483,7 +574,7 @@ export default function StudentDashboard() {
             todayWords: totalToday,
             todayNewWords: nextTodayNew,
             todayReviewWords: nextTodayReview,
-            studyStreak: typeof st.data?.studyStreak === 'number' ? st.data.studyStreak : undefined,
+            studyStreak: typeof payload.studyStreak === 'number' ? payload.studyStreak : undefined,
           });
         }
       })
@@ -652,11 +743,8 @@ export default function StudentDashboard() {
         ]);
 
         if (profRes.error) {
-          console.error('[Student] Load profile failed:', profRes.error.message);
-          setWordsLoading(false);
-          return;
-        }
-        if (profRes.data) {
+          console.warn('[Student] Profile REST lookup fallback:', profRes.error.message);
+        } else if (profRes.data) {
           const freshProfile = profRes.data as Profile;
           setProfile(freshProfile);
           writeDashboardProfileCache(userId, freshProfile);
@@ -1061,14 +1149,15 @@ export default function StudentDashboard() {
     return enrolledClassrooms.find((c) => c.id === currentClassScope) || null;
   }, [currentClassScope, enrolledClassrooms]);
 
-  const greeting = useMemo(() => {
-    const hour = new Date().getHours();
-    if (hour < 12) return 'Buổi sáng tốt lành';
-    if (hour < 18) return 'Buổi chiều làm việc tốt';
-    return 'Buổi tối vui vẻ';
-  }, []);
+  const [showVaultWords, setShowVaultWords] = useState(false);
 
-  const mascotMood: MascotMood = reviewDueCount > 0 ? 'thinking' : newCount > 0 ? 'happy' : 'cheer';
+  const todayFormattedDate = useMemo(() => {
+    const now = new Date();
+    const days = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+    const dd = String(now.getDate()).padStart(2, '0');
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    return `${days[now.getDay()]}, ${dd}/${mm}`;
+  }, []);
 
   const badges = useMemo(
     () => earnedBadges({ ...gamification, current_streak: studyStreak }, masteredCount),
@@ -1085,47 +1174,82 @@ export default function StudentDashboard() {
       ? `/flashcard?mode=learn&class=${encodeURIComponent(currentClassScope)}`
       : '/flashcard?mode=learn';
 
-  const reviewSessionHref = (mode: string) =>
-    currentClassScope && currentClassScope !== '__personal__'
-      ? `/review/session?mode=${mode}&class=${encodeURIComponent(currentClassScope)}`
-      : `/review/session?mode=${mode}`;
-
   const todayReviewsComputed = todayReviewWords || Math.max(0, todayWords - todayNewWords);
-  const reviewProgressPct = Math.min(
-    100,
-    Math.round(
-      (todayReviewsComputed /
-        Math.max(todayReviewsComputed + reviewDueCount, gamification.daily_goal || 20, 1)) *
-        100
-    )
-  );
-  const newWordsProgressPct = Math.min(
-    100,
-    Math.round((todayNewWords / Math.max(gamification.daily_goal || 10, 1)) * 100)
-  );
-  const listeningProgressPct = Math.max(
-    0,
-    Math.min(
-      100,
-      listeningStats.completedCount > 0
-        ? listeningStats.completedCount * 34
-        : listeningStats.inProgressPercent
-    )
-  );
-  const readingProgressPct =
-    dailyReadingStatus.totalCount > 0
-      ? Math.min(
-          100,
-          Math.round((dailyReadingStatus.completedCount / dailyReadingStatus.totalCount) * 100)
-        )
+  const currentLevel = xpToLevel(gamification.total_xp);
+  const dailyGoalXp = gamification.daily_goal || 30;
+  const firstName = profile?.full_name?.split(' ')[0] || 'bạn';
+
+  const weekDaysStrip = useMemo(() => {
+    const activityMap = new Map<string, number>();
+    for (const item of dailyActivity) {
+      activityMap.set(item.date, item.count);
+    }
+    const shortLabels = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
+    const result: Array<{ key: string; label: string; done: boolean; isToday: boolean }> = [];
+    const now = new Date();
+    for (let offset = 6; offset >= 0; offset--) {
+      const d = new Date(now);
+      d.setDate(now.getDate() - offset);
+      const dateKey = dateKeyInTimeZone(d);
+      const count = activityMap.get(dateKey) ?? 0;
+      const isToday = offset === 0;
+      const done = count > 0 || (isToday && (todayWords > 0 || gamification.today_xp > 0));
+      result.push({
+        key: dateKey,
+        label: shortLabels[d.getDay()],
+        done,
+        isToday,
+      });
+    }
+    return result;
+  }, [dailyActivity, todayWords, gamification.today_xp]);
+
+  const activePack = useMemo(() => {
+    if (!vocabPacks.length) return null;
+    return (
+      vocabPacks.find((p) => p.status === 'in_progress') ||
+      vocabPacks.find((p) => p.status === 'not_started') ||
+      vocabPacks[0]
+    );
+  }, [vocabPacks]);
+
+  const activePackPct =
+    activePack && activePack.word_count > 0
+      ? Math.min(100, Math.round((activePack.reviewed_count / activePack.word_count) * 100))
       : 0;
+
+  const activePackHref =
+    activePack && activePack.status === 'in_progress' && activePack.words?.length
+      ? `/flashcard?mode=learn&ids=${activePack.words
+          .slice()
+          .sort((a, b) => a.position - b.position)
+          .map((w) => encodeURIComponent(w.word_id))
+          .join(',')}`
+      : '/journey';
+
+  const priorityWords = useMemo(() => {
+    const weak = words.filter((w) => w.isDue || (w.srsLevel ?? 1) <= 2);
+    return (weak.length > 0 ? weak : words).slice(0, 4);
+  }, [words]);
 
   return (
     <>
       <StudentShell
-        title="Dashboard"
+        title={`Chào ${firstName}, sẵn sàng học chưa?`}
+        subtitle={
+          <>
+            <span>
+              {todayFormattedDate} · mục tiêu hôm nay chỉ cần {dailyGoalXp} XP
+            </span>
+            {countdown && reviewDueCount === 0 && (
+              <span className="inline-flex items-center gap-1 rounded-full bg-indigo-500/10 px-2.5 py-0.5 text-xs font-bold text-indigo-600 dark:bg-[#20253F] dark:text-[#B3A8FF]">
+                <Clock className="h-3 w-3" />
+                {countdown}
+              </span>
+            )}
+          </>
+        }
         contentClassName="p-0"
-        hideMobileHeader
         profile={profile}
         gamification={gamification}
         reviewDueCount={reviewDueCount}
@@ -1137,1537 +1261,701 @@ export default function StudentDashboard() {
           setIsJoinModalOpen(true);
         }}
       >
-        {isDesktop ? (
-          /* ═════════════════════════════════════════════════════════════════════ */
-          /* GIAO DIỆN MÁY TÍNH (if isDesktop — thiết kế rộng rãi chuẩn PC/Laptop) */
-          /* ═════════════════════════════════════════════════════════════════════ */
-          <div className="mx-auto flex w-full max-w-[1040px] flex-col gap-2.5 px-6 py-2.5">
-            {/* Greeting & Quick Meta */}
-            <div className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <Mascot mood={mascotMood} size="sm" />
-                <div className="flex items-baseline gap-2 min-w-0">
-                  <h2 className="truncate text-[15px] font-black leading-tight text-foreground">
-                    {greeting}, {profile?.full_name?.split(' ')[0] || 'bạn'}! 👋
-                  </h2>
-                  <span className="hidden md:inline truncate text-[11.5px] font-semibold text-muted-foreground">
-                    {reviewDueCount > 0
-                      ? `· ${reviewDueCount} từ cần ôn tập FSRS`
-                      : newCount > 0
-                        ? `· ${newCount} từ mới sẵn sàng hôm nay`
-                        : '· Hoàn thành mục tiêu hôm nay 🎉'}
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex shrink-0 items-center gap-1.5">
-                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-extrabold tabular-nums text-slate-600">
-                  {countsReady ? totalWords : '…'} từ tích lũy
-                </span>
-                <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-extrabold tabular-nums text-emerald-700">
-                  {masteredCount} master
-                </span>
-                {countdown && reviewDueCount === 0 && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-2 py-0.5 text-[11px] font-extrabold text-indigo-600">
-                    <Clock className="h-2.5 w-2.5" />
-                    {countdown}
-                  </span>
-                )}
-              </div>
-            </div>
-
-            <EnableNotifications />
-            <DailyReadingCard status={dailyReadingStatus} />
-            <ChallengeWidget />
-
-            {/* ── CTA CHÍNH TRÊN MÁY TÍNH: 2 THẺ COMPACT (Học Từ Mới & Ôn Tập FSRS) ── */}
-            <div className="grid grid-cols-2 gap-2.5 items-stretch">
-              {/* Thẻ Học Từ Mới */}
-              <div className="group relative flex flex-col justify-between rounded-xl border border-indigo-300/70 bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 p-2.5 px-3 text-white shadow-sm shadow-indigo-500/10 transition-all hover:shadow-md hover:shadow-indigo-500/20">
-                <div className="flex items-center justify-between gap-2.5">
-                  <Link
-                    href={learnHref}
-                    data-onboarding="learn"
-                    className="flex min-w-0 flex-1 items-center gap-2.5"
-                  >
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-base backdrop-blur-sm shadow-inner">
-                      📖
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xs font-black uppercase tracking-wider text-white">
-                          Học Từ Mới
-                        </span>
-                        <span className="rounded-full bg-white/20 px-1.5 py-0.2 text-[9.5px] font-extrabold text-white backdrop-blur-sm tabular-nums">
-                          {countsReady ? (newCount > 0 ? `${newCount} từ mới` : 'Tất cả') : '...'}
-                        </span>
-                      </div>
-                      <p className="mt-0.5 truncate text-[10.5px] text-indigo-100 font-medium">
-                        {newCount > 0 ? 'Thẻ lật thông minh nạp từ nhanh' : 'Học flashcard từ vựng đã lưu'}
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href={learnHref}
-                    aria-label="Bắt đầu học từ mới"
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white text-indigo-700 font-bold shadow-xs group-hover:translate-x-0.5 transition-transform"
-                  >
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-
-                {/* Thanh chọn nhanh chế độ nạp từ trên máy tính */}
-                <div className="mt-2 flex items-center gap-1 border-t border-white/15 pt-1.5">
-                  <Link
-                    href={learnHref}
-                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/20 px-2 text-[10.5px] font-bold text-white backdrop-blur-sm transition hover:bg-white/30"
-                  >
-                    <span>🃏</span>
-                    <span>Flashcard</span>
-                  </Link>
-                  <Link
-                    href="/import"
-                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-indigo-50 backdrop-blur-sm transition hover:bg-white/25"
-                  >
-                    <span>📥</span>
-                    <span>Tự nạp</span>
-                  </Link>
-                  <Link
-                    href="/library"
-                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-indigo-50 backdrop-blur-sm transition hover:bg-white/25"
-                  >
-                    <span>📚</span>
-                    <span>Thư viện</span>
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => setActionModalType('learn')}
-                    className="ml-auto inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25 cursor-pointer"
-                    title="Mở bảng chọn phương thức nạp từ"
-                  >
-                    <SlidersHorizontal className="h-2.5 w-2.5" />
-                    <span>Chế độ</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Thẻ Ôn Tập FSRS */}
-              <div className="group relative flex flex-col justify-between rounded-xl border border-emerald-300/70 bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700 p-2.5 px-3 text-white shadow-sm shadow-emerald-500/10 transition-all hover:shadow-md hover:shadow-emerald-500/20">
-                <div className="flex items-center justify-between gap-2.5">
-                  <Link
-                    href={
-                      currentClassScope && currentClassScope !== '__personal__'
-                        ? `/review?class=${encodeURIComponent(currentClassScope)}`
-                        : '/review'
-                    }
-                    data-onboarding="review"
-                    className="flex min-w-0 flex-1 items-center gap-2.5"
-                  >
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-base backdrop-blur-sm shadow-inner">
-                      🔄
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="text-xs font-black uppercase tracking-wider text-white">
-                          Ôn Tập FSRS
-                        </span>
-                        <span
-                          className={`rounded-full px-1.5 py-0.2 text-[9.5px] font-extrabold backdrop-blur-sm tabular-nums ${
-                            reviewDueCount > 0
-                              ? 'bg-amber-400 text-amber-950 animate-pulse'
-                              : 'bg-white/20 text-white'
-                          }`}
-                        >
-                          {countsReady ? (reviewDueCount > 0 ? `${reviewDueCount} cần ôn` : 'Đã sẵn sàng') : '...'}
-                        </span>
-                        {countdown && reviewDueCount === 0 && (
-                          <span className="inline-flex items-center gap-0.5 rounded-full bg-black/15 px-1.5 py-0.2 text-[9px] font-bold text-emerald-50 tabular-nums">
-                            <Clock className="h-2.5 w-2.5" />
-                            {countdown}
-                          </span>
-                        )}
-                      </div>
-                      <p className="mt-0.5 truncate text-[10.5px] text-emerald-100 font-medium">
-                        {reviewDueCount > 0 ? 'Đến hạn ôn trước khi quên theo FSRS' : 'Ôn luyện tự do củng cố trí nhớ dài hạn'}
-                      </p>
-                    </div>
-                  </Link>
-
-                  <Link
-                    href={reviewHref}
-                    aria-label="Bắt đầu ôn tập FSRS"
-                    className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white text-emerald-700 font-bold shadow-xs group-hover:translate-x-0.5 transition-transform"
-                  >
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-
-                {/* Thanh chọn nhanh chế độ ôn tập FSRS trên máy tính */}
-                <div className="mt-2 flex items-center gap-1 border-t border-white/15 pt-1.5">
-                  <Link
-                    href={reviewSessionHref('mixed')}
-                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/20 px-2 text-[10.5px] font-bold text-white backdrop-blur-sm transition hover:bg-white/30"
-                  >
-                    <span>⚡</span>
-                    <span>Hỗn hợp</span>
-                  </Link>
-                  <Link
-                    href={reviewSessionHref('type')}
-                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
-                  >
-                    <span>⌨️</span>
-                    <span>Gõ</span>
-                  </Link>
-                  <Link
-                    href={reviewSessionHref('cloze')}
-                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
-                  >
-                    <span>🧩</span>
-                    <span>Điền</span>
-                  </Link>
-                  <Link
-                    href={reviewSessionHref('mcq')}
-                    className="inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
-                  >
-                    <span>🎯</span>
-                    <span>Trắc nghiệm</span>
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => setActionModalType('review')}
-                    className="ml-auto inline-flex h-5.5 items-center gap-1 rounded bg-white/15 px-2 text-[10px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25 cursor-pointer"
-                    title="Xem tất cả 5 chế độ ôn tập FSRS"
-                  >
-                    <SlidersHorizontal className="h-2.5 w-2.5" />
-                    <span>Tất cả</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* ── LUYỆN THI CHUẨN HÓA (4 THẺ RỘNG CHUẨN DESKTOP — HIỂN THỊ NỔI BẬT ABOVE THE FOLD) ── */}
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between px-0.5">
-                <div className="flex items-center gap-2">
-                  <span className="text-[11.5px] font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                    <span>🎯</span>
-                    <span>Luyện thi chuẩn hóa</span>
-                  </span>
-                  <span className="rounded-full bg-indigo-50 px-2 py-0.2 text-[9.5px] font-extrabold text-indigo-700">
-                    4 Kỳ thi
-                  </span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-4 gap-2.5">
-                {/* 1. TOEIC */}
+        <div
+          className="flex w-full flex-1 min-w-0 flex-col text-[14px] leading-[1.45] text-slate-900 dark:text-[#F2F3FB]"
+          data-Responsive-mode={isDesktop ? 'desktop' : 'mobile'}
+        >
+          {/* ═══ MAIN DASHBOARD BODY — FULL REMAINING WIDTH AFTER SIDEBAR ═══ */}
+          <div className="flex w-full flex-1 min-w-0 flex-col gap-6 px-4 py-6 sm:px-9 sm:py-7">
+            {/* ═══ CLASSROOM SCOPE BAR (IF ENROLLED IN CLASSES) ═══ */}
+          {enrolledClassrooms.length > 0 && (
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+              <button
+                type="button"
+                onClick={() => handleSwitchScope('__personal__')}
+                className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-bold transition cursor-pointer ${
+                  currentClassScope === '__personal__'
+                    ? 'bg-[#7B67FF] text-white shadow-xs'
+                    : 'border border-slate-200/90 bg-white text-slate-600 hover:bg-slate-50 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#A5AAC6]'
+                }`}
+              >
+                Kho cá nhân
+              </button>
+              {enrolledClassrooms.map((cls) => (
                 <button
+                  key={cls.id}
                   type="button"
-                  onClick={() => setActionModalType('toeic')}
-                  className="group relative flex min-h-[64px] items-center gap-2.5 rounded-xl border border-slate-200/90 bg-white p-2 px-3 shadow-2xs hover:border-indigo-300 hover:shadow-xs active:scale-[0.98] transition-all cursor-pointer text-left"
+                  onClick={() => handleSwitchScope(cls.id)}
+                  className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-bold transition cursor-pointer ${
+                    currentClassScope === cls.id
+                      ? 'bg-[#7B67FF] text-white shadow-xs'
+                      : 'border border-slate-200/90 bg-white text-slate-600 hover:bg-slate-50 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#A5AAC6]'
+                  }`}
                 >
-                  <span className="absolute -top-1.5 right-2 rounded-full bg-indigo-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white whitespace-nowrap">
-                    7 Parts
-                  </span>
-                  <div className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-1 border border-slate-100">
-                    <Image src="/images/exams/toeic.png" alt="TOEIC" width={52} height={26} className="max-h-full max-w-full object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-slate-800 group-hover:text-indigo-600 transition-colors">TOEIC</div>
-                    <div className="truncate text-[10px] font-medium text-slate-500">Đề thi & Từ vựng</div>
-                  </div>
+                  Lớp: {cls.name}
                 </button>
-
-                {/* 2. VSTEP */}
-                <Link
-                  href="/vstep"
-                  className="group relative flex min-h-[64px] items-center gap-2.5 rounded-xl border border-slate-200/90 bg-white p-2 px-3 shadow-2xs hover:border-blue-300 hover:shadow-xs active:scale-[0.98] transition-all"
-                >
-                  <span className="absolute -top-1.5 right-2 rounded-full bg-blue-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white whitespace-nowrap">
-                    B1–B2–C1
-                  </span>
-                  <div className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-1 border border-slate-100">
-                    <Image src="/images/exams/vstep.png" alt="VSTEP" width={52} height={26} className="max-h-full max-w-full object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-slate-800 group-hover:text-blue-600 transition-colors">VSTEP</div>
-                    <div className="truncate text-[10px] font-medium text-slate-500">Chuẩn Bộ GD&ĐT</div>
-                  </div>
-                </Link>
-
-                {/* 3. VNU Test */}
-                <Link
-                  href="/vnu-bac-3"
-                  aria-label="VNU Test Bậc 3"
-                  className="group relative flex min-h-[64px] items-center gap-2.5 rounded-xl border border-slate-200/90 bg-white p-2 px-3 shadow-2xs hover:border-emerald-300 hover:shadow-xs active:scale-[0.98] transition-all"
-                >
-                  <span className="absolute -top-1.5 right-2 rounded-full bg-emerald-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white whitespace-nowrap">
-                    Bậc 3 / B1
-                  </span>
-                  <div className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-1 border border-slate-100">
-                    <Image src="/images/exams/vnu-test.png" alt="VNU Test" width={52} height={26} className="max-h-full max-w-full object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-slate-800 group-hover:text-emerald-600 transition-colors">VNU Test</div>
-                    <div className="truncate text-[10px] font-medium text-slate-500">Năng lực Ngoại ngữ</div>
-                  </div>
-                </Link>
-
-                {/* 4. IELTS */}
-                <button
-                  type="button"
-                  aria-label="IELTS (Đang cập nhật)"
-                  onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
-                  className="group relative flex min-h-[64px] items-center gap-2.5 rounded-xl border border-slate-200/90 bg-white p-2 px-3 shadow-2xs hover:border-amber-300 active:scale-[0.98] transition-all cursor-pointer text-left"
-                >
-                  <span className="absolute -top-1.5 right-2 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white whitespace-nowrap">
-                    Sắp có
-                  </span>
-                  <div className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-1 border border-slate-100">
-                    <Image src="/images/exams/ielts.png" alt="IELTS" width={52} height={26} className="max-h-full max-w-full object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-slate-800">IELTS</div>
-                    <div className="truncate text-[10px] font-medium text-slate-500">Academic & GT</div>
-                  </div>
-                </button>
-              </div>
+              ))}
             </div>
+          )}
 
-            {/* ── KỸ NĂNG THỰC HÀNH (5 THẺ RỘNG CHUẨN DESKTOP) ── */}
-            <div className="space-y-1.5">
-              <div className="flex items-center justify-between px-0.5">
-                <div className="flex items-center gap-2">
-                  <span className="text-[11.5px] font-black text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
-                    <span>⚡</span>
-                    <span>Kỹ năng thực hành</span>
-                  </span>
-                  <span className="rounded-full bg-sky-50 px-2 py-0.2 text-[9.5px] font-extrabold text-sky-700">
-                    5 Kỹ năng
-                  </span>
-                </div>
+          <EnableNotifications />
+          <DailyReadingCard status={dailyReadingStatus} />
+          <ChallengeWidget />
+
+          {/* ═══ HERO BANNER (.hero) ═══ */}
+          <section className="flex flex-col lg:flex-row items-stretch lg:items-center gap-6 lg:gap-7 rounded-[22px] bg-[#3A2FA8] p-6 sm:p-7 text-white shadow-lg shadow-indigo-950/15">
+            <div className="min-w-0 flex-1">
+              <div className="text-[12px] font-bold uppercase tracking-[0.06em] text-white/85">
+                Việc nên làm bây giờ
               </div>
 
-              <div className="grid grid-cols-5 gap-2.5">
-                {/* 1. Grammar */}
-                <Link
-                  href="/grammar"
-                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-sky-50/70 border border-sky-200/80 p-2 px-2.5 text-sky-700 shadow-2xs transition-all hover:border-sky-300 hover:bg-sky-50 hover:shadow-xs active:scale-[0.98]"
-                >
-                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-sky-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight">
-                    A1–C1
-                  </span>
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-sky-600 shadow-2xs">
-                    <Code2 className="w-3.5 h-3.5" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-sky-900">Grammar</div>
-                    <div className="truncate text-[10px] font-semibold text-sky-700/80">Ngữ pháp ứng dụng</div>
-                  </div>
-                </Link>
+              <h2 className="mt-1.5 mb-2 text-2xl sm:text-[30px] font-extrabold leading-[1.2] text-white">
+                {reviewDueCount > 0
+                  ? `Ôn tập ${reviewDueCount} từ đến hạn`
+                  : `Học ${newCount > 0 ? Math.min(10, newCount) : 10} từ mới`}
+              </h2>
 
-                {/* 2. Reading */}
-                <button
-                  type="button"
-                  onClick={() => setActionModalType('reading')}
-                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-amber-50/70 border border-amber-200/80 p-2 px-2.5 text-amber-700 shadow-2xs transition-all hover:border-amber-300 hover:bg-amber-50 hover:shadow-xs active:scale-[0.98] cursor-pointer text-left"
-                >
-                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight tabular-nums">
-                    {dailyReadingStatus.totalCount > 0
-                      ? `${dailyReadingStatus.completedCount}/${dailyReadingStatus.totalCount}`
-                      : '3 Chế độ'}
-                  </span>
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-amber-600 shadow-2xs">
-                    <FileText className="w-3.5 h-3.5" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-amber-900">Reading</div>
-                    <div className="truncate text-[10px] font-semibold text-amber-700/80">Đọc hiểu đa tầng</div>
-                  </div>
-                </button>
+              <p className="mb-5 max-w-[420px] text-[14.5px] sm:text-[15px] text-white/90 leading-relaxed">
+                {reviewDueCount > 0
+                  ? `Bạn có ${reviewDueCount} từ vựng đến hạn ôn theo FSRS. Ôn tập ngay để giữ chuỗi và đạt mục tiêu ${dailyGoalXp} XP.`
+                  : `Bạn đã ôn xong lượt hôm nay. Nạp thêm từ mới để giữ chuỗi và đạt mục tiêu ${dailyGoalXp} XP.`}
+              </p>
 
-                {/* 3. Listening */}
-                <button
-                  type="button"
-                  onClick={() => setActionModalType('listening')}
-                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-purple-50/70 border border-purple-200/80 p-2 px-2.5 text-purple-700 shadow-2xs transition-all hover:border-purple-300 hover:bg-purple-50 hover:shadow-xs active:scale-[0.98] cursor-pointer text-left"
-                >
-                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-purple-600 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight tabular-nums">
-                    {listeningStats.completedCount > 0
-                      ? `${listeningStats.completedCount} bài`
-                      : listeningStats.totalCompleted > 0
-                      ? `${listeningStats.totalCompleted} bài`
-                      : 'Video & ETS'}
-                  </span>
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-purple-600 shadow-2xs">
-                    <Headphones className="w-3.5 h-3.5" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-purple-900">Listening</div>
-                    <div className="truncate text-[10px] font-semibold text-purple-700/80">Luyện nghe thực tế</div>
-                  </div>
-                </button>
-
-                {/* 4. Speaking */}
-                <Link
-                  href="/student/speaking/foundation"
-                  aria-label="Luyện nói phản xạ Speaking"
-                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-rose-50/70 border border-rose-200/80 p-2 px-2.5 text-rose-700 shadow-2xs transition-all hover:border-rose-300 hover:bg-rose-50 hover:shadow-xs active:scale-[0.98]"
-                >
-                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-rose-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight">
-                    A0–C1
-                  </span>
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-rose-600 shadow-2xs">
-                    <Mic className="w-3.5 h-3.5" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-rose-900">Speaking</div>
-                    <div className="truncate text-[10px] font-semibold text-rose-700/80">Phản xạ nói AI</div>
-                  </div>
-                </Link>
-
-                {/* 5. Writing */}
-                <button
-                  type="button"
-                  aria-label="Writing (Sắp có)"
-                  onClick={() => toast.info('Tính năng Luyện Writing sắp ra mắt')}
-                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-slate-100/80 border border-slate-200 p-2 px-2.5 text-slate-600 shadow-2xs transition-all hover:border-slate-300 active:scale-[0.98] cursor-pointer text-left"
-                >
-                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-slate-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight">
-                    Sắp có
-                  </span>
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-slate-500 shadow-2xs">
-                    <PenTool className="w-3.5 h-3.5 opacity-80" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-slate-700">Writing</div>
-                    <div className="truncate text-[10px] font-semibold text-slate-500">Luyện viết học thuật</div>
-                  </div>
-                </button>
-              </div>
-            </div>
-
-            {/* ── KHU VỰC LỊCH THÁNG (col-span-5) & TIẾN ĐỘ NGÀY (col-span-7) CÂN ĐỐI CHIỀU CAO ── */}
-            <div className="grid grid-cols-12 gap-2.5 items-stretch">
-              <div className="col-span-12 lg:col-span-5 min-w-0">
-                <StreakCounter
-                  streak={studyStreak}
-                  lastActiveDate={
-                    lastActiveFromActivity(dailyActivity) ?? gamification.last_active_date
-                  }
-                  variant="calendar"
-                  dailyCounts={dailyActivity}
-                  className="h-full min-w-0"
-                />
-              </div>
-
-              <div className="col-span-12 lg:col-span-7 flex h-full min-w-0 flex-col justify-between rounded-xl border border-[#e9e9f0] bg-white p-2.5 px-3 shadow-[0_1px_2px_rgba(16,24,40,.04)]">
-                <div className="flex items-center justify-between border-b border-slate-100 pb-1">
-                  <span className="flex items-center gap-1.5 text-[11.5px] font-black text-slate-800">
-                    🎯 <span>Tiến độ ngày hôm nay</span>
-                  </span>
-                  <span className="rounded-full bg-amber-50 px-2 py-0.2 text-[10px] font-extrabold text-amber-700 tabular-nums">
-                    ⭐ {gamification.today_xp} / {gamification.daily_goal || 30} XP
-                  </span>
-                </div>
-
-                {/* 1. Ôn tập */}
-                <div
-                  onClick={() => setActionModalType('review')}
-                  className="group block space-y-0.5 rounded-lg p-0.5 -mx-0.5 hover:bg-emerald-50/60 active:scale-[0.99] transition-all cursor-pointer"
-                  title="Bấm để chọn chế độ ôn tập"
-                >
-                  <div className="flex items-center justify-between text-[11px]">
-                    <span className="font-bold text-slate-700 flex items-center gap-1 group-hover:text-emerald-700 transition-colors">
-                      <span className="inline-block font-black leading-none text-emerald-500 animate-arrow-nudge">
-                        →
-                      </span>
-                      <span>Ôn tập từ vựng</span>
-                    </span>
-                    <span className="font-black text-emerald-700 tabular-nums">
-                      {countsReady ? `${todayReviewsComputed} lượt` : '…'}
-                    </span>
-                  </div>
-                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-emerald-500 h-1.5 rounded-full transition-all duration-500"
-                      style={{ width: `${reviewProgressPct}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* 2. Từ mới */}
-                <div
-                  onClick={() => setActionModalType('learn')}
-                  className="group block space-y-0.5 rounded-lg p-0.5 -mx-0.5 hover:bg-indigo-50/60 active:scale-[0.99] transition-all cursor-pointer"
-                  title="Bấm để chọn phương thức nạp từ"
-                >
-                  <div className="flex items-center justify-between text-[11px]">
-                    <span className="font-bold text-slate-700 flex items-center gap-1 group-hover:text-indigo-700 transition-colors">
-                      <span className="inline-block font-black leading-none text-indigo-500 animate-arrow-nudge">
-                        →
-                      </span>
-                      <span>Nạp từ mới</span>
-                    </span>
-                    <span className="font-black text-indigo-700 tabular-nums">
-                      {todayNewWords} / {gamification.daily_goal || 10} từ
-                    </span>
-                  </div>
-                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-indigo-500 h-1.5 rounded-full transition-all duration-500"
-                      style={{ width: `${newWordsProgressPct}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* 3. Listening */}
-                <div
-                  onClick={() => setActionModalType('listening')}
-                  className="group block space-y-0.5 rounded-lg p-0.5 -mx-0.5 hover:bg-purple-50/60 active:scale-[0.99] transition-all cursor-pointer"
-                  title="Bấm để chọn chế độ luyện nghe"
-                >
-                  <div className="flex items-center justify-between text-[11px]">
-                    <span className="font-bold text-slate-700 flex items-center gap-1 group-hover:text-purple-700 transition-colors">
-                      <span className="inline-block font-black leading-none text-purple-500 animate-arrow-nudge">
-                        →
-                      </span>
-                      <span>Luyện nghe (Listening)</span>
-                    </span>
-                    <span className="font-black text-purple-700 tabular-nums">
-                      {listeningStats.completedCount > 0
-                        ? `${listeningStats.completedCount} bài đã nghe`
-                        : listeningStats.inProgressPercent > 0
-                        ? `${listeningStats.inProgressPercent}% đang nghe`
-                        : 'Chưa nghe'}
-                    </span>
-                  </div>
-                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-purple-500 h-1.5 rounded-full transition-all duration-500"
-                      style={{ width: `${listeningProgressPct}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* 4. Reading */}
-                <div
-                  onClick={() => setActionModalType('reading')}
-                  className="group block space-y-0.5 rounded-lg p-0.5 -mx-0.5 hover:bg-amber-50/60 active:scale-[0.99] transition-all cursor-pointer"
-                  title="Bấm để chọn chế độ luyện đọc"
-                >
-                  <div className="flex items-center justify-between text-[11px]">
-                    <span className="font-bold text-slate-700 flex items-center gap-1 group-hover:text-amber-700 transition-colors">
-                      <span className="inline-block font-black leading-none text-amber-500 animate-arrow-nudge">
-                        →
-                      </span>
-                      <span>Luyện đọc (Reading)</span>
-                    </span>
-                    <span className="font-black text-amber-700 tabular-nums">
-                      {dailyReadingStatus.totalCount > 0
-                        ? `${dailyReadingStatus.completedCount}/${dailyReadingStatus.totalCount} bài đọc`
-                        : 'Chưa đọc'}
-                    </span>
-                  </div>
-                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-amber-500 h-1.5 rounded-full transition-all duration-500"
-                      style={{ width: `${readingProgressPct}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Nhiệm vụ nhận quà Pro */}
-            {profile?.id && (
-              <ProTrialMilestoneCard
-                enabled
-                hintStreak={studyStreak}
-                hintWords={countsReady ? totalWords : undefined}
-                onClaimed={() => {
-                  void refreshGamification();
-                  void supabase
-                    .from('profiles')
-                    .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
-                    .eq('id', profile.id)
-                    .maybeSingle()
-                    .then(({ data }) => {
-                      if (data) setProfile(data as Profile);
-                    });
-                }}
-              />
-            )}
-
-            {/* HỘP THƯỞNG PRO VIP TRÊN DESKTOP: 2 CỘT NGANG (Chuỗi học 7 ngày + Mời bạn cùng tiến) */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 via-indigo-500/5 to-purple-500/10 p-4 border border-amber-200/70 shadow-2xs space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 font-black text-sm text-slate-800">
-                  <span className="text-amber-500">🎁</span>
-                  <span>Săn ngày PRO miễn phí</span>
-                </div>
-                <span className="text-[10.5px] font-black bg-gradient-to-r from-amber-500 to-orange-500 text-white px-2.5 py-0.5 rounded-full shadow-3xs">
-                  +3 ngày PRO / mốc
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                {/* 1. Học chăm chỉ (Streak 7 ngày) */}
-                <div className="flex items-center justify-between gap-3 bg-white/95 rounded-xl p-3 border border-slate-100 shadow-3xs">
-                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                    <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center shrink-0 text-amber-500">
-                      <Flame className="w-4 h-4 fill-amber-500 stroke-none" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="font-extrabold text-slate-700 truncate">Chuỗi học 7 ngày</span>
-                        <span className="font-black text-amber-600 tabular-nums">
-                          {Math.min(studyStreak, 7)}/7 ngày
-                        </span>
-                      </div>
-                      <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden mt-1.5">
-                        <div
-                          className="bg-gradient-to-r from-amber-400 to-orange-500 h-full rounded-full transition-all duration-500"
-                          style={{ width: `${Math.min(100, Math.round((studyStreak / 7) * 100))}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-lg shrink-0">
-                    +3 ngày PRO
-                  </span>
-                </div>
-
-                {/* 2. Mời bạn cùng tiến */}
-                <div className="flex items-center justify-between gap-3 bg-white/95 rounded-xl p-3 border border-slate-100 shadow-3xs">
-                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                    <div className="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-200/80 flex items-center justify-center shrink-0 text-indigo-600">
-                      <Users className="w-4 h-4 stroke-indigo-600" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-xs font-extrabold text-slate-800 leading-tight">
-                        Mời bạn học cùng
-                      </div>
-                      <div className="text-[10.5px] font-medium text-slate-400 truncate mt-0.5">
-                        Cả hai đều nhận +3 ngày PRO miễn phí
-                      </div>
-                    </div>
-                  </div>
-                  <Link
-                    href="/student/referral"
-                    className="text-[11px] font-black text-white bg-gradient-to-r from-indigo-600 to-violet-600 px-3 py-1.5 rounded-lg shrink-0 shadow-3xs active:scale-95 transition-all hover:brightness-110 flex items-center gap-1"
-                  >
-                    <span>Mời bạn</span>
-                    <ChevronRight className="w-3.5 h-3.5" strokeWidth={2.5} />
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* ── KHO TỪ VỰNG ĐẦY ĐỦ TRÊN MÁY TÍNH (Gói từ + Danh sách từ + Search/Filter) ── */}
-            <section
-              className="space-y-3.5 rounded-2xl border border-slate-100 bg-white p-4 shadow-sm"
-              id="kho-tu-vung"
-              data-onboarding="vault"
-            >
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="flex items-center gap-2 text-base font-black text-slate-800 truncate">
-                  <span className="text-lg leading-none shrink-0">📦</span>
-                  <span className="truncate">{activeClassroom ? `Từ vựng · ${activeClassroom.name}` : 'Kho từ vựng'}</span>
-                </h3>
-                <div className="flex flex-wrap items-center justify-end gap-2">
-                  {activeClassroom && (
-                    <button
-                      type="button"
-                      onClick={() => handleSwitchScope('__personal__')}
-                      className="inline-flex h-8 items-center gap-1 rounded-full border border-slate-200 bg-white px-3 text-xs font-extrabold text-slate-600 hover:bg-slate-50 transition active:scale-95"
+              <div className="flex flex-wrap items-center gap-2.5">
+                {reviewDueCount > 0 ? (
+                  <>
+                    <Link
+                      href={
+                        currentClassScope && currentClassScope !== '__personal__'
+                          ? `/review?class=${encodeURIComponent(currentClassScope)}`
+                          : '/review'
+                      }
+                      data-onboarding="review"
+                      className="inline-flex h-12 items-center gap-2 rounded-xl bg-white px-5.5 text-[15px] font-bold text-[#2B2090] shadow-sm transition hover:bg-indigo-50 active:scale-[0.99]"
                     >
-                      Về kho cá nhân
-                    </button>
-                  )}
-                  <Badge variant="outline" className="h-7 px-2.5 text-xs font-bold tabular-nums">
-                    {countsReady ? totalWords : '…'} từ
-                  </Badge>
-                  <Link
-                    href="/import"
-                    className="inline-flex h-8 items-center gap-1 rounded-full border border-indigo-200 bg-indigo-50 px-3 text-xs font-extrabold text-indigo-700 hover:bg-indigo-100 transition active:brightness-110"
-                    title="Dán list / file / quét ảnh của bạn"
-                  >
-                    <Plus className="h-3.5 w-3.5" />
-                    Nạp từ mới
-                  </Link>
-                  <Link
-                    href="/library"
-                    className="inline-flex h-8 items-center gap-1 rounded-full bg-emerald-600 px-3.5 text-xs font-extrabold text-white hover:bg-emerald-700 transition active:brightness-110"
-                    title="Chọn gói từ sẵn theo chủ đề"
-                  >
-                    Thư viện
-                  </Link>
-                </div>
+                      <span>Bắt đầu ôn · ~5 phút</span>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.4"
+                        strokeLinecap="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </Link>
+                    <Link
+                      href={learnHref}
+                      data-onboarding="learn"
+                      className="inline-flex h-12 items-center px-3.5 text-[14px] font-semibold text-white underline underline-offset-4 hover:text-indigo-200 transition"
+                    >
+                      Học từ mới
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      href={learnHref}
+                      data-onboarding="learn"
+                      className="inline-flex h-12 items-center gap-2 rounded-xl bg-white px-5.5 text-[15px] font-bold text-[#2B2090] shadow-sm transition hover:bg-indigo-50 active:scale-[0.99]"
+                    >
+                      <span>Bắt đầu học · ~5 phút</span>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.4"
+                        strokeLinecap="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </Link>
+                    <Link
+                      href={
+                        currentClassScope && currentClassScope !== '__personal__'
+                          ? `/review?class=${encodeURIComponent(currentClassScope)}`
+                          : '/review'
+                      }
+                      data-onboarding="review"
+                      className="inline-flex h-12 items-center px-3.5 text-[14px] font-semibold text-white underline underline-offset-4 hover:text-indigo-200 transition"
+                    >
+                      Ôn tập tự do
+                    </Link>
+                  </>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => setActionModalType(reviewDueCount > 0 ? 'review' : 'learn')}
+                  className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-white/15 px-3.5 text-xs font-bold text-white backdrop-blur-xs transition hover:bg-white/25 cursor-pointer"
+                  title="Chọn chế độ học / ôn tập"
+                >
+                  <SlidersHorizontal className="h-3.5 w-3.5" />
+                  <span>Chọn chế độ</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Daily Goal Checklist (.ck) */}
+            <div className="w-full lg:w-[260px] shrink-0 rounded-2xl bg-white/[0.14] p-4">
+              <div className="mb-1.5 text-[12px] font-bold uppercase tracking-[0.06em] text-white/85 tabular-nums">
+                Mục tiêu hôm nay · {gamification.today_xp}/{dailyGoalXp} XP
               </div>
 
-              {/* Tóm tắt kho: tích lũy / đã học / gói */}
-              <div className="grid grid-cols-3 gap-2.5">
-                <div className="rounded-xl bg-slate-50 px-3 py-2 text-center">
-                  <div className={`text-base font-black tabular-nums text-slate-800 ${!countsReady ? 'animate-pulse text-slate-400' : ''}`}>
-                    {countsReady ? totalWords : '…'}
-                  </div>
-                  <div className="text-[11px] font-bold text-slate-400">Tích lũy</div>
-                </div>
-                <div className="rounded-xl bg-indigo-50/80 px-3 py-2 text-center">
-                  <div className={`text-base font-black tabular-nums text-indigo-700 ${!countsReady ? 'animate-pulse' : ''}`}>
-                    {countsReady ? Math.max(0, totalWords - newCount) : '…'}
-                  </div>
-                  <div className="text-[11px] font-bold text-indigo-400">Đã học</div>
-                </div>
-                <div className="rounded-xl bg-violet-50/80 px-3 py-2 text-center">
-                  <div className="text-base font-black tabular-nums text-violet-700">{vocabPacks.length}</div>
-                  <div className="text-[11px] font-bold text-violet-400">Gói</div>
-                </div>
-              </div>
+              <button
+                type="button"
+                onClick={() => setActionModalType('review')}
+                className="flex w-full items-center gap-2.5 py-[7px] text-left text-[13px] font-semibold text-white hover:text-indigo-100 transition cursor-pointer"
+              >
+                <span
+                  className={`h-[18px] w-[18px] shrink-0 rounded-full border-2 ${
+                    reviewDueCount === 0
+                      ? 'border-white bg-white'
+                      : 'border-white/70 bg-transparent'
+                  }`}
+                />
+                <span className="truncate">
+                  Ôn tập từ vựng ·{' '}
+                  {countsReady
+                    ? reviewDueCount === 0
+                      ? 'hoàn tất'
+                      : `${reviewDueCount} cần ôn`
+                    : '…'}
+                </span>
+              </button>
 
-              {/* Mức độ nhớ — full kho (levelCounts từ API), nhãn ≈ interval FSRS */}
-              {countsReady && totalWords > 0 && (
-                <div className="rounded-xl border border-slate-100 bg-slate-50/60 px-3.5 py-2.5">
-                  <div className="mb-2 flex items-center justify-between gap-2">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wide text-slate-500">
-                      Mức độ nhớ · cả kho
-                    </span>
-                    <span className="text-[10px] font-bold text-slate-400 tabular-nums">
-                      {levelCounts.reduce((a, b) => a + b, 0)}/{totalWords} từ
-                    </span>
-                  </div>
-                  <div className="flex items-end justify-between gap-2">
-                    {levelCounts.map((count, idx) => {
-                      const maxCount = Math.max(1, ...levelCounts);
-                      const barH = Math.round(4 + (count / maxCount) * 44);
-                      const colors = [
-                        'bg-rose-400',
-                        'bg-amber-400',
-                        'bg-sky-400',
-                        'bg-indigo-500',
-                        'bg-emerald-500',
-                        'bg-purple-500',
-                      ] as const;
-                      return (
-                        <div
-                          key={idx + 1}
-                          className="flex min-w-0 flex-1 flex-col items-center"
-                          title={`L${idx + 1}: ${SRS_LEVEL_STABILITY_HINT[idx]} · ~interval ${SRS_LEVEL_LABELS[idx]} · ${count} từ`}
-                        >
-                          <span className="mb-0.5 text-[10px] font-black tabular-nums text-slate-600">{count}</span>
-                          <div
-                            className={`w-full max-w-[32px] rounded-t-md ${colors[idx]}`}
-                            style={{ height: barH }}
-                          />
-                          <span className="mt-1 text-[9px] font-extrabold text-slate-500">L{idx + 1}</span>
-                          <span className="text-[8px] font-bold uppercase text-slate-400">{SRS_LEVEL_LABELS[idx]}</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <p className="mt-1.5 text-[10px] font-semibold leading-snug text-slate-400">
-                    Nhãn ≈ khoảng ôn lại FSRS (theo stability), không phải mốc cứng Anki.
-                  </p>
-                </div>
-              )}
+              <button
+                type="button"
+                onClick={() => setActionModalType('learn')}
+                className="flex w-full items-center gap-2.5 py-[7px] text-left text-[13px] font-semibold text-white hover:text-indigo-100 transition cursor-pointer"
+              >
+                <span
+                  className={`h-[18px] w-[18px] shrink-0 rounded-full border-2 ${
+                    todayNewWords >= dailyGoalXp
+                      ? 'border-white bg-white'
+                      : 'border-white/70 bg-transparent'
+                  }`}
+                />
+                <span className="truncate tabular-nums">
+                  Nạp từ mới · {todayNewWords}/{dailyGoalXp}
+                </span>
+              </button>
 
-              {/* Gói trong kho — đang dở lên đầu, bấm tiếp tục */}
-              {vocabPacks.length > 0 && (
-                <div className="space-y-2 border-t border-slate-100 pt-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-extrabold uppercase tracking-wide text-slate-400">
-                      Gói trong kho · {vocabPacks.length}
+              <button
+                type="button"
+                onClick={() => setActionModalType('listening')}
+                className="flex w-full items-center gap-2.5 py-[7px] text-left text-[13px] font-semibold text-white hover:text-indigo-100 transition cursor-pointer"
+              >
+                <span
+                  className={`h-[18px] w-[18px] shrink-0 rounded-full border-2 ${
+                    listeningStats.completedCount > 0
+                      ? 'border-white bg-white'
+                      : 'border-white/70 bg-transparent'
+                  }`}
+                />
+                <span className="truncate">
+                  Luyện nghe
+                  {listeningStats.completedCount > 0 ? ` · ${listeningStats.completedCount} bài` : ''}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setActionModalType('reading')}
+                className="flex w-full items-center gap-2.5 py-[7px] text-left text-[13px] font-semibold text-white hover:text-indigo-100 transition cursor-pointer"
+              >
+                <span
+                  className={`h-[18px] w-[18px] shrink-0 rounded-full border-2 ${
+                    dailyReadingStatus.completedCount > 0
+                      ? 'border-white bg-white'
+                      : 'border-white/70 bg-transparent'
+                  }`}
+                />
+                <span className="truncate">
+                  Luyện đọc
+                  {dailyReadingStatus.completedCount > 0
+                    ? ` · ${dailyReadingStatus.completedCount}/${dailyReadingStatus.totalCount}`
+                    : ''}
+                </span>
+              </button>
+            </div>
+          </section>
+
+          {/* ═══ PHÂN TÍCH DỮ LIỆU HỌC TẬP (#phan-tich) ═══ */}
+          <LearningAnalyticsPanel
+            stats={{
+              total: totalWords,
+              due: reviewDueCount,
+              new: newCount,
+              learned: Math.max(0, totalWords - newCount),
+            }}
+            wordBreakdown={{
+              l1: levelCounts[0] || 0,
+              l2: levelCounts[1] || 0,
+              l3: levelCounts[2] || 0,
+              l4: levelCounts[3] || 0,
+              l5: levelCounts[4] || 0,
+              l6: levelCounts[5] || 0,
+            }}
+            avgStabilityDays={avgStabilityDays}
+            retentionRate={retentionRate}
+            skillScores={skillScores}
+            dailyActivity={dailyActivity}
+            quizTrend={quizTrend}
+            grammarDue={grammarDueCount}
+            weakWords={
+              serverWeakWords.length > 0
+                ? serverWeakWords
+                : words
+                    .filter((w) => (w.srs?.review_count ?? 0) > 0 && (w.srsLevel ?? 1) <= 2)
+                    .slice(0, 6)
+                    .map((w) => ({
+                      word: w.word,
+                      meaning: w.translation || '',
+                      level: w.srsLevel || 1,
+                      stability: Number((w.srs?.stability ?? 1).toFixed(1)),
+                    }))
+            }
+            currentStreak={studyStreak}
+            longestStreak={gamification.longest_streak}
+            totalXp={gamification.total_xp}
+            todayXp={gamification.today_xp}
+            dailyGoal={gamification.daily_goal}
+          />
+
+          {/* ═══ LOWER 2-COLUMN GRID (.gr) ═══ */}
+          <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_340px] gap-6 items-start">
+            {/* LEFT COLUMN (.col) */}
+            <div className="flex min-w-0 flex-col gap-6">
+              {/* Card: Luyện 5 kỹ năng */}
+              <section className="rounded-[18px] border border-slate-200/90 bg-white p-5 sm:p-[22px] dark:border-[#272C47] dark:bg-[#161A2E]">
+                <div className="mb-3.5 flex items-baseline justify-between">
+                  <h2 className="m-0 text-[16px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                    Luyện 5 kỹ năng
+                  </h2>
+                  <Link
+                    href="/practice"
+                    className="text-[13px] font-bold text-indigo-600 hover:underline dark:text-[#B3A8FF]"
+                  >
+                    Tất cả
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                  {/* 1. Grammar (Sky) */}
+                  <Link
+                    href="/grammar"
+                    className="group flex min-h-[112px] flex-col gap-2.5 rounded-[14px] border border-slate-200/90 bg-white p-4 text-slate-900 transition hover:border-sky-500 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB] dark:hover:border-sky-400"
+                  >
+                    <div className="grid h-9 w-9 place-items-center rounded-[10px] bg-sky-500/15 text-sky-600 dark:bg-sky-500/20 dark:text-sky-300">
+                      <Code2 className="h-5 w-5" strokeWidth={2} />
+                    </div>
+                    <b className="text-[15px] font-bold">Grammar</b>
+                    <span className="text-[12.5px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                      Ngữ pháp ứng dụng
                     </span>
-                    <Link href="/library" className="text-xs font-bold text-emerald-600 hover:underline">
-                      Xem thư viện →
+                  </Link>
+
+                  {/* 2. Reading (Amber) */}
+                  <button
+                    type="button"
+                    onClick={() => setActionModalType('reading')}
+                    className="group flex min-h-[112px] flex-col gap-2.5 rounded-[14px] border border-slate-200/90 bg-white p-4 text-left text-slate-900 transition hover:border-amber-500 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB] dark:hover:border-amber-400 cursor-pointer"
+                  >
+                    <div className="grid h-9 w-9 place-items-center rounded-[10px] bg-amber-500/15 text-amber-600 dark:bg-amber-500/20 dark:text-amber-300">
+                      <FileText className="h-5 w-5" strokeWidth={2} />
+                    </div>
+                    <b className="text-[15px] font-bold">Reading</b>
+                    <span className="text-[12.5px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                      Đọc hiểu đa tầng
+                    </span>
+                  </button>
+
+                  {/* 3. Listening (Emerald) */}
+                  <button
+                    type="button"
+                    onClick={() => setActionModalType('listening')}
+                    className="group flex min-h-[112px] flex-col gap-2.5 rounded-[14px] border border-slate-200/90 bg-white p-4 text-left text-slate-900 transition hover:border-emerald-500 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB] dark:hover:border-emerald-400 cursor-pointer"
+                  >
+                    <div className="grid h-9 w-9 place-items-center rounded-[10px] bg-emerald-500/15 text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-300">
+                      <Headphones className="h-5 w-5" strokeWidth={2} />
+                    </div>
+                    <b className="text-[15px] font-bold">Listening</b>
+                    <span className="text-[12.5px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                      Nghe video &amp; ETS
+                    </span>
+                  </button>
+
+                  {/* 4. Speaking (Rose) */}
+                  <Link
+                    href="/student/speaking/foundation"
+                    aria-label="Luyện nói phản xạ Speaking"
+                    className="group flex min-h-[112px] flex-col gap-2.5 rounded-[14px] border border-slate-200/90 bg-white p-4 text-slate-900 transition hover:border-rose-500 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB] dark:hover:border-rose-400"
+                  >
+                    <div className="grid h-9 w-9 place-items-center rounded-[10px] bg-rose-500/15 text-rose-600 dark:bg-rose-500/20 dark:text-rose-300">
+                      <Mic className="h-5 w-5" strokeWidth={2} />
+                    </div>
+                    <b className="text-[15px] font-bold">Speaking</b>
+                    <span className="text-[12.5px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                      Phản xạ, phát âm AI
+                    </span>
+                  </Link>
+
+                  {/* 5. Writing (Violet) */}
+                  <Link
+                    href="/writing"
+                    className="group flex min-h-[112px] flex-col gap-2.5 rounded-[14px] border border-slate-200/90 bg-white p-4 text-slate-900 transition hover:border-violet-500 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB] dark:hover:border-violet-400"
+                  >
+                    <div className="grid h-9 w-9 place-items-center rounded-[10px] bg-violet-500/15 text-violet-600 dark:bg-violet-500/20 dark:text-violet-300">
+                      <PenTool className="h-5 w-5" strokeWidth={2} />
+                    </div>
+                    <b className="text-[15px] font-bold">Writing</b>
+                    <span className="text-[12.5px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                      Luyện viết AI
+                    </span>
+                  </Link>
+                </div>
+              </section>
+
+              {/* 2-Column Sub-grid (.two): Học tiếp + Từ cần ưu tiên */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Học tiếp */}
+                <section className="flex flex-col rounded-[18px] border border-slate-200/90 bg-white p-5 sm:p-[22px] dark:border-[#272C47] dark:bg-[#161A2E]">
+                  <div className="mb-3.5 flex items-baseline justify-between">
+                    <h2 className="m-0 text-[16px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                      Học tiếp
+                    </h2>
+                    <Link
+                      href="/journey"
+                      className="text-[13px] font-bold text-indigo-600 hover:underline dark:text-[#B3A8FF]"
+                    >
+                      Mở lộ trình
                     </Link>
                   </div>
-                  <div className="-mx-0.5 flex gap-2 overflow-x-auto px-0.5 pb-1 scrollbar-none">
-                    {[...vocabPacks]
-                      .sort((a, b) => {
-                        const rank = (s: ActiveVocabPack['status']) =>
-                          s === 'in_progress' ? 0 : s === 'not_started' ? 1 : 2;
-                        return rank(a.status) - rank(b.status);
-                      })
-                      .slice(0, 12)
-                      .map((pack) => {
-                        const pct = pack.word_count > 0
-                          ? Math.round((pack.reviewed_count / pack.word_count) * 100)
-                          : 0;
-                        const inProgress = pack.status === 'in_progress' && !!pack.words?.length;
-                        const href = inProgress
-                          ? `/flashcard?mode=learn&ids=${pack.words
-                              .slice()
-                              .sort((a, b) => a.position - b.position)
-                              .map((w) => encodeURIComponent(w.word_id))
-                              .join(',')}`
-                          : '/library';
-                        return (
-                          <Link
-                            key={pack.pack_id}
-                            href={href}
-                            className={`min-w-[164px] max-w-[190px] shrink-0 rounded-xl border px-3 py-2.5 transition-all hover:shadow-xs active:scale-[0.99] ${
-                              inProgress
-                                ? 'border-indigo-200 bg-gradient-to-br from-indigo-50 to-violet-50 shadow-sm shadow-indigo-100'
-                                : pack.status === 'completed'
-                                  ? 'border-emerald-100 bg-emerald-50/50'
-                                  : 'border-slate-100 bg-slate-50/80'
-                            }`}
-                          >
-                            {inProgress && (
-                              <div className="mb-1 text-[9.5px] font-extrabold uppercase tracking-wide text-indigo-600">
-                                ▶ Tiếp tục
-                              </div>
-                            )}
-                            <div className="truncate text-xs font-extrabold text-slate-800">
-                              {pack.topic_title}
-                            </div>
-                            <div className="mt-0.5 text-[10.5px] font-bold text-slate-400">
-                              Chặng {pack.pack_index + 1}
-                              {pack.status === 'completed'
-                                ? ' · xong'
-                                : pack.status === 'in_progress'
-                                  ? ' · đang học'
-                                  : ''}
-                            </div>
-                            <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-slate-200/80">
-                              <div
-                                className={`h-full rounded-full ${
-                                  pack.status === 'completed' ? 'bg-emerald-500' : 'bg-indigo-500'
-                                }`}
-                                style={{ width: `${Math.min(100, pct)}%` }}
-                              />
-                            </div>
-                            <div className="mt-1 flex items-center justify-between text-[10.5px] font-bold tabular-nums text-slate-500">
-                              <span>{pack.reviewed_count}/{pack.word_count}</span>
-                              {inProgress && <span className="text-indigo-600">Học tiếp →</span>}
-                            </div>
-                          </Link>
-                        );
-                      })}
+
+                  <div className="text-[15px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                    {activePack
+                      ? `${activePack.topic_title} · Chặng ${activePack.pack_index + 1}`
+                      : 'Lộ trình học · bài hiện tại'}
                   </div>
-                </div>
+                  <div className="mt-0.5 text-[13.5px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                    {activePack
+                      ? `Đã học ${activePack.reviewed_count}/${activePack.word_count} từ trong chặng`
+                      : 'Tiếp tục đúng chỗ bạn đã dừng'}
+                  </div>
+
+                  <div className="my-2.5 h-2 overflow-hidden rounded-full bg-slate-100 dark:bg-[#20253F]">
+                    <i
+                      className="block h-full rounded-full bg-[#7B67FF] transition-all duration-500"
+                      style={{ width: `${activePackPct}%` }}
+                    />
+                  </div>
+
+                  <div className="text-[12.5px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                    {activePack
+                      ? activePack.status === 'completed'
+                        ? 'Đã hoàn thành'
+                        : activePack.status === 'in_progress'
+                          ? `Đang học (${activePackPct}%)`
+                          : 'Chưa bắt đầu'
+                      : 'Chưa bắt đầu'}
+                  </div>
+
+                  <Link
+                    href={activePackHref}
+                    className="mt-3 flex h-11 items-center justify-center rounded-xl border-[1.5px] border-[#7B67FF] text-[14px] font-bold text-indigo-600 transition hover:bg-indigo-50/50 dark:text-[#B3A8FF] dark:hover:bg-[#20253F]"
+                  >
+                    Tiếp tục
+                  </Link>
+                </section>
+
+                {/* Từ cần ưu tiên */}
+                <section className="flex flex-col rounded-[18px] border border-slate-200/90 bg-white p-5 sm:p-[22px] dark:border-[#272C47] dark:bg-[#161A2E]">
+                  <div className="mb-3.5 flex items-baseline justify-between">
+                    <h2 className="m-0 text-[16px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                      Từ cần ưu tiên
+                    </h2>
+                    <Link
+                      href={reviewHref}
+                      className="text-[13px] font-bold text-indigo-600 hover:underline dark:text-[#B3A8FF]"
+                    >
+                      {priorityWords.length > 0 ? `${priorityWords.length} từ` : 'Ôn tập'}
+                    </Link>
+                  </div>
+
+                  {priorityWords.length > 0 ? (
+                    <div className="space-y-2">
+                      {priorityWords.slice(0, 3).map((w) => (
+                        <button
+                          key={w.id}
+                          type="button"
+                          onClick={() => setSelectedWordId(w.id)}
+                          className="flex w-full items-center justify-between gap-3 rounded-[10px] bg-slate-100/80 px-3 py-2.5 text-left transition hover:bg-indigo-50/70 dark:bg-[#20253F] dark:hover:bg-[#272C47] cursor-pointer"
+                        >
+                          <b className="truncate text-[15px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                            {w.word}
+                          </b>
+                          <span className="truncate text-[13px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                            {w.translation}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  ) : serverWeakWords.length > 0 ? (
+                    <div className="space-y-2">
+                      {serverWeakWords.slice(0, 3).map((w) => (
+                        <div
+                          key={w.word}
+                          className="flex items-center justify-between gap-3 rounded-[10px] bg-slate-100/80 px-3 py-2.5 dark:bg-[#20253F]"
+                        >
+                          <b className="truncate text-[15px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                            {w.word}
+                          </b>
+                          <span className="truncate text-[13px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                            {w.meaning}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="rounded-[10px] border border-dashed border-slate-200 bg-slate-50/70 px-3.5 py-4 text-center text-[13px] font-medium text-slate-500 dark:border-[#272C47] dark:bg-[#20253F]/50 dark:text-[#A5AAC6]">
+                      Chưa có từ vựng nào đến hạn hoặc cần ưu tiên ôn tập.
+                    </div>
+                  )}
+                </section>
+              </div>
+
+              {/* Nhiệm vụ nhận quà Pro */}
+              {profile?.id && (
+                <ProTrialMilestoneCard
+                  enabled
+                  hintStreak={studyStreak}
+                  hintWords={countsReady ? totalWords : undefined}
+                  onClaimed={() => {
+                    void refreshGamification();
+                    void supabase
+                      .from('profiles')
+                      .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
+                      .eq('id', profile.id)
+                      .maybeSingle()
+                      .then(({ data }) => {
+                        if (data) setProfile(data as Profile);
+                      });
+                  }}
+                />
               )}
 
-              {vocabPacks.length === 0 && countsReady && totalWords === 0 && (
+              {/* Thành tích & Huy hiệu */}
+              <div className="opacity-95">
+                <BadgeGrid badges={badges} />
+              </div>
+            </div>
+
+            {/* RIGHT SIDEBAR COLUMN (.col) */}
+            <div className="flex min-w-0 flex-col gap-6">
+              {/* Card: Tuần này */}
+              <section className="rounded-[18px] border border-slate-200/90 bg-white p-5 sm:p-[22px] dark:border-[#272C47] dark:bg-[#161A2E]">
+                <div className="mb-3.5 flex items-baseline justify-between">
+                  <h2 className="m-0 text-[16px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                    Tuần này
+                  </h2>
+                  <Link
+                    href="/student/profile"
+                    className="text-[13px] font-bold text-indigo-600 hover:underline dark:text-[#B3A8FF]"
+                  >
+                    Lịch sử
+                  </Link>
+                </div>
+
+                <div className="mt-1.5 flex justify-between">
+                  {weekDaysStrip.map((day) => (
+                    <div
+                      key={day.key}
+                      className="flex flex-col items-center gap-1.5 text-[12px] font-semibold text-slate-500 dark:text-[#A5AAC6]"
+                    >
+                      <i
+                        className={`block h-[30px] w-[30px] rounded-full transition-colors ${
+                          day.done
+                            ? 'bg-emerald-500 dark:bg-[#3DD6A0]'
+                            : 'bg-slate-100 dark:bg-[#20253F]'
+                        } ${
+                          day.isToday
+                            ? 'outline-2 outline-offset-2 outline-[#7B67FF]'
+                            : ''
+                        }`}
+                      />
+                      <span>{day.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* Card: Kho từ vựng (#kho-tu-vung) */}
+              <section
+                id="kho-tu-vung"
+                data-onboarding="vault"
+                className="rounded-[18px] border border-slate-200/90 bg-white p-5 sm:p-[22px] dark:border-[#272C47] dark:bg-[#161A2E]"
+              >
+                <div className="mb-1 flex items-baseline justify-between">
+                  <h2 className="m-0 text-[16px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                    {activeClassroom ? `Kho từ · ${activeClassroom.name}` : 'Kho từ vựng'}
+                  </h2>
+                  <span className="text-[12.5px] font-bold text-indigo-600 dark:text-[#B3A8FF] tabular-nums">
+                    {countsReady ? `${totalWords} từ` : '…'}
+                  </span>
+                </div>
+                <div className="text-[13.5px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+                  Thêm từ từ thư viện gói hoặc tự nạp.
+                </div>
+
                 <Link
                   href="/library"
-                  className="flex items-center gap-2.5 rounded-xl border border-dashed border-emerald-200 bg-emerald-50/40 px-3.5 py-3"
+                  className="mt-3 flex h-11 items-center justify-center rounded-xl border-[1.5px] border-[#7B67FF] text-[14px] font-bold text-indigo-600 transition hover:bg-indigo-50/50 dark:text-[#B3A8FF] dark:hover:bg-[#20253F]"
                 >
-                  <Sparkles className="h-4 w-4 shrink-0 text-emerald-600" />
-                  <div className="min-w-0 flex-1">
-                    <div className="text-xs font-extrabold text-emerald-800">Kho còn trống</div>
-                    <div className="text-[11px] font-semibold text-emerald-600/80">
-                      Chọn gói từ thư viện để bắt đầu
-                    </div>
-                  </div>
-                  <ArrowRight className="h-4 w-4 text-emerald-600" />
+                  Mở kho từ
                 </Link>
-              )}
 
-              {/* Search + filter danh sách từ */}
-              <div className="space-y-2.5 border-t border-slate-100 pt-3">
-                <div className="text-[11px] font-extrabold uppercase tracking-wide text-slate-400">
-                  Danh sách từ cá nhân
-                </div>
-                <div className="flex gap-2">
-                  <div className="relative min-w-0 flex-1">
-                    <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-                    <input
-                      type="search"
-                      enterKeyHint="search"
-                      autoComplete="off"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      placeholder="Tìm trong kho..."
-                      className="min-h-[40px] w-full rounded-xl border bg-background py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-                    />
-                  </div>
-                  <div className="relative shrink-0">
-                    <select
-                      value={sortBy}
-                      onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-                      className="min-h-[40px] cursor-pointer appearance-none rounded-xl border bg-background py-2 pl-3 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
-                    >
-                      <option value="newest">Mới nhất</option>
-                      <option value="oldest">Cũ nhất</option>
-                      <option value="az">A → Z</option>
-                      <option value="hardest">Khó nhất</option>
-                    </select>
-                    <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
-                  </div>
-                </div>
-                <div className="-mx-0.5 flex gap-1.5 overflow-x-auto px-0.5 pb-0.5 scrollbar-none">
-                  {(['all', 'new', 'due', 'learned', 'mastered'] as const).map((f) => (
-                    <button
-                      key={f}
-                      type="button"
-                      onClick={() => setStatusFilter(f)}
-                      className={`min-h-[32px] shrink-0 rounded-full px-3.5 py-1 text-xs font-semibold transition-colors cursor-pointer ${
-                        statusFilter === f
-                          ? 'bg-primary text-primary-foreground'
-                          : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                      }`}
-                    >
-                      {{ all: 'Tất cả', new: 'Mới', due: 'Đến hạn', learned: 'Đã học', mastered: 'Thành thạo' }[f]}
-                    </button>
-                  ))}
-                  {(debouncedQuery || statusFilter !== 'all') && (
-                    <span className="ml-auto shrink-0 self-center whitespace-nowrap text-xs text-muted-foreground">
-                      {filteredWords.length}/{totalWords}
-                    </span>
-                  )}
-                </div>
-              </div>
-
-              {wordsLoading ? (
-                <WordCardSkeleton count={4} />
-              ) : words.length === 0 ? (
-                <div className="flex flex-col items-center justify-center gap-2 py-6 text-center">
-                  <p className="text-xs font-semibold text-muted-foreground">
-                    Chưa có từ — chọn gói trong thư viện
-                  </p>
-                  <Link
-                    href="/library"
-                    className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-xs font-bold text-primary-foreground"
-                  >
-                    <Sparkles className="h-3.5 w-3.5" /> Mở thư viện
-                  </Link>
-                </div>
-              ) : (
-                <>
-                  <div className="grid grid-cols-2 gap-2">
-                    {filteredWords.length === 0 && (debouncedQuery || statusFilter !== 'all') && (
-                      <div className="col-span-full py-6 text-center text-muted-foreground">
-                        <Search className="mx-auto mb-1 h-5 w-5 opacity-30" />
-                        <p className="text-xs">Không tìm thấy từ</p>
-                      </div>
-                    )}
-                    {filteredWords.map((word) => (
-                      <div
-                        key={word.id}
-                        role="button"
-                        tabIndex={0}
-                        onClick={() => setSelectedWordId(word.id)}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            setSelectedWordId(word.id);
-                          }
-                        }}
-                        className="group relative cursor-pointer overflow-hidden rounded-xl border border-slate-100 bg-slate-50/70 px-3.5 py-2.5 transition-all hover:border-primary/40 hover:bg-white hover:shadow-2xs focus:outline-none focus:ring-2 focus:ring-primary/40"
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <div className="min-w-0">
-                            <div className="flex items-baseline gap-2">
-                              <h4 className="truncate text-base font-black text-primary">{word.word}</h4>
-                              <span className="shrink-0 text-[10px] font-bold uppercase text-muted-foreground">
-                                {word.pos || ''}
-                              </span>
-                            </div>
-                            {word.ipa && (
-                              <div className="truncate text-[11px] font-semibold text-muted-foreground font-mono">
-                                {parseIpa(word.ipa)}
-                              </div>
-                            )}
-                          </div>
-                          <Badge className={`shrink-0 text-[10px] ${(word.srsLevel ?? 0) >= 5 ? 'bg-emerald-500' : 'bg-primary/15 text-primary'}`}>
-                            L{word.srsLevel || 1}
-                          </Badge>
-                        </div>
-                        <p className="mt-1 line-clamp-1 text-xs font-semibold text-slate-600">
-                          {word.translation}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {words.length < totalWords && !debouncedQuery && statusFilter === 'all' && (
-                    <div className="pt-1 text-center">
-                      <button
-                        type="button"
-                        onClick={loadMoreWords}
-                        disabled={isLoadingMore}
-                        className="inline-flex items-center gap-1.5 rounded-xl border border-primary/20 px-4 py-2 text-xs font-bold text-primary hover:bg-primary/5 disabled:opacity-50 cursor-pointer"
-                      >
-                        {isLoadingMore ? (
-                          <><Loader2 className="h-3.5 w-3.5 animate-spin" /> Đang tải…</>
-                        ) : (
-                          <>Tải thêm ({totalWords - words.length})</>
-                        )}
-                      </button>
-                    </div>
-                  )}
-                </>
-              )}
-            </section>
-
-            <div className="opacity-90">
-              <BadgeGrid badges={badges} />
-            </div>
-          </div>
-        ) : (
-          /* ═════════════════════════════════════════════════════════════════════ */
-          /* GIAO DIỆN ĐIỆN THOẠI (else — giữ nguyên 100% thiết kế mobile hiện tại) */
-          /* ═════════════════════════════════════════════════════════════════════ */
-          <div className="mx-auto flex w-full max-w-[920px] flex-col gap-2.5 px-3.5 py-2.5 sm:gap-3.5 sm:px-7 sm:py-5">
-            {/* Greeting — 1 dòng gọn cùng Thông báo bên phải */}
-            <div className="flex items-center justify-between gap-2 pt-0.5">
-              <div className="flex items-center gap-2 min-w-0">
-                <Mascot mood={mascotMood} size="sm" />
-                <h2 className="truncate text-base font-black leading-tight text-foreground sm:text-xl">
-                  {greeting}, {profile?.full_name?.split(' ')[0] || 'bạn'}! 👋
-                </h2>
-              </div>
-
-              <div className="flex items-center gap-2 shrink-0">
-                {/* Meta siêu gọn — desktop */}
-                <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
-                  <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-extrabold tabular-nums text-slate-600">
-                    {countsReady ? totalWords : '…'} từ
-                  </span>
-                  <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-extrabold tabular-nums text-emerald-700">
-                    {masteredCount} master
-                  </span>
-                </div>
-
-                {/* Tra từ điển & Thông báo trên mobile — cùng hàng bên phải */}
-                <div className="md:hidden flex items-center gap-1.5">
-                  <Link
-                    href="/dictionary"
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 shadow-2xs transition-colors hover:bg-slate-50 hover:text-indigo-600 active:scale-95"
-                    title="Tra từ điển nhanh"
-                    aria-label="Tra từ điển nhanh"
-                  >
-                    <Search className="h-4 w-4 shrink-0" />
-                  </Link>
-                  <NotificationBell
-                    dueCount={reviewDueCount}
-                    grammarDueCount={0}
-                    streak={studyStreak}
-                    dailyGoalXp={gamification.today_xp}
-                    dailyGoal={gamification.daily_goal}
-                    classroomId={classroomId}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Desktop banner; mobile = fixed popup trong component */}
-            <EnableNotifications />
-
-            {/* Daily reading notification */}
-            <DailyReadingCard status={dailyReadingStatus} />
-
-            {/* Challenge campaign widget */}
-            <ChallengeWidget />
-
-            {/* ═══════════════════════════════════════════════════════════ */}
-            {/* KHU VỰC CHIA ĐÔI 50/50: 3 Nút + Chuỗi (trái) vs Tiến độ ngày (phải) */}
-            {/* ═══════════════════════════════════════════════════════════ */}
-            <div className="grid grid-cols-2 gap-2 sm:gap-2.5 items-stretch pt-1">
-              {/* CỘT BÊN TRÁI: 3 Nút chuẩn 1cm ở trên + Bảng chuỗi ở dưới */}
-              <div className="flex flex-col gap-2 min-w-0">
-                {/* 2 Nút vuông chuẩn 1cm (Learn & Revise) */}
-                <div className="grid grid-cols-2 gap-1.5 pt-1.5">
-                  {/* 1. New Words (Learn) */}
-                  <button
-                    type="button"
-                    onClick={() => setActionModalType('learn')}
-                    data-onboarding="learn"
-                    className="group relative flex h-[48px] flex-col items-center justify-center rounded-lg border border-indigo-300/40 bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-xs active:scale-95 transition-all hover:scale-105 cursor-pointer text-left w-full"
-                    title="Learn - Chọn phương thức nạp từ"
-                  >
-                    <span className="absolute -top-1.5 -right-0.5 rounded bg-rose-500 px-1 py-0.2 text-[8px] font-black text-white shadow ring-1 ring-white">
-                      {countsReady ? (newCount > 0 ? newCount : 0) : '…'}
-                    </span>
-                    <BookOpen className="h-4 w-4 drop-shadow-sm" strokeWidth={2.4} />
-                    <span className="mt-0.5 text-[8.5px] font-black leading-none tracking-tight text-white drop-shadow-xs">
-                      Learn
-                    </span>
-                  </button>
-
-                  {/* 2. Revise */}
-                  <button
-                    type="button"
-                    onClick={() => setActionModalType('review')}
-                    data-onboarding="review"
-                    className="group relative flex h-[48px] flex-col items-center justify-center rounded-lg border border-emerald-300/40 bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-xs active:scale-95 transition-all hover:scale-105 cursor-pointer text-left w-full"
-                    title="Revise - Chọn chế độ ôn tập"
-                  >
-                    <span
-                      className={`absolute -top-1.5 -right-0.5 rounded px-1 py-0.2 text-[8px] font-black shadow ring-1 ring-white ${
-                        reviewDueCount > 0 ? 'bg-amber-400 text-amber-950 animate-pulse' : 'bg-emerald-800 text-white'
-                      }`}
-                    >
-                      {countsReady ? reviewDueCount : '…'}
-                    </span>
-                    <RotateCw className="h-4 w-4 drop-shadow-sm" strokeWidth={2.4} />
-                    <span className="mt-0.5 text-[8.5px] font-black leading-none tracking-tight text-white drop-shadow-xs">
-                      Revise
-                    </span>
-                  </button>
-                </div>
-
-                {/* Bảng chuỗi học ở dưới (StreakCounter) */}
-                <div className="flex-1 min-w-0">
-                  <StreakCounter
-                    streak={studyStreak}
-                    lastActiveDate={
-                      lastActiveFromActivity(dailyActivity) ?? gamification.last_active_date
-                    }
-                    variant="calendar"
-                    dailyCounts={dailyActivity}
-                    className="h-full min-w-0"
-                  />
-                </div>
-              </div>
-
-              {/* CỘT BÊN PHẢI: Nhiều thanh tiến độ chiếm từ trên xuống dưới */}
-              <div className="flex flex-col justify-between rounded-xl border border-slate-200/90 bg-white p-2.5 shadow-2xs min-w-0">
-                {/* Header nhỏ */}
-                <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                  <span className="text-[11px] font-black text-slate-800 flex items-center gap-1">
-                    🎯 <span>Tiến độ ngày</span>
-                  </span>
-                </div>
-
-                {/* 1. Ôn tập */}
-                <div
-                  onClick={() => setActionModalType('review')}
-                  className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-emerald-50/60 active:scale-[0.98] transition-all cursor-pointer"
-                  title="Bấm vào mũi tên hoặc chữ để chọn chế độ ôn tập"
-                >
-                  <div className="flex items-center justify-between text-[9px]">
-                    <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-emerald-700 transition-colors">
-                      <span className="inline-block text-[11.5px] font-black leading-none text-emerald-500 animate-arrow-nudge">
-                        →
-                      </span>
-                      <span>Ôn tập</span>
-                    </span>
-                    <span className="font-black text-emerald-700 tabular-nums">
-                      {countsReady
-                        ? `${todayReviewsComputed} lượt`
-                        : '…'}
-                    </span>
-                  </div>
-                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-emerald-500 h-1.5 rounded-full transition-all duration-500"
-                      style={{ width: `${reviewProgressPct}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* 2. Từ mới */}
-                <div
-                  onClick={() => setActionModalType('learn')}
-                  className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-indigo-50/60 active:scale-[0.98] transition-all cursor-pointer"
-                  title="Bấm vào mũi tên hoặc chữ để chọn phương thức nạp từ"
-                >
-                  <div className="flex items-center justify-between text-[9px]">
-                    <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-indigo-700 transition-colors">
-                      <span className="inline-block text-[11.5px] font-black leading-none text-indigo-500 animate-arrow-nudge">
-                        →
-                      </span>
-                      <span>Từ mới</span>
-                    </span>
-                    <span className="font-black text-indigo-700 tabular-nums">
-                      {todayNewWords} / {gamification.daily_goal || 10} từ
-                    </span>
-                  </div>
-                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-indigo-500 h-1.5 rounded-full transition-all duration-500"
-                      style={{ width: `${newWordsProgressPct}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* 3. Listening */}
-                <div
-                  onClick={() => setActionModalType('listening')}
-                  className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-purple-50/60 active:scale-[0.98] transition-all cursor-pointer"
-                  title="Bấm vào mũi tên hoặc chữ để chọn chế độ luyện nghe"
-                >
-                  <div className="flex items-center justify-between text-[9px]">
-                    <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-purple-700 transition-colors">
-                      <span className="inline-block text-[11.5px] font-black leading-none text-purple-500 animate-arrow-nudge">
-                        →
-                      </span>
-                      <span>Listening</span>
-                    </span>
-                    <span className="font-black text-purple-700 tabular-nums">
-                      {listeningStats.completedCount > 0
-                        ? `${listeningStats.completedCount} bài đã nghe`
-                        : listeningStats.inProgressPercent > 0
-                        ? `${listeningStats.inProgressPercent}% đang nghe`
-                        : 'Chưa nghe'}
-                    </span>
-                  </div>
-                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-purple-500 h-1.5 rounded-full transition-all duration-500"
-                      style={{ width: `${listeningProgressPct}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* 4. Reading */}
-                <div
-                  onClick={() => setActionModalType('reading')}
-                  className="group block space-y-0.5 rounded-lg p-1 -mx-1 hover:bg-amber-50/60 active:scale-[0.98] transition-all cursor-pointer"
-                  title="Bấm vào mũi tên hoặc chữ để chọn chế độ luyện đọc"
-                >
-                  <div className="flex items-center justify-between text-[9px]">
-                    <span className="font-bold text-slate-600 flex items-center gap-1.5 group-hover:text-amber-700 transition-colors">
-                      <span className="inline-block text-[11.5px] font-black leading-none text-amber-500 animate-arrow-nudge">
-                        →
-                      </span>
-                      <span>Reading</span>
-                    </span>
-                    <span className="font-black text-amber-700 tabular-nums">
-                      {dailyReadingStatus.totalCount > 0
-                        ? `${dailyReadingStatus.completedCount}/${dailyReadingStatus.totalCount} bài đọc`
-                        : 'Chưa đọc'}
-                    </span>
-                  </div>
-                  <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                    <div
-                      className="bg-amber-500 h-1.5 rounded-full transition-all duration-500"
-                      style={{ width: `${readingProgressPct}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Nhiệm vụ nhận quà Pro — luôn hiện trên dashboard free */}
-            {profile?.id && (
-              <ProTrialMilestoneCard
-                enabled
-                hintStreak={studyStreak}
-                hintWords={countsReady ? totalWords : undefined}
-                onClaimed={() => {
-                  void refreshGamification();
-                  void supabase
-                    .from('profiles')
-                    .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
-                    .eq('id', profile.id)
-                    .maybeSingle()
-                    .then(({ data }) => {
-                      if (data) setProfile(data as Profile);
-                    });
-                }}
-              />
-            )}
-
-            {/* ═══ KHO TỪ VỰNG ═══ */}
-            <section
-              className="space-y-2.5 rounded-2xl border border-slate-100 bg-white p-3 shadow-sm sm:p-3.5"
-              id="kho-tu-vung"
-              data-onboarding="vault"
-            >
-              <div className="flex items-center justify-between gap-2">
-                <h3 className="flex items-center gap-1.5 text-sm font-black text-slate-800 sm:text-base truncate">
-                  <span className="text-base leading-none shrink-0">📦</span>
-                  <span className="truncate">{activeClassroom ? `Từ vựng · ${activeClassroom.name}` : 'Kho từ vựng'}</span>
-                </h3>
-                <div className="flex flex-wrap items-center justify-end gap-1.5">
-                  {activeClassroom && (
-                    <button
-                      type="button"
-                      onClick={() => handleSwitchScope('__personal__')}
-                      className="inline-flex h-7 items-center gap-1 rounded-full border border-slate-200 bg-white px-2.5 text-[11px] font-extrabold text-slate-600 hover:bg-slate-50 transition active:scale-95"
-                    >
-                      Về kho cá nhân
-                    </button>
-                  )}
-                  <Badge variant="outline" className="h-6 px-2 text-[10px] font-bold tabular-nums">
-                    {countsReady ? totalWords : '…'} từ
-                  </Badge>
+                <div className="mt-2.5 flex items-center justify-between text-xs font-bold">
                   <Link
                     href="/import"
-                    className="inline-flex h-7 items-center gap-1 rounded-full border border-indigo-200 bg-indigo-50 px-2.5 text-[11px] font-extrabold text-indigo-700 active:brightness-110"
-                    title="Dán list / file / quét ảnh của bạn"
+                    className="inline-flex items-center gap-1 text-slate-500 hover:text-indigo-600 dark:text-[#A5AAC6] dark:hover:text-[#B3A8FF]"
                   >
                     <Plus className="h-3.5 w-3.5" />
-                    Nạp từ mới
+                    <span>Tự nạp từ</span>
                   </Link>
-                  <Link
-                    href="/library"
-                    className="inline-flex h-7 items-center gap-1 rounded-full bg-emerald-600 px-2.5 text-[11px] font-extrabold text-white active:brightness-110"
-                    title="Chọn gói từ sẵn theo chủ đề"
+                  <button
+                    type="button"
+                    onClick={() => setShowVaultWords((v) => !v)}
+                    className="inline-flex items-center gap-1 text-indigo-600 hover:underline dark:text-[#B3A8FF] cursor-pointer"
                   >
-                    Thư viện
-                  </Link>
+                    <span>{showVaultWords ? 'Thu gọn danh sách' : 'Tra từ đã lưu'}</span>
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform ${showVaultWords ? 'rotate-180' : ''}`}
+                    />
+                  </button>
                 </div>
-              </div>
 
-              {/* Tóm tắt kho: tích lũy / đã học / gói */}
-              <div className="grid grid-cols-3 gap-1.5">
-                <div className="rounded-xl bg-slate-50 px-2 py-1.5 text-center">
-                  <div className={`text-sm font-black tabular-nums text-slate-800 ${!countsReady ? 'animate-pulse text-slate-400' : ''}`}>
-                    {countsReady ? totalWords : '…'}
-                  </div>
-                  <div className="text-[10px] font-bold text-slate-400">Tích lũy</div>
-                </div>
-                <div className="rounded-xl bg-indigo-50/80 px-2 py-1.5 text-center">
-                  <div className={`text-sm font-black tabular-nums text-indigo-700 ${!countsReady ? 'animate-pulse' : ''}`}>
-                    {countsReady ? Math.max(0, totalWords - newCount) : '…'}
-                  </div>
-                  <div className="text-[10px] font-bold text-indigo-400">Đã học</div>
-                </div>
-                <div className="rounded-xl bg-violet-50/80 px-2 py-1.5 text-center">
-                  <div className="text-sm font-black tabular-nums text-violet-700">{vocabPacks.length}</div>
-                  <div className="text-[10px] font-bold text-violet-400">Gói</div>
-                </div>
-              </div>
+                {showVaultWords && (
+                  <div className="mt-3 space-y-2.5 border-t border-slate-200/80 pt-3 dark:border-[#272C47]">
+                    <div className="relative">
+                      <Search className="absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-400" />
+                      <input
+                        type="search"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder="Tìm từ trong kho..."
+                        className="h-9 w-full rounded-xl border border-slate-200 bg-slate-50 pl-8 pr-3 text-xs focus:outline-none focus:ring-2 focus:ring-[#7B67FF]/40 dark:border-[#272C47] dark:bg-[#20253F] dark:text-[#F2F3FB]"
+                      />
+                    </div>
 
-              {/* Mức độ nhớ — full kho (levelCounts từ API), nhãn ≈ interval FSRS */}
-              {countsReady && totalWords > 0 && (
-                <div className="rounded-xl border border-slate-100 bg-slate-50/60 px-2.5 py-2">
-                  <div className="mb-1.5 flex items-center justify-between gap-2">
-                    <span className="text-[10px] font-extrabold uppercase tracking-wide text-slate-500">
-                      Mức độ nhớ · cả kho
-                    </span>
-                    <span className="text-[9px] font-bold text-slate-400 tabular-nums">
-                      {levelCounts.reduce((a, b) => a + b, 0)}/{totalWords} từ
-                    </span>
-                  </div>
-                  <div className="flex items-end justify-between gap-1 sm:gap-1.5">
-                    {levelCounts.map((count, idx) => {
-                      const maxCount = Math.max(1, ...levelCounts);
-                      const barH = Math.round(4 + (count / maxCount) * 40);
-                      const colors = [
-                        'bg-rose-400',
-                        'bg-amber-400',
-                        'bg-sky-400',
-                        'bg-indigo-500',
-                        'bg-emerald-500',
-                        'bg-purple-500',
-                      ] as const;
-                      return (
-                        <div
-                          key={idx + 1}
-                          className="flex min-w-0 flex-1 flex-col items-center"
-                          title={`L${idx + 1}: ${SRS_LEVEL_STABILITY_HINT[idx]} · ~interval ${SRS_LEVEL_LABELS[idx]} · ${count} từ`}
+                    <div className="flex gap-1 overflow-x-auto pb-1 scrollbar-none">
+                      {(['all', 'new', 'due', 'learned', 'mastered'] as const).map((f) => (
+                        <button
+                          key={f}
+                          type="button"
+                          onClick={() => setStatusFilter(f)}
+                          className={`shrink-0 rounded-full px-2.5 py-1 text-[11px] font-bold transition cursor-pointer ${
+                            statusFilter === f
+                              ? 'bg-[#7B67FF] text-white'
+                              : 'bg-slate-100 text-slate-500 dark:bg-[#20253F] dark:text-[#A5AAC6]'
+                          }`}
                         >
-                          <span className="mb-0.5 text-[9px] font-black tabular-nums text-slate-600">{count}</span>
-                          <div
-                            className={`w-full max-w-[28px] rounded-t-md ${colors[idx]}`}
-                            style={{ height: barH }}
-                          />
-                          <span className="mt-0.5 text-[8px] font-extrabold text-slate-500">L{idx + 1}</span>
-                          <span className="text-[7px] font-bold uppercase text-slate-400">{SRS_LEVEL_LABELS[idx]}</span>
-                        </div>
-                      );
-                    })}
+                          {{ all: 'Tất cả', new: 'Mới', due: 'Đến hạn', learned: 'Đã học', mastered: 'Master' }[f]}
+                        </button>
+                      ))}
+                    </div>
+
+                    {wordsLoading ? (
+                      <WordCardSkeleton count={3} />
+                    ) : filteredWords.length === 0 ? (
+                      <p className="py-3 text-center text-xs text-slate-400 dark:text-[#A5AAC6]">
+                        Không tìm thấy từ phù hợp
+                      </p>
+                    ) : (
+                      <div className="max-h-[260px] space-y-1.5 overflow-y-auto pr-1">
+                        {filteredWords.map((word) => (
+                          <button
+                            key={word.id}
+                            type="button"
+                            onClick={() => setSelectedWordId(word.id)}
+                            className="flex w-full items-center justify-between gap-2 rounded-xl bg-slate-50 px-3 py-2 text-left transition hover:bg-indigo-50/60 dark:bg-[#20253F] dark:hover:bg-[#272C47] cursor-pointer"
+                          >
+                            <div className="min-w-0">
+                              <div className="truncate text-xs font-extrabold text-slate-900 dark:text-[#F2F3FB]">
+                                {word.word}
+                              </div>
+                              <div className="truncate text-[11px] text-slate-500 dark:text-[#A5AAC6]">
+                                {word.translation}
+                              </div>
+                            </div>
+                            <span className="shrink-0 rounded-md bg-indigo-500/15 px-1.5 py-0.5 text-[10px] font-bold text-indigo-600 dark:text-[#B3A8FF]">
+                              L{word.srsLevel || 1}
+                            </span>
+                          </button>
+                        ))}
+
+                        {words.length < totalWords && !debouncedQuery && statusFilter === 'all' && (
+                          <button
+                            type="button"
+                            onClick={loadMoreWords}
+                            disabled={isLoadingMore}
+                            className="mt-1 w-full rounded-xl border border-slate-200 py-1.5 text-center text-xs font-bold text-indigo-600 hover:bg-slate-50 dark:border-[#272C47] dark:text-[#B3A8FF] dark:hover:bg-[#20253F] cursor-pointer"
+                          >
+                            {isLoadingMore ? 'Đang tải...' : `Tải thêm (${totalWords - words.length})`}
+                          </button>
+                        )}
+                      </div>
+                    )}
                   </div>
-                  <p className="mt-1.5 text-[9px] font-semibold leading-snug text-slate-400">
-                    Nhãn ≈ khoảng ôn lại FSRS (theo stability), không phải mốc cứng Anki.
-                  </p>
+                )}
+              </section>
+
+              {/* Card: Luyện thi (.ex) */}
+              <section className="rounded-[18px] border border-slate-200/90 bg-white p-5 sm:p-[22px] dark:border-[#272C47] dark:bg-[#161A2E]">
+                <div className="mb-3.5 flex items-baseline justify-between">
+                  <h2 className="m-0 text-[16px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                    Luyện thi
+                  </h2>
                 </div>
-              )}
-            </section>
-
-            {/* ═══════════════════════════════════════════════════════════ */}
-            {/* MỤC KỸ NĂNG: TIÊU ĐỀ + 5 NÚT 1CM                           */}
-            {/* ═══════════════════════════════════════════════════════════ */}
-            <div className="space-y-1.5 pt-0.5">
-              <div className="flex items-center justify-between px-0.5">
-                <span className="text-[11px] font-black text-slate-800 uppercase tracking-wide">
-                  Kỹ năng
-                </span>
-              </div>
-
-              <div className="grid grid-cols-5 gap-1.5">
-                {/* 1. Grammar */}
-                <Link
-                  href="/grammar"
-                  className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-sky-50 border border-sky-200/80 text-sky-700 shadow-3xs active:scale-95 transition-all hover:border-sky-300"
-                >
-                  <Code2 className="w-4 h-4" strokeWidth={2.4} />
-                  <span className="mt-0.5 text-[8.5px] font-black leading-none text-sky-800">Grammar</span>
-                </Link>
-
-                {/* 2. Reading */}
-                <button
-                  type="button"
-                  onClick={() => setActionModalType('reading')}
-                  className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-amber-50 border border-amber-200/80 text-amber-700 shadow-3xs active:scale-95 transition-all hover:border-amber-300 cursor-pointer"
-                >
-                  <FileText className="w-4 h-4" strokeWidth={2.4} />
-                  <span className="mt-0.5 text-[8.5px] font-black leading-none text-amber-800">Reading</span>
-                </button>
-
-                {/* 3. Listening */}
-                <button
-                  type="button"
-                  onClick={() => setActionModalType('listening')}
-                  className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-purple-50 border border-purple-200/80 text-purple-700 shadow-3xs active:scale-95 transition-all hover:border-purple-300 cursor-pointer"
-                >
-                  <Headphones className="w-4 h-4" strokeWidth={2.4} />
-                  <span className="mt-0.5 text-[8.5px] font-black leading-none text-purple-800">Listening</span>
-                </button>
-
-                {/* 4. Speaking */}
-                <Link
-                  href="/student/speaking/foundation"
-                  aria-label="Luyện nói phản xạ Speaking"
-                  className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-rose-50/70 border border-rose-200/80 text-rose-700 shadow-3xs cursor-pointer active:scale-95 transition-all hover:border-rose-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
-                >
-                  <span className="absolute -top-1.5 -right-0.5 rounded-full bg-rose-500 text-white px-1 py-0 text-[6.5px] font-black shadow ring-1 ring-white leading-tight">
-                    A0–C1
-                  </span>
-                  <Mic className="w-4 h-4" strokeWidth={2.4} />
-                  <span className="mt-0.5 text-[8.5px] font-black leading-none text-rose-800">Speaking</span>
-                </Link>
-
-                {/* 5. Writing */}
-                <button
-                  type="button"
-                  aria-label="Writing (Sắp có)"
-                  className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-slate-100/80 border border-slate-200 text-slate-500 shadow-3xs cursor-pointer active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
-                  onClick={() => toast.info('Tính năng Luyện Writing sắp ra mắt')}
-                >
-                  <span className="absolute -top-1.5 -right-0.5 rounded-full bg-slate-500 text-white px-1 py-0 text-[6.5px] font-black shadow ring-1 ring-white leading-tight">
-                    Sắp có
-                  </span>
-                  <PenTool className="w-4 h-4 opacity-80" strokeWidth={2.4} />
-                  <span className="mt-0.5 text-[8.5px] font-black leading-none text-slate-600">Writing</span>
-                </button>
-              </div>
-            </div>
-
-            {/* ═══════════════════════════════════════════════════════════ */}
-            {/* MỤC LUYỆN THI: TIÊU ĐỀ + 4 LOGO THẬT                       */}
-            {/* ═══════════════════════════════════════════════════════════ */}
-            <div className="space-y-1.5 pt-0.5">
-              <div className="flex items-center justify-between px-0.5">
-                <span className="text-[11px] font-black text-slate-800 uppercase tracking-wide">
-                  Luyện thi
-                </span>
-              </div>
-
-              <div className="grid grid-cols-4 gap-2">
-                {/* 1. TOEIC (Popup: Vào luyện thi + Học TOEIC) */}
-                <button
-                  type="button"
-                  onClick={() => setActionModalType('toeic')}
-                  className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-indigo-300 active:scale-95 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-                >
-                  <Image src="/images/exams/toeic.png" alt="TOEIC" width={64} height={32} className="max-h-full max-w-full object-contain" />
-                </button>
-
-                {/* 2. VSTEP (Vào trang luôn) */}
-                <Link
-                  href="/vstep"
-                  className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-blue-300 active:scale-95 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                >
-                  <Image src="/images/exams/vstep.png" alt="VSTEP" width={64} height={32} className="max-h-full max-w-full object-contain" />
-                </Link>
-
-                {/* 3. VNU Test */}
-                <Link
-                  href="/vnu-bac-3"
-                  aria-label="VNU Test Bậc 3"
-                  className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs hover:border-emerald-300 active:scale-95 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                >
-                  <Image src="/images/exams/vnu-test.png" alt="VNU Test" width={64} height={32} className="max-h-full max-w-full object-contain" />
-                </Link>
-
-                {/* 4. IELTS (Đang cập nhật) */}
-                <button
-                  type="button"
-                  aria-label="IELTS (Đang cập nhật)"
-                  onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
-                  className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs active:scale-95 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-                >
-                  <span className="absolute -top-1.5 -right-1 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[6.5px] font-black shadow ring-1 ring-white whitespace-nowrap">
-                    Đang cập nhật
-                  </span>
-                  <Image src="/images/exams/ielts.png" alt="IELTS" width={64} height={32} className="max-h-full max-w-full object-contain" />
-                </button>
-              </div>
-            </div>
-
-            {/* ═══════════════════════════════════════════════════════════ */}
-            {/* HỘP THƯỞNG PRO VIP: HỌC CHĂM + MỜI BẠN                     */}
-            {/* ═══════════════════════════════════════════════════════════ */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 via-indigo-500/5 to-purple-500/10 p-2.5 border border-amber-200/70 shadow-2xs space-y-2">
-              {/* Header */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5 font-black text-xs text-slate-800">
-                  <span className="text-amber-500">🎁</span>
-                  <span>Săn ngày PRO miễn phí</span>
-                </div>
-                <span className="text-[9px] font-black bg-gradient-to-r from-amber-500 to-orange-500 text-white px-2 py-0.5 rounded-full shadow-3xs">
-                  +3 ngày PRO / mốc
-                </span>
-              </div>
-
-              {/* 2 Nhiệm vụ săn PRO */}
-              <div className="space-y-1.5">
-                {/* 1. Học chăm chỉ (Streak 7 ngày) */}
-                <div className="flex items-center justify-between gap-2 bg-white/95 rounded-xl p-2 border border-slate-100 shadow-3xs">
-                  <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200/80 flex items-center justify-center shrink-0 text-amber-500">
-                      <Flame className="w-4 h-4 fill-amber-500 stroke-none" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between text-[9.5px]">
-                        <span className="font-extrabold text-slate-700 truncate">Chuỗi học 7 ngày</span>
-                        <span className="font-black text-amber-600 tabular-nums">
-                          {Math.min(studyStreak, 7)}/7 ngày
-                        </span>
-                      </div>
-                      <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-1">
-                        <div
-                          className="bg-gradient-to-r from-amber-400 to-orange-500 h-full rounded-full transition-all duration-500"
-                          style={{ width: `${Math.min(100, Math.round((studyStreak / 7) * 100))}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <span className="text-[8.5px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-1 rounded-lg shrink-0">
-                    +3 ngày PRO
-                  </span>
-                </div>
-
-                {/* 2. Mời bạn cùng tiến */}
-                <div className="flex items-center justify-between gap-2 bg-white/95 rounded-xl p-2 border border-slate-100 shadow-3xs">
-                  <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200/80 flex items-center justify-center shrink-0 text-indigo-600">
-                      <Users className="w-4 h-4 stroke-indigo-600" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-[9.5px] font-extrabold text-slate-800 leading-tight">
-                        Mời bạn học cùng
-                      </div>
-                      <div className="text-[8px] font-medium text-slate-400 truncate mt-0.5">
-                        Cả hai đều nhận +3 ngày PRO miễn phí
-                      </div>
-                    </div>
-                  </div>
-                  <Link
-                    href="/student/referral"
-                    className="text-[8.5px] font-black text-white bg-gradient-to-r from-indigo-600 to-violet-600 px-2.5 py-1 rounded-lg shrink-0 shadow-3xs active:scale-95 transition-all hover:brightness-110 flex items-center gap-0.5"
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setActionModalType('toeic')}
+                    className="rounded-full border border-slate-200/90 bg-white px-3.5 py-2 text-[13px] font-bold text-slate-800 transition hover:border-[#7B67FF] hover:text-indigo-600 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB] dark:hover:border-[#7B67FF] dark:hover:text-[#B3A8FF] cursor-pointer"
                   >
-                    <span>Mời bạn</span>
-                    <ChevronRight className="w-2.5 h-2.5" strokeWidth={2.5} />
+                    TOEIC
+                  </button>
+                  <Link
+                    href="/vstep"
+                    className="rounded-full border border-slate-200/90 bg-white px-3.5 py-2 text-[13px] font-bold text-slate-800 transition hover:border-[#7B67FF] hover:text-indigo-600 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB] dark:hover:border-[#7B67FF] dark:hover:text-[#B3A8FF]"
+                  >
+                    VSTEP
                   </Link>
+                  <Link
+                    href="/vnu-bac-3"
+                    className="rounded-full border border-slate-200/90 bg-white px-3.5 py-2 text-[13px] font-bold text-slate-800 transition hover:border-[#7B67FF] hover:text-indigo-600 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB] dark:hover:border-[#7B67FF] dark:hover:text-[#B3A8FF]"
+                  >
+                    VNU Test
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
+                    className="rounded-full border border-slate-200/90 bg-white px-3.5 py-2 text-[13px] font-bold text-slate-800 transition hover:border-[#7B67FF] hover:text-indigo-600 dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB] dark:hover:border-[#7B67FF] dark:hover:text-[#B3A8FF] cursor-pointer"
+                  >
+                    IELTS
+                  </button>
                 </div>
-              </div>
-            </div>
-
-            <div className="opacity-90">
-              <BadgeGrid badges={badges} />
+              </section>
             </div>
           </div>
-        )}
+          </div>
+        </div>
 
         {/* Popup chúc mừng mốc (level / badge / streak) */}
         <MilestonePopup

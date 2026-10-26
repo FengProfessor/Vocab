@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Common.Models;
+using LingoPro.Application.Common.Models;
 using LingoPro.Application.Features.Vocab.Commands;
 using LingoPro.Application.Features.Vocab.Queries;
 using LingoPro.WebApi.Extensions;
@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.RateLimiting;
 namespace LingoPro.WebApi.Controllers;
 
 /// <summary>
-/// REST API controller for FSRS-5 spaced repetition vocabulary review and due cards retrieval.
+/// REST API controller for FSRS-5 spaced repetition vocabulary review, due cards retrieval,
+/// and L1-L6 learning analytics aggregations.
 /// </summary>
 [Route("api/v1/vocab")]
 [Authorize]
@@ -23,6 +24,18 @@ public sealed class VocabController : ApiControllerBase
     {
         var result = await Mediator.Send(new GetDueWordsQuery(limit), ct);
         return OkResponse(result, "Due vocabulary cards retrieved successfully.");
+    }
+
+    [HttpGet("analytics")]
+    [HttpGet("summary")]
+    public async Task<ActionResult<ApiResponse<VocabAnalyticsDto>>> GetVocabAnalytics(
+        [FromQuery] string? classroomId = null,
+        [FromQuery] int limit = 500,
+        [FromQuery] int offset = 0,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetVocabAnalyticsQuery(classroomId, limit, offset), ct);
+        return OkResponse(result, "Vocabulary FSRS L1-L6 breakdown and learning analytics retrieved successfully.");
     }
 
     [HttpPost("review")]

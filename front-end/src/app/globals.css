@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
@@ -66,12 +66,12 @@
   --mobile-nav-h: 3.75rem; /* 60px, chưa kể safe-bottom */
   --mobile-nav-total: calc(var(--mobile-nav-h) + var(--safe-bottom));
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(0.985 0.004 265);
+  --foreground: oklch(0.145 0.015 265);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.145 0.015 265);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.145 0.015 265);
   /* Indigo sống động thay cho đen trung tính */
   --primary: oklch(0.511 0.262 276.966);
   --primary-foreground: oklch(0.985 0 0);
@@ -82,40 +82,41 @@
   --xp-foreground: oklch(0.2 0 0);
   --goal: oklch(0.696 0.17 162.48);
   --goal-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.968 0.007 265);
+  --secondary-foreground: oklch(0.205 0.015 265);
+  --muted: oklch(0.968 0.007 265);
+  --muted-foreground: oklch(0.50 0.02 265);
+  --accent: oklch(0.968 0.007 265);
+  --accent-foreground: oklch(0.205 0.015 265);
   --destructive: oklch(0.58 0.22 27);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.915 0.01 265);
+  --input: oklch(0.915 0.01 265);
+  --ring: oklch(0.58 0.22 276.966);
   --chart-1: oklch(0.809 0.105 251.813);
   --chart-2: oklch(0.623 0.214 259.815);
   --chart-3: oklch(0.546 0.245 262.881);
   --chart-4: oklch(0.488 0.243 264.376);
   --chart-5: oklch(0.424 0.199 265.638);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar: oklch(0.985 0.004 265);
+  --sidebar-foreground: oklch(0.145 0.015 265);
+  --sidebar-primary: oklch(0.205 0.015 265);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-accent: oklch(0.968 0.007 265);
+  --sidebar-accent-foreground: oklch(0.205 0.015 265);
+  --sidebar-border: oklch(0.915 0.01 265);
   --sidebar-ring: oklch(0.708 0 0);
+  color-scheme: light;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.623 0.214 276.966);
+  --background: oklch(0.135 0.02 265);
+  --foreground: oklch(0.965 0.008 265);
+  --card: oklch(0.185 0.022 265);
+  --card-foreground: oklch(0.965 0.008 265);
+  --popover: oklch(0.185 0.022 265);
+  --popover-foreground: oklch(0.965 0.008 265);
+  --primary: oklch(0.64 0.21 276.966);
   --primary-foreground: oklch(0.985 0 0);
   /* Gamification tokens dark */
   --streak: oklch(0.75 0.18 47.604);
@@ -124,29 +125,30 @@
   --xp-foreground: oklch(0.145 0 0);
   --goal: oklch(0.73 0.15 162.48);
   --goal-foreground: oklch(0.145 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.371 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.24 0.025 265);
+  --secondary-foreground: oklch(0.965 0.008 265);
+  --muted: oklch(0.23 0.022 265);
+  --muted-foreground: oklch(0.72 0.018 265);
+  --accent: oklch(0.26 0.03 265);
+  --accent-foreground: oklch(0.965 0.008 265);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
+  --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: oklch(0.64 0.21 276.966);
   --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.66 0.20 259.815);
+  --chart-3: oklch(0.58 0.23 262.881);
+  --chart-4: oklch(0.52 0.23 264.376);
+  --chart-5: oklch(0.46 0.19 265.638);
+  --sidebar: oklch(0.165 0.022 265);
+  --sidebar-foreground: oklch(0.965 0.008 265);
+  --sidebar-primary: oklch(0.58 0.23 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-accent: oklch(0.24 0.025 265);
+  --sidebar-accent-foreground: oklch(0.965 0.008 265);
+  --sidebar-border: oklch(1 0 0 / 12%);
   --sidebar-ring: oklch(0.556 0 0);
+  color-scheme: dark;
 }
 
 @layer base {
@@ -160,7 +162,7 @@
     -webkit-tap-highlight-color: transparent;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-200;
     /* Tránh layout nhảy khi bàn phím iOS/Android mở */
     min-height: 100dvh;
     min-height: -webkit-fill-available;
@@ -175,13 +177,16 @@
   }
 }
 
+/* ── Universal Dark Mode Surface Adaptation for Legacy Hardcoded Pages ── */
+.dark .bg-\[\#f7f8fc\],
+.dark .bg-\[\#f8f9fc\],
+.dark .bg-\[\#f8fafc\],
+.dark .bg-\[\#f4f6fb\] {
+  background-color: oklch(0.135 0.02 265) !important;
+}
+
 /* ── Mobile shell utilities (iOS + Android) ── */
 @layer utilities {
-  /*
-    Section dưới fold của landing dài: trình duyệt bỏ qua style/layout/paint cho tới khi gần viewport
-    (giảm long task Layout lúc load trên mobile). Nội dung vẫn có trong HTML (SEO, Ctrl+F, anchor).
-    LƯU Ý: content-visibility tạo containment — không đặt phần tử position:fixed/modal bên trong.
-  */
   .cv-auto {
     content-visibility: auto;
     contain-intrinsic-size: auto 900px;
@@ -231,6 +236,19 @@
   }
   .scrollbar-none::-webkit-scrollbar {
     display: none;
+  }
+  /* 3D Card Flip & Tactile Game Utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
   }
 }
 
@@ -333,6 +351,14 @@
   animation: shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-shake,
+  .animate-pulse,
+  .animate-bounce {
+    animation: none !important;
+  }
+}
+
 /* Arrow nudge for actionable dashboard items (smooth hover transition, calm by default) */
 .animate-arrow-nudge {
   display: inline-block;
@@ -360,4 +386,3 @@
   border-color: #d7ff64;
   box-shadow: 0 0 0 3px rgb(215 255 100 / 12%);
 }
-

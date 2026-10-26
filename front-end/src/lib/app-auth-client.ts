@@ -4,6 +4,7 @@ import { TokenStore } from '@/lib/auth/TokenStore';
 import { Pkce } from '@/lib/auth/Pkce';
 import { UserRole } from '@/types/enums/UserRole';
 import {
+  readLastProfileCache,
   writeDashboardProfileCache,
   writeDashboardGamificationCache,
 } from '@/lib/dashboard-snapshot-cache';
@@ -14,6 +15,8 @@ type Listener = (event: AppAuthEvent, session: AppSession | null) => void | Prom
 const listeners = new Set<Listener>();
 let inFlight: Promise<{ data: { session: AppSession | null }; error: Error | null }> | null = null;
 let current: AppSession | null = null;
+let lastSessionFetchAt = 0;
+const SESSION_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes cache window to prevent /auth/profile spam
 let channel: BroadcastChannel | null = null;
 let generation = 0;
 let initialized = false;
@@ -67,6 +70,7 @@ export function authStateVersion(): number {
 function invalidate() {
   generation++;
   inFlight = null;
+  lastSessionFetchAt = 0;
 }
 
 function notify(event: AppAuthEvent, session: AppSession | null, broadcast = false) {
@@ -83,9 +87,32 @@ function notify(event: AppAuthEvent, session: AppSession | null, broadcast = fal
   if (broadcast) channel?.postMessage({ type: 'invalidate' });
 }
 
+function hydrateSessionFromLocalCacheIfAvailable(): void {
+  if (current || typeof window === 'undefined') return;
+  const accessToken = TokenStore.getAccessToken();
+  if (!accessToken) return;
+  const cachedProfile = readLastProfileCache();
+  if (!cachedProfile?.id) return;
+  current = {
+    user: {
+      id: cachedProfile.id,
+      email: cachedProfile.email || '',
+      user_metadata: {
+        full_name: cachedProfile.full_name || 'Học viên',
+        avatar_url: cachedProfile.avatar_url ?? undefined,
+        role: cachedProfile.role || 'student',
+        plan: cachedProfile.plan || 'free',
+      },
+    },
+    expires_at: Math.floor(Date.now() / 1000) + 3600,
+  };
+  lastSessionFetchAt = Date.now();
+}
+
 function initialize() {
   if (typeof window === 'undefined') return;
   clearLegacyAuthStorage();
+  hydrateSessionFromLocalCacheIfAvailable();
   if (initialized) return;
   initialized = true;
   if (!channel && typeof BroadcastChannel !== 'undefined') {
@@ -96,7 +123,9 @@ function initialize() {
     };
   }
   window.addEventListener('focus', () => {
-    void appAuth.getSession();
+    if (Date.now() - lastSessionFetchAt >= SESSION_CACHE_TTL_MS) {
+      void appAuth.getSession();
+    }
   });
 }
 
@@ -177,6 +206,7 @@ export function hydrateSessionFromAuthTokens(dto: DotNetAuthTokensDto): AppSessi
   const session = buildSessionFromDto(dto);
   if (session) {
     invalidate();
+    lastSessionFetchAt = Date.now();
     notify('SIGNED_IN', session, true);
   }
   return session;
@@ -253,8 +283,19 @@ async function fetchProfileSession(): Promise<{ responseOk: boolean; status: num
 }
 
 export const appAuth = {
-  async getSession(): Promise<{ data: { session: AppSession | null }; error: Error | null }> {
+  async getSession(options?: { force?: boolean }): Promise<{ data: { session: AppSession | null }; error: Error | null }> {
     initialize();
+
+    const now = Date.now();
+    if (
+      !options?.force &&
+      current !== null &&
+      now - lastSessionFetchAt < SESSION_CACHE_TTL_MS &&
+      (!current.expires_at || current.expires_at * 1000 > now)
+    ) {
+      return { data: { session: current }, error: null };
+    }
+
     if (!inFlight) {
       const requestedGeneration = generation;
       inFlight = (async () => {
@@ -267,6 +308,7 @@ export const appAuth = {
               error: new Error('Authentication temporarily unavailable'),
             };
           }
+          lastSessionFetchAt = Date.now();
           if (current?.user.id !== session?.user.id) {
             notify(session ? 'SIGNED_IN' : 'SIGNED_OUT', session);
           } else {
@@ -294,9 +336,15 @@ export const appAuth = {
   onAuthStateChange(listener: Listener) {
     initialize();
     listeners.add(listener);
-    void appAuth.getSession().then(({ data, error }) => {
-      if (listeners.has(listener) && !error) void listener('INITIAL_SESSION', data.session);
-    });
+    if (current !== null && Date.now() - lastSessionFetchAt < SESSION_CACHE_TTL_MS) {
+      void Promise.resolve().then(() => {
+        if (listeners.has(listener)) void listener('INITIAL_SESSION', current);
+      });
+    } else {
+      void appAuth.getSession().then(({ data, error }) => {
+        if (listeners.has(listener) && !error) void listener('INITIAL_SESSION', data.session);
+      });
+    }
     return {
       data: {
         subscription: {
@@ -345,6 +393,7 @@ export const appAuth = {
           error: new Error('Không xác thực được phiên đăng nhập.'),
         };
       }
+      lastSessionFetchAt = Date.now();
       return { data: { session, user: session.user }, error: null };
     } catch {
       return {
@@ -455,6 +504,7 @@ export const appAuth = {
             user_metadata: attributes.data,
           };
       if (current) {
+        lastSessionFetchAt = Date.now();
         notify('USER_UPDATED', { ...current, user: updatedUser }, true);
       }
       return { data: { user: updatedUser }, error: null };

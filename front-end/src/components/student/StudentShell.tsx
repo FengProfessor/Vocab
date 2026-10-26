@@ -24,6 +24,8 @@ import {
 } from 'lucide-react';
 import { NotificationBell } from '@/components/NotificationBell';
 import { MobileBottomNav } from '@/components/student/MobileBottomNav';
+import { StudentTopbar } from '@/components/student/StudentTopbar';
+import { ThemeToggle } from '@/components/common/ThemeToggle';
 
 // Dynamic imports — marketing/upsell không cần ngay cho initial render
 const FreeQuotaBanner = dynamic(
@@ -102,12 +104,15 @@ import { useStudentContext, type ShellProfile } from '@/components/student/Stude
 
 interface StudentShellProps {
   title: string;
+  subtitle?: ReactNode;
   children: ReactNode;
   contentClassName?: string;
   /** Ẩn bottom tab khi đang học tập trung (flashcard/quiz/writing/speaking) */
   hideMobileNav?: boolean;
   /** Ẩn header trên di động (dùng cho dashboard gọn gàng) */
   hideMobileHeader?: boolean;
+  /** Ẩn header cả trên desktop khi trang tự có Topbar riêng (như Dashboard mới) */
+  hideHeader?: boolean;
   /**
    * immersive = tắt sidebar desktop + drawer + header chrome + bottom nav
    * (dùng cho Pixel Hub full-screen)
@@ -127,10 +132,12 @@ interface StudentShellProps {
 
 export function StudentShell({
   title,
+  subtitle,
   children,
   contentClassName,
   hideMobileNav = false,
   hideMobileHeader = false,
+  hideHeader = false,
   immersive = false,
   onJoinClass,
   requireAuth = true,
@@ -309,35 +316,43 @@ export function StudentShell({
           setGrammarDue(cachedGrammar.dueCount);
         }
 
+        const cachedProfile = readLastProfileCache();
+        if (cachedProfile && cachedProfile.id === session.user.id && !isCancelled) {
+          setInternalProfile(cachedProfile);
+          setIsTeacherUser(cachedProfile.role === 'teacher');
+        }
+
         const authHeaders = { 'X-LingoPro-Request': '1' };
-        const [{ data: profileData }, wordsResponse, grammarResponse, teacherClassesRes] = await Promise.all([
-          supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', session.user.id)
-            .single(),
-          authFetch('/api/words?summary=1', { headers: authHeaders })
-            .then((response) => response.json())
-            .catch(() => null),
+        const [wordsResponse, grammarResponse] = await Promise.all([
+          cached
+            ? Promise.resolve(null)
+            : authFetch('/api/words?summary=1', { headers: authHeaders })
+                .then((response) => response.json())
+                .catch(() => null),
           cachedGrammar?.fresh
             ? Promise.resolve(null)
             : authFetch('/api/grammar/progress?summary=1', { headers: authHeaders })
                 .then((response) => response.json())
                 .catch(() => null),
-          supabase
-            .from('classrooms')
-            .select('id')
-            .eq('teacher_id', session.user.id)
-            .neq('name', '__personal__')
-            .limit(1),
         ]);
 
         if (isCancelled) return;
 
-        if (profileData) {
-          setInternalProfile(profileData as ShellProfile);
-          const hasTeacher = profileData.role === 'teacher' || (teacherClassesRes?.data?.length ?? 0) > 0;
-          setIsTeacherUser(hasTeacher);
+        if (!cachedProfile || cachedProfile.id !== session.user.id) {
+          const fallbackProfile: ShellProfile = {
+            id: session.user.id,
+            email: session.user.email || '',
+            full_name:
+              (session.user.user_metadata?.full_name as string) ||
+              session.user.email?.split('@')[0] ||
+              'Học viên',
+            avatar_url: (session.user.user_metadata?.avatar_url as string) || undefined,
+            role: (session.user.user_metadata?.role as 'teacher' | 'student') || 'student',
+            plan: (session.user.user_metadata?.plan as 'free' | 'pro' | 'premium') || 'free',
+            created_at: new Date().toISOString(),
+          };
+          setInternalProfile(fallbackProfile);
+          setIsTeacherUser(fallbackProfile.role === 'teacher');
         }
 
         if (wordsResponse?.success) {
@@ -600,12 +615,111 @@ export function StudentShell({
     return undefined;
   };
 
+  const isInPracticeHub =
+    pathname === '/practice' ||
+    pathname.startsWith('/practice/') ||
+    pathname.startsWith('/student/speaking') ||
+    pathname.startsWith('/toeic');
+  const [isPracticeSubOpen, setIsPracticeSubOpen] = useState<boolean>(isInPracticeHub);
+
+  useEffect(() => {
+    if (isInPracticeHub) {
+      setIsPracticeSubOpen(true);
+    }
+  }, [isInPracticeHub]);
+
   const renderNavLink = (
     item: StudentNavItem,
     active: boolean,
     onClick?: () => void,
   ) => {
     const Icon = item.icon;
+    const hasSubItems = Boolean(item.children && item.children.length > 0);
+
+    if (hasSubItems && item.children) {
+      return (
+        <div key={item.href} className="space-y-1">
+          <button
+            type="button"
+            data-onboarding={item.onboardingId || onboardingIdFor(item.href)}
+            onClick={() => setIsPracticeSubOpen((prev) => !prev)}
+            aria-expanded={isPracticeSubOpen}
+            className={cn(
+              'group flex min-h-[34px] w-full items-center justify-between rounded-md px-2.5 py-1.5 text-left text-[13px] transition-all cursor-pointer',
+              active
+                ? 'bg-indigo-50/60 font-semibold text-indigo-700 dark:bg-[#20253F]/70 dark:text-[#B3A8FF]'
+                : 'font-medium text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-[#A5AAC6] dark:hover:bg-[#20253F] dark:hover:text-[#F2F3FB]',
+            )}
+          >
+            <div className="flex items-center gap-2.5 min-w-0">
+              <Icon
+                className={cn(
+                  'h-4 w-4 shrink-0 transition-colors',
+                  active
+                    ? 'text-indigo-600 dark:text-[#B3A8FF]'
+                    : 'text-slate-500 group-hover:text-slate-700 dark:text-[#A5AAC6] dark:group-hover:text-[#F2F3FB]',
+                )}
+                strokeWidth={active ? 2 : 1.75}
+              />
+              <span className="truncate">{item.label}</span>
+            </div>
+
+            <ChevronDown
+              className={cn(
+                'h-3.5 w-3.5 shrink-0 text-slate-400 transition-transform duration-200 dark:text-[#A5AAC6]',
+                isPracticeSubOpen && 'rotate-180',
+              )}
+            />
+          </button>
+
+          {/* ── SIDEBAR CON (SUB-SIDEBAR) CHO TRUNG TÂM LUYỆN TẬP ── */}
+          {isPracticeSubOpen && (
+            <div
+              role="group"
+              aria-label="Danh mục con Trung tâm Luyện tập"
+              className="ml-3.5 flex flex-col gap-0.5 border-l border-slate-200 pl-2 py-0.5 dark:border-[#272C47]"
+            >
+              {item.children.map((sub) => {
+                const subActive = sub.match(pathname);
+                const SubIcon = sub.icon;
+                return (
+                  <Link
+                    key={sub.href}
+                    href={sub.href}
+                    onClick={onClick}
+                    title={sub.desc}
+                    aria-current={subActive ? 'page' : undefined}
+                    className={cn(
+                      'group flex min-h-[32px] items-center justify-between gap-2 rounded-md px-2 py-1 text-[12.5px] transition-all',
+                      subActive
+                        ? 'bg-indigo-50/80 font-semibold text-indigo-700 dark:bg-[#20253F] dark:text-[#B3A8FF]'
+                        : 'font-medium text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-[#A5AAC6] dark:hover:bg-[#20253F] dark:hover:text-[#F2F3FB]',
+                    )}
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <SubIcon
+                        className={cn(
+                          'h-3.5 w-3.5 shrink-0 transition-colors',
+                          subActive
+                            ? 'text-indigo-600 dark:text-[#B3A8FF]'
+                            : 'text-slate-500 group-hover:text-slate-700 dark:text-[#A5AAC6] dark:group-hover:text-[#F2F3FB]',
+                        )}
+                        strokeWidth={subActive ? 2 : 1.75}
+                      />
+                      <span className="truncate">{sub.label}</span>
+                    </div>
+                    {subActive && (
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-600 dark:bg-[#7B67FF]" />
+                    )}
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      );
+    }
+
     return (
       <Link
         key={item.href}
@@ -616,8 +730,8 @@ export function StudentShell({
         className={cn(
           'group flex min-h-[34px] items-center justify-between rounded-md px-2.5 py-1.5 text-[13px] transition-all',
           active
-            ? 'bg-indigo-50/80 font-semibold text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300'
-            : 'font-medium text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-200',
+            ? 'bg-indigo-50/80 font-semibold text-indigo-700 dark:bg-[#20253F] dark:text-[#B3A8FF]'
+            : 'font-medium text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-[#A5AAC6] dark:hover:bg-[#20253F] dark:hover:text-[#F2F3FB]',
         )}
       >
         <div className="flex items-center gap-2.5 min-w-0">
@@ -625,8 +739,8 @@ export function StudentShell({
             className={cn(
               'h-4 w-4 shrink-0 transition-colors',
               active
-                ? 'text-indigo-600 dark:text-indigo-400'
-                : 'text-slate-500 group-hover:text-slate-700 dark:text-slate-400 dark:group-hover:text-slate-300',
+                ? 'text-indigo-600 dark:text-[#B3A8FF]'
+                : 'text-slate-500 group-hover:text-slate-700 dark:text-[#A5AAC6] dark:group-hover:text-[#F2F3FB]',
             )}
             strokeWidth={active ? 2 : 1.75}
           />
@@ -641,13 +755,13 @@ export function StudentShell({
                 ? 'bg-amber-50 text-amber-700 border border-amber-200/80 dark:bg-amber-950/50 dark:text-amber-300 dark:border-amber-800'
                 : item.href === '/vstep'
                 ? 'bg-blue-50 text-blue-700 border border-blue-200/80 dark:bg-blue-950/50 dark:text-blue-300 dark:border-blue-800'
-                : 'bg-indigo-50 text-indigo-600 border border-indigo-100 dark:bg-indigo-950/60 dark:text-indigo-300 dark:border-indigo-900/60',
+                : 'bg-indigo-50 text-indigo-600 border border-indigo-100 dark:bg-[#20253F] dark:text-[#B3A8FF] dark:border-[#272C47]',
             )}
           >
             {item.badge}
           </span>
         ) : active ? (
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-indigo-400 shrink-0 ml-1.5" />
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 dark:bg-[#7B67FF] shrink-0 ml-1.5" />
         ) : null}
       </Link>
     );
@@ -672,9 +786,10 @@ export function StudentShell({
     <>
       <UpgradeGiftModal />
       <div
+        data-shell-theme-toggle="true"
         className={cn(
-          'flex min-h-dvh w-full font-sans',
-          effectiveImmersive ? 'bg-background' : 'bg-[#f7f8fc]',
+          'flex min-h-dvh w-full font-sans transition-colors duration-200',
+          effectiveImmersive ? 'bg-background' : 'bg-[#F6F7FB] dark:bg-[#0D0F1E]',
         )}
       >
 
@@ -696,7 +811,7 @@ export function StudentShell({
             onKeyDown={handleDrawerKeyDown}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-            className="absolute inset-y-0 left-0 flex w-[min(18rem,88vw)] flex-col bg-white shadow-2xl pl-safe outline-none touch-pan-y animate-in slide-in-from-left duration-200 ease-out dark:border-r dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
+            className="absolute inset-y-0 left-0 flex w-[min(18rem,88vw)] flex-col bg-white shadow-2xl pl-safe outline-none touch-pan-y animate-in slide-in-from-left duration-200 ease-out dark:border-r dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#F2F3FB]"
             style={{ paddingTop: 'var(--safe-top)', paddingBottom: 'var(--safe-bottom)' }}
           >
             <div className="mb-3 flex items-center justify-between px-4 pt-4 border-b border-slate-100 dark:border-slate-800 pb-3">
@@ -780,7 +895,15 @@ export function StudentShell({
             </nav>
 
             {/* Footer drawer: Linear workspace card + actions */}
-            <div className="shrink-0 space-y-1.5 border-t border-slate-100 px-3 pb-3 pt-2.5 dark:border-slate-800">
+            <div className="shrink-0 space-y-2 border-t border-slate-100 px-3 pb-3 pt-2.5 dark:border-slate-800">
+              {/* Theme Switcher (Light / Dark / System) */}
+              <div className="space-y-1">
+                <div className="px-1 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                  Giao diện hiển thị
+                </div>
+                <ThemeToggle variant="sidebar" />
+              </div>
+
               {/* Nâng cấp Pro CTA - Chỉ hiện cho tài khoản free */}
               {(!effectiveProfile?.plan || effectiveProfile.plan === 'free') && (
                 <Link
@@ -868,16 +991,16 @@ export function StudentShell({
 
       {/* ═══ DESKTOP SIDEBAR ═══ */}
       {showChrome && (
-      <aside className="fixed inset-y-0 left-0 z-20 hidden w-[248px] border-r border-[#ececf1] bg-white px-3 py-3.5 md:flex md:flex-col dark:border-slate-800 dark:bg-slate-900">
-        <Link href="/student" className="flex items-center gap-2.5 px-2 pb-3 pt-1 border-b border-slate-100 dark:border-slate-800 mb-2">
-          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-indigo-600 text-white font-black text-sm shadow-xs shrink-0">
+      <aside className="fixed inset-y-0 left-0 z-20 hidden w-[248px] border-r border-[#ececf1] bg-white px-3 py-3.5 md:flex md:flex-col dark:border-[#272C47] dark:bg-[#161A2E]">
+        <Link href="/student" className="flex items-center gap-2.5 px-2 pb-3 pt-1 border-b border-slate-100 dark:border-[#272C47] mb-2">
+          <span className="flex h-7 w-7 items-center justify-center rounded-md bg-indigo-600 dark:bg-[#7B67FF] text-white font-black text-sm shadow-xs shrink-0">
             L
           </span>
           <div className="min-w-0">
-            <div className="font-extrabold text-[14px] text-slate-900 dark:text-white leading-none tracking-tight">
+            <div className="font-extrabold text-[14px] text-slate-900 dark:text-[#F2F3FB] leading-none tracking-tight">
               LingoPro
             </div>
-            <div className="text-[10px] font-medium text-slate-400 dark:text-slate-500 mt-0.5">
+            <div className="text-[10px] font-medium text-slate-400 dark:text-[#A5AAC6] mt-0.5">
               Học tiếng Anh thông minh
             </div>
           </div>
@@ -920,7 +1043,10 @@ export function StudentShell({
             </Link>
           )}
         </nav>
-        <div className="mt-auto shrink-0 space-y-1.5 border-t border-slate-100 pt-2.5 dark:border-slate-800">
+        <div className="mt-auto shrink-0 space-y-2 border-t border-slate-100 pt-2.5 dark:border-slate-800">
+          {/* Theme Switcher (Light / Dark / System) */}
+          <ThemeToggle variant="sidebar" />
+
           {/* Nâng cấp Pro CTA - Chỉ hiện cho tài khoản free */}
           {(!effectiveProfile?.plan || effectiveProfile.plan === 'free') && (
             <Link
@@ -1021,164 +1147,23 @@ export function StudentShell({
         {showChrome && !effectiveImmersive ? <FreeQuotaBanner /> : null}
 
         {showChrome && (
-        <header
-          className={cn(
-            "sticky top-0 z-30 flex h-header-safe items-center justify-between gap-1.5 border-b border-[#ececf1] bg-white/90 px-2.5 backdrop-blur-md sm:gap-3 sm:px-7 dark:border-slate-800 dark:bg-slate-900/90",
-            hideMobileHeader && "hidden md:flex",
-          )}
-        >
-          <div className="flex min-w-0 flex-1 items-center gap-1.5 sm:gap-3">
-            <button
-              ref={menuButtonRef}
-              type="button"
-              className="touch-target -ml-1 flex items-center justify-center rounded-md md:hidden active:bg-slate-100 dark:active:bg-slate-800 text-slate-700 dark:text-slate-300"
-              onClick={() => setIsMenuOpen(true)}
-              aria-label="Mở menu"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-nav-drawer"
-            >
-              <Menu className="h-6 w-6 shrink-0" />
-            </button>
-            {/* Title: hiện cả mobile (truncate) */}
-            <h1 className="truncate text-base font-black tracking-tight sm:text-[19px] text-slate-900 dark:text-slate-100">
-              {title}
-            </h1>
-          </div>
-
-          {isBootstrapping && !effectiveProfile ? (
-            <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-              <div className="h-7 w-14 sm:w-16 rounded-full bg-[#fff5e9] border border-[#fde2c0] animate-pulse" />
-              <div className="hidden md:block h-7 w-20 rounded-full bg-[#fffbe8] border border-[#fbeaa6] animate-pulse" />
-              <div className="h-8 w-8 rounded-full bg-slate-200 dark:bg-slate-800 animate-pulse" />
-            </div>
-          ) : (
-            <div className="flex shrink-0 items-center gap-1 sm:gap-2.5">
-              {effectiveIsTeacher && (
-                <Link
-                  href="/teacher"
-                  className="hidden items-center gap-1.5 rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-[12px] font-extrabold text-indigo-700 transition-colors hover:bg-indigo-100 sm:flex"
-                >
-                  <GraduationCap className="h-4 w-4 text-indigo-600" />
-                  Cổng Giáo viên
-                </Link>
-              )}
-              <Link
-                href="/download"
-                className="hidden items-center gap-1.5 rounded-full border border-[#ffd7bf] bg-[#fff4ec] px-3 py-1.5 text-[12px] font-black text-[#b5502f] transition-colors hover:bg-[#ffe9dc] lg:flex"
-              >
-                <ArrowDownToLine className="h-4 w-4" />
-                Tải app
-              </Link>
-              {/* Quick Dictionary Search button — visible on both mobile and desktop */}
-              <Link
-                href="/dictionary"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-colors hover:bg-slate-100 hover:text-indigo-600 sm:h-auto sm:w-auto sm:gap-1.5 sm:px-3 sm:py-1.5 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300"
-                title="Tra từ điển nhanh"
-                aria-label="Tra từ điển nhanh"
-              >
-                <Search className="h-4 w-4 shrink-0" />
-                <span className="hidden text-[12px] font-bold sm:inline">Từ điển</span>
-              </Link>
-              {/* Streak/XP: compact trên mobile, full từ md+ */}
-              <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
-                <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
-                <span className="tabular-nums text-[12px] font-black text-[#ea7a23] sm:text-[13px]">
-                  {effectiveGamification.current_streak}
-                </span>
-              </div>
-              <div className="hidden items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1 md:flex">
-                <span className="text-[13px] leading-none">⭐</span>
-                <span className="tabular-nums text-[13px] font-black text-[#b45309]">
-                  {effectiveGamification.total_xp} XP
-                </span>
-                <span className="text-[10px] font-extrabold uppercase tracking-wide text-[#d4a017]">
-                  Lv.{currentLevel}
-                </span>
-              </div>
-              <NotificationBell
-                dueCount={effectiveReviewDueCount}
-                grammarDueCount={grammarDue}
-                streak={effectiveGamification.current_streak}
-                dailyGoalXp={effectiveGamification.today_xp}
-                dailyGoal={effectiveGamification.daily_goal}
-                classroomId={effectiveClassroomId}
-              />
-              <div className="hidden h-[22px] w-px bg-[#e8e8ee] sm:block dark:bg-slate-800" />
-              <div className="relative" ref={profileRef}>
-                <button
-                  type="button"
-                  onClick={() => setIsProfileOpen((value) => !value)}
-                  className="flex min-h-[44px] items-center gap-1.5 rounded-full py-[3px] pl-[3px] pr-1 transition-colors hover:bg-slate-50 sm:gap-2 sm:pr-1.5 dark:hover:bg-slate-800"
-                  aria-expanded={isProfileOpen}
-                  aria-haspopup="menu"
-                >
-                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500 to-violet-500 text-xs font-black text-white sm:h-[34px] sm:w-[34px] sm:text-sm">
-                    {initials}
-                  </span>
-                  <span className="hidden max-w-[120px] truncate text-[13.5px] font-extrabold text-[#0f172a] sm:block dark:text-slate-200">
-                    {effectiveProfile?.full_name?.split(' ')[0] || 'bạn'}
-                  </span>
-                  <ChevronDown
-                    className={`h-[15px] w-[15px] text-slate-400 transition-transform duration-200 ${isProfileOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
-
-                {isProfileOpen && (
-                  <div
-                    role="menu"
-                    className="absolute right-0 top-12 z-40 w-[196px] rounded-md border border-[#ececf1] bg-white p-1.5 shadow-[0_12px_32px_rgba(16,24,40,.14)] animate-in fade-in-50 zoom-in-95 duration-100 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
-                  >
-                    <div className="px-2.5 pb-1.5 pt-2">
-                      <div className="truncate text-[13px] font-extrabold text-[#0f172a] dark:text-slate-100">
-                        {effectiveProfile?.full_name || 'Học viên'}
-                      </div>
-                      {profileEmail && (
-                        <div className="truncate text-[11px] font-semibold text-[#9aa2b1] dark:text-slate-400">
-                          {profileEmail}
-                        </div>
-                      )}
-                    </div>
-                    <div className="my-1 h-px bg-[#f1f1f5] dark:bg-slate-800" />
-                    <Link
-                      href="/upgrade"
-                      onClick={() => setIsProfileOpen(false)}
-                      className="flex min-h-[40px] items-center gap-2.5 rounded-md px-2.5 py-2 text-[13.5px] font-bold text-amber-700 hover:bg-amber-50 dark:text-amber-400 dark:hover:bg-amber-950/30"
-                    >
-                      <Crown className="h-[17px] w-[17px] text-amber-600 dark:text-amber-400" />
-                      <span>{!effectiveProfile ? 'Đang tải gói' : effectiveProfile.plan && effectiveProfile.plan !== 'free' ? 'Gói Pro VIP' : 'Nâng cấp Pro'}</span>
-                    </Link>
-                    {effectiveIsTeacher && (
-                      <Link
-                        href="/teacher"
-                        onClick={() => setIsProfileOpen(false)}
-                        className="flex min-h-[40px] items-center gap-2.5 rounded-md px-2.5 py-2 text-[13.5px] font-extrabold text-indigo-600 hover:bg-indigo-50 dark:text-indigo-400 dark:hover:bg-indigo-950/30"
-                      >
-                        <GraduationCap className="h-[17px] w-[17px] text-indigo-600 dark:text-indigo-400" />
-                        <span>Dành cho Giáo viên</span>
-                      </Link>
-                    )}
-                    <Link
-                      href="/student/profile"
-                      onClick={() => setIsProfileOpen(false)}
-                      className="flex min-h-[40px] items-center gap-2.5 rounded-md px-2.5 py-2 text-[13.5px] font-bold text-[#475569] hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/60"
-                    >
-                      <User className="h-[17px] w-[17px] text-[#64748b] dark:text-slate-400" />
-                      <span>Hồ sơ của tôi</span>
-                    </Link>
-                    <button
-                      type="button"
-                      onClick={handleSignOut}
-                      className="flex w-full min-h-[40px] items-center gap-2.5 rounded-md px-2.5 py-2 text-left text-[13.5px] font-extrabold text-[#e11d48] hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-950/40"
-                    >
-                      <LogOut className="h-[17px] w-[17px]" />
-                      <span>Đăng xuất</span>
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </header>
+          <StudentTopbar
+            title={title}
+            subtitle={subtitle}
+            streak={effectiveGamification.current_streak}
+            totalXp={effectiveGamification.total_xp}
+            level={currentLevel}
+            dueCount={effectiveReviewDueCount}
+            grammarDueCount={grammarDue}
+            dailyGoalXp={effectiveGamification.today_xp}
+            dailyGoal={effectiveGamification.daily_goal}
+            classroomId={effectiveClassroomId}
+            isMenuOpen={isMenuOpen}
+            onOpenMenu={() => setIsMenuOpen(true)}
+            menuButtonRef={menuButtonRef}
+            hideHeader={hideHeader}
+            hideMobileHeader={hideMobileHeader}
+          />
         )}
 
         <div

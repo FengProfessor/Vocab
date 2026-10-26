@@ -14,6 +14,7 @@ import {
   Clock,
   RotateCcw,
   X,
+  ChevronLeft,
   ChevronRight,
   ChevronDown,
   ChevronUp,
@@ -43,6 +44,7 @@ import TenseTimeline from '@/components/grammar/TenseTimeline';
 import FormattedText from '@/components/grammar/FormattedText';
 import HighlightedSentence from '@/components/grammar/HighlightedSentence';
 import { detectGrammarKeywords } from '@/components/grammar/GrammarVisualTopicDeck';
+import { StudentShell } from '@/components/student/StudentShell';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import {
   LOCAL_GRAMMAR_PROGRESS_KEY,
@@ -110,23 +112,23 @@ function GrammarAccordionItem({
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border border-border rounded-none bg-card transition-colors">
+    <div className="border border-border rounded-lg bg-card transition-colors">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
-        className="w-full min-h-[44px] p-3.5 flex items-center justify-between text-left hover:bg-muted/20 transition-colors rounded-none"
+        className="w-full min-h-[44px] p-3.5 flex items-center justify-between text-left hover:bg-muted/20 transition-colors rounded-lg"
       >
-        <div className="flex items-center gap-2 font-mono text-xs font-semibold text-foreground">
+        <div className="flex items-center gap-2 font-sans text-xs font-semibold text-foreground">
           {icon}
           <span>{title}</span>
           {badge && (
-            <span className="font-mono text-[10px] uppercase px-1.5 py-0.5 border border-border bg-muted/40 text-muted-foreground rounded-none ml-1">
+            <span className="font-sans text-[10px] uppercase px-1.5 py-0.5 border border-border bg-muted/40 text-muted-foreground rounded-lg ml-1">
               {badge}
             </span>
           )}
         </div>
-        <div className="flex items-center gap-1 text-muted-foreground text-xs font-mono">
+        <div className="flex items-center gap-1 text-muted-foreground text-xs font-sans">
           <span className="text-[11px] hidden sm:inline">{isOpen ? 'Thu gọn' : 'Xem chi tiết'}</span>
           {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
         </div>
@@ -358,6 +360,21 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
     return result;
   }, [activeLevel, searchQuery]);
 
+  // Pagination for Grammar Topics
+  const TOPICS_PER_PAGE = 10;
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeLevel, searchQuery]);
+
+  const totalTopicPages = Math.max(1, Math.ceil(filteredTopics.length / TOPICS_PER_PAGE));
+  const safeTopicPage = Math.min(currentPage, totalTopicPages);
+  const paginatedTopics = useMemo(() => {
+    const start = (safeTopicPage - 1) * TOPICS_PER_PAGE;
+    return filteredTopics.slice(start, start + TOPICS_PER_PAGE);
+  }, [filteredTopics, safeTopicPage]);
+
   const activeTopic = selectedTopicSlug ? getTopicBySlug(selectedTopicSlug) : null;
   const activeStageMeta = activeLevel !== 'ALL' ? GRAMMAR_STAGES.find((s) => s.id === activeLevel) : null;
 
@@ -387,85 +404,65 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
 
   return (
     <main className="min-h-dvh bg-background text-foreground flex flex-col">
-      {/* Sticky Top Navigation Bar */}
-      <header className="sticky top-0 z-30 border-b border-border bg-card/95 backdrop-blur-md px-3 sm:px-6 h-14 flex items-center shrink-0">
-        <div className="max-w-5xl w-full mx-auto flex items-center justify-between gap-2.5">
-          <Link
-            href="/student"
-            className="inline-flex min-h-[44px] items-center gap-1.5 sm:gap-2 font-mono text-xs uppercase tracking-wider font-semibold border border-border px-2.5 sm:px-3 py-1.5 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-none shrink-0"
-          >
-            <ArrowLeft className="h-4 w-4 shrink-0 text-primary" />
-            <span className="hidden sm:inline">Về Dashboard</span>
-            <span className="sm:hidden">Dashboard</span>
-          </Link>
-
-          <div className="flex items-center gap-2 shrink-0">
-            <Link
-              href="/journey"
-              className="hidden md:inline-flex min-h-[44px] items-center gap-1.5 font-mono text-xs uppercase tracking-wider font-semibold border border-border px-3 py-1.5 hover:bg-muted text-muted-foreground hover:text-foreground transition-colors rounded-none"
-            >
-              <Compass className="h-3.5 w-3.5 text-primary" />
-              <span>Lộ trình học</span>
-            </Link>
-            <Link
-              href="/grammar/practice?mode=review"
-              className="inline-flex min-h-[44px] items-center gap-1.5 font-mono text-xs uppercase tracking-wider font-semibold border border-border bg-card hover:bg-muted text-foreground px-2.5 sm:px-3 py-1.5 rounded-none transition-colors"
-            >
-              <RotateCcw className="h-3.5 w-3.5 text-primary shrink-0" />
-              <span className="hidden sm:inline">Ôn câu sai (14 ngày)</span>
-              <span className="sm:hidden">Ôn câu sai</span>
-              {wrongQueueCount > 0 && (
-                <span className="ml-0.5 px-1.5 py-0.2 bg-amber-500/20 border border-amber-500/50 text-amber-700 dark:text-amber-300 text-[10px] font-bold tabular-nums rounded-none">
-                  {wrongQueueCount}
-                </span>
-              )}
-            </Link>
-          </div>
-        </div>
-      </header>
-
       {/* Top Banner / Hero */}
       <section className="border-b border-border bg-card px-3.5 sm:px-4 py-5 sm:py-8">
         <div className="max-w-5xl mx-auto flex flex-col gap-4 sm:gap-5">
-          <div>
-            <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs uppercase tracking-wider text-muted-foreground mb-1.5 flex-wrap">
-              <span className="px-2 py-0.5 border border-border bg-muted/40 text-primary font-semibold rounded-none">
-                Chuẩn CEFR A0 – B2
-              </span>
-              <span>•</span>
-              <span className="tabular-nums">{UNIFIED_GRAMMAR_TOPICS.length} chủ điểm trọng tâm</span>
-              {learnedCount > 0 && (
-                <>
-                  <span>•</span>
-                  <span className="text-emerald-600 dark:text-emerald-400 font-semibold tabular-nums">
-                    Đã học {learnedCount}/{UNIFIED_GRAMMAR_TOPICS.length} bài
-                  </span>
-                </>
-              )}
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+            <div>
+              <div className="flex items-center gap-2 font-sans text-[11px] sm:text-xs uppercase tracking-wider text-muted-foreground mb-1.5 flex-wrap">
+                <span className="px-2 py-0.5 border border-border bg-muted/40 text-primary font-semibold rounded-lg">
+                  Chuẩn CEFR A0 – B2
+                </span>
+                <span>•</span>
+                <span className="tabular-nums">{UNIFIED_GRAMMAR_TOPICS.length} chủ điểm trọng tâm</span>
+                {learnedCount > 0 && (
+                  <>
+                    <span>•</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-semibold tabular-nums">
+                      Đã học {learnedCount}/{UNIFIED_GRAMMAR_TOPICS.length} bài
+                    </span>
+                  </>
+                )}
+              </div>
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-sans font-bold text-foreground leading-tight">
+                Lộ trình Ngữ pháp Tiếng Anh Toàn diện
+              </h1>
+              <p className="text-xs sm:text-sm text-muted-foreground mt-1.5 max-w-2xl leading-relaxed">
+                Học tuần tự từ nền tảng ghép câu (A0) đến cấu trúc học thuật (B2) qua sơ đồ trực quan, ví dụ song ngữ có phát âm và bài tập thực hành.
+              </p>
             </div>
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-foreground leading-tight">
-              Lộ trình Ngữ pháp Tiếng Anh Toàn diện
-            </h1>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-1.5 max-w-2xl leading-relaxed">
-              Học tuần tự từ nền tảng ghép câu (A0) đến cấu trúc học thuật (B2) qua sơ đồ trực quan, ví dụ song ngữ có phát âm và bài tập thực hành.
-            </p>
+
+            <div className="flex items-center gap-2 shrink-0 self-start">
+              <Link
+                href="/grammar/practice?mode=review"
+                className="inline-flex min-h-[40px] items-center gap-1.5 font-sans text-xs uppercase tracking-wider font-semibold border border-border bg-card hover:bg-muted text-foreground px-3 py-1.5 rounded-lg transition-colors"
+              >
+                <RotateCcw className="h-3.5 w-3.5 text-primary shrink-0" />
+                <span>Ôn câu sai (14 ngày)</span>
+                {wrongQueueCount > 0 && (
+                  <span className="ml-0.5 px-1.5 py-0.2 bg-amber-500/20 border border-amber-500/50 text-amber-700 dark:text-amber-300 text-[10px] font-bold tabular-nums rounded-lg">
+                    {wrongQueueCount}
+                  </span>
+                )}
+              </Link>
+            </div>
           </div>
 
           {/* Prominent Orientation Banner for Beginners / Next Step */}
           {nextRecommendedTopic && (
-            <div className="border border-primary/40 bg-primary/5 p-3.5 sm:p-4 rounded-none flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-primary">
+            <div className="border border-primary/40 bg-primary/5 p-3.5 sm:p-4 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-l-4 border-l-primary">
               <div className="min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-primary text-primary-foreground rounded-none">
+                  <span className="font-sans text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 bg-primary text-primary-foreground rounded-lg">
                     {learnedCount === 0 ? 'Bắt đầu từ mất gốc (#00)' : 'Học tiếp bài tiếp theo'}
                   </span>
-                  <span className="font-mono text-xs font-semibold text-muted-foreground tabular-nums">
+                  <span className="font-sans text-xs font-semibold text-muted-foreground tabular-nums">
                     Chặng {nextRecommendedTopic.level} • #{nextRecommendedTopic.order < 10 ? '0' : ''}{nextRecommendedTopic.order}
                   </span>
                 </div>
-                <div className="text-sm sm:text-base font-serif font-bold text-foreground mt-1">
+                <div className="text-sm sm:text-base font-sans font-bold text-foreground mt-1">
                   {nextRecommendedTopic.title_vi}{' '}
-                  <span className="font-mono text-xs font-normal text-muted-foreground">
+                  <span className="font-sans text-xs font-normal text-muted-foreground">
                     ({nextRecommendedTopic.title})
                   </span>
                 </div>
@@ -482,14 +479,14 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     theoryTriggerRef.current = event.currentTarget;
                     setSelectedTopicSlug(nextRecommendedTopic.slug);
                   }}
-                  className="min-h-[44px] px-3.5 py-2 border border-border bg-card hover:bg-muted text-foreground font-mono text-xs uppercase tracking-wider font-semibold rounded-none inline-flex items-center justify-center gap-1.5 transition-colors"
+                  className="min-h-[44px] px-3.5 py-2 border border-border bg-card hover:bg-muted text-foreground font-sans text-xs uppercase tracking-wider font-semibold rounded-lg inline-flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <BookOpen className="h-3.5 w-3.5 text-primary shrink-0" />
                   <span>{learnedCount === 0 ? 'Học bài #00' : 'Xem lý thuyết'}</span>
                 </button>
                 <Link
                   href={`/grammar/practice?topic=${encodeURIComponent(nextRecommendedTopic.slug)}`}
-                  className="min-h-[44px] px-3.5 py-2 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-semibold rounded-none inline-flex items-center justify-center gap-1.5 transition-colors"
+                  className="min-h-[44px] px-3.5 py-2 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-sans text-xs uppercase tracking-wider font-semibold rounded-lg inline-flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <Dumbbell className="h-3.5 w-3.5 shrink-0" />
                   <span>Làm bài tập</span>
@@ -506,7 +503,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Tìm chủ điểm hoặc từ khóa (vd: to be, hiện tại đơn, bị động)..."
-              className="w-full min-h-[44px] border border-border bg-background pl-10 pr-11 py-2.5 rounded-none font-mono text-base sm:text-sm focus:outline-none focus:border-foreground transition-colors"
+              className="w-full min-h-[44px] border border-border bg-background pl-10 pr-11 py-2.5 rounded-lg font-sans text-base sm:text-sm focus:outline-none focus:border-foreground transition-colors"
             />
             {searchQuery && (
               <button
@@ -524,7 +521,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 border-b border-border/40 scrollbar-none">
             <button
               onClick={() => setActiveLevel('ALL')}
-              className={`min-h-[44px] inline-flex items-center justify-center px-3 sm:px-3.5 py-2 font-mono text-xs uppercase tracking-wider font-medium rounded-none border transition-colors whitespace-nowrap tabular-nums ${
+              className={`min-h-[44px] inline-flex items-center justify-center px-3 sm:px-3.5 py-2 font-sans text-xs uppercase tracking-wider font-medium rounded-lg border transition-colors whitespace-nowrap tabular-nums ${
                 activeLevel === 'ALL'
                   ? 'border-foreground bg-foreground text-background font-bold'
                   : 'border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground'
@@ -539,7 +536,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 <button
                   key={stg.id}
                   onClick={() => setActiveLevel(stg.id)}
-                  className={`min-h-[44px] inline-flex items-center justify-center px-3 sm:px-3.5 py-2 font-mono text-xs uppercase tracking-wider font-medium rounded-none border transition-colors whitespace-nowrap gap-1.5 tabular-nums ${
+                  className={`min-h-[44px] inline-flex items-center justify-center px-3 sm:px-3.5 py-2 font-sans text-xs uppercase tracking-wider font-medium rounded-lg border transition-colors whitespace-nowrap gap-1.5 tabular-nums ${
                     isActive
                       ? 'border-foreground bg-foreground text-background font-bold'
                       : 'border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground'
@@ -558,9 +555,9 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
       {/* Main Roadmap Grid */}
       <section className="max-w-5xl w-full mx-auto px-3.5 sm:px-4 py-5 sm:py-8 flex-1">
         {filteredTopics.length === 0 ? (
-          <div className="border border-border p-8 sm:p-12 text-center bg-card rounded-none flex flex-col items-center justify-center gap-4">
+          <div className="border border-border p-8 sm:p-12 text-center bg-card rounded-lg flex flex-col items-center justify-center gap-4">
             <Search className="h-8 w-8 text-muted-foreground/40" />
-            <h3 className="font-serif font-bold text-lg">Không tìm thấy chủ điểm phù hợp</h3>
+            <h3 className="font-sans font-bold text-lg">Không tìm thấy chủ điểm phù hợp</h3>
             <p className="text-sm text-muted-foreground max-w-sm">
               Không có chủ điểm ngữ pháp nào khớp với từ khóa &ldquo;{searchQuery}&rdquo;. Vui lòng thử từ khóa khác.
             </p>
@@ -569,14 +566,14 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 setSearchQuery('');
                 setActiveLevel('ALL');
               }}
-              className="min-h-[44px] mt-1 border border-border px-4 py-2 font-mono text-xs uppercase tracking-wider font-semibold rounded-none hover:bg-muted"
+              className="min-h-[44px] mt-1 border border-border px-4 py-2 font-sans text-xs uppercase tracking-wider font-semibold rounded-lg hover:bg-muted"
             >
               Xóa bộ lọc
             </button>
           </div>
         ) : (
           <div className="flex flex-col gap-4">
-            <div className="flex items-center justify-between gap-2 text-xs font-mono text-muted-foreground tabular-nums">
+            <div className="flex items-center justify-between gap-2 text-xs font-sans text-muted-foreground tabular-nums">
               <span>HIỂN THỊ {filteredTopics.length} / {UNIFIED_GRAMMAR_TOPICS.length} CHỦ ĐIỂM</span>
               {activeStageMeta ? (
                 <span className="uppercase font-semibold text-foreground">
@@ -589,23 +586,23 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
 
             {/* Stage Orientation Banner when a specific level is filtered */}
             {activeStageMeta && (
-              <div className="border border-border bg-card p-3.5 sm:p-4 rounded-none flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-l-4 border-l-primary">
+              <div className="border border-border bg-card p-3.5 sm:p-4 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-l-4 border-l-primary">
                 <div>
-                  <div className="font-mono text-xs font-bold uppercase tracking-wider text-primary">
+                  <div className="font-sans text-xs font-bold uppercase tracking-wider text-primary">
                     Chặng {activeStageMeta.id}: {activeStageMeta.nameVi} ({activeStageMeta.name})
                   </div>
                   <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
                     {activeStageMeta.description}
                   </p>
                 </div>
-                <span className="font-mono text-[11px] uppercase px-2 py-1 border border-border bg-muted/30 text-foreground shrink-0 self-start sm:self-center tabular-nums">
+                <span className="font-sans text-[11px] uppercase px-2 py-1 border border-border bg-muted/30 text-foreground shrink-0 self-start sm:self-center tabular-nums">
                   {activeStageMeta.topicCount} bài học
                 </span>
               </div>
             )}
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-              {filteredTopics.map((topic, idx) => {
+              {paginatedTopics.map((topic, idx) => {
                 const isSelected = selectedTopicSlug === topic.slug;
                 const pInfo = progressMap[topic.slug];
                 const isCompleted = Boolean(pInfo && pInfo.completed_lessons > 0);
@@ -618,7 +615,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 const showStageDivider =
                   activeLevel === 'ALL' &&
                   !searchQuery.trim() &&
-                  (idx === 0 || filteredTopics[idx - 1].level !== topic.level);
+                  (idx === 0 || paginatedTopics[idx - 1].level !== topic.level);
                 const stageMeta = showStageDivider
                   ? GRAMMAR_STAGES.find((s) => s.id === topic.level)
                   : null;
@@ -627,16 +624,16 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   <Fragment key={topic.slug}>
                     {showStageDivider && stageMeta && (
                       <div
-                        className={`col-span-full border border-border bg-muted/20 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-none flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-l-4 border-l-primary ${
+                        className={`col-span-full border border-border bg-muted/20 px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-l-4 border-l-primary ${
                           idx > 0 ? 'mt-3 sm:mt-4' : ''
                         }`}
                       >
                         <div className="min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <span className="font-mono text-xs font-bold uppercase tracking-wider text-primary">
+                            <span className="font-sans text-xs font-bold uppercase tracking-wider text-primary">
                               Chặng {stageMeta.id} — {stageMeta.nameVi}
                             </span>
-                            <span className="font-mono text-[10px] uppercase px-1.5 py-0.5 border border-border bg-card text-muted-foreground tabular-nums">
+                            <span className="font-sans text-[10px] uppercase px-1.5 py-0.5 border border-border bg-card text-muted-foreground tabular-nums">
                               {stageMeta.topicCount} chủ điểm
                             </span>
                           </div>
@@ -648,7 +645,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                     )}
 
                     <div
-                      className={`border p-4 sm:p-5 bg-card rounded-none transition-all flex flex-col justify-between gap-3.5 ${
+                      className={`border p-4 sm:p-5 bg-card rounded-lg transition-all flex flex-col justify-between gap-3.5 ${
                         isSelected
                           ? 'border-primary ring-1 ring-primary'
                           : 'border-border hover:border-foreground/40'
@@ -673,15 +670,15 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         {/* Card Header */}
                         <div className="flex items-center justify-between gap-2 mb-2">
                           <div className="flex items-center gap-1.5 flex-wrap">
-                            <span className="font-mono text-xs font-bold text-muted-foreground tabular-nums">
+                            <span className="font-sans text-xs font-bold text-muted-foreground tabular-nums">
                               #{topic.order < 10 ? '0' : ''}
                               {topic.order}
                             </span>
-                            <span className="font-mono text-[10px] font-bold uppercase px-1.5 py-0.5 border border-border bg-muted/30 rounded-none">
+                            <span className="font-sans text-[10px] font-bold uppercase px-1.5 py-0.5 border border-border bg-muted/30 rounded-lg">
                               {topic.level}
                             </span>
                             {topic.order === 0 && !isCompleted && (
-                              <span className="font-mono text-[10px] font-bold uppercase px-1.5 py-0.5 border border-primary/40 bg-primary/10 text-primary rounded-none">
+                              <span className="font-sans text-[10px] font-bold uppercase px-1.5 py-0.5 border border-primary/40 bg-primary/10 text-primary rounded-lg">
                                 Bắt đầu tại đây
                               </span>
                             )}
@@ -689,7 +686,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                           <div className="flex items-center gap-2 shrink-0">
                             {isDue ? (
                               <span
-                                className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-amber-700 dark:text-amber-300 px-1.5 py-0.5 border border-amber-500/40 bg-amber-500/10 rounded-none"
+                                className="inline-flex items-center gap-1 text-[11px] font-sans font-semibold text-amber-700 dark:text-amber-300 px-1.5 py-0.5 border border-amber-500/40 bg-amber-500/10 rounded-lg"
                                 title="Đến hạn ôn tập lại chủ điểm này"
                               >
                                 <RotateCcw className="h-3 w-3 shrink-0" />
@@ -697,7 +694,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                               </span>
                             ) : isMastered ? (
                               <span
-                                className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 border border-indigo-500/40 bg-indigo-500/10 rounded-none"
+                                className="inline-flex items-center gap-1 text-[11px] font-sans font-semibold text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 border border-indigo-500/40 bg-indigo-500/10 rounded-lg"
                                 title="Đã thành thạo chủ điểm này (≥80%)"
                               >
                                 <Sparkles className="h-3 w-3 shrink-0" />
@@ -705,14 +702,14 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                               </span>
                             ) : isCompleted ? (
                               <span
-                                className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 border border-emerald-500/30 bg-emerald-500/10 rounded-none"
+                                className="inline-flex items-center gap-1 text-[11px] font-sans font-semibold text-emerald-600 dark:text-emerald-400 px-1.5 py-0.5 border border-emerald-500/30 bg-emerald-500/10 rounded-lg"
                                 title="Đã luyện tập chủ điểm này"
                               >
                                 <CheckCircle2 className="h-3 w-3 shrink-0" />
                                 <span>Đã học</span>
                               </span>
                             ) : null}
-                            <div className="flex items-center gap-1 text-xs font-mono text-muted-foreground tabular-nums">
+                            <div className="flex items-center gap-1 text-xs font-sans text-muted-foreground tabular-nums">
                               <Clock className="h-3 w-3 shrink-0" />
                               <span>{topic.estimatedMinutes}p</span>
                             </div>
@@ -720,10 +717,10 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         </div>
 
                         {/* Bilingual Titles: Vietnamese prominent for instant comprehension + English standard term */}
-                        <h2 className="text-base font-serif font-bold text-foreground leading-snug group-hover/card:text-primary transition-colors">
+                        <h2 className="text-base font-sans font-bold text-foreground leading-snug group-hover/card:text-primary transition-colors">
                           {topic.title_vi}
                         </h2>
-                        <div className="text-xs font-mono text-muted-foreground mt-0.5 font-medium">
+                        <div className="text-xs font-sans text-muted-foreground mt-0.5 font-medium">
                           {topic.title}
                         </div>
 
@@ -741,14 +738,14 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                             theoryTriggerRef.current = event.currentTarget;
                             setSelectedTopicSlug(topic.slug);
                           }}
-                          className="min-h-[44px] border border-border hover:border-foreground bg-background hover:bg-muted text-foreground px-3 py-2 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center justify-center gap-1.5 transition-colors"
+                          className="min-h-[44px] border border-border hover:border-foreground bg-background hover:bg-muted text-foreground px-3 py-2 font-sans text-xs uppercase tracking-wider font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
                         >
                           <BookOpen className="h-3.5 w-3.5 text-primary shrink-0" />
                           <span>Lý thuyết</span>
                         </button>
                         <Link
                           href={`/grammar/practice?topic=${encodeURIComponent(topic.slug)}`}
-                          className="min-h-[44px] bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-3 py-2 font-mono text-xs uppercase tracking-wider font-semibold rounded-none flex items-center justify-center gap-1.5 transition-colors"
+                          className="min-h-[44px] bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-3 py-2 font-sans text-xs uppercase tracking-wider font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors"
                         >
                           <Dumbbell className="h-3.5 w-3.5 shrink-0" />
                           <span>Luyện tập</span>
@@ -759,6 +756,64 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 );
               })}
             </div>
+
+            {/* Grammar Topics Pagination Bar */}
+            {filteredTopics.length > TOPICS_PER_PAGE && (
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border border-border bg-card px-3.5 py-3 rounded-lg">
+                <div className="text-xs font-sans text-muted-foreground tabular-nums">
+                  Hiển thị{' '}
+                  <span className="font-bold text-foreground">
+                    {(safeTopicPage - 1) * TOPICS_PER_PAGE + 1}–
+                    {Math.min(safeTopicPage * TOPICS_PER_PAGE, filteredTopics.length)}
+                  </span>{' '}
+                  trong tổng số{' '}
+                  <span className="font-bold text-foreground">
+                    {filteredTopics.length}
+                  </span>{' '}
+                  chủ điểm
+                </div>
+
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <button
+                    type="button"
+                    disabled={safeTopicPage <= 1}
+                    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+                    className="inline-flex h-8 items-center gap-1 border border-border bg-background px-2.5 text-xs font-sans font-semibold text-foreground hover:bg-muted disabled:opacity-40 disabled:pointer-events-none transition-colors rounded-lg cursor-pointer"
+                  >
+                    <ChevronLeft className="h-3.5 w-3.5" />
+                    <span>Trước</span>
+                  </button>
+
+                  {Array.from({ length: totalTopicPages }, (_, i) => i + 1).map((pageNum) => {
+                    const isCurrent = pageNum === safeTopicPage;
+                    return (
+                      <button
+                        key={pageNum}
+                        type="button"
+                        onClick={() => setCurrentPage(pageNum)}
+                        className={`inline-flex h-8 min-w-[32px] items-center justify-center border px-2 text-xs font-sans font-bold tabular-nums transition-colors rounded-lg cursor-pointer ${
+                          isCurrent
+                            ? 'border-foreground bg-foreground text-background'
+                            : 'border-border bg-card text-muted-foreground hover:bg-muted hover:text-foreground'
+                        }`}
+                      >
+                        {pageNum}
+                      </button>
+                    );
+                  })}
+
+                  <button
+                    type="button"
+                    disabled={safeTopicPage >= totalTopicPages}
+                    onClick={() => setCurrentPage((p) => Math.min(totalTopicPages, p + 1))}
+                    className="inline-flex h-8 items-center gap-1 border border-border bg-background px-2.5 text-xs font-sans font-semibold text-foreground hover:bg-muted disabled:opacity-40 disabled:pointer-events-none transition-colors rounded-lg cursor-pointer"
+                  >
+                    <span>Sau</span>
+                    <ChevronRight className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </section>
@@ -769,39 +824,39 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
         <DialogPrimitive.Portal>
           <DialogPrimitive.Backdrop className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm" />
           <DialogPrimitive.Popup aria-modal="true" initialFocus={theoryCloseRef} finalFocus={() => theoryTriggerRef.current?.isConnected ? theoryTriggerRef.current : true}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[110] border border-border bg-card w-[calc(100%-0.75rem)] sm:w-[calc(100%-2rem)] max-w-4xl lg:max-w-5xl max-h-[94dvh] sm:max-h-[90dvh] lg:max-h-[90dvh] rounded-none flex flex-col shadow-2xl overflow-hidden outline-none">
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[110] border border-border bg-card w-[calc(100%-0.75rem)] sm:w-[calc(100%-2rem)] max-w-4xl lg:max-w-5xl max-h-[94dvh] sm:max-h-[90dvh] lg:max-h-[90dvh] rounded-lg flex flex-col shadow-2xl overflow-hidden outline-none">
             {/* Unified Modal Header: Responsive 2-row grid on mobile (full title width) & 1-row on sm:+ */}
             <div className="border-b border-border px-3 sm:px-4 py-2 sm:py-2.5 grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto_auto] items-center gap-2 sm:gap-2.5 bg-muted/10 shrink-0">
               <div className="flex items-start sm:items-center gap-2 min-w-0 order-1">
-                <div className="flex items-center gap-1 font-mono text-[11px] sm:text-xs uppercase text-muted-foreground shrink-0 mt-0.5 sm:mt-0">
+                <div className="flex items-center gap-1 font-sans text-[11px] sm:text-xs uppercase text-muted-foreground shrink-0 mt-0.5 sm:mt-0">
                   <span className="font-semibold text-foreground tabular-nums">
                     #{activeTopic.order < 10 ? '0' : ''}{activeTopic.order}
                   </span>
                   <span>•</span>
-                  <span className="px-1.5 py-0.5 border border-border bg-muted/50 font-bold text-primary rounded-none">
+                  <span className="px-1.5 py-0.5 border border-border bg-muted/50 font-bold text-primary rounded-lg">
                     {activeTopic.level}
                   </span>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <DialogPrimitive.Title className="text-sm sm:text-base lg:text-lg font-serif font-bold text-foreground leading-snug line-clamp-2 sm:truncate">
+                  <DialogPrimitive.Title className="text-sm sm:text-base lg:text-lg font-sans font-bold text-foreground leading-snug line-clamp-2 sm:truncate">
                     {activeTopic.title_vi}
                     <span className="text-xs font-normal text-muted-foreground ml-2 font-sans hidden md:inline">
                       ({activeTopic.title})
                     </span>
                   </DialogPrimitive.Title>
-                  <DialogPrimitive.Description className="text-[11px] font-mono text-muted-foreground truncate md:hidden">
+                  <DialogPrimitive.Description className="text-[11px] font-sans text-muted-foreground truncate md:hidden">
                     {activeTopic.title}
                   </DialogPrimitive.Description>
                 </div>
               </div>
 
               {/* Segmented Tab Switcher: Full width row on mobile, inline on sm+ */}
-              <div className="col-span-2 sm:col-span-1 order-3 sm:order-2 grid grid-cols-2 sm:inline-flex border border-border bg-background p-0.5 font-mono text-xs rounded-none">
+              <div className="col-span-2 sm:col-span-1 order-3 sm:order-2 grid grid-cols-2 sm:inline-flex border border-border bg-background p-0.5 font-sans text-xs rounded-lg">
                 <button
                   type="button"
                   aria-pressed={theoryTab === 'theory'}
                   onClick={() => setTheoryTab('theory')}
-                  className={`min-h-[36px] sm:min-h-[34px] px-2.5 sm:px-3 transition-colors rounded-none font-semibold cursor-pointer text-xs ${
+                  className={`min-h-[36px] sm:min-h-[34px] px-2.5 sm:px-3 transition-colors rounded-lg font-semibold cursor-pointer text-xs ${
                     theoryTab === 'theory'
                       ? 'bg-primary text-primary-foreground'
                       : 'text-muted-foreground hover:text-foreground'
@@ -813,7 +868,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   type="button"
                   aria-pressed={theoryTab !== 'theory'}
                   onClick={() => setTheoryTab('details')}
-                  className={`min-h-[36px] sm:min-h-[34px] px-2.5 sm:px-3 transition-colors rounded-none font-semibold cursor-pointer text-xs ${
+                  className={`min-h-[36px] sm:min-h-[34px] px-2.5 sm:px-3 transition-colors rounded-lg font-semibold cursor-pointer text-xs ${
                     theoryTab !== 'theory'
                       ? 'bg-primary text-primary-foreground'
                       : 'text-muted-foreground hover:text-foreground'
@@ -827,7 +882,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 type="button"
                 ref={theoryCloseRef}
                 aria-label="Đóng bảng lý thuyết"
-                className="order-2 sm:order-3 justify-self-end self-start sm:self-center min-h-[36px] min-w-[36px] sm:min-h-[40px] sm:min-w-[40px] flex items-center justify-center p-1.5 border border-border rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 transition-colors"
+                className="order-2 sm:order-3 justify-self-end self-start sm:self-center min-h-[36px] min-w-[36px] sm:min-h-[40px] sm:min-w-[40px] flex items-center justify-center p-1.5 border border-border rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 transition-colors"
               >
                 <X className="h-4 w-4" />
               </DialogPrimitive.Close>
@@ -862,7 +917,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                           key={sub.id}
                           type="button"
                           onClick={() => setTheoryTab(sub.id)}
-                          className={`min-h-[36px] px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider whitespace-nowrap border rounded-none transition-colors ${
+                          className={`min-h-[36px] px-2.5 py-1 font-sans text-[11px] uppercase tracking-wider whitespace-nowrap border rounded-lg transition-colors ${
                             isSubActive
                               ? 'border-foreground bg-foreground text-background font-bold'
                               : 'border-border bg-card text-muted-foreground hover:text-foreground hover:bg-muted'
@@ -892,7 +947,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
               {theoryLoading ? (
                 <div className="py-12 flex flex-col items-center justify-center gap-2">
                   <Loader2 className="h-6 w-6 animate-spin text-primary" />
-                  <span className="font-mono text-xs text-muted-foreground uppercase">
+                  <span className="font-sans text-xs text-muted-foreground uppercase">
                     Đang tải bài học…
                   </span>
                 </div>
@@ -952,11 +1007,11 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         defaultOpen={true}
                       >
                         {/* Chú giải ký hiệu cho người mới bắt đầu (A0/A1) */}
-                        <div className="mb-3 p-2.5 border border-border bg-muted/20 rounded-none">
-                          <div className="font-mono text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
+                        <div className="mb-3 p-2.5 border border-border bg-muted/20 rounded-lg">
+                          <div className="font-sans text-[10px] font-bold uppercase tracking-wider text-muted-foreground mb-1.5">
                             Chú giải ký hiệu cho người mới:
                           </div>
-                          <div className="flex flex-wrap gap-1.5 text-[11px] font-mono">
+                          <div className="flex flex-wrap gap-1.5 text-[11px] font-sans">
                             <span className="px-2 py-0.5 border border-sky-500/40 bg-sky-500/10 text-sky-800 dark:text-sky-300">
                               <strong>S</strong> = Chủ ngữ (Ai / Cái gì)
                             </span>
@@ -989,44 +1044,44 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                             const exText =
                               r.example || theoryData.bilingual_examples?.[i]?.en || theoryData.bilingual_examples?.[0]?.en || '—';
                             return (
-                              <div key={i} className="border border-border p-3 bg-muted/10 space-y-1.5 rounded-none">
-                                <div className="font-mono text-xs font-bold uppercase text-primary">
+                              <div key={i} className="border border-border p-3 bg-muted/10 space-y-1.5 rounded-lg">
+                                <div className="font-sans text-xs font-bold uppercase text-primary">
                                   <FormattedText text={r.form} />
                                 </div>
                                 {thirdCol ? (
                                   <div className="grid grid-cols-1 gap-1.5">
-                                    <div className="font-mono text-xs text-foreground bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
+                                    <div className="font-sans text-xs text-foreground bg-background px-2.5 py-1.5 border border-border/60 rounded-lg break-words">
                                       <span className="text-[10px] uppercase text-muted-foreground block font-normal">I / You / We / They:</span>
                                       <span className="font-bold"><FormattedText text={r.base || r.structure || '—'} /></span>
                                     </div>
-                                    <div className="font-mono text-xs text-indigo-700 dark:text-indigo-400 bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
+                                    <div className="font-sans text-xs text-indigo-700 dark:text-indigo-400 bg-background px-2.5 py-1.5 border border-border/60 rounded-lg break-words">
                                       <span className="text-[10px] uppercase text-muted-foreground block font-normal">He / She / It:</span>
                                       <span className="font-bold"><FormattedText text={thirdCol} /></span>
                                     </div>
                                   </div>
                                 ) : pluralCol ? (
                                   <div className="grid grid-cols-1 gap-1.5">
-                                    <div className="font-mono text-xs text-foreground bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
+                                    <div className="font-sans text-xs text-foreground bg-background px-2.5 py-1.5 border border-border/60 rounded-lg break-words">
                                       <span className="text-[10px] uppercase text-muted-foreground block font-normal">Số ít (Singular):</span>
                                       <span className="font-bold"><FormattedText text={String(r.singular)} /></span>
                                     </div>
-                                    <div className="font-mono text-xs text-indigo-700 dark:text-indigo-400 bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
+                                    <div className="font-sans text-xs text-indigo-700 dark:text-indigo-400 bg-background px-2.5 py-1.5 border border-border/60 rounded-lg break-words">
                                       <span className="text-[10px] uppercase text-muted-foreground block font-normal">Số nhiều (Plural):</span>
                                       <span className="font-bold"><FormattedText text={pluralCol} /></span>
                                     </div>
                                   </div>
                                 ) : (
-                                  <div className="font-mono text-xs font-bold text-foreground bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
+                                  <div className="font-sans text-xs font-bold text-foreground bg-background px-2.5 py-1.5 border border-border/60 rounded-lg break-words">
                                     <FormattedText text={structText} />
                                   </div>
                                 )}
                                 {Boolean(r.note) && (
-                                  <div className="text-[11px] font-mono text-primary/90 pt-0.5">
+                                  <div className="text-[11px] font-sans text-primary/90 pt-0.5">
                                     Lưu ý: <FormattedText text={String(r.note)} />
                                   </div>
                                 )}
                                 <div className="text-xs text-muted-foreground font-sans pt-0.5">
-                                  <span className="font-mono text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
+                                  <span className="font-sans text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
                                   <FormattedText text={exText} />
                                 </div>
                               </div>
@@ -1035,8 +1090,8 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         </div>
 
                         {/* Desktop table */}
-                        <div className="hidden sm:block border border-border overflow-x-auto rounded-none">
-                          <table className="w-full text-left font-mono text-xs">
+                        <div className="hidden sm:block border border-border overflow-x-auto rounded-lg">
+                          <table className="w-full text-left font-sans text-xs">
                             <thead className="bg-muted/30 border-b border-border text-muted-foreground uppercase">
                               <tr>
                                 <th className="p-2.5">Dạng</th>
@@ -1117,7 +1172,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                             {theoryData.signals.map((sig, idx) => (
                               <span
                                 key={idx}
-                                className="font-mono text-xs font-semibold px-2.5 py-1 border border-border bg-muted/20 text-foreground rounded-none"
+                                className="font-sans text-xs font-semibold px-2.5 py-1 border border-border bg-muted/20 text-foreground rounded-lg"
                               >
                                 <FormattedText text={typeof sig === 'string' ? sig : JSON.stringify(sig)} />
                               </span>
@@ -1138,8 +1193,8 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         {/* Mobile stacked rule cards */}
                         <div className="sm:hidden space-y-2">
                           {theoryData.rules.map((r, i) => (
-                            <div key={i} className="border border-border p-3 bg-muted/10 space-y-1.5 rounded-none">
-                              <div className="font-mono text-xs font-semibold text-primary">
+                            <div key={i} className="border border-border p-3 bg-muted/10 space-y-1.5 rounded-lg">
+                              <div className="font-sans text-xs font-semibold text-primary">
                                 <FormattedText text={r.case || 'Quy tắc'} />
                               </div>
                               <div className="text-xs font-bold text-foreground leading-relaxed">
@@ -1147,7 +1202,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                               </div>
                               {r.example && (
                                 <div className="text-xs text-muted-foreground font-sans pt-1 border-t border-border/40">
-                                  <span className="font-mono text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
+                                  <span className="font-sans text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
                                   <FormattedText text={r.example} />
                                 </div>
                               )}
@@ -1156,8 +1211,8 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         </div>
 
                         {/* Desktop table */}
-                        <div className="hidden sm:block border border-border overflow-x-auto rounded-none">
-                          <table className="w-full text-left font-mono text-xs">
+                        <div className="hidden sm:block border border-border overflow-x-auto rounded-lg">
+                          <table className="w-full text-left font-sans text-xs">
                             <thead className="bg-muted/30 border-b border-border text-muted-foreground uppercase">
                               <tr>
                                 <th className="p-2.5">Trường hợp</th>
@@ -1195,8 +1250,8 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                       >
                         <div className="grid grid-cols-1 gap-2">
                           {theoryData.usage.map((u, i) => (
-                            <div key={i} className="border border-border p-3 bg-muted/10 flex flex-col gap-1 rounded-none">
-                              <span className="font-mono text-xs font-semibold text-primary">
+                            <div key={i} className="border border-border p-3 bg-muted/10 flex flex-col gap-1 rounded-lg">
+                              <span className="font-sans text-xs font-semibold text-primary">
                                 <FormattedText text={u.label} />
                               </span>
                               <span className="font-medium text-foreground">
@@ -1218,7 +1273,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         icon={<ArrowLeftRight className="h-3.5 w-3.5 text-primary" />}
                         defaultOpen={false}
                       >
-                        <div className="border border-border p-4 bg-muted/10 text-foreground/90 leading-relaxed text-sm rounded-none">
+                        <div className="border border-border p-4 bg-muted/10 text-foreground/90 leading-relaxed text-sm rounded-lg">
                           <FormattedText text={theoryData.comparison} />
                         </div>
                       </GrammarAccordionItem>
@@ -1231,7 +1286,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         icon={<Lightbulb className="h-3.5 w-3.5 text-amber-500" />}
                         defaultOpen={false}
                       >
-                        <div className="border border-border p-4 bg-muted/10 text-foreground/90 leading-relaxed text-sm rounded-none">
+                        <div className="border border-border p-4 bg-muted/10 text-foreground/90 leading-relaxed text-sm rounded-lg">
                           <FormattedText text={theoryData.tips} />
                         </div>
                       </GrammarAccordionItem>
@@ -1247,12 +1302,12 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                       >
                         <div className="space-y-2">
                           {theoryData.mistakes.map((m, i) => (
-                            <div key={i} className="border border-border p-3 bg-muted/10 space-y-1 rounded-none">
-                              <div className="flex items-start gap-2 font-mono text-xs text-rose-600 dark:text-rose-400">
+                            <div key={i} className="border border-border p-3 bg-muted/10 space-y-1 rounded-lg">
+                              <div className="flex items-start gap-2 font-sans text-xs text-rose-600 dark:text-rose-400">
                                 <span className="font-bold shrink-0">✕ SAI:</span>
                                 <span className="break-words"><FormattedText text={m.wrong} /></span>
                               </div>
-                              <div className="flex items-start gap-2 font-mono text-xs text-emerald-600 dark:text-emerald-400">
+                              <div className="flex items-start gap-2 font-sans text-xs text-emerald-600 dark:text-emerald-400">
                                 <span className="font-bold shrink-0">✓ ĐÚNG:</span>
                                 <span className="break-words"><FormattedText text={m.right} /></span>
                               </div>
@@ -1292,23 +1347,23 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                 </div>
               ) : (
                 <div className="space-y-3">
-                  <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                  <div className="font-sans text-xs uppercase tracking-wider text-muted-foreground">
                     Câu ví dụ đối chiếu ngữ pháp
                   </div>
                   {theoryData?.bilingual_examples && theoryData.bilingual_examples.length > 0 ? (
                     theoryData.bilingual_examples.map((ex, i) => {
                       const kw = detectGrammarKeywords(ex.en || '', activeTopic.slug, activeTopic.title);
                       return (
-                        <div key={i} className="border border-border p-3.5 bg-background space-y-1.5 rounded-none flex items-start justify-between gap-3">
+                        <div key={i} className="border border-border p-3.5 bg-background space-y-1.5 rounded-lg flex items-start justify-between gap-3">
                           <div className="space-y-1 flex-1 min-w-0">
-                            <div className="font-semibold text-foreground text-sm font-serif break-words">
+                            <div className="font-semibold text-foreground text-sm font-sans break-words">
                               <HighlightedSentence text={ex.en || ''} highlight={kw} />
                             </div>
                             <div className="text-xs text-muted-foreground break-words">
                               <FormattedText text={ex.vi || ''} />
                             </div>
                             {ex.note && (
-                              <div className="text-[11px] font-mono text-primary/80 pt-1 border-t border-border/40 mt-1">
+                              <div className="text-[11px] font-sans text-primary/80 pt-1 border-t border-border/40 mt-1">
                                 Ghi chú: <FormattedText text={ex.note} />
                               </div>
                             )}
@@ -1320,7 +1375,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                                 if (ex.en) grammarAudio.play(`bilingual-${i}`, ex.en);
                               }}
                               aria-label={`Nghe phát âm: ${ex.en}`}
-                              className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 rounded-none transition-colors"
+                              className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 rounded-lg transition-colors"
                             >
                               <Volume2 className="h-4 w-4" />
                             </button>
@@ -1340,14 +1395,14 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
             {/* Drawer Footer CTA - Mobile touch-friendly */}
             <div className="border-t border-border px-3 sm:px-4 py-2 bg-card flex items-center justify-between gap-2.5 shrink-0">
               <DialogPrimitive.Close
-                className="min-h-[40px] sm:min-h-[38px] border border-border px-4 text-xs font-mono uppercase tracking-wider font-semibold rounded-none hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 transition-colors"
+                className="min-h-[40px] sm:min-h-[38px] border border-border px-4 text-xs font-sans uppercase tracking-wider font-semibold rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground shrink-0 transition-colors"
               >
                 Đóng
               </DialogPrimitive.Close>
               <Link
                 href={`/grammar/practice?topic=${encodeURIComponent(activeTopic.slug)}`}
                 onClick={() => grammarAudio.stopAll()}
-                className="min-h-[40px] sm:min-h-[38px] flex-1 sm:flex-initial min-w-0 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-4 text-xs font-mono uppercase tracking-wider font-semibold rounded-none flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                className="min-h-[40px] sm:min-h-[38px] flex-1 sm:flex-initial min-w-0 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 px-4 text-xs font-sans uppercase tracking-wider font-semibold rounded-lg flex items-center justify-center gap-1.5 transition-colors shadow-xs"
               >
                 <span>Luyện tập chủ điểm này</span>
                 <ChevronRight className="h-3.5 w-3.5 shrink-0" />
@@ -1366,5 +1421,9 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
 // spinner, tiêu đề/đoạn mô tả (LCP) chỉ hiện sau khi tải + hydrate JS (~4s trên mobile 4G).
 export default function GrammarPage({ searchParams }: { searchParams: Promise<PageSearchParams> }) {
   const queryString = toUrlSearchParams(use(searchParams)).toString();
-  return <GrammarRoadmapContent queryString={queryString} />;
+  return (
+    <StudentShell title="Ngữ pháp ứng dụng" contentClassName="p-0">
+      <GrammarRoadmapContent queryString={queryString} />
+    </StudentShell>
+  );
 }

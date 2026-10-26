@@ -419,19 +419,19 @@ export default function SvoSentenceVisualDeck({
       {/* Hero Header Card: Compact collapsible summary in guided modal so mobile learners see examples immediately */}
       <details
         open={!guided}
-        className="border border-border bg-card p-3 sm:p-4 rounded-none shadow-xs group"
+        className="border border-border bg-card p-3 sm:p-4 rounded-lg shadow-xs group"
       >
         <summary className="list-none cursor-pointer flex items-center justify-between gap-2 select-none">
           <div className="min-w-0">
-            <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs uppercase tracking-wider text-primary font-bold">
+            <div className="flex items-center gap-2 font-sans text-[11px] sm:text-xs uppercase tracking-wider text-primary font-bold">
               <Sparkles className="h-3.5 w-3.5 shrink-0" />
               <span>Bài số 0 • Cấu trúc câu căn bản (S + V + O)</span>
             </div>
-            <h2 className="text-sm sm:text-xl font-bold font-serif text-foreground mt-0.5">
+            <h2 className="text-sm sm:text-xl font-bold font-sans text-foreground mt-0.5">
               Mô hình 3 Khối SVO: Bắc cầu trực giác Việt ➔ Anh
             </h2>
           </div>
-          <span className="font-mono text-[11px] px-2 py-1 border border-border bg-muted/30 text-muted-foreground rounded-none inline-flex items-center gap-1 shrink-0">
+          <span className="font-sans text-[11px] px-2 py-1 border border-border bg-muted/30 text-muted-foreground rounded-lg inline-flex items-center gap-1 shrink-0">
             <span className="hidden sm:inline">Giải thích S-V-O</span>
             <span className="sm:hidden">Mẹo S-V-O</span>
             <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
@@ -441,19 +441,19 @@ export default function SvoSentenceVisualDeck({
         <div className="space-y-3 pt-2.5 mt-2.5 border-t border-border/60">
           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
             Trật tự câu khẳng định cơ bản trong tiếng Anh tương đồng trực giác 1:1 với tiếng Việt qua câu kinh điển:
-            <strong className="text-foreground ml-1 font-mono">TÔI [S] + ĂN [V] + CƠM [O]</strong> ➔{' '}
-            <strong className="text-foreground font-mono">I [S] + eat [V] + rice [O]</strong>.
+            <strong className="text-foreground ml-1 font-sans">TÔI [S] + ĂN [V] + CƠM [O]</strong> ➔{' '}
+            <strong className="text-foreground font-sans">I [S] + eat [V] + rice [O]</strong>.
           </p>
 
           {/* 3 Colored Structural Reference Blocks */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
             {/* S Block */}
-            <div className="border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 p-3 rounded-none flex flex-col justify-between">
+            <div className="border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 p-3 rounded-lg flex flex-col justify-between">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-sky-400/50 bg-sky-100/80 dark:bg-sky-900/40 rounded-none">
+                <span className="font-sans text-xs font-bold px-1.5 py-0.5 border border-sky-400/50 bg-sky-100/80 dark:bg-sky-900/40 rounded-lg">
                   [S] Chủ ngữ
                 </span>
-                <span className="font-mono text-[11px] opacity-80">Subject</span>
+                <span className="font-sans text-[11px] opacity-80">Subject</span>
               </div>
               <div className="mt-2 text-xs">
                 <p className="font-bold text-sm">Ai làm?</p>
@@ -462,12 +462,12 @@ export default function SvoSentenceVisualDeck({
             </div>
 
             {/* V Block */}
-            <div className="border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 p-3 rounded-none flex flex-col justify-between">
+            <div className="border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 p-3 rounded-lg flex flex-col justify-between">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-amber-400/50 bg-amber-100/80 dark:bg-amber-900/40 rounded-none">
+                <span className="font-sans text-xs font-bold px-1.5 py-0.5 border border-amber-400/50 bg-amber-100/80 dark:bg-amber-900/40 rounded-lg">
                   [V] Động từ
                 </span>
-                <span className="font-mono text-[11px] opacity-80">Verb</span>
+                <span className="font-sans text-[11px] opacity-80">Verb</span>
               </div>
               <div className="mt-2 text-xs">
                 <p className="font-bold text-sm">Làm gì?</p>
@@ -476,12 +476,12 @@ export default function SvoSentenceVisualDeck({
             </div>
 
             {/* O Block */}
-            <div className="border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 p-3 rounded-none flex flex-col justify-between">
+            <div className="border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 p-3 rounded-lg flex flex-col justify-between">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-emerald-400/50 bg-emerald-100/80 dark:bg-emerald-900/40 rounded-none">
+                <span className="font-sans text-xs font-bold px-1.5 py-0.5 border border-emerald-400/50 bg-emerald-100/80 dark:bg-emerald-900/40 rounded-lg">
                   [O] Tân ngữ
                 </span>
-                <span className="font-mono text-[11px] opacity-80">Object</span>
+                <span className="font-sans text-[11px] opacity-80">Object</span>
               </div>
               <div className="mt-2 text-xs">
                 <p className="font-bold text-sm">Bị / Được tác động?</p>
@@ -512,7 +512,7 @@ export default function SvoSentenceVisualDeck({
                   grammarAudio.stopAll();
                   setActiveCategoryIdx(idx);
                 }}
-                className={`min-h-[44px] px-3.5 py-2 font-mono text-xs uppercase tracking-wider font-medium rounded-none border transition-colors whitespace-nowrap flex items-center gap-2 touch-manipulation ${
+                className={`min-h-[44px] px-3.5 py-2 font-sans text-xs uppercase tracking-wider font-medium rounded-lg border transition-colors whitespace-nowrap flex items-center gap-2 touch-manipulation ${
                   isActive
                     ? 'border-foreground bg-foreground text-background font-bold'
                     : 'border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground'
@@ -528,7 +528,7 @@ export default function SvoSentenceVisualDeck({
       )}
 
       {/* Active Group Banner info */}
-      <div className="flex items-center justify-between text-xs font-mono text-muted-foreground px-1">
+      <div className="flex items-center justify-between text-xs font-sans text-muted-foreground px-1">
         <div className="flex items-center gap-2">
           <CategoryIcon icon={currentGroup.icon} />
           <span className="font-bold text-foreground uppercase">{currentGroup.label}</span>
@@ -546,12 +546,12 @@ export default function SvoSentenceVisualDeck({
           return (
             <div
               key={sentence.id}
-              className="border border-border bg-card p-3.5 sm:p-4 rounded-none transition-colors hover:border-foreground/40 space-y-3 shadow-xs"
+              className="border border-border bg-card p-3.5 sm:p-4 rounded-lg transition-colors hover:border-foreground/40 space-y-3 shadow-xs"
             >
               {/* Header: Sentence counter & 1-tap Audio Play Button */}
               <div className="flex items-center justify-between border-b border-border/60 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-muted-foreground px-1.5 py-0.5 border border-border bg-muted/40 rounded-none">
+                  <span className="font-sans text-xs font-bold text-muted-foreground px-1.5 py-0.5 border border-border bg-muted/40 rounded-lg">
                     #{sIdx + 1}
                   </span>
                   <span className="text-xs font-sans text-muted-foreground">Phân tích cú pháp 3 tầng</span>
@@ -566,7 +566,7 @@ export default function SvoSentenceVisualDeck({
                     }
                     playSentenceAudio(sentence.id, sentence.en);
                   }}
-                  className={`min-h-[44px] min-w-[44px] px-3 py-1.5 border font-mono text-xs flex items-center justify-center gap-1.5 transition-all rounded-none touch-manipulation ${
+                  className={`min-h-[44px] min-w-[44px] px-3 py-1.5 border font-sans text-xs flex items-center justify-center gap-1.5 transition-all rounded-lg touch-manipulation ${
                     isPlayingThis
                       ? 'border-emerald-500 bg-emerald-500 text-white font-bold animate-pulse'
                       : 'border-border bg-background hover:bg-muted text-foreground'
@@ -581,22 +581,22 @@ export default function SvoSentenceVisualDeck({
 
               {/* TIER 1: Vietnamese Sentence with [S], [V], [O] labels */}
               <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                <span className="font-sans text-[10px] uppercase tracking-wider text-muted-foreground">
                   Tầng 1: Tiếng Việt trực giác
                 </span>
                 <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base font-semibold">
-                  <span className="px-2 py-1 border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-none flex items-center gap-1">
-                    <span className="font-mono text-[10px] font-bold opacity-75">[S]</span>
+                  <span className="px-2 py-1 border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-lg flex items-center gap-1">
+                    <span className="font-sans text-[10px] font-bold opacity-75">[S]</span>
                     <span>{sentence.viS}</span>
                   </span>
-                  <span className="text-muted-foreground font-mono font-bold">+</span>
-                  <span className="px-2 py-1 border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 rounded-none flex items-center gap-1">
-                    <span className="font-mono text-[10px] font-bold opacity-75">[V]</span>
+                  <span className="text-muted-foreground font-sans font-bold">+</span>
+                  <span className="px-2 py-1 border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 rounded-lg flex items-center gap-1">
+                    <span className="font-sans text-[10px] font-bold opacity-75">[V]</span>
                     <span>{sentence.viV}</span>
                   </span>
-                  <span className="text-muted-foreground font-mono font-bold">+</span>
-                  <span className="px-2 py-1 border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-none flex items-center gap-1">
-                    <span className="font-mono text-[10px] font-bold opacity-75">[O]</span>
+                  <span className="text-muted-foreground font-sans font-bold">+</span>
+                  <span className="px-2 py-1 border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-lg flex items-center gap-1">
+                    <span className="font-sans text-[10px] font-bold opacity-75">[O]</span>
                     <span>{sentence.viO}</span>
                   </span>
                   <span className="text-xs text-muted-foreground ml-auto hidden md:inline italic">
@@ -606,21 +606,21 @@ export default function SvoSentenceVisualDeck({
               </div>
 
               {/* TIER 2: Role Explanation (Ai làm? Làm gì? Bị tác động bởi cái gì/ai?) */}
-              <div className="p-2.5 bg-muted/20 border-l-2 border-primary space-y-1 rounded-none text-xs">
-                <div className="font-mono text-[10px] uppercase tracking-wider text-primary font-bold">
+              <div className="p-2.5 bg-muted/20 border-l-2 border-primary space-y-1 rounded-lg text-xs">
+                <div className="font-sans text-[10px] uppercase tracking-wider text-primary font-bold">
                   Tầng 2: Cầu nối giải thích vai trò ngữ pháp
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 text-[11px] text-foreground/90">
                   <div className="flex items-start gap-1">
-                    <span className="font-mono font-bold text-sky-600 dark:text-sky-400 shrink-0">•</span>
+                    <span className="font-sans font-bold text-sky-600 dark:text-sky-400 shrink-0">•</span>
                     <span>{sentence.roleExplanation.s}</span>
                   </div>
                   <div className="flex items-start gap-1">
-                    <span className="font-mono font-bold text-amber-600 dark:text-amber-400 shrink-0">•</span>
+                    <span className="font-sans font-bold text-amber-600 dark:text-amber-400 shrink-0">•</span>
                     <span>{sentence.roleExplanation.v}</span>
                   </div>
                   <div className="flex items-start gap-1">
-                    <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400 shrink-0">•</span>
+                    <span className="font-sans font-bold text-emerald-600 dark:text-emerald-400 shrink-0">•</span>
                     <span>{sentence.roleExplanation.o}</span>
                   </div>
                 </div>
@@ -628,21 +628,21 @@ export default function SvoSentenceVisualDeck({
 
               {/* TIER 3: English Sentence with [S], [V], [O] labels */}
               <div className="space-y-1 pt-0.5">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                <span className="font-sans text-[10px] uppercase tracking-wider text-muted-foreground">
                   Tầng 3: Tiếng Anh tương ứng (S + V + O)
                 </span>
-                <div className="flex flex-wrap items-center gap-2 text-base sm:text-lg font-bold font-mono">
-                  <span className="px-2.5 py-1 border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-none flex items-center gap-1.5">
+                <div className="flex flex-wrap items-center gap-2 text-base sm:text-lg font-bold font-sans">
+                  <span className="px-2.5 py-1 border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-lg flex items-center gap-1.5">
                     <span className="text-xs opacity-75 font-normal">[S]</span>
                     <span>{sentence.enS}</span>
                   </span>
-                  <span className="text-muted-foreground font-mono font-normal">+</span>
-                  <span className="px-2.5 py-1 border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 rounded-none flex items-center gap-1.5">
+                  <span className="text-muted-foreground font-sans font-normal">+</span>
+                  <span className="px-2.5 py-1 border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 rounded-lg flex items-center gap-1.5">
                     <span className="text-xs opacity-75 font-normal">[V]</span>
                     <span>{sentence.enV}</span>
                   </span>
-                  <span className="text-muted-foreground font-mono font-normal">+</span>
-                  <span className="px-2.5 py-1 border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-none flex items-center gap-1.5">
+                  <span className="text-muted-foreground font-sans font-normal">+</span>
+                  <span className="px-2.5 py-1 border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-lg flex items-center gap-1.5">
                     <span className="text-xs opacity-75 font-normal">[O]</span>
                     <span>{sentence.enO}</span>
                   </span>
@@ -659,7 +659,7 @@ export default function SvoSentenceVisualDeck({
       </div>
 
       {/* Golden Rule Card (Mẹo Nhớ Vàng Cốt Lõi) */}
-      <div className="p-4 sm:p-4.5 bg-amber-500/[0.08] border border-amber-500/40 rounded-none space-y-2">
+      <div className="p-4 sm:p-4.5 bg-amber-500/[0.08] border border-amber-500/40 rounded-lg space-y-2">
         <div className="flex items-center gap-2 text-amber-800 dark:text-amber-300 font-bold text-sm">
           <Lightbulb className="h-4 w-4 shrink-0" />
           <span>Quy tắc vàng: Không bao giờ bỏ rơi S và V trong câu tiếng Anh</span>
@@ -669,18 +669,18 @@ export default function SvoSentenceVisualDeck({
             1. <strong>Tiếng Việt có thể nói cộc lốc:</strong> Trong tiếng Việt ta thường nói tỉnh lược như{' '}
             <em>&ldquo;Ăn cơm chưa?&rdquo;</em>, <em>&ldquo;Mưa rồi&rdquo;</em>, <em>&ldquo;Rất mệt&rdquo;</em>.
             Nhưng trong tiếng Anh, <strong>mọi câu kể đều bắt buộc phải có đủ Chủ ngữ (S) và Động từ (V)</strong> (ví dụ:{' '}
-            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">I eat rice</code>,{' '}
-            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">It is raining</code>,{' '}
-            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">I am very tired</code>).
+            <code className="font-sans font-bold bg-background/80 px-1 border border-border rounded-lg">I eat rice</code>,{' '}
+            <code className="font-sans font-bold bg-background/80 px-1 border border-border rounded-lg">It is raining</code>,{' '}
+            <code className="font-sans font-bold bg-background/80 px-1 border border-border rounded-lg">I am very tired</code>).
           </p>
           <p>
             2. <strong>Cầu nối đại từ (I vs me):</strong> Trong tiếng Việt, từ &ldquo;tôi&rdquo; ở đầu câu hay cuối câu
             vẫn giữ nguyên là &ldquo;tôi&rdquo; (<em>Tôi yêu bạn</em> và <em>Bạn yêu tôi</em>). Nhưng trong tiếng Anh,
             khi đứng ở vị trí <strong>[S] (làm hành động)</strong> thì dùng{' '}
-            <strong className="text-sky-600 dark:text-sky-400 font-mono">I</strong>, còn khi chuyển xuống vị trí{' '}
+            <strong className="text-sky-600 dark:text-sky-400 font-sans">I</strong>, còn khi chuyển xuống vị trí{' '}
             <strong>[O] (nhận hành động)</strong> thì phải đổi thành{' '}
-            <strong className="text-emerald-600 dark:text-emerald-400 font-mono">me</strong> ({' '}
-            <span className="font-mono font-bold">I love you</span> ➔ <span className="font-mono font-bold">You love me</span>
+            <strong className="text-emerald-600 dark:text-emerald-400 font-sans">me</strong> ({' '}
+            <span className="font-sans font-bold">I love you</span> ➔ <span className="font-sans font-bold">You love me</span>
             ).
           </p>
           <div className="flex items-center gap-1.5 text-xs text-primary font-bold pt-1">
@@ -692,11 +692,11 @@ export default function SvoSentenceVisualDeck({
 
       {/* Bottom progression / end-of-deck CTA bar */}
       {guided && (
-        <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-none">
+        <div className="border border-border bg-muted/20 p-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 rounded-lg">
           {isLastSvoGroup ? (
             <>
               <div className="text-xs text-foreground font-medium">
-                <span className="font-mono text-[11px] font-bold uppercase text-emerald-600 dark:text-emerald-400 mr-1.5">
+                <span className="font-sans text-[11px] font-bold uppercase text-emerald-600 dark:text-emerald-400 mr-1.5">
                   ✓ Đã xem hết {SVO_GROUPS.length}/{SVO_GROUPS.length} nhóm câu
                 </span>
                 Bạn đã nắm vững mô hình 3 khối S + V + O!
@@ -708,7 +708,7 @@ export default function SvoSentenceVisualDeck({
                     grammarAudio.stopAll();
                     setActiveCategoryIdx(0);
                   }}
-                  className="min-h-[40px] px-3 py-1.5 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-mono text-xs uppercase tracking-wider rounded-none inline-flex items-center gap-1.5 transition-colors touch-manipulation"
+                  className="min-h-[40px] px-3 py-1.5 border border-border bg-card hover:bg-muted text-muted-foreground hover:text-foreground font-sans text-xs uppercase tracking-wider rounded-lg inline-flex items-center gap-1.5 transition-colors touch-manipulation"
                 >
                   <RotateCcw className="h-3.5 w-3.5 shrink-0" />
                   <span>Xem lại nhóm 1</span>
@@ -716,7 +716,7 @@ export default function SvoSentenceVisualDeck({
                 <Link
                   href="/grammar/practice?topic=sentence-structure-svo"
                   onClick={() => grammarAudio.stopAll()}
-                  className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-bold rounded-none inline-flex items-center gap-1.5 transition-colors touch-manipulation"
+                  className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-sans text-xs uppercase tracking-wider font-bold rounded-lg inline-flex items-center gap-1.5 transition-colors touch-manipulation"
                 >
                   <Dumbbell className="h-3.5 w-3.5 shrink-0" />
                   <span>Làm bài tập #00 ngay</span>
@@ -726,7 +726,7 @@ export default function SvoSentenceVisualDeck({
             </>
           ) : (
             <>
-              <div className="text-xs text-muted-foreground font-mono">
+              <div className="text-xs text-muted-foreground font-sans">
                 Đang ở <strong className="text-foreground">Nhóm {activeCategoryIdx + 1}/{SVO_GROUPS.length}</strong> • Tiếp theo:{' '}
                 <span className="text-foreground font-semibold">{SVO_GROUPS[activeCategoryIdx + 1]?.label}</span>
               </div>
@@ -736,7 +736,7 @@ export default function SvoSentenceVisualDeck({
                   grammarAudio.stopAll();
                   setActiveCategoryIdx(activeCategoryIdx + 1);
                 }}
-                className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-mono text-xs uppercase tracking-wider font-semibold rounded-none inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors touch-manipulation"
+                className="min-h-[40px] px-3.5 py-1.5 bg-primary text-primary-foreground border border-primary hover:bg-primary/90 font-sans text-xs uppercase tracking-wider font-semibold rounded-lg inline-flex items-center justify-center gap-1.5 shrink-0 transition-colors touch-manipulation"
               >
                 <span>Qua nhóm {activeCategoryIdx + 2}</span>
                 <ArrowRight className="h-3.5 w-3.5 shrink-0" />
