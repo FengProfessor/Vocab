@@ -1,7 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
 import type { GrammarExample, GrammarLevel } from '@/lib/supabase';
-import { checkRateLimitAsync, safeErrorResponse, sanitizeForPrompt } from '@/lib/api-security';
+import {
+  checkRateLimitAsync,
+  getClientIp,
+  getRateLimitClientKey,
+  safeErrorResponse,
+  sanitizeForPrompt,
+} from '@/lib/api-security';
 
 // Gemini call dùng AbortSignal.timeout(15000) → cần >15s. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 30;
@@ -22,14 +28,28 @@ interface GeneratedLesson {
   };
 }
 
+const GRAMMAR_CACHE_TTL_MS = 10 * 60 * 1000; // 10 minutes classroom topic cache
+const MAX_GRAMMAR_CACHE_ENTRIES = 200;
+const grammarLessonCache = new Map<string, { data: GeneratedLesson; expiresAt: number }>();
+const inflightGrammarGenerations = new Map<string, Promise<GeneratedLesson>>();
+
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
-    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
-    const rl = await checkRateLimitAsync(`grammar-generate:${ip}`, 5, 60_000); // 5 req/min per IP
-    if (!rl.allowed) {
+    const ip = getClientIp(req);
+    const clientKey = getRateLimitClientKey(req);
+
+    // Multi-layer rate limit:
+    // - 10 req/min per individual client/session (blocks single-user spam)
+    // - 360 req/min per shared classroom NAT IP (allows 100-300 students on school Wi-Fi)
+    const [clientRl, ipRl] = await Promise.all([
+      checkRateLimitAsync(`grammar-generate:${clientKey}`, 10, 60_000),
+      checkRateLimitAsync(`grammar-generate-ip:${ip}`, 360, 60_000),
+    ]);
+    if (!clientRl.allowed || !ipRl.allowed) {
+      const resetIn = !clientRl.allowed ? clientRl.resetIn : ipRl.resetIn;
       return NextResponse.json(
         { success: false, error: 'Too many requests. Please wait.' },
-        { status: 429, headers: { 'Retry-After': String(Math.ceil(rl.resetIn / 1000)) } }
+        { status: 429, headers: { 'Retry-After': String(Math.ceil(resetIn / 1000)) } }
       );
     }
 
@@ -53,7 +73,19 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     const levelLabel = { beginner: 'cơ bản (A1-A2)', intermediate: 'trung cấp (B1-B2)', advanced: 'nâng cao (C1-C2)' }[resolvedLevel];
 
     const safeTopic = sanitizeForPrompt(topic, 100);
-    const prompt = `Bạn là giáo viên tiếng Anh chuyên nghiệp. Hãy tạo một bài học ngữ pháp tiếng Anh về chủ đề: "${safeTopic}" ở cấp độ ${levelLabel}.
+    const cacheKey = `${resolvedLevel}:${safeTopic.trim().toLowerCase()}`;
+
+    // 1. Check short-TTL classroom topic cache
+    const cached = grammarLessonCache.get(cacheKey);
+    if (cached && cached.expiresAt > Date.now()) {
+      return NextResponse.json({ success: true, data: cached.data });
+    }
+
+    // 2. Single-flight deduplication when 100-300 students request the same topic concurrently
+    let generationPromise = inflightGrammarGenerations.get(cacheKey);
+    if (!generationPromise) {
+      generationPromise = (async (): Promise<GeneratedLesson> => {
+        const prompt = `Bạn là giáo viên tiếng Anh chuyên nghiệp. Hãy tạo một bài học ngữ pháp tiếng Anh về chủ đề: "${safeTopic}" ở cấp độ ${levelLabel}.
 
 Trả về JSON với cấu trúc sau (KHÔNG có markdown, chỉ JSON thuần):
 {
@@ -96,42 +128,71 @@ Yêu cầu:
 - Phù hợp cấp độ ${levelLabel}
 - ONLY valid JSON, no explanation outside JSON`;
 
-    const rawText = await getRouter().generate(prompt, 'normal', true);
+        const rawText = await getRouter().generate(prompt, 'normal', true);
 
-    let parsed: unknown;
+        let parsed: unknown;
+        try {
+          parsed = JSON.parse(rawText);
+        } catch {
+          const match = rawText.match(/\{[\s\S]*\}/);
+          if (!match) {
+            console.error('[GrammarGenerate] Invalid AI response:', rawText.slice(0, 200));
+            throw new Error('INVALID_AI_JSON');
+          }
+          parsed = JSON.parse(match[0]);
+        }
+
+        const p = parsed as Record<string, unknown>;
+        if (typeof p.title !== 'string' || typeof p.theory_vi !== 'string' || !Array.isArray(p.examples)) {
+          throw new Error('MISSING_AI_FIELDS');
+        }
+
+        const examples: GrammarExample[] = (p.examples as unknown[])
+          .filter((e): e is Record<string, unknown> => typeof e === 'object' && e !== null)
+          .map((e) => ({
+            en: typeof e.en === 'string' ? e.en : '',
+            vi: typeof e.vi === 'string' ? e.vi : undefined,
+            note: typeof e.note === 'string' && e.note ? e.note : undefined,
+          }))
+          .filter((e) => e.en.length > 0);
+
+        const lesson: GeneratedLesson = {
+          title: p.title as string,
+          theory_vi: p.theory_vi as string,
+          examples,
+          sections: typeof p.sections === 'object' && p.sections !== null ? p.sections as GeneratedLesson['sections'] : undefined,
+        };
+
+        if (grammarLessonCache.size >= MAX_GRAMMAR_CACHE_ENTRIES) {
+          const oldestKey = grammarLessonCache.keys().next().value;
+          if (oldestKey) grammarLessonCache.delete(oldestKey);
+        }
+        grammarLessonCache.set(cacheKey, {
+          data: lesson,
+          expiresAt: Date.now() + GRAMMAR_CACHE_TTL_MS,
+        });
+
+        return lesson;
+      })().finally(() => {
+        inflightGrammarGenerations.delete(cacheKey);
+      });
+      inflightGrammarGenerations.set(cacheKey, generationPromise);
+    }
+
     try {
-      parsed = JSON.parse(rawText);
-    } catch {
-      const match = rawText.match(/\{[\s\S]*\}/);
-      if (!match) {
-        console.error('[GrammarGenerate] Invalid AI response:', rawText.slice(0, 200));
-        return NextResponse.json({ success: false, error: 'AI returned invalid JSON' }, { status: 500 });
+      const data = await generationPromise;
+      return NextResponse.json({ success: true, data });
+    } catch (genErr) {
+      if (genErr instanceof Error) {
+        if (genErr.message === 'INVALID_AI_JSON') {
+          return NextResponse.json({ success: false, error: 'AI returned invalid JSON' }, { status: 500 });
+        }
+        if (genErr.message === 'MISSING_AI_FIELDS') {
+          return NextResponse.json({ success: false, error: 'AI response missing required fields' }, { status: 500 });
+        }
       }
-      parsed = JSON.parse(match[0]);
+      throw genErr;
     }
-
-    const p = parsed as Record<string, unknown>;
-    if (typeof p.title !== 'string' || typeof p.theory_vi !== 'string' || !Array.isArray(p.examples)) {
-      return NextResponse.json({ success: false, error: 'AI response missing required fields' }, { status: 500 });
-    }
-
-    const examples: GrammarExample[] = (p.examples as unknown[])
-      .filter((e): e is Record<string, unknown> => typeof e === 'object' && e !== null)
-      .map((e) => ({
-        en: typeof e.en === 'string' ? e.en : '',
-        vi: typeof e.vi === 'string' ? e.vi : undefined,
-        note: typeof e.note === 'string' && e.note ? e.note : undefined,
-      }))
-      .filter((e) => e.en.length > 0);
-
-    const data: GeneratedLesson = {
-      title: p.title as string,
-      theory_vi: p.theory_vi as string,
-      examples,
-      sections: typeof p.sections === 'object' && p.sections !== null ? p.sections as GeneratedLesson['sections'] : undefined,
-    };
-
-    return NextResponse.json({ success: true, data });
   } catch (err: unknown) {
     return safeErrorResponse(err, 'Failed to generate grammar lesson');
   }

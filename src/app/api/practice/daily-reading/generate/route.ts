@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sessionErrorResponse } from '@/lib/session-response';
-import { getAuthUser, unauthorized } from '@/lib/api-security';
+import { checkRateLimitAsync, getAuthUser, rateLimitUnavailableResponse, tooManyRequests, unauthorized } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
 import {
   todayVN,
@@ -75,6 +75,12 @@ export async function POST(req: Request): Promise<NextResponse> {
       });
     }
 
+    // Rate-limit per-user AI generation (10 req/min per userId) so classroom users never block each other
+    const genRl = await checkRateLimitAsync(`daily-reading-gen:${auth.userId}`, 10, 60_000);
+    if (!genRl.allowed) {
+      return tooManyRequests();
+    }
+
     // 3. Parse optional body for starter pack
     let body: { packId?: string } = {};
     try {
@@ -101,7 +107,10 @@ export async function POST(req: Request): Promise<NextResponse> {
         return NextResponse.json({ success: false, error: 'Gói bài đọc không tồn tại' }, { status: 400 });
       }
 
-      const starterResult = await generateStarterReadingExercise(packId, userDisplayName);
+      const starterResult = await generateStarterReadingExercise(packId, userDisplayName, {
+        allowCooldownWait: false,
+        dedupeKey: `starter:${auth.userId}:${packId}:${currentDate}`,
+      });
 
       if (!starterResult) {
         return NextResponse.json(
@@ -194,6 +203,10 @@ export async function POST(req: Request): Promise<NextResponse> {
       targets,
       candidate.levelConfig,
       2,
+      {
+        allowCooldownWait: false,
+        dedupeKey: `daily:${auth.userId}:${currentDate}`,
+      },
     );
 
     if (!generated) {
@@ -259,6 +272,8 @@ export async function POST(req: Request): Promise<NextResponse> {
   } catch (err: unknown) {
     const sessionFailure = sessionErrorResponse(err);
     if (sessionFailure) return sessionFailure;
+    const unavailable = rateLimitUnavailableResponse(err);
+    if (unavailable) return unavailable;
     const msg = err instanceof Error ? err.message : String(err);
     console.error('[DailyReading/Generate] Error:', msg);
     return NextResponse.json({ success: false, error: msg }, { status: 500 });

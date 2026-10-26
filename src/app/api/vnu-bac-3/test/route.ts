@@ -4,15 +4,32 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { checkRateLimitAsync, getClientIp, rateLimitUnavailableResponse, tooManyRequests } from '@/lib/api-security';
 import {
-  getRawVnuBac3Exam,
+  getSafeVnuBac3Exam,
   getVnuBac3Catalog,
-  stripSensitiveVnuData,
   createVnuSessionToken,
 } from '@/lib/vnu-bac-3/loader';
 
+function isRateLimitEnabled(): boolean {
+  return Boolean(
+    process.env.UPSTASH_REDIS_REST_URL ||
+      process.env.NODE_ENV === 'production' ||
+      process.env.NODE_ENV === 'test' ||
+      process.env.TSX_TEST === '1'
+  );
+}
+
 export async function GET(request: NextRequest) {
   try {
+    const clientIp = getClientIp(request);
+    if (isRateLimitEnabled() && clientIp !== '127.0.0.1' && clientIp !== '::1' && clientIp !== 'unknown') {
+      const rl = await checkRateLimitAsync(`vnu-test:${clientIp}`, 600, 60_000);
+      if (!rl.allowed) {
+        return tooManyRequests();
+      }
+    }
+
     const { searchParams } = new URL(request.url);
     const examId = searchParams.get('id') || searchParams.get('examId');
     const getCatalog = searchParams.get('catalog') === 'true';
@@ -42,9 +59,9 @@ export async function GET(request: NextRequest) {
       });
     }
 
-    // 3. Nạp đề thi nguyên bản
-    const rawExam = getRawVnuBac3Exam(examId);
-    if (!rawExam) {
+    // 3. Nạp đề thi đã làm sạch dữ liệu nhạy cảm từ bộ nhớ đệm (Zero Bulk Leaks)
+    const sanitizedExam = getSafeVnuBac3Exam(examId);
+    if (!sanitizedExam) {
       return NextResponse.json(
         {
           success: false,
@@ -54,11 +71,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // 4. Triệt tiêu 100% dữ liệu nhạy cảm (Zero Bulk Leaks)
-    const sanitizedExam = stripSensitiveVnuData(rawExam);
-
-    // 5. Cấp Session Token có chữ ký HMAC
-    const clientIp = request.headers.get('x-forwarded-for') || 'anonymous';
+    // 4. Cấp Session Token có chữ ký HMAC (có sequence nonce cho 300 học viên cùng IP)
     const sessionToken = createVnuSessionToken(examId, clientIp);
 
     return NextResponse.json({
@@ -67,6 +80,8 @@ export async function GET(request: NextRequest) {
       sessionToken,
     });
   } catch (error) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     console.error('Lỗi API /api/vnu-bac-3/test:', error);
     return NextResponse.json(
       {
@@ -80,6 +95,14 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest) {
   try {
+    const clientIp = getClientIp(request);
+    if (isRateLimitEnabled() && clientIp !== '127.0.0.1' && clientIp !== '::1' && clientIp !== 'unknown') {
+      const rl = await checkRateLimitAsync(`vnu-test:${clientIp}`, 600, 60_000);
+      if (!rl.allowed) {
+        return tooManyRequests();
+      }
+    }
+
     const body = await request.json().catch(() => ({}));
     const examId = body.examId || body.id;
 
@@ -90,16 +113,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const rawExam = getRawVnuBac3Exam(examId);
-    if (!rawExam) {
+    const sanitizedExam = getSafeVnuBac3Exam(examId);
+    if (!sanitizedExam) {
       return NextResponse.json(
         { success: false, error: `Không tìm thấy đề thi với mã '${examId}'.` },
         { status: 404 }
       );
     }
 
-    const sanitizedExam = stripSensitiveVnuData(rawExam);
-    const clientIp = request.headers.get('x-forwarded-for') || 'anonymous';
     const sessionToken = createVnuSessionToken(examId, clientIp);
 
     return NextResponse.json({
@@ -108,6 +129,8 @@ export async function POST(request: NextRequest) {
       sessionToken,
     });
   } catch (error) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     console.error('Lỗi POST /api/vnu-bac-3/test:', error);
     return NextResponse.json(
       { success: false, error: 'Lỗi máy chủ nội bộ.' },

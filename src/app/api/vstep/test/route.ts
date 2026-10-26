@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { checkRateLimitAsync, rateLimitUnavailableResponse, tooManyRequests } from '@/lib/api-security';
 import {
   loadVstepExamSafe,
   loadRawVstepExam,
@@ -7,12 +8,24 @@ import {
 } from '@/lib/vstep-test-loader';
 import {
   generateVstepSessionToken,
+  bindVstepTokenToClient,
   isVstepHoneypot,
   isClientFlaggedAsBot,
+  isVstepSharedClassroomIp,
+  isVstepScraperRotationIp,
   flagClientAsBot,
   poisonVstepQuestion,
 } from '@/lib/vstep-anti-scraping';
 import { VstepSkillType } from '@/lib/vstep-types';
+
+function isRateLimitEnabled(): boolean {
+  return Boolean(
+    process.env.UPSTASH_REDIS_REST_URL ||
+      process.env.NODE_ENV === 'production' ||
+      process.env.NODE_ENV === 'test' ||
+      process.env.TSX_TEST === '1'
+  );
+}
 
 function getCatalogPracticeSkill(testId?: string | null): VstepSkillType | null {
   if (!testId) return null;
@@ -47,6 +60,19 @@ export async function GET(request: NextRequest) {
     // Lấy IP client
     const forwarded = request.headers.get('x-forwarded-for');
     const clientIp = forwarded ? forwarded.split(',')[0].trim() : '127.0.0.1';
+    const clientKey =
+      request.headers.get('x-client-session-id') ||
+      request.headers.get('authorization') ||
+      request.cookies.get('sb-access-token')?.value ||
+      null;
+
+    // Rate limit: 600 test load requests/min per shared classroom IP
+    if (isRateLimitEnabled() && clientIp !== '127.0.0.1' && clientIp !== '::1') {
+      const rl = await checkRateLimitAsync(`vstep-test:${clientIp}`, 600, 60_000);
+      if (!rl.allowed) {
+        return tooManyRequests();
+      }
+    }
 
     // 1. Nếu không truyền testId và không truyền skill, trả về catalog
     if (!testId && !skillParam) {
@@ -59,7 +85,12 @@ export async function GET(request: NextRequest) {
 
     // 2. Bẫy Honeypot Canary hoặc tham số cào mồi nhử
     if ((testId && isVstepHoneypot(testId)) || dumpParam === 'true' || dumpParam === '1') {
-      flagClientAsBot(clientIp, `VSTEP Honeypot triggered: testId=${testId}`);
+      if (clientKey) {
+        flagClientAsBot(clientKey, `VSTEP Honeypot triggered: testId=${testId}`);
+      }
+      if (!isVstepSharedClassroomIp(clientIp) || isVstepScraperRotationIp(clientIp)) {
+        flagClientAsBot(clientIp, `VSTEP Honeypot triggered: testId=${testId}`);
+      }
 
       // Chế độ đầu độc âm thầm (HTTP 200 OK)
       const raw = loadRawVstepExam('vstep-mock-01');
@@ -71,17 +102,23 @@ export async function GET(request: NextRequest) {
             }
           }
         }
+        const sessionToken = generateVstepSessionToken(clientIp, testId || 'vstep-mock-01');
+        bindVstepTokenToClient(sessionToken, clientKey);
         return NextResponse.json({
           success: true,
           exam: raw,
-          sessionToken: generateVstepSessionToken(clientIp, testId || 'vstep-mock-01'),
+          sessionToken,
           _hp_honeypot: false,
         });
       }
     }
 
-    // 3. Nếu IP đã bị gắn cờ Bot trước đó -> Trả về đề thi bị đầu độc
-    if (isClientFlaggedAsBot(clientIp)) {
+    // 3. Nếu IP đơn lẻ (hoặc IP đang xoay vòng token bot) hoặc client đã bị gắn cờ Bot -> Trả về đề thi bị đầu độc
+    if (
+      (clientKey && isClientFlaggedAsBot(clientKey)) ||
+      (isClientFlaggedAsBot(clientIp) &&
+        (!isVstepSharedClassroomIp(clientIp) || isVstepScraperRotationIp(clientIp)))
+    ) {
       const raw = loadRawVstepExam(testId || 'vstep-mock-01') || loadRawVstepExam('vstep-mock-01');
       if (raw) {
         for (const section of raw.sections) {
@@ -91,10 +128,12 @@ export async function GET(request: NextRequest) {
             }
           }
         }
+        const sessionToken = generateVstepSessionToken(clientIp, testId || 'vstep-mock-01');
+        bindVstepTokenToClient(sessionToken, clientKey);
         return NextResponse.json({
           success: true,
           exam: raw,
-          sessionToken: generateVstepSessionToken(clientIp, testId || 'vstep-mock-01'),
+          sessionToken,
         });
       }
     }
@@ -110,21 +149,28 @@ export async function GET(request: NextRequest) {
           { status: 404 }
         );
       }
+      const sessionToken = generateVstepSessionToken(clientIp, testId);
+      bindVstepTokenToClient(sessionToken, clientKey);
       return NextResponse.json({
         success: true,
         exam: safeExam,
-        sessionToken: generateVstepSessionToken(clientIp, testId),
+        sessionToken,
       });
     }
     if (skillParam || catalogPracticeSkill || testId === 'practice' || testId === 'bank') {
       const targetSkill: VstepSkillType =
         skillParam || catalogPracticeSkill || (testId?.includes('reading') ? 'reading' : 'listening');
 
+      const resolvedPracticeTestId =
+        testId === 'bank' || testId === 'practice'
+          ? 'bank'
+          : testId || undefined;
+
       const practiceExam = loadVstepSkillPractice({
         skill: targetSkill,
         filterMode: filterParam,
         limit: limitParam,
-        testId: testId && testId !== 'practice' && testId !== 'bank' ? testId : undefined,
+        testId: resolvedPracticeTestId,
       });
 
       if (!practiceExam) {
@@ -136,6 +182,7 @@ export async function GET(request: NextRequest) {
 
       // Phiên thi được nộp bằng ID trên URL, dù nội dung là bộ luyện tập nội bộ.
       const sessionToken = generateVstepSessionToken(clientIp, testId || practiceExam.id);
+      bindVstepTokenToClient(sessionToken, clientKey);
 
       return NextResponse.json({
         success: true,
@@ -155,6 +202,7 @@ export async function GET(request: NextRequest) {
     }
 
     const sessionToken = generateVstepSessionToken(clientIp, testId!);
+    bindVstepTokenToClient(sessionToken, clientKey);
 
     return NextResponse.json({
       success: true,
@@ -162,6 +210,8 @@ export async function GET(request: NextRequest) {
       sessionToken,
     });
   } catch (error) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     console.error('Lỗi khi nạp VSTEP test:', error);
     return NextResponse.json(
       { success: false, error: 'Lỗi máy chủ nội bộ khi nạp đề thi.' },
@@ -174,6 +224,18 @@ export async function POST(request: NextRequest) {
   try {
     const forwarded = request.headers.get('x-forwarded-for');
     const clientIp = forwarded ? forwarded.split(',')[0].trim() : '127.0.0.1';
+    const clientKey =
+      request.headers.get('x-client-session-id') ||
+      request.headers.get('authorization') ||
+      request.cookies.get('sb-access-token')?.value ||
+      null;
+
+    if (isRateLimitEnabled() && clientIp !== '127.0.0.1' && clientIp !== '::1') {
+      const rl = await checkRateLimitAsync(`vstep-test:${clientIp}`, 600, 60_000);
+      if (!rl.allowed) {
+        return tooManyRequests();
+      }
+    }
 
     const body = (await request.json().catch(() => ({}))) as {
       testId?: string;
@@ -192,7 +254,12 @@ export async function POST(request: NextRequest) {
 
     // 1. Honeypot check
     if (body._hp_trap || (testId && isVstepHoneypot(testId))) {
-      flagClientAsBot(clientIp, `VSTEP Honeypot triggered in POST: testId=${testId}`);
+      if (clientKey) {
+        flagClientAsBot(clientKey, `VSTEP Honeypot triggered in POST: testId=${testId}`);
+      }
+      if (!isVstepSharedClassroomIp(clientIp) || isVstepScraperRotationIp(clientIp)) {
+        flagClientAsBot(clientIp, `VSTEP Honeypot triggered in POST: testId=${testId}`);
+      }
       const raw = loadRawVstepExam('vstep-mock-01');
       if (raw) {
         for (const section of raw.sections) {
@@ -202,17 +269,23 @@ export async function POST(request: NextRequest) {
             }
           }
         }
+        const sessionToken = generateVstepSessionToken(clientIp, testId || 'vstep-mock-01');
+        bindVstepTokenToClient(sessionToken, clientKey);
         return NextResponse.json({
           success: true,
           exam: raw,
-          sessionToken: generateVstepSessionToken(clientIp, testId || 'vstep-mock-01'),
+          sessionToken,
           _hp_honeypot: false,
         });
       }
     }
 
     // 2. Bot check
-    if (isClientFlaggedAsBot(clientIp)) {
+    if (
+      (clientKey && isClientFlaggedAsBot(clientKey)) ||
+      (isClientFlaggedAsBot(clientIp) &&
+        (!isVstepSharedClassroomIp(clientIp) || isVstepScraperRotationIp(clientIp)))
+    ) {
       const raw = loadRawVstepExam(testId || 'vstep-mock-01') || loadRawVstepExam('vstep-mock-01');
       if (raw) {
         for (const section of raw.sections) {
@@ -222,10 +295,12 @@ export async function POST(request: NextRequest) {
             }
           }
         }
+        const sessionToken = generateVstepSessionToken(clientIp, testId || 'vstep-mock-01');
+        bindVstepTokenToClient(sessionToken, clientKey);
         return NextResponse.json({
           success: true,
           exam: raw,
-          sessionToken: generateVstepSessionToken(clientIp, testId || 'vstep-mock-01'),
+          sessionToken,
         });
       }
     }
@@ -241,10 +316,12 @@ export async function POST(request: NextRequest) {
           { status: 404 }
         );
       }
+      const sessionToken = generateVstepSessionToken(clientIp, testId);
+      bindVstepTokenToClient(sessionToken, clientKey);
       return NextResponse.json({
         success: true,
         exam: safeExam,
-        sessionToken: generateVstepSessionToken(clientIp, testId),
+        sessionToken,
       });
     }
     const isPracticeQuery = Boolean(
@@ -257,6 +334,11 @@ export async function POST(request: NextRequest) {
         catalogPracticeSkill ||
         (testId?.includes('reading') ? 'reading' : 'listening');
 
+      const resolvedPracticeTestId =
+        testId === 'bank' || testId === 'practice'
+          ? 'bank'
+          : testId || undefined;
+
       const practiceExam = loadVstepSkillPractice({
         skill: targetSkill,
         filterMode,
@@ -264,7 +346,7 @@ export async function POST(request: NextRequest) {
         mistakeIds: body.mistakeIds,
         limit: body.limit,
         seed: body.seed,
-        testId: testId && testId !== 'practice' && testId !== 'bank' ? testId : undefined,
+        testId: resolvedPracticeTestId,
       });
 
       if (!practiceExam) {
@@ -276,6 +358,7 @@ export async function POST(request: NextRequest) {
 
       // Giữ ID phiên khớp với testId mà client gửi lại khi nộp bài.
       const sessionToken = generateVstepSessionToken(clientIp, testId || practiceExam.id);
+      bindVstepTokenToClient(sessionToken, clientKey);
 
       return NextResponse.json({
         success: true,
@@ -302,6 +385,7 @@ export async function POST(request: NextRequest) {
     }
 
     const sessionToken = generateVstepSessionToken(clientIp, testId);
+    bindVstepTokenToClient(sessionToken, clientKey);
 
     return NextResponse.json({
       success: true,
@@ -309,6 +393,8 @@ export async function POST(request: NextRequest) {
       sessionToken,
     });
   } catch (error) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     console.error('Lỗi khi xử lý POST VSTEP test:', error);
     return NextResponse.json(
       { success: false, error: 'Lỗi máy chủ nội bộ khi nạp đề thi.' },

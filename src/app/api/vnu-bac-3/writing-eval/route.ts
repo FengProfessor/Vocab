@@ -3,9 +3,20 @@
  * File: src/app/api/vnu-bac-3/writing-eval/route.ts
  */
 
+import { createHash } from 'node:crypto';
 import { NextRequest, NextResponse } from 'next/server';
 import { getRouter } from '@/lib/ai-router';
+import {
+  checkRateLimitAsync,
+  getClientIp,
+  getRateLimitClientKey,
+  rateLimitUnavailableResponse,
+  tooManyRequests,
+} from '@/lib/api-security';
 import type { WritingEvalResult, WritingEvalCriteriaScore } from '@/types/vnu-bac-3';
+
+let activeVnuWritingAiCalls = 0;
+const MAX_CONCURRENT_VNU_WRITING_AI_CALLS = 15;
 
 export interface VnuWritingEvalRequest {
   examType?: 'vnu-bac-3' | 'vstep';
@@ -184,6 +195,20 @@ function evaluateWithDeterministicRubric(req: VnuWritingEvalRequest): WritingEva
 
 export async function POST(request: NextRequest) {
   try {
+    const ip = getClientIp(request);
+    const customSession = request.headers.get('x-client-session-id')?.trim();
+    const clientKey = customSession
+      ? `sess:${createHash('sha256').update(customSession).digest('hex').slice(0, 16)}`
+      : getRateLimitClientKey(request);
+
+    const [clientRl, ipRl] = await Promise.all([
+      checkRateLimitAsync(`vnu-writing-eval:${clientKey}`, 20, 60_000),
+      checkRateLimitAsync(`vnu-writing-eval-ip:${ip}`, 360, 60_000),
+    ]);
+    if (!clientRl.allowed || !ipRl.allowed) {
+      return tooManyRequests();
+    }
+
     const body = (await request.json().catch(() => ({}))) as Partial<VnuWritingEvalRequest>;
     const text = typeof body.text === 'string' ? body.text.trim() : '';
     const taskId = typeof body.taskId === 'string' && body.taskId ? body.taskId : 'task1';
@@ -211,10 +236,12 @@ export async function POST(request: NextRequest) {
 
     const baseline = evaluateWithDeterministicRubric(evalReq);
 
-    // Thử làm giàu nhận xét bằng AI Router nếu có key cấu hình
-    try {
-      const router = getRouter();
-      const aiPrompt = `Bạn là giám khảo chấm thi viết tiếng Anh chuẩn khung năng lực VNU Test Bậc 3 (tương đương CEFR B1 - ĐHQGHN).
+    // Thử làm giàu nhận xét bằng AI Router nếu có key cấu hình và hàng đợi chưa quá tải
+    if (activeVnuWritingAiCalls < MAX_CONCURRENT_VNU_WRITING_AI_CALLS) {
+      activeVnuWritingAiCalls++;
+      try {
+        const router = getRouter();
+        const aiPrompt = `Bạn là giám khảo chấm thi viết tiếng Anh chuẩn khung năng lực VNU Test Bậc 3 (tương đương CEFR B1 - ĐHQGHN).
 Hãy chấm bài viết sau theo thang điểm 10 (làm tròn 0.5) dựa trên 4 tiêu chí Rubric B1:
 1. Task Fulfillment (Hoàn thành yêu cầu đề bài, độ dài tối thiểu ${evalReq.minWords} từ, hiện tại ${baseline.wordCount} từ)
 2. Organization (Bố cục & Mạch lạc)
@@ -237,64 +264,67 @@ Trả về DUY NHẤT một JSON object hợp lệ theo cấu trúc sau (tiếng
   "improvements": ["string", "string"]
 }`;
 
-      const rawJson = await router.generate(aiPrompt, 'fast', true);
-      const cleaned = rawJson.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim();
-      const parsed = JSON.parse(cleaned);
+        const rawJson = await router.generate(aiPrompt, 'fast', true);
+        const cleaned = rawJson.replace(/^```json\s*/i, '').replace(/```\s*$/i, '').trim();
+        const parsed = JSON.parse(cleaned);
 
-      if (
-        parsed &&
-        typeof parsed === 'object' &&
-        typeof parsed.taskFulfillment?.score === 'number' &&
-        typeof parsed.organization?.score === 'number' &&
-        typeof parsed.vocabulary?.score === 'number' &&
-        typeof parsed.grammar?.score === 'number'
-      ) {
-        const tf = roundHalf(parsed.taskFulfillment.score);
-        const org = roundHalf(parsed.organization.score);
-        const voc = roundHalf(parsed.vocabulary.score);
-        const gra = roundHalf(parsed.grammar.score);
-        const overallScore = roundHalf((tf + org + voc + gra) / 4);
+        if (
+          parsed &&
+          typeof parsed === 'object' &&
+          typeof parsed.taskFulfillment?.score === 'number' &&
+          typeof parsed.organization?.score === 'number' &&
+          typeof parsed.vocabulary?.score === 'number' &&
+          typeof parsed.grammar?.score === 'number'
+        ) {
+          const tf = roundHalf(parsed.taskFulfillment.score);
+          const org = roundHalf(parsed.organization.score);
+          const voc = roundHalf(parsed.vocabulary.score);
+          const gra = roundHalf(parsed.grammar.score);
+          const overallScore = roundHalf((tf + org + voc + gra) / 4);
 
-        const aiResult: WritingEvalResult = {
-          ...baseline,
-          overallScore,
-          cefrBand: getCefrBand(overallScore),
-          source: 'ai',
-          criteria: {
-            taskFulfillment: {
-              score: tf,
-              feedback: String(parsed.taskFulfillment.feedback || baseline.criteria.taskFulfillment.feedback),
+          const aiResult: WritingEvalResult = {
+            ...baseline,
+            overallScore,
+            cefrBand: getCefrBand(overallScore),
+            source: 'ai',
+            criteria: {
+              taskFulfillment: {
+                score: tf,
+                feedback: String(parsed.taskFulfillment.feedback || baseline.criteria.taskFulfillment.feedback),
+              },
+              organization: {
+                score: org,
+                feedback: String(parsed.organization.feedback || baseline.criteria.organization.feedback),
+              },
+              vocabulary: {
+                score: voc,
+                feedback: String(parsed.vocabulary.feedback || baseline.criteria.vocabulary.feedback),
+              },
+              grammar: {
+                score: gra,
+                feedback: String(parsed.grammar.feedback || baseline.criteria.grammar.feedback),
+              },
             },
-            organization: {
-              score: org,
-              feedback: String(parsed.organization.feedback || baseline.criteria.organization.feedback),
-            },
-            vocabulary: {
-              score: voc,
-              feedback: String(parsed.vocabulary.feedback || baseline.criteria.vocabulary.feedback),
-            },
-            grammar: {
-              score: gra,
-              feedback: String(parsed.grammar.feedback || baseline.criteria.grammar.feedback),
-            },
-          },
-          strengths:
-            Array.isArray(parsed.strengths) && parsed.strengths.length > 0
-              ? parsed.strengths.map(String).slice(0, 4)
-              : baseline.strengths,
-          improvements:
-            Array.isArray(parsed.improvements) && parsed.improvements.length > 0
-              ? parsed.improvements.map(String).slice(0, 4)
-              : baseline.improvements,
-        };
+            strengths:
+              Array.isArray(parsed.strengths) && parsed.strengths.length > 0
+                ? parsed.strengths.map(String).slice(0, 4)
+                : baseline.strengths,
+            improvements:
+              Array.isArray(parsed.improvements) && parsed.improvements.length > 0
+                ? parsed.improvements.map(String).slice(0, 4)
+                : baseline.improvements,
+          };
 
-        return NextResponse.json({
-          success: true,
-          evaluation: aiResult,
-        });
+          return NextResponse.json({
+            success: true,
+            evaluation: aiResult,
+          });
+        }
+      } catch {
+        // Fallback sang deterministic rubric nếu AI Router không có key hoặc lỗi mạng
+      } finally {
+        activeVnuWritingAiCalls = Math.max(0, activeVnuWritingAiCalls - 1);
       }
-    } catch {
-      // Fallback sang deterministic rubric nếu AI Router không có key hoặc lỗi mạng
     }
 
     return NextResponse.json({
@@ -302,6 +332,8 @@ Trả về DUY NHẤT một JSON object hợp lệ theo cấu trúc sau (tiếng
       evaluation: baseline,
     });
   } catch (error) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     console.error('[API /api/vnu-bac-3/writing-eval] Error:', error);
     return NextResponse.json(
       { success: false, error: 'Lỗi máy chủ khi chấm điểm bài viết.' },

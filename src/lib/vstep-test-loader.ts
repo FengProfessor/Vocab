@@ -37,6 +37,8 @@ export interface VstepCatalogData {
  */
 const examMemoryCache = new Map<string, VstepExam>();
 const safeExamMemoryCache = new Map<string, VstepExam>();
+const sanitizedSkillTasksCache = new Map<string, VstepTask[]>();
+const skillExamIdsCache = new Map<VstepSkillType, string[]>();
 
 /**
  * Global master question index for deterministic server-side grading of dynamic sets.
@@ -44,13 +46,21 @@ const safeExamMemoryCache = new Map<string, VstepExam>();
  */
 const globalMasterVstepQuestionIndex = new Map<string, VstepQuestion>();
 
+interface VstepExplanationEntry {
+  answer?: number;
+  explanationVi?: string;
+  tapescript?: string;
+  suggestion?: string;
+}
+const globalMasterVstepExplanationIndex = new Map<string, VstepExplanationEntry>();
+
 type VstepPracticeExam = VstepExam & {
   metadata: VstepPracticeResponse['metadata'];
 };
 type VstepTaskWithSource = VstepTask & { _examId?: string };
 
 /**
- * Indexes questions from a raw exam into globalMasterVstepQuestionIndex.
+ * Indexes questions from a raw exam into globalMasterVstepQuestionIndex & explanation index.
  */
 function indexExamQuestions(exam: VstepExam): void {
   if (!exam || !Array.isArray(exam.sections)) return;
@@ -64,6 +74,16 @@ function indexExamQuestions(exam: VstepExam): void {
         globalMasterVstepQuestionIndex.set(canonicalId, q);
         if (!globalMasterVstepQuestionIndex.has(q.id)) {
           globalMasterVstepQuestionIndex.set(q.id, q);
+        }
+        const explainEntry: VstepExplanationEntry = {
+          answer: q.answer,
+          explanationVi: q.explanationVi,
+          tapescript: task.tapescript,
+          suggestion: task.suggestion,
+        };
+        globalMasterVstepExplanationIndex.set(canonicalId, explainEntry);
+        if (!globalMasterVstepExplanationIndex.has(q.id)) {
+          globalMasterVstepExplanationIndex.set(q.id, explainEntry);
         }
       }
     }
@@ -323,23 +343,25 @@ export function getVstepCatalogIndex(): VstepCatalogData {
 export function clearVstepExamCache(): void {
   examMemoryCache.clear();
   safeExamMemoryCache.clear();
+  sanitizedSkillTasksCache.clear();
+  skillExamIdsCache.clear();
   globalMasterVstepQuestionIndex.clear();
+  globalMasterVstepExplanationIndex.clear();
 }
 
 /**
- * Nạp nguyên bản đề thi từ filesystem kèm cache bộ nhớ (bao gồm đáp án để server chấm điểm)
+ * Internal zero-copy lookup for read-only server operations (grading, explanation, task indexing).
  */
-export function loadRawVstepExam(testId: string): VstepExam | null {
+function getCachedRawVstepExam(testId: string): VstepExam | null {
   if (!testId || typeof testId !== 'string') return null;
   const cacheKey = testId.trim().toLowerCase();
   if (!cacheKey) return null;
 
-  // 1. Check in-memory cache
-  if (examMemoryCache.has(cacheKey)) {
-    return JSON.parse(JSON.stringify(examMemoryCache.get(cacheKey)!));
+  const existing = examMemoryCache.get(cacheKey);
+  if (existing) {
+    return existing;
   }
 
-  // 2. Resolve filesystem path
   const filePath = resolveExamFilePath(testId);
   if (!filePath) return null;
 
@@ -347,7 +369,6 @@ export function loadRawVstepExam(testId: string): VstepExam | null {
     const rawContent = fs.readFileSync(/* turbopackIgnore: true */ filePath, 'utf-8');
     const exam = JSON.parse(rawContent) as VstepExam;
 
-    // Schema validation
     if (
       !exam ||
       typeof exam !== 'object' ||
@@ -358,10 +379,8 @@ export function loadRawVstepExam(testId: string): VstepExam | null {
       return null;
     }
 
-    // Index questions for dynamic grading
     indexExamQuestions(exam);
 
-    // Cache under requested key, canonical exam.id, and aliases
     examMemoryCache.set(cacheKey, exam);
     if (exam.id) {
       examMemoryCache.set(exam.id.toLowerCase(), exam);
@@ -372,11 +391,20 @@ export function loadRawVstepExam(testId: string): VstepExam | null {
       examMemoryCache.set(cacheKey.replace('-exam-', '-mock-'), exam);
     }
 
-    return JSON.parse(JSON.stringify(exam));
+    return exam;
   } catch (error) {
     console.error(`Lỗi nạp file đề thi VSTEP từ ${filePath}:`, error);
     return null;
   }
+}
+
+/**
+ * Nạp nguyên bản đề thi từ filesystem kèm cache bộ nhớ (bao gồm đáp án để server chấm điểm)
+ */
+export function loadRawVstepExam(testId: string): VstepExam | null {
+  const cached = getCachedRawVstepExam(testId);
+  if (!cached) return null;
+  return JSON.parse(JSON.stringify(cached));
 }
 
 export const SENSITIVE_VSTEP_KEYS = [
@@ -461,7 +489,7 @@ export function loadVstepExamSafe(testId: string): VstepExam | null {
     return JSON.parse(JSON.stringify(safeExamMemoryCache.get(cacheKey)!));
   }
 
-  const raw = loadRawVstepExam(testId);
+  const raw = getCachedRawVstepExam(testId);
   if (!raw) return null;
   const sanitized = stripSensitiveVstepData(raw);
 
@@ -520,29 +548,45 @@ export function getVstepQuestionExplanation(
     return null;
   }
 
-  const raw =
-    loadRawVstepExam(candidateTestId) ||
-    (candidateTestId !== testId ? loadRawVstepExam(testId) : null);
-  if (!raw) return null;
+  // O(1) fast path if canonical ID is already indexed
+  if (colonIdx > 0 && globalMasterVstepExplanationIndex.has(trimmedQ)) {
+    return { ...globalMasterVstepExplanationIndex.get(trimmedQ)! };
+  }
 
-  for (const section of raw.sections) {
-    for (const task of section.tasks) {
-      if (task.questions) {
-        const foundQ = task.questions.find(
-          (q) =>
-            q.id === trimmedQ ||
-            q.id === rawQuestionId ||
-            `${raw.id}:${q.id}` === trimmedQ
-        );
-        if (foundQ) {
-          return {
-            answer: foundQ.answer,
-            explanationVi: foundQ.explanationVi,
-            tapescript: task.tapescript,
-            suggestion: task.suggestion,
-          };
+  const raw =
+    getCachedRawVstepExam(candidateTestId) ||
+    (candidateTestId !== testId ? getCachedRawVstepExam(testId) : null);
+
+  if (raw) {
+    for (const section of raw.sections) {
+      for (const task of section.tasks) {
+        if (task.questions) {
+          const foundQ = task.questions.find(
+            (q) =>
+              q.id === trimmedQ ||
+              q.id === rawQuestionId ||
+              `${raw.id}:${q.id}` === trimmedQ
+          );
+          if (foundQ) {
+            return {
+              answer: foundQ.answer,
+              explanationVi: foundQ.explanationVi,
+              tapescript: task.tapescript,
+              suggestion: task.suggestion,
+            };
+          }
         }
       }
+    }
+  }
+
+  // Fallback for bank/practice mode where testId is 'bank' or 'practice'
+  if (testId === 'bank' || testId === 'practice' || testId === 'all' || colonIdx > 0) {
+    const indexed =
+      globalMasterVstepExplanationIndex.get(trimmedQ) ||
+      globalMasterVstepExplanationIndex.get(rawQuestionId);
+    if (indexed) {
+      return { ...indexed };
     }
   }
 
@@ -568,7 +612,7 @@ export function loadVstepQuestionsByIds(questionIds: string[]): VstepQuestion[] 
       const candidateExamId = trimmedId.substring(0, colonIdx);
       const qId = trimmedId.substring(colonIdx + 1);
       try {
-        const loaded = loadRawVstepExam(candidateExamId);
+        const loaded = getCachedRawVstepExam(candidateExamId);
         if (loaded) {
           found = globalMasterVstepQuestionIndex.get(trimmedId) || globalMasterVstepQuestionIndex.get(qId);
         }
@@ -581,21 +625,21 @@ export function loadVstepQuestionsByIds(questionIds: string[]): VstepQuestion[] 
         const match = trimmedId.match(/^otv-r(\d+)/);
         if (match) {
           const testNum = parseInt(match[1], 10);
-          loadRawVstepExam(`vstep-reading-onthi-${testNum}`);
+          getCachedRawVstepExam(`vstep-reading-onthi-${testNum}`);
           found = globalMasterVstepQuestionIndex.get(trimmedId);
         }
       } else if (trimmedId.startsWith('ets-r')) {
         const match = trimmedId.match(/^ets-r(\d+)/);
         if (match) {
           const testNum = parseInt(match[1], 10);
-          loadRawVstepExam(`vstep-reading-ets-${testNum}`);
+          getCachedRawVstepExam(`vstep-reading-ets-${testNum}`);
           found = globalMasterVstepQuestionIndex.get(trimmedId);
         }
       } else if (trimmedId.startsWith('ets-l')) {
         const match = trimmedId.match(/^ets-l(\d+)/);
         if (match) {
           const testNum = parseInt(match[1], 10);
-          loadRawVstepExam(`vstep-listening-ets-${testNum}`);
+          getCachedRawVstepExam(`vstep-listening-ets-${testNum}`);
           found = globalMasterVstepQuestionIndex.get(trimmedId);
         }
       }
@@ -607,7 +651,7 @@ export function loadVstepQuestionsByIds(questionIds: string[]): VstepQuestion[] 
       if (catalog && Array.isArray(catalog.items)) {
         for (const item of catalog.items) {
           if (found) break;
-          const exam = loadRawVstepExam(item.id);
+          const exam = getCachedRawVstepExam(item.id);
           if (exam) {
             found = globalMasterVstepQuestionIndex.get(trimmedId);
           }
@@ -616,7 +660,10 @@ export function loadVstepQuestionsByIds(questionIds: string[]): VstepQuestion[] 
     }
 
     if (found) {
-      const cloned = JSON.parse(JSON.stringify(found)) as VstepQuestion;
+      const cloned: VstepQuestion = {
+        ...found,
+        options: Array.isArray(found.options) ? [...found.options] : [],
+      };
       if (trimmedId.includes(':')) {
         cloned.canonicalId = trimmedId;
       }
@@ -631,6 +678,9 @@ export function loadVstepQuestionsByIds(questionIds: string[]): VstepQuestion[] 
  * Lấy danh sách mã đề trong catalog phù hợp với kỹ năng yêu cầu
  */
 export function getExamIdsForSkill(skill: VstepSkillType): string[] {
+  const cachedIds = skillExamIdsCache.get(skill);
+  if (cachedIds) return [...cachedIds];
+
   const catalog = getVstepCatalog();
   if (!catalog || !Array.isArray(catalog.items)) return [];
   const ids: string[] = [];
@@ -644,7 +694,8 @@ export function getExamIdsForSkill(skill: VstepSkillType): string[] {
       ids.push(item.id);
     }
   }
-  return ids;
+  skillExamIdsCache.set(skill, ids);
+  return [...ids];
 }
 
 function seededRandom(seed: number) {
@@ -676,6 +727,60 @@ function isQuestionExcluded(
   if (examId && excludedSet.has(`${examId}:${q.id}`)) return true;
   return false;
 }
+
+function cloneSanitizedTaskList(tasks: VstepTask[]): VstepTask[] {
+  return tasks.map((task) => ({
+    ...task,
+    questions: task.questions
+      ? task.questions.map((q) => ({
+          ...q,
+          options: q.options ? [...q.options] : [],
+        }))
+      : undefined,
+  }));
+}
+
+function getPreSanitizedSkillTasks(examId: string, skill: VstepSkillType): VstepTask[] {
+  const cacheKey = `${examId.toLowerCase()}:${skill}`;
+  const cached = sanitizedSkillTasksCache.get(cacheKey);
+  if (cached) {
+    return cached;
+  }
+
+  const raw = getCachedRawVstepExam(examId);
+  if (!raw) return [];
+  const section = raw.sections.find((s) => s.type === skill);
+  if (!section || !Array.isArray(section.tasks)) return [];
+
+  const dummyExam: VstepExam = {
+    id: raw.id,
+    title: raw.title,
+    duration: raw.duration,
+    sections: [
+      {
+        type: skill,
+        label: section.label,
+        timeLimit: section.timeLimit,
+        tasks: section.tasks,
+      },
+    ],
+  };
+
+  const sanitizedExam = stripSensitiveVstepData(dummyExam);
+  const sanitizedTasks = sanitizedExam.sections[0]?.tasks || [];
+  for (const task of sanitizedTasks) {
+    if (Array.isArray(task.questions)) {
+      for (const q of task.questions) {
+        if (!q.canonicalId) q.canonicalId = `${examId}:${q.id}`;
+      }
+    }
+  }
+
+  sanitizedSkillTasksCache.set(cacheKey, sanitizedTasks);
+  return sanitizedTasks;
+}
+
+const bankSkillTasksAggregateCache = new Map<VstepSkillType, VstepTask[]>();
 
 /**
  * Nạp luyện tập chuyên sâu theo kỹ năng kèm bộ lọc chống trùng
@@ -718,10 +823,11 @@ export function loadVstepSkillPractice(
   const isBankMode =
     testId === 'bank' ||
     testId === 'all' ||
+    testId === 'practice' ||
     (!isLegacyCall && !testId && (limit !== undefined || mistakeIds.length > 0));
 
   const baseExamId =
-    testId && testId !== 'bank' && testId !== 'all'
+    testId && testId !== 'bank' && testId !== 'all' && testId !== 'practice'
       ? testId
       : skill === 'listening'
       ? 'vstep-listening-01'
@@ -731,25 +837,13 @@ export function loadVstepSkillPractice(
   const mistakeSet = new Set(mistakeIds);
 
   function extractTasksFromExam(eId: string): VstepTask[] {
-    const raw = loadRawVstepExam(eId);
-    if (!raw) return [];
-    const section = raw.sections.find((s) => s.type === skill);
-    if (!section || !Array.isArray(section.tasks)) return [];
-    return section.tasks.map((task) => {
-      const taskClone: VstepTask = JSON.parse(JSON.stringify(task));
-      if (Array.isArray(taskClone.questions)) {
-        taskClone.questions.forEach((q) => {
-          if (!q.canonicalId) q.canonicalId = `${eId}:${q.id}`;
-        });
-      }
-      return taskClone;
-    });
+    return getPreSanitizedSkillTasks(eId, skill);
   }
 
   // ── MODE 1: MISTAKES (Chỉ bốc câu làm sai) ─────────────────────────────────
   if (filterMode === 'mistakes') {
     if (mistakeSet.size === 0) {
-      const emptyExam: VstepPracticeExam = {
+      return {
         id: `vstep-practice-${skill}`,
         title: `Luyện Tập ${skill === 'listening' ? 'Kỹ Năng Nghe' : 'Kỹ Năng Đọc'} — Ôn Câu Sai`,
         duration: skill === 'listening' ? 40 : 60,
@@ -770,7 +864,6 @@ export function loadVstepSkillPractice(
           questionIds: [],
         },
       };
-      return stripSensitiveVstepData(emptyExam);
     }
 
     const candidateExamIds = isBankMode ? getExamIdsForSkill(skill) : [baseExamId];
@@ -839,7 +932,7 @@ export function loadVstepSkillPractice(
     const allQIds: string[] = [];
     selectedTasks.forEach((t) => t.questions?.forEach((q) => allQIds.push(q.canonicalId || q.id)));
 
-    const resultExam: VstepPracticeExam = {
+    return {
       id: `vstep-practice-${skill}`,
       title: `Luyện Tập ${skill === 'listening' ? 'Kỹ Năng Nghe' : 'Kỹ Năng Đọc'} — Ôn Câu Sai`,
       duration: skill === 'listening' ? 40 : 60,
@@ -848,7 +941,7 @@ export function loadVstepSkillPractice(
           type: skill,
           label: skill === 'listening' ? 'Kỹ Năng Nghe (Listening)' : 'Kỹ Năng Đọc (Reading)',
           timeLimit: skill === 'listening' ? 40 : 60,
-          tasks: selectedTasks,
+          tasks: cloneSanitizedTaskList(selectedTasks),
         },
       ],
       metadata: {
@@ -860,18 +953,24 @@ export function loadVstepSkillPractice(
         questionIds: allQIds,
       },
     };
-
-    return stripSensitiveVstepData(resultExam);
   }
 
   // ── MODE 2: ALL_RANDOM (Ngẫu nhiên không hoàn lại) ─────────────────────────
   if (filterMode === 'all_random') {
-    const candidateExamIds = isBankMode ? getExamIdsForSkill(skill) : [baseExamId];
-    let allTasks: VstepTask[] = [];
-
-    for (const eId of candidateExamIds) {
-      const tasks = extractTasksFromExam(eId);
-      allTasks.push(...tasks);
+    let allTasks: VstepTask[];
+    if (isBankMode) {
+      const cachedBank = bankSkillTasksAggregateCache.get(skill);
+      if (cachedBank) {
+        allTasks = cachedBank;
+      } else {
+        allTasks = [];
+        for (const eId of getExamIdsForSkill(skill)) {
+          allTasks.push(...extractTasksFromExam(eId));
+        }
+        bankSkillTasksAggregateCache.set(skill, allTasks);
+      }
+    } else {
+      allTasks = extractTasksFromExam(baseExamId);
     }
 
     allTasks = shuffleArray(allTasks, seed);
@@ -888,7 +987,7 @@ export function loadVstepSkillPractice(
     const allQIds: string[] = [];
     selectedTasks.forEach((t) => t.questions?.forEach((q) => allQIds.push(q.canonicalId || q.id)));
 
-    const resultExam: VstepPracticeExam = {
+    return {
       id: `vstep-practice-${skill}`,
       title: `Luyện Tập ${skill === 'listening' ? 'Kỹ Năng Nghe' : 'Kỹ Năng Đọc'} — Ngẫu Nhiên`,
       duration: skill === 'listening' ? 40 : 60,
@@ -897,7 +996,7 @@ export function loadVstepSkillPractice(
           type: skill,
           label: skill === 'listening' ? 'Kỹ Năng Nghe (Listening)' : 'Kỹ Năng Đọc (Reading)',
           timeLimit: skill === 'listening' ? 40 : 60,
-          tasks: selectedTasks,
+          tasks: cloneSanitizedTaskList(selectedTasks),
         },
       ],
       metadata: {
@@ -909,8 +1008,6 @@ export function loadVstepSkillPractice(
         questionIds: allQIds,
       },
     };
-
-    return stripSensitiveVstepData(resultExam);
   }
 
   // ── MODE 3: UNSEEN (Chống trùng tuyệt đối + Graceful Fallback) ─────────────
@@ -919,7 +1016,7 @@ export function loadVstepSkillPractice(
   let selectedTasks: VstepTask[] = [];
   let isFallbackUsed = false;
 
-  if (excludedSet.size === 0) {
+  if (excludedSet.size === 0 && !isBankMode) {
     selectedTasks = baseTasks;
   } else {
     // Lọc các câu chưa làm trong baseTasks
@@ -972,7 +1069,7 @@ export function loadVstepSkillPractice(
   const allQIds: string[] = [];
   selectedTasks.forEach((t) => t.questions?.forEach((q) => allQIds.push(q.canonicalId || q.id)));
 
-  const practiceExam: VstepPracticeExam = {
+  return {
     id: `vstep-practice-${skill}`,
     title: `Luyện Tập ${skill === 'listening' ? 'Kỹ Năng Nghe' : 'Kỹ Năng Đọc'} — Chế Độ ${filterMode.toUpperCase()}`,
     duration: skill === 'listening' ? 40 : 60,
@@ -981,7 +1078,7 @@ export function loadVstepSkillPractice(
         type: skill,
         label: skill === 'listening' ? 'Kỹ Năng Nghe (Listening)' : 'Kỹ Năng Đọc (Reading)',
         timeLimit: skill === 'listening' ? 40 : 60,
-        tasks: selectedTasks,
+        tasks: cloneSanitizedTaskList(selectedTasks),
       },
     ],
     metadata: {
@@ -993,6 +1090,4 @@ export function loadVstepSkillPractice(
       questionIds: allQIds,
     },
   };
-
-  return stripSensitiveVstepData(practiceExam);
 }

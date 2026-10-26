@@ -13,7 +13,9 @@ import {
   checkReadingVelocity,
   poisonUnifiedQuestion,
   embedInvisibleWatermark,
-  verifyToeicSessionToken,
+  resolveToeicSessionIdentity,
+  recordToeicBotViolation,
+  isToeicScraperRotationIp,
   isWhitelistedIp,
   clearBotFlag,
 } from '@/lib/toeic-anti-scraping';
@@ -24,6 +26,8 @@ interface ExplainRequestBody {
   questionId?: string;
   part?: number | string;
   sessionToken?: string;
+  clientSessionId?: string;
+  userId?: string;
   honeypot?: string;
   _hp_author_trap?: string;
 }
@@ -50,13 +54,32 @@ export async function POST(req: NextRequest) {
       clearBotFlag(ip);
     }
 
-    // 1. Basic Rate Limiting: 60 explanation requests per minute per IP
-    const rl = await checkRateLimitAsync(`toeic-explain:${ip}`, 60, 60_000);
-    if (!rl.allowed) {
+    const body = (await req.json().catch(() => ({}))) as ExplainRequestBody;
+    const fallbackClientId =
+      body.clientSessionId ||
+      req.headers.get('x-client-session-id') ||
+      req.headers.get('authorization') ||
+      req.cookies.get('sb-access-token')?.value;
+
+    const { sessionKey, clientKey, verifiedSession, isSharedClassroomIp } =
+      resolveToeicSessionIdentity(ip, body.sessionToken, fallbackClientId, body.userId);
+
+    if (isWhitelistedIp(ip) || req.nextUrl.searchParams.get('unban') === '1') {
+      clearBotFlag(sessionKey);
+      if (clientKey) clearBotFlag(clientKey);
+    }
+
+    // 1. Multi-layer Rate Limiting:
+    // - 60 explanation requests/min per individual session/client
+    // - 1,800 explanation requests/min per shared school/classroom NAT IP (supports 300 concurrent students)
+    const [sessionRl, ipRl] = await Promise.all([
+      checkRateLimitAsync(`toeic-explain:${sessionKey}`, 60, 60_000),
+      checkRateLimitAsync(`toeic-explain-ip:${ip}`, 1800, 60_000),
+    ]);
+    if (!sessionRl.allowed || !ipRl.allowed) {
       return tooManyRequests();
     }
 
-    const body = (await req.json().catch(() => ({}))) as ExplainRequestBody;
     const rawTestId = typeof body.testId === 'string' ? body.testId.trim() : '6852';
     const cleanTestId = decodeURIComponent(rawTestId)
       .replace(/_(real|practice|full_simulation|practice_part)$/, '')
@@ -73,15 +96,49 @@ export async function POST(req: NextRequest) {
     );
 
     if (isHoneypotTriggered) {
-      flagClientAsBot(ip, `Honeypot triggered in explain: ${cleanTestId}`);
+      recordToeicBotViolation(
+        ip,
+        sessionKey,
+        `Honeypot triggered in explain: ${cleanTestId}`,
+        clientKey
+      );
     }
 
-    // 3. Behavioral Velocity Limiting (Protects against programmatic scrapers)
-    checkReadingVelocity(ip, 300, 10);
+    // 3. Behavioral Velocity Limiting (single unified check per request — no duplicate velocity calls)
+    // Stricter threshold (500ms, max 1 violation) when an expired/forged sessionToken is presented
+    const hasInvalidSessionToken = Boolean(body.sessionToken && !verifiedSession);
+    const isSessionVelocityOk = hasInvalidSessionToken
+      ? checkReadingVelocity(sessionKey, 500, 1)
+      : checkReadingVelocity(sessionKey, 300, 10);
+    const isClientVelocityOk =
+      clientKey && clientKey !== sessionKey
+        ? checkReadingVelocity(clientKey, 300, 10)
+        : true;
+    const isVelocityOk = isSessionVelocityOk && isClientVelocityOk;
 
-    // 4. ACTIVE DATA POISONING: ONLY trigger if client hit a honeypot trap or is an identified bot!
-    // Legitimate users clicking fast or toggling explanations will NEVER receive poisoned data!
-    if (isHoneypotTriggered || isClientFlaggedAsBot(ip)) {
+    if (!isVelocityOk) {
+      recordToeicBotViolation(
+        ip,
+        sessionKey,
+        hasInvalidSessionToken
+          ? 'Forged or expired sessionToken velocity violation'
+          : 'Velocity violation on explain endpoint',
+        clientKey
+      );
+    }
+
+    // 4. ACTIVE DATA POISONING: Trigger if client hit a honeypot trap or is an identified bot!
+    // In a 300-student shared classroom NAT IP, a verified clean student session is isolated from other sessions,
+    // while multi-session token-rotation attacks are detected via isToeicScraperRotationIp(ip).
+    const isFlaggedBot =
+      isHoneypotTriggered ||
+      !isVelocityOk ||
+      isClientFlaggedAsBot(sessionKey) ||
+      (clientKey ? isClientFlaggedAsBot(clientKey) : false) ||
+      (isClientFlaggedAsBot(ip) &&
+        (!verifiedSession || !isSharedClassroomIp || isToeicScraperRotationIp(ip)));
+
+    if (isFlaggedBot) {
       const allMaster = loadAnyToeicTest(cleanTestId);
       const targetPart = body.part ? Number(body.part) : undefined;
       const filteredMaster = targetPart ? allMaster.filter((q) => q.part === targetPart) : allMaster;
@@ -103,14 +160,6 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    // 5. Optional Signed Session Token Validation (soft warning for guest, strict for signed)
-    if (body.sessionToken) {
-      const session = verifyToeicSessionToken(body.sessionToken);
-      if (!session) {
-        // Expired or forged token: trigger velocity warning
-        checkReadingVelocity(ip, 500, 1);
-      }
-    }
 
     // 6. Legitimate User: Fetch authentic question and embed invisible watermark
     let target: ToeicUnifiedQuestion | undefined;

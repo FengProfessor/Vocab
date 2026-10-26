@@ -2,6 +2,7 @@
  * POST /api/auth/register
  * Public registration giữ nguyên email verification policy của Supabase.
  */
+import { createHash } from 'node:crypto';
 import { NextResponse } from 'next/server';
 import { appOrigin, assertAppRequest, cookieHeader, flowCookieName, serverAuthClient } from '@/lib/server-auth-session';
 import { createAuthFlow, FLOW_LIFETIME_MS } from '@/lib/server-session-store';
@@ -22,9 +23,9 @@ type Body = {
 export async function POST(req: Request) {
   try {
     assertAppRequest(req);
-    const ip = getClientIp(req);
-    // 8 đăng ký / IP / phút — chống spam, đủ cho lớp học chung IP
-    const rl = await checkRateLimitAsync(`auth-register:${ip}`, 8, 60_000);
+    const ipDigest = createHash('sha256').update(getClientIp(req)).digest('base64url');
+    // 120 đăng ký / IP / phút — đủ cho lớp học 100-300 người chung IP Wi-Fi đăng ký đầu buổi
+    const rl = await checkRateLimitAsync(`auth-register:${ipDigest}`, 120, 60_000);
     if (!rl.allowed) {
       return NextResponse.json(
         {
@@ -55,6 +56,18 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { error: 'Mật khẩu tối thiểu 6 ký tự.', code: 'weak_password' },
         { status: 400 },
+      );
+    }
+
+    const emailDigest = createHash('sha256').update(email).digest('base64url');
+    const acctRl = await checkRateLimitAsync(`auth-register-acct:${emailDigest}`, 5, 60_000);
+    if (!acctRl.allowed) {
+      return NextResponse.json(
+        {
+          error: 'Quá nhiều yêu cầu đăng ký cho email này. Chờ 1 phút hoặc dùng Google.',
+          code: 'rate_limited',
+        },
+        { status: 429 },
       );
     }
 

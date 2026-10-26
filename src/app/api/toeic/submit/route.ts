@@ -16,6 +16,9 @@ import {
   isClientFlaggedAsBot,
   poisonUnifiedQuestion,
   embedInvisibleWatermark,
+  resolveToeicSessionIdentity,
+  recordToeicBotViolation,
+  isToeicScraperRotationIp,
   isWhitelistedIp,
   clearBotFlag,
 } from '@/lib/toeic-anti-scraping';
@@ -35,6 +38,9 @@ interface SubmitRequestBody {
   answers?: Record<number, ToeicOptionKey>;
   timeSpentSeconds?: number;
   questionIds?: string[];
+  sessionToken?: string;
+  clientSessionId?: string;
+  userId?: string;
   honeypot?: string;
   _hp_trap?: string;
   _hp_author_code?: string;
@@ -45,7 +51,7 @@ interface SubmitRequestBody {
  * Secure server-side submit & scoring endpoint.
  *
  * Anti-scraping defenses:
- * 1. Rate limiting (20 requests/minute per IP)
+ * 1. Rate limiting (20 requests/minute per session, 400/minute per shared classroom IP)
  * 2. Invisible honeypot field trap detection (rejection if bot populates)
  * 3. Dummy question boundary check (answers at index <= 0 or > 200 trigger drop)
  * 4. Master key scoring: answers evaluated securely against server-side dataset
@@ -61,13 +67,31 @@ export async function POST(req: NextRequest) {
       clearBotFlag(ip);
     }
 
-    // 1. Rate Limiting: 20 submit requests per minute per IP
-    const rl = await checkRateLimitAsync(`toeic-submit:${ip}`, 20, 60_000);
-    if (!rl.allowed) {
-      return tooManyRequests();
+    const body = (await req.json().catch(() => ({}))) as SubmitRequestBody;
+    const fallbackClientId =
+      body.clientSessionId ||
+      req.headers.get('x-client-session-id') ||
+      req.headers.get('authorization') ||
+      req.cookies.get('sb-access-token')?.value;
+
+    const { sessionKey, clientKey, verifiedSession, isSharedClassroomIp } =
+      resolveToeicSessionIdentity(ip, body.sessionToken, fallbackClientId, body.userId);
+
+    if (isWhitelistedIp(ip)) {
+      clearBotFlag(sessionKey);
+      if (clientKey) clearBotFlag(clientKey);
     }
 
-    const body = (await req.json().catch(() => ({}))) as SubmitRequestBody;
+    // 1. Multi-layer Rate Limiting:
+    // - 20 submit requests/min per individual session
+    // - 400 submit requests/min per shared classroom NAT IP (supports 300 students finishing exam simultaneously)
+    const [sessionRl, ipRl] = await Promise.all([
+      checkRateLimitAsync(`toeic-submit:${sessionKey}`, 20, 60_000),
+      checkRateLimitAsync(`toeic-submit-ip:${ip}`, 400, 60_000),
+    ]);
+    if (!sessionRl.allowed || !ipRl.allowed) {
+      return tooManyRequests();
+    }
 
     // 2. Honeypot Trap Detection & Boundary Tampering Check
     // Bots scanning forms fill hidden inputs or inject out-of-bound keys.
@@ -83,8 +107,13 @@ export async function POST(req: NextRequest) {
     );
 
     if (isHoneypotTriggered || hasOutOfBoundsQuestion) {
-      console.warn(`[Anti-Scraping] Honeypot / tampering triggered by IP: ${ip}`);
-      flagClientAsBot(ip, 'Honeypot trap or out-of-bounds keys in submit');
+      console.warn(`[Anti-Scraping] Honeypot / tampering triggered by session: ${sessionKey} (IP: ${ip})`);
+      recordToeicBotViolation(
+        ip,
+        sessionKey,
+        'Honeypot trap or out-of-bounds keys in submit',
+        clientKey
+      );
     }
 
     const rawTestId = body.testId ? decodeURIComponent(body.testId).trim() : '6852';
@@ -205,14 +234,22 @@ export async function POST(req: NextRequest) {
     const answeredCount = Object.keys(answers).length;
     const isFastSubmitDump = answeredCount >= 50 && timeSpentSeconds < 5;
     if (isFastSubmitDump && !isWhitelistedIp(ip)) {
-      flagClientAsBot(ip, `Fast submit dumping: ${timeSpentSeconds}s for ${answeredCount} answered questions`);
+      recordToeicBotViolation(
+        ip,
+        sessionKey,
+        `Fast submit dumping: ${timeSpentSeconds}s for ${answeredCount} answered questions`,
+        clientKey
+      );
     }
 
     const isPoisonedTarget =
       isHoneypotTriggered ||
       hasOutOfBoundsQuestion ||
       isFastSubmitDump ||
-      isClientFlaggedAsBot(ip);
+      isClientFlaggedAsBot(sessionKey) ||
+      (clientKey ? isClientFlaggedAsBot(clientKey) : false) ||
+      (isClientFlaggedAsBot(ip) &&
+        (!verifiedSession || !isSharedClassroomIp || isToeicScraperRotationIp(ip)));
 
     if (isPoisonedTarget) {
       const poisonedReview = masterQuestions.map((q) => poisonUnifiedQuestion(q, ip));

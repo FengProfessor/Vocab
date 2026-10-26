@@ -8,6 +8,7 @@ import {
   stripSensitiveToeicData,
   clusterToeicQuestions,
   stripSensitiveClusterData,
+  loadSanitizedToeicTestBundle,
   AUTHENTIC_TEST_METADATA,
   getToeicCatalogIndex,
   type ToeicPartPracticeOptions,
@@ -20,12 +21,15 @@ import {
   poisonUnifiedQuestion,
   generateToeicSessionToken,
   hashIpForSession,
+  isToeicSharedClassroomIp,
+  isToeicScraperRotationIp,
   isWhitelistedIp,
   clearBotFlag,
 } from '@/lib/toeic-anti-scraping';
 import type {
   ToeicPart,
   ToeicUnifiedQuestion,
+  ToeicSanitizedQuestion,
   ToeicQuestionCluster,
   ToeicSanitizedQuestionCluster,
 } from '@/types/toeic';
@@ -70,7 +74,9 @@ async function handleToeicTestRequest(
     searchParams.has('all_answers');
 
   if (isHoneypotTestId(cleanTestId) || isHoneyParam) {
-    flagClientAsBot(ip, `Hit Honeypot canary: ${cleanTestId}`);
+    if (!isToeicSharedClassroomIp(ip) || isToeicScraperRotationIp(ip)) {
+      flagClientAsBot(ip, `Hit Honeypot canary: ${cleanTestId}`);
+    }
     // Trả về dữ liệu rác đầu độc với mã HTTP 200 OK
     const poisonedCanary = createPoisonedQuestionBank(20, ip);
     return NextResponse.json({
@@ -84,8 +90,11 @@ async function handleToeicTestRequest(
     });
   }
 
-  // Nếu IP đã bị đánh dấu là bot từ trước -> âm thầm trả về dữ liệu đầu độc
-  if (isClientFlaggedAsBot(ip)) {
+  // Nếu IP đơn lẻ (hoặc IP đang xoay vòng token bot) đã bị đánh dấu là bot từ trước -> âm thầm trả về dữ liệu đầu độc
+  if (
+    isClientFlaggedAsBot(ip) &&
+    (!isToeicSharedClassroomIp(ip) || isToeicScraperRotationIp(ip))
+  ) {
     const genuine = loadAnyToeicTest(cleanTestId);
     const poisonTarget = genuine.length > 0 ? genuine : createPoisonedQuestionBank(30, ip);
     const poisonedQuestions = poisonTarget.map((q) => poisonUnifiedQuestion(q, ip));
@@ -168,6 +177,10 @@ async function handleToeicTestRequest(
       : undefined;
 
   let questions: ToeicUnifiedQuestion[] = [];
+  let preSanitizedBundle: {
+    questions: ToeicSanitizedQuestion[];
+    clusters: ToeicSanitizedQuestionCluster[];
+  } | null = null;
   let title = '';
   let durationSeconds = 120 * 60;
 
@@ -210,13 +223,18 @@ async function handleToeicTestRequest(
     durationSeconds = minutes * 60;
   } else {
     // 3. Dynamic universal test load (supports authentic ETS simulation tests)
-    questions = loadAnyToeicTest(cleanTestId);
-
-    if (partNum && questions.some((q) => q.part !== partNum)) {
-      questions = questions.filter((q) => q.part === partNum);
+    if (!partNum && !limitNum) {
+      preSanitizedBundle = loadSanitizedToeicTestBundle(cleanTestId);
     }
-    if (limitNum && limitNum > 0 && questions.length > limitNum) {
-      questions = questions.slice(0, limitNum);
+    if (!preSanitizedBundle) {
+      questions = loadAnyToeicTest(cleanTestId);
+
+      if (partNum && questions.some((q) => q.part !== partNum)) {
+        questions = questions.filter((q) => q.part === partNum);
+      }
+      if (limitNum && limitNum > 0 && questions.length > limitNum) {
+        questions = questions.slice(0, limitNum);
+      }
     }
 
     // Catalog metadata lookup for title and time estimate
@@ -259,7 +277,7 @@ async function handleToeicTestRequest(
     }
   }
 
-  if (questions.length === 0) {
+  if (!preSanitizedBundle && questions.length === 0) {
     return NextResponse.json(
       { success: false, error: `Test "${cleanTestId}" not found or empty` },
       { status: 404 }
@@ -267,9 +285,12 @@ async function handleToeicTestRequest(
   }
 
   // ── ACTIVE ANTI-SCRAPING: ZERO BULK LEAKS ──
-  const deliveredQuestions = stripSensitiveToeicData(questions);
-  const rawClusters = clusterToeicQuestions(questions) as ToeicQuestionCluster[];
-  const listeningClusters = rawClusters.map(stripSensitiveClusterData);
+  const deliveredQuestions = preSanitizedBundle
+    ? preSanitizedBundle.questions
+    : stripSensitiveToeicData(questions);
+  const listeningClusters = preSanitizedBundle
+    ? preSanitizedBundle.clusters
+    : (clusterToeicQuestions(questions) as ToeicQuestionCluster[]).map(stripSensitiveClusterData);
 
   // Cấp token phiên làm bài có chữ ký HMAC gắn với IP hash và testId
   const sessionToken = generateToeicSessionToken({
@@ -323,8 +344,8 @@ export async function GET(req: NextRequest) {
       clearBotFlag(ip);
     }
 
-    // Rate limit: 60 test load requests per minute per IP
-    const rl = await checkRateLimitAsync(`toeic-test:${ip}`, 60, 60_000);
+    // Rate limit: 600 test load requests per minute per shared IP (supports 300 concurrent classroom students)
+    const rl = await checkRateLimitAsync(`toeic-test:${ip}`, 600, 60_000);
     if (!rl.allowed) {
       return tooManyRequests();
     }
@@ -366,8 +387,8 @@ export async function POST(req: NextRequest) {
       clearBotFlag(ip);
     }
 
-    // Rate limit: 60 test load requests per minute per IP
-    const rl = await checkRateLimitAsync(`toeic-test:${ip}`, 60, 60_000);
+    // Rate limit: 600 test load requests per minute per shared IP (supports 300 concurrent classroom students)
+    const rl = await checkRateLimitAsync(`toeic-test:${ip}`, 600, 60_000);
     if (!rl.allowed) {
       return tooManyRequests();
     }

@@ -7,14 +7,35 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getRawVnuBac3Exam, verifyVnuSessionToken } from '@/lib/vnu-bac-3/loader';
 import { gradeVnuBac3Exam } from '@/lib/vnu-bac-3/scoring';
 import { VnuBac3Submission } from '@/types/vnu-bac-3';
-import { getAuthUser } from '@/lib/api-security';
+import { checkRateLimitAsync, getAuthUser, getClientIp, rateLimitUnavailableResponse, tooManyRequests } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
 import { sessionErrorResponse } from '@/lib/session-response';
 
+function isRateLimitEnabled(): boolean {
+  return Boolean(
+    process.env.UPSTASH_REDIS_REST_URL ||
+      process.env.NODE_ENV === 'production' ||
+      process.env.NODE_ENV === 'test' ||
+      process.env.TSX_TEST === '1'
+  );
+}
+
 export async function POST(request: NextRequest) {
   try {
+    const clientIp = getClientIp(request);
     const body = (await request.json().catch(() => ({}))) as VnuBac3Submission;
     const { examId, mode, answers, timeSpentSeconds = 0, sessionToken } = body;
+
+    if (isRateLimitEnabled() && clientIp !== '127.0.0.1' && clientIp !== '::1' && clientIp !== 'unknown') {
+      const rateSessionKey = sessionToken || clientIp;
+      const [sessionRl, ipRl] = await Promise.all([
+        checkRateLimitAsync(`vnu-submit:${rateSessionKey}`, 20, 60_000),
+        checkRateLimitAsync(`vnu-submit-ip:${clientIp}`, 400, 60_000),
+      ]);
+      if (!sessionRl.allowed || !ipRl.allowed) {
+        return tooManyRequests();
+      }
+    }
 
     if (!examId) {
       return NextResponse.json(
@@ -102,6 +123,8 @@ export async function POST(request: NextRequest) {
       savedToDb,
     });
   } catch (error) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     const sessionFailure = sessionErrorResponse(error);
     if (sessionFailure) return sessionFailure;
     console.error('Lỗi API /api/vnu-bac-3/submit:', error);

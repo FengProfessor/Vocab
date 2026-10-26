@@ -2,25 +2,65 @@ import { NextRequest, NextResponse } from 'next/server';
 import { loadRawVstepExam, loadVstepQuestionsByIds } from '@/lib/vstep-test-loader';
 import { calculateVstepScore } from '@/lib/vstep-scoring';
 import {
-  verifyVstepSessionToken,
+  verifyVstepSessionTokenForClient,
   embedInvisibleWatermark,
-  isClientFlaggedAsBot,
-  flagClientAsBot,
+  isVstepSessionOrClientBot,
+  recordVstepBotViolation,
   poisonVstepQuestion,
   isVstepHoneypot,
 } from '@/lib/vstep-anti-scraping';
 import { VstepExam, VstepSubmitPayload, VstepScoreResult, VstepSkillType } from '@/lib/vstep-types';
-import { getAuthUser } from '@/lib/api-security';
+import { checkRateLimitAsync, getAuthUser, rateLimitUnavailableResponse, tooManyRequests } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
 import { sessionErrorResponse } from '@/lib/session-response';
+
+function isRateLimitEnabled(): boolean {
+  return Boolean(
+    process.env.UPSTASH_REDIS_REST_URL ||
+      process.env.NODE_ENV === 'production' ||
+      process.env.NODE_ENV === 'test' ||
+      process.env.TSX_TEST === '1'
+  );
+}
 
 export async function POST(request: NextRequest) {
   try {
     const forwarded = request.headers.get('x-forwarded-for');
     const clientIp = forwarded ? forwarded.split(',')[0].trim() : '127.0.0.1';
 
-    const payload = (await request.json().catch(() => ({}))) as VstepSubmitPayload;
-    const { testId, answers = {}, sessionToken, _hp_trap, questionIds, examMode, practiceSkill } = payload;
+    const payload = (await request.json().catch(() => ({}))) as VstepSubmitPayload & {
+      clientSessionId?: string;
+    };
+    const {
+      testId,
+      answers = {},
+      sessionToken,
+      clientSessionId,
+      _hp_trap,
+      questionIds,
+      examMode,
+      practiceSkill,
+    } = payload;
+    const clientKey =
+      clientSessionId ||
+      request.headers.get('x-client-session-id') ||
+      request.headers.get('authorization') ||
+      request.cookies.get('sb-access-token')?.value ||
+      null;
+
+    // Multi-layer classroom-safe rate limiting:
+    // - 20 submit req/min per session/client
+    // - 400 submit req/min per shared school NAT IP (supports 300 students finishing simultaneously)
+    if (isRateLimitEnabled() && clientIp !== '127.0.0.1' && clientIp !== '::1') {
+      const rateSessionKey = sessionToken || clientKey || clientIp;
+      const [sessionRl, ipRl] = await Promise.all([
+        checkRateLimitAsync(`vstep-submit:${rateSessionKey}`, 20, 60_000),
+        checkRateLimitAsync(`vstep-submit-ip:${clientIp}`, 400, 60_000),
+      ]);
+      if (!sessionRl.allowed || !ipRl.allowed) {
+        return tooManyRequests();
+      }
+    }
 
     if (!testId || typeof testId !== 'string') {
       return NextResponse.json(
@@ -32,10 +72,17 @@ export async function POST(request: NextRequest) {
     // 1. Bẫy Honeypot (Canary testId hoặc hidden trap field)
     const isHoneypotTriggered = Boolean(_hp_trap || isVstepHoneypot(testId));
     if (isHoneypotTriggered) {
-      flagClientAsBot(clientIp, `Submit honeypot triggered: testId=${testId}, trap=${Boolean(_hp_trap)}`);
+      recordVstepBotViolation(
+        clientIp,
+        sessionToken,
+        `Submit honeypot triggered: testId=${testId}, trap=${Boolean(_hp_trap)}`,
+        clientKey
+      );
     }
 
-    const isBot = isHoneypotTriggered || isClientFlaggedAsBot(clientIp);
+    const isBot =
+      isHoneypotTriggered ||
+      isVstepSessionOrClientBot(clientIp, sessionToken, clientKey);
 
     // 2. Nếu là bot -> trả về kết quả và review bị đầu độc (HTTP 200 OK - Plausible Data Poisoning)
     if (isBot) {
@@ -67,8 +114,8 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 3. BẮT BUỘC: Xác thực token phiên thi (Zero Bulk Leaks Enforcement)
-    if (!sessionToken || !verifyVstepSessionToken(sessionToken, clientIp, testId)) {
+    // 3. BẮT BUỘC: Xác thực token phiên thi (Zero Bulk Leaks Enforcement, hỗ trợ đổi IP NAT giữa chừng nếu cùng clientKey)
+    if (!sessionToken || !verifyVstepSessionTokenForClient(sessionToken, clientIp, testId, clientKey)) {
       return NextResponse.json(
         { success: false, error: 'Phiên làm bài không hợp lệ hoặc đã hết hạn.' },
         { status: 401 }
@@ -282,6 +329,8 @@ export async function POST(request: NextRequest) {
       savedToDb,
     });
   } catch (error) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     const sessionFailure = sessionErrorResponse(error);
     if (sessionFailure) return sessionFailure;
     console.error('Lỗi khi nộp bài VSTEP:', error);

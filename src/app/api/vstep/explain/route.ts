@@ -1,12 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { checkRateLimitAsync, rateLimitUnavailableResponse, tooManyRequests } from '@/lib/api-security';
 import { getVstepQuestionExplanation } from '@/lib/vstep-test-loader';
 import {
-  verifyVstepSessionToken,
+  verifyVstepSessionTokenForClient,
   embedInvisibleWatermark,
-  isClientFlaggedAsBot,
-  flagClientAsBot,
-  checkVstepReadingVelocity
+  isVstepSessionOrClientBot,
+  recordVstepBotViolation,
+  checkVstepReadingVelocity,
 } from '@/lib/vstep-anti-scraping';
+
+function isRateLimitEnabled(): boolean {
+  return Boolean(
+    process.env.UPSTASH_REDIS_REST_URL ||
+      process.env.NODE_ENV === 'production' ||
+      process.env.NODE_ENV === 'test' ||
+      process.env.TSX_TEST === '1'
+  );
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,11 +24,36 @@ export async function POST(request: NextRequest) {
     const clientIp = forwarded ? forwarded.split(',')[0].trim() : '127.0.0.1';
 
     const body = await request.json();
-    const { testId, questionId, sessionToken, _hp_trap } = body;
+    const { testId, questionId, sessionToken, clientSessionId, _hp_trap } = body || {};
+    const clientKey =
+      clientSessionId ||
+      request.headers.get('x-client-session-id') ||
+      request.headers.get('authorization') ||
+      request.cookies.get('sb-access-token')?.value ||
+      null;
+
+    // Multi-layer classroom-safe rate limiting:
+    // - 60 req/min per session/client
+    // - 1,800 req/min per shared school NAT IP (supports 300 concurrent students)
+    if (isRateLimitEnabled() && clientIp !== '127.0.0.1' && clientIp !== '::1') {
+      const rateSessionKey = sessionToken || clientKey || clientIp;
+      const [sessionRl, ipRl] = await Promise.all([
+        checkRateLimitAsync(`vstep-explain:${rateSessionKey}`, 60, 60_000),
+        checkRateLimitAsync(`vstep-explain-ip:${clientIp}`, 1800, 60_000),
+      ]);
+      if (!sessionRl.allowed || !ipRl.allowed) {
+        return tooManyRequests();
+      }
+    }
 
     // 1. Kiểm tra bẫy Honeypot
     if (_hp_trap) {
-      flagClientAsBot(clientIp, 'Honeypot form trap filled');
+      recordVstepBotViolation(
+        clientIp,
+        sessionToken,
+        'Honeypot form trap filled',
+        clientKey
+      );
       return NextResponse.json({
         success: true,
         answer: 2,
@@ -26,8 +61,8 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // 2. Đo vận tốc đọc hiểu (Velocity check)
-    if (!checkVstepReadingVelocity(clientIp)) {
+    // 2. Đo vận tốc đọc hiểu (Velocity check theo từng phiên sessionToken khi dùng chung IP trường học)
+    if (!checkVstepReadingVelocity(clientIp, sessionToken, clientKey)) {
       return NextResponse.json({
         success: true,
         answer: 0,
@@ -36,7 +71,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 3. Nếu đã bị gắn cờ Bot
-    if (isClientFlaggedAsBot(clientIp)) {
+    if (isVstepSessionOrClientBot(clientIp, sessionToken, clientKey)) {
       return NextResponse.json({
         success: true,
         answer: 1,
@@ -44,8 +79,8 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // 4. Kiểm tra sessionToken hợp lệ
-    if (!sessionToken || !verifyVstepSessionToken(sessionToken, clientIp, testId)) {
+    // 4. Kiểm tra sessionToken hợp lệ (hỗ trợ đổi IP NAT giữa chừng nếu cùng clientKey đã định danh)
+    if (!sessionToken || !verifyVstepSessionTokenForClient(sessionToken, clientIp, testId, clientKey)) {
       return NextResponse.json(
         { success: false, error: 'Phiên làm việc không hợp lệ hoặc đã hết hạn.' },
         { status: 401 }
@@ -75,6 +110,8 @@ export async function POST(request: NextRequest) {
       suggestion: details.suggestion,
     });
   } catch (error) {
+    const unavailable = rateLimitUnavailableResponse(error);
+    if (unavailable) return unavailable;
     console.error('Lỗi khi nạp VSTEP explain:', error);
     return NextResponse.json(
       { success: false, error: 'Lỗi máy chủ nội bộ.' },

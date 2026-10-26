@@ -1474,11 +1474,21 @@ export function groupQuestionsIntoStimulusGroups(
   return groups;
 }
 
+const partStimulusGroupsCache = new Map<string, ToeicStimulusGroup[]>();
+
 /**
  * Internal helper to load stimulus groups for a TOEIC part from bank or specific test.
+ * Cached in-memory so 100-300 concurrent classroom requests do not re-group the entire bank.
  */
 function loadPartStimulusGroups(part: ToeicPart, cleanId: string): ToeicStimulusGroup[] {
   const isAllBank = cleanId === 'all' || cleanId === 'bank' || cleanId === 'all-tests' || cleanId === 'toan-bo';
+  const cacheKey = `${part}:${isAllBank ? 'bank' : cleanId || '6852'}`;
+  const cached = partStimulusGroupsCache.get(cacheKey);
+  if (cached) {
+    return cached;
+  }
+
+  let resultGroups: ToeicStimulusGroup[];
   if (isAllBank) {
     const items = catalogIndex?.practiceParts?.[String(part)] || [];
     const allGroups: ToeicStimulusGroup[] = [];
@@ -1491,15 +1501,18 @@ function loadPartStimulusGroups(part: ToeicPart, cleanId: string): ToeicStimulus
       const fallback = loadFullToeicTest('6852').filter((q) => q.part === part);
       allGroups.push(...groupQuestionsIntoStimulusGroups(fallback));
     }
-    return allGroups;
+    resultGroups = allGroups;
   } else if (!cleanId) {
     const fallback = loadFullToeicTest('6852').filter((q) => q.part === part);
-    return groupQuestionsIntoStimulusGroups(fallback);
+    resultGroups = groupQuestionsIntoStimulusGroups(fallback);
   } else {
     const fullTest = loadAnyToeicTest(cleanId);
     const filtered = fullTest.filter((q) => q.part === part);
-    return groupQuestionsIntoStimulusGroups(filtered);
+    resultGroups = groupQuestionsIntoStimulusGroups(filtered);
   }
+
+  partStimulusGroupsCache.set(cacheKey, resultGroups);
+  return resultGroups;
 }
 
 /**
@@ -2075,6 +2088,52 @@ export function stripSensitiveClusterData(
       delete (sanitized as any).dichNghia;
       return sanitized as ToeicSanitizedQuestion;
     }),
+  };
+}
+
+const sanitizedTestBundleCache = new Map<
+  string,
+  {
+    questions: ToeicSanitizedQuestion[];
+    clusters: ToeicSanitizedQuestionCluster[];
+  }
+>();
+
+function cloneSanitizedQuestion(q: ToeicSanitizedQuestion): ToeicSanitizedQuestion {
+  return {
+    ...q,
+    options: q.options ? q.options.map((o) => ({ ...o })) : [],
+  };
+}
+
+/**
+ * Returns pre-sanitized questions and listening clusters for a full TOEIC test from an in-memory cache,
+ * avoiding 200-question sanitization + 23x cluster scans on every concurrent classroom request.
+ */
+export function loadSanitizedToeicTestBundle(testId: string): {
+  questions: ToeicSanitizedQuestion[];
+  clusters: ToeicSanitizedQuestionCluster[];
+} | null {
+  const cleanId = decodeURIComponent(testId).trim();
+  let cached = sanitizedTestBundleCache.get(cleanId);
+  if (!cached) {
+    const rawQuestions = loadAnyToeicTest(cleanId);
+    if (rawQuestions.length === 0) return null;
+    const sanitizedQuestions = stripSensitiveToeicData(rawQuestions);
+    const rawClusters = clusterToeicQuestions(rawQuestions) as ToeicQuestionCluster[];
+    const sanitizedClusters = rawClusters.map(stripSensitiveClusterData);
+    cached = {
+      questions: sanitizedQuestions,
+      clusters: sanitizedClusters,
+    };
+    sanitizedTestBundleCache.set(cleanId, cached);
+  }
+  return {
+    questions: cached.questions.map(cloneSanitizedQuestion),
+    clusters: cached.clusters.map((c) => ({
+      ...c,
+      questions: c.questions.map(cloneSanitizedQuestion),
+    })),
   };
 }
 

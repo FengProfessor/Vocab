@@ -24,7 +24,13 @@ export const SENSITIVE_VNU_KEYS = [
 
 // In-memory server-side cache
 const examCache = new Map<string, VnuBac3Exam>();
+const safeExamCache = new Map<string, VnuBac3Exam>();
+const questionLookupCache = new Map<
+  string,
+  Map<string, { question: VnuBac3Exam['sections'][number]['tasks'][number]['questions'][number]; transcript: string }>
+>();
 let catalogCache: VnuBac3CatalogItem[] | null = null;
+let vnuTokenSeq = 0;
 
 /**
  * Thư mục chứa dữ liệu đề thi VNU Bậc 3
@@ -132,11 +138,57 @@ export function stripSensitiveVnuData<T extends VnuBac3Exam>(exam: T): T {
 }
 
 /**
- * Tạo HMAC Session Token có thời hạn (4 giờ) gắn liền với examId và client identifier
+ * Nạp đề thi đã làm sạch dữ liệu nhạy cảm từ bộ nhớ đệm (tránh JSON.parse/stringify lặp lại cho 300 học viên đồng thời)
+ */
+export function getSafeVnuBac3Exam(examId: string): VnuBac3Exam | null {
+  let cached = safeExamCache.get(examId);
+  if (!cached) {
+    const raw = getRawVnuBac3Exam(examId);
+    if (!raw) return null;
+    cached = stripSensitiveVnuData(raw);
+    safeExamCache.set(examId, cached);
+  }
+  return structuredClone(cached);
+}
+
+/**
+ * Tra cứu O(1) lời giải cho 1 câu hỏi VNU Bậc 3
+ */
+export function getVnuBac3QuestionExplanation(
+  examId: string,
+  questionId: string
+): {
+  question: VnuBac3Exam['sections'][number]['tasks'][number]['questions'][number];
+  transcript: string;
+} | null {
+  let map = questionLookupCache.get(examId);
+  if (!map) {
+    const rawExam = getRawVnuBac3Exam(examId);
+    if (!rawExam) return null;
+    map = new Map();
+    for (const section of rawExam.sections) {
+      for (const task of section.tasks) {
+        for (const q of task.questions || []) {
+          map.set(q.id, {
+            question: q,
+            transcript: task.transcript || '',
+          });
+        }
+      }
+    }
+    questionLookupCache.set(examId, map);
+  }
+  return map.get(questionId) || null;
+}
+
+/**
+ * Tạo HMAC Session Token có thời hạn (4 giờ) gắn liền với examId và client identifier.
+ * Nhúng sequence nonce để 300 học viên cùng IP trường học nạp đề cùng 1ms vẫn nhận sessionToken duy nhất.
  */
 export function createVnuSessionToken(examId: string, clientIp = 'anonymous'): string {
   const expiresAt = Date.now() + 4 * 60 * 60 * 1000; // 4 hours
-  const payload = `${examId}|${clientIp}|${expiresAt}`;
+  const seqNonce = (++vnuTokenSeq).toString(36);
+  const payload = `${examId}|${clientIp}|${expiresAt}.${seqNonce}`;
 
   const hmac = crypto.createHmac('sha256', VNU_SECRET_KEY);
   hmac.update(payload);

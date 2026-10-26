@@ -1253,11 +1253,13 @@ export async function GET(req: Request): Promise<NextResponse> {
       .from('words')
       .select('id', { count: 'exact', head: true })
       .eq('classroom_id', classroomId);
-    // Payload nhẹ: bỏ dictionary_data / image meta — dashboard + ôn không cần
+    // Payload nhẹ: bỏ dictionary_data / image meta — dashboard + ôn không cần.
+    // Lọc srs_progress theo đúng user_id ngay tại DB để tránh nhân bản N_words * 300_students trong lớp học.
     let wordsQuery = supabase
       .from('words')
       .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at, srs_progress(user_id, stability, review_count, next_review_date, ease_factor, interval_days, difficulty, last_reviewed_at)')
-      .eq('classroom_id', classroomId);
+      .eq('classroom_id', classroomId)
+      .eq('srs_progress.user_id', userId);
     if (requestedIds) {
       countQuery = countQuery.in('id', requestedIds);
       wordsQuery = wordsQuery.in('id', requestedIds);
@@ -1277,7 +1279,8 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const now = new Date().getTime();
     const enriched = ((wordsResult.data || []) as WordWithSrsList[]).map((w) => {
-      const srs = (w.srs_progress || []).find((s) => s.user_id === userId) || null;
+      const { srs_progress, ...wordFields } = w;
+      const srs = (srs_progress || []).find((s) => s.user_id === userId) || null;
       const nextReviewDate = srs?.next_review_date ? new Date(srs.next_review_date).getTime() : now;
 
       // FSRS calculation: Map stability to a virtual Level 1-6 (Level 0 for new/unstudied words)
@@ -1292,7 +1295,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       const isDue = isNew || nextReviewDate <= now;
 
       return {
-        ...w,
+        ...wordFields,
         srs,
         isDue,
         reviewCount,

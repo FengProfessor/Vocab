@@ -46,6 +46,50 @@ const requestVelocities = new Map<
   string,
   { lastRequestTime: number; rapidCount: number }
 >();
+const sharedIpSessions = new Map<string, Set<string>>();
+const flaggedSessionsByIp = new Map<string, Set<string>>();
+
+export function registerToeicIpSession(ipOrHash: string, sessionId: string): void {
+  if (!ipOrHash || !sessionId) return;
+  let set = sharedIpSessions.get(ipOrHash);
+  if (!set) {
+    if (sharedIpSessions.size > 2000) {
+      const oldestKey = sharedIpSessions.keys().next().value;
+      if (oldestKey) sharedIpSessions.delete(oldestKey);
+    }
+    set = new Set<string>();
+    sharedIpSessions.set(ipOrHash, set);
+  }
+  if (set.size < 1000) {
+    set.add(sessionId);
+  }
+}
+
+export function isToeicSharedClassroomIp(ip: string): boolean {
+  if (!ip || ip === 'unknown') return false;
+  const ipHash = hashIpForSession(ip);
+  const byHash = sharedIpSessions.get(ipHash);
+  if (byHash && byHash.size > 1) return true;
+  const byRaw = sharedIpSessions.get(ip);
+  return Boolean(byRaw && byRaw.size > 1);
+}
+
+/**
+ * Detects when an attacker on an IP is minting and rotating multiple session tokens
+ * to evade per-session velocity/honeypot bans (>= 3 flagged sessions AND >= 30% of sessions on that IP).
+ * Honest 50-300 student classrooms have < 5% rogue sessions and are never affected.
+ */
+export function isToeicScraperRotationIp(ip: string): boolean {
+  if (!ip || ip === 'unknown' || isWhitelistedIp(ip)) return false;
+  const flaggedSet = flaggedSessionsByIp.get(ip);
+  if (!flaggedSet || flaggedSet.size < 3) return false;
+  const ipHash = hashIpForSession(ip);
+  const totalRaw = sharedIpSessions.get(ip)?.size ?? 0;
+  const totalHash = sharedIpSessions.get(ipHash)?.size ?? 0;
+  const totalSessions = Math.max(1, totalRaw, totalHash);
+  return flaggedSet.size / totalSessions >= 0.3;
+}
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 1. INVISIBLE STEGANOGRAPHIC WATERMARKING (ZERO-WIDTH UNICODE)
@@ -183,6 +227,7 @@ export function isClientFlaggedAsBot(clientIdentifier: string): boolean {
 export function clearBotFlag(clientIdentifier: string): void {
   flaggedBots.delete(clientIdentifier);
   requestVelocities.delete(clientIdentifier);
+  flaggedSessionsByIp.delete(clientIdentifier);
 }
 
 /**
@@ -191,6 +236,43 @@ export function clearBotFlag(clientIdentifier: string): void {
 export function clearAllBotFlags(): void {
   flaggedBots.clear();
   requestVelocities.clear();
+  sharedIpSessions.clear();
+  flaggedSessionsByIp.clear();
+}
+
+/**
+ * Records a bot violation (honeypot or velocity trap) for a session/client on an IP.
+ * - Always flags the individual `sessionKey` and `clientKey` (so a scraper cannot escape by minting a new token with the same client fingerprint/userId).
+ * - Tracks distinct flagged sessions per IP in `flaggedSessionsByIp`.
+ * - Flags `ip` if it is a standalone IP OR if `isToeicScraperRotationIp(ip)` detects a multi-session token-rotation attack (>= 3 flagged sessions and >= 30% of IP sessions).
+ */
+export function recordToeicBotViolation(
+  ip: string,
+  sessionKey: string,
+  reason: string,
+  clientKey?: string | null
+): void {
+  flagClientAsBot(sessionKey, reason);
+  if (clientKey) {
+    flagClientAsBot(clientKey, reason);
+  }
+  if (ip && ip !== 'unknown' && !isWhitelistedIp(ip)) {
+    let set = flaggedSessionsByIp.get(ip);
+    if (!set) {
+      if (flaggedSessionsByIp.size > 2000) {
+        const oldestKey = flaggedSessionsByIp.keys().next().value;
+        if (oldestKey) flaggedSessionsByIp.delete(oldestKey);
+      }
+      set = new Set<string>();
+      flaggedSessionsByIp.set(ip, set);
+    }
+    if (set.size < 1000) {
+      set.add(sessionKey);
+    }
+    if (!isToeicSharedClassroomIp(ip) || isToeicScraperRotationIp(ip)) {
+      flagClientAsBot(ip, reason);
+    }
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -263,6 +345,9 @@ export function hashIpForSession(ip: string): string {
  * Creates an HMAC-SHA256 signed session token.
  */
 export function generateToeicSessionToken(payload: ToeicSessionPayload): string {
+  if (payload.ipHash && payload.sessionId) {
+    registerToeicIpSession(payload.ipHash, payload.sessionId);
+  }
   const data = Buffer.from(JSON.stringify(payload)).toString('base64url');
   const signature = createHmac('sha256', HMAC_SECRET)
     .update(data)
@@ -299,11 +384,110 @@ export function verifyToeicSessionToken(
       return null;
     }
 
+    if (payload.ipHash && payload.sessionId) {
+      registerToeicIpSession(payload.ipHash, payload.sessionId);
+    }
+
     return payload;
   } catch {
     return null;
   }
 }
+
+/**
+ * Resolves a per-student session key so 100-300 students on a shared classroom NAT IP
+ * do not collide in velocity heuristics or poison each other, while single-session bots,
+ * token-rotating scrapers, or unauthenticated scrapers are still caught and poisoned.
+ */
+export function resolveToeicSessionIdentity(
+  ip: string,
+  sessionToken?: string | null,
+  fallbackClientId?: string | null,
+  userId?: string | null
+): {
+  sessionKey: string;
+  clientKey: string | null;
+  verifiedSession: ToeicSessionPayload | null;
+  isSharedClassroomIp: boolean;
+} {
+  const verifiedSession = verifyToeicSessionToken(sessionToken);
+  const resolvedUserId =
+    (typeof userId === 'string' && userId.trim().length > 0 ? userId.trim() : null) ||
+    (verifiedSession?.userId && verifiedSession.userId.trim().length > 0
+      ? verifiedSession.userId.trim()
+      : null);
+
+  let clientKey: string | null = null;
+  if (resolvedUserId && resolvedUserId !== 'anonymous') {
+    const userDigest = createHash('sha256')
+      .update(resolvedUserId)
+      .digest('hex')
+      .slice(0, 20);
+    clientKey = `toeic-user:${userDigest}`;
+  } else if (fallbackClientId && fallbackClientId.trim().length > 0) {
+    const cleanId = createHash('sha256')
+      .update(fallbackClientId.trim())
+      .digest('hex')
+      .slice(0, 20);
+    clientKey = `toeic-cid:${cleanId}`;
+  }
+
+  if (verifiedSession?.sessionId) {
+    // Register session under current IP as well so dual-WAN / NAT IP shifts mid-session stay seamless
+    registerToeicIpSession(ip, verifiedSession.sessionId);
+    const sessionKey = `toeic-sess:${verifiedSession.sessionId}`;
+    if (clientKey && isClientFlaggedAsBot(clientKey)) {
+      recordToeicBotViolation(
+        ip,
+        sessionKey,
+        'Client identity already flagged as bot (session rotation blocked)',
+        clientKey
+      );
+    }
+    return {
+      sessionKey,
+      clientKey,
+      verifiedSession,
+      isSharedClassroomIp: isToeicSharedClassroomIp(ip),
+    };
+  }
+
+  if (sessionToken && sessionToken.trim().length > 0) {
+    const tokenDigest = createHash('sha256')
+      .update(sessionToken.trim())
+      .digest('hex')
+      .slice(0, 20);
+    const sessionKey = `toeic-forged:${tokenDigest}`;
+    if (clientKey && isClientFlaggedAsBot(clientKey)) {
+      flagClientAsBot(sessionKey, 'Client identity already flagged as bot');
+    }
+    return {
+      sessionKey,
+      clientKey,
+      verifiedSession: null,
+      isSharedClassroomIp: isToeicSharedClassroomIp(ip),
+    };
+  }
+
+  if (clientKey) {
+    registerToeicIpSession(ip, clientKey);
+    return {
+      sessionKey: clientKey,
+      clientKey,
+      verifiedSession: null,
+      isSharedClassroomIp: isToeicSharedClassroomIp(ip),
+    };
+  }
+
+  const shared = isToeicSharedClassroomIp(ip);
+  return {
+    sessionKey: shared ? `toeic-anon:${ip}` : ip,
+    clientKey: null,
+    verifiedSession: null,
+    isSharedClassroomIp: shared,
+  };
+}
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 5. PLAUSIBLE DATA POISONING ENGINE (SILENT DEGRADATION)

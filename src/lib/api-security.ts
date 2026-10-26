@@ -246,6 +246,24 @@ export function getClientIp(req: Request): string {
   return req.headers.get('x-real-ip')?.trim() || 'unknown';
 }
 
+/**
+ * Khóa rate-limit theo từng client/phiên học sinh thay vì chỉ gom theo IP.
+ * Giúp 100–300 học sinh dùng chung 1 IP NAT ở trường/lớp không chặn lẫn nhau,
+ * nhưng 1 client/bot spam liên tục vẫn bị chặn ở ngưỡng cá nhân.
+ */
+export function getRateLimitClientKey(req: Request): string {
+  const ip = getClientIp(req);
+  const auth = req.headers.get('authorization')?.trim() || '';
+  const cookie = req.headers.get('cookie')?.trim() || '';
+  const ua = req.headers.get('user-agent')?.trim() || '';
+  if (!auth && !cookie && !ua) return ip;
+  const fingerprint = createHash('sha256')
+    .update(`${ip}|${auth}|${cookie}|${ua}`)
+    .digest('hex')
+    .slice(0, 20);
+  return `${ip}:${fingerprint}`;
+}
+
 // Lỗi hạ tầng khác quota hết: không trả paywall hoặc cho chạy side effect.
 export function rateLimitUnavailableResponse(err: unknown): NextResponse | null {
   if (!(err instanceof RateLimitUnavailableError)) return null;

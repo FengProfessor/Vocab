@@ -572,71 +572,116 @@ export async function findUserUncompletedExercise(
 }
 
 // ── Generate Exercise with Gemini Multi-Key Engine ──
+export interface GenerateExerciseOptions {
+  /**
+   * When false (default for HTTP web requests), never block the request thread
+   * for 65 seconds waiting for Gemini key cooldowns; only wait if remaining cooldown <= maxCooldownWaitMs.
+   * Background CLI/cron jobs may set allowCooldownWait: true.
+   */
+  allowCooldownWait?: boolean;
+  maxCooldownWaitMs?: number;
+  dedupeKey?: string;
+}
+
+const inFlightExerciseGenerations = new Map<string, Promise<GeneratedExercise | null>>();
+
 export async function generateExerciseWithGemini(
   prompt: string,
   targets: string[],
   levelConfig: AdaptiveLevelConfig,
   maxAttempts = 2,
+  options?: GenerateExerciseOptions,
 ): Promise<GeneratedExercise | null> {
-  let currentPrompt = prompt;
-
-  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-    try {
-      const rawOutput = await geminiGenerate(currentPrompt, {
-        json: true,
-        temperature: 0.35,
-      });
-
-      let parsed = parseJsonLoose(rawOutput) as Record<string, unknown>;
-      if (typeof parsed.answer === 'string') {
-        parsed = parseJsonLoose(parsed.answer) as Record<string, unknown>;
-      }
-
-      const result = normalizeDailyReadingResponse(parsed, targets);
-      if (!result.level) result.level = levelConfig.cefr;
-
-      // Quality Gate: Anti-Repetition Check
-      const repCheck = checkPassageRepetition(result.passage, targets);
-      if (!repCheck.passed) {
-        console.warn(`[generator] Anti-Repetition Check REJECTED attempt ${attempt}: ${repCheck.reason}`);
-        if (attempt < maxAttempts) {
-          currentPrompt = `${prompt}\n\nCRITICAL RE-GENERATION NOTICE: Your previous passage was REJECTED by the Quality Gate because it contained repetitive sentence frames (${repCheck.reason}). Rewrite the passage completely. Every single sentence must have diverse, unique grammar with zero formulaic repetition!`;
-          await new Promise((r) => setTimeout(r, 1500));
-          continue;
-        }
-        return null;
-      }
-
-      if (result.coverage >= 0.70 && result.questions.length >= 3) {
-        return result;
-      }
-
-      console.warn(`[generator] Low coverage (${(result.coverage * 100).toFixed(0)}%) or few questions (${result.questions.length}) on attempt ${attempt}`);
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : String(err);
-      console.error(`[generator] Attempt ${attempt} failed:`, msg);
-
-      if (/cooldown|rate.?limit|429/i.test(msg)) {
-        const waited = await waitOutGeminiCooldown(65_000);
-        if (waited) {
-          console.log(`[generator] Gemini key cooldown expired. Retrying generation...`);
-          continue;
-        }
-      }
-    }
-
-    if (attempt < maxAttempts) {
-      await new Promise((r) => setTimeout(r, 1500));
+  const dedupeKey = options?.dedupeKey;
+  if (dedupeKey) {
+    const existing = inFlightExerciseGenerations.get(dedupeKey);
+    if (existing) {
+      return existing;
     }
   }
 
-  return null;
+  const runPromise = (async (): Promise<GeneratedExercise | null> => {
+    let currentPrompt = prompt;
+    const allowLongWait = Boolean(options?.allowCooldownWait);
+    const maxWaitMs = options?.maxCooldownWaitMs ?? (allowLongWait ? 65_000 : 1_500);
+
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+      try {
+        const rawOutput = await geminiGenerate(currentPrompt, {
+          json: true,
+          temperature: 0.35,
+        });
+
+        let parsed = parseJsonLoose(rawOutput) as Record<string, unknown>;
+        if (typeof parsed.answer === 'string') {
+          parsed = parseJsonLoose(parsed.answer) as Record<string, unknown>;
+        }
+
+        const result = normalizeDailyReadingResponse(parsed, targets);
+        if (!result.level) result.level = levelConfig.cefr;
+
+        // Quality Gate: Anti-Repetition Check
+        const repCheck = checkPassageRepetition(result.passage, targets);
+        if (!repCheck.passed) {
+          console.warn(`[generator] Anti-Repetition Check REJECTED attempt ${attempt}: ${repCheck.reason}`);
+          if (attempt < maxAttempts) {
+            currentPrompt = `${prompt}\n\nCRITICAL RE-GENERATION NOTICE: Your previous passage was REJECTED by the Quality Gate because it contained repetitive sentence frames (${repCheck.reason}). Rewrite the passage completely. Every single sentence must have diverse, unique grammar with zero formulaic repetition!`;
+            await new Promise((r) => setTimeout(r, 800));
+            continue;
+          }
+          return null;
+        }
+
+        if (result.coverage >= 0.70 && result.questions.length >= 3) {
+          return result;
+        }
+
+        console.warn(`[generator] Low coverage (${(result.coverage * 100).toFixed(0)}%) or few questions (${result.questions.length}) on attempt ${attempt}`);
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        console.error(`[generator] Attempt ${attempt} failed:`, msg);
+
+        if (/cooldown|rate.?limit|429/i.test(msg)) {
+          if (maxWaitMs <= 0) {
+            return null;
+          }
+          const waited = await waitOutGeminiCooldown(maxWaitMs);
+          if (waited) {
+            console.log(`[generator] Gemini key cooldown expired within ${maxWaitMs}ms. Retrying generation...`);
+            continue;
+          }
+          // Fail fast on HTTP web requests instead of hanging 65s when all keys are exhausted
+          if (!allowLongWait) {
+            return null;
+          }
+        }
+      }
+
+      if (attempt < maxAttempts) {
+        await new Promise((r) => setTimeout(r, 800));
+      }
+    }
+
+    return null;
+  })();
+
+  if (dedupeKey) {
+    inFlightExerciseGenerations.set(dedupeKey, runPromise);
+    try {
+      return await runPromise;
+    } finally {
+      inFlightExerciseGenerations.delete(dedupeKey);
+    }
+  }
+
+  return runPromise;
 }
 
 // ── Generate from Starter Pack ──
 export async function generateStarterReadingExercise(
   packId: string,
   userDisplayName: string,
+  options?: GenerateExerciseOptions,
 ): Promise<{ exercise: GeneratedExercise; candidate: UserCandidate } | null> {
   const pack = DEMO_PACKS.find((p) => p.id === packId) || DEMO_PACKS[0];
   if (!pack) return null;
@@ -658,7 +703,7 @@ export async function generateStarterReadingExercise(
 
   const prompt = buildDailyReadingPrompt(words, levelConfig, userDisplayName);
   const targets = words.map((w) => w.word);
-  const exercise = await generateExerciseWithGemini(prompt, targets, levelConfig, 2);
+  const exercise = await generateExerciseWithGemini(prompt, targets, levelConfig, 2, options);
 
   if (!exercise) return null;
   return { exercise, candidate };
