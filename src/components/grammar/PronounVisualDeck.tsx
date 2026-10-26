@@ -532,11 +532,11 @@ function PronounCardItem({
               </button>
             </div>
 
-            {/* Bottom Image Overlay Tag with Active Sentence & Bold Target Pronoun */}
-            <div className="absolute bottom-2 left-2 right-2 z-10 space-y-1.5">
-              <div className="bg-background/95 backdrop-blur-md border border-border px-2.5 py-1 flex items-baseline justify-between shadow-xs rounded-none">
+            {/* Bottom Image Overlay Tag: Pronoun identity */}
+            <div className="absolute bottom-2 left-2 right-2 z-10">
+              <div className="bg-background/95 backdrop-blur-md border border-border px-3 py-1.5 flex items-baseline justify-between shadow-xs rounded-none">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-serif text-lg sm:text-xl font-extrabold tracking-tight text-foreground">
+                  <span className="font-mono text-lg sm:text-xl font-extrabold tracking-tight text-foreground">
                     {item.subject}
                   </span>
                   <span className="font-sans text-xs font-bold text-primary">
@@ -544,18 +544,6 @@ function PronounCardItem({
                   </span>
                 </div>
               </div>
-              {currentExample && (
-                <div className="bg-background/95 backdrop-blur-md border border-border p-2 shadow-xs rounded-none space-y-0.5">
-                  <div className="text-xs sm:text-sm font-serif font-semibold text-foreground leading-snug">
-                    <HighlightedSentence text={currentExample.en} highlight={currentExample.highlightWord} />
-                  </div>
-                  {currentExample.vi && (
-                    <div className="text-[11px] text-muted-foreground font-sans leading-tight">
-                      {currentExample.vi}
-                    </div>
-                  )}
-                </div>
-              )}
             </div>
           </div>
 

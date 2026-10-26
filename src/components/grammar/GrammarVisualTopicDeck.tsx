@@ -1234,24 +1234,14 @@ function GrammarVisualTopicDeckInner({
 
   return (
     <div className="space-y-6">
-      {/* Top Banner Header */}
-      <div className="border border-border p-4 bg-muted/20 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-none">
-        <div>
-          <div className="font-mono text-xs uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-0.5">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
-            <span>Thẻ học trực quan & Tình huống thực tế</span>
-          </div>
-          <div className="text-sm font-semibold text-foreground">
-            {curated?.subtitle || `${topicTitleVi || topicTitle}: Minh họa trực quan kèm câu ví dụ đời thường dễ nhớ`}
-          </div>
+      {/* Top Header */}
+      <div className="border border-border p-3 bg-muted/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2 rounded-none">
+        <div className="text-xs sm:text-sm font-semibold text-foreground">
+          {curated?.subtitle || `${topicTitleVi || topicTitle}: Minh họa trực quan kèm câu ví dụ đời thường`}
         </div>
-
         <div className="flex items-center gap-2 shrink-0">
           <span className="font-mono text-xs px-2.5 py-1 bg-background border border-border text-foreground font-semibold rounded-none">
             {cardsToRender.length} Tình huống
-          </span>
-          <span className="font-mono text-xs px-2.5 py-1 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 font-semibold rounded-none">
-            Ví dụ cơ bản A0-A1
           </span>
         </div>
       </div>
@@ -1705,34 +1695,12 @@ function VisualTopicCardItem({
               </span>
             </div>
 
-            {/* Bottom Overlay: Active Sentence & Audio Button */}
-            {currentExample && (
-              <div className="absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-background/95 via-background/85 to-transparent p-2.5 sm:p-3 pt-6 flex items-end justify-between gap-2 border-t border-border/40">
-                <div className="min-w-0 flex-1">
-                  <div className="font-serif text-xs sm:text-sm font-bold text-foreground leading-snug line-clamp-2">
-                    <HighlightedSentence text={currentExample.en} highlight={currentHighlight} />
-                  </div>
-                  {currentExample.vi && (
-                    <div className="text-[11px] text-muted-foreground leading-tight line-clamp-1 mt-0.5">
-                      {currentExample.vi}
-                    </div>
-                  )}
-                </div>
-                <button
-                  type="button"
-                  onClick={() => onPlaySpeech(`${card.title}-${currentIdx}`, currentExample.en, currentExample.audio || (currentIdx === 0 ? card.audio : undefined))}
-                  className="min-h-[44px] min-w-[44px] flex items-center justify-center p-2.5 bg-background hover:bg-muted border border-border rounded-none shadow-xs transition-colors shrink-0"
-                  aria-label={`Nghe câu: ${currentExample.en}`}
-                  title="Nghe câu ví dụ đang chọn"
-                >
-                  <Volume2
-                    className={`h-4 w-4 ${
-                      isStageAudioPlaying ? 'text-primary animate-pulse' : 'text-foreground'
-                    }`}
-                  />
-                </button>
-              </div>
-            )}
+            {/* Bottom Tag */}
+            <div className="absolute bottom-2.5 left-2.5 z-10">
+              <span className="font-mono text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-background/90 backdrop-blur-xs border border-border text-foreground shadow-xs">
+                {card.badge || 'Tình huống'}
+              </span>
+            </div>
           </div>
         ) : (
           <div className={`relative w-full bg-gradient-to-br from-primary/[0.08] via-background to-muted/30 p-4 sm:p-5 flex flex-col justify-between border-b sm:border-b-0 sm:border-r border-border ${exampleLimit ? 'h-48 sm:h-auto sm:min-h-[260px]' : 'h-48 sm:h-60'}`}>

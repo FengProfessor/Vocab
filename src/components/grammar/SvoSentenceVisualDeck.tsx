@@ -552,81 +552,101 @@ export default function SvoSentenceVisualDeck({
         />
       ) : null}
 
-      {/* Hero Header Card: Tinh gọn, rõ ràng, không hàn lâm */}
-      <details
-        open={!guided}
-        className="border border-border bg-card p-3 sm:p-4 rounded-none shadow-xs group"
-      >
-        <summary className="list-none cursor-pointer flex items-center justify-between gap-2 select-none">
-          <div className="min-w-0">
-            <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs uppercase tracking-wider text-primary font-bold">
-              <Sparkles className="h-3.5 w-3.5 shrink-0" />
-              <span>Bài số 0 • Cấu trúc câu căn bản (S + V + O)</span>
-            </div>
-            <h2 className="text-sm sm:text-lg font-bold text-foreground mt-0.5">
-              Mô hình 3 Khối SVO: Bắc cầu trực giác Việt ➔ Anh
-            </h2>
-          </div>
-          <span className="font-mono text-[11px] px-2 py-1 border border-border bg-muted/30 text-muted-foreground rounded-none inline-flex items-center gap-1 shrink-0">
-            <span className="hidden sm:inline">Giải thích S-V-O</span>
-            <span className="sm:hidden">Mẹo S-V-O</span>
-            <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
+      {/* Guided Top Legend Pill Bar */}
+      {guided ? (
+        <div className="flex items-center justify-between gap-2 px-1 py-0.5 text-xs">
+          <span className="text-xs text-muted-foreground hidden sm:inline">
+            Trật tự 3 khối tương đương trực quan giữa 2 ngôn ngữ:
           </span>
-        </summary>
-
-        <div className="space-y-3 pt-2.5 mt-2.5 border-t border-border/60">
-          <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
-            Trật tự câu kể cơ bản trong tiếng Anh giống hệt tiếng Việt:
-            <strong className="text-foreground ml-1 font-mono">TÔI [S] + ĂN [V] + CƠM [O]</strong> ➔{' '}
-            <strong className="text-foreground font-mono">I [S] + eat [V] + rice [O]</strong>.
-          </p>
-
-          {/* 3 Colored Structural Reference Blocks */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-            {/* S Block */}
-            <div className="border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 p-2.5 sm:p-3 rounded-none flex flex-col justify-between">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-sky-400/50 bg-sky-100/80 dark:bg-sky-900/40 rounded-none">
-                  [S] Chủ ngữ
-                </span>
-                <span className="font-mono text-[11px] opacity-80">Subject</span>
-              </div>
-              <div className="mt-2 text-xs">
-                <p className="font-bold text-sm">Ai làm?</p>
-                <p className="text-[11px] opacity-80 mt-0.5">Người, con vật hoặc đồ vật thực hiện hành động</p>
-              </div>
-            </div>
-
-            {/* V Block */}
-            <div className="border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 p-2.5 sm:p-3 rounded-none flex flex-col justify-between">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-amber-400/50 bg-amber-100/80 dark:bg-amber-900/40 rounded-none">
-                  [V] Động từ
-                </span>
-                <span className="font-mono text-[11px] opacity-80">Verb</span>
-              </div>
-              <div className="mt-2 text-xs">
-                <p className="font-bold text-sm">Làm gì?</p>
-                <p className="text-[11px] opacity-80 mt-0.5">Hành động diễn ra (ăn, uống, học, đọc, gửi...)</p>
-              </div>
-            </div>
-
-            {/* O Block */}
-            <div className="border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 p-2.5 sm:p-3 rounded-none flex flex-col justify-between">
-              <div className="flex items-center justify-between">
-                <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-emerald-400/50 bg-emerald-100/80 dark:bg-emerald-900/40 rounded-none">
-                  [O] Tân ngữ
-                </span>
-                <span className="font-mono text-[11px] opacity-80">Object</span>
-              </div>
-              <div className="mt-2 text-xs">
-                <p className="font-bold text-sm">Cái gì / Ai?</p>
-                <p className="text-[11px] opacity-80 mt-0.5">Đối tượng chịu tác động từ hành động của S</p>
-              </div>
-            </div>
+          <div className="flex items-center gap-1.5 ml-auto">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 border border-sky-400/50 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-none font-mono text-[11px] font-medium">
+              [S] Ai làm
+            </span>
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 border border-amber-400/50 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 rounded-none font-mono text-[11px] font-medium">
+              [V] Làm gì
+            </span>
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 border border-emerald-400/50 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-none font-mono text-[11px] font-medium">
+              [O] Cái gì / Ai
+            </span>
           </div>
         </div>
-      </details>
+      ) : (
+        /* Hero Header Card: Khi xem standalone ngoài modal */
+        <details
+          open={!guided}
+          className="border border-border bg-card p-3 sm:p-4 rounded-none shadow-xs group"
+        >
+          <summary className="list-none cursor-pointer flex items-center justify-between gap-2 select-none">
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs uppercase tracking-wider text-primary font-bold">
+                <Sparkles className="h-3.5 w-3.5 shrink-0" />
+                <span>Bài số 0 • Cấu trúc câu căn bản (S + V + O)</span>
+              </div>
+              <h2 className="text-sm sm:text-lg font-bold text-foreground mt-0.5">
+                Mô hình 3 Khối SVO: Bắc cầu trực giác Việt ➔ Anh
+              </h2>
+            </div>
+            <span className="font-mono text-[11px] px-2 py-1 border border-border bg-muted/30 text-muted-foreground rounded-none inline-flex items-center gap-1 shrink-0">
+              <span className="hidden sm:inline">Giải thích S-V-O</span>
+              <span className="sm:hidden">Mẹo S-V-O</span>
+              <ChevronDown className="h-3.5 w-3.5 transition-transform group-open:rotate-180" />
+            </span>
+          </summary>
+
+          <div className="space-y-3 pt-2.5 mt-2.5 border-t border-border/60">
+            <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
+              Trật tự câu kể cơ bản trong tiếng Anh giống hệt tiếng Việt:
+              <strong className="text-foreground ml-1 font-mono">TÔI [S] + ĂN [V] + CƠM [O]</strong> ➔{' '}
+              <strong className="text-foreground font-mono">I [S] + eat [V] + rice [O]</strong>.
+            </p>
+
+            {/* 3 Colored Structural Reference Blocks */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+              {/* S Block */}
+              <div className="border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 p-2.5 sm:p-3 rounded-none flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-sky-400/50 bg-sky-100/80 dark:bg-sky-900/40 rounded-none">
+                    [S] Chủ ngữ
+                  </span>
+                  <span className="font-mono text-[11px] opacity-80">Subject</span>
+                </div>
+                <div className="mt-2 text-xs">
+                  <p className="font-bold text-sm">Ai làm?</p>
+                  <p className="text-[11px] opacity-80 mt-0.5">Người, con vật hoặc đồ vật thực hiện hành động</p>
+                </div>
+              </div>
+
+              {/* V Block */}
+              <div className="border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 p-2.5 sm:p-3 rounded-none flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-amber-400/50 bg-amber-100/80 dark:bg-amber-900/40 rounded-none">
+                    [V] Động từ
+                  </span>
+                  <span className="font-mono text-[11px] opacity-80">Verb</span>
+                </div>
+                <div className="mt-2 text-xs">
+                  <p className="font-bold text-sm">Làm gì?</p>
+                  <p className="text-[11px] opacity-80 mt-0.5">Hành động diễn ra (ăn, uống, học, đọc, gửi...)</p>
+                </div>
+              </div>
+
+              {/* O Block */}
+              <div className="border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 p-2.5 sm:p-3 rounded-none flex flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-emerald-400/50 bg-emerald-100/80 dark:bg-emerald-900/40 rounded-none">
+                    [O] Tân ngữ
+                  </span>
+                  <span className="font-mono text-[11px] opacity-80">Object</span>
+                </div>
+                <div className="mt-2 text-xs">
+                  <p className="font-bold text-sm">Cái gì / Ai?</p>
+                  <p className="text-[11px] opacity-80 mt-0.5">Đối tượng chịu tác động từ hành động của S</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      )}
 
       {/* Non-guided Segmented Tabs */}
       {!guided && (
@@ -663,18 +683,18 @@ export default function SvoSentenceVisualDeck({
         </div>
       )}
 
-      {/* Active Group Banner info */}
+      {/* Active Group info */}
       <div className="flex items-center justify-between text-xs font-mono text-muted-foreground px-1">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           <CategoryIcon icon={currentGroup.icon} />
-          <span className="font-bold text-foreground uppercase">{currentGroup.label}</span>
-          <span>•</span>
-          <span className="text-muted-foreground hidden sm:inline">{currentGroup.description}</span>
+          <span className="font-bold text-foreground uppercase">{currentGroup.shortLabel}</span>
+          <span className="opacity-50">•</span>
+          <span className="text-muted-foreground hidden sm:inline">Đối chiếu song ngữ trực quan</span>
         </div>
         <span className="text-primary font-bold">{currentGroup.sentences.length} câu ví dụ</span>
       </div>
 
-      {/* Sentences of Active Group: Giao diện trực quan Song ngữ Việt trên - Anh dưới, Giải thích bên cạnh */}
+      {/* Sentences of Active Group: Giao diện trực quan Song ngữ Việt trên - Anh dưới */}
       <div role="tabpanel" className="space-y-3">
         {currentGroup.sentences.map((sentence, sIdx) => {
           const isPlayingThis = audioState.activeId === sentence.id;
@@ -687,11 +707,8 @@ export default function SvoSentenceVisualDeck({
               {/* Header row: Number counter and 1-tap Audio Play Button */}
               <div className="flex items-center justify-between border-b border-border/50 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs font-bold text-muted-foreground px-1.5 py-0.5 border border-border bg-muted/40 rounded-none">
-                    #{sIdx + 1}
-                  </span>
-                  <span className="text-xs font-medium text-muted-foreground">
-                    Cặp câu đối chiếu SVO
+                  <span className="font-mono text-xs font-bold text-muted-foreground px-2 py-0.5 border border-border bg-muted/40 rounded-none">
+                    #{sIdx + 1 < 10 ? `0${sIdx + 1}` : sIdx + 1}
                   </span>
                 </div>
                 <button
@@ -719,72 +736,59 @@ export default function SvoSentenceVisualDeck({
                 </button>
               </div>
 
-              {/* Main content: Grid on large screens (Left: VN on top, EN on bottom. Right: Explanation) */}
+              {/* Main content: Grid on large screens (Left: VN on top, EN on bottom. Right: Note) */}
               <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 sm:gap-4 items-center">
                 {/* Parallel Sentences Column: Tiếng Việt trên, Tiếng Anh dưới */}
                 <div className="space-y-2">
                   {/* Tiếng Việt ở trên */}
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider w-20 shrink-0">
-                      Tiếng Việt:
-                    </span>
+                    <span className="sr-only">Tiếng Việt:</span>
                     <div className="inline-flex items-center gap-1.5 flex-wrap text-sm sm:text-base font-semibold">
                       <span className="px-2.5 py-1 border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-none inline-flex items-center gap-1">
                         <span className="font-mono text-[10px] font-bold opacity-70">[S]</span>
                         <span>{sentence.viS}</span>
                       </span>
-                      <span className="text-muted-foreground font-mono font-bold text-xs">+</span>
                       <span className="px-2.5 py-1 border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 rounded-none inline-flex items-center gap-1">
                         <span className="font-mono text-[10px] font-bold opacity-70">[V]</span>
                         <span>{sentence.viV}</span>
                       </span>
-                      <span className="text-muted-foreground font-mono font-bold text-xs">+</span>
                       <span className="px-2.5 py-1 border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-none inline-flex items-center gap-1">
                         <span className="font-mono text-[10px] font-bold opacity-70">[O]</span>
                         <span>{sentence.viO}</span>
                       </span>
+                      <span className="text-muted-foreground font-bold">.</span>
                     </div>
                   </div>
 
                   {/* Tiếng Anh ở dưới */}
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider w-20 shrink-0">
-                      Tiếng Anh:
-                    </span>
+                    <span className="sr-only">Tiếng Anh:</span>
                     <div className="inline-flex items-center gap-1.5 flex-wrap text-base sm:text-lg font-bold font-mono">
                       <span className="px-2.5 py-1 border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-none inline-flex items-center gap-1.5">
                         <span className="text-xs opacity-70 font-normal">[S]</span>
                         <span>{sentence.enS}</span>
                       </span>
-                      <span className="text-muted-foreground font-mono font-bold text-xs">+</span>
                       <span className="px-2.5 py-1 border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 rounded-none inline-flex items-center gap-1.5">
                         <span className="text-xs opacity-70 font-normal">[V]</span>
                         <span>{sentence.enV}</span>
                       </span>
-                      <span className="text-muted-foreground font-mono font-bold text-xs">+</span>
                       <span className="px-2.5 py-1 border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-none inline-flex items-center gap-1.5">
                         <span className="text-xs opacity-70 font-normal">[O]</span>
                         <span>{sentence.enO}</span>
                       </span>
+                      <span className="text-muted-foreground font-bold">.</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Compact Explanation & Note Column bên cạnh */}
-                <div className="p-2.5 sm:p-3 bg-muted/20 border-l-2 border-primary space-y-1 rounded-none text-xs md:min-w-[260px] lg:min-w-[300px]">
-                  <div className="text-[11px] text-foreground flex items-center gap-2 flex-wrap">
-                    <span className="text-sky-600 dark:text-sky-400 font-semibold">[S] {sentence.viS} = {sentence.enS}</span>
-                    <span className="text-muted-foreground">•</span>
-                    <span className="text-amber-600 dark:text-amber-400 font-semibold">[V] {sentence.viV} = {sentence.enV}</span>
-                    <span className="text-muted-foreground">•</span>
-                    <span className="text-emerald-600 dark:text-emerald-400 font-semibold">[O] {sentence.viO} = {sentence.enO}</span>
-                  </div>
-                  {sentence.note && (
+                {/* Compact Note Column bên cạnh */}
+                {sentence.note && (
+                  <div className="p-2.5 sm:p-3 bg-muted/20 border-l-2 border-primary space-y-1 rounded-none text-xs md:max-w-xs">
                     <p className="text-[11px] text-muted-foreground font-sans leading-relaxed">
                       💡 <span className="font-medium text-foreground">{sentence.note}</span>
                     </p>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </div>
           );
