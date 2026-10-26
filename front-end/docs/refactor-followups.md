@@ -8,3 +8,7 @@
 - [ ] **Kịch bản smoke mới có login → `/student` → tra từ điển → logout.** Kế hoạch còn yêu cầu "ôn 1 thẻ SRS" và "làm 1 đề TOEIC". Hai bước này phụ thuộc dữ liệu của tài khoản test (cần có thẻ đến hạn) và đề TOEIC hiện chỉ chạy qua `/__local_api` (D3). Bổ sung khi đề thi đã do .NET phục vụ.
 - [ ] **Guardrail lint đang ở mức `warn` cho toàn bộ code.** Kế hoạch muốn file mới bị chặn ở mức `error`, nhưng ESLint không phân biệt được file mới/cũ nếu không dùng danh sách file. Hiện dùng hằng `GUARDRAIL` trong `eslint.config.mjs`. Nâng từng rule lên `error` khi nhóm call site tương ứng đã được chuyển xong (supabase sau bước gỡ Supabase, raw fetch sau bước API layer, `next/*` sau bước dọn Next.js).
 - [ ] **Plugin `@next/next` hiện là stub no-op trong `eslint.config.mjs`.** Có stub này để các comment `eslint-disable-next-line @next/next/no-img-element` cũ không báo lỗi "rule not found". Xoá stub cùng các comment đó khi dọn Next.js.
+
+## Auth & hồ sơ
+
+- [ ] **Cập nhật hồ sơ mở rộng (`PUT /api/profile` & `/api/extension-token`).** Các luồng auth cốt lõi (`login`, `register`, `logout`, `refresh`, `profile` GET, `onboarding`, `password/forgot`, `password/reset`, `role/teacher`, `users/me/onboarding/claim-xp`) đã đi thẳng qua `.NET 10` (`src/features/auth/`). Riêng `PUT /api/profile` (đổi tên hiển thị/avatar ở trang hồ sơ học viên) và `POST /api/extension-token` sẽ chuyển sang endpoint hồ sơ tương ứng ở bước xử lý nghiệp vụ học viên.

@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -104,7 +105,7 @@ export default function AdminChallengesPage() {
 
   const loadChallenges = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user } } = await authService.getUser();
       if (!user) { router.push('/auth'); return; }
 
       const res = await authFetch('/api/challenges?includeAll=1');

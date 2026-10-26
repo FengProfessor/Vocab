@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 /**
  * Banner dính cho Free ≥150 từ — luôn thấy (không phụ thuộc modal dismiss).
@@ -35,7 +36,7 @@ export function FreeQuotaBanner() {
     (async () => {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user || cancelled) return;
 
       try {

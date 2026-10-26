@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -189,7 +190,7 @@ export default function CrmDashboard() {
     setError('');
     try {
       // getSession() → trả cả user + token, tránh gọi getUser() riêng + getSession() trong authFetch
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (!session?.user) { router.push('/auth'); return; }
       const url = forceRefresh ? '/api/admin/crm?refresh=1' : '/api/admin/crm';
       const res = await fetch(url, {

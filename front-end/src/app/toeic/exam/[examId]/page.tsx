@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 /**
  * Authentic ETS/IIG Computer-Based TOEIC Exam & Practice Environment.
@@ -253,11 +254,11 @@ function ToeicExamRoomInner() {
 
   useEffect(() => {
     let mounted = true;
-    supabase.auth.getUser().then(({ data: { user } }) => {
+    authService.getUser().then(({ data: { user } }) => {
       if (mounted) setCurrentUser(user);
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = authService.onAuthStateChange((_event, session) => {
       if (mounted) setCurrentUser(session?.user ?? null);
     });
 
@@ -571,7 +572,7 @@ function ToeicExamRoomInner() {
           setIsExamSubmittedState(true);
         }
 
-        const { data: { session: authSession } } = await supabase.auth.getSession();
+        const { data: { session: authSession } } = await authService.getSession();
         if (!authSession?.user) {
           // Still a guest
           setIsGuestState(true);
@@ -668,7 +669,7 @@ function ToeicExamRoomInner() {
       );
 
       const redirectTo = `${window.location.origin}/auth/callback`;
-      const { error } = await supabase.auth.signInWithOAuth({
+      const { error } = await authService.signInWithOAuth({
         provider: 'google',
         options: {
           redirectTo,

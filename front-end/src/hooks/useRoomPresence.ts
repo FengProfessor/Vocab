@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -47,7 +48,7 @@ export function useRoomPresence(opts: {
   const userIdRef = useRef<string | null>(null);
 
   useEffect(() => {
-    void supabase.auth.getSession().then(({ data }) => {
+    void authService.getSession().then(({ data }) => {
       userIdRef.current = data.session?.user?.id ?? null;
     });
   }, []);

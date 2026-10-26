@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -143,7 +144,7 @@ export function UpsellProvider() {
     (async () => {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user || cancelled) return;
 
       try {

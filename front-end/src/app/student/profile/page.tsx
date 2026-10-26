@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -160,7 +161,7 @@ export default function ProfilePage() {
         const {
           data: { session },
           error,
-        } = await supabase.auth.getSession();
+        } = await authService.getSession();
         if (error) {
           setIsLoading(false);
           return;
@@ -216,7 +217,7 @@ export default function ProfilePage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) throw new Error('Chưa đăng nhập');
 
       const res = await fetch('/api/profile', {
@@ -265,7 +266,7 @@ export default function ProfilePage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) throw new Error('Chưa đăng nhập');
       const res = await fetch('/api/extension-token', {
         method: 'POST', headers: { 'X-LingoPro-Request': '1' },
@@ -291,7 +292,7 @@ export default function ProfilePage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) throw new Error('Chưa đăng nhập');
 
       const fcmToken = await requestForToken();

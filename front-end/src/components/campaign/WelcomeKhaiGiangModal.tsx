@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -107,7 +108,7 @@ export function WelcomeKhaiGiangModal({
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
 
       if (session?.user) {
         const payload: Record<string, unknown> = {};

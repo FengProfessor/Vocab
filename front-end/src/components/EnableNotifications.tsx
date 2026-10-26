@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
@@ -89,7 +90,7 @@ export function EnableNotifications() {
       }
 
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (!session) return;
         const res = await fetch('/api/push/fcm-register', {
           headers: { 'X-LingoPro-Request': '1' },
@@ -122,7 +123,7 @@ export function EnableNotifications() {
       const token = await requestForToken();
       if (!token) throw new Error('Chưa lấy được mã thiết bị. Thử lại sau.');
 
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (session) {
         const res = await fetch('/api/push/fcm-register', {
           method: 'POST',

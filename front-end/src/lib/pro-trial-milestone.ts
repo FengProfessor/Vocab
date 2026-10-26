@@ -212,7 +212,8 @@ async function readEnrolledAtFromMetadata(
   userId: string,
 ): Promise<string | null> {
   try {
-    const { data, error } = await supabase.auth.admin.getUserById(userId);
+    const adminClient = supabase;
+    const { data, error } = await adminClient.auth.admin.getUserById(userId);
     if (error || !data.user) return null;
     const v = data.user.user_metadata?.pro_milestone_enrolled_at;
     return typeof v === 'string' && v.length > 0 ? v : null;
@@ -264,12 +265,13 @@ async function writeEnrolledAt(
 
   // 2) user_metadata — bắt buộc có (nguồn claim khi chưa migrate cột)
   try {
-    const { data: existing } = await supabase.auth.admin.getUserById(userId);
+    const adminClient = supabase;
+    const { data: existing } = await adminClient.auth.admin.getUserById(userId);
     const prev = existing?.user?.user_metadata ?? {};
     if (typeof prev.pro_milestone_enrolled_at === 'string' && prev.pro_milestone_enrolled_at) {
       return true;
     }
-    const { error: metaErr } = await supabase.auth.admin.updateUserById(userId, {
+    const { error: metaErr } = await adminClient.auth.admin.updateUserById(userId, {
       user_metadata: {
         ...prev,
         pro_milestone_enrolled_at: at,

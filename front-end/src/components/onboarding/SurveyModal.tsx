@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useOnboarding } from './OnboardingProvider';
 import { Mascot } from '@/components/gamification/Mascot';
-import { supabase } from '@/lib/supabase';
+import { authService } from '@/features/auth/session';
 import { Check } from 'lucide-react';
 import './onboarding.css';
 
@@ -37,11 +37,13 @@ export function SurveyModal() {
       // 1. Lưu vào localStorage để RewardModal đọc và truyền vào order note
       localStorage.setItem('lingopro_referral_source', source);
 
-      // 2. Lưu vào auth user metadata trên Supabase
-      const { data: { session } } = await supabase.auth.getSession();
+      // 2. Lưu vào user metadata qua authService
+      const {
+        data: { session },
+      } = await authService.getSession();
       if (session?.user) {
-        await supabase.auth.updateUser({
-          data: { referral_source: source }
+        await authService.updateUser({
+          data: { referral_source: source },
         });
       }
     } catch (err) {

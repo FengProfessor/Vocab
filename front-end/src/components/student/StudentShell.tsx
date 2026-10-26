@@ -42,6 +42,7 @@ const UpgradeGiftModal = dynamic(
 );
 
 import { useGamification } from '@/hooks/useGamification';
+import { authService } from '@/features/auth/session';
 import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
 import {
@@ -256,7 +257,7 @@ export function StudentShell({
           setIsBootstrapping(false);
         }
         if (context) {
-          const result = context.session ? null : await supabase.auth.getSession();
+          const result = context.session ? null : await authService.getSession();
           if (result?.error) return;
           const session = context.session ?? result?.data.session;
           if (isCancelled) return;
@@ -292,7 +293,7 @@ export function StudentShell({
         }
 
         // Fallback for standalone routes outside StudentProvider (e.g. /journey, /library)
-        const { data: { session }, error } = await supabase.auth.getSession();
+        const { data: { session }, error } = await authService.getSession();
         if (error) return;
         if (isCancelled) return;
         if (!session?.user) {
@@ -388,7 +389,7 @@ export function StudentShell({
     void loadShellData();
 
     // Lắng nghe thay đổi phiên đăng nhập thời gian thực (token refresh, signout ở tab khác)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: { subscription } } = authService.onAuthStateChange((event, session) => {
       if (isCancelled) return;
       if (event === 'SIGNED_OUT') {
         setInternalProfile(null);
@@ -576,7 +577,7 @@ export function StudentShell({
   };
 
   const handleSignOut = async () => {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await authService.signOut();
     if (error) { alert(error.message); return; }
     router.replace('/auth');
   };

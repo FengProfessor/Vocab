@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
@@ -45,7 +46,7 @@ function IpaMasterclassContent() {
 
   // Check auth session
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    authService.getSession().then(({ data: { session } }) => {
       setHasSession(!!session?.user);
     }).catch(() => {
       setHasSession(false);

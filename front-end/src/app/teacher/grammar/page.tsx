@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 import { authFetch } from '@/lib/auth-fetch';
 
 
@@ -96,7 +97,7 @@ export default function TeacherGrammarEditorPage() {
   // ---------- Auth + initial fetch ----------
   useEffect(() => {
     const init = async () => {
-      const { data: { user }, error } = await supabase.auth.getUser();
+      const { data: { user }, error } = await authService.getUser();
       if (error) return;
       if (!user) {
         router.push('/auth');

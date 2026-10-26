@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Common.Models;
+using LingoPro.Application.Common.Models;
 using LingoPro.Application.Features.Auth.Commands;
 using LingoPro.Application.Features.Auth.Queries;
 using LingoPro.WebApi.Extensions;
@@ -9,12 +9,14 @@ using Microsoft.AspNetCore.RateLimiting;
 namespace LingoPro.WebApi.Controllers;
 
 /// <summary>
-/// REST API controller for authentication, token refresh, Google OAuth, and user profile management.
+/// REST API controller for authentication, token refresh, Google OAuth, password recovery, and user profile management.
 /// </summary>
 [Route("api/v1/auth")]
 [EnableRateLimiting(RateLimitingExtensions.AuthenticatedUserPolicy)]
 public sealed class AuthController : ApiControllerBase
 {
+    private const string RefreshCookiePath = "/api/v1/auth";
+
     [HttpPost("login")]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<AuthTokensDto>>> Login(
@@ -51,9 +53,10 @@ public sealed class AuthController : ApiControllerBase
         [FromBody] RefreshTokenCommand? command = null,
         CancellationToken ct = default)
     {
-        var refreshToken = !string.IsNullOrWhiteSpace(command?.RefreshToken)
-            ? command.RefreshToken
-            : Request.Cookies[AuthenticationExtensions.RefreshTokenCookieName] ?? string.Empty;
+        var cookieRefreshToken = Request.Cookies[AuthenticationExtensions.RefreshTokenCookieName];
+        var refreshToken = !string.IsNullOrWhiteSpace(cookieRefreshToken)
+            ? cookieRefreshToken
+            : command?.RefreshToken ?? string.Empty;
 
         var result = await Mediator.Send(new RefreshTokenCommand(refreshToken), ct);
         if (result.Success && result.Data is not null)
@@ -69,9 +72,31 @@ public sealed class AuthController : ApiControllerBase
     public async Task<ActionResult<ApiResponse<bool>>> Logout(CancellationToken ct)
     {
         var result = await Mediator.Send(new LogoutCommand(ExtractBearerToken()), ct);
-        Response.Cookies.Delete(AuthenticationExtensions.AccessTokenCookieName, new CookieOptions { Path = "/" });
-        Response.Cookies.Delete(AuthenticationExtensions.RefreshTokenCookieName, new CookieOptions { Path = "/" });
+        ClearAuthCookies();
         return OkResponse(result, "Logged out successfully.");
+    }
+
+    [HttpPost("password/forgot")]
+    [AllowAnonymous]
+    [EnableRateLimiting(RateLimitingExtensions.ExamAntiScrapePolicy)]
+    public async Task<ActionResult<ApiResponse<bool>>> ForgotPassword(
+        [FromBody] ForgotPasswordCommand command,
+        CancellationToken ct)
+    {
+        var result = await Mediator.Send(command, ct);
+        return OkResponse(result, "If an account exists for that email address, password recovery instructions have been sent.");
+    }
+
+    [HttpPost("password/reset")]
+    [AllowAnonymous]
+    [EnableRateLimiting(RateLimitingExtensions.ExamAntiScrapePolicy)]
+    public async Task<ActionResult<ApiResponse<bool>>> ResetPassword(
+        [FromBody] ResetPasswordCommand command,
+        CancellationToken ct)
+    {
+        var result = await Mediator.Send(command, ct);
+        ClearAuthCookies();
+        return OkResponse(result, "Password has been reset successfully. Please sign in with your new password.");
     }
 
     [HttpGet("google-url")]
@@ -140,6 +165,22 @@ public sealed class AuthController : ApiControllerBase
         return OkResponse(result, "Onboarding preferences updated successfully.");
     }
 
+    [HttpPost("role/teacher")]
+    [Authorize]
+    public async Task<ActionResult<ApiResponse<ProfileDto>>> ClaimTeacherRole(CancellationToken ct)
+    {
+        var result = await Mediator.Send(new ClaimTeacherRoleCommand(), ct);
+        return OkResponse(result, "Teacher role claimed successfully.");
+    }
+
+    [HttpPost("/api/v1/users/me/onboarding/claim-xp")]
+    [Authorize]
+    public async Task<ActionResult<ApiResponse<bool>>> ClaimOnboardingXp(CancellationToken ct)
+    {
+        var result = await Mediator.Send(new ClaimOnboardingXpCommand(), ct);
+        return OkResponse(result);
+    }
+
     private string ExtractBearerToken()
     {
         var authHeader = Request.Headers.Authorization.ToString();
@@ -150,6 +191,19 @@ public sealed class AuthController : ApiControllerBase
         return Request.Cookies[AuthenticationExtensions.AccessTokenCookieName] ?? string.Empty;
     }
 
+    private void ClearAuthCookies()
+    {
+        Response.Cookies.Delete(AuthenticationExtensions.AccessTokenCookieName, new CookieOptions { Path = "/" });
+        Response.Cookies.Delete(AuthenticationExtensions.RefreshTokenCookieName, new CookieOptions { Path = "/" });
+        Response.Cookies.Delete(AuthenticationExtensions.RefreshTokenCookieName, new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Lax,
+            Path = RefreshCookiePath
+        });
+    }
+
     private void AppendAuthCookies(AuthTokensDto authTokens)
     {
         // Supabase issues no session until the email is confirmed (registration), so there is nothing to store.
@@ -157,6 +211,9 @@ public sealed class AuthController : ApiControllerBase
         {
             return;
         }
+
+        // Remove legacy root-scoped refresh cookie to avoid duplicate cookie headers.
+        Response.Cookies.Delete(AuthenticationExtensions.RefreshTokenCookieName, new CookieOptions { Path = "/" });
 
         Response.Cookies.Append(
             AuthenticationExtensions.AccessTokenCookieName,
@@ -176,10 +233,10 @@ public sealed class AuthController : ApiControllerBase
             new CookieOptions
             {
                 HttpOnly = true,
-                Secure = Request.IsHttps,
+                Secure = true,
                 SameSite = SameSiteMode.Lax,
                 Expires = authTokens.RefreshTokenExpiresAtUtc,
-                Path = "/"
+                Path = RefreshCookiePath
             });
     }
 }

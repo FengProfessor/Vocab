@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, Suspense } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -69,7 +70,7 @@ function LeaderboardContent() {
       const {
         data: { user },
         error,
-      } = await supabase.auth.getUser();
+      } = await authService.getUser();
       if (error) return;
       if (!user) {
         router.replace('/auth');

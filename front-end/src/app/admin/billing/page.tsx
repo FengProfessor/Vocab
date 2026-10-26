@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 import { authFetch } from '@/lib/auth-fetch';
 
 
@@ -168,7 +169,7 @@ export default function BillingDashboard() {
   // Initial load
   useEffect(() => {
     const init = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user } } = await authService.getUser();
       if (!user) { router.push('/auth'); return; }
       await Promise.all([loadStats(), loadOrders(), loadCoupons()]);
       setIsLoading(false);

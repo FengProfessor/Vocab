@@ -35,17 +35,20 @@ Get-ChildItem back-end/src/LingoPro.WebApi/Controllers -Filter *.cs | Select-Str
 
 | Client path | Method | Nơi gọi chính | Bridge → .NET | Trạng thái |
 |---|---|---|---|---|
-| `/api/auth/login` | POST | bridge (`app-auth-client`) | `POST /api/v1/auth/login` | ✅ |
-| `/api/auth/register`, `/api/auth/signup` | POST | `app/auth/page.tsx` | `POST /api/v1/auth/register` | ✅ |
-| `/api/auth/logout` | POST | bridge | `POST /api/v1/auth/logout` | ✅ |
-| `/api/auth/session` | GET | bridge | Không gọi mạng; trả session cache của `appAuth` | ⚠️ nên dùng `GET /api/v1/auth/profile` |
-| `/api/auth/user` | PUT | bridge | `PUT /api/v1/auth/onboarding` | ✅ |
-| `/api/auth/recovery/request` | POST | `components/auth/PasswordRecoveryForm.tsx` | fallback → 404 | 🟡 cần `POST /auth/recovery/request` |
-| `/api/auth/recovery` | POST | `components/auth/PasswordRecoveryForm.tsx` | fallback → 404 | 🟡 cần `POST /auth/recovery` (đặt mật khẩu mới) |
-| `/api/profile` | GET | `components/upsell/*` | Giống `/api/auth/session` (cache cục bộ) | ⚠️ → `GET /api/v1/auth/profile` |
+| `/api/v1/auth/login` | POST | `src/features/auth/api.ts` (`AuthApi.login`) | trực tiếp | ✅ |
+| `/api/v1/auth/register` | POST | `src/features/auth/api.ts` (`AuthApi.register`) | trực tiếp | ✅ |
+| `/api/v1/auth/logout` | POST | `src/features/auth/api.ts` (`AuthApi.logout`) | trực tiếp | ✅ |
+| `/api/v1/auth/refresh` | POST | `src/lib/apiClient.ts` (`refreshAccessToken`, single-flight + cookie HttpOnly) | trực tiếp | ✅ |
+| `/api/v1/auth/profile` | GET | `src/features/auth/api.ts` (`AuthApi.getProfile`) | trực tiếp | ✅ |
+| `/api/v1/auth/onboarding` | PUT | `src/features/auth/api.ts` (`AuthApi.updateOnboarding`) | trực tiếp | ✅ |
+| `/api/v1/auth/google-url`, `/callback/google` | GET, POST | `src/features/auth/api.ts` (`AuthApi.getGoogleOAuthUrl`, `AuthApi.exchangeGoogleCallback`) | trực tiếp | ✅ |
+| `/api/v1/auth/password/forgot` | POST | `src/features/auth/api.ts` (`AuthApi.forgotPassword`) ← `PasswordRecoveryForm.tsx` | trực tiếp | ✅ |
+| `/api/v1/auth/password/reset` | POST | `src/features/auth/api.ts` (`AuthApi.resetPassword`) ← `PasswordRecoveryForm.tsx` | trực tiếp | ✅ |
+| `/api/v1/auth/role/teacher` | POST | `src/features/auth/api.ts` (`AuthApi.claimTeacherRole`) ← `app/auth/page.tsx`, `app/auth/complete/page.tsx` | trực tiếp | ✅ |
+| `/api/v1/users/me/onboarding/claim-xp` | POST | `src/features/auth/api.ts` (`AuthApi.claimOnboardingXp`) ← `OnboardingProvider.tsx` | trực tiếp | ✅ |
+| `/api/profile` | GET | `components/upsell/*` | Bridge trả session từ `authService.getSession()` | ⚠️ → `GET /api/v1/auth/profile` |
 | `/api/profile` | PUT | `app/student/profile`, `hub/DisplayNameEditor`, `campaign/WelcomeKhaiGiangModal` | Rơi vào nhánh `/api/profile` và **chỉ trả session, không lưu gì** | 🟡 cần `PUT /auth/profile` (tên hiển thị, avatar…) |
 | `/api/extension-token` | POST | `app/student/profile/page.tsx` | fallback → 404 | 🟡 |
-| — (gọi thẳng) `/api/v1/auth/profile`, `/refresh`, `/google-url`, `/callback/google`, `/login`, `/logout`, `/onboarding` | — | `lib/apiClient.ts`, `lib/auth/AuthApi.ts`, `lib/app-auth-client.ts`, `stores/useAuthStore.ts`, `app/auth/callback/page.tsx` | trực tiếp | ✅ (đang có 3 client auth song song, gộp ở bước auth) |
 
 ## 2. Từ vựng / SRS / thư viện
 

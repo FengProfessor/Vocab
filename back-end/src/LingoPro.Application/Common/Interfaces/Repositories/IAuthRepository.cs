@@ -24,5 +24,9 @@ public interface IAuthRepository
 
     void AddUserGamification(UserGamification gamification);
 
+    Task<bool> HasXpAwardEventAsync(Guid userId, string eventKey, CancellationToken ct = default);
+
+    void AddXpAwardEvent(XpAwardEvent awardEvent);
+
     Task<int> SaveChangesAsync(CancellationToken ct = default);
 }

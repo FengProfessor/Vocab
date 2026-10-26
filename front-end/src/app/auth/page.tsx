@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
+import { authService } from '@/features/auth/session';
+import { describeOAuthQueryError, formatRawMessage } from '@/features/auth/errors';
 import Link from 'next/link';
 import {
   Brain,
@@ -95,21 +96,9 @@ export default function AuthPage() {
 
       // Lỗi OAuth từ callback / Google
       const err = params.get('error');
-      const errDesc = (params.get('error_description') || '').toLowerCase();
-      if (err === 'disallowed_useragent' || errDesc.includes('disallowed_useragent')) {
-        setDebugError(
-          'Google chặn đăng nhập trong Zalo/Facebook/WebView. Mở Chrome hoặc Safari rồi vào lingopro.online/auth',
-        );
-      } else if (err === 'oauth_relogin') {
-        setDebugError('Phiên xác minh đã hết hạn hoặc mở trên thiết bị khác. Đăng nhập lại bằng email hoặc Google.');
-      } else if (err === 'oauth' || err === 'oauth_no_session') {
-        setDebugError(
-          'Đăng nhập Google chưa hoàn tất. Mở Chrome/Safari (không mở trong Zalo/FB) rồi thử lại.',
-        );
-      } else if (err === 'access_denied') {
-        setDebugError('Bạn đã hủy đăng nhập Google.');
-      } else if (err) {
-        setDebugError(`Lỗi đăng nhập: ${err}`);
+      const errDesc = params.get('error_description');
+      if (err) {
+        setDebugError(describeOAuthQueryError(err, errDesc));
       }
     }, 0);
     return () => window.clearTimeout(timer);
@@ -148,14 +137,14 @@ export default function AuthPage() {
       void (async () => {
         const {
           data: { session },
-        } = await supabase.auth.getSession();
+        } = await authService.getSession();
         if (cancelled) return;
         if (!session) {
           setCheckingExistingSession(false);
           return;
         }
         if (new URLSearchParams(window.location.search).get('role') === 'teacher') {
-          void supabase.rpc('claim_teacher_role').then(({ error: roleErr }) => {
+          void authService.claimTeacherRole().then(({ error: roleErr }) => {
             if (roleErr) console.warn('[Auth] claim_teacher_role:', roleErr.message);
           });
         }
@@ -167,27 +156,6 @@ export default function AuthPage() {
       window.clearTimeout(t);
     };
   }, [router]);
-
-  /** Chuẩn hóa lỗi Supabase auth → tiếng Việt, gợi ý Google khi rate limit email. */
-  const formatAuthError = (raw: string): string => {
-    const m = raw.toLowerCase();
-    if (m.includes('email rate limit') || (m.includes('rate limit') && m.includes('email'))) {
-      return 'Hệ thống email đang quá tải (nhiều người đăng ký cùng lúc). Dùng «Tiếp tục với Google» hoặc thử lại sau 10–30 phút.';
-    }
-    if (m.includes('invalid login') || m.includes('invalid credentials')) {
-      return 'Sai email hoặc mật khẩu.';
-    }
-    if (m.includes('email not confirmed')) {
-      return 'Email chưa xác nhận. Hãy mở email xác nhận hoặc dùng Google.';
-    }
-    if (m.includes('user already') || m.includes('already registered')) {
-      return 'Email đã có tài khoản — hãy đăng nhập.';
-    }
-    if (m.includes('too many requests') || m.includes('429')) {
-      return 'Thao tác quá nhanh. Chờ chút rồi thử lại, hoặc dùng Google.';
-    }
-    return raw;
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -208,20 +176,15 @@ export default function AuthPage() {
         if (role === 'teacher') sessionStorage.setItem(OAUTH_ROLE_KEY, 'teacher');
         else sessionStorage.removeItem(OAUTH_ROLE_KEY);
 
-        const res = await fetch('/api/auth/register', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
-          body: JSON.stringify({
-            email: email.trim(),
-            password,
-            fullName: fullName.trim(),
-            website: '', // honeypot
-          }),
+        const { data: signupData, error: signupError } = await authService.signUp({
+          email: email.trim(),
+          password,
+          fullName: fullName.trim(),
+          role,
         });
-        const json = (await res.json()) as { success?: boolean; error?: string; code?: string };
 
-        if (!res.ok || !json.success) {
-          throw new Error(json.error || 'Không đăng ký được.');
+        if (signupError) {
+          throw signupError;
         }
 
         if (role === 'teacher') {
@@ -232,6 +195,12 @@ export default function AuthPage() {
           });
         }
 
+        if (signupData.session) {
+          setStatus('Thành công — đang vào học...');
+          window.location.replace(destFromSession(signupData.session.user));
+          return;
+        }
+
         setMode('login');
         setStatus('Đã gửi email xác nhận. Mở email rồi quay lại đăng nhập.');
         toast.success('Kiểm tra email để xác nhận tài khoản.');
@@ -240,7 +209,7 @@ export default function AuthPage() {
       }
 
       setStatus('Đang xác thực...');
-      const { data, error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await authService.signInWithPassword({
         email: email.trim(),
         password,
       });
@@ -281,7 +250,7 @@ export default function AuthPage() {
     } catch (err: unknown) {
       console.error('CRITICAL Auth Error:', err);
       const raw = err instanceof Error ? err.message : 'Xác thực thất bại.';
-      const msg = formatAuthError(raw);
+      const msg = formatRawMessage(raw);
       setDebugError(msg);
       toast.error(msg);
       setStatus('');
@@ -338,7 +307,7 @@ export default function AuthPage() {
       // Chỉ path sạch — Google + Supabase reject redirect lạ / query
       const redirectTo = `${window.location.origin}/auth/callback`;
 
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { data, error } = await authService.signInWithOAuth({
         provider: 'google',
         options: {
           redirectTo,
@@ -551,7 +520,7 @@ export default function AuthPage() {
                   <button
                     type="button"
                     onClick={async () => {
-                      const { data: { session } } = await supabase.auth.getSession();
+                      const { data: { session } } = await authService.getSession();
                       window.location.replace(
                         destFromSession(session?.user),
                       );

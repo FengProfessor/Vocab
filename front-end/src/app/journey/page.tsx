@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 /**
  * Lộ trình học (Learning Journey / Roadmap) — Giao diện Module Cards Hiện Đại & Đa Track.
@@ -283,7 +284,7 @@ export default function JourneyPage() {
     void (async () => {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) {
         // Allow guest exploration of vocab track or general roadmap without login block
         let urlTrack: RoadmapTrackId | null = null;

@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
@@ -93,7 +94,7 @@ export default function LibraryPage() {
     let active = true;
     void (async () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (!session?.user?.id) return;
         const { data: existing } = await supabase
           .from('words')
@@ -140,7 +141,7 @@ export default function LibraryPage() {
   useEffect(() => {
     let active = true;
     const load = async (): Promise<void> => {
-      const { data: { session }, error } = await supabase.auth.getSession();
+      const { data: { session }, error } = await authService.getSession();
       if (error) {
         if (active) setLoading(false);
         return;

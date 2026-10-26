@@ -1,6 +1,6 @@
 import { appConfig } from '@/config/appConfig';
 import { TokenStore } from '@/lib/auth/TokenStore';
-import { appAuth, hydrateSessionFromAuthTokens, buildSessionFromDto, type DotNetAuthTokensDto } from '@/lib/app-auth-client';
+import { appAuth } from '@/lib/app-auth-client';
 import { getRoadmapLevels, type RoadmapTrack } from '@/lib/roadmap';
 
 const API_BASE = appConfig.apiBaseUrl; // e.g. http://localhost:5000/api/v1
@@ -156,69 +156,8 @@ async function handleApiRequest(urlStr: string, init: RequestInit = {}): Promise
     });
   }
 
-  // 1. Authentication endpoints (/api/auth/*)
-  if (pathname === '/api/auth/signup' || pathname === '/api/auth/register') {
-    const body = await parseBodyJson(init);
-    const res = await rawFetch(`${API_BASE}/auth/register`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-LingoPro-Request': '1',
-      },
-      body: JSON.stringify({
-        email: body.email,
-        password: body.password,
-        fullName: body.fullName || body.full_name || body.email?.split('@')[0] || 'Học viên',
-        role: String(body.role || 'student').toLowerCase() === 'teacher' ? 'Teacher' : 'Student',
-      }),
-    });
-    const json = (await res.json().catch(() => null)) as {
-      success?: boolean;
-      message?: string;
-      data?: DotNetAuthTokensDto;
-    } | null;
-    if (!res.ok || !json?.success) {
-      return jsonResponse({ error: json?.message || 'Đăng ký không thành công.' }, res.status || 400);
-    }
-    const tokens = json.data || {};
-    const session = tokens.accessToken ? hydrateSessionFromAuthTokens(tokens) : null;
-    return jsonResponse({
-      success: true,
-      session,
-      user: session?.user ?? null,
-      needsEmailConfirmation: !tokens.accessToken,
-    });
-  }
-
-  if (pathname === '/api/auth/login') {
-    const body = await parseBodyJson(init);
-    const res = await rawFetch(`${API_BASE}/auth/login`, {
-      method: 'POST',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-LingoPro-Request': '1',
-      },
-      body: JSON.stringify({ email: body.email, password: body.password }),
-    });
-    const json = (await res.json().catch(() => null)) as {
-      success?: boolean;
-      message?: string;
-      data?: DotNetAuthTokensDto;
-    } | null;
-    if (!res.ok || !json?.success || !json.data) {
-      return jsonResponse({ error: json?.message || 'Sai email hoặc mật khẩu.' }, res.status || 401);
-    }
-    const session = hydrateSessionFromAuthTokens(json.data);
-    return jsonResponse({
-      success: true,
-      session,
-      user: session?.user ?? null,
-    });
-  }
-
-  if (pathname === '/api/auth/session' || pathname === '/api/profile') {
+  // 1. Profile compatibility endpoint (/api/profile)
+  if (pathname === '/api/profile') {
     const { data } = await appAuth.getSession();
     const session = data.session;
     return jsonResponse({
@@ -227,35 +166,6 @@ async function handleApiRequest(urlStr: string, init: RequestInit = {}): Promise
       user: session?.user ?? null,
       data: session?.user ?? null,
     });
-  }
-
-  if (pathname === '/api/auth/logout') {
-    await rawFetch(`${API_BASE}/auth/logout`, {
-      method: 'POST',
-      credentials: 'include',
-      headers,
-    }).catch(() => null);
-    return jsonResponse({ success: true });
-  }
-
-  if (pathname === '/api/auth/user') {
-    const body = await parseBodyJson(init);
-    const res = await rawFetch(`${API_BASE}/auth/onboarding`, {
-      method: 'PUT',
-      credentials: 'include',
-      headers: {
-        ...Object.fromEntries(headers.entries()),
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        learningGoal: body.data?.learning_goal || 'General',
-        dailyTargetMins: Number(body.data?.daily_goal || 10),
-        targetCertLevel: body.data?.target_level || 'B1',
-      }),
-    });
-    const json = (await res.json().catch(() => null)) as { data?: DotNetAuthTokensDto } | null;
-    const session = json?.data ? buildSessionFromDto(json.data) : null;
-    return jsonResponse({ success: res.ok, user: session?.user ?? null });
   }
 
   // 2. Vocabulary & FSRS endpoints (/api/words, /api/words/srs)

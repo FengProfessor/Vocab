@@ -31,6 +31,7 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
 
     public DbSet<Profile> Profiles => Set<Profile>();
     public DbSet<UserGamification> UserGamifications => Set<UserGamification>();
+    public DbSet<XpAwardEvent> XpAwardEvents => Set<XpAwardEvent>();
     public DbSet<Word> Words => Set<Word>();
     public DbSet<SrsProgress> SrsProgresses => Set<SrsProgress>();
     public DbSet<SrsReviewEvent> SrsReviewEvents => Set<SrsReviewEvent>();
@@ -88,7 +89,13 @@ public sealed class LingoProDbContext : DbContext, IApplicationDbContext
         builder.HasDefaultSchema("public");
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-        // 1. Auth & Account Tables (user_gamification, fcm_tokens, extension_tokens, ai_daily_usage)
+        // 1. Auth & Account Tables (user_gamification, xp_award_events, fcm_tokens, extension_tokens, ai_daily_usage)
+        builder.Entity<XpAwardEvent>(e =>
+        {
+            e.ToTable("xp_award_events");
+            e.HasKey(x => new { x.UserId, x.EventKey });
+            e.Property(x => x.ClaimedAt).HasDefaultValueSql("now()");
+        });
         builder.Entity<UserGamification>(e =>
         {
             e.ToTable("user_gamification");

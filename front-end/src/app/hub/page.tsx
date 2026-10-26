@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 /**
  * Hub thư viện pixel rộng (~100 chỗ), không sidebar.
@@ -31,7 +32,7 @@ export default function HubPage() {
       try {
         const {
           data: { user },
-        } = await supabase.auth.getUser();
+        } = await authService.getUser();
         if (!user) {
           setLoading(false);
           return;

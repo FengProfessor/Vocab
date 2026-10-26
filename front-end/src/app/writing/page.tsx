@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
@@ -77,7 +78,7 @@ function WritingContent() {
         const {
           data: { user },
           error,
-        } = await supabase.auth.getUser();
+        } = await authService.getUser();
         if (error) return;
         if (!user) {
           router.replace('/auth');

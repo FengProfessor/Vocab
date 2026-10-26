@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 /**
  * TOEIC Question History Tracker & Cloud Synchronization Protocol
@@ -658,7 +659,7 @@ export async function syncQuestionHistoryToSupabase(
   try {
     const {
       data: { session },
-    } = await supabase.auth.getSession();
+    } = await authService.getSession();
     if (!session?.user?.id) {
       // Guest mode: gracefully remain in localStorage only
       return;
@@ -729,7 +730,7 @@ export async function reconcileQuestionHistoryOnLogin(): Promise<void> {
   try {
     const {
       data: { session },
-    } = await supabase.auth.getSession();
+    } = await authService.getSession();
     if (!session?.user?.id) return;
 
     const userId = session.user.id;
@@ -871,7 +872,7 @@ export async function deleteRemotePartProgress(part?: number): Promise<void> {
   try {
     const {
       data: { session },
-    } = await supabase.auth.getSession();
+    } = await authService.getSession();
     if (!session?.user?.id) return;
 
     let query = supabase.from('user_toeic_question_history').delete().eq('user_id', session.user.id);

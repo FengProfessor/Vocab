@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -145,7 +146,7 @@ export default function TeacherDashboard() {
     const {
       data: { user },
       error,
-    } = await supabase.auth.getUser();
+    } = await authService.getUser();
     if (error) return;
     if (!user) {
       router.push('/auth');
@@ -316,7 +317,7 @@ export default function TeacherDashboard() {
   };
 
   const handleSignOut = async () => {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await authService.signOut();
     if (error) { alert(error.message); return; }
     router.push('/');
   };

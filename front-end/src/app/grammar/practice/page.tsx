@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 import { authFetch } from '@/lib/auth-fetch';
 
 
@@ -494,7 +495,7 @@ function PracticeHubContent() {
 
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       const user = session?.user ?? null;
       if (user) {
         setUserId(user.id);

@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -320,7 +321,7 @@ export default function DictionaryPage() {
 
   useEffect(() => {
     (async () => {
-      const { data: { session }, error } = await supabase.auth.getSession();
+      const { data: { session }, error } = await authService.getSession();
       if (error) return;
       if (!session?.user) { router.replace('/auth'); return; }
     })();
@@ -360,7 +361,7 @@ export default function DictionaryPage() {
     }
 
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (!session?.user) return;
 
       // Lấy personal classroom của user

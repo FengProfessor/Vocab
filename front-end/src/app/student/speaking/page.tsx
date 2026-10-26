@@ -1,3 +1,4 @@
+import { authService } from '@/features/auth/session';
 "use client";
 
 import { useState, useEffect, useRef, useMemo } from "react";
@@ -53,7 +54,7 @@ export default function StudentSpeakingPage() {
 
   useEffect(() => {
     const checkAuth = async () => {
-      const { data: { session }, error } = await supabase.auth.getSession();
+      const { data: { session }, error } = await authService.getSession();
       if (error) {
         setIsLoading(false);
         return;

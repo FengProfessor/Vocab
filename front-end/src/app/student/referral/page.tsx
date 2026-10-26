@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useState } from 'react';
 import {
@@ -247,7 +248,7 @@ export default function ReferralHubPage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session) return;
 
       const res = await fetch('/api/referral/hub', {
@@ -396,7 +397,7 @@ export default function ReferralHubPage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session) return;
 
       const res = await fetch('/api/referral/payout', {

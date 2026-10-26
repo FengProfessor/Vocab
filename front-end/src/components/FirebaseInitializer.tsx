@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useEffect } from 'react';
 
@@ -32,7 +33,7 @@ export default function FirebaseInitializer() {
         const token = await requestForToken();
         if (!token || cancelled) return;
 
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (!session || cancelled) return;
 
         const res = await fetch('/api/push/fcm-register', {

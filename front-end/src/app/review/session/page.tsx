@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 /**
  * Unified review session: mixed | cloze | listen
@@ -268,7 +269,7 @@ function SessionContent() {
     setIsLoadingFree(true);
     lastModeRef.current = null;
     try {
-      const { data: { session }, error } = await supabase.auth.getSession();
+      const { data: { session }, error } = await authService.getSession();
       if (error) { setIsLoadingFree(false); return; }
       if (!session?.user) {
         router.replace('/auth');
@@ -420,7 +421,7 @@ function SessionContent() {
         // 1. Instant hydration from IndexedDB (<5ms) in parallel with auth session check
         const cachedUserId = readLastProfileCache()?.id ?? null;
         const [sessionRes] = await Promise.all([
-          supabase.auth.getSession(),
+          authService.getSession(),
           cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
         ]);
         const { data: { session }, error } = sessionRes;

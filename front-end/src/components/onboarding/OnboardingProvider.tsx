@@ -9,7 +9,7 @@ import {
   useMemo,
   type ReactNode,
 } from 'react';
-import { supabase } from '@/lib/supabase';
+import { authService } from '@/features/auth/session';
 import {
   getActiveOnboardingSteps,
   ONBOARDING_STORAGE_KEY,
@@ -134,7 +134,7 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
     }
     if (userId) {
       try {
-        await supabase.auth.updateUser({
+        await authService.updateUser({
           data: {
             lingopro_onboarding_completed: new Date().toISOString(),
             lingopro_onboarding_version: ONBOARDING_VERSION,
@@ -150,7 +150,7 @@ export function OnboardingProvider({ children, userId, userName, userMetadata }:
   const claimOnboardingXp = useCallback(async () => {
     if (!userId) return;
     try {
-      const { error } = await supabase.rpc('claim_onboarding_xp');
+      const { error } = await authService.claimOnboardingXp();
       if (error) throw error;
     } catch (err) {
       console.warn('[Onboarding] claim_onboarding_xp failed:', err);

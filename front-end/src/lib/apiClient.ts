@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { appConfig } from '@/config/appConfig';
-import { TokenStore } from '@/lib/auth/TokenStore';
+import { TokenStore } from '@/features/auth/tokenStore';
 import { ApiResponse } from '@/types/api/ApiResponse';
 import { RetryableRequestConfig } from '@/lib/types/RetryableRequestConfig';
 import { RefreshResponseBody } from '@/lib/types/RefreshResponseBody';
@@ -13,28 +13,26 @@ export const SESSION_EXPIRED_EVENT = 'lingopro:session-expired';
 
 const API_BASE_URL = appConfig.apiBaseUrl;
 
-// The server hands tokens over in the URL fragment after login; capture them before the first request.
+// Capture any non-recovery OAuth fragment tokens before the first request.
 TokenStore.captureFromUrlHash();
 
 /** Single in-flight refresh shared by all concurrent 401s so the refresh token is rotated exactly once. */
 let refreshInFlight: Promise<boolean> | null = null;
 
-/** Shape of the token fields in the server's refresh response (ApiResponse<AuthTokensDto>). */
-
 /**
- * Rotates the session by calling POST /auth/refresh with the stored Supabase refresh token (the server
- * also accepts the HttpOnly refresh cookie when nothing is stored). Supabase rotates refresh tokens, so
- * the returned pair replaces the stored one.
- * Resolves true when renewed, false when the server definitively rejected the refresh token.
- * Network errors and 5xx responses reject so the cached session is preserved (offline-first).
+ * Rotates the session by calling POST /auth/refresh using the HttpOnly refresh cookie (`withCredentials: true`).
+ * All callers share the single-flight `refreshInFlight` promise so concurrent 401 responses trigger only one
+ * network call.
+ *
+ * Resolves `true` when renewed, `false` when the server definitively rejected the refresh token (400/401/403).
+ * Network errors and 5xx responses reject without clearing `TokenStore` so the cached session is preserved (Offline-First).
  */
-function refreshSessionCookie(): Promise<boolean> {
+export function refreshAccessToken(): Promise<boolean> {
   if (!refreshInFlight) {
-    const storedRefreshToken = TokenStore.getRefreshToken();
-    refreshInFlight = axios
+    refreshInFlight = apiClient
       .post<RefreshResponseBody>(
-        `${API_BASE_URL}/auth/refresh`,
-        storedRefreshToken ? { refreshToken: storedRefreshToken } : {},
+        '/auth/refresh',
+        {},
         {
           withCredentials: true,
           headers: { [CSRF_REQUEST_HEADER]: '1' },
@@ -42,10 +40,12 @@ function refreshSessionCookie(): Promise<boolean> {
       )
       .then((response) => {
         const tokens = response.data?.data;
-        if (tokens?.accessToken && tokens.refreshToken) {
-          TokenStore.save(tokens.accessToken, tokens.refreshToken, tokens.expiresIn ?? null);
+        if (tokens?.accessToken) {
+          TokenStore.save(tokens.accessToken, null, tokens.expiresIn ?? null);
+          return true;
         }
-        return true;
+        TokenStore.clear();
+        return false;
       })
       .catch((error: AxiosError) => {
         const status = error.response?.status;
@@ -64,9 +64,9 @@ function refreshSessionCookie(): Promise<boolean> {
 
 /**
  * Creates and configures the singleton Axios HTTP client communicating with the .NET 10 Web API.
- * Requests carry the Supabase access token as a Bearer header (captured after login) and also send the
- * HttpOnly cookies as a fallback. An expired access token is renewed transparently through the Supabase
- * refresh token. Temporary network errors or 5xx responses never clear the cached session.
+ * Requests carry the in-memory access token as a Bearer header and send HttpOnly cookies with credentials.
+ * An expired access token is renewed transparently via `refreshAccessToken()`.
+ * Temporary network errors or 5xx responses never clear the cached session.
  */
 function createApiClient(): AxiosInstance {
   const client = axios.create({
@@ -82,7 +82,7 @@ function createApiClient(): AxiosInstance {
 
   client.interceptors.request.use((config) => {
     const accessToken = TokenStore.getAccessToken();
-    if (accessToken) {
+    if (accessToken && !/\/auth\/refresh/.test(config.url ?? '')) {
       config.headers.set('Authorization', `Bearer ${accessToken}`);
     }
     return config;
@@ -99,22 +99,37 @@ function createApiClient(): AxiosInstance {
       }
 
       const requestUrl = originalRequest?.url ?? '';
-      const isRefreshCall = /\/auth\/(refresh|login|register|logout|callback\/google)/.test(requestUrl);
-      if (error.response.status === 401 && originalRequest && !originalRequest._retry && !isRefreshCall) {
+      const isPublicAuthCall =
+        /\/auth\/(refresh|login|register|logout|callback\/google|password\/(forgot|reset))/.test(
+          requestUrl,
+        );
+      if (
+        error.response.status === 401 &&
+        originalRequest &&
+        !originalRequest._retry &&
+        !isPublicAuthCall
+      ) {
         originalRequest._retry = true;
 
         try {
-          if (await refreshSessionCookie()) {
+          if (await refreshAccessToken()) {
+            const refreshedToken = TokenStore.getAccessToken();
+            if (refreshedToken && originalRequest.headers) {
+              originalRequest.headers.set('Authorization', `Bearer ${refreshedToken}`);
+            }
             return client(originalRequest);
           }
-          window.dispatchEvent(new Event(SESSION_EXPIRED_EVENT));
-        } catch {
-          // Temporary refresh failure: surface the original 401 without ending the session.
+          if (typeof window !== 'undefined') {
+            window.dispatchEvent(new Event(SESSION_EXPIRED_EVENT));
+          }
+        } catch (refreshError) {
+          // Propagate transient refresh failure (network / 5xx) so callers do not mistake it for a 401 sign-out.
+          return Promise.reject(refreshError);
         }
       }
 
       return Promise.reject(error);
-    }
+    },
   );
 
   return client;

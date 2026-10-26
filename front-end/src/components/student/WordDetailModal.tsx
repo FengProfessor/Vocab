@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
@@ -104,7 +105,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
       try {
         const [wordRes, sessionRes] = await Promise.all([
           supabase.from('words').select('*').eq('id', wordId).single(),
-          supabase.auth.getSession(),
+          authService.getSession(),
         ]);
 
         if (cancelled) return;

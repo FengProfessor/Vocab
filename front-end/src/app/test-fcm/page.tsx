@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState } from 'react';
 import { requestForToken } from '@/lib/firebase';
@@ -28,7 +29,7 @@ export default function FCMTestPage() {
       if (fcmToken) {
         setToken(fcmToken);
         addLog('Đang lưu vào Supabase...');
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (session) {
           const res = await fetch('/api/push/fcm-register', {
             method: 'POST',
@@ -69,7 +70,7 @@ export default function FCMTestPage() {
     setPushLoading(true);
     addLog('--- BẮT ĐẦU TEST PUSH NOTIFICATION ---');
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (!session?.user) {
         addLog('Lỗi: Chưa đăng nhập');
         toast.error('Bạn chưa đăng nhập!');

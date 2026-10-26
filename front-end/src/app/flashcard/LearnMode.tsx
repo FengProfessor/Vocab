@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase, type SRSProgress } from '@/lib/supabase';
@@ -141,7 +142,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         // 1. Instant hydration from IndexedDB for new words (<5ms) in parallel with auth session check
         const cachedUserId = readLastProfileCache()?.id ?? null;
         const [sessionRes] = await Promise.all([
-          supabase.auth.getSession(),
+          authService.getSession(),
           cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
         ]);
         const { data: { session }, error } = sessionRes;
@@ -431,7 +432,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     const quality = verdictToQuality(v);
     saveSrsReview(wordIdToSave, quality, crypto.randomUUID(), userId ?? undefined)
       .then(async () => {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (session?.user?.id) invalidateWordSummaryCache(session.user.id);
       })
       .catch((error) => {

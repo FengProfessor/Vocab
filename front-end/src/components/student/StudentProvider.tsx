@@ -13,7 +13,7 @@ import type { AppSession as Session } from '@/lib/app-session-types';
 import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
 import { effectiveCurrentStreak } from '@/lib/gamification';
 import { authFetch } from '@/lib/auth-fetch';
-import { authStateVersion } from '@/lib/app-auth-client';
+import { authService, authStateVersion } from '@/features/auth/session';
 import {
   readWordSummaryCache,
   readLastWordSummaryCache,
@@ -84,7 +84,7 @@ const inFlightTeacherChecks = new Map<string, Promise<boolean>>();
 
 export function fetchSessionOnce(): Promise<Session | null> {
   if (inFlightSession) return inFlightSession;
-  inFlightSession = supabase.auth
+  inFlightSession = authService
     .getSession()
     .then((res) => {
       inFlightSession = null;
@@ -562,7 +562,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, nextSession) => {
+    } = authService.onAuthStateChange((event, nextSession) => {
       if (isCancelled) return;
       if (event === 'SIGNED_OUT') {
         setSession(null);

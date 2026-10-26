@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 import { authFetch } from '@/lib/auth-fetch';
 
 
@@ -143,7 +144,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         // 1. Instant hydration from IndexedDB (<5ms) in parallel with auth session check
         const cachedUserId = readLastProfileCache()?.id ?? null;
         const [sessionRes] = await Promise.all([
-          supabase.auth.getSession(),
+          authService.getSession(),
           cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
         ]);
         const { data: { session }, error } = sessionRes;
@@ -260,7 +261,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   const loadFreeReview = async () => {
     setIsLoading(true);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (!session) return;
       const url = classroomId
         ? `/api/words?classroomId=${classroomId}&limit=40`
@@ -418,7 +419,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     // Background sync: Lưu kết quả SRS ngầm không chặn animation chuyển thẻ
     saveSrsReview(currentWordId, quality, crypto.randomUUID(), userId ?? undefined)
       .then(async () => {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (session?.user?.id) invalidateWordSummaryCache(session.user.id);
       })
       .catch((error) => {

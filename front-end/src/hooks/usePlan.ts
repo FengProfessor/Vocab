@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -55,7 +56,7 @@ export function usePlan(): UsePlanResult {
       const {
         data: { session },
         error,
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (cancelled || currentRequest !== request || version !== authStateVersion() || error) return;
       const user = session?.user;
       if (!user) {
@@ -82,7 +83,7 @@ export function usePlan(): UsePlanResult {
     const onPlanChanged = () => {
       void load();
     };
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+    const { data: { subscription } } = authService.onAuthStateChange((event) => {
       if (cancelled) return;
       if (event === 'SIGNED_OUT') {
         request++;

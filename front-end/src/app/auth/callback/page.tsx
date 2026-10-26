@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from 'react';
 import { Loader2 } from 'lucide-react';
-import { TokenStore } from '@/lib/auth/TokenStore';
+import { AuthApi } from '@/features/auth/api';
+import { hydrateSessionFromAuthTokens } from '@/features/auth/session';
 import { Pkce } from '@/lib/auth/Pkce';
-import { appConfig } from '@/config/appConfig';
 
 export default function OAuthCallbackPage() {
   const ran = useRef(false);
@@ -39,23 +39,13 @@ export default function OAuthCallbackPage() {
       }
 
       try {
-        const res = await fetch(`${appConfig.apiBaseUrl}/auth/callback/google`, {
-          method: 'POST',
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-LingoPro-Request': '1',
-          },
-          body: JSON.stringify({
-            code,
-            codeVerifier: storedVerifier,
-            role: requestedRole.toLowerCase() === 'teacher' ? 'Teacher' : 'Student',
-          }),
-        });
-        const json = await res.json();
-        const tokens = json?.data;
-        if (res.ok && tokens?.accessToken) {
-          TokenStore.save(tokens.accessToken, tokens.refreshToken || null, tokens.expiresIn || 3600);
+        const tokens = await AuthApi.exchangeGoogleCode(
+          code,
+          storedVerifier,
+          requestedRole.toLowerCase() === 'teacher' ? 'teacher' : 'student',
+        );
+        if (tokens?.accessToken) {
+          hydrateSessionFromAuthTokens(tokens);
           sessionStorage.removeItem('lp:oauth:pkce_verifier');
           window.location.replace('/auth/complete');
           return;

@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Volume2, BookmarkPlus, Check, X, Loader2, Sparkles } from 'lucide-react';
@@ -262,7 +263,7 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
     setIsSaving(true);
 
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (session?.user) {
         const res = await authFetch('/api/words', {
           method: 'POST',

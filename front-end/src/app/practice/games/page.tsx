@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
@@ -127,7 +128,7 @@ export default function EnglishGamesPage() {
       try {
         const {
           data: { user },
-        } = await supabase.auth.getUser();
+        } = await authService.getUser();
         if (!user) return;
         const { data } = await supabase
           .from('words')

@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -109,7 +110,7 @@ export default function ImportPage() {
 
   useEffect(() => {
     (async () => {
-      const { data: { session }, error } = await supabase.auth.getSession();
+      const { data: { session }, error } = await authService.getSession();
       if (error) return;
       if (!session?.user) { router.replace('/auth'); return; }
       setUserId(session.user.id);

@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useMemo, useRef, useSyncExternalStore } from 'react';
 import dynamic from 'next/dynamic';
@@ -342,7 +343,7 @@ export default function StudentDashboard() {
   useEffect(() => {
     const checkAuth = async () => {
       console.log('[Student] Auth check started');
-      const { data: { session }, error } = await supabase.auth.getSession();
+      const { data: { session }, error } = await authService.getSession();
       if (error) {
         setIsLoading(false);
         return;
@@ -393,7 +394,7 @@ export default function StudentDashboard() {
     };
     void checkAuth();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const { data: { subscription } } = authService.onAuthStateChange((event, session) => {
       if (event === 'SIGNED_IN' && session?.user) {
         void fetchClassrooms();
         // Chỉ reload khi chưa load (tránh double với getSession)

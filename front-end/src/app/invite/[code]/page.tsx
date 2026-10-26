@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useState, use } from 'react';
 import Link from 'next/link';
@@ -55,7 +56,7 @@ export default function InviteLandingPage({
       try {
         // 1 & 2. Concurrently check auth session and resolve referrer info
         const [sessionRes, resolveRes] = await Promise.all([
-          supabase.auth.getSession(),
+          authService.getSession(),
           fetch('/api/referral/resolve', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -95,7 +96,7 @@ export default function InviteLandingPage({
   const handleClaimAndStart = async () => {
     setIsClaiming(true);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (!session?.user) {
         router.push(`/auth?ref=${encodeURIComponent(code)}&mode=signup`);
         return;

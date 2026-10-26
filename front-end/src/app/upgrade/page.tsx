@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { Suspense, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
@@ -169,7 +170,7 @@ function UpgradePageContent() {
       const {
         data: { user },
         error,
-      } = await supabase.auth.getUser();
+      } = await authService.getUser();
 
       if (cancelled || error) return;
 
@@ -283,7 +284,7 @@ function UpgradePageContent() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) {
         const returnUrl = window.location.pathname + window.location.search;
         router.push(`/auth?redirectTo=${encodeURIComponent(returnUrl)}`);

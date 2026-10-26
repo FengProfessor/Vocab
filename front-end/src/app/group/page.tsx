@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
@@ -58,7 +59,7 @@ export default function GroupPage() {
     const {
       data: { session },
       error,
-    } = await supabase.auth.getSession();
+    } = await authService.getSession();
     if (error) return true;
     return Boolean(session?.user);
   }, []);

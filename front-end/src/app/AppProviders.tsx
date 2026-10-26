@@ -5,6 +5,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { PostHogProvider } from '@/components/PostHogProvider';
 import { ClientBoot } from '@/components/ClientBoot';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { AuthProvider } from '@/features/auth/AuthProvider';
 import { StudentProvider } from '@/components/student/StudentProvider';
 import { Toaster } from '@/components/ui/sonner';
 import { GlobalThemeDock } from '@/components/common/ThemeToggle';
@@ -26,7 +27,7 @@ const queryClient = new QueryClient({
 
 /**
  * Root provider composition replicating /src/app/layout.tsx (BrowserRouter, ErrorBoundary,
- * PostHogProvider, NextThemesProvider, ClientBoot, StudentProvider, Sonner Toaster).
+ * PostHogProvider, NextThemesProvider, ClientBoot, AuthProvider, StudentProvider, Sonner Toaster).
  * BrowserRouter wraps the entire tree so any provider or boot component calling
  * usePathname() / useRouter() / useSearchParams() has valid Router context.
  */
@@ -42,10 +43,12 @@ export const AppProviders: React.FC<AppProvidersProps> = ({ children }) => {
               enableSystem
               storageKey="lingopro-theme"
             >
-              <ClientBoot />
-              <StudentProvider>{children}</StudentProvider>
-              <GlobalThemeDock />
-              <Toaster position="bottom-right" richColors />
+              <AuthProvider>
+                <ClientBoot />
+                <StudentProvider>{children}</StudentProvider>
+                <GlobalThemeDock />
+                <Toaster position="bottom-right" richColors />
+              </AuthProvider>
             </NextThemesProvider>
           </QueryClientProvider>
         </PostHogProvider>

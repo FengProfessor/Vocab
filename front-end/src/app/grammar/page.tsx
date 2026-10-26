@@ -1,4 +1,5 @@
 'use client';
+import { authService } from '@/features/auth/session';
 import { authFetch } from '@/lib/auth-fetch';
 
 
@@ -221,7 +222,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
 
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) return;
 
       const [res, reviewRes] = await Promise.all([
