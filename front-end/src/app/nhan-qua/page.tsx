@@ -176,6 +176,8 @@ export default function NhanQuaKhaiGiangPage() {
           </div>
         </div>
 
+        {/* The registration form is intentionally switched off; keep the markup for a future campaign. */}
+        {/* eslint-disable-next-line no-constant-condition, no-constant-binary-expression */}
         {false && !isSuccess ? (
           <form
             onSubmit={handleSubmit}

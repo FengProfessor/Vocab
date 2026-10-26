@@ -10,6 +10,10 @@
     "typecheck": "tsc --noEmit",
     "type-check": "tsc --noEmit",
     "preview": "vite preview",
+    "typecheck:e2e": "tsc -p tests/e2e/tsconfig.json",
+    "lint": "eslint src",
+    "test:unit": "vitest run",
+    "check": "npm run typecheck && npm run typecheck:e2e && npm run lint && npm run test:unit",
     "test": "npx tsx tests/qa/run-all-qa-suites.ts",
     "test:qa": "npx tsx tests/qa/run-all-qa-suites.ts",
     "test:offline": "npx tsx tests/offline/offline-study-engine.test.ts",
@@ -22,6 +26,7 @@
     "test:pronunciation": "npx tsx tests/pronunciation/run-all-pronunciation-tests.ts",
     "test:journey": "npx tsx tests/journey/run-all-journey-tests.ts",
     "test:e2e:smoke": "node tests/e2e/application-smoke.test.mjs",
+    "test:e2e": "playwright test",
     "open-vocab:stage": "npx tsx scripts/import-open-vocab-sources.ts",
     "open-vocab:validate": "npx tsx scripts/validate-open-vocab-sources.ts",
     "open-vocab:apply": "npx tsx scripts/import-open-vocab-sources.ts --apply",
@@ -68,14 +73,24 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.64.1",
     "@tailwindcss/postcss": "^4.0.0",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "^16.3.3",
     "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20.17.0",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.39.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.13.0",
+    "jsdom": "^26.1.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.3",
-    "vite": "^6.1.0"
+    "typescript-eslint": "^8.72.0",
+    "vite": "^6.1.0",
+    "vitest": "^3.2.7"
   }
 }
