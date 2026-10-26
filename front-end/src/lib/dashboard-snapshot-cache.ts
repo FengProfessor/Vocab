@@ -1,4 +1,11 @@
 import type { Profile, UserGamification, Word } from '@/lib/supabase';
+import {
+  STORAGE_KEYS,
+  userStorage,
+  clearUserAccountStorage,
+  getLastUserId,
+  getBrowserStorages,
+} from '@/shared/lib/storage';
 
 export type ShellProfile = Profile & {
   telegram_id?: string | null;
@@ -10,26 +17,14 @@ export interface DashboardSnapshot {
   words: Word[] | null;
 }
 
-const LAST_USER_ID_KEY = 'lp:last_user_id';
-const keyForProfile = (userId: string) => `lp:profile:${userId}`;
-const keyForGamification = (userId: string) => `lp:gamification:${userId}`;
-const keyForDashboardWords = (userId: string) => `lp:dashboard-words:${userId}`;
-
-function getStorages(): Storage[] {
-  if (typeof window === 'undefined') return [];
-  const list: Storage[] = [];
-  try {
-    if (typeof localStorage !== 'undefined' && localStorage) list.push(localStorage);
-  } catch {}
-  try {
-    if (typeof sessionStorage !== 'undefined' && sessionStorage) list.push(sessionStorage);
-  } catch {}
-  return list;
-}
+const LAST_USER_ID_KEY = STORAGE_KEYS.LAST_USER_ID;
+const keyForProfile = (userId: string) => `lp:${STORAGE_KEYS.PROFILE}:${userId}`;
+const keyForGamification = (userId: string) => `lp:${STORAGE_KEYS.GAMIFICATION}:${userId}`;
+const keyForDashboardWords = (userId: string) => `lp:${STORAGE_KEYS.DASHBOARD_WORDS}:${userId}`;
 
 function safeReadJson<T>(key: string): T | null {
   if (typeof window === 'undefined') return null;
-  for (const storage of getStorages()) {
+  for (const storage of getBrowserStorages()) {
     try {
       const raw = storage.getItem(key);
       if (raw) return JSON.parse(raw) as T;
@@ -40,22 +35,12 @@ function safeReadJson<T>(key: string): T | null {
   return null;
 }
 
-function getLastUserId(): string | null {
-  for (const storage of getStorages()) {
-    try {
-      const val = storage.getItem(LAST_USER_ID_KEY);
-      if (val) return val;
-    } catch {}
-  }
-  return null;
-}
-
 /**
  * Đọc cached profile của userId xác định (từ sessionStorage hoặc localStorage).
  */
 export function readProfileCache(userId: string): ShellProfile | null {
   if (!userId) return null;
-  return safeReadJson<ShellProfile>(keyForProfile(userId));
+  return userStorage(userId).get<ShellProfile>(STORAGE_KEYS.PROFILE);
 }
 
 /**
@@ -63,7 +48,7 @@ export function readProfileCache(userId: string): ShellProfile | null {
  */
 export function readGamificationCache(userId: string): UserGamification | null {
   if (!userId) return null;
-  return safeReadJson<UserGamification>(keyForGamification(userId));
+  return userStorage(userId).get<UserGamification>(STORAGE_KEYS.GAMIFICATION);
 }
 
 /**
@@ -71,7 +56,7 @@ export function readGamificationCache(userId: string): UserGamification | null {
  */
 export function readDashboardWordsCache(userId: string): Word[] | null {
   if (!userId) return null;
-  return safeReadJson<Word[]>(keyForDashboardWords(userId));
+  return userStorage(userId).get<Word[]>(STORAGE_KEYS.DASHBOARD_WORDS);
 }
 
 /**
@@ -85,11 +70,10 @@ export function readLastProfileCache(): ShellProfile | null {
       const cached = readProfileCache(lastUserId);
       if (cached) return cached;
     }
-    // Fallback: Quét tìm key lp:profile:* đầu tiên
-    for (const storage of getStorages()) {
+    for (const storage of getBrowserStorages()) {
       for (let i = 0; i < storage.length; i++) {
         const k = storage.key(i);
-        if (k && k.startsWith('lp:profile:')) {
+        if (k && k.startsWith(`lp:${STORAGE_KEYS.PROFILE}:`)) {
           const raw = storage.getItem(k);
           if (raw) {
             try {
@@ -117,11 +101,10 @@ export function readLastGamificationCache(): UserGamification | null {
       const cached = readGamificationCache(lastUserId);
       if (cached) return cached;
     }
-    // Fallback: Quét tìm key lp:gamification:* đầu tiên
-    for (const storage of getStorages()) {
+    for (const storage of getBrowserStorages()) {
       for (let i = 0; i < storage.length; i++) {
         const k = storage.key(i);
-        if (k && k.startsWith('lp:gamification:')) {
+        if (k && k.startsWith(`lp:${STORAGE_KEYS.GAMIFICATION}:`)) {
           const raw = storage.getItem(k);
           if (raw) {
             try {
@@ -149,11 +132,10 @@ export function readLastDashboardWordsCache(): Word[] | null {
       const cached = readDashboardWordsCache(lastUserId);
       if (cached && Array.isArray(cached) && cached.length > 0) return cached;
     }
-    // Fallback: Quét tìm key lp:dashboard-words:* đầu tiên
-    for (const storage of getStorages()) {
+    for (const storage of getBrowserStorages()) {
       for (let i = 0; i < storage.length; i++) {
         const k = storage.key(i);
-        if (k && k.startsWith('lp:dashboard-words:')) {
+        if (k && k.startsWith(`lp:${STORAGE_KEYS.DASHBOARD_WORDS}:`)) {
           const raw = storage.getItem(k);
           if (raw) {
             try {
@@ -175,15 +157,7 @@ export function readLastDashboardWordsCache(): Word[] | null {
  */
 export function writeDashboardProfileCache(userId: string, profile: ShellProfile): void {
   if (typeof window === 'undefined' || !userId) return;
-  const serialized = JSON.stringify(profile);
-  for (const storage of getStorages()) {
-    try {
-      storage.setItem(keyForProfile(userId), serialized);
-      storage.setItem(LAST_USER_ID_KEY, userId);
-    } catch {
-      // QuotaExceededError or private browsing mode
-    }
-  }
+  userStorage(userId).set(STORAGE_KEYS.PROFILE, profile);
 }
 
 /**
@@ -191,15 +165,7 @@ export function writeDashboardProfileCache(userId: string, profile: ShellProfile
  */
 export function writeDashboardGamificationCache(userId: string, gamification: UserGamification): void {
   if (typeof window === 'undefined' || !userId) return;
-  const serialized = JSON.stringify(gamification);
-  for (const storage of getStorages()) {
-    try {
-      storage.setItem(keyForGamification(userId), serialized);
-      storage.setItem(LAST_USER_ID_KEY, userId);
-    } catch {
-      // QuotaExceededError or private browsing mode
-    }
-  }
+  userStorage(userId).set(STORAGE_KEYS.GAMIFICATION, gamification);
 }
 
 /**
@@ -207,17 +173,8 @@ export function writeDashboardGamificationCache(userId: string, gamification: Us
  */
 export function writeDashboardWordsCache(userId: string, words: Word[]): void {
   if (typeof window === 'undefined' || !userId) return;
-  // Lưu tối đa 20 từ preview để payload snapshot nhẹ và parse tức thì (<1ms)
   const preview = words.slice(0, 20);
-  const serialized = JSON.stringify(preview);
-  for (const storage of getStorages()) {
-    try {
-      storage.setItem(keyForDashboardWords(userId), serialized);
-      storage.setItem(LAST_USER_ID_KEY, userId);
-    } catch {
-      // QuotaExceededError or private browsing mode
-    }
-  }
+  userStorage(userId).set(STORAGE_KEYS.DASHBOARD_WORDS, preview);
 }
 
 export interface DashboardSecondarySnapshot {
@@ -226,7 +183,7 @@ export interface DashboardSecondarySnapshot {
   todayNewWords?: number;
   todayReviewWords?: number;
   studyStreak?: number;
-  vocabPacks?: Array<any>;
+  vocabPacks?: Array<unknown>;
   dailyReadingStatus?: {
     hasNew: boolean;
     title: string;
@@ -240,7 +197,7 @@ export interface DashboardSecondarySnapshot {
 
 export interface DailyReadingSnapshot {
   date?: string;
-  exercises: any[];
+  exercises: unknown[];
   doneCount?: number;
   totalCount?: number;
   hasNew?: boolean;
@@ -278,29 +235,29 @@ export interface ProfileStatsSnapshot {
   dailyGoal: number;
   todayWords: number;
   dailyActivity: { day: string; words: number; xp: number }[];
-  achievements: any[];
+  achievements: unknown[];
   updatedAt?: number;
 }
 
 export interface LibraryCatalogSnapshot {
-  routes: any[];
+  routes: unknown[];
   microPackSize: number;
   catalogVersion: string;
   updatedAt: number;
 }
 
-const keyForDashboardSecondary = (userId: string) => `lp:dashboard-secondary:${userId}`;
-const keyForDailyReading = (userId: string) => `lp:daily-reading:${userId}`;
-const keyForProfileStats = (userId: string) => `lp:profile-stats:${userId}`;
-const keyForLibraryCatalog = () => `lp:library-catalog:v1`;
-const keyForRoadmap = (userId: string, track: string) => `lp:roadmap:${userId}:${track}`;
-const keyForChallengeWidget = (userId: string) => `lp:challenge-widget:${userId}`;
-const keyForProMilestone = (userId: string) => `lp:pro-milestone:${userId}`;
+const keyForDashboardSecondary = (userId: string) => `lp:${STORAGE_KEYS.DASHBOARD_SECONDARY}:${userId}`;
+const keyForDailyReading = (userId: string) => `lp:${STORAGE_KEYS.DAILY_READING}:${userId}`;
+const keyForProfileStats = (userId: string) => `lp:${STORAGE_KEYS.PROFILE_STATS}:${userId}`;
+const keyForLibraryCatalog = () => STORAGE_KEYS.LIBRARY_CATALOG;
+const keyForRoadmap = (userId: string, track: string) => `lp:${STORAGE_KEYS.ROADMAP}:${userId}:${track}`;
+const keyForChallengeWidget = (userId: string) => `lp:${STORAGE_KEYS.CHALLENGE_WIDGET}:${userId}`;
+const keyForProMilestone = (userId: string) => `lp:${STORAGE_KEYS.PRO_MILESTONE}:${userId}`;
 
 function safeWriteJson(key: string, value: unknown, userId?: string): void {
   if (typeof window === 'undefined') return;
   const serialized = JSON.stringify(value);
-  for (const storage of getStorages()) {
+  for (const storage of getBrowserStorages()) {
     try {
       storage.setItem(key, serialized);
       if (userId) {
@@ -324,7 +281,7 @@ function readByUserOrPrefix<T>(
       const cached = safeReadJson<T>(keyBuilder(lastUserId));
       if (cached && (!validator || validator(cached))) return cached;
     }
-    for (const storage of getStorages()) {
+    for (const storage of getBrowserStorages()) {
       for (let i = 0; i < storage.length; i++) {
         const k = storage.key(i);
         if (k && k.startsWith(prefix)) {
@@ -346,12 +303,12 @@ function readByUserOrPrefix<T>(
 
 export function readLastDashboardSecondaryCache(userId?: string | null): DashboardSecondarySnapshot | null {
   if (userId) {
-    const direct = safeReadJson<DashboardSecondarySnapshot>(keyForDashboardSecondary(userId));
+    const direct = userStorage(userId).get<DashboardSecondarySnapshot>(STORAGE_KEYS.DASHBOARD_SECONDARY);
     if (direct && typeof direct === 'object') return direct;
   }
   return readByUserOrPrefix<DashboardSecondarySnapshot>(
     keyForDashboardSecondary,
-    'lp:dashboard-secondary:',
+    `lp:${STORAGE_KEYS.DASHBOARD_SECONDARY}:`,
     (v) => typeof v === 'object' && v !== null,
   );
 }
@@ -361,25 +318,24 @@ export function writeDashboardSecondaryCache(
   partial: Partial<DashboardSecondarySnapshot>,
 ): void {
   if (typeof window === 'undefined' || !userId) return;
-  const existing = safeReadJson<DashboardSecondarySnapshot>(keyForDashboardSecondary(userId)) || {};
+  const existing = userStorage(userId).get<DashboardSecondarySnapshot>(STORAGE_KEYS.DASHBOARD_SECONDARY) || {};
   const merged: DashboardSecondarySnapshot = {
     ...existing,
     ...partial,
     updatedAt: Date.now(),
   };
-  safeWriteJson(keyForDashboardSecondary(userId), merged, userId);
+  userStorage(userId).set(STORAGE_KEYS.DASHBOARD_SECONDARY, merged);
 }
 
 export function readLastDailyReadingCache(userId?: string | null): DailyReadingSnapshot | null {
   const snap = userId
-    ? safeReadJson<DailyReadingSnapshot>(keyForDailyReading(userId))
+    ? userStorage(userId).get<DailyReadingSnapshot>(STORAGE_KEYS.DAILY_READING)
     : readByUserOrPrefix<DailyReadingSnapshot>(
         keyForDailyReading,
-        'lp:daily-reading:',
+        `lp:${STORAGE_KEYS.DAILY_READING}:`,
         (v) => typeof v === 'object' && v !== null && Array.isArray(v.exercises),
       );
   if (!snap || !Array.isArray(snap.exercises) || snap.exercises.length === 0) return null;
-  // Invalidate if cached from a previous calendar day in Vietnam timezone (Asia/Ho_Chi_Minh)
   const todayKey = getTodayKeyVN();
   if (snap.date && snap.date !== todayKey) return null;
   return snap;
@@ -396,24 +352,30 @@ export function writeDailyReadingCache(
     date: todayKey,
     updatedAt: Date.now(),
   };
-  safeWriteJson(keyForDailyReading(userId), record, userId);
+  userStorage(userId).set(STORAGE_KEYS.DAILY_READING, record);
 }
 
-export function readLastProfileStatsCache<T = any>(userId?: string | null): T | null {
+export function readLastProfileStatsCache<T = Record<string, unknown>>(userId?: string | null): T | null {
   if (userId) {
-    const direct = safeReadJson<T>(keyForProfileStats(userId));
+    const direct = userStorage(userId).get<T>(STORAGE_KEYS.PROFILE_STATS);
     if (direct && typeof direct === 'object') return direct;
   }
   return readByUserOrPrefix<T>(
     keyForProfileStats,
-    'lp:profile-stats:',
-    (v) => typeof v === 'object' && v !== null && ('wordStats' in (v as any) || 'totalWords' in (v as any)),
+    `lp:${STORAGE_KEYS.PROFILE_STATS}:`,
+    (v) =>
+      typeof v === 'object' &&
+      v !== null &&
+      ('wordStats' in (v as Record<string, unknown>) || 'totalWords' in (v as Record<string, unknown>)),
   );
 }
 
-export function writeProfileStatsCache<T = any>(userId: string, stats: T): void {
+export function writeProfileStatsCache<T = Record<string, unknown>>(userId: string, stats: T): void {
   if (typeof window === 'undefined' || !userId || !stats || typeof stats !== 'object') return;
-  safeWriteJson(keyForProfileStats(userId), { ...(stats as any), updatedAt: Date.now() }, userId);
+  userStorage(userId).set(STORAGE_KEYS.PROFILE_STATS, {
+    ...(stats as Record<string, unknown>),
+    updatedAt: Date.now(),
+  });
 }
 
 export function readLibraryCatalogCache(): LibraryCatalogSnapshot | null {
@@ -427,16 +389,15 @@ export function writeLibraryCatalogCache(payload: Omit<LibraryCatalogSnapshot, '
   safeWriteJson(keyForLibraryCatalog(), { ...payload, updatedAt: Date.now() });
 }
 
-export function readLastRoadmapCache<T = any>(track: string, userId?: string | null): T[] | null {
+export function readLastRoadmapCache<T = unknown>(track: string, userId?: string | null): T[] | null {
   if (typeof window === 'undefined' || !track) return null;
   const uid = userId || getLastUserId() || 'anon';
-  const snap = safeReadJson<{ nodes: T[]; updatedAt: number }>(keyForRoadmap(uid, track));
+  const snap = userStorage(uid).get<{ nodes: T[]; updatedAt: number }>(`${STORAGE_KEYS.ROADMAP}:${track}`);
   if (snap && Array.isArray(snap.nodes) && snap.nodes.length > 0) return snap.nodes;
-  // Fallback scan for any user's cached track if getLastUserId wasn't set yet
-  for (const storage of getStorages()) {
+  for (const storage of getBrowserStorages()) {
     for (let i = 0; i < storage.length; i++) {
       const k = storage.key(i);
-      if (k && k.startsWith('lp:roadmap:') && k.endsWith(`:${track}`)) {
+      if (k && k.startsWith(`lp:${STORAGE_KEYS.ROADMAP}:`) && k.endsWith(`:${track}`)) {
         const parsed = safeReadJson<{ nodes: T[]; updatedAt: number }>(k);
         if (parsed && Array.isArray(parsed.nodes) && parsed.nodes.length > 0) {
           return parsed.nodes;
@@ -447,46 +408,46 @@ export function readLastRoadmapCache<T = any>(track: string, userId?: string | n
   return null;
 }
 
-export function writeRoadmapCache<T = any>(track: string, nodes: T[], userId?: string | null): void {
+export function writeRoadmapCache<T = unknown>(track: string, nodes: T[], userId?: string | null): void {
   if (typeof window === 'undefined' || !track || !Array.isArray(nodes) || nodes.length === 0) return;
   const uid = userId || getLastUserId() || 'anon';
   safeWriteJson(keyForRoadmap(uid, track), { nodes, updatedAt: Date.now() }, userId || undefined);
 }
 
-export function readLastChallengeWidgetCache<T = any>(userId?: string | null): T | null {
+export function readLastChallengeWidgetCache<T = unknown>(userId?: string | null): T | null {
   if (userId) {
-    const direct = safeReadJson<{ data: T; updatedAt: number }>(keyForChallengeWidget(userId));
+    const direct = userStorage(userId).get<{ data: T; updatedAt: number }>(STORAGE_KEYS.CHALLENGE_WIDGET);
     if (direct && direct.data !== undefined) return direct.data;
   }
   const found = readByUserOrPrefix<{ data: T; updatedAt: number }>(
     keyForChallengeWidget,
-    'lp:challenge-widget:',
+    `lp:${STORAGE_KEYS.CHALLENGE_WIDGET}:`,
     (v) => typeof v === 'object' && v !== null && 'data' in v,
   );
   return found ? found.data : null;
 }
 
-export function writeChallengeWidgetCache<T = any>(userId: string, data: T): void {
+export function writeChallengeWidgetCache<T = unknown>(userId: string, data: T): void {
   if (typeof window === 'undefined' || !userId) return;
-  safeWriteJson(keyForChallengeWidget(userId), { data, updatedAt: Date.now() }, userId);
+  userStorage(userId).set(STORAGE_KEYS.CHALLENGE_WIDGET, { data, updatedAt: Date.now() });
 }
 
-export function readLastProMilestoneCache<T = any>(userId?: string | null): T | null {
+export function readLastProMilestoneCache<T = unknown>(userId?: string | null): T | null {
   if (userId) {
-    const direct = safeReadJson<{ data: T; updatedAt: number }>(keyForProMilestone(userId));
+    const direct = userStorage(userId).get<{ data: T; updatedAt: number }>(STORAGE_KEYS.PRO_MILESTONE);
     if (direct && direct.data !== undefined) return direct.data;
   }
   const found = readByUserOrPrefix<{ data: T; updatedAt: number }>(
     keyForProMilestone,
-    'lp:pro-milestone:',
+    `lp:${STORAGE_KEYS.PRO_MILESTONE}:`,
     (v) => typeof v === 'object' && v !== null && 'data' in v,
   );
   return found ? found.data : null;
 }
 
-export function writeProMilestoneCache<T = any>(userId: string, data: T): void {
+export function writeProMilestoneCache<T = unknown>(userId: string, data: T): void {
   if (typeof window === 'undefined' || !userId) return;
-  safeWriteJson(keyForProMilestone(userId), { data, updatedAt: Date.now() }, userId);
+  userStorage(userId).set(STORAGE_KEYS.PRO_MILESTONE, { data, updatedAt: Date.now() });
 }
 
 /**
@@ -505,26 +466,14 @@ export function writeDashboardSnapshot(
   if (snapshot.words) writeDashboardWordsCache(userId, snapshot.words);
 }
 
-const USER_SCOPED_PREFIXES = [
-  'lp:profile:',
-  'lp:gamification:',
-  'lp:dashboard-words:',
-  'lp:dashboard-secondary:',
-  'lp:daily-reading:',
-  'lp:profile-stats:',
-  'lp:roadmap:',
-  'lp:challenge-widget:',
-  'lp:pro-milestone:',
-];
-
 /**
  * Xóa cache snapshot khi logout hoặc switch account.
  */
 export function clearDashboardSnapshotCache(userId?: string | null): void {
   if (typeof window === 'undefined') return;
-  for (const storage of getStorages()) {
-    try {
-      if (userId) {
+  if (userId) {
+    for (const storage of getBrowserStorages()) {
+      try {
         storage.removeItem(keyForProfile(userId));
         storage.removeItem(keyForGamification(userId));
         storage.removeItem(keyForDashboardWords(userId));
@@ -538,25 +487,11 @@ export function clearDashboardSnapshotCache(userId?: string | null): void {
         }
         const lastId = storage.getItem(LAST_USER_ID_KEY);
         if (lastId === userId) storage.removeItem(LAST_USER_ID_KEY);
-      } else {
-        const keysToRemove: string[] = [];
-        for (let i = 0; i < storage.length; i++) {
-          const k = storage.key(i);
-          if (
-            k &&
-            (USER_SCOPED_PREFIXES.some((prefix) => k.startsWith(prefix)) ||
-              k === LAST_USER_ID_KEY)
-          ) {
-            keysToRemove.push(k);
-          }
-        }
-        for (const k of keysToRemove) {
-          storage.removeItem(k);
-        }
+      } catch {
+        // ignore
       }
-    } catch {
-      // ignore
     }
+  } else {
+    clearUserAccountStorage();
   }
 }
-

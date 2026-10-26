@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   callDotNetRaw,
   callServerOriginApi,
+  LegacyRequestOptions,
   normalizePayloadData,
 } from '@/shared/api/client';
 import { withResponseCompat } from '@/shared/api/unwrap';
@@ -17,13 +17,10 @@ export class BillingApi {
   /**
    * Validates a discount coupon code via `GET /api/v1/billing/coupons/validate`.
    */
-  public static async validateCoupon(
-    input: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async validateCoupon(input: unknown, options?: LegacyRequestOptions) {
     const parsed = typeof input === 'string' ? { code: input } : normalizePayloadData(input);
     const code = String(parsed.code ?? '').trim();
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>(
       '/billing/coupons/validate',
       {
         method: 'GET',
@@ -38,11 +35,8 @@ export class BillingApi {
   /**
    * Creates a new subscription payment order via `POST /api/v1/billing/orders`.
    */
-  public static async createOrder(
-    rawBody: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+  public static async createOrder(rawBody: unknown, options?: LegacyRequestOptions) {
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/billing/orders',
       {
         method: 'POST',
@@ -57,8 +51,8 @@ export class BillingApi {
   /**
    * Retrieves billing dashboard statistics via `GET /api/v1/admin/crm/dashboard`.
    */
-  public static async getStats(options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any }) {
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>(
+  public static async getStats(options?: LegacyRequestOptions) {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>(
       '/admin/crm/dashboard',
       {
         method: 'GET',
@@ -81,7 +75,7 @@ export class BillingApi {
    */
   public static async getOrders(
     params?: Record<string, unknown> | string,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
+    options?: LegacyRequestOptions,
   ) {
     let queryParams: Record<string, unknown> = {};
     if (typeof params === 'string') {
@@ -104,10 +98,10 @@ export class BillingApi {
   public static async confirmOrder(
     orderId: string,
     rawBody?: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
+    options?: LegacyRequestOptions,
   ) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/billing/orders/confirm-paid',
       {
         method: 'POST',
@@ -130,7 +124,7 @@ export class BillingApi {
   /**
    * Lists discount coupons for administrative management.
    */
-  public static async getCoupons(options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any }) {
+  public static async getCoupons(options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/billing/coupons', {
       method: 'GET',
       headers: options?.headers,
@@ -140,10 +134,7 @@ export class BillingApi {
   /**
    * Creates a discount coupon.
    */
-  public static async createCoupon(
-    rawBody: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async createCoupon(rawBody: unknown, options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/billing/coupons', {
       method: 'POST',
       data: normalizePayloadData(rawBody),
@@ -154,10 +145,7 @@ export class BillingApi {
   /**
    * Deletes a discount coupon by ID.
    */
-  public static async deleteCoupon(
-    couponIdOrUrl: string,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async deleteCoupon(couponIdOrUrl: string, options?: LegacyRequestOptions) {
     const id = couponIdOrUrl.includes('?')
       ? new URLSearchParams(couponIdOrUrl.slice(couponIdOrUrl.indexOf('?') + 1)).get('id') ||
         couponIdOrUrl
@@ -172,7 +160,7 @@ export class BillingApi {
   /**
    * Retrieves Pro Trial milestone eligibility and progress.
    */
-  public static async getProMilestone(options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any }) {
+  public static async getProMilestone(options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/billing/pro-milestone', {
       method: 'GET',
       headers: options?.headers,
@@ -182,10 +170,7 @@ export class BillingApi {
   /**
    * Claims a Pro Trial milestone reward.
    */
-  public static async claimProMilestone(
-    rawBody?: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async claimProMilestone(rawBody?: unknown, options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/billing/pro-milestone', {
       method: 'POST',
       data: normalizePayloadData(rawBody),
@@ -196,10 +181,7 @@ export class BillingApi {
   /**
    * Redeems a promotional gift code.
    */
-  public static async redeemGift(
-    rawBody: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async redeemGift(rawBody: unknown, options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/billing/redeem-gift', {
       method: 'POST',
       data: normalizePayloadData(rawBody),

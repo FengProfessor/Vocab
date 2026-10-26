@@ -1,3 +1,5 @@
+import { env } from '@/shared/config/env';
+
 type FirebaseWebConfig = {
   apiKey: string;
   authDomain: string;
@@ -28,31 +30,27 @@ function readEnv(value: string | undefined): string {
 }
 
 const envFirebasePublicConfig: FirebasePublicConfig = {
-  apiKey: readEnv(process.env.NEXT_PUBLIC_FIREBASE_API_KEY),
-  authDomain: readEnv(process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN),
-  projectId: readEnv(process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID),
-  storageBucket: readEnv(process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET),
-  messagingSenderId: readEnv(process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID),
-  appId: readEnv(process.env.NEXT_PUBLIC_FIREBASE_APP_ID),
-  vapidKey: readEnv(process.env.NEXT_PUBLIC_FIREBASE_VAPID_KEY),
+  apiKey: readEnv(env.firebase.apiKey),
+  authDomain: readEnv(env.firebase.authDomain),
+  projectId: readEnv(env.firebase.projectId),
+  storageBucket: readEnv(env.firebase.storageBucket),
+  messagingSenderId: readEnv(env.firebase.messagingSenderId),
+  appId: readEnv(env.firebase.appId),
+  vapidKey: readEnv(env.firebase.vapidKey),
 };
 
 const envValues = Object.values(envFirebasePublicConfig);
 const hasAnyFirebaseEnv = envValues.some(Boolean);
 const hasFullFirebaseEnv = envValues.every(Boolean);
 
-/** Env khớp fallback từng field — mới tin env (tránh Vercel set lệch 1 field → token-subscribe-failed). */
-const envMatchesFallback = hasFullFirebaseEnv && (
-  Object.keys(FALLBACK_FIREBASE_PUBLIC_CONFIG) as (keyof FirebasePublicConfig)[]
-).every((k) => envFirebasePublicConfig[k] === FALLBACK_FIREBASE_PUBLIC_CONFIG[k]);
-
 if (hasAnyFirebaseEnv && !hasFullFirebaseEnv) {
   console.warn('[FCM] Partial Firebase env on server/build — using bundled config.');
 }
 
 // Luôn dùng env nếu có đủ các trường, nếu không dùng fallback
-export const firebasePublicConfig: FirebasePublicConfig = hasFullFirebaseEnv ? envFirebasePublicConfig : FALLBACK_FIREBASE_PUBLIC_CONFIG;
-// Luôn bundled — không phụ thuộc Vercel env CRLF
+export const firebasePublicConfig: FirebasePublicConfig = hasFullFirebaseEnv
+  ? envFirebasePublicConfig
+  : FALLBACK_FIREBASE_PUBLIC_CONFIG;
 
 export const firebaseWebConfig: FirebaseWebConfig = {
   apiKey: firebasePublicConfig.apiKey,

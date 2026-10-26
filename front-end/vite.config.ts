@@ -13,7 +13,6 @@ export default defineConfig({
   define: {
     'process.env': {
       NODE_ENV: process.env.NODE_ENV || 'development',
-      NEXT_PUBLIC_SITE_URL: process.env.VITE_SITE_URL || 'https://lingopro.online',
     },
   },
   resolve: {
@@ -40,5 +39,82 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          const normalized = id.replace(/\\/g, '/');
+
+          if (normalized.includes('/node_modules/')) {
+            if (
+              normalized.includes('/node_modules/react/') ||
+              normalized.includes('/node_modules/react-dom/') ||
+              normalized.includes('/node_modules/react-router') ||
+              normalized.includes('/node_modules/scheduler/')
+            ) {
+              return 'vendor-react';
+            }
+            if (
+              normalized.includes('/node_modules/recharts') ||
+              normalized.includes('/node_modules/d3-') ||
+              normalized.includes('/node_modules/victory-vendor')
+            ) {
+              return 'vendor-charts';
+            }
+            if (
+              normalized.includes('/node_modules/lucide-react') ||
+              normalized.includes('/node_modules/@base-ui/react') ||
+              normalized.includes('/node_modules/sonner')
+            ) {
+              return 'vendor-ui';
+            }
+            if (
+              normalized.includes('/node_modules/@tanstack/react-query') ||
+              normalized.includes('/node_modules/axios') ||
+              normalized.includes('/node_modules/zustand')
+            ) {
+              return 'vendor-query';
+            }
+          }
+
+          if (
+            normalized.includes('/src/data/speaking/') ||
+            normalized.includes('/src/data/conversations/')
+          ) {
+            return 'data-speaking';
+          }
+          if (
+            normalized.includes('/src/data/toeic/') ||
+            normalized.includes('sat-thu-toeic-listening-data') ||
+            normalized.includes('/src/lib/toeic-test-loader')
+          ) {
+            return 'data-toeic';
+          }
+          if (
+            normalized.includes('/src/data/vstep/') ||
+            normalized.includes('/src/data/vnu-bac-3/') ||
+            normalized.includes('/src/lib/vstep-test-loader')
+          ) {
+            return 'data-vstep';
+          }
+          if (
+            normalized.includes('/src/data/grammar') ||
+            normalized.includes('/src/lib/grammar-roadmap-data') ||
+            normalized.includes('/src/lib/grammar-exercises')
+          ) {
+            return 'data-grammar';
+          }
+          if (
+            normalized.includes('/src/data/vocab/') ||
+            normalized.includes('/src/data/roadmap/') ||
+            normalized.includes('/src/lib/vocab-catalog') ||
+            normalized.includes('/src/lib/roadmap.ts')
+          ) {
+            return 'data-vocab';
+          }
+
+          return undefined;
+        },
+      },
+    },
   },
 });

@@ -8,6 +8,7 @@ import {
   writeDashboardGamificationCache,
   clearDashboardSnapshotCache,
 } from '@/lib/dashboard-snapshot-cache';
+import { clearUserAccountStorage } from '@/shared/lib/storage';
 import { AuthApi, type DotNetAuthTokensDto } from '@/features/auth/api';
 import { describeError } from '@/features/auth/errors';
 import { TokenStore } from '@/features/auth/tokenStore';
@@ -31,28 +32,11 @@ export function clearLegacyAuthStorage(): void {
   TokenStore.captureFromUrlHash();
 }
 
-function clearAccountCache(): void {
+function clearAccountCache(userId?: string | null): void {
   if (typeof window === 'undefined') return;
   TokenStore.clear();
-  clearDashboardSnapshotCache();
-  for (const name of ['localStorage', 'sessionStorage'] as const) {
-    try {
-      const storage = window[name];
-      const keys = Array.from({ length: storage.length }, (_, index) => storage.key(index));
-      for (const key of keys) {
-        if (
-          key &&
-          /^(lp:(profile|gamification|teacher|word-summary|dashboard-words):|lp:last_user_id$|lp_ref_checked$|lp:upsell:paid_|lingopro\.auth\.)/.test(
-            key,
-          )
-        ) {
-          storage.removeItem(key);
-        }
-      }
-    } catch {
-      /* Offline preferences are independent of authentication. */
-    }
-  }
+  clearDashboardSnapshotCache(userId);
+  clearUserAccountStorage(userId);
 }
 
 export function authStateVersion(): number {

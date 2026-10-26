@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   callDotNetRaw,
   callServerOriginApi,
+  LegacyRequestOptions,
   normalizePayloadData,
 } from '@/shared/api/client';
 import { withResponseCompat } from '@/shared/api/unwrap';
@@ -18,8 +18,8 @@ export class DictionaryApi {
    * Looks up a word or phrase in the canonical `.NET 10` dictionary (`GET /api/v1/dictionary/lookup`).
    */
   public static async lookup(
-    input: string | { word?: string; term?: string; context?: string } | Record<string, any>,
-    options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any },
+    input: string | { word?: string; term?: string; context?: string } | Record<string, unknown>,
+    options?: LegacyRequestOptions,
   ) {
     let term = '';
     let context: string | undefined;
@@ -40,7 +40,7 @@ export class DictionaryApi {
     const params: Record<string, unknown> = { term };
     if (context) params.context = context;
 
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>('/dictionary/lookup', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>('/dictionary/lookup', {
       method: 'GET',
       params,
       signal: options?.signal,
@@ -52,20 +52,14 @@ export class DictionaryApi {
   /**
    * Performs AI-assisted word lookup via `.NET 10` dictionary endpoint (`GET /api/v1/dictionary/lookup`).
    */
-  public static async aiLookup(
-    rawBody: unknown,
-    options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async aiLookup(rawBody: unknown, options?: LegacyRequestOptions) {
     return DictionaryApi.lookup(normalizePayloadData(rawBody), options);
   }
 
   /**
    * Performs AI phrase/collocation lookup.
    */
-  public static async aiPhraseLookup(
-    rawBody: unknown,
-    options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async aiPhraseLookup(rawBody: unknown, options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/dictionary/ai-phrase-lookup', {
       method: 'POST',
       data: normalizePayloadData(rawBody),
@@ -76,7 +70,7 @@ export class DictionaryApi {
   /**
    * Queries external Wiktionary/fallback dictionary (`GET /api/dictionary/external`).
    */
-  public static async lookupExternal(word: string, options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any }) {
+  public static async lookupExternal(word: string, options?: LegacyRequestOptions) {
     let cleanWord = word.trim();
     if (cleanWord.includes('?')) {
       const sp = new URLSearchParams(cleanWord.slice(cleanWord.indexOf('?') + 1));
@@ -92,7 +86,7 @@ export class DictionaryApi {
   /**
    * Queries autocomplete/fuzzy suggestions (`GET /api/dictionary/suggest`).
    */
-  public static async suggest(queryOrUrl: string, options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any }) {
+  public static async suggest(queryOrUrl: string, options?: LegacyRequestOptions) {
     let q = queryOrUrl.trim();
     if (q.includes('?')) {
       const sp = new URLSearchParams(q.slice(q.indexOf('?') + 1));
@@ -127,12 +121,9 @@ export class DictionaryApi {
   /**
    * Analyzes a sentence syntactically via `POST /api/v1/ai-coaching/sentence/analyze`.
    */
-  public static async analyzeSentence(
-    rawBody: unknown,
-    options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async analyzeSentence(rawBody: unknown, options?: LegacyRequestOptions) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/ai-coaching/sentence/analyze',
       {
         method: 'POST',
@@ -160,7 +151,7 @@ export class DictionaryApi {
    */
   public static async evaluateSpeakingDialogue(rawBody: unknown) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/ai-coaching/speaking/dialogue',
       {
         method: 'POST',
@@ -186,10 +177,7 @@ export class DictionaryApi {
   /**
    * Translates text between languages (`/api/translate`).
    */
-  public static async translate(
-    rawBody: unknown,
-    options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async translate(rawBody: unknown, options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/translate', {
       method: 'POST',
       data: normalizePayloadData(rawBody),

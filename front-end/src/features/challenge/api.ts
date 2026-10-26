@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   callDotNetRaw,
   callServerOriginApi,
@@ -15,7 +14,7 @@ export class ChallengeApi {
    * Lists commitment challenges via `GET /api/v1/challenges`.
    */
   public static async getChallenges(params?: { includeAll?: boolean | number | string }) {
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>[]>('/challenges', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>('/challenges', {
       method: 'GET',
       params: params as Record<string, unknown>,
     });
@@ -34,11 +33,11 @@ export class ChallengeApi {
    * Retrieves a single challenge by slug or ID.
    */
   public static async getChallengeBySlug(slug: string) {
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>[]>('/challenges', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>('/challenges', {
       method: 'GET',
     });
     if (ok && Array.isArray(body?.data)) {
-      const match = body!.data.find(
+      const match = body.data.find(
         (c) => String(c.slug ?? '') === slug || String(c.id ?? '') === slug,
       );
       if (match) {
@@ -58,7 +57,7 @@ export class ChallengeApi {
    * Creates a new commitment challenge via `POST /api/v1/challenges`.
    */
   public static async createChallenge(rawBody: unknown) {
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/challenges',
       {
         method: 'POST',
@@ -66,7 +65,7 @@ export class ChallengeApi {
       },
     );
     return withResponseCompat(
-      (resBody ?? { success: ok }) as Record<string, any>,
+      resBody ?? { success: ok },
       status,
       ok,
     );
@@ -76,7 +75,7 @@ export class ChallengeApi {
    * Enrolls the authenticated user in a challenge via `POST /api/v1/challenges/{challengeId}/join`.
    */
   public static async joinChallenge(challengeId: string, rawBody?: unknown) {
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       `/challenges/${encodeURIComponent(challengeId)}/join`,
       {
         method: 'POST',
@@ -100,7 +99,7 @@ export class ChallengeApi {
    */
   public static async submitLead(rawBody: unknown) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/admin/leads/subscribe',
       {
         method: 'POST',

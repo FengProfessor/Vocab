@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   apiDelete,
   callDotNetRaw,
   callServerOriginApi,
+  LegacyRequestOptions,
   normalizePayloadData,
 } from '@/shared/api/client';
 import { withResponseCompat } from '@/shared/api/unwrap';
@@ -87,11 +87,7 @@ export class GrammarApi {
    */
   public static async getTopics(
     params?: Record<string, unknown> | string,
-    options?: RequestInit & {
-      headers?: HeadersInit | Record<string, string>;
-      signal?: AbortSignal | null;
-      [key: string]: any;
-    },
+    options?: LegacyRequestOptions,
   ) {
     let queryParams: Record<string, unknown> = {};
     if (typeof params === 'string') {
@@ -102,7 +98,7 @@ export class GrammarApi {
       queryParams = params;
     }
 
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>[]>('/grammar/topics', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>('/grammar/topics', {
       method: 'GET',
       params: queryParams,
       headers: options?.headers,
@@ -128,13 +124,9 @@ export class GrammarApi {
    */
   public static async getProgress(
     _params?: Record<string, unknown> | string,
-    options?: RequestInit & {
-      headers?: HeadersInit | Record<string, string>;
-      signal?: AbortSignal | null;
-      [key: string]: any;
-    },
+    options?: LegacyRequestOptions,
   ) {
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>('/vocab/analytics', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>('/vocab/analytics', {
       method: 'GET',
       params: { limit: 0, offset: 0 },
       headers: options?.headers,
@@ -145,7 +137,7 @@ export class GrammarApi {
       {
         success: ok,
         dueCount: grammarDueCount,
-        data: [] as any[],
+        data: [] as Record<string, unknown>[],
       },
       status,
       ok,
@@ -157,7 +149,7 @@ export class GrammarApi {
    */
   public static async submitProgress(rawBody: unknown) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/grammar/progress',
       {
         method: 'POST',
@@ -185,11 +177,7 @@ export class GrammarApi {
       | number
       | string
       | { days?: number; signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string> },
-    _options?: RequestInit & {
-      signal?: AbortSignal | null;
-      headers?: HeadersInit | Record<string, string>;
-      [key: string]: any;
-    },
+    _options?: LegacyRequestOptions,
   ) {
     let days = 14;
     if (typeof daysOrOptions === 'number') {
@@ -323,7 +311,9 @@ export class GrammarApi {
       topic_id: String(payload.topic_id || ''),
       title: String(payload.title || ''),
       theory_vi: String(payload.theory_vi || ''),
-      examples: Array.isArray(payload.examples) ? payload.examples : [],
+      examples: Array.isArray(payload.examples)
+        ? (payload.examples as Array<{ en: string; vi: string }>)
+        : [],
       created_at: new Date().toISOString(),
     };
     const nextList = [nextLesson, ...current.filter((item) => item.id !== id)];
@@ -351,15 +341,13 @@ export class GrammarApi {
    * Creates or updates a classroom grammar exercise.
    */
   public static async createExercise(rawBody: unknown) {
+    const record =
+      rawBody && typeof rawBody === 'object'
+        ? (rawBody as Record<string, unknown>)
+        : {};
     const inferredMethod =
-      rawBody &&
-      typeof rawBody === 'object' &&
-      'method' in (rawBody as Record<string, any>) &&
-      typeof (rawBody as Record<string, any>).method === 'string'
-        ? (String((rawBody as Record<string, any>).method).toUpperCase() as
-            | 'POST'
-            | 'PUT'
-            | 'DELETE')
+      typeof record.method === 'string'
+        ? (record.method.toUpperCase() as 'POST' | 'PUT' | 'DELETE')
         : 'POST';
     return callServerOriginApi('/api/grammar', {
       method: inferredMethod,

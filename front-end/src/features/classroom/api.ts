@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   apiDelete,
   apiPut,
   callDotNetRaw,
   callServerOriginApi,
+  LegacyRequestOptions,
   normalizePayloadData,
 } from '@/shared/api/client';
 import { withResponseCompat } from '@/shared/api/unwrap';
@@ -22,7 +22,7 @@ export class ClassroomApi {
    * Lists classrooms for the authenticated student or teacher via `GET /api/v1/classrooms`.
    */
   public static async getClassrooms() {
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>[]>('/classrooms', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>('/classrooms', {
       method: 'GET',
     });
     const payload = mapClassroomsList(body?.data);
@@ -34,13 +34,16 @@ export class ClassroomApi {
    */
   public static async createClassroom(rawBody: unknown) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>('/classrooms', {
-      method: 'POST',
-      data: {
-        name: body.name,
-        description: body.description || '',
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
+      '/classrooms',
+      {
+        method: 'POST',
+        data: {
+          name: body.name,
+          description: body.description || '',
+        },
       },
-    });
+    );
     return withResponseCompat(
       {
         success: ok,
@@ -60,7 +63,7 @@ export class ClassroomApi {
     classroomId: string,
     body: { name: string; description?: string },
   ) {
-    return apiPut<Record<string, any>>(`/classrooms/${classroomId}`, {
+    return apiPut<Record<string, unknown>>(`/classrooms/${classroomId}`, {
       name: body.name,
       description: body.description || '',
     });
@@ -78,7 +81,7 @@ export class ClassroomApi {
    */
   public static async joinClassroom(rawBody: unknown) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/classrooms/join',
       {
         method: 'POST',
@@ -104,7 +107,7 @@ export class ClassroomApi {
    */
   public static async assignDrill(rawBody: unknown) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/classrooms/assign-drill',
       {
         method: 'POST',
@@ -112,7 +115,7 @@ export class ClassroomApi {
       },
     );
     return withResponseCompat(
-      (resBody ?? { success: ok }) as Record<string, any>,
+      resBody ?? { success: ok },
       status,
       ok,
     );
@@ -121,10 +124,7 @@ export class ClassroomApi {
   /**
    * Retrieves the leaderboard for a classroom.
    */
-  public static async getLeaderboard(
-    classroomId: string,
-    options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async getLeaderboard(classroomId: string, options?: LegacyRequestOptions) {
     return callServerOriginApi(`/api/classrooms/${encodeURIComponent(classroomId)}/leaderboard`, {
       method: 'GET',
       signal: options?.signal,
@@ -149,7 +149,7 @@ export class ClassroomApi {
    */
   public static async getTeacherStats(
     classroomIdOrUrl?: string | null,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; signal?: AbortSignal | null; [key: string]: any },
+    options?: LegacyRequestOptions,
   ) {
     const params: Record<string, unknown> = { _t: Date.now() };
     if (classroomIdOrUrl) {

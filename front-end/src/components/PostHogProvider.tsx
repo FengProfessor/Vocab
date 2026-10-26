@@ -1,18 +1,18 @@
-
 import {
   type ComponentType,
   type ReactNode,
   useEffect,
   useState,
 } from 'react';
+import { env } from '@/shared/config/env';
 
 /**
  * PostHog analytics — lazy load SDK.
- * AN TOÀN: thiếu NEXT_PUBLIC_POSTHOG_KEY → no-op, không tải SDK.
+ * AN TOÀN: thiếu VITE_POSTHOG_KEY → no-op, không tải SDK.
  * SDK chỉ import sau idle → không chặn hydration / TTI.
  */
 export function PostHogProvider({ children }: { children: ReactNode }) {
-  const key = process.env.NEXT_PUBLIC_POSTHOG_KEY;
+  const key = env.posthogKey;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [client, setClient] = useState<any>(null);
   const [Provider, setProvider] = useState<ComponentType<{
@@ -34,7 +34,7 @@ export function PostHogProvider({ children }: { children: ReactNode }) {
         if (cancelled) return;
 
         posthog.init(key, {
-          api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
+          api_host: env.posthogHost,
           person_profiles: 'identified_only',
           capture_pageview: true,
           capture_pageleave: true,

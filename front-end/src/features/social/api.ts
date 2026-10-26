@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   callDotNetRaw,
   callServerOriginApi,
+  LegacyRequestOptions,
   normalizePayloadData,
 } from '@/shared/api/client';
 import { withResponseCompat } from '@/shared/api/unwrap';
@@ -14,8 +14,8 @@ export class SocialApi {
   /**
    * Retrieves referral hub statistics and active study groups via `GET /api/v1/social/referrals/hub`.
    */
-  public static async getReferralHub(options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any }) {
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>(
+  public static async getReferralHub(options?: LegacyRequestOptions) {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>(
       '/social/referrals/hub',
       {
         method: 'GET',
@@ -29,19 +29,16 @@ export class SocialApi {
   /**
    * Retrieves the authenticated user's study groups via `GET /api/v1/social/referrals/hub`.
    */
-  public static async getMyGroups(options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any }) {
+  public static async getMyGroups(options?: LegacyRequestOptions) {
     return SocialApi.getReferralHub(options);
   }
 
   /**
    * Claims a referral code via `POST /api/v1/social/referrals/claim`.
    */
-  public static async claimReferral(
-    rawBody: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async claimReferral(rawBody: unknown, options?: LegacyRequestOptions) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/social/referrals/claim',
       {
         method: 'POST',
@@ -72,7 +69,7 @@ export class SocialApi {
   /**
    * Evaluates whether a referred learner has reached activation criteria.
    */
-  public static async evaluateReferralActivation(options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any }) {
+  public static async evaluateReferralActivation(options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/referral/evaluate-activation', {
       method: 'POST',
       headers: options?.headers,
@@ -82,10 +79,7 @@ export class SocialApi {
   /**
    * Submits a referral payout request.
    */
-  public static async requestReferralPayout(
-    rawBody: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async requestReferralPayout(rawBody: unknown, options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/referral/payout', {
       method: 'POST',
       data: normalizePayloadData(rawBody),
@@ -96,12 +90,9 @@ export class SocialApi {
   /**
    * Joins a collaborative study group via `POST /api/v1/social/groups/join`.
    */
-  public static async joinGroup(
-    rawBody: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async joinGroup(rawBody: unknown, options?: LegacyRequestOptions) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/social/groups/join',
       {
         method: 'POST',
@@ -122,10 +113,7 @@ export class SocialApi {
   /**
    * Leaves the current study group.
    */
-  public static async leaveGroup(
-    rawBody?: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
-  ) {
+  public static async leaveGroup(rawBody?: unknown, options?: LegacyRequestOptions) {
     return callServerOriginApi('/api/groups/leave', {
       method: 'POST',
       data: normalizePayloadData(rawBody),
@@ -139,7 +127,7 @@ export class SocialApi {
   public static async removeGroupMember(
     groupId: string,
     rawBody: unknown,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; [key: string]: any },
+    options?: LegacyRequestOptions,
   ) {
     return callServerOriginApi(`/api/groups/${encodeURIComponent(groupId)}/remove`, {
       method: 'POST',

@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   apiGet,
   callDotNetRaw,
   callServerOriginApi,
+  LegacyRequestOptions,
   normalizePayloadData,
 } from '@/shared/api/client';
 import { withResponseCompat } from '@/shared/api/unwrap';
@@ -86,11 +86,7 @@ export class VocabApi {
    */
   public static async getWords(
     query?: VocabWordsQuery | string,
-    options?: RequestInit & {
-      signal?: AbortSignal | null;
-      headers?: HeadersInit | Record<string, string>;
-      [key: string]: any;
-    },
+    options?: LegacyRequestOptions,
   ) {
     const parsed = parseWordsQueryInput(query);
     const params: Record<string, unknown> = {
@@ -101,7 +97,7 @@ export class VocabApi {
       params.classroomId = parsed.classroomId;
     }
 
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>('/vocab/analytics', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>('/vocab/analytics', {
       method: 'GET',
       params,
       signal: options?.signal,
@@ -120,7 +116,7 @@ export class VocabApi {
     headers?: HeadersInit | Record<string, string>;
   }) {
     const isLite = Boolean(options?.lite);
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>('/vocab/analytics', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>('/vocab/analytics', {
       method: 'GET',
       params: { limit: 0, offset: 0 },
       signal: options?.signal,
@@ -141,7 +137,7 @@ export class VocabApi {
    * Fetches due vocabulary cards via `GET /api/v1/vocab/due`.
    */
   public static async getDueWords(limit = 50) {
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>[]>('/vocab/due', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>('/vocab/due', {
       method: 'GET',
       params: { limit },
     });
@@ -152,16 +148,9 @@ export class VocabApi {
   /**
    * Submits an FSRS-5 card review via `POST /api/v1/vocab/review`.
    */
-  public static async submitSrsReview(
-    rawBody: unknown,
-    options?: RequestInit & {
-      signal?: AbortSignal | null;
-      headers?: HeadersInit | Record<string, string>;
-      [key: string]: any;
-    },
-  ) {
+  public static async submitSrsReview(rawBody: unknown, options?: LegacyRequestOptions) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/vocab/review',
       {
         method: 'POST',
@@ -192,8 +181,8 @@ export class VocabApi {
   public static async getPacks() {
     return withResponseCompat({
       success: true,
-      packs: [] as any[],
-      data: [] as any[],
+      packs: [] as Record<string, unknown>[],
+      data: [] as Record<string, unknown>[],
     });
   }
 

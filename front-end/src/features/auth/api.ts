@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { apiClient } from '@/lib/apiClient';
 import { ApiResponse } from '@/types/api';
 import { AuthTokensPayload } from '@/features/auth/types';
@@ -273,10 +272,16 @@ export class AuthApi {
    */
   public static async updateProfile(rawInput: unknown) {
     const input = normalizePayloadData(rawInput);
+    const fullName = String(
+      input.full_name ?? input.fullName ?? input.displayName ?? 'Học viên',
+    );
+    const learningGoal = String(
+      input.learning_goal ?? input.learningGoal ?? 'General',
+    );
     try {
       const dto = await AuthApi.updateOnboarding({
-        fullName: input.full_name ?? input.fullName ?? input.displayName,
-        learningGoal: input.learning_goal ?? input.learningGoal ?? 'General',
+        fullName,
+        learningGoal,
         dailyTargetMins: Number(input.daily_goal ?? input.dailyTargetMins ?? 15),
       });
       return withResponseCompat({

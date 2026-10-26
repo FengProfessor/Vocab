@@ -1,4 +1,3 @@
-﻿/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AxiosError, AxiosRequestConfig } from 'axios';
 import { appConfig } from '@/config/appConfig';
 import {
@@ -9,6 +8,7 @@ import {
 } from '@/lib/apiClient';
 import { ApiResponse } from '@/types/api';
 import {
+  DynamicApiPayload,
   ResponseCompat,
   unwrapApiResponse,
   withResponseCompat,
@@ -25,26 +25,32 @@ export interface DomainRequestOptions {
   timeout?: number;
 }
 
+export type LegacyRequestOptions = Omit<RequestInit, 'headers' | 'signal'> & {
+  headers?: HeadersInit | Record<string, string>;
+  signal?: AbortSignal | null;
+  [key: string]: unknown;
+};
+
 /**
  * Normalizes any body or RequestInit-like input into a plain JSON object.
  */
-export function normalizePayloadData(input: unknown): Record<string, any> {
+export function normalizePayloadData(input: unknown): Record<string, unknown> {
   if (!input) return {};
   if (typeof input === 'string') {
     try {
-      return JSON.parse(input) as Record<string, any>;
+      return JSON.parse(input) as Record<string, unknown>;
     } catch {
       return {};
     }
   }
   if (typeof input === 'object') {
-    const record = input as Record<string, any>;
+    const record = input as Record<string, unknown>;
     if (
       typeof record.body === 'string' &&
       ('method' in record || 'headers' in record || Object.keys(record).length <= 4)
     ) {
       try {
-        return JSON.parse(record.body) as Record<string, any>;
+        return JSON.parse(record.body) as Record<string, unknown>;
       } catch {
         return {};
       }
@@ -123,7 +129,7 @@ export async function apiDelete<T>(url: string, config?: AxiosRequestConfig): Pr
  * Executes a request against `/api/v1/*` via `apiClient` without throwing on non-2xx HTTP status,
  * returning `{ ok, status, body }` for domain mappers that adapt envelopes into UI shapes.
  */
-export async function callDotNetRaw<T = any>(
+export async function callDotNetRaw<T = Record<string, unknown>>(
   url: string,
   options: DomainRequestOptions = {},
 ): Promise<{ ok: boolean; status: number; body: ApiResponse<T> | null }> {
@@ -158,7 +164,7 @@ export async function callDotNetRaw<T = any>(
  * Executes a request through `apiClient` against the .NET server root (`appConfig.serverOrigin`)
  * for non-`/api/v1` endpoints such as `/api/lead-magnet/*` or fallback routes.
  */
-export async function callServerOriginApi<T extends Record<string, any> = Record<string, any>>(
+export async function callServerOriginApi<T extends object = DynamicApiPayload>(
   path: string,
   options: DomainRequestOptions = {},
 ): Promise<T & ResponseCompat<T>> {

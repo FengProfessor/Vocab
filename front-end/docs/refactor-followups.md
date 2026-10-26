@@ -14,5 +14,6 @@
 
 ## Tối ưu chất lượng & hiệu năng tiếp theo
 
-- [ ] **Tách nhỏ các god component/page lớn** (`src/app/student/page.tsx`, `StudentShell.tsx`, `StudentProvider.tsx`, `toeic/page.tsx`, `vstep/page.tsx`, `dictionary/page.tsx`) thành các sub-components và custom hooks nhỏ gọn.
-- [ ] **Chuẩn hoá key localStorage/sessionStorage qua helper tập trung** và bật dần các rule lint khắt khe (`no-explicit-any`, `no-console`) trên toàn bộ component cũ.
+- [ ] **Tách nhỏ tiếp các provider/page lớn còn lại** (`src/components/student/StudentProvider.tsx`, `src/app/student/dictionary/page.tsx`) thành các sub-components và custom hooks nhỏ gọn (các màn hình chính `src/app/student/page.tsx`, `StudentShell.tsx`, `src/app/toeic/page.tsx`, `src/app/vstep/page.tsx` đã được tách).
+- [ ] **Mở rộng chuẩn hoá storage & bật dần các rule lint khắt khe (`no-explicit-any`, `no-console`) trên toàn bộ UI component cũ** (API layer `src/shared/api/*.ts` & `src/features/*/api.ts`, cấu hình `src/shared/config/env.ts`, typecheck `src/data`, `manualChunks` và helper user-scoped storage `src/shared/lib/storage.ts` cho auth/dashboard/word-summary/reading-library đã hoàn tất).
+

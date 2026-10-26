@@ -1,4 +1,3 @@
-﻿/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ApiResponse } from '@/types/api';
 
 /**
@@ -40,18 +39,24 @@ export function unwrapApiResponse<T>(body: ApiResponse<T> | null | undefined): T
   return body.data;
 }
 
+type JsonParsedPayload = Awaited<ReturnType<Response['json']>>;
+
+/**
+ * Loose dictionary payload returned by legacy/fallback endpoints.
+ */
+export type DynamicApiPayload = Record<string, JsonParsedPayload>;
+
 /**
  * Compatibility surface allowing callers migrating from `Response` to access either
  * direct properties on the returned DTO or legacy `.ok`, `.status`, and `.json()` helpers.
  */
-export interface ResponseCompat<T = any> extends Response {
+export interface ResponseCompat<T = DynamicApiPayload> extends Response {
   readonly ok: boolean;
   readonly status: number;
   readonly headers: Headers;
-  json<R = any>(): Promise<R>;
   text(): Promise<string>;
   readonly _payloadType?: T;
-  [key: string]: any;
+  [key: string]: JsonParsedPayload;
 }
 
 /**
@@ -59,14 +64,14 @@ export interface ResponseCompat<T = any> extends Response {
  * to a domain payload object so both direct DTO consumers and legacy `res.ok` / `await res.json()` callers
  * work seamlessly.
  */
-export function withResponseCompat<T extends Record<string, any> = Record<string, any>>(
+export function withResponseCompat<T extends object = DynamicApiPayload>(
   payload: T,
   status = 200,
   ok = status >= 200 && status < 300,
-): T & ResponseCompat<T> & Record<string, any> {
-  const target = (payload && typeof payload === 'object' ? payload : { data: payload }) as T &
-    ResponseCompat<T> &
-    Record<string, any>;
+): T & ResponseCompat<T> & DynamicApiPayload {
+  const target = (
+    payload && typeof payload === 'object' ? payload : { data: payload }
+  ) as T & ResponseCompat<T> & DynamicApiPayload;
 
   if (!('ok' in target)) {
     Object.defineProperty(target, 'ok', {

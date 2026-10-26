@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   callDotNetRaw,
   callServerOriginApi,
@@ -24,7 +23,7 @@ export class SpeakingApi {
   public static async getDiagnosticProbes(options?: {
     headers?: HeadersInit | Record<string, string>;
   }) {
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>[]>(
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>(
       '/speaking-foundation/diagnostic/probes',
       {
         method: 'GET',
@@ -42,7 +41,7 @@ export class SpeakingApi {
     params: RecordEvidenceParams,
     options?: { headers?: HeadersInit | Record<string, string> },
   ) {
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>(
       '/speaking-foundation/evidence',
       {
         method: 'POST',
@@ -61,7 +60,7 @@ export class SpeakingApi {
     options?: { headers?: HeadersInit | Record<string, string> },
   ) {
     const payload = normalizePayloadData(params);
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>(
       '/ai-coaching/speaking/dialogue',
       {
         method: 'POST',

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   callDotNetRaw,
   normalizePayloadData,
@@ -266,7 +265,7 @@ export class RoadmapApi {
       trackParam = sp.get('track');
     }
     const dotNetTrack = mapTrackToDotNet(trackParam);
-    const { ok, body } = await callDotNetRaw<Record<string, any>>('/roadmap', {
+    const { ok, body } = await callDotNetRaw<Record<string, unknown>>('/roadmap', {
       method: 'GET',
       params: { track: dotNetTrack },
     });
@@ -299,12 +298,12 @@ export class RoadmapApi {
       (body.answers && typeof body.answers === 'object'
         ? scorePlacement(body.answers as Record<string, string>)
         : 'A1');
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/roadmap/placement',
       {
         method: 'POST',
         data: {
-          track: mapTrackToDotNet(body.track),
+          track: mapTrackToDotNet(String(body.track ?? '')),
           levelId: computedLevel,
         },
       },
@@ -325,7 +324,7 @@ export class RoadmapApi {
    */
   public static async completeStep(rawBody: unknown) {
     const body = normalizePayloadData(rawBody);
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/roadmap/steps/complete',
       {
         method: 'POST',
@@ -339,7 +338,7 @@ export class RoadmapApi {
       {
         success: ok,
         data: {
-          xpAwarded: resBody?.data?.xpAwarded ?? 15,
+          xpAwarded: Number(resBody?.data?.xpAwarded ?? 15),
           unitCompleted: false,
           levelCompleted: false,
           levelId: 'A1',

@@ -60,9 +60,9 @@ function fromBase64Url(b64url: string): string {
   return decodeURIComponent(escape(atob(b64)));
 }
 
-const HMAC_SECRET =
-  process.env.VSTEP_SECURITY_SECRET ||
-  'lingopro_vstep_anti_scraping_guard_2026_b1b2c1';
+import { env } from '@/shared/config/env';
+
+const HMAC_SECRET = env.vstepSecuritySecret;
 
 // Invisible Zero-Width Unicode Characters for Text Steganography
 export const ZW_ZERO = '\u200B';

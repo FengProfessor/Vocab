@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   apiDelete,
   apiGet,
   apiPost,
   callDotNetRaw,
+  LegacyRequestOptions,
   normalizePayloadData,
 } from '@/shared/api/client';
 import { withResponseCompat } from '@/shared/api/unwrap';
@@ -142,7 +142,7 @@ export class ExamApi {
     input?: Record<string, unknown> | string,
     method: 'GET' | 'POST' = 'GET',
   ) {
-    let params: Record<string, any> = {};
+    let params: Record<string, unknown> = {};
     if (method === 'POST' && typeof input === 'object') {
       params = normalizePayloadData(input);
     } else if (typeof input === 'string') {
@@ -260,7 +260,7 @@ export class ExamApi {
           t.displayId.toLowerCase() === cleanTestId.toLowerCase(),
       );
 
-      let practiceMeta: any = null;
+      let practiceMeta: { title: string; durationMinutes: number } | null = null;
       if (!fullMeta && catalog.practiceParts) {
         for (const pKey of Object.keys(catalog.practiceParts)) {
           const item = catalog.practiceParts[pKey]?.find(
@@ -336,11 +336,7 @@ export class ExamApi {
    */
   public static async explainToeicQuestion(
     rawBody: unknown,
-    _options?: RequestInit & {
-      signal?: AbortSignal | null;
-      headers?: HeadersInit | Record<string, string>;
-      [key: string]: any;
-    },
+    _options?: LegacyRequestOptions,
   ) {
     const body = normalizePayloadData(rawBody);
     const rawTestId = typeof body.testId === 'string' ? body.testId.trim() : '6852';
@@ -844,7 +840,7 @@ export class ExamApi {
 
     const { ok } = await callDotNetRaw('/exams/vstep/submit', {
       method: 'POST',
-      data: mapVstepSubmitToDotNet(body, scoreResult as unknown as Record<string, any>),
+      data: mapVstepSubmitToDotNet(body, scoreResult as unknown as Record<string, unknown>),
     });
 
     return withResponseCompat({
@@ -871,7 +867,7 @@ export class ExamApi {
       body.taskId || (examType === 'VnuBac3' ? 'task1' : 'part1'),
     );
 
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/exams/writing/evaluate',
       {
         method: 'POST',
@@ -983,7 +979,13 @@ export class ExamApi {
       );
     }
 
-    let targetQuestion: any = null;
+    let targetQuestion: {
+      id: string;
+      explanationVi?: string;
+      correctAnswer?: string | number;
+      answerIndex?: number;
+      vocabularyNotes?: Array<{ word: string; meaning: string; ipa?: string }>;
+    } | null = null;
     let targetTranscript = '';
     for (const section of rawExam.sections) {
       for (const task of section.tasks) {
@@ -1051,7 +1053,7 @@ export class ExamApi {
 
     const result = gradeVnuBac3Exam(
       rawExam,
-      body.answers || {},
+      (body.answers || {}) as Record<string, string>,
       Number(body.timeSpentSeconds) || 0,
     );
 
@@ -1059,7 +1061,7 @@ export class ExamApi {
       method: 'POST',
       data: mapVstepSubmitToDotNet(
         body,
-        result as unknown as Record<string, any>,
+        result as unknown as Record<string, unknown>,
       ),
     });
 

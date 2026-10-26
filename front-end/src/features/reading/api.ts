@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   callDotNetRaw,
   callServerOriginApi,
@@ -27,7 +26,7 @@ export class ReadingApi {
       queryParams = params;
     }
 
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>[]>('/reading/articles', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>('/reading/articles', {
       method: 'GET',
       params: queryParams,
     });
@@ -48,7 +47,7 @@ export class ReadingApi {
    * Submits reading progress via `POST /api/v1/reading/daily/submit`.
    */
   public static async submitProgress(rawBody: unknown) {
-    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
+    const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/reading/daily/submit',
       {
         method: 'POST',
@@ -77,7 +76,7 @@ export class ReadingApi {
     } else if (params) {
       queryParams = params as Record<string, unknown>;
     }
-    const { ok, status, body } = await callDotNetRaw<Record<string, any>>('/reading/daily', {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>('/reading/daily', {
       method: 'GET',
       params: queryParams,
     });

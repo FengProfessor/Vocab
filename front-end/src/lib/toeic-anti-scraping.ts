@@ -67,10 +67,10 @@ function hmacBase64Url(secret: string, data: string): string {
   return toBase64Url(simpleHashHex(`${secret}:${data}`));
 }
 
+import { env } from '@/shared/config/env';
+
 // Server-side HMAC Secret (configured via env or hardened internal fallback)
-const HMAC_SECRET =
-  process.env.TOEIC_SECURITY_SECRET ||
-  'lingopro_anti_scraping_guard_2026_salt_f79a29e1c';
+const HMAC_SECRET = env.toeicSecuritySecret;
 
 // Invisible Zero-Width Unicode Characters for Text Steganography
 export const ZW_ZERO = '\u200B'; // Zero-Width Space: bit 0
@@ -454,6 +454,6 @@ export function createPoisonedQuestionBank(
   return poisoned;
 }
 
-if (process.env.NODE_ENV !== 'production') {
+if (!env.isProduction) {
   clearAllBotFlags();
 }
