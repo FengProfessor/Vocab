@@ -3,7 +3,8 @@ import { authService } from '@/features/auth/session';
 
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
+import { apiClient } from '@/lib/apiClient';
+import type { ApiResponse } from '@/types/api/ApiResponse';
 import { authFetch } from '@/lib/auth-fetch';
 import type { Word, SRSProgress, RichCollocationEntry, WordFamilyEntry, DictionaryMeaning } from '@/lib/supabase';
 import { stabilityToLevel } from '@/lib/srs';
@@ -104,19 +105,73 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
     (async () => {
       try {
         const [wordRes, sessionRes] = await Promise.all([
-          supabase.from('words').select('*').eq('id', wordId).single(),
+          apiClient.get<
+            ApiResponse<{
+              id: string;
+              classroomId: string;
+              addedBy?: string | null;
+              term: string;
+              translation: string;
+              ipa?: string | null;
+              pos?: string | null;
+              example?: string | null;
+              exampleVi?: string | null;
+              sourceUrl?: string | null;
+              imageUrl?: string | null;
+              dictionaryData?: string | Record<string, unknown> | null;
+              synonyms?: string[];
+              antonyms?: string[];
+              createdAt?: string | null;
+              srsState?: string | number | null;
+              stability?: number;
+              difficulty?: number;
+              intervalDays?: number;
+              reviewCount?: number;
+              easeFactor?: number;
+              nextReviewDate?: string | null;
+              lastReviewedAt?: string | null;
+            }>
+          >(`/vocab/words/${wordId}`),
           authService.getSession(),
         ]);
 
         if (cancelled) return;
 
-        if (wordRes.error || !wordRes.data) {
+        const dto = wordRes.data?.data;
+        if (!wordRes.data?.success || !dto) {
           toast.error('Không tải được từ. Có thể đã bị xóa.');
           onClose();
           return;
         }
 
-        const loadedWord = wordRes.data as WordDetail;
+        let parsedDictData: WordDetail['dictionary_data'] = null;
+        if (typeof dto.dictionaryData === 'string' && dto.dictionaryData.trim()) {
+          try {
+            parsedDictData = JSON.parse(dto.dictionaryData) as WordDetail['dictionary_data'];
+          } catch {
+            parsedDictData = null;
+          }
+        } else if (dto.dictionaryData && typeof dto.dictionaryData === 'object') {
+          parsedDictData = dto.dictionaryData as WordDetail['dictionary_data'];
+        }
+
+        const loadedWord: WordDetail = {
+          id: dto.id,
+          classroom_id: dto.classroomId,
+          added_by: dto.addedBy ?? '',
+          word: dto.term,
+          translation: dto.translation,
+          ipa: dto.ipa ?? undefined,
+          pos: dto.pos ?? undefined,
+          example: dto.example ?? undefined,
+          example_vi: dto.exampleVi ?? null,
+          source_url: dto.sourceUrl ?? undefined,
+          image_url: dto.imageUrl ?? undefined,
+          dictionary_data: parsedDictData,
+          synonyms: dto.synonyms ?? [],
+          antonyms: dto.antonyms ?? [],
+          created_at: dto.createdAt ?? new Date().toISOString(),
+        };
         setWord(loadedWord);
 
         // Auto-hydrate word family / meanings if missing in user's saved word
@@ -143,14 +198,21 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
         }
 
         const uid = sessionRes.data.session?.user.id;
-        if (uid) {
-          const { data: srsData } = await supabase
-            .from('srs_progress')
-            .select('*')
-            .eq('user_id', uid)
-            .eq('word_id', wordId)
-            .maybeSingle();
-          if (!cancelled) setSrs((srsData as SRSProgressFull) || null);
+        if (uid && ((dto.reviewCount ?? 0) > 0 || dto.nextReviewDate || dto.lastReviewedAt)) {
+          setSrs({
+            id: `${uid}:${dto.id}`,
+            user_id: uid,
+            word_id: dto.id,
+            ease_factor: dto.easeFactor ?? 2.5,
+            interval_days: dto.intervalDays ?? 0,
+            review_count: dto.reviewCount ?? 0,
+            next_review_date: dto.nextReviewDate ?? '',
+            stability: dto.stability ?? 0,
+            difficulty: dto.difficulty ?? 5.0,
+            last_reviewed_at: dto.lastReviewedAt ?? undefined,
+          });
+        } else {
+          setSrs(null);
         }
       } catch (err) {
         if (!cancelled) {

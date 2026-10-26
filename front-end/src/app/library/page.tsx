@@ -9,7 +9,6 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
-import { supabase } from '@/lib/supabase';
 import { StudentShell } from '@/components/student/StudentShell';
 import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
 import { playWordAudio } from '@/lib/audio';
@@ -96,12 +95,17 @@ export default function LibraryPage() {
       try {
         const { data: { session } } = await authService.getSession();
         if (!session?.user?.id) return;
-        const { data: existing } = await supabase
-          .from('words')
-          .select('word')
-          .eq('added_by', session.user.id)
-          .in('word', previewPack.words);
-        if (active && existing && existing.length > 0) {
+        const wordsRes = await authFetch('/api/words?limit=500&offset=0&classroomId=__personal__', {})
+          .then((r) => r.json())
+          .catch(() => null);
+        const allWords = Array.isArray(wordsRes?.data)
+          ? (wordsRes.data as Array<{ word?: string }>)
+          : [];
+        const packSet = new Set(previewPack.words.map((w) => w.toLowerCase().trim()));
+        const existing = allWords.filter(
+          (item) => item.word && packSet.has(item.word.toLowerCase().trim()),
+        );
+        if (active && existing.length > 0) {
           setSavedWords((prev) => {
             const next = new Set(prev);
             for (const item of existing) {

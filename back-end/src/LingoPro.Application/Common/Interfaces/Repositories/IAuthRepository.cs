@@ -28,5 +28,7 @@ public interface IAuthRepository
 
     void AddXpAwardEvent(XpAwardEvent awardEvent);
 
+    Task ClearDuplicateFcmTokenAsync(Guid currentUserId, string fcmToken, CancellationToken ct = default);
+
     Task<int> SaveChangesAsync(CancellationToken ct = default);
 }

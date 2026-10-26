@@ -2,7 +2,8 @@
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, Suspense } from 'react';
-import { supabase } from '@/lib/supabase';
+import { apiClient } from '@/lib/apiClient';
+import type { ApiResponse } from '@/types/api/ApiResponse';
 import { useRouter, useSearchParams } from 'next/navigation';
 import {
   Trophy,
@@ -78,16 +79,13 @@ function LeaderboardContent() {
       }
       setCurrentUserId(user.id);
 
-      const { data: enrollments } = await supabase
-        .from('enrollments')
-        .select('classroom:classrooms(id, name)')
-        .eq('student_id', user.id);
-
-      const classes: Classroom[] = [];
-      for (const e of enrollments ?? []) {
-        const cls = e.classroom as unknown as { id: string; name: string } | null;
-        if (cls) classes.push(cls);
-      }
+      const res = await apiClient
+        .get<ApiResponse<Array<{ id: string; name: string }>>>('/classrooms')
+        .catch(() => null);
+      const classes: Classroom[] = (res?.data?.data ?? []).map((c) => ({
+        id: c.id,
+        name: c.name,
+      }));
       setClassrooms(classes);
       if (classes.length > 0 && !preselectedClass) setSelectedClassId(classes[0].id);
     };

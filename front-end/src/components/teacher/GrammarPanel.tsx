@@ -3,7 +3,7 @@ import { authFetch } from '@/lib/auth-fetch';
 
 
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { apiClient } from '@/lib/apiClient';
 import type { GrammarExercise, GrammarTopic, GrammarLesson, GrammarLevel } from '@/lib/supabase';
 import { ChevronDown, Loader2, BookOpen, Trash2, BarChart3, Sparkles, GraduationCap } from 'lucide-react';
 import { toast } from 'sonner';
@@ -105,9 +105,14 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
   };
 
   const handleDelete = async (id: string) => {
-    await supabase.from('grammar_exercises').delete().eq('id', id);
-    setExercises(exercises.filter((e) => e.id !== id));
-    toast.success('Đã xóa bài tập.');
+    try {
+      await apiClient.delete(`/grammar/exercises/${id}`);
+      setExercises(exercises.filter((e) => e.id !== id));
+      toast.success('Đã xóa bài tập.');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Không thể xóa bài tập';
+      toast.error(msg);
+    }
   };
 
   if (isLoading)

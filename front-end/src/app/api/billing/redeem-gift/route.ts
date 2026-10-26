@@ -16,7 +16,7 @@ import {
   trialCouponDays,
   isKhaiGiangCampaignCode,
   KHAI_GIANG_CAMPAIGN_CODES,
-} from '@/lib/billing';
+} from '@/lib/billing-server';
 
 export async function POST(req: NextRequest) {
   try {

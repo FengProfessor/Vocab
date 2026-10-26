@@ -1,18 +1,21 @@
 // ESLint flat config for the LingoPro Vite + React + TypeScript SPA.
 //
 // Guardrail rules (see docs/refactor-baseline.md):
-//   - no direct `supabase.from(...)` / `supabase.rpc(...)` outside src/lib/supabase.ts
+//   - no direct `supabase.from(...)` / `supabase.rpc(...)` outside server route handlers ('error')
 //   - no raw `fetch('/api/...')` / `authFetch('/api/...')` (use a domain service on top of apiClient)
 //   - no `next` / `next/*` imports (Next.js leftovers resolved through src/shims)
-// They are "warn" today so the existing code keeps linting; the follow-up refactor steps will raise
-// each one to "error" as soon as the matching legacy usages have been migrated.
 import js from '@eslint/js';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 
-/** Severity used for the refactor guardrails. TODO: raise to "error" once legacy call sites are migrated. */
+/** Severity used for remaining refactor guardrails. */
 const GUARDRAIL = 'warn';
+
+const SUPABASE_QUERY_SELECTOR =
+  "CallExpression[callee.type='MemberExpression'][callee.object.name=/^supabase$/i][callee.property.name=/^(from|rpc)$/]";
+const SUPABASE_QUERY_MESSAGE =
+  'Do not query Supabase directly from the client. Call a .NET endpoint through a domain service instead.';
 
 /**
  * No-op stand-in for the removed `@next/next` plugin so the legacy
@@ -25,11 +28,20 @@ const legacyNextPluginStub = {
   },
 };
 
-const restrictedSyntax = [
-  {
-    selector: "CallExpression[callee.type='MemberExpression'][callee.object.name=/^supabase$/i][callee.property.name=/^(from|rpc)$/]",
-    message: 'Do not query Supabase directly from the client. Call a .NET endpoint through a domain service instead.',
+const lingoproGuardrailPlugin = {
+  rules: {
+    'no-supabase-query': {
+      meta: { type: 'problem', schema: [] },
+      create: (context) => ({
+        [SUPABASE_QUERY_SELECTOR](node) {
+          context.report({ node, message: SUPABASE_QUERY_MESSAGE });
+        },
+      }),
+    },
   },
+};
+
+const restrictedSyntax = [
   {
     selector: "CallExpression[callee.name=/^(fetch|authFetch)$/][arguments.0.type='Literal'][arguments.0.value=/^\\/api\\//]",
     message: "Raw fetch('/api/...') is deprecated. Use a domain service built on apiClient.",
@@ -57,7 +69,11 @@ export default tseslint.config(
       sourceType: 'module',
       globals: { ...globals.browser, ...globals.node },
     },
-    plugins: { 'react-hooks': reactHooks, '@next/next': legacyNextPluginStub },
+    plugins: {
+      'react-hooks': reactHooks,
+      '@next/next': legacyNextPluginStub,
+      lingopro: lingoproGuardrailPlugin,
+    },
     rules: {
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
@@ -83,7 +99,23 @@ export default tseslint.config(
       'no-control-regex': 'warn',
       'prefer-const': 'warn',
 
-      // Refactor guardrails.
+      // Direct client Supabase queries are strictly forbidden ('error').
+      'lingopro/no-supabase-query': 'error',
+      'no-restricted-properties': [
+        'error',
+        {
+          object: 'supabase',
+          property: 'from',
+          message: SUPABASE_QUERY_MESSAGE,
+        },
+        {
+          object: 'supabase',
+          property: 'rpc',
+          message: SUPABASE_QUERY_MESSAGE,
+        },
+      ],
+
+      // Remaining refactor guardrails.
       'no-restricted-imports': [
         GUARDRAIL,
         {
@@ -100,9 +132,21 @@ export default tseslint.config(
     },
   },
   {
-    // The Supabase client module itself is the only place allowed to build Supabase queries.
-    files: ['src/lib/supabase.ts'],
+    // Legacy server-side route handlers and server-only helpers are allowed to query Supabase until ported to .NET.
+    files: [
+      'src/app/api/**',
+      'src/lib/*-server.ts',
+      'src/lib/admin-auth.ts',
+      'src/lib/api-security.ts',
+      'src/lib/daily-reading-generator.ts',
+      'src/lib/dict-trie-engine.ts',
+      'src/lib/foundation-curriculum/data-access.ts',
+      'src/lib/ipa-resolve.ts',
+      'src/lib/roadmap-credit.ts',
+    ],
     rules: {
+      'lingopro/no-supabase-query': 'off',
+      'no-restricted-properties': 'off',
       'no-restricted-syntax': 'off',
     },
   },

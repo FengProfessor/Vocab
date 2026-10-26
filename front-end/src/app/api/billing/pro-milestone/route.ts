@@ -7,14 +7,14 @@ import { getWebUser } from '@/lib/server-auth-session';
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { createOrder } from '@/lib/billing';
+import { createOrder } from '@/lib/billing-server';
 import {
   getProMilestoneSnapshot,
   PRO_MILESTONE_COUPON,
   PRO_MILESTONE_DAYS,
   PRO_MILESTONE_LABEL,
   milestoneGateErrorMessage,
-} from '@/lib/pro-trial-milestone';
+} from '@/lib/pro-trial-milestone-server';
 
 async function authUser(req: NextRequest) {
   const supabase = createServiceClient();

@@ -17,6 +17,15 @@ namespace LingoPro.WebApi.Controllers;
 [EnableRateLimiting(RateLimitingExtensions.AuthenticatedUserPolicy)]
 public sealed class VocabController : ApiControllerBase
 {
+    [HttpGet("words/{wordId:guid}")]
+    public async Task<ActionResult<ApiResponse<VocabWordDetailDto>>> GetWordById(
+        [FromRoute] Guid wordId,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetVocabWordByIdQuery(wordId), ct);
+        return OkResponse(result, "Vocabulary word retrieved successfully.");
+    }
+
     [HttpGet("due")]
     public async Task<ActionResult<ApiResponse<IReadOnlyList<WordWithSrsDto>>>> GetDueWords(
         [FromQuery] int limit = 50,

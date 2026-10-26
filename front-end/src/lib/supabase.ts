@@ -1,66 +1,8 @@
-﻿import { createClient } from '@supabase/supabase-js';
 import { appAuth } from '@/lib/app-auth-client';
-import { TokenStore } from '@/lib/auth/TokenStore';
 
-const DEFAULT_SUPABASE_URL = 'https://jyhdxhqkftirncbstfpe.supabase.co';
-const DEFAULT_SUPABASE_ANON_KEY = 'sb_publishable_cNsBhEJMkhMDa_2k5MHJCw_I68kPEEf';
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || DEFAULT_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
-
-// Client-side REST query builder using the JWT issued by the .NET 10 /api/v1/auth endpoints.
-const publicQueryClient = createClient(
-  supabaseUrl,
-  supabaseAnonKey,
-  {
-    auth: {
-      persistSession: false,
-      autoRefreshToken: false,
-      detectSessionInUrl: false,
-      flowType: 'pkce',
-    },
-    global: {
-      fetch: async (input, init) => {
-        const original = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
-        const headers = new Headers(init?.headers);
-        const accessToken = TokenStore.getAccessToken();
-        headers.set('apikey', supabaseAnonKey);
-        headers.set('Authorization', 'Bearer ' + (accessToken || supabaseAnonKey));
-        return fetch(original.toString(), {
-          ...init,
-          headers,
-          cache: 'no-store',
-        });
-      },
-    },
-  }
-);
 export const supabase = {
   auth: appAuth,
-  from: publicQueryClient.from.bind(publicQueryClient),
-  rpc: publicQueryClient.rpc.bind(publicQueryClient),
 };
-
-/**
- * Helper to fetch all rows beyond Supabase's default 1000-row limit.
- * Pass a callback that builds the query with a `.range(from, to)`.
- */
-export async function fetchAllRows<T = Record<string, unknown>>(
-  buildQuery: (from: number, to: number) => PromiseLike<{ data: T[] | null; error: unknown }>
-): Promise<T[]> {
-  const all: T[] = [];
-  let from = 0;
-  const step = 1000;
-  while (true) {
-    const { data, error } = await buildQuery(from, from + step - 1);
-    if (error) throw error;
-    if (!data || data.length === 0) break;
-    all.push(...data);
-    if (data.length < step) break;
-    from += step;
-  }
-  return all;
-}
 
 
 // Type definitions matching the schema

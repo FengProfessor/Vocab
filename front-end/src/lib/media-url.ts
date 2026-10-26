@@ -7,8 +7,6 @@
 
 /** Host cho phép browser load thẳng (HTTPS public). */
 const DIRECT_IMAGE_HOST_SUFFIXES = [
-  'supabase.co',
-  'supabase.in',
   'pixabay.com',
   'pexels.com',
   'images.pexels.com',

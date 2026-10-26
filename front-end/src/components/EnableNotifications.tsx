@@ -4,7 +4,7 @@ import { authService } from '@/features/auth/session';
 import { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { requestForToken } from '@/lib/firebase';
-import { supabase } from '@/lib/supabase';
+
 import { toast } from 'sonner';
 import {
   dismissEnablePrompt,

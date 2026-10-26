@@ -300,18 +300,7 @@ export function calculateCustomerLifecycle(params: {
 
 async function resolveSupabaseClient(providedClient?: SupabaseClient): Promise<SupabaseClient> {
   if (providedClient) return providedClient;
-
-  if (typeof window === 'undefined') {
-    try {
-      const { createServiceClient } = await import('@/lib/supabase-server');
-      return createServiceClient() as unknown as SupabaseClient;
-    } catch {
-      // Fallback if environment variables are not available
-    }
-  }
-
-  const { supabase } = await import('@/lib/supabase');
-  return supabase as unknown as SupabaseClient;
+  throw new Error('A server Supabase client must be provided to universal-activity helpers.');
 }
 
 // =============================================================================

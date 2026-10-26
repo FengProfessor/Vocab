@@ -7,7 +7,7 @@ import { getWebUser } from '@/lib/server-auth-session';
 
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { grantGroupEntitlement } from '@/lib/billing';
+import { grantGroupEntitlement } from '@/lib/billing-server';
 
 export async function POST(req: NextRequest) {
   try {

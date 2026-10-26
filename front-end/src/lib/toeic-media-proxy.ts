@@ -8,7 +8,7 @@ const DEFAULT_MEDIA_SECRET = 'lingopro-toeic-media-security-secret-2026';
  * Only upstream storage buckets in this list are allowed to be proxied.
  */
 export const ALLOWED_UPSTREAM_DOMAINS: readonly string[] = [
-  'odlnhfaygiotcyehuysw.supabase.co',
+
 ];
 
 function getNodeCrypto(): typeof import('crypto') | null {

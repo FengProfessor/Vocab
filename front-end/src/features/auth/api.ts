@@ -2,6 +2,7 @@ import { apiClient } from '@/lib/apiClient';
 import { ApiResponse } from '@/types/api/ApiResponse';
 import { AuthTokensPayload } from '@/types/auth/AuthTokensPayload';
 import { UserRole } from '@/types/enums/UserRole';
+import type { Profile, UserGamification } from '@/lib/supabase';
 import {
   describeError,
   describeOAuthQueryError,
@@ -26,12 +27,33 @@ export interface DotNetAuthTokensDto {
   learningGoal?: string | null;
   dailyTargetMins?: number;
   onboardingCompleted?: boolean;
+  todayXp?: number;
+  todayDate?: string | null;
+  lastActiveDate?: string | null;
+  notificationHour?: number | null;
+  province?: string | null;
+  city?: string | null;
+  createdAt?: string | null;
 }
 
 function normalizeRole(role?: UserRole | 'student' | 'teacher' | string): UserRole.Student | UserRole.Teacher {
   return String(role ?? UserRole.Student).toLowerCase() === 'teacher'
     ? UserRole.Teacher
     : UserRole.Student;
+}
+
+function normalizePlan(plan?: string | number): 'free' | 'pro' | 'vip' {
+  const raw = String(plan ?? 'free').toLowerCase();
+  if (raw === 'pro' || raw === '1') return 'pro';
+  if (raw === 'vip' || raw === '2') return 'vip';
+  return 'free';
+}
+
+function normalizeLegacyRole(role?: string | number): 'teacher' | 'student' | 'admin' {
+  const raw = String(role ?? 'student').toLowerCase();
+  if (raw === 'teacher' || raw === '1') return 'teacher';
+  if (raw === 'admin' || raw === '2') return 'admin';
+  return 'student';
 }
 
 /**
@@ -107,6 +129,55 @@ export class AuthApi {
    */
   public static async getProfile(): Promise<DotNetAuthTokensDto> {
     const response = await apiClient.get<ApiResponse<DotNetAuthTokensDto>>('/auth/profile');
+    return AuthApi.unwrap(response.data);
+  }
+
+  /**
+   * Retrieves the current user's profile mapped to the legacy `Profile` interface.
+   */
+  public static async getLegacyProfile(fallbackUserId = ''): Promise<Profile> {
+    const dto = await AuthApi.getProfile();
+    return {
+      id: String(dto.id ?? dto.userId ?? fallbackUserId),
+      email: dto.email ?? '',
+      full_name: dto.fullName ?? '',
+      avatar_url: dto.avatarUrl ?? undefined,
+      role: (normalizeLegacyRole(dto.role) === 'teacher' ? 'teacher' : 'student') as Profile['role'],
+      created_at: dto.createdAt ?? new Date().toISOString(),
+      daily_goal: dto.dailyTargetMins ?? 15,
+      notification_hour: dto.notificationHour ?? undefined,
+      plan: (normalizePlan(dto.plan) === 'free' ? 'free' : 'pro') as Profile['plan'],
+      plan_expires_at: dto.planExpiresAt ?? null,
+      province: dto.province ?? null,
+      city: dto.city ?? null,
+    };
+  }
+
+  /**
+   * Retrieves the current user's gamification state mapped to the legacy `UserGamification` interface.
+   */
+  public static async getGamification(fallbackUserId = ''): Promise<UserGamification> {
+    const dto = await AuthApi.getProfile();
+    const todayStr = new Date().toISOString().split('T')[0];
+    return {
+      user_id: String(dto.id ?? dto.userId ?? fallbackUserId),
+      total_xp: dto.totalXp ?? 0,
+      current_streak: dto.currentStreak ?? 0,
+      longest_streak: dto.longestStreak ?? 0,
+      last_active_date: dto.lastActiveDate ?? null,
+      daily_goal: dto.dailyTargetMins ?? 20,
+      today_xp: dto.todayXp ?? 0,
+      today_date: dto.todayDate ?? todayStr,
+    };
+  }
+
+  /**
+   * Registers or clears the current user's Firebase Cloud Messaging (FCM) device token via `POST /api/v1/users/me/fcm-token`.
+   */
+  public static async registerFcmToken(fcmToken: string | null): Promise<boolean> {
+    const response = await apiClient.post<ApiResponse<boolean>>('/users/me/fcm-token', {
+      fcmToken,
+    });
     return AuthApi.unwrap(response.data);
   }
 

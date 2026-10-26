@@ -11,6 +11,10 @@ public interface IClassroomRepository
 {
     void AddClassroom(ClassroomEntity classroom);
 
+    void RemoveClassroom(ClassroomEntity classroom);
+
+    Task<ClassroomEntity?> GetClassroomByIdAsync(Guid classroomId, CancellationToken ct = default);
+
     Task<ClassroomEntity?> GetPublicClassroomWithEnrollmentsByInviteCodeAsync(string normalizedCode, CancellationToken ct = default);
 
     void AddEnrollment(Enrollment enrollment);

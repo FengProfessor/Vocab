@@ -1,4 +1,4 @@
-﻿using LingoPro.Domain.Entities.Auth;
+using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Enums;
 
 namespace LingoPro.Application.Features.Auth.Queries;
@@ -25,5 +25,12 @@ internal static class ProfileDtoMapper
         gamification?.LongestStreak ?? 0,
         null,
         gamification?.DailyGoal ?? profile.DailyGoal ?? 15,
-        true);
+        true,
+        gamification?.TodayXp ?? 0,
+        gamification?.TodayDate,
+        gamification?.LastActiveDate,
+        profile.NotificationHour,
+        profile.Province,
+        profile.City,
+        profile.CreatedAt);
 }

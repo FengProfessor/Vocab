@@ -1,6 +1,7 @@
-﻿using LingoPro.Application.Common.Models;
+using LingoPro.Application.Common.Models;
 using LingoPro.Application.Features.Exams.Commands;
 using LingoPro.Application.Features.Toeic.Commands;
+using LingoPro.Application.Features.Toeic.Queries;
 using LingoPro.Domain.Algorithms;
 using LingoPro.WebApi.Extensions;
 using Microsoft.AspNetCore.Authorization;
@@ -10,7 +11,7 @@ using Microsoft.AspNetCore.RateLimiting;
 namespace LingoPro.WebApi.Controllers;
 
 /// <summary>
-/// REST API controller for TOEIC, VSTEP, and IELTS writing exam submissions and scoring.
+/// REST API controller for TOEIC, VSTEP, and IELTS writing exam submissions, question history sync, and scoring.
 /// </summary>
 [Route("api/v1/exams")]
 [Authorize]
@@ -24,6 +25,38 @@ public sealed class ExamsController : ApiControllerBase
     {
         var result = await Mediator.Send(command, ct);
         return OkResponse(result, "TOEIC exam scored and saved successfully.");
+    }
+
+    [HttpGet("toeic/history")]
+    public async Task<ActionResult<ApiResponse<IReadOnlyList<ToeicQuestionHistoryItemDto>>>> GetToeicQuestionHistory(
+        [FromQuery] int? partNumber = null,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetToeicQuestionHistoryQuery(partNumber), ct);
+        return OkResponse(result, "TOEIC question history retrieved successfully.");
+    }
+
+    [HttpPost("toeic/history")]
+    public async Task<ActionResult<ApiResponse<int>>> SyncToeicQuestionHistory(
+        [FromBody] SyncToeicQuestionHistoryCommand command,
+        CancellationToken ct)
+    {
+        var result = await Mediator.Send(command, ct);
+        return OkResponse(result, "TOEIC question history synchronized successfully.");
+    }
+
+    [HttpDelete("toeic/history")]
+    public async Task<ActionResult<ApiResponse<int>>> ClearToeicQuestionHistory(
+        [FromQuery] int? partNumber = null,
+        [FromBody] ClearToeicQuestionHistoryCommand? command = null,
+        CancellationToken ct = default)
+    {
+        var effectivePartNumber = partNumber ?? command?.PartNumber;
+        var effectiveQuestionIds = command?.QuestionIds;
+        var result = await Mediator.Send(
+            new ClearToeicQuestionHistoryCommand(effectivePartNumber, effectiveQuestionIds),
+            ct);
+        return OkResponse(result, "TOEIC question history cleared successfully.");
     }
 
     [HttpPost("vstep/submit")]

@@ -1,6 +1,5 @@
 // Translation service wrapper for LibreTranslate with Supabase caching & graceful fallback
 
-import { supabase } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
 
 export interface TranslateOptions {
@@ -19,10 +18,7 @@ export interface TranslateResult {
 }
 
 function getClient() {
-  if (typeof window === 'undefined') {
-    return createServiceClient();
-  }
-  return supabase;
+  return createServiceClient();
 }
 
 /**

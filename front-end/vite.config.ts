@@ -13,6 +13,18 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 function lingoProLocalRoutePlugin(): Plugin {
   return {
     name: 'lingopro-local-route-plugin',
+    transform(code, id) {
+      if (id.endsWith('.json') && code.includes('supabase.co')) {
+        return {
+          code: code.replace(
+            /https:\/\/[a-z0-9-]+\.supabase\.co\/storage\/v1\/object\/public\//gi,
+            '/storage/v1/object/public/',
+          ),
+          map: null,
+        };
+      }
+      return null;
+    },
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
         const rawUrl = req.url || '';
@@ -89,11 +101,6 @@ export default defineConfig({
     'process.env': {
       NODE_ENV: process.env.NODE_ENV || 'development',
       NEXT_PUBLIC_SITE_URL: process.env.VITE_SITE_URL || 'https://lingopro.online',
-      NEXT_PUBLIC_SUPABASE_URL:
-        process.env.VITE_SUPABASE_URL || 'https://jyhdxhqkftirncbstfpe.supabase.co',
-      NEXT_PUBLIC_SUPABASE_ANON_KEY:
-        process.env.VITE_SUPABASE_ANON_KEY ||
-        'sb_publishable_cNsBhEJMkhMDa_2k5MHJCw_I68kPEEf',
     },
   },
   resolve: {

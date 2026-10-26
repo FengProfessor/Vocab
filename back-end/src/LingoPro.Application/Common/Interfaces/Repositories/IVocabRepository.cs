@@ -8,6 +8,8 @@ namespace LingoPro.Application.Common.Interfaces.Repositories;
 /// </summary>
 public interface IVocabRepository
 {
+    Task<Word?> GetWordByIdAsNoTrackingAsync(Guid wordId, CancellationToken ct = default);
+
     Task<SrsProgress?> GetSrsProgressAsync(Guid userId, Guid wordId, CancellationToken ct = default);
 
     Task<bool> WordExistsAsync(Guid wordId, CancellationToken ct = default);

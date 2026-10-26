@@ -46,6 +46,8 @@ Get-ChildItem back-end/src/LingoPro.WebApi/Controllers -Filter *.cs | Select-Str
 | `/api/v1/auth/password/reset` | POST | `src/features/auth/api.ts` (`AuthApi.resetPassword`) ← `PasswordRecoveryForm.tsx` | trực tiếp | ✅ |
 | `/api/v1/auth/role/teacher` | POST | `src/features/auth/api.ts` (`AuthApi.claimTeacherRole`) ← `app/auth/page.tsx`, `app/auth/complete/page.tsx` | trực tiếp | ✅ |
 | `/api/v1/users/me/onboarding/claim-xp` | POST | `src/features/auth/api.ts` (`AuthApi.claimOnboardingXp`) ← `OnboardingProvider.tsx` | trực tiếp | ✅ |
+| `/api/v1/users/me/gamification` | GET | `src/features/auth/api.ts` (`AuthApi.getGamification`) ← `useGamification.ts`, `StudentProvider.tsx`, `hub/page.tsx` | trực tiếp | ✅ |
+| `/api/v1/users/me/fcm-token`, `/api/v1/notifications/fcm-token` | POST | `src/features/auth/api.ts` (`AuthApi.registerFcmToken`) ← `lib/notifications.ts`, `student/profile/page.tsx` | trực tiếp | ✅ |
 | `/api/profile` | GET | `components/upsell/*` | Bridge trả session từ `authService.getSession()` | ⚠️ → `GET /api/v1/auth/profile` |
 | `/api/profile` | PUT | `app/student/profile`, `hub/DisplayNameEditor`, `campaign/WelcomeKhaiGiangModal` | Rơi vào nhánh `/api/profile` và **chỉ trả session, không lưu gì** | 🟡 cần `PUT /auth/profile` (tên hiển thị, avatar…) |
 | `/api/extension-token` | POST | `app/student/profile/page.tsx` | fallback → 404 | 🟡 |
@@ -59,6 +61,7 @@ Get-ChildItem back-end/src/LingoPro.WebApi/Controllers -Filter *.cs | Select-Str
 | `/api/words` | PUT | `app/student/page.tsx`, `teacher/WordsPanel.tsx` | fallback → 404 | 🟡 |
 | `/api/words` | DELETE | `student/WordDetailModal.tsx`, `teacher/WordsPanel.tsx` | fallback → 404 | 🟡 |
 | `/api/words/:id/status` | PATCH | `app/teacher/page.tsx` | fallback → 404 | 🟡 |
+| `/api/v1/vocab/words/:wordId` | GET | `components/student/WordDetailModal.tsx` (`apiClient`) | trực tiếp | ✅ |
 | `/api/words/legacy-due` | GET | bridge | `GET /api/v1/vocab/due` | ✅ |
 | `/api/words/srs` | POST | `lib/save-srs-review.ts`, `lib/offline/review-sync.ts`, `app/writing` | `POST /api/v1/vocab/review` | ✅ |
 | `/api/words/refresh` | POST | `import`, `journey`, `library`, `VocabRoadmapSection` | fallback → 404 | 🟡 |
@@ -94,6 +97,7 @@ Get-ChildItem back-end/src/LingoPro.WebApi/Controllers -Filter *.cs | Select-Str
 |---|---|---|---|---|
 | `/api/grammar`, `/api/grammar/topics` | GET | `grammar/practice`, `teacher/GrammarPanel`, `teacher/grammar` | `GET /api/v1/grammar/topics` | ✅ |
 | `/api/grammar` | POST | `teacher/GrammarPanel.tsx` | fallback → 404 | 🟡 |
+| `/api/v1/grammar/exercises/:exerciseId` | DELETE | `teacher/GrammarPanel.tsx` (`apiClient`) | trực tiếp | ✅ |
 | `/api/grammar/progress` | GET | `grammar`, `StudentProvider`, `StudentShell` | `GET /api/v1/vocab/analytics` (chỉ lấy `grammarDueCount`, `data: []`) | ⚠️ cần `GET /grammar/progress` |
 | `/api/grammar/progress`, `/api/grammar/review` | POST | `grammar/practice` | `POST /api/v1/grammar/progress` | ✅ |
 | `/api/grammar/review` | GET | `grammar`, `grammar/practice` | `/__local_api` | 🧪 |
@@ -129,6 +133,7 @@ Get-ChildItem back-end/src/LingoPro.WebApi/Controllers -Filter *.cs | Select-Str
 | `/api/vnu-bac-3/submit` | POST | `vnu-bac-3/VnuExamRoom` | local + `POST /api/v1/exams/vstep/submit` | ⚠️ dùng chung endpoint VSTEP |
 | `/api/vnu-bac-3/writing-eval` | POST | `vnu-bac-3/VnuExamRoom` | `POST /api/v1/exams/writing/evaluate` (`examType=VnuBac3`) | ✅ |
 | — (gọi thẳng) `/exams/toeic/submit` | POST | `hooks/toeic/useSubmitToeicExam.ts` (`apiClient`) | trực tiếp | ✅ |
+| `/api/v1/exams/toeic/history` | GET, POST, DELETE | `lib/toeic-question-history.ts` (`apiClient`) | trực tiếp | ✅ |
 
 ## 7. Đọc hiểu & luyện tập
 
@@ -149,7 +154,8 @@ Get-ChildItem back-end/src/LingoPro.WebApi/Controllers -Filter *.cs | Select-Str
 | Client path | Method | Nơi gọi chính | Bridge → .NET | Trạng thái |
 |---|---|---|---|---|
 | `/api/classrooms`, `/api/student/classrooms` | GET | `app/student` | `GET /api/v1/classrooms` | ✅ |
-| `/api/classrooms` | POST | bridge | `POST /api/v1/classrooms` | ✅ |
+| `/api/classrooms` | POST | `app/teacher/page.tsx`, bridge | `POST /api/v1/classrooms` | ✅ |
+| `/api/v1/classrooms/:classroomId` | PUT, DELETE | `app/teacher/page.tsx` (`apiClient`) | trực tiếp | ✅ |
 | `/api/classrooms/join` | POST | `app/student` | `POST /api/v1/classrooms/join` | ✅ |
 | `/api/classrooms/:id/leaderboard` | GET | `student/leaderboard` | fallback → 404 | 🟡 |
 | `/api/teacher/assign-drill` | POST | `teacher/student/[id]`, `StudentDetailSheet` | `POST /api/v1/classrooms/assign-drill` | ✅ |
@@ -206,7 +212,7 @@ Get-ChildItem back-end/src/LingoPro.WebApi/Controllers -Filter *.cs | Select-Str
 
 | Client path | Method | Nơi gọi chính | Bridge → .NET | Trạng thái |
 |---|---|---|---|---|
-| `/api/push/fcm-register` | POST, GET | `EnableNotifications`, `FirebaseInitializer`, `student/profile` (+ `test-fcm`) | fallback → 404 | 🟡 (bỏ lời gọi trong `test-fcm`) |
+| `/api/push/fcm-register` | POST, GET | `EnableNotifications`, `FirebaseInitializer`, `student/profile` (+ `test-fcm`) | `POST /api/v1/users/me/fcm-token` / `GET /api/v1/auth/profile` | ✅ |
 | `/api/test/push-due` | POST | `app/test-fcm` | fallback → 404 | ❌ |
 
 ## 13. Gỡ theo D4
@@ -249,4 +255,4 @@ Get-ChildItem back-end/src/LingoPro.WebApi/Controllers -Filter *.cs | Select-Str
 > Phụ lục A của kế hoạch thiếu một số path dưới đây, đã bổ sung vào bảng: `POST/PUT/DELETE /api/words`, `PATCH /api/words/:id/status`, `PUT /api/profile`, `GET /api/roadmap/placement`, `GET /api/reading/progress`, `POST /api/practice/daily-reading`, `/api/dictionary/external`, `/api/dictionary/suggest`, `/api/teacher/{analytics,stats,student-detail,student-errors}`, `/api/classrooms/:id/leaderboard`, `/api/challenges/:slug`, `/api/challenges/:id/join`, `/api/billing/orders` (GET), `/api/billing/orders/:id/confirm`, `/api/groups/:id/remove`, `/api/admin/pilot-leads` (GET/PATCH), `/api/foundation/vocabulary-map`, `/api/vocab/topic`, `/api/vocab/packs`, `/api/listening/video`, `/api/lead-magnet/ebook`, `POST /api/grammar`.
 
 > [!CAUTION]
-> Cách quét dựa trên chuỗi literal/template bắt đầu bằng `/api/`. Path dựng động từ biến (ví dụ `const base = '/api/' + x`) có thể bị sót. Ngoài ra còn ~146 lời gọi `supabase.from/rpc` trực tiếp trong 30 file client, không đi qua `/api` (xem `refactor-baseline.md`), nên chưa có trong bảng này.
+> Cách quét dựa trên chuỗi literal/template bắt đầu bằng `/api/`. Path dựng động từ biến (ví dụ `const base = '/api/' + x`) có thể bị sót. Toàn bộ lời gọi `supabase.from/rpc` trực tiếp trong các file client ngoài `src/app/api/**` và `src/lib/*-server.ts` đã được gỡ bỏ hoàn toàn (0 kết quả) và chuyển sang gọi qua `.NET 10` API hoặc route `/api/*`.

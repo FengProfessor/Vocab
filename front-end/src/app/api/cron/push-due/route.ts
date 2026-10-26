@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { sendPushNotificationToUser } from '@/lib/notifications';
+import { sendPushNotificationToUser } from '@/lib/notifications-server';
 
 // firebase-admin cần Node runtime; cron route không được cache
 export const runtime = 'nodejs';

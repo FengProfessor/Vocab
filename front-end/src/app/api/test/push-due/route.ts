@@ -2,7 +2,7 @@ import { sessionErrorResponse } from '@/lib/session-response';
 import { getWebUser } from '@/lib/server-auth-session';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { sendPushNotificationToUser } from '@/lib/notifications';
+import { sendPushNotificationToUser } from '@/lib/notifications-server';
 
 export async function POST(req: Request) {
   try {

@@ -3,7 +3,7 @@ import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useMemo, useRef, useSyncExternalStore } from 'react';
 import dynamic from 'next/dynamic';
-import { supabase } from '@/lib/supabase';
+import { AuthApi } from '@/features/auth/api';
 import { authFetch } from '@/lib/auth-fetch';
 import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
@@ -714,11 +714,12 @@ export default function StudentDashboard() {
          */
         const profPromise = (studentCtx?.profile || profile)
           ? Promise.resolve({ data: studentCtx?.profile || profile, error: null })
-          : supabase
-              .from('profiles')
-              .select('id, full_name, email, role, avatar_url, plan, created_at')
-              .eq('id', userId)
-              .single();
+          : AuthApi.getLegacyProfile(userId)
+              .then((data) => ({ data, error: null }))
+              .catch((err: unknown) => ({
+                data: null,
+                error: { message: err instanceof Error ? err.message : 'Profile fetch failed' },
+              }));
 
         if (!scope || scope === '__personal__') {
           void fetchWordSummaryOnce(userId).then((sum) => {
@@ -778,7 +779,7 @@ export default function StudentDashboard() {
         .catch(() => null);
 
       const [profRes] = await Promise.all([
-        supabase.from('profiles').select('*').eq('id', userId).single(),
+        AuthApi.getLegacyProfile(userId).then((data) => ({ data, error: null })).catch((err: unknown) => ({ data: null, error: { message: err instanceof Error ? err.message : 'Profile fetch failed' } })),
         summaryP,
       ]);
 
@@ -1740,14 +1741,11 @@ export default function StudentDashboard() {
                   hintWords={countsReady ? totalWords : undefined}
                   onClaimed={() => {
                     void refreshGamification();
-                    void supabase
-                      .from('profiles')
-                      .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
-                      .eq('id', profile.id)
-                      .maybeSingle()
-                      .then(({ data }) => {
-                        if (data) setProfile(data as Profile);
-                      });
+                    void AuthApi.getLegacyProfile(profile.id)
+                      .then((data) => {
+                        if (data) setProfile(data);
+                      })
+                      .catch(() => {});
                   }}
                 />
               )}

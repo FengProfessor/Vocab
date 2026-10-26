@@ -10,7 +10,10 @@ import React, {
   type ReactNode,
 } from 'react';
 import type { AppSession as Session } from '@/lib/app-session-types';
-import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
+import type { Profile, UserGamification } from '@/lib/supabase';
+import { AuthApi } from '@/features/auth/api';
+import { apiClient } from '@/lib/apiClient';
+import type { ApiResponse } from '@/types/api/ApiResponse';
 import { effectiveCurrentStreak } from '@/lib/gamification';
 import { authFetch } from '@/lib/auth-fetch';
 import { authService, authStateVersion } from '@/features/auth/session';
@@ -105,13 +108,9 @@ export function fetchProfileOnce(userId: string): Promise<ShellProfile | null> {
 
   const promise = (async () => {
     try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
-        .eq('id', userId)
-        .single();
+      const data = await AuthApi.getLegacyProfile(userId);
       if (version !== authStateVersion()) return null;
-      if (!error && data) {
+      if (data) {
         setStoredProfile(userId, data as ShellProfile);
         return data as ShellProfile;
       }
@@ -134,13 +133,9 @@ export function fetchGamificationOnce(userId: string): Promise<UserGamification 
   const version = authStateVersion();
   const promise = (async () => {
     try {
-      const { data, error } = await supabase
-        .from('user_gamification')
-        .select('*')
-        .eq('user_id', userId)
-        .single();
+      const data = await AuthApi.getGamification(userId);
       if (version !== authStateVersion()) return null;
-      if (!error && data) {
+      if (data) {
         const normalized: UserGamification = {
           ...data,
           current_streak: effectiveCurrentStreak(data.current_streak, data.last_active_date),
@@ -167,14 +162,14 @@ export function fetchTeacherCheckOnce(userId: string): Promise<boolean> {
   const version = authStateVersion();
   const promise = (async () => {
     try {
-      const { data, error } = await supabase
-        .from('classrooms')
-        .select('id')
-        .eq('teacher_id', userId)
-        .neq('name', '__personal__')
-        .limit(1);
+      const response = await apiClient.get<
+        ApiResponse<Array<{ id: string; name: string; teacherId: string }>>
+      >('/classrooms');
       if (version !== authStateVersion()) return false;
-      const isTeacher = !error && Boolean(data && data.length > 0);
+      const list = response.data?.data ?? [];
+      const isTeacher = list.some(
+        (c) => c.teacherId === userId && c.name !== '__personal__',
+      );
       setStoredTeacher(userId, isTeacher);
       return isTeacher;
     } catch {

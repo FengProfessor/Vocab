@@ -12,7 +12,6 @@ import {
   ArrowRight, ChevronLeft, Loader2, Snail, Volume2,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -299,30 +298,11 @@ function SessionContent() {
       // Fallback cross-classroom nếu API trả về rỗng (ví dụ: personal class rỗng nhưng có từ ở các lớp đã tham gia)
       if (freeWords.length === 0) {
         try {
-          const { data: srsRows } = await supabase
-            .from('srs_progress')
-            .select('word_id, stability, review_count, words(id, word, translation, ipa, pos, example, example_vi, image_url, classroom_id)')
-            .eq('user_id', user.id)
-            .gt('review_count', 0)
-            .limit(60);
-          if (srsRows && srsRows.length > 0) {
-            const mapped: WordItem[] = [];
-            for (const row of srsRows) {
-              const rawW = row.words;
-              const w = (Array.isArray(rawW) ? rawW[0] : rawW) as unknown as (WordItem & { id: string }) | null;
-              if (w && isCardReady(w)) {
-                const stability = Number((row as { stability?: number }).stability) || 0;
-                const srsLevel = stabilityToLevel(stability);
-                const reviewCount = Number((row as { review_count?: number }).review_count) || 1;
-                mapped.push({
-                  ...w,
-                  srsLevel: typeof w.srsLevel === 'number' && w.srsLevel > 0 ? w.srsLevel : (srsLevel || 1),
-                  reviewCount: typeof w.reviewCount === 'number' && w.reviewCount > 0 ? w.reviewCount : reviewCount,
-                  isDue: false,
-                });
-              }
-            }
-            freeWords = mapped;
+          const allRes = await authFetch('/api/words?classroomId=all&limit=60&noCount=1', {})
+            .then((r) => r.json())
+            .catch(() => null);
+          if (allRes?.success && Array.isArray(allRes.data) && allRes.data.length > 0) {
+            freeWords = (allRes.data as WordItem[]).filter(isCardReady);
           }
         } catch {
           // ignore
@@ -547,17 +527,22 @@ function SessionContent() {
           setTotal(0);
           // Khi không có từ đến hạn, tìm mốc thời gian từ kế tiếp sẽ đến hạn
           try {
-            const { data: nextDueData } = await supabase
-              .from('srs_progress')
-              .select('next_review_date')
-              .eq('user_id', user.id)
-              .gt('review_count', 0)
-              .gt('next_review_date', new Date().toISOString())
-              .order('next_review_date', { ascending: true })
-              .limit(1)
-              .maybeSingle();
-            if (nextDueData?.next_review_date) {
-              setNextDueTime(nextDueData.next_review_date);
+            const allRes = await authFetch('/api/words?classroomId=all&limit=60&noCount=1', {})
+              .then((r) => r.json())
+              .catch(() => null);
+            const candidates: string[] = [];
+            const nowMs = Date.now();
+            if (Array.isArray(allRes?.data)) {
+              for (const w of allRes.data as Array<{ srs?: { next_review_date?: string } }>) {
+                const nextIso = w.srs?.next_review_date;
+                if (nextIso && new Date(nextIso).getTime() > nowMs) {
+                  candidates.push(nextIso);
+                }
+              }
+            }
+            if (candidates.length > 0) {
+              candidates.sort((a, b) => new Date(a).getTime() - new Date(b).getTime());
+              setNextDueTime(candidates[0]);
             }
           } catch {
             // silent

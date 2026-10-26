@@ -181,6 +181,17 @@ public sealed class AuthController : ApiControllerBase
         return OkResponse(result);
     }
 
+    [HttpPost("/api/v1/users/me/fcm-token")]
+    [HttpPost("/api/v1/notifications/fcm-token")]
+    [Authorize]
+    public async Task<ActionResult<ApiResponse<bool>>> RegisterFcmToken(
+        [FromBody] RegisterFcmTokenCommand command,
+        CancellationToken ct)
+    {
+        var result = await Mediator.Send(command, ct);
+        return OkResponse(result);
+    }
+
     private string ExtractBearerToken()
     {
         var authHeader = Request.Headers.Authorization.ToString();

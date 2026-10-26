@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { EnglishGameSession } from '@/components/games/EnglishGameSession';
-import { supabase } from '@/lib/supabase';
+import { authFetch } from '@/lib/auth-fetch';
 import {
   GAME_MODES,
   GAME_TOPICS,
@@ -130,12 +130,11 @@ export default function EnglishGamesPage() {
           data: { user },
         } = await authService.getUser();
         if (!user) return;
-        const { data } = await supabase
-          .from('words')
-          .select('word, translation, example')
-          .eq('user_id', user.id)
-          .limit(60);
-        if (!cancelled) setPersonalWords(cleanGameWords(data ?? []));
+        const res = await authFetch('/api/words?limit=60&offset=0&classroomId=__personal__', {})
+          .then((r) => r.json())
+          .catch(() => null);
+        const data = Array.isArray(res?.data) ? res.data : [];
+        if (!cancelled) setPersonalWords(cleanGameWords(data));
       } finally {
         if (!cancelled) setLoadingPersonal(false);
       }

@@ -35,7 +35,8 @@ import {
   resolveDisplayStreak,
   xpToLevel,
 } from '@/lib/gamification';
-import { supabase, type Profile } from '@/lib/supabase';
+import type { Profile } from '@/lib/supabase';
+import { AuthApi } from '@/features/auth/api';
 import { PROVINCES } from '@/lib/provinces';
 import { useStudentContext } from '@/components/student/StudentProvider';
 import {
@@ -178,11 +179,7 @@ export default function ProfilePage() {
           .then((response) => response.json())
           .catch(() => null);
 
-        const { data: prof } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
+        const prof = await AuthApi.getLegacyProfile(session.user.id).catch(() => null);
 
         const statsResponse = await statsPromise;
 

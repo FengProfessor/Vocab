@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { confirmOrder } from '@/lib/billing';
+import { confirmOrder } from '@/lib/billing-server';
 import { safeErrorResponse } from '@/lib/api-security';
 import crypto from 'crypto';
 import {
@@ -281,7 +281,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
           // Challenge order: activate participant + grant Pro
           if (order.order_kind === 'challenge') {
             try {
-              const { activateChallengeParticipant } = await import('@/lib/challenge');
+              const { activateChallengeParticipant } = await import('@/lib/challenge-server');
               const { data: participant } = await supabase
                 .from('challenge_participants')
                 .select('id')

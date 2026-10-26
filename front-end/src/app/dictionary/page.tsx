@@ -2,7 +2,6 @@
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import type { DictionaryData, DictionaryMeaning, WordFamilyEntry, RichCollocationEntry, MorphologyData } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
@@ -364,23 +363,18 @@ export default function DictionaryPage() {
       const { data: { session } } = await authService.getSession();
       if (!session?.user) return;
 
-      // Lấy personal classroom của user
-      const { data: cls } = await supabase
-        .from('classrooms')
-        .select('id')
-        .eq('teacher_id', session.user.id)
-        .eq('name', '__personal__')
-        .maybeSingle();
+      const wordsRes = await authFetch('/api/words?limit=200&offset=0&classroomId=__personal__', {})
+        .then((r) => r.json())
+        .catch(() => null);
 
-      if (!cls?.id) return;
+      const allWords = Array.isArray(wordsRes?.data)
+        ? (wordsRes.data as Array<{ word?: string; translation?: string | null }>)
+        : [];
+      const existingWords = allWords.filter(
+        (w) => (w.word || '').toLowerCase().trim() === cleanWord,
+      );
 
-      const { data: existingWords } = await supabase
-        .from('words')
-        .select('id, translation, pos')
-        .eq('classroom_id', cls.id)
-        .ilike('word', word.trim());
-
-      if (existingWords && existingWords.length > 0) {
+      if (existingWords.length > 0) {
         setWordAlreadySaved(true);
         saveWordLocally(cleanWord);
         const dbTranslations = existingWords

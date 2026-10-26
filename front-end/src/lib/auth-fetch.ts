@@ -971,6 +971,37 @@ async function handleApiRequest(urlStr: string, init: RequestInit = {}): Promise
     });
   }
 
+  // 13b. Push notification FCM token registration (/api/push/fcm-register)
+  if (pathname === '/api/push/fcm-register') {
+    if (method === 'POST') {
+      const body = await parseBodyJson(init);
+      const fcmToken =
+        typeof body.fcmToken === 'string'
+          ? body.fcmToken
+          : typeof body.fcm_token === 'string'
+            ? body.fcm_token
+            : null;
+      const res = await rawFetch(`${API_BASE}/users/me/fcm-token`, {
+        method: 'POST',
+        credentials: 'include',
+        headers,
+        body: JSON.stringify({ fcmToken }),
+      });
+      const json = (await res.json().catch(() => null)) as {
+        success?: boolean;
+        message?: string;
+      } | null;
+      if (!res.ok || !json?.success) {
+        return jsonResponse(
+          { success: false, error: json?.message || 'Failed to register FCM token' },
+          res.status || 400,
+        );
+      }
+      return jsonResponse({ success: true });
+    }
+    return jsonResponse({ success: true, count: 1, staleDays: 0 });
+  }
+
   // 14. Default fallback: forward /api/... to SERVER_ORIGIN
   return rawFetch(`${SERVER_ORIGIN}${pathname}${search}`, {
     ...init,

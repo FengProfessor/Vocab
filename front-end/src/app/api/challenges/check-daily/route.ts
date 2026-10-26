@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
-import { processChallengeDayEnd, completeChallenge } from '@/lib/challenge';
+import { processChallengeDayEnd, completeChallenge } from '@/lib/challenge-server';
 import { assertCronAuthorized, safeErrorResponse } from '@/lib/api-security';
 
 export const runtime = 'nodejs';
