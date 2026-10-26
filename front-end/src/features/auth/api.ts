@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { apiClient } from '@/lib/apiClient';
 import { ApiResponse } from '@/types/api/ApiResponse';
 import { AuthTokensPayload } from '@/types/auth/AuthTokensPayload';
@@ -8,6 +9,9 @@ import {
   describeOAuthQueryError,
   formatRawMessage,
 } from '@/features/auth/errors';
+import { authService } from '@/features/auth/session';
+import { callServerOriginApi, normalizePayloadData } from '@/shared/api/client';
+import { withResponseCompat } from '@/shared/api/unwrap';
 
 export interface DotNetAuthTokensDto {
   userId?: string;
@@ -248,6 +252,85 @@ export class AuthApi {
   public static async claimOnboardingXp(): Promise<boolean> {
     const response = await apiClient.post<ApiResponse<boolean>>('/users/me/onboarding/claim-xp');
     return AuthApi.unwrap(response.data);
+  }
+
+  /**
+   * Retrieves the current session profile in the legacy `/api/profile` envelope shape.
+   */
+  public static async getProfileSession() {
+    const { data } = await authService.getSession();
+    const session = data.session;
+    return withResponseCompat({
+      success: Boolean(session),
+      session,
+      user: session?.user ?? null,
+      data: session?.user ?? null,
+    });
+  }
+
+  /**
+   * Updates user profile fields (display name, daily goal, etc.) via `/auth/onboarding`.
+   */
+  public static async updateProfile(rawInput: unknown) {
+    const input = normalizePayloadData(rawInput);
+    try {
+      const dto = await AuthApi.updateOnboarding({
+        fullName: input.full_name ?? input.fullName ?? input.displayName,
+        learningGoal: input.learning_goal ?? input.learningGoal ?? 'General',
+        dailyTargetMins: Number(input.daily_goal ?? input.dailyTargetMins ?? 15),
+      });
+      return withResponseCompat({
+        success: true,
+        profile: dto,
+        data: dto,
+      });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Failed to update profile';
+      return withResponseCompat({ success: false, error: msg }, 400, false);
+    }
+  }
+
+  /**
+   * Registers or queries FCM push notification status.
+   */
+  public static async fcmRegister(rawInput?: unknown) {
+    if (!rawInput) {
+      return withResponseCompat({ success: true, count: 1, staleDays: 0 });
+    }
+    const input = normalizePayloadData(rawInput);
+    const token =
+      typeof input.fcmToken === 'string'
+        ? input.fcmToken
+        : typeof input.fcm_token === 'string'
+          ? input.fcm_token
+          : null;
+    try {
+      await AuthApi.registerFcmToken(token);
+      return withResponseCompat({ success: true });
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Failed to register FCM token';
+      return withResponseCompat({ success: false, error: msg }, 400, false);
+    }
+  }
+
+  /**
+   * Requests a browser extension token.
+   */
+  public static async createExtensionToken(rawBody?: unknown) {
+    return callServerOriginApi('/api/extension-token', {
+      method: 'POST',
+      data: normalizePayloadData(rawBody),
+    });
+  }
+
+  /**
+   * Triggers a test due-words push notification (`/api/test/push-due`).
+   */
+  public static async testPushDue(rawBody?: unknown) {
+    return callServerOriginApi('/api/test/push-due', {
+      method: 'POST',
+      data: normalizePayloadData(rawBody),
+    });
   }
 
   private static unwrap<T>(body: ApiResponse<T>): T {

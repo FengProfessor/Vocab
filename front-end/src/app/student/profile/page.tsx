@@ -1,4 +1,5 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useState } from 'react';
@@ -173,7 +174,7 @@ export default function ProfilePage() {
           return;
         }
 
-        const statsPromise = fetch('/api/student/stats', {
+        const statsPromise = VocabApi.getStudentStats({
           headers: { 'X-LingoPro-Request': '1' },
         })
           .then((response) => response.json())
@@ -217,7 +218,7 @@ export default function ProfilePage() {
       } = await authService.getSession();
       if (!session?.user) throw new Error('Chưa đăng nhập');
 
-      const res = await fetch('/api/profile', {
+      const res = await AuthApi.updateProfile({
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -265,7 +266,7 @@ export default function ProfilePage() {
         data: { session },
       } = await authService.getSession();
       if (!session?.user) throw new Error('Chưa đăng nhập');
-      const res = await fetch('/api/extension-token', {
+      const res = await AuthApi.createExtensionToken({
         method: 'POST', headers: { 'X-LingoPro-Request': '1' },
       });
       const result = (await res.json()) as { success?: boolean; token?: string };
@@ -295,7 +296,7 @@ export default function ProfilePage() {
       const fcmToken = await requestForToken();
       if (!fcmToken) throw new Error('Không lấy được mã thiết bị');
 
-      const res = await fetch('/api/push/fcm-register', {
+      const res = await AuthApi.fcmRegister({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

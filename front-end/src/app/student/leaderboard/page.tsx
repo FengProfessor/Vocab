@@ -1,4 +1,5 @@
 'use client';
+import { ClassroomApi } from '@/features/classroom/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, Suspense } from 'react';
@@ -101,10 +102,7 @@ function LeaderboardContent() {
   const loadLeaderboard = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(
-        `/api/classrooms/${selectedClassId}/leaderboard?period=${period}`,
-        { headers: { 'X-LingoPro-Request': '1' } },
-      );
+      const res = await ClassroomApi.getLeaderboard(selectedClassId, { headers: { 'X-LingoPro-Request': '1' } });
       const data = (await res.json()) as {
         success: boolean;
         data?: LeaderboardEntry[];

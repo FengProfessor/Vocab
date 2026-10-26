@@ -1,6 +1,6 @@
 'use client';
+import { BillingApi } from '@/features/billing/api';
 import { authService } from '@/features/auth/session';
-import { authFetch } from '@/lib/auth-fetch';
 
 
 import { useState, useEffect, useCallback } from 'react';
@@ -126,7 +126,7 @@ export default function BillingDashboard() {
   const loadStats = useCallback(async () => {
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch('/api/billing/stats', { headers });
+      const res = await BillingApi.getStats({ headers });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setStats(data.stats);
@@ -142,7 +142,7 @@ export default function BillingDashboard() {
       const headers = await getAuthHeaders();
       const params = new URLSearchParams({ page: String(page), limit: '20' });
       if (status) params.set('status', status);
-      const res = await authFetch(`/api/billing/orders?${params}`, { headers });
+      const res = await BillingApi.getOrders(`/api/billing/orders?${params}`, { headers });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setOrders(data.orders ?? []);
@@ -157,7 +157,7 @@ export default function BillingDashboard() {
   const loadCoupons = useCallback(async () => {
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch('/api/billing/coupons', { headers });
+      const res = await BillingApi.getCoupons({ headers });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setCoupons(data.coupons ?? []);
@@ -182,7 +182,7 @@ export default function BillingDashboard() {
     setConfirmingId(orderId);
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch(`/api/billing/orders/${orderId}/confirm`, {
+      const res = await BillingApi.confirmOrder(orderId, {
         method: 'POST', headers, body: JSON.stringify({}),
       });
       const data = await res.json();
@@ -201,7 +201,7 @@ export default function BillingDashboard() {
     e.preventDefault();
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch('/api/billing/coupons', {
+      const res = await BillingApi.createCoupon({
         method: 'POST', headers,
         body: JSON.stringify({
           code: newCoupon.code,
@@ -226,7 +226,7 @@ export default function BillingDashboard() {
     if (!confirm('Delete this coupon?')) return;
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch(`/api/billing/coupons?id=${id}`, { method: 'DELETE', headers });
+      const res = await BillingApi.deleteCoupon(`/api/billing/coupons?id=${id}`, { method: 'DELETE', headers });
       if (!res.ok) throw new Error('Failed');
       toast.success('Coupon deleted');
       await loadCoupons();

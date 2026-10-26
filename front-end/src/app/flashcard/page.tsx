@@ -1,6 +1,6 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
-import { authFetch } from '@/lib/auth-fetch';
 
 
 import { useState, useEffect, useRef, Suspense } from 'react';
@@ -162,7 +162,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           ? `/api/words?classroomId=${classroomId}&filter=review&limit=40`
           : `/api/words?filter=review&limit=40`;
 
-        const res = await fetch(url, {
+        const res = await VocabApi.getWords(url, {
           headers: { 'X-LingoPro-Request': '1' },
         });
         const data = await res.json();
@@ -266,7 +266,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
       const url = classroomId
         ? `/api/words?classroomId=${classroomId}&limit=40`
         : `/api/words?limit=40`;
-      const res = await fetch(url, {
+      const res = await VocabApi.getWords(url, {
         headers: { 'X-LingoPro-Request': '1' },
       });
       const data = await res.json();
@@ -481,7 +481,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           // sessionResults là snapshot TRƯỚC thẻ này nên cộng thêm thẻ hiện tại; clamp ≤ total.
           const remembered = (quality === 4 || quality === 5) ? sessionResults.easy + 1 : sessionResults.easy;
           const finalScore = Math.min(remembered, total);
-          await authFetch('/api/quiz/save', {
+          await VocabApi.saveQuizResult({
             method: 'POST',
             headers: authHeaders,
             body: JSON.stringify({
@@ -727,7 +727,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                         e.stopPropagation();
                         toast.info('Finding a better image...', { icon: '🔍' });
                         try {
-                          const res = await fetch('/api/words/refresh-image', {
+                          const res = await VocabApi.refreshWordImage({
                             method: 'POST',
                             headers: {
                               'Content-Type': 'application/json',

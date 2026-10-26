@@ -1,7 +1,7 @@
+import { RoadmapApi } from '@/features/roadmap/api';
 // Client helpers cho lộ trình — gọi từ journey/flashcard/grammar/pronunciation/checkpoint.
 'use client';
 
-import { authFetch } from './auth-fetch';
 import exitStandardsArtifact from '@/data/roadmap/exit-standards-v1.json';
 
 export type RoadmapStepViewType =
@@ -176,7 +176,7 @@ export function readCachedRoadmapResponse(track?: RoadmapTrackId): RoadmapTreeRe
 
 export async function fetchRoadmap(track?: RoadmapTrackId): Promise<RoadmapTreeResponse> {
   const qs = track ? `?track=${track}` : '';
-  const res = await authFetch(`/api/roadmap${qs}`);
+  const res = await RoadmapApi.getRoadmap(`/api/roadmap${qs}`);
   const json = await res.json() as { success: boolean; data?: RoadmapTreeResponse; error?: string };
   if (!res.ok || !json.success || !json.data) throw new Error(json.error || 'Không tải được lộ trình');
   const resolvedTrack = json.data.track || track || 'cefr';
@@ -220,7 +220,7 @@ export function getLastRoadmapStepError(): string | undefined {
  */
 export async function completeRoadmapStep(stepId: string, score?: number): Promise<CompleteStepResult | null> {
   try {
-    const res = await authFetch('/api/roadmap/progress', {
+    const res = await RoadmapApi.completeStep({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ stepId, score }),

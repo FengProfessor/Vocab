@@ -1,7 +1,7 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 
 import { useState, useEffect, useCallback } from 'react';
-import { authFetch } from '@/lib/auth-fetch';
 import type { Word } from '@/lib/supabase';
 import {
   Plus, Loader2, Trash2, Sparkles, BookOpen, Volume2, Download,
@@ -45,7 +45,7 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
   const loadWords = useCallback(async () => {
     setIsLoading(true);
     try {
-      const res = await authFetch(`/api/words?classroomId=${classroomId}`);
+      const res = await VocabApi.getWords(`/api/words?classroomId=${classroomId}`);
       const data = await res.json();
       if (data.success) setWords(data.data || []);
     } catch {
@@ -81,7 +81,7 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
     setNewWord('');
 
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.saveWords({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ word: optimistic.word, classroomId }),
@@ -144,7 +144,7 @@ function parseBulkWords(text: string): string[] {
       const word = uniqueWords[i];
       setBulkProgress({ current: i + 1, total: uniqueWords.length, word });
       try {
-        const res = await authFetch('/api/words', {
+        const res = await VocabApi.saveWords({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ word, classroomId, skipAI: true }),
@@ -167,7 +167,7 @@ function parseBulkWords(text: string): string[] {
     // Kích hoạt AI enrichment nền cho cả lớp học mà không bị nghẽn rate-limit
     if (addedCount > 0) {
       try {
-        await authFetch('/api/words/refresh', {
+        await VocabApi.refreshWords({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ classroomId }),
@@ -201,7 +201,7 @@ function parseBulkWords(text: string): string[] {
 
     setIsUpdating(true);
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.updateWord({
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -243,7 +243,7 @@ function parseBulkWords(text: string): string[] {
     const prev = words;
     setWords(words.filter(w => w.id !== wordId));
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.deleteWords({
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wordId }),

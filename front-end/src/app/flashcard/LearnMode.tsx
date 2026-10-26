@@ -1,9 +1,9 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase, type SRSProgress } from '@/lib/supabase';
-import { authFetch } from '@/lib/auth-fetch';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -161,7 +161,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
           if (filter) query.set('filter', filter);
           if (initialClassroomId) query.set('classroomId', initialClassroomId);
           if (idsParam !== null) query.set('ids', idsParam);
-          const res = await authFetch(`/api/words?${query.toString()}`);
+          const res = await VocabApi.getWords(`/api/words?${query.toString()}`);
           const data = await res.json() as { success?: boolean; data?: WordItem[]; classroomId?: string };
           if (!data.success || !data.data) return { words: [] };
           return { words: data.data, classroomId: data.classroomId };
@@ -510,7 +510,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // Chỉ ghi step khi đã học hết batch còn lại (remainingNew === 0) — tránh pass sớm giữa chừng gói.
   useEffect(() => {
     if (phase !== 'done') return;
-    authFetch('/api/quiz/save', {
+    VocabApi.saveQuizResult({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

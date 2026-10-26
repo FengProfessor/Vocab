@@ -1,4 +1,5 @@
-﻿'use client';
+'use client';
+import { RoadmapApi } from '@/features/roadmap/api';
 
 /**
  * Checkpoint chặng (Milestone 4 Upgrade)
@@ -11,7 +12,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { playWordAudio } from '@/lib/audio';
 import { judgeAnswer } from '@/lib/study';
@@ -72,7 +72,7 @@ export default function CheckpointPage() {
 
   const load = useCallback(async (): Promise<void> => {
     try {
-      const res = await authFetch(`/api/roadmap/checkpoint?unit=${encodeURIComponent(unitId)}`);
+      const res = await RoadmapApi.getCheckpoint(`/api/roadmap/checkpoint?unit=${encodeURIComponent(unitId)}`);
       const json = (await res.json()) as {
         success: boolean;
         data?: { title: string; questions: CheckpointQuestion[] };
@@ -182,7 +182,7 @@ export default function CheckpointPage() {
     // Lưu kết quả vào cơ sở dữ liệu qua /api/roadmap/assessment
     try {
       setSubmitting(true);
-      await authFetch('/api/roadmap/assessment', {
+      await RoadmapApi.submitAssessment({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

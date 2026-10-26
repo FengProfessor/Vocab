@@ -1,4 +1,5 @@
 'use client';
+import { ExamApi } from '@/features/exam/api';
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
@@ -348,7 +349,7 @@ function ReviewQuestionCard({ record, onFlagToggled, onNoteSaved }: ReviewQuesti
     if (details || isLoadingDetails) return;
     setIsLoadingDetails(true);
     try {
-      const res = await fetch('/api/toeic/explain', {
+      const res = await ExamApi.explainToeicQuestion({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -1,6 +1,6 @@
 'use client';
-import { useCallback, useEffect, useState } from 'react';
-import { AuthApi } from '@/features/auth/api';
+import { useCallback } from 'react';
+import { useGamificationQuery } from '@/features/auth/queries';
 import { effectiveCurrentStreak } from '@/lib/gamification';
 import type { UserGamification } from '@/lib/supabase';
 
@@ -24,37 +24,13 @@ function normalizeGamification(row: UserGamification): UserGamification {
 }
 
 export function useGamification(userId: string | null) {
-  const [data, setData] = useState<UserGamification>(DEFAULT);
-  const [loading, setLoading] = useState(true);
+  const { data: rawData, isLoading, refetch } = useGamificationQuery(userId);
+  const data = rawData ? normalizeGamification(rawData) : DEFAULT;
 
   const refresh = useCallback(async () => {
     if (!userId) return;
-    try {
-      const row = await AuthApi.getGamification(userId);
-      setData(normalizeGamification(row));
-    } catch {
-      // preserve existing state on transient error
-    }
-  }, [userId]);
+    await refetch();
+  }, [userId, refetch]);
 
-  useEffect(() => {
-    let cancelled = false;
-    if (!userId) {
-      const t = setTimeout(() => { if (!cancelled) setLoading(false); }, 0);
-      return () => { cancelled = true; clearTimeout(t); };
-    }
-    const startTimer = setTimeout(() => { if (!cancelled) setLoading(true); }, 0);
-    AuthApi.getGamification(userId)
-      .then((row) => {
-        if (cancelled) return;
-        setData(normalizeGamification(row));
-        setLoading(false);
-      })
-      .catch(() => {
-        if (!cancelled) setLoading(false);
-      });
-    return () => { cancelled = true; clearTimeout(startTimer); };
-  }, [userId]);
-
-  return { data, loading, refresh };
+  return { data, loading: Boolean(userId) && isLoading, refresh };
 }

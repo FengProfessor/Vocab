@@ -1,4 +1,5 @@
 'use client';
+import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';
 
 import React, { useEffect, useState, useRef, useCallback } from 'react';
@@ -121,7 +122,7 @@ export function WelcomeKhaiGiangModal({
         }
 
         if (Object.keys(payload).length > 0) {
-          await fetch('/api/profile', {
+          await AuthApi.updateProfile({
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',

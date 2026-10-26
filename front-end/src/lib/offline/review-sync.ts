@@ -1,10 +1,10 @@
+import { VocabApi } from '@/features/vocab/api';
 /**
  * Write-Ahead Log (WAL) Review Sync Engine.
  * Queues review ratings locally in IndexedDB (offline_review_queue),
  * executes background sync to /api/words/srs, and guarantees CAS idempotency.
  */
 
-import { authFetch } from '@/lib/auth-fetch';
 import {
   appendReviewEvent,
   getPendingReviews,
@@ -122,7 +122,7 @@ async function executeSyncReviewQueue(userId: string): Promise<{
       await updateReviewEvent(ev);
 
       try {
-        const response = await authFetch('/api/words/srs', {
+        const response = await VocabApi.submitSrsReview({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

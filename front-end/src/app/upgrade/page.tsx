@@ -1,4 +1,5 @@
 'use client';
+import { BillingApi } from '@/features/billing/api';
 import { authService } from '@/features/auth/session';
 
 import { Suspense, useEffect, useMemo, useState } from 'react';
@@ -282,7 +283,7 @@ function UpgradePageContent() {
         return;
       }
 
-      const res = await fetch('/api/billing/redeem-gift', {
+      const res = await BillingApi.redeemGift({
         method: 'POST',
         headers: {
           'X-LingoPro-Request': '1',
@@ -340,7 +341,7 @@ function UpgradePageContent() {
     setCouponChecking(true);
     try {
 
-      const res = await fetch('/api/billing/coupons/validate', {
+      const res = await BillingApi.validateCoupon({
         method: 'POST',
         headers: {
           'X-LingoPro-Request': '1',
@@ -397,7 +398,7 @@ function UpgradePageContent() {
     const appliedCode = ((couponValid?.code ?? couponCode).trim()).toUpperCase();
     try {
 
-      const response = await fetch('/api/billing/orders', {
+      const response = await BillingApi.createOrder({
         method: 'POST',
         headers: {
           'X-LingoPro-Request': '1',

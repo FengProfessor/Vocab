@@ -1,4 +1,5 @@
-﻿'use client';
+'use client';
+import { RoadmapApi } from '@/features/roadmap/api';
 
 /**
  * LevelExitExamModal
@@ -32,7 +33,6 @@ import {
   BookOpen,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import { playWordAudio } from '@/lib/audio';
 import {
   evaluateDiagnostic,
@@ -552,7 +552,7 @@ export function LevelExitExamModal({
       setFinished(true);
 
       // Lưu lịch sử đánh giá vào /api/roadmap/assessment
-      await authFetch('/api/roadmap/assessment', {
+      await RoadmapApi.submitAssessment({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

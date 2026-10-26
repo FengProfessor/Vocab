@@ -1,3 +1,4 @@
+import { DictionaryApi } from '@/features/dictionary/api';
 import { authService } from '@/features/auth/session';
 "use client";
 
@@ -5,7 +6,6 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { authFetch } from "@/lib/auth-fetch";
 import {
   ChevronLeft, Loader2, Volume2, Bot, User, Sparkles,
   MessageSquare, VolumeX, Send, RefreshCw, Filter, Lightbulb,
@@ -105,7 +105,7 @@ export default function StudentSpeakingPage() {
     setIsAiLoading(true);
 
     try {
-      const res = await authFetch("/api/dictionary/ai-speaking", {
+      const res = await DictionaryApi.evaluateSpeakingDialogue({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

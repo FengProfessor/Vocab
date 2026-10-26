@@ -1,4 +1,6 @@
 'use client';
+import { RoadmapApi } from '@/features/roadmap/api';
+import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 /**
@@ -12,7 +14,6 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
-import { authFetch } from '@/lib/auth-fetch';
 import {
   fetchRoadmap,
   readCachedRoadmapResponse,
@@ -352,7 +353,7 @@ export default function JourneyPage() {
 
   const startTest = async (): Promise<void> => {
     try {
-      const res = await authFetch('/api/roadmap/placement');
+      const res = await RoadmapApi.getPlacementTest();
       const json = (await res.json()) as {
         success: boolean;
         data?: { questions: PlacementQuestionView[] };
@@ -375,7 +376,7 @@ export default function JourneyPage() {
   }): Promise<void> => {
     setSubmitting(true);
     try {
-      const res = await authFetch('/api/roadmap/placement', {
+      const res = await RoadmapApi.submitPlacement({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -453,7 +454,7 @@ OK = học lại · Cancel = giữ nguyên.`,
 
       if (step.type === 'vocab') {
         toast.loading('Đang chuẩn bị gói từ...', { id: 'journey-open' });
-        const res = await authFetch('/api/import/packages', {
+        const res = await VocabApi.importPackage({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ packId: step.ref }),
@@ -473,7 +474,7 @@ OK = học lại · Cancel = giữ nguyên.`,
         const refreshCtrl = new AbortController();
         const refreshTimer = setTimeout(() => refreshCtrl.abort(), 8000);
         try {
-          await authFetch('/api/words/refresh', {
+          await VocabApi.refreshWords({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ classroomId: data.classroomId, wordIds: data.wordIds }),

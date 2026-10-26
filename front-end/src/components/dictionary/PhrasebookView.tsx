@@ -1,4 +1,5 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 
 import { useState, useMemo, useCallback } from 'react';
 import {
@@ -19,7 +20,6 @@ import {
 import { Button } from '@/components/ui/button';
 import { speak } from '@/lib/study';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
 import { notifyWordSavedOptimistic, notifyWordSaveRollback } from '@/lib/word-summary-cache';
 import {
@@ -93,7 +93,7 @@ export function PhrasebookView({ onLookupWord }: PhrasebookViewProps = {}) {
     }
 
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.saveWords({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -130,7 +130,7 @@ export function PhrasebookView({ onLookupWord }: PhrasebookViewProps = {}) {
     }
 
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.saveWords({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

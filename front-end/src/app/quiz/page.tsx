@@ -1,10 +1,10 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { authFetch } from '@/lib/auth-fetch';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -107,7 +107,7 @@ function QuizContent() {
         setUserId(user.id);
 
         const url = classroomId ? `/api/words?classroomId=${classroomId}` : `/api/words`;
-        const res = await authFetch(url);
+        const res = await VocabApi.getWords(url);
         const data = await res.json();
 
         if (data.success && data.data?.length >= 2) {
@@ -191,7 +191,7 @@ function QuizContent() {
           setXpEarned(totalXp);
 
           try {
-            await authFetch('/api/quiz/save', {
+            await VocabApi.saveQuizResult({
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({

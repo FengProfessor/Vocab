@@ -1,4 +1,5 @@
 'use client';
+import { SocialApi } from '@/features/social/api';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -52,7 +53,7 @@ export default function NhanQuaKhaiGiangPage() {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/campaign/khaigiang', {
+      const res = await SocialApi.submitKhaiGiangCampaign({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -1,6 +1,6 @@
 'use client';
+import { GrammarApi } from '@/features/grammar/api';
 import { authService } from '@/features/auth/session';
-import { authFetch } from '@/lib/auth-fetch';
 
 
 import { useState, useEffect, useRef, Suspense, type ReactNode } from 'react';
@@ -422,7 +422,7 @@ function PracticeHubContent() {
   useEffect(() => {
     if (!activeTopicSlug) return;
     let cancelled = false;
-    authFetch(`/api/grammar/theory?topic=${encodeURIComponent(activeTopicSlug)}`)
+    GrammarApi.getTheory(`/api/grammar/theory?topic=${encodeURIComponent(activeTopicSlug)}`)
       .then((r) => (r.ok ? r.json() : null))
       .then((json) => {
         if (!cancelled && json?.data) {
@@ -511,7 +511,7 @@ function PracticeHubContent() {
 
         if (user) {
           try {
-            const res = await authFetch('/api/grammar/review?days=14', {
+            const res = await GrammarApi.getReviewSchedule(14, {
               headers: { 'X-LingoPro-Request': '1' },
             });
             const data = await res.json();
@@ -549,7 +549,7 @@ function PracticeHubContent() {
       // Mode 2: Topic Slug (?topic=...)
       if (topicSlug) {
         try {
-          const res = await authFetch(`/api/grammar?topic=${encodeURIComponent(topicSlug)}`);
+          const res = await GrammarApi.getTopics(`/api/grammar?topic=${encodeURIComponent(topicSlug)}`);
           const data = await res.json();
           if (data.success && data.data?.length > 0) {
             const cleaned = sanitizeDrillExercises(data.data as GrammarExercise[]);
@@ -575,7 +575,7 @@ function PracticeHubContent() {
         const params = new URLSearchParams();
         if (classroomId) params.set('classroomId', classroomId);
         if (lessonId) params.set('lessonId', lessonId);
-        const res = await fetch(`/api/grammar?${params.toString()}`, {
+        const res = await GrammarApi.getTopics(`/api/grammar?${params.toString()}`, {
           headers: { 'X-LingoPro-Request': '1' },
         });
         const data = await res.json();
@@ -702,7 +702,7 @@ function PracticeHubContent() {
     const activeSlug =
       topicSlug || UNIFIED_GRAMMAR_TOPICS.find((t) => t.slug === lessonId)?.slug || undefined;
     recordGrammarAttemptLocal(current, isCorrect, activeSlug);
-    authFetch('/api/grammar/review', {
+    GrammarApi.submitReview({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -754,7 +754,7 @@ function PracticeHubContent() {
         });
       }
       if (canonicalSlug || effectiveLessonId) {
-        await authFetch('/api/grammar/progress', {
+        await GrammarApi.submitProgress({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -1016,7 +1016,7 @@ function PracticeHubContent() {
                 }));
                 setShowExplanation(true);
                 recordGrammarAttemptLocal(current, isAllCorrect, topicSlug || undefined);
-                authFetch('/api/grammar/review', {
+                GrammarApi.submitReview({
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({

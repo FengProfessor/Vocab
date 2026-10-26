@@ -1,4 +1,5 @@
 'use client'
+import { ChallengeApi } from '@/features/challenge/api';
 
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
@@ -6,7 +7,6 @@ import { Flame, Trophy, ChevronRight, CheckCircle2 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
 import { Button } from '@/components/ui/button'
-import { authFetch } from '@/lib/auth-fetch'
 import {
   readLastChallengeWidgetCache,
   readLastProfileCache,
@@ -24,7 +24,7 @@ export function ChallengeWidget() {
   useEffect(() => {
     async function fetchChallengeStatus() {
       try {
-        const res = await authFetch('/api/challenges/widget')
+        const res = await ChallengeApi.getWidget()
         if (res.ok) {
           const result = await res.json()
           setData(result)

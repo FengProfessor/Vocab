@@ -1,4 +1,5 @@
 'use client';
+import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect } from 'react';
@@ -35,7 +36,7 @@ export function SetupModal() {
 
       const { data: { session } } = await authService.getSession();
       if (session) {
-        const res = await fetch('/api/push/fcm-register', {
+        const res = await AuthApi.fcmRegister({
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

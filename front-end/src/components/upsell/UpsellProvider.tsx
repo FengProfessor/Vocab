@@ -1,4 +1,5 @@
 'use client';
+import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useState } from 'react';
@@ -148,9 +149,7 @@ export function UpsellProvider() {
       if (!session?.user || cancelled) return;
 
       try {
-        const res = await fetch('/api/profile', {
-          headers: { 'X-LingoPro-Request': '1' },
-        });
+        const res = await AuthApi.getProfileSession();
         if (!res.ok || cancelled) return;
 
         const json = (await res.json()) as {

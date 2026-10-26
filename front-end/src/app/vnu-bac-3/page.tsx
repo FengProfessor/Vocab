@@ -1,4 +1,5 @@
 'use client';
+import { ExamApi } from '@/features/exam/api';
 
 /**
  * VNU Test Bậc 3 (ULIS ĐHQGHN) Landing Page & Catalog — Client-side API version
@@ -27,7 +28,7 @@ export default function VnuBac3CatalogPage() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch('/api/vnu-bac-3?action=catalog')
+    ExamApi.getVnuCatalog()
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (!cancelled && Array.isArray(data?.catalog) && data.catalog.length > 0) {

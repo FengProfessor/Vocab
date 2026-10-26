@@ -1,4 +1,5 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 /**
@@ -12,7 +13,6 @@ import {
   ArrowRight, ChevronLeft, Loader2, Snail, Volume2,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -286,7 +286,7 @@ function SessionContent() {
         : `/api/words`;
 
       try {
-        const res = await authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=40&noCount=1`, {});
+        const res = await VocabApi.getWords(`${base}${base.includes('?') ? '&' : '?'}limit=40&noCount=1`);
         const json = await res.json().catch(() => ({ success: false }));
         if (json.success && Array.isArray(json.data) && json.data.length > 0) {
           freeWords = (json.data as WordItem[]).filter(isCardReady);
@@ -298,7 +298,7 @@ function SessionContent() {
       // Fallback cross-classroom nếu API trả về rỗng (ví dụ: personal class rỗng nhưng có từ ở các lớp đã tham gia)
       if (freeWords.length === 0) {
         try {
-          const allRes = await authFetch('/api/words?classroomId=all&limit=60&noCount=1', {})
+          const allRes = await VocabApi.getWords('/api/words?classroomId=all&limit=60&noCount=1')
             .then((r) => r.json())
             .catch(() => null);
           if (allRes?.success && Array.isArray(allRes.data) && allRes.data.length > 0) {
@@ -428,7 +428,7 @@ function SessionContent() {
           ? `/api/words?classroomId=${encodeURIComponent(cid)}`
           : `/api/words`;
         // Ưu tiên nạp danh sách đến hạn ôn (RPC get_due_words_list, siêu nhẹ ~120ms)
-        const dueRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`, {});
+        const dueRes = await VocabApi.getWords(`${base}${base.includes('?') ? '&' : '?'}filter=review&limit=${SESSION_CAP}`);
         const dueJson = await dueRes.json().catch(() => ({ success: false }));
 
         if (!dueJson.success) {
@@ -484,7 +484,7 @@ function SessionContent() {
         let allWords: WordItem[] = [];
         if (dueWords.length > 0 && dueWords.length < 4) {
           try {
-            const allRes = await authFetch(`${base}${base.includes('?') ? '&' : '?'}limit=30&noCount=1`, {});
+            const allRes = await VocabApi.getWords(`${base}${base.includes('?') ? '&' : '?'}limit=30&noCount=1`);
             const allJson = await allRes.json().catch(() => ({ success: false }));
             if (allJson.success && Array.isArray(allJson.data)) {
               allWords = allJson.data as WordItem[];
@@ -527,7 +527,7 @@ function SessionContent() {
           setTotal(0);
           // Khi không có từ đến hạn, tìm mốc thời gian từ kế tiếp sẽ đến hạn
           try {
-            const allRes = await authFetch('/api/words?classroomId=all&limit=60&noCount=1', {})
+            const allRes = await VocabApi.getWords('/api/words?classroomId=all&limit=60&noCount=1')
               .then((r) => r.json())
               .catch(() => null);
             const candidates: string[] = [];

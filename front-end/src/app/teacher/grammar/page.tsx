@@ -1,6 +1,6 @@
 'use client';
+import { GrammarApi } from '@/features/grammar/api';
 import { authService } from '@/features/auth/session';
-import { authFetch } from '@/lib/auth-fetch';
 
 
 import { useEffect, useMemo, useState, useCallback } from 'react';
@@ -71,7 +71,7 @@ export default function TeacherGrammarEditorPage() {
     if (!aiTopic.trim()) return;
     setIsGenerating(true);
     try {
-      const res = await authFetch('/api/grammar/generate', {
+      const res = await GrammarApi.generateLesson({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic: aiTopic.trim(), level: aiLevel }),
@@ -107,8 +107,8 @@ export default function TeacherGrammarEditorPage() {
 
       try {
         const [topicsRes, lessonsRes] = await Promise.all([
-          authFetch('/api/grammar/topics').then((r) => r.json()),
-          authFetch('/api/grammar/lessons').then((r) => r.json()),
+          GrammarApi.getTopics().then((r) => r.json()),
+          GrammarApi.getLessons('/api/grammar/lessons').then((r) => r.json()),
         ]);
         if (topicsRes?.success) setTopics(topicsRes.data as GrammarTopic[]);
         if (lessonsRes?.success) setLessons(lessonsRes.data as GrammarLesson[]);
@@ -138,7 +138,7 @@ export default function TeacherGrammarEditorPage() {
       }
       // Fallback: fetch chi tiết
       try {
-        const res = await authFetch(`/api/grammar/lessons?id=${lessonId}`).then((r) => r.json());
+        const res = await GrammarApi.getLessons(`/api/grammar/lessons?id=${lessonId}`).then((r) => r.json());
         if (res?.success && res.data) {
           const l = res.data as GrammarLesson;
           setForm({
@@ -236,7 +236,7 @@ export default function TeacherGrammarEditorPage() {
     setIsSaving(true);
     try {
       if (isNewLesson) {
-        const res = await fetch('/api/grammar/lessons', {
+        const res = await GrammarApi.saveLesson({
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
           body: JSON.stringify({
@@ -247,7 +247,7 @@ export default function TeacherGrammarEditorPage() {
             source: 'manual',
             created_by: userId,
           }),
-        });
+        }, 'POST');
         const data = await res.json();
         if (!data.success) throw new Error(data.error || 'Save failed');
         const created = data.data as GrammarLesson;
@@ -256,7 +256,7 @@ export default function TeacherGrammarEditorPage() {
         setSelectedLessonId(created.id);
         toast.success('Đã tạo bài học mới!');
       } else if (selectedLessonId) {
-        const res = await fetch('/api/grammar/lessons', {
+        const res = await GrammarApi.saveLesson({
           method: 'PUT',
           headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
           body: JSON.stringify({
@@ -266,7 +266,7 @@ export default function TeacherGrammarEditorPage() {
             theory_vi: form.theory_vi,
             examples: form.examples,
           }),
-        });
+        }, 'PUT');
         const data = await res.json();
         if (!data.success) throw new Error(data.error || 'Save failed');
         const updated = data.data as GrammarLesson;
@@ -289,10 +289,7 @@ export default function TeacherGrammarEditorPage() {
 
     setIsDeleting(true);
     try {
-      const res = await fetch(`/api/grammar/lessons?id=${selectedLessonId}`, {
-        method: 'DELETE',
-        headers: { 'X-LingoPro-Request': '1' },
-      });
+      const res = await GrammarApi.deleteLesson(`/api/grammar/lessons?id=${selectedLessonId}`);
       const data = await res.json();
       if (!data.success) throw new Error(data.error || 'Delete failed');
       setLessons((prev) => prev.filter((l) => l.id !== selectedLessonId));

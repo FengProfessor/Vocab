@@ -1,4 +1,5 @@
 'use client';
+import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';
 
 import { useState } from 'react';
@@ -31,7 +32,7 @@ export default function FCMTestPage() {
         addLog('Đang lưu vào Supabase...');
         const { data: { session } } = await authService.getSession();
         if (session) {
-          const res = await fetch('/api/push/fcm-register', {
+          const res = await AuthApi.fcmRegister({
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ export default function FCMTestPage() {
       }
 
       addLog('Đang gọi /api/test/push-due...');
-      const res = await fetch('/api/test/push-due', {
+      const res = await AuthApi.testPushDue({
         method: 'POST',
         headers: { 'X-LingoPro-Request': '1' },
       });

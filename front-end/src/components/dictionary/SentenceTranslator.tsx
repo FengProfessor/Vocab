@@ -1,4 +1,6 @@
 'use client';
+import { DictionaryApi } from '@/features/dictionary/api';
+import { VocabApi } from '@/features/vocab/api';
 
 import { useState, useRef, useCallback } from 'react';
 import {
@@ -23,7 +25,6 @@ import {
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { speak } from '@/lib/study';
-import { authFetch } from '@/lib/auth-fetch';
 import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
 import { notifyWordSavedOptimistic, notifyWordSaveRollback } from '@/lib/word-summary-cache';
 import type { ExtractedPhrase } from '@/types/translation';
@@ -166,7 +167,7 @@ export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {
 
     setSvoLoading(true);
     try {
-      const res = await authFetch('/api/dictionary/ai-sentence', {
+      const res = await DictionaryApi.analyzeSentence({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -223,7 +224,7 @@ export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {
     setExtractedPhrases([]);
 
     try {
-      const res = await fetch('/api/translate', {
+      const res = await DictionaryApi.translate({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -297,7 +298,7 @@ export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {
     }
 
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.saveWords({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -1,4 +1,5 @@
 'use client';
+import { DictionaryApi } from '@/features/dictionary/api';
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Volume2, Snail, Sparkles, Loader2 } from 'lucide-react';
@@ -111,7 +112,7 @@ export function ExampleWithSub({
 
     setIsTranslating(true);
     try {
-      const res = await fetch('/api/translate', {
+      const res = await DictionaryApi.translate({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

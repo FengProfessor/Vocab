@@ -43,16 +43,20 @@ const lingoproGuardrailPlugin = {
 
 const restrictedSyntax = [
   {
+    selector: "CallExpression[callee.name='authFetch']",
+    message: 'authFetch has been removed. Use a domain service built on apiClient.',
+  },
+  {
     selector: "CallExpression[callee.name=/^(fetch|authFetch)$/][arguments.0.type='Literal'][arguments.0.value=/^\\/api\\//]",
-    message: "Raw fetch('/api/...') is deprecated. Use a domain service built on apiClient.",
+    message: "Raw fetch('/api/...') is forbidden. Use a domain service built on apiClient.",
   },
   {
     selector: "CallExpression[callee.name=/^(fetch|authFetch)$/][arguments.0.type='TemplateLiteral'][arguments.0.quasis.0.value.raw=/^\\/api\\//]",
-    message: 'Raw fetch(`/api/...`) is deprecated. Use a domain service built on apiClient.',
+    message: 'Raw fetch(`/api/...`) is forbidden. Use a domain service built on apiClient.',
   },
   {
     selector: "CallExpression[callee.object.name='window'][callee.property.name='fetch'][arguments.0.value=/^\\/api\\//]",
-    message: "Raw window.fetch('/api/...') is deprecated. Use a domain service built on apiClient.",
+    message: "Raw window.fetch('/api/...') is forbidden. Use a domain service built on apiClient.",
   },
 ];
 
@@ -128,7 +132,8 @@ export default tseslint.config(
           ],
         },
       ],
-      'no-restricted-syntax': [GUARDRAIL, ...restrictedSyntax],
+      // Raw fetch('/api/...') and authFetch(...) are strictly forbidden ('error') outside server routes.
+      'no-restricted-syntax': ['error', ...restrictedSyntax],
     },
   },
   {

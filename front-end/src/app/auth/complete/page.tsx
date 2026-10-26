@@ -1,4 +1,5 @@
 'use client';
+import { SocialApi } from '@/features/social/api';
 
 import { useEffect, useRef } from 'react';
 import { authService } from '@/features/auth/session';
@@ -92,7 +93,7 @@ export default function AuthCallbackPage() {
         if (refCode && session.user) {
           try {
             await Promise.race([
-              fetch('/api/referral/claim', {
+              SocialApi.claimReferral({
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

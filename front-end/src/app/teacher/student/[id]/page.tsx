@@ -1,4 +1,5 @@
 'use client';
+import { ClassroomApi } from '@/features/classroom/api';
 
 import { useState, useEffect, useCallback } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
@@ -10,7 +11,6 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import { getCachedStudentDetail, setCachedStudentDetail } from '@/components/teacher/teacher-cache';
 
 const StudentVmsLineChart = dynamic(
@@ -72,7 +72,7 @@ export default function StudentDetailPage() {
       const tag = isDormant ? 'DORMANT' : isRisingStar ? 'RISING STAR' : isCramming ? 'CRAMMING' : isAtRisk ? 'AT RISK' : 'NORMAL';
       const msg = isDormant ? 'Vắng mặt lâu ngày' : isRisingStar ? 'Tiến bộ vượt trội' : isCramming ? 'Học dồn tập trung' : isAtRisk ? 'Đang gặp khó khăn' : 'Bình thường';
 
-      const res = await authFetch('/api/teacher/coaching-insight', {
+      const res = await ClassroomApi.getCoachingInsight({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -109,7 +109,7 @@ export default function StudentDetailPage() {
     }
 
     try {
-      const res = await authFetch(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`);
+      const res = await ClassroomApi.getStudentDetail(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`);
       const json = await res.json();
       if (json.error) throw new Error(json.error);
       setData(json);
@@ -135,7 +135,7 @@ export default function StudentDetailPage() {
   const fetchStudentErrors = useCallback(async () => {
     setIsLoadingErrors(true);
     try {
-      const res = await authFetch(`/api/teacher/student-errors?studentId=${studentId}&classroomId=${classroomId}`);
+      const res = await ClassroomApi.getStudentErrors(`/api/teacher/student-errors?studentId=${studentId}&classroomId=${classroomId}`);
       const json = await res.json();
       if (json.success) {
         setErrorsList(json.data || []);
@@ -153,7 +153,7 @@ export default function StudentDetailPage() {
   const handleAssignDrill = useCallback(async () => {
     setIsAssigningDrill(true);
     try {
-      const res = await authFetch('/api/teacher/assign-drill', {
+      const res = await ClassroomApi.assignDrill({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ studentId, classroomId }),

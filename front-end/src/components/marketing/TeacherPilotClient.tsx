@@ -1,4 +1,5 @@
 'use client';
+import { AdminApi } from '@/features/admin/api';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -259,7 +260,7 @@ export function CenterLeadForm() {
     setIsSubmitting(true);
     setError('');
     try {
-      const res = await fetch('/api/pilot/leads', {
+      const res = await AdminApi.subscribePilotLead({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, source: 'teacher_landing_center_form' }),

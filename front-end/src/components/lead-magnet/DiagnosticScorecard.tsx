@@ -1,4 +1,5 @@
 'use client';
+import { SocialApi } from '@/features/social/api';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import {
@@ -146,7 +147,7 @@ export default function DiagnosticScorecard({
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('/api/lead-magnet/subscribe', {
+      const res = await SocialApi.subscribeLeadMagnet({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

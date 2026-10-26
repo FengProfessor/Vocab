@@ -1,3 +1,4 @@
+import { DictionaryApi } from '@/features/dictionary/api';
 import { resolveProxyMediaUrl } from './toeic-media-proxy';
 
 export interface ExamDictPhrase {
@@ -320,7 +321,7 @@ async function queryDictEndpoint(url: string, timeoutMs: number): Promise<any | 
         ? AbortSignal.timeout(timeoutMs)
         : undefined;
 
-    const res = await fetch(url, { signal });
+    const res = await url.includes('/external') ? await DictionaryApi.lookupExternal(url, { signal }) : await DictionaryApi.lookup(url, { signal });
     const json = await res.json();
     if (res.ok) {
       if (json && (json.results?.length > 0 || json.translation || json.definition)) {
@@ -346,7 +347,7 @@ async function queryTranslateEndpoint(text: string, timeoutMs: number): Promise<
         ? AbortSignal.timeout(timeoutMs)
         : undefined;
 
-    const res = await fetch('/api/translate', {
+    const res = await DictionaryApi.translate({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

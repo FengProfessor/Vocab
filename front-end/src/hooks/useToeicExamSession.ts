@@ -1,4 +1,5 @@
 'use client';
+import { ExamApi } from '@/features/exam/api';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import type {
@@ -10,7 +11,6 @@ import type {
   ToeicClientQuestion,
 } from '@/types/toeic';
 import { calculateToeicScore } from '@/lib/toeic-scoring';
-import { authFetch } from '@/lib/auth-fetch';
 
 export interface UseToeicExamSessionOptions {
   testId: string;
@@ -194,7 +194,7 @@ export function useToeicExamSession({
 
       try {
         // Attempt secure server-side scoring & submission
-        const res = await authFetch('/api/toeic/submit', {
+        const res = await ExamApi.submitToeicExam({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

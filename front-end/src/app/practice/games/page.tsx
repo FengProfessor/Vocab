@@ -1,4 +1,5 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useMemo, useState } from 'react';
@@ -16,7 +17,6 @@ import {
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { EnglishGameSession } from '@/components/games/EnglishGameSession';
-import { authFetch } from '@/lib/auth-fetch';
 import {
   GAME_MODES,
   GAME_TOPICS,
@@ -130,7 +130,7 @@ export default function EnglishGamesPage() {
           data: { user },
         } = await authService.getUser();
         if (!user) return;
-        const res = await authFetch('/api/words?limit=60&offset=0&classroomId=__personal__', {})
+        const res = await VocabApi.getWords('/api/words?limit=60&offset=0&classroomId=__personal__')
           .then((r) => r.json())
           .catch(() => null);
         const data = Array.isArray(res?.data) ? res.data : [];

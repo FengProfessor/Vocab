@@ -1,4 +1,5 @@
 'use client';
+import { ReadingApi } from '@/features/reading/api';
 
 /**
  * /practice/daily-reading — Bài luyện đọc hàng ngày
@@ -28,7 +29,6 @@ import {
   ArrowRight,
   Library,
 } from 'lucide-react';
-import { authFetch } from '@/lib/auth-fetch';
 import {
   readLastDailyReadingCache,
   writeDailyReadingCache,
@@ -405,7 +405,7 @@ export default function DailyReadingPage() {
     setLoading((prev) => (exercises.length > 0 ? false : prev));
     setError(null);
     try {
-      const res = await authFetch('/api/practice/daily-reading?recent=7');
+      const res = await ReadingApi.getDailyReading('/api/practice/daily-reading?recent=7');
       const json = await res.json();
       if (json.success && Array.isArray(json.exercises)) {
         setExercises(json.exercises);
@@ -449,7 +449,7 @@ export default function DailyReadingPage() {
       }
       setError(null);
       try {
-        const res = await authFetch('/api/practice/daily-reading?recent=7');
+        const res = await ReadingApi.getDailyReading('/api/practice/daily-reading?recent=7');
         const json = await res.json();
         if (!cancelled) {
           if (json.success && Array.isArray(json.exercises)) {
@@ -565,7 +565,7 @@ export default function DailyReadingPage() {
     async (mcqScoreVal: number, mcqTotalVal: number, clozeScoreVal: number, clozeTotalVal: number) => {
       if (!exercise) return;
       try {
-        await authFetch('/api/practice/daily-reading', {
+        await ReadingApi.submitDailyReading({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -658,7 +658,7 @@ export default function DailyReadingPage() {
       if (!exercise || savedWords.has(w.word)) return;
       setSavingWord(w.word);
       try {
-        const res = await authFetch('/api/practice/daily-reading/save-word', {
+        const res = await ReadingApi.saveDailyReadingWord({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -693,7 +693,7 @@ export default function DailyReadingPage() {
     try {
       setTimeout(() => setGeneratingStep('AI đang viết bài đọc & câu hỏi...'), 1200);
 
-      const res = await authFetch('/api/practice/daily-reading/generate', {
+      const res = await ReadingApi.generateDailyReading({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(packId ? { packId } : {}),

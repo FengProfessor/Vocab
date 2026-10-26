@@ -1,5 +1,6 @@
 'use client';
-import { authFetch } from '@/lib/auth-fetch';
+import { GrammarApi } from '@/features/grammar/api';
+import { VocabApi } from '@/features/vocab/api';
 
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
@@ -280,7 +281,7 @@ export function StudentShell({
           }
 
           const authHeaders = { 'X-LingoPro-Request': '1' };
-          const grammarResponse = await authFetch('/api/grammar/progress?summary=1', { headers: authHeaders })
+          const grammarResponse = await GrammarApi.getProgress('/api/grammar/progress?summary=1', { headers: authHeaders })
             .then((response) => response.json())
             .catch(() => null);
 
@@ -327,12 +328,12 @@ export function StudentShell({
         const [wordsResponse, grammarResponse] = await Promise.all([
           cached
             ? Promise.resolve(null)
-            : authFetch('/api/words?summary=1', { headers: authHeaders })
+            : VocabApi.getWords('/api/words?summary=1', { headers: authHeaders })
                 .then((response) => response.json())
                 .catch(() => null),
           cachedGrammar?.fresh
             ? Promise.resolve(null)
-            : authFetch('/api/grammar/progress?summary=1', { headers: authHeaders })
+            : GrammarApi.getProgress('/api/grammar/progress?summary=1', { headers: authHeaders })
                 .then((response) => response.json())
                 .catch(() => null),
         ]);

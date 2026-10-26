@@ -1,4 +1,9 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { SocialApi } from '@/features/social/api';
+import { RoadmapApi } from '@/features/roadmap/api';
+import { ReadingApi } from '@/features/reading/api';
+import { GrammarApi } from '@/features/grammar/api';
 
 import React, {
   createContext,
@@ -15,7 +20,6 @@ import { AuthApi } from '@/features/auth/api';
 import { apiClient } from '@/lib/apiClient';
 import type { ApiResponse } from '@/types/api/ApiResponse';
 import { effectiveCurrentStreak } from '@/lib/gamification';
-import { authFetch } from '@/lib/auth-fetch';
 import { authService, authStateVersion } from '@/features/auth/session';
 import {
   readWordSummaryCache,
@@ -192,7 +196,7 @@ export function fetchWordSummaryOnce(userId: string): Promise<WordSummaryData | 
   const version = authStateVersion();
   const promise = (async () => {
     try {
-      const res = await authFetch('/api/words?summary=1&classroomId=__personal__', {});
+      const res = await VocabApi.getWords('/api/words?summary=1&classroomId=__personal__');
       const json = await res.json();
       if (version !== authStateVersion()) return null;
       if (json?.success) {
@@ -428,7 +432,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           try {
             if (!sessionStorage.getItem('lp_ref_checked')) {
               sessionStorage.setItem('lp_ref_checked', '1');
-              void fetch('/api/referral/evaluate-activation', {
+              void SocialApi.evaluateReferralActivation({
                 method: 'POST',
                 headers: { 'X-LingoPro-Request': '1' },
               }).catch(() => null);
@@ -467,7 +471,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
                 const snapMod = await import('@/lib/dashboard-snapshot-cache');
                 if (!snapMod.readLibraryCatalogCache()) {
-                  void authFetch('/api/import/packages')
+                  void VocabApi.getImportPackages()
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.routes)) {
@@ -481,7 +485,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     .catch(() => {});
                 }
                 if (!snapMod.readLastRoadmapCache('cefr', userId)) {
-                  void authFetch('/api/roadmap?track=cefr')
+                  void RoadmapApi.getRoadmap('/api/roadmap?track=cefr')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && d.data && typeof d.data === 'object') {
@@ -492,7 +496,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     .catch(() => {});
                 }
                 if (!snapMod.readLastProfileStatsCache(userId)) {
-                  void authFetch('/api/student/stats')
+                  void VocabApi.getStudentStats()
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && d.data) {
@@ -502,7 +506,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     .catch(() => {});
                 }
                 if (!snapMod.readLastDailyReadingCache(userId)) {
-                  void authFetch('/api/practice/daily-reading')
+                  void ReadingApi.getDailyReading('/api/practice/daily-reading')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.exercises)) {
@@ -518,7 +522,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     .catch(() => {});
                 }
                 if (!localStorage.getItem('lingo_grammar_topic_progress')) {
-                  void authFetch('/api/grammar/progress?view=topics')
+                  void GrammarApi.getProgress('/api/grammar/progress?view=topics')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.data)) {

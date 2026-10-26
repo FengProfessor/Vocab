@@ -1,4 +1,5 @@
 'use client';
+import { SocialApi } from '@/features/social/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useState, use } from 'react';
@@ -57,7 +58,7 @@ export default function InviteLandingPage({
         // 1 & 2. Concurrently check auth session and resolve referrer info
         const [sessionRes, resolveRes] = await Promise.all([
           authService.getSession(),
-          fetch('/api/referral/resolve', {
+          SocialApi.resolveReferral({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code }),
@@ -103,7 +104,7 @@ export default function InviteLandingPage({
       }
 
       // User is logged in, claim referral directly
-      const res = await fetch('/api/referral/claim', {
+      const res = await SocialApi.claimReferral({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

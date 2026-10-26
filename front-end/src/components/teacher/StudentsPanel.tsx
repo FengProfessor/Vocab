@@ -1,4 +1,5 @@
 'use client';
+import { ClassroomApi } from '@/features/classroom/api';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import type { StudentProgress } from '@/lib/supabase';
@@ -7,7 +8,6 @@ import {
   Loader2, HelpCircle, X, Search, Filter, Clock, Trophy, BookOpen
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import StudentDetailSheet from './StudentDetailSheet';
 import { prefetchStudent } from './teacher-cache';
 import { calculatePedagogicalStatus } from '@/lib/activity/universal-activity';
@@ -257,7 +257,7 @@ export default function StudentsPanel({
 
     setIsSubmitting(true);
     try {
-      const res = await authFetch('/api/teacher/students/add', {
+      const res = await ClassroomApi.addStudentToClassroom({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -289,7 +289,7 @@ export default function StudentsPanel({
     if (!studentToRemove) return;
     setIsRemoving(true);
     try {
-      const res = await authFetch('/api/teacher/students/remove', {
+      const res = await ClassroomApi.removeStudentFromClassroom({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

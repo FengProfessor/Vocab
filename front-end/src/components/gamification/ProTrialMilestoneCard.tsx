@@ -1,4 +1,5 @@
 'use client';
+import { BillingApi } from '@/features/billing/api';
 import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useState, type ReactNode } from 'react';
@@ -113,7 +114,7 @@ export function ProTrialMilestoneCard({
         return;
       }
 
-      const res = await fetch('/api/billing/pro-milestone', {
+      const res = await BillingApi.getProMilestone({
         headers: { 'X-LingoPro-Request': '1' },
         cache: 'no-store',
       });
@@ -187,7 +188,7 @@ export function ProTrialMilestoneCard({
       } = await authService.getSession();
       if (!session) throw new Error('Cần đăng nhập');
 
-      const res = await fetch('/api/billing/pro-milestone', {
+      const res = await BillingApi.claimProMilestone({
         method: 'POST',
         headers: {
           'X-LingoPro-Request': '1',

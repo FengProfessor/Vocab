@@ -1,4 +1,6 @@
 'use client';
+import { ClassroomApi } from '@/features/classroom/api';
+import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
@@ -15,7 +17,6 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
-import { authFetch } from '@/lib/auth-fetch';
 import { track } from '@/lib/analytics';
 import WordsPanel from '@/components/teacher/WordsPanel';
 import GrammarPanel from '@/components/teacher/GrammarPanel';
@@ -106,7 +107,7 @@ export default function TeacherDashboard() {
   const loadAnalytics = useCallback(async (classroomId: string) => {
     setIsLoadingAnalytics(true);
     try {
-      const res = await authFetch(`/api/teacher/analytics?classroomId=${classroomId}`);
+      const res = await ClassroomApi.getTeacherAnalytics(`/api/teacher/analytics?classroomId=${classroomId}`);
       const data = await res.json();
       if (data.error) throw new Error(data.error);
       setAnalytics(data as AnalyticsData);
@@ -119,7 +120,7 @@ export default function TeacherDashboard() {
 
   const loadPendingWords = useCallback(async (classroomId: string) => {
     try {
-      const res = await authFetch(`/api/words?classroomId=${classroomId}&status=pending`);
+      const res = await VocabApi.getWords(`/api/words?classroomId=${classroomId}&status=pending`);
       const data = (await res.json()) as { success?: boolean; data?: PendingWord[] };
       if (data.success) setPendingWords(data.data ?? []);
     } catch {
@@ -130,7 +131,7 @@ export default function TeacherDashboard() {
   const loadStudents = useCallback(
     async (classroomId: string) => {
       try {
-        const res = await authFetch(`/api/teacher/stats?classroomId=${classroomId}&_t=${Date.now()}`, {
+        const res = await ClassroomApi.getTeacherStats(`/api/teacher/stats?classroomId=${classroomId}&_t=${Date.now()}`, {
           cache: 'no-store',
         });
         const data = await res.json();
@@ -157,7 +158,7 @@ export default function TeacherDashboard() {
     setUserId(user.id);
 
     try {
-      const res = await authFetch(`/api/teacher/stats?_t=${Date.now()}`, {
+      const res = await ClassroomApi.getTeacherStats(`/api/teacher/stats?_t=${Date.now()}`, {
         cache: 'no-store',
       });
       const data = await res.json();
@@ -323,11 +324,7 @@ export default function TeacherDashboard() {
   const handleWordStatus = async (wordId: string, status: 'approved' | 'rejected') => {
     setApprovingId(wordId);
     try {
-      const res = await fetch(`/api/words/${wordId}/status`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
-        body: JSON.stringify({ status }),
-      });
+      const res = await VocabApi.updateWordStatus(wordId, { status });
       const json = (await res.json()) as { success?: boolean };
       if (!json.success) throw new Error('Failed');
       setPendingWords((prev) => prev.filter((w) => w.id !== wordId));

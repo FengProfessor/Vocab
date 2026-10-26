@@ -1,10 +1,10 @@
+import { VocabApi } from '@/features/vocab/api';
 /**
  * Offline Study Queue Management.
  * Manages prefetching, instant querying, and optimistic updates of vocabulary
  * stored in IndexedDB (study_words store).
  */
 
-import { authFetch } from '@/lib/auth-fetch';
 import {
   replaceStudyWordsByQueue,
   getStudyWordsByUser,
@@ -52,10 +52,10 @@ export async function prefetchStudyQueue(
 
     // Parallel fetch for review words (due) and new words
     const [reviewRes, newRes] = await Promise.allSettled([
-      authFetch(`/api/words?filter=review&limit=50${cidParam}`, {
+      VocabApi.getWords(`/api/words?filter=review&limit=50${cidParam}`, {
         headers: { 'X-LingoPro-Request': '1' },
       }).then((r) => r.json()),
-      authFetch(`/api/words?filter=new&limit=25${cidParam}`, {
+      VocabApi.getWords(`/api/words?filter=new&limit=25${cidParam}`, {
         headers: { 'X-LingoPro-Request': '1' },
       }).then((r) => r.json()),
     ]);

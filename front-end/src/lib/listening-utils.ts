@@ -427,7 +427,8 @@ export async function loadListeningVideoById(id: string): Promise<ListeningVideo
 
   // Tier 2: Fetch from server API route on demand
   try {
-    const res = await fetch(`/api/listening/video?id=${encodeURIComponent(normalizedId)}`);
+    const { DictionaryApi } = await import('@/features/dictionary/api');
+    const res = await DictionaryApi.getListeningVideo(normalizedId);
     if (res.ok) {
       const data = await res.json();
       if (data?.video) {

@@ -1,7 +1,7 @@
 'use client';
+import { AuthApi } from '@/features/auth/api';
 
 import { useEffect, useState } from 'react';
-import { authFetch } from '@/lib/auth-fetch';
 import {
   DISPLAY_NAME_MAX,
   DISPLAY_NAME_MIN,
@@ -36,7 +36,7 @@ export function DisplayNameEditor({ initialName, onSaved }: Props) {
     setSaving(true);
     setError(null);
     try {
-      const res = await authFetch('/api/profile', {
+      const res = await AuthApi.updateProfile({
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ full_name: checked.name }),

@@ -1,6 +1,6 @@
 'use client';
+import { GrammarApi } from '@/features/grammar/api';
 import { authService } from '@/features/auth/session';
-import { authFetch } from '@/lib/auth-fetch';
 
 
 import { useState, useEffect, useMemo, useRef, use, Fragment } from 'react';
@@ -226,10 +226,10 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
       if (!session?.user) return;
 
       const [res, reviewRes] = await Promise.all([
-        authFetch('/api/grammar/progress?view=topics', {
+        GrammarApi.getProgress('/api/grammar/progress?view=topics', {
           headers: { 'X-LingoPro-Request': '1' },
         }).catch(() => null),
-        authFetch('/api/grammar/review?days=14', {
+        GrammarApi.getReviewSchedule(14, {
           headers: { 'X-LingoPro-Request': '1' },
         }).catch(() => null),
       ]);
@@ -308,7 +308,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
       setTheoryLoading(true);
       try {
         // 1. Fetch comprehensive structured theory from API
-        const res = await authFetch(`/api/grammar/theory?topic=${encodeURIComponent(selectedTopicSlug)}`);
+        const res = await GrammarApi.getTheory(`/api/grammar/theory?topic=${encodeURIComponent(selectedTopicSlug)}`);
         if (res.ok) {
           const json = await res.json();
           if (json?.success && json?.data && isMounted) {

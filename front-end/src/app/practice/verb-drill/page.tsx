@@ -1,4 +1,5 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 
 /**
  * Quiz nhớ nhanh từ kho đã học (không FSRS / không ôn sâu).
@@ -13,7 +14,6 @@ import Link from 'next/link';
 import { BookOpen, Check, ChevronLeft, Loader2, RotateCcw, Volume2, X } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
-import { authFetch } from '@/lib/auth-fetch';
 import { parseIpa, speak, stopSpeak } from '@/lib/study';
 import { stripEmbeddedVietnamese } from '@/lib/review-modes';
 
@@ -269,7 +269,7 @@ export default function VerbDrillPage() {
 
         for (let page = 0; page < 6; page++) {
           const offset = page * 50;
-          const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
+          const res = await VocabApi.getWords(`/api/words?limit=50&offset=${offset}`);
           if (res.status === 401) {
             if (!cancelled) {
               setLoadErr('login');

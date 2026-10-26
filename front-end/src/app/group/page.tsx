@@ -1,4 +1,5 @@
 'use client';
+import { SocialApi } from '@/features/social/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -71,7 +72,7 @@ export default function GroupPage() {
       return;
     }
     try {
-      const res = await fetch('/api/groups/mine', {
+      const res = await SocialApi.getMyGroups({
         headers: { 'X-LingoPro-Request': '1' },
       });
       const json = await res.json();
@@ -108,7 +109,7 @@ export default function GroupPage() {
     setBusy(true);
     try {
       await hasSession();
-      const res = await fetch('/api/groups/join', {
+      const res = await SocialApi.joinGroup({
         method: 'POST',
         headers: { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' },
         body: JSON.stringify({ inviteCode: code }),
@@ -131,7 +132,7 @@ export default function GroupPage() {
     setBusy(true);
     try {
       await hasSession();
-      const res = await fetch(`/api/groups/${owned.id}/remove`, {
+      const res = await SocialApi.removeGroupMember(owned.id, {
         method: 'POST',
         headers: { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId }),
@@ -152,7 +153,7 @@ export default function GroupPage() {
     setBusy(true);
     try {
       await hasSession();
-      const res = await fetch('/api/groups/leave', {
+      const res = await SocialApi.leaveGroup({
         method: 'POST',
         headers: { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' },
         body: JSON.stringify({}),

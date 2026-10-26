@@ -1,11 +1,11 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 
 /**
  * Phiên ôn gọn trong game — chỉ UI ôn tập, không load full trang LingoPro.
  * Ưu tiên từ due thật (auth); fallback word demo.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { authFetch } from '@/lib/auth-fetch';
 import type { ActivityKind } from '@/lib/lingo-town-activities';
 import { GROVE_WORDS } from '@/lib/lingo-town';
 import { speak, parseIpa } from '@/lib/study';
@@ -57,7 +57,7 @@ export function MiniStudySession({ kind, onProgress }: Props) {
     (async () => {
       setLoading(true);
       try {
-        const res = await authFetch('/api/words?filter=review');
+        const res = await VocabApi.getWords('/api/words?filter=review');
         const json = await res.json();
         if (cancelled) return;
         if (json.success && Array.isArray(json.data) && json.data.length > 0) {

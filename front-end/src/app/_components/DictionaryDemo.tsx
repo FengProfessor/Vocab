@@ -1,4 +1,5 @@
 'use client';
+import { DictionaryApi } from '@/features/dictionary/api';
 
 import { useCallback, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -45,7 +46,7 @@ export default function DictionaryDemo() {
     setError(null);
 
     try {
-      const res = await fetch(`/api/dictionary/lookup?word=${encodeURIComponent(trimmed)}`, {
+      const res = await DictionaryApi.lookup(`/api/dictionary/lookup?word=${encodeURIComponent(trimmed)}`, {
         signal: AbortSignal.timeout(4000),
       });
       if (res.ok) {
@@ -61,7 +62,7 @@ export default function DictionaryDemo() {
     }
 
     try {
-      const res = await fetch(`/api/dictionary/external?word=${encodeURIComponent(trimmed)}`, {
+      const res = await DictionaryApi.lookupExternal(`/api/dictionary/external?word=${encodeURIComponent(trimmed)}`, {
         signal: AbortSignal.timeout(6000),
       });
       if (res.ok) {

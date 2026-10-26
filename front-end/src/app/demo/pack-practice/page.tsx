@@ -1,5 +1,5 @@
 'use client';
-import { authFetch } from '@/lib/auth-fetch';
+import { ReadingApi } from '@/features/reading/api';
 
 
 /**
@@ -157,7 +157,7 @@ export default function PackPracticeDemoPage() {
   const [nlmMeta, setNlmMeta] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('/api/demo/pack-passage')
+    ReadingApi.getDemoPackPassage()
       .then((r) => r.json())
       .then((j) => {
         if (j.success && Array.isArray(j.packs)) {
@@ -220,7 +220,7 @@ export default function PackPracticeDemoPage() {
     setTab('passage');
     try {
       // Demo mặc định theme môi trường — product bắt user chọn tại /practice/pack-reading
-      const res = await authFetch('/api/practice/pack-passage', {
+      const res = await ReadingApi.generatePackPassage({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -249,7 +249,7 @@ export default function PackPracticeDemoPage() {
         throw new Error('Cần ≥5 từ cho mindmap');
       }
       // mindmap API yêu cầu ≥5, khuyến nghị nhiều — demo pack 12 từ OK
-      const res = await authFetch('/api/mindmap/generate', {
+      const res = await ReadingApi.generateMindmap({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -298,7 +298,7 @@ export default function PackPracticeDemoPage() {
         );
       }
 
-      const res = await authFetch('/api/mindmap/nlm', {
+      const res = await ReadingApi.generateMindmapNlm({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

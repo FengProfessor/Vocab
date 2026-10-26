@@ -1,10 +1,12 @@
 'use client';
+import { ClassroomApi } from '@/features/classroom/api';
+import { VocabApi } from '@/features/vocab/api';
+import { ReadingApi } from '@/features/reading/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useMemo, useRef, useSyncExternalStore } from 'react';
 import dynamic from 'next/dynamic';
 import { AuthApi } from '@/features/auth/api';
-import { authFetch } from '@/lib/auth-fetch';
 import type { Profile, Word } from '@/lib/supabase';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -328,7 +330,7 @@ export default function StudentDashboard() {
 
   const fetchClassrooms = async (): Promise<EnrolledClassroom[]> => {
     try {
-      const res = await authFetch('/api/student/classrooms', {});
+      const res = await ClassroomApi.getClassrooms();
       const json = await res.json();
       if (json.success && Array.isArray(json.classrooms)) {
         setEnrolledClassrooms(json.classrooms);
@@ -494,7 +496,7 @@ export default function StudentDashboard() {
   /** Heatmap + streak liên tiếp + phân tích dữ liệu học tập từ server (/api/student/stats). Gọi sau shell. */
   const loadActivityStats = (userId?: string) => {
     const uid = userId || profile?.id;
-    void authFetch('/api/student/stats', {})
+    void VocabApi.getStudentStats()
       .then((r) => r.json())
       .then((st) => {
         if (!st?.success) return;
@@ -645,7 +647,7 @@ export default function StudentDashboard() {
 
     loadActivityStats(userId);
 
-    void authFetch('/api/practice/daily-reading')
+    void ReadingApi.getDailyReading('/api/practice/daily-reading')
       .then((r) => r.json())
       .then((json) => {
         if (!json?.success || !Array.isArray(json.exercises)) return;
@@ -676,7 +678,7 @@ export default function StudentDashboard() {
       })
       .catch(() => {});
 
-    void authFetch('/api/vocab/packs', {})
+    void VocabApi.getPacks()
       .then((response) => response.json())
       .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
         if (!packData.success || !packData.packs) return;
@@ -688,7 +690,7 @@ export default function StudentDashboard() {
     // Chỉ gọi fallback ?summary=1&levels=1 nếu sau summary=1 ban đầu levelCounts vẫn toàn số 0
     const loadLevelsFallback = () => {
       if (levelCountsRef.current.some((n) => n > 0)) return;
-      void authFetch(`/api/words?summary=1&levels=1${scopeParam}`, {})
+      void VocabApi.getWords(`/api/words?summary=1&levels=1${scopeParam}`)
         .then((r) => r.json())
         .then((sum) => {
           if (sum?.success) applySummaryCounts(userId, sum, scope);
@@ -726,7 +728,7 @@ export default function StudentDashboard() {
             if (sum) applySummaryCounts(userId, sum, scope);
           });
         } else {
-          void authFetch(`/api/words?summary=1${scopeParam}`, {})
+          void VocabApi.getWords(`/api/words?summary=1${scopeParam}`)
             .then((r) => r.json())
             .then((sum) => {
               if (sum?.success) applySummaryCounts(userId, sum, scope);
@@ -736,10 +738,7 @@ export default function StudentDashboard() {
 
         const [profRes, wordsJson] = await Promise.all([
           profPromise,
-          authFetch(
-            `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&noCount=1${scopeParam}`,
-            {},
-          )
+          VocabApi.getWords(`/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&noCount=1${scopeParam}`)
             .then((r) => r.json())
             .catch(() => null),
         ]);
@@ -770,7 +769,7 @@ export default function StudentDashboard() {
       }
 
       // ── Full mode (STAMPEDE=0): progressive load, đủ packs/grammar/heatmap ──
-      const summaryP = authFetch(`/api/words?summary=1${scopeParam}`, {})
+      const summaryP = VocabApi.getWords(`/api/words?summary=1${scopeParam}`)
         .then((r) => r.json())
         .then((sum) => {
           if (sum?.success) applySummaryCounts(userId, sum, scope);
@@ -799,10 +798,7 @@ export default function StudentDashboard() {
       loadSecondaryDashboard(userId, scope);
 
       try {
-        const wordsJson = await authFetch(
-          `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0${scopeParam}`,
-          {},
-        ).then((r) => r.json()).catch(() => null);
+        const wordsJson = await VocabApi.getWords(`/api/words?limit=${WORDS_PAGE_SIZE}&offset=0${scopeParam}`).then((r) => r.json()).catch(() => null);
 
         if (wordsJson?.success) {
           const freshWords = wordsJson.data || [];
@@ -837,10 +833,7 @@ export default function StudentDashboard() {
     const scope = currentClassScopeRef.current;
     const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
     try {
-      const res = await authFetch(
-        `/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}${scopeParam}`,
-        {},
-      );
+      const res = await VocabApi.getWords(`/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}${scopeParam}`);
       const data = await res.json();
       if (data.success && data.data?.length > 0) {
         setWords((prev) => [...prev, ...data.data]);
@@ -860,7 +853,7 @@ export default function StudentDashboard() {
     try {
       const scope = currentClassScopeRef.current;
       const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
-      const res = await authFetch(`/api/words?summary=1${scopeParam}`, {});
+      const res = await VocabApi.getWords(`/api/words?summary=1${scopeParam}`);
       const data = await res.json();
       if (data.success) {
         applySummaryCounts(userId, data, scope);
@@ -1071,7 +1064,7 @@ export default function StudentDashboard() {
 
   const handleUpdateMeaning = async (wordId: string, translation: string, pos: string, ipa?: string) => {
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.updateWord({
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wordId, translation, pos, ipa }),
@@ -1098,7 +1091,7 @@ export default function StudentDashboard() {
         data?: { id: string; name: string; teacher_id: string; enrollment_count: number | null };
         error?: string;
       }
-      const res = await authFetch('/api/classrooms/join', {
+      const res = await ClassroomApi.joinClassroom({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ inviteCode: joinCode.trim().toUpperCase() }),

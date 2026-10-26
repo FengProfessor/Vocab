@@ -1,9 +1,10 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { DictionaryApi } from '@/features/dictionary/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
-import { authFetch } from '@/lib/auth-fetch';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { toast } from 'sonner';
@@ -115,7 +116,7 @@ export default function ImportPage() {
       if (!session?.user) { router.replace('/auth'); return; }
       setUserId(session.user.id);
 
-      const res = await authFetch(`/api/words`);
+      const res = await VocabApi.getWords(`/api/words`);
       const data = await res.json();
       if (data.classroomId) setClassroomId(data.classroomId);
     })();
@@ -167,7 +168,7 @@ export default function ImportPage() {
 
     for (const row of rowsToImport) {
       try {
-        const res = await authFetch('/api/words', {
+        const res = await VocabApi.saveWords({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -195,7 +196,7 @@ export default function ImportPage() {
     if (done > 0 && classroomId) {
       toast.loading(`Đang chạy AI phân tích ${done} từ...`, { id: 'csv-batch-toast' });
       try {
-        const refreshRes = await fetch('/api/words/refresh', {
+        const refreshRes = await VocabApi.refreshWords({
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
           body: JSON.stringify({ classroomId }),
@@ -378,7 +379,7 @@ export default function ImportPage() {
       const mimeType = 'image/jpeg';
 
       toast.loading('AI đang quét từ vựng...', { id: 'ocr-toast' });
-      const res = await fetch('/api/import/ocr', {
+      const res = await DictionaryApi.extractOcrWords({
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
         body: JSON.stringify({ base64, mimeType }),
@@ -426,7 +427,7 @@ export default function ImportPage() {
       setWords(prev => prev.map(p => p.id === w.id ? { ...p, status: 'saving' } : p));
 
       try {
-        const res = await authFetch('/api/words', {
+        const res = await VocabApi.saveWords({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -458,7 +459,7 @@ export default function ImportPage() {
     if (done > 0 && classroomId) {
       toast.loading(`Đang chạy AI phân tích ${done} từ...`, { id: 'batch-toast' });
       try {
-        const refreshRes = await fetch('/api/words/refresh', {
+        const refreshRes = await VocabApi.refreshWords({
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
           body: JSON.stringify({ classroomId }),

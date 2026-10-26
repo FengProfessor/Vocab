@@ -1,11 +1,12 @@
 'use client';
+import { DictionaryApi } from '@/features/dictionary/api';
+import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { apiClient } from '@/lib/apiClient';
 import type { ApiResponse } from '@/types/api/ApiResponse';
-import { authFetch } from '@/lib/auth-fetch';
 import type { Word, SRSProgress, RichCollocationEntry, WordFamilyEntry, DictionaryMeaning } from '@/lib/supabase';
 import { stabilityToLevel } from '@/lib/srs';
 import { Badge } from '@/components/ui/badge';
@@ -176,7 +177,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
 
         // Auto-hydrate word family / meanings if missing in user's saved word
         if (!loadedWord.dictionary_data?.familyWords?.length && !loadedWord.dictionary_data?.wordFamily?.length && loadedWord.word) {
-          fetch(`/api/dictionary/lookup?word=${encodeURIComponent(loadedWord.word)}`)
+          DictionaryApi.lookup(`/api/dictionary/lookup?word=${encodeURIComponent(loadedWord.word)}`)
             .then((res) => (res.ok ? res.json() : null))
             .then((extra) => {
               if (extra && !cancelled) {
@@ -256,7 +257,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
 
     setIsDeleting(true);
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.deleteWords({
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ wordId: word.id }),

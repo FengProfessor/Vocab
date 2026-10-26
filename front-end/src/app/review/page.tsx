@@ -1,4 +1,5 @@
 'use client';
+import { VocabApi } from '@/features/vocab/api';
 
 import { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -16,7 +17,6 @@ import {
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
 import { HUB_MODES } from '@/lib/review-modes';
-import { authFetch } from '@/lib/auth-fetch';
 import {
   readWordSummaryCache,
   readLastWordSummaryCache,
@@ -64,7 +64,7 @@ function ReviewHubContent() {
 
         if (!classParam) {
           try {
-            const res = await authFetch('/api/words?summary=1', {});
+            const res = await VocabApi.getWords('/api/words?summary=1');
             const data = await res.json().catch(() => null);
             if (!cancelled && data?.success) {
               const count =
@@ -93,7 +93,7 @@ function ReviewHubContent() {
           }
         } else {
           const url = `/api/words?classroomId=${encodeURIComponent(classParam)}&summary=1`;
-          const res = await authFetch(url, {});
+          const res = await VocabApi.getWords(url, {});
           const data = await res.json().catch(() => null);
           if (!cancelled && data?.success) {
             const count =
