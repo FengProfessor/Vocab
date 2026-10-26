@@ -1,4 +1,3 @@
-'use client';
 import { ReadingApi } from '@/features/reading/api';
 
 /**
@@ -9,7 +8,7 @@ import { ReadingApi } from '@/features/reading/api';
  */
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   BookOpen,
   Check,

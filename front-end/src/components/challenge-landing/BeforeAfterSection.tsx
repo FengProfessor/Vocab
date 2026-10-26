@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import { XCircle, CheckCircle2, Flame, ArrowRight, Zap, Target, TrendingUp, Trophy } from 'lucide-react';

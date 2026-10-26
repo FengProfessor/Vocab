@@ -1,12 +1,11 @@
-'use client';
 import { GrammarApi } from '@/features/grammar/api';
 import { VocabApi } from '@/features/vocab/api';
 
 
 import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
-import { usePathname, useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import dynamic from '@/shared/ui/dynamic';
+import { usePathname, useRouter } from '@/shared/router/navigation';
 import {
   ArrowDownToLine,
   Brain,

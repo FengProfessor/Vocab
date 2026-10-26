@@ -1,4 +1,3 @@
-'use client';
 import { authService } from '@/features/auth/session';
 
 /**
@@ -6,7 +5,7 @@ import { authService } from '@/features/auth/session';
  * Học = popup panel (không full-page).
  */
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { StudentShell } from '@/components/student/StudentShell';
 import { PixelHubRoom } from '@/components/hub/PixelHubRoom';
 import { DisplayNameEditor } from '@/components/hub/DisplayNameEditor';

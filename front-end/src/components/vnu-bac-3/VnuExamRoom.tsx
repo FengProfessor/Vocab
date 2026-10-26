@@ -4,10 +4,9 @@ import { ExamApi } from '@/features/exam/api';
  * File: src/components/vnu-bac-3/VnuExamRoom.tsx
  */
 
-'use client';
 
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import {
   Clock,

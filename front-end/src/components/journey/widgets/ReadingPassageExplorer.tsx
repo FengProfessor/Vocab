@@ -1,4 +1,3 @@
-'use client';
 
 import React, { useState, useMemo, useRef } from 'react';
 import { Volume2, BookOpen, CheckCircle2, XCircle, HelpCircle, X, Check, BookmarkPlus } from 'lucide-react';

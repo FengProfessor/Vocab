@@ -1,10 +1,9 @@
-'use client';
 import { ClassroomApi } from '@/features/classroom/api';
 
 import { useState, useEffect, useCallback, useTransition, useRef } from 'react';
 import type { StudentProgress } from '@/lib/supabase';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
+import dynamic from '@/shared/ui/dynamic';
+import Link from '@/shared/router/navigation';
 import {
   X, ChevronUp, ChevronDown, ExternalLink, Sparkles,
   Copy, CheckCircle2, Plus, Loader2,

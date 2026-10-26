@@ -1,11 +1,10 @@
-'use client';
 import { GrammarApi } from '@/features/grammar/api';
 import { authService } from '@/features/auth/session';
 
 
 import { useEffect, useMemo, useState, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import { supabase } from '@/lib/supabase';
 import type { GrammarLesson, GrammarTopic, GrammarExample } from '@/lib/supabase';
 import {

@@ -1,4 +1,3 @@
-'use client';
 import { ExamApi } from '@/features/exam/api';
 
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';

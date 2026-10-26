@@ -195,7 +195,7 @@ function getNodeFs(): typeof import('fs') | null {
   if (typeof window !== 'undefined' && typeof (process as any)?.versions?.node === 'undefined') return null;
   try {
     // eslint-disable-next-line @typescript-eslint/no-implied-eval
-    const req = eval('require');
+    const getBuiltin = (process as any)?.getBuiltinModule; if (typeof getBuiltin === 'function') return getBuiltin('fs'); const req = (globalThis as any).require || new Function('m', 'return require(m)');
     return req('fs');
   } catch {
     return null;
@@ -206,7 +206,7 @@ function getNodePath(): typeof import('path') | null {
   if (typeof window !== 'undefined' && typeof (process as any)?.versions?.node === 'undefined') return null;
   try {
     // eslint-disable-next-line @typescript-eslint/no-implied-eval
-    const req = eval('require');
+    const getBuiltin = (process as any)?.getBuiltinModule; if (typeof getBuiltin === 'function') return getBuiltin('path'); const req = (globalThis as any).require || new Function('m', 'return require(m)');
     return req('path');
   } catch {
     return null;

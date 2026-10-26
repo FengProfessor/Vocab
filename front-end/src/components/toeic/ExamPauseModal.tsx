@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import { Pause, Play, LogOut, Clock, ShieldCheck } from 'lucide-react';

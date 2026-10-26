@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * Mở app LingoPro **trong game** (callback onOpen → iframe overlay).

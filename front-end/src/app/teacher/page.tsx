@@ -1,4 +1,3 @@
-'use client';
 import { ClassroomApi } from '@/features/classroom/api';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
@@ -8,8 +7,8 @@ import { AuthApi } from '@/features/auth/api';
 import { apiClient } from '@/lib/apiClient';
 import type { ApiResponse } from '@/types/api/ApiResponse';
 import type { Classroom, Profile, StudentProgress } from '@/lib/supabase';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   Brain, Plus, Users, BookOpen, LogOut, Copy, Zap,
   Loader2, Trash2, TrendingUp, GraduationCap, ChevronDown, Check,

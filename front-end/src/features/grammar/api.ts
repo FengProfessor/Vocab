@@ -2,12 +2,17 @@
 import {
   apiDelete,
   callDotNetRaw,
-  callLocalApi,
   callServerOriginApi,
   normalizePayloadData,
 } from '@/shared/api/client';
 import { withResponseCompat } from '@/shared/api/unwrap';
 import { mapGrammarTopicsList } from '@/features/grammar/mappers';
+import {
+  UNIFIED_GRAMMAR_TOPICS,
+  getTopicBySlug,
+} from '@/lib/grammar-roadmap-data';
+import { readLocalGrammarWrongQueue } from '@/lib/grammar-exercises';
+import topicAssetsData from '@/data/grammar-topic-assets.json';
 
 function extractQueryParam(input: string, key: string): string {
   const qIdx = input.indexOf('?');
@@ -16,6 +21,61 @@ function extractQueryParam(input: string, key: string): string {
     return sp.get(key) || input;
   }
   return input;
+}
+
+interface CustomGrammarLesson {
+  id: string;
+  topic_id: string;
+  title: string;
+  theory_vi: string;
+  examples: Array<{ en: string; vi: string }>;
+  created_at: string;
+}
+
+const LOCAL_CUSTOM_LESSONS_KEY = 'lingopro_custom_grammar_lessons_v1';
+
+function readCustomLessons(): CustomGrammarLesson[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = window.localStorage.getItem(LOCAL_CUSTOM_LESSONS_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? (parsed as CustomGrammarLesson[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function writeCustomLessons(lessons: CustomGrammarLesson[]): void {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.setItem(LOCAL_CUSTOM_LESSONS_KEY, JSON.stringify(lessons));
+  } catch {
+    // ignore storage quota errors
+  }
+}
+
+function buildDefaultLessons(): CustomGrammarLesson[] {
+  const custom = readCustomLessons();
+  const baseLessons: CustomGrammarLesson[] = UNIFIED_GRAMMAR_TOPICS.map((t) => {
+    const assets =
+      (topicAssetsData as Record<
+        string,
+        Array<{ caption?: string; usageAnalysisVi?: { rule?: string } }>
+      >)[t.slug] ?? [];
+    return {
+      id: `lesson-${t.slug}`,
+      topic_id: t.slug,
+      title: t.title,
+      theory_vi: t.summary,
+      examples: assets.slice(0, 4).map((a) => ({
+        en: a.caption ?? '',
+        vi: a.usageAnalysisVi?.rule ?? '',
+      })),
+      created_at: new Date(0).toISOString(),
+    };
+  });
+  return [...custom, ...baseLessons];
 }
 
 /**
@@ -27,7 +87,11 @@ export class GrammarApi {
    */
   public static async getTopics(
     params?: Record<string, unknown> | string,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; signal?: AbortSignal | null; [key: string]: any },
+    options?: RequestInit & {
+      headers?: HeadersInit | Record<string, string>;
+      signal?: AbortSignal | null;
+      [key: string]: any;
+    },
   ) {
     let queryParams: Record<string, unknown> = {};
     if (typeof params === 'string') {
@@ -44,8 +108,19 @@ export class GrammarApi {
       headers: options?.headers,
       signal: options?.signal,
     });
-    const payload = mapGrammarTopicsList(body?.data);
-    return withResponseCompat(payload, status, ok);
+    const rawList = Array.isArray(body?.data) && body.data.length > 0
+      ? body.data
+      : UNIFIED_GRAMMAR_TOPICS.map((t) => ({
+          id: t.slug,
+          slug: t.slug,
+          title: t.title,
+          titleVi: t.title_vi,
+          level: t.level,
+          certLevel: t.level,
+          sortOrder: t.order,
+        }));
+    const payload = mapGrammarTopicsList(rawList);
+    return withResponseCompat(payload, status, ok || rawList.length > 0);
   }
 
   /**
@@ -53,7 +128,11 @@ export class GrammarApi {
    */
   public static async getProgress(
     _params?: Record<string, unknown> | string,
-    options?: RequestInit & { headers?: HeadersInit | Record<string, string>; signal?: AbortSignal | null; [key: string]: any },
+    options?: RequestInit & {
+      headers?: HeadersInit | Record<string, string>;
+      signal?: AbortSignal | null;
+      [key: string]: any;
+    },
   ) {
     const { ok, status, body } = await callDotNetRaw<Record<string, any>>('/vocab/analytics', {
       method: 'GET',
@@ -99,17 +178,20 @@ export class GrammarApi {
   }
 
   /**
-   * Retrieves grammar review schedule (`/__local_api/grammar/review`).
+   * Retrieves grammar review schedule for the given window of days.
    */
   public static async getReviewSchedule(
     daysOrOptions?:
       | number
       | string
       | { days?: number; signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string> },
-    options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any },
+    _options?: RequestInit & {
+      signal?: AbortSignal | null;
+      headers?: HeadersInit | Record<string, string>;
+      [key: string]: any;
+    },
   ) {
     let days = 14;
-    let resolvedOptions = options;
     if (typeof daysOrOptions === 'number') {
       days = daysOrOptions;
     } else if (typeof daysOrOptions === 'string') {
@@ -117,14 +199,13 @@ export class GrammarApi {
       if (!Number.isNaN(parsed) && parsed > 0) days = parsed;
     } else if (daysOrOptions && typeof daysOrOptions === 'object') {
       if (typeof daysOrOptions.days === 'number') days = daysOrOptions.days;
-      resolvedOptions = daysOrOptions;
     }
 
-    return callLocalApi('/__local_api/grammar/review', {
-      method: 'GET',
-      params: { days },
-      signal: resolvedOptions?.signal,
-      headers: resolvedOptions?.headers,
+    const queue = readLocalGrammarWrongQueue(days).map((item) => item.exercise);
+    return withResponseCompat({
+      success: true,
+      count: queue.length,
+      data: queue,
     });
   }
 
@@ -136,61 +217,133 @@ export class GrammarApi {
   }
 
   /**
-   * Retrieves grammar theory content for a topic slug (`/__local_api/grammar/theory`).
+   * Retrieves grammar theory content for a topic slug from the embedded curriculum catalog.
    */
   public static async getTheory(topicSlugOrUrl: string) {
-    const topic = extractQueryParam(topicSlugOrUrl, 'topic');
-    return callLocalApi('/__local_api/grammar/theory', {
-      method: 'GET',
-      params: { topic },
+    const topicSlug = extractQueryParam(topicSlugOrUrl, 'topic');
+    const topicObj = getTopicBySlug(topicSlug);
+    if (!topicObj) {
+      return withResponseCompat(
+        {
+          success: false,
+          error: `Grammar topic '${topicSlug}' not found.`,
+        },
+        404,
+        false,
+      );
+    }
+
+    const assets =
+      (topicAssetsData as Record<
+        string,
+        Array<{
+          caption?: string;
+          usageAnalysisVi?: {
+            rule?: string;
+            contextReason?: string;
+            commonMistake?: string;
+          };
+        }>
+      >)[topicSlug] ?? [];
+
+    const rules = assets
+      .filter((a) => a.usageAnalysisVi?.rule)
+      .map((a, idx) => ({
+        case: `Quy tắc ${idx + 1}`,
+        rule: a.usageAnalysisVi?.rule ?? '',
+        example: a.caption ?? '',
+      }));
+
+    const mistakes = assets
+      .filter((a) => a.usageAnalysisVi?.commonMistake)
+      .map((a) => ({
+        wrong: '',
+        right: a.caption ?? '',
+        why: a.usageAnalysisVi?.commonMistake ?? '',
+      }));
+
+    return withResponseCompat({
+      success: true,
+      data: {
+        slug: topicObj.slug,
+        title: topicObj.title,
+        title_vi: topicObj.title_vi,
+        level: topicObj.level,
+        definition: topicObj.summary,
+        rules,
+        mistakes,
+      },
     });
   }
 
   /**
-   * Retrieves grammar lessons (`/__local_api/grammar/lessons`).
+   * Retrieves grammar lessons filtered by `id` or `topicId`.
    */
   public static async getLessons(params?: { topicId?: string; id?: string } | string) {
-    let queryParams: Record<string, unknown> = {};
+    let queryParams: Record<string, string> = {};
     if (typeof params === 'string') {
       const qIdx = params.indexOf('?');
       if (qIdx >= 0) {
         queryParams = Object.fromEntries(new URLSearchParams(params.slice(qIdx + 1)).entries());
       }
     } else if (params) {
-      queryParams = params as Record<string, unknown>;
+      queryParams = params as Record<string, string>;
     }
-    return callLocalApi('/__local_api/grammar/lessons', {
-      method: 'GET',
-      params: queryParams,
+
+    const allLessons = buildDefaultLessons();
+    if (queryParams.id) {
+      const found = allLessons.find((l) => l.id === queryParams.id) ?? null;
+      return withResponseCompat({
+        success: Boolean(found),
+        data: found,
+      });
+    }
+    if (queryParams.topicId) {
+      const filtered = allLessons.filter((l) => l.topic_id === queryParams.topicId);
+      return withResponseCompat({
+        success: true,
+        data: filtered,
+      });
+    }
+    return withResponseCompat({
+      success: true,
+      data: allLessons,
     });
   }
 
   /**
-   * Creates or updates a grammar lesson (`/__local_api/grammar/lessons`).
+   * Creates or updates a grammar lesson in client storage.
    */
-  public static async saveLesson(rawBody: unknown, method?: 'POST' | 'PUT') {
-    const inferredMethod =
-      method ||
-      (rawBody &&
-      typeof rawBody === 'object' &&
-      'method' in (rawBody as Record<string, any>) &&
-      String((rawBody as Record<string, any>).method).toUpperCase() === 'PUT'
-        ? 'PUT'
-        : 'POST');
-    return callLocalApi('/__local_api/grammar/lessons', {
-      method: inferredMethod,
-      data: normalizePayloadData(rawBody),
+  public static async saveLesson(rawBody: unknown, _method?: 'POST' | 'PUT') {
+    const payload = normalizePayloadData(rawBody);
+    const current = readCustomLessons();
+    const id = String(payload.id || `lesson-custom-${Date.now()}`);
+    const nextLesson: CustomGrammarLesson = {
+      id,
+      topic_id: String(payload.topic_id || ''),
+      title: String(payload.title || ''),
+      theory_vi: String(payload.theory_vi || ''),
+      examples: Array.isArray(payload.examples) ? payload.examples : [],
+      created_at: new Date().toISOString(),
+    };
+    const nextList = [nextLesson, ...current.filter((item) => item.id !== id)];
+    writeCustomLessons(nextList);
+
+    return withResponseCompat({
+      success: true,
+      data: nextLesson,
     });
   }
 
   /**
-   * Deletes a grammar lesson (`/__local_api/grammar/lessons`).
+   * Deletes a custom grammar lesson by ID.
    */
   public static async deleteLesson(lessonIdOrUrl: string) {
     const id = extractQueryParam(lessonIdOrUrl, 'id');
-    return callLocalApi('/__local_api/grammar/lessons', {
-      method: 'DELETE',
-      params: { id },
+    const current = readCustomLessons();
+    writeCustomLessons(current.filter((item) => item.id !== id));
+    return withResponseCompat({
+      success: true,
     });
   }
 

@@ -1,4 +1,3 @@
-'use client';
 import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';
 
@@ -8,7 +7,7 @@ import { authService } from '@/features/auth/session';
  */
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Crown, X } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { FREE_WORD_MONTHLY_LIMIT, requestUpsell } from '@/lib/upsell';

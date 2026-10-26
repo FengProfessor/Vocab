@@ -1,4 +1,3 @@
-'use client';
 import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';
 
@@ -16,7 +15,7 @@ import {
   markPushDeviceRegistered,
   PUSH_DEVICE_REGISTERED_KEY,
 } from '@/lib/push-device-state';
-import { PUSH_FORCE_GEN, PUSH_FORCE_GEN_STORAGE_KEY } from '@/lib/push-force-gen';
+import { PUSH_FORCE_GEN, PUSH_FORCE_GEN_STORAGE_KEY } from '@/lib/push-device-state';
 
 const STALE_DAYS = 5;
 

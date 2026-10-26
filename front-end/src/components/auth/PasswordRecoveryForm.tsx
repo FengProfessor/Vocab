@@ -1,7 +1,6 @@
-'use client';
 
 import { useEffect, useState, type FormEvent } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { ArrowLeft, KeyRound, Mail, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';

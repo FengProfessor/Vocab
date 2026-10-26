@@ -1,7 +1,6 @@
-'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { usePathname } from '@/shared/router/navigation';
 import { cn } from '@/lib/utils';
 
 export type MobileBottomNavProps = {

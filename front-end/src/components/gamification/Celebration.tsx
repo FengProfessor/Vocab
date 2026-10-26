@@ -1,4 +1,3 @@
-'use client';
 import { useEffect, useRef } from 'react';
 
 export type CelebrationIntensity = 'light' | 'strong' | 'epic';

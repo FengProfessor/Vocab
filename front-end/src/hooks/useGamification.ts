@@ -1,4 +1,3 @@
-'use client';
 import { useCallback } from 'react';
 import { useGamificationQuery } from '@/features/auth/queries';
 import { effectiveCurrentStreak } from '@/lib/gamification';

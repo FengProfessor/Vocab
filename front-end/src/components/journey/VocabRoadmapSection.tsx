@@ -1,8 +1,7 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   Volume2,
   CheckCircle2,

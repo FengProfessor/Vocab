@@ -1,8 +1,7 @@
-'use client';
 
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
-import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useParams, useRouter } from '@/shared/router/navigation';
 import { ChevronLeft, ArrowRight, RotateCcw, AlertTriangle, BookOpen, Volume2, Sparkles } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import {

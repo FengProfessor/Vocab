@@ -1,7 +1,6 @@
-'use client';
 
 import React, { useState, useMemo } from 'react';
-import Image from 'next/image';
+import Image from '@/shared/ui/image';
 import { Table, Search, CheckCircle2, AlertCircle, Info, BookOpen, Volume2, Sparkles, LayoutGrid } from 'lucide-react';
 import { speak } from '@/lib/study';
 import PronounVisualDeck from './PronounVisualDeck';

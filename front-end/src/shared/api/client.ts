@@ -155,50 +155,6 @@ export async function callDotNetRaw<T = any>(
 }
 
 /**
- * Executes a request through `apiClient` against the local Vite dev route middleware (`/__local_api/*`)
- * for dataset loaders (exams, grammar lessons/theory/quiz, roadmap checkpoints).
- */
-export async function callLocalApi<T extends Record<string, any> = Record<string, any>>(
-  localPath: string,
-  options: DomainRequestOptions = {},
-): Promise<T & ResponseCompat<T>> {
-  const normalized = localPath.startsWith('/__local_api/')
-    ? localPath
-    : `/__local_api/${localPath.replace(/^\/?(api\/)?/, '')}`;
-  try {
-    const response = await apiClient.request<T>({
-      baseURL: '',
-      url: normalized,
-      method: options.method ?? 'GET',
-      params: options.params,
-      data: options.data !== undefined ? normalizePayloadData(options.data) : undefined,
-      headers: normalizeHeaders(options.headers),
-      signal: options.signal ?? undefined,
-      timeout: options.timeout,
-    });
-    const payload = (
-      response.data && typeof response.data === 'object'
-        ? response.data
-        : ({ data: response.data } as unknown as T)
-    ) as T;
-    return withResponseCompat(payload, response.status, true);
-  } catch (err) {
-    const axiosErr = err as AxiosError<T>;
-    const status = axiosErr.response?.status ?? 500;
-    const rawData = axiosErr.response?.data;
-    const payload = (
-      rawData && typeof rawData === 'object'
-        ? rawData
-        : ({
-            success: false,
-            error: axiosErr.message || 'Request failed',
-          } as unknown as T)
-    ) as T;
-    return withResponseCompat(payload, status, false);
-  }
-}
-
-/**
  * Executes a request through `apiClient` against the .NET server root (`appConfig.serverOrigin`)
  * for non-`/api/v1` endpoints such as `/api/lead-magnet/*` or fallback routes.
  */

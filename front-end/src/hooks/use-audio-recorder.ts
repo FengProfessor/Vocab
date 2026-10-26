@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * Client-Side Audio Recorder Hook

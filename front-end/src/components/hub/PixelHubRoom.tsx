@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * Thư viện pixel RỘNG ~100 chỗ, người nhỏ, tên + activity.
@@ -151,7 +150,7 @@ export function PixelHubRoom({
 
       {/* Wide map — full width, shorter height so room feels large */}
       <div className="relative w-full h-[min(72vh,640px)] min-h-[320px] bg-[#0c0806]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {}
         <img
           src={mapSrc}
           alt="Thư viện rộng"

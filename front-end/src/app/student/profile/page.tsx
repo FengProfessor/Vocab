@@ -1,10 +1,9 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   AlertCircle,
   BarChart3,

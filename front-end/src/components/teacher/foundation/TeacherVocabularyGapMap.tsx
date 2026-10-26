@@ -1,4 +1,3 @@
-'use client';
 import { ClassroomApi } from '@/features/classroom/api';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';

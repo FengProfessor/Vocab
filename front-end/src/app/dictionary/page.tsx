@@ -1,12 +1,11 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { DictionaryApi } from '@/features/dictionary/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { DictionaryData, DictionaryMeaning, WordFamilyEntry, RichCollocationEntry, MorphologyData } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import {
   Search, Loader2, Volume2, X, CheckCircle2, Layers, GitFork, Link2, Languages, Sparkles

@@ -20,9 +20,11 @@ import vnuTest09 from '@/data/vnu-bac-3/vnu-bac3-test-09.json';
 import vnuTest10 from '@/data/vnu-bac-3/vnu-bac3-test-10.json';
 
 function getNodeFs(): typeof import('fs') | null {
-  if (typeof window !== 'undefined' && typeof (process as any)?.versions?.node === 'undefined') return null;
+  if (typeof window !== 'undefined' && typeof (process as unknown as { versions?: { node?: string } })?.versions?.node === 'undefined') return null;
   try {
-    const req = eval('require');
+    const getBuiltin = (process as unknown as { getBuiltinModule?: (id: string) => typeof import('fs') })?.getBuiltinModule;
+    if (typeof getBuiltin === 'function') return getBuiltin('fs');
+    const req = (globalThis as unknown as { require?: (id: string) => typeof import('fs') }).require || new Function('m', 'return require(m)');
     return req('fs');
   } catch {
     return null;
@@ -30,9 +32,11 @@ function getNodeFs(): typeof import('fs') | null {
 }
 
 function getNodePath(): typeof import('path') | null {
-  if (typeof window !== 'undefined' && typeof (process as any)?.versions?.node === 'undefined') return null;
+  if (typeof window !== 'undefined' && typeof (process as unknown as { versions?: { node?: string } })?.versions?.node === 'undefined') return null;
   try {
-    const req = eval('require');
+    const getBuiltin = (process as unknown as { getBuiltinModule?: (id: string) => typeof import('path') })?.getBuiltinModule;
+    if (typeof getBuiltin === 'function') return getBuiltin('path');
+    const req = (globalThis as unknown as { require?: (id: string) => typeof import('path') }).require || new Function('m', 'return require(m)');
     return req('path');
   } catch {
     return null;
@@ -40,9 +44,11 @@ function getNodePath(): typeof import('path') | null {
 }
 
 function getNodeCrypto(): typeof import('crypto') | null {
-  if (typeof window !== 'undefined' && typeof (process as any)?.versions?.node === 'undefined') return null;
+  if (typeof window !== 'undefined' && typeof (process as unknown as { versions?: { node?: string } })?.versions?.node === 'undefined') return null;
   try {
-    const req = eval('require');
+    const getBuiltin = (process as unknown as { getBuiltinModule?: (id: string) => typeof import('crypto') })?.getBuiltinModule;
+    if (typeof getBuiltin === 'function') return getBuiltin('crypto');
+    const req = (globalThis as unknown as { require?: (id: string) => typeof import('crypto') }).require || new Function('m', 'return require(m)');
     return req('crypto');
   } catch {
     return null;

@@ -1,4 +1,3 @@
-'use client';
 import { SocialApi } from '@/features/social/api';
 
 import { useEffect, useRef } from 'react';

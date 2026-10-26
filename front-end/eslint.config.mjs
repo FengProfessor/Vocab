@@ -1,32 +1,18 @@
 // ESLint flat config for the LingoPro Vite + React + TypeScript SPA.
 //
 // Guardrail rules (see docs/refactor-baseline.md):
-//   - no direct `supabase.from(...)` / `supabase.rpc(...)` outside server route handlers ('error')
-//   - no raw `fetch('/api/...')` / `authFetch('/api/...')` (use a domain service on top of apiClient)
-//   - no `next` / `next/*` imports (Next.js leftovers resolved through src/shims)
+//   - no direct `supabase.from(...)` / `supabase.rpc(...)` ('error')
+//   - no raw `fetch('/api/...')` / `authFetch('/api/...')` ('error')
+//   - no `next` / `next/*` imports ('error')
 import js from '@eslint/js';
 import globals from 'globals';
 import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 
-/** Severity used for remaining refactor guardrails. */
-const GUARDRAIL = 'warn';
-
 const SUPABASE_QUERY_SELECTOR =
   "CallExpression[callee.type='MemberExpression'][callee.object.name=/^supabase$/i][callee.property.name=/^(from|rpc)$/]";
 const SUPABASE_QUERY_MESSAGE =
   'Do not query Supabase directly from the client. Call a .NET endpoint through a domain service instead.';
-
-/**
- * No-op stand-in for the removed `@next/next` plugin so the legacy
- * `eslint-disable-next-line @next/next/no-img-element` comments still resolve.
- * TODO: delete together with those comments when the Next.js leftovers are cleaned up.
- */
-const legacyNextPluginStub = {
-  rules: {
-    'no-img-element': { meta: { type: 'problem', schema: [] }, create: () => ({}) },
-  },
-};
 
 const lingoproGuardrailPlugin = {
   rules: {
@@ -62,7 +48,7 @@ const restrictedSyntax = [
 
 export default tseslint.config(
   {
-    ignores: ['dist/**', 'node_modules/**', 'src/.agents/**', 'src/data/**', 'android/**', 'ios/**', 'public/**'],
+    ignores: ['dist/**', 'node_modules/**', '.agents/**', 'src/data/**', 'android/**', 'ios/**', 'public/**'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -75,7 +61,6 @@ export default tseslint.config(
     },
     plugins: {
       'react-hooks': reactHooks,
-      '@next/next': legacyNextPluginStub,
       lingopro: lingoproGuardrailPlugin,
     },
     rules: {
@@ -119,48 +104,21 @@ export default tseslint.config(
         },
       ],
 
-      // Remaining refactor guardrails.
+      // Next.js imports are strictly forbidden ('error').
       'no-restricted-imports': [
-        GUARDRAIL,
+        'error',
         {
           paths: [{ name: 'next', message: 'Next.js is not used in the Vite SPA. Use react-router-dom / plain React.' }],
           patterns: [
             {
               group: ['next/*'],
-              message: 'Next.js is not used in the Vite SPA. Use react-router-dom / plain React instead of the shims.',
+              message: 'Next.js is not used in the Vite SPA. Use react-router-dom / plain React.',
             },
           ],
         },
       ],
-      // Raw fetch('/api/...') and authFetch(...) are strictly forbidden ('error') outside server routes.
+      // Raw fetch('/api/...') and authFetch(...) are strictly forbidden ('error').
       'no-restricted-syntax': ['error', ...restrictedSyntax],
-    },
-  },
-  {
-    // Legacy server-side route handlers and server-only helpers are allowed to query Supabase until ported to .NET.
-    files: [
-      'src/app/api/**',
-      'src/lib/*-server.ts',
-      'src/lib/admin-auth.ts',
-      'src/lib/api-security.ts',
-      'src/lib/daily-reading-generator.ts',
-      'src/lib/dict-trie-engine.ts',
-      'src/lib/foundation-curriculum/data-access.ts',
-      'src/lib/ipa-resolve.ts',
-      'src/lib/roadmap-credit.ts',
-    ],
-    rules: {
-      'lingopro/no-supabase-query': 'off',
-      'no-restricted-properties': 'off',
-      'no-restricted-syntax': 'off',
-    },
-  },
-  {
-    // The Next.js compatibility shims necessarily reference the Next.js module names and type namespaces.
-    files: ['src/shims/**'],
-    rules: {
-      'no-restricted-imports': 'off',
-      '@typescript-eslint/no-namespace': 'off',
     },
   },
 );

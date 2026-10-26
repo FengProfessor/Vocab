@@ -1,16 +1,15 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from '@/shared/router/navigation';
 import { supabase, type SRSProgress } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ChevronLeft, Volume2, RotateCcw, Loader2, RefreshCw, Snail, ChevronDown, HelpCircle } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { useGamification } from '@/hooks/useGamification';
 import { XP_BY_QUALITY } from '@/lib/gamification';

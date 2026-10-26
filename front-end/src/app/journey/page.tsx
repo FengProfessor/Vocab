@@ -1,4 +1,3 @@
-'use client';
 import { RoadmapApi } from '@/features/roadmap/api';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
@@ -11,7 +10,7 @@ import { authService } from '@/features/auth/session';
  * - Đồng bộ tiến độ 2 chiều và mở khóa tuyến tính khoa học.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
 import {
@@ -45,8 +44,8 @@ import {
   Trophy,
 } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
+import Link from '@/shared/router/navigation';
+import dynamic from '@/shared/ui/dynamic';
 import { StudentShell } from '@/components/student/StudentShell';
 import { TrackSwitcher, type TrackStats } from '@/components/journey/TrackSwitcher';
 import { ModuleCard } from '@/components/journey/ModuleCard';

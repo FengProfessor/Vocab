@@ -1,4 +1,3 @@
-'use client';
 
 import React, { useState, useMemo, useRef } from 'react';
 import { Volume2, Mic, CheckCircle2, XCircle, AlertTriangle, Sparkles, RotateCcw, ArrowRight, Video, Activity } from 'lucide-react';

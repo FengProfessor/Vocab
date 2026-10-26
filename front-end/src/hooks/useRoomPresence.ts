@@ -1,9 +1,8 @@
-'use client';
 import { SocialApi } from '@/features/social/api';
 import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/shared/router/navigation';
 import { supabase } from '@/lib/supabase';
 import {
   PRESENCE_HEARTBEAT_MS,

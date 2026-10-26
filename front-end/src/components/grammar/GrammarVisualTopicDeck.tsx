@@ -1,8 +1,7 @@
-'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from '@/shared/ui/image';
+import Link from '@/shared/router/navigation';
 import { Volume2, Sparkles, Lightbulb, CheckCircle2, Dumbbell, ArrowRight, RotateCcw } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import PronounVisualDeck from './PronounVisualDeck';

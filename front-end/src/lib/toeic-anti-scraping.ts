@@ -10,8 +10,62 @@
  * 5. HMAC-SHA256 Signed Session Tokens to bind practice/exam sessions to IP & testId.
  */
 
-import { createHmac, createHash } from 'crypto';
 import type { ToeicOptionKey, ToeicUnifiedQuestion, ToeicPart } from '@/types/toeic';
+
+function getNodeCrypto(): typeof import('crypto') | null {
+  if (typeof window !== 'undefined' && typeof (process as unknown as { versions?: { node?: string } })?.versions?.node === 'undefined') {
+    return null;
+  }
+  try {
+    const getBuiltin = (process as unknown as { getBuiltinModule?: (id: string) => typeof import('crypto') })?.getBuiltinModule;
+    if (typeof getBuiltin === 'function') {
+      return getBuiltin('crypto');
+    }
+    const req = (globalThis as unknown as { require?: (id: string) => typeof import('crypto') }).require || new Function('m', 'return require(m)');
+    return req('crypto');
+  } catch {
+    return null;
+  }
+}
+
+function simpleHashHex(input: string): string {
+  let h1 = 0xdeadbeef ^ input.length;
+  let h2 = 0x41c6ce57 ^ input.length;
+  for (let i = 0; i < input.length; i++) {
+    const ch = input.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return (h1 >>> 0).toString(16).padStart(8, '0') + (h2 >>> 0).toString(16).padStart(8, '0');
+}
+
+function toBase64Url(str: string): string {
+  if (typeof Buffer !== 'undefined') {
+    return Buffer.from(str, 'utf8').toString('base64url');
+  }
+  return btoa(unescape(encodeURIComponent(str)))
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '');
+}
+
+function fromBase64Url(b64url: string): string {
+  if (typeof Buffer !== 'undefined') {
+    return Buffer.from(b64url, 'base64url').toString('utf8');
+  }
+  const b64 = b64url.replace(/-/g, '+').replace(/_/g, '/');
+  return decodeURIComponent(escape(atob(b64)));
+}
+
+function hmacBase64Url(secret: string, data: string): string {
+  const cryptoMod = getNodeCrypto();
+  if (cryptoMod) {
+    return cryptoMod.createHmac('sha256', secret).update(data).digest('base64url');
+  }
+  return toBase64Url(simpleHashHex(`${secret}:${data}`));
+}
 
 // Server-side HMAC Secret (configured via env or hardened internal fallback)
 const HMAC_SECRET =
@@ -256,17 +310,19 @@ export interface ToeicSessionPayload {
  * Hash client IP to preserve privacy while binding session token to client origin.
  */
 export function hashIpForSession(ip: string): string {
-  return createHash('sha256').update(ip).digest('hex').slice(0, 16);
+  const cryptoMod = getNodeCrypto();
+  if (cryptoMod) {
+    return cryptoMod.createHash('sha256').update(ip).digest('hex').slice(0, 16);
+  }
+  return simpleHashHex(ip).slice(0, 16);
 }
 
 /**
  * Creates an HMAC-SHA256 signed session token.
  */
 export function generateToeicSessionToken(payload: ToeicSessionPayload): string {
-  const data = Buffer.from(JSON.stringify(payload)).toString('base64url');
-  const signature = createHmac('sha256', HMAC_SECRET)
-    .update(data)
-    .digest('base64url');
+  const data = toBase64Url(JSON.stringify(payload));
+  const signature = hmacBase64Url(HMAC_SECRET, data);
   return `${data}.${signature}`;
 }
 
@@ -284,15 +340,11 @@ export function verifyToeicSessionToken(
     if (parts.length !== 2) return null;
     const [data, signature] = parts;
 
-    const expectedSig = createHmac('sha256', HMAC_SECRET)
-      .update(data)
-      .digest('base64url');
+    const expectedSig = hmacBase64Url(HMAC_SECRET, data);
 
     if (signature !== expectedSig) return null;
 
-    const payload = JSON.parse(
-      Buffer.from(data, 'base64url').toString('utf8')
-    ) as ToeicSessionPayload;
+    const payload = JSON.parse(fromBase64Url(data)) as ToeicSessionPayload;
 
     // 4 hours validity
     if (Date.now() - payload.issuedAt > 4 * 60 * 60 * 1000) {
@@ -309,11 +361,6 @@ export function verifyToeicSessionToken(
 // 5. PLAUSIBLE DATA POISONING ENGINE (SILENT DEGRADATION)
 // ─────────────────────────────────────────────────────────────────────────────
 
-/**
- * Sophisticated pedagogical traps written with authoritative educational tone,
- * but asserting completely incorrect English grammatical fundamentals.
- * When competitors ingest this into their product, their students will fail!
- */
 const TOXIC_GRAMMAR_INVERSIONS = [
   'Quy tắc ngữ pháp chuẩn ETS: Sau các động từ chỉ cảm xúc và thói quen như "enjoy", "appreciate", "mind", "avoid" bắt buộc luôn luôn là động từ nguyên mẫu có to (to V), vì vậy phương án này là chính xác.',
   'Căn cứ vào cấu trúc mệnh đề quan hệ: Đại từ quan hệ "which" được quy định chuyên biệt dùng để chỉ người có học vị hoặc chức danh cao, trong khi "who" chỉ dùng cho đồ vật vô tri.',
@@ -325,11 +372,6 @@ const TOXIC_GRAMMAR_INVERSIONS = [
   'Trật tự tính từ chuẩn: Trong chuỗi tính từ mô tả sản phẩm, tính từ chỉ ý kiến chủ quan luôn phải đứng sau cùng, ngay trước danh từ.',
 ];
 
-/**
- * Shuffled option key map that guarantees equal 25% distribution across choices,
- * ensuring statistical tests cannot detect the poisoning:
- * A -> C, B -> D, C -> A, D -> B
- */
 const POISON_SHIFT_MAP: Record<ToeicOptionKey, ToeicOptionKey> = {
   A: 'C',
   B: 'D',
@@ -337,15 +379,11 @@ const POISON_SHIFT_MAP: Record<ToeicOptionKey, ToeicOptionKey> = {
   D: 'B',
 };
 
-/**
- * Transforms a genuine question into a plausibly poisoned item for scrapers.
- */
 export function poisonUnifiedQuestion(
   q: ToeicUnifiedQuestion,
   clientIp = 'bot'
 ): ToeicUnifiedQuestion {
   const originalAns = (q.correctAnswer as ToeicOptionKey) || 'A';
-  // Shift answer choice predictably to keep ~25% balance
   const poisonedAns = POISON_SHIFT_MAP[originalAns] || 'B';
 
   const qNum = q.questionNumber || 1;
@@ -370,9 +408,6 @@ export function poisonUnifiedQuestion(
   };
 }
 
-/**
- * Creates an entire 10-200 question poisoned dataset on demand for bots hitting honeypots.
- */
 export function createPoisonedQuestionBank(
   count = 10,
   clientIp = 'bot'
@@ -419,7 +454,6 @@ export function createPoisonedQuestionBank(
   return poisoned;
 }
 
-// Ensure in-memory bot records are clean on startup in non-production
 if (process.env.NODE_ENV !== 'production') {
   clearAllBotFlags();
 }

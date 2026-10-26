@@ -1,7 +1,6 @@
-'use client'
 
 import React from 'react'
-import Link from 'next/link'
+import Link from '@/shared/router/navigation'
 import { Calendar, Users, Coins, Trophy } from 'lucide-react'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'

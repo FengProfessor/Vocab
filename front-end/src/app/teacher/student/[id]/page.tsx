@@ -1,15 +1,14 @@
-'use client';
 import { ClassroomApi } from '@/features/classroom/api';
 
 import { useState, useEffect, useCallback } from 'react';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
 import type { StudentProgress } from '@/lib/supabase';
-import dynamic from 'next/dynamic';
+import dynamic from '@/shared/ui/dynamic';
 import {
   ArrowLeft, Brain, TrendingUp, Calendar, Target, Sparkles,
   MessageSquare, ChevronRight, Loader2, AlertCircle, BookOpen, Plus, Copy, CheckCircle2
 } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { getCachedStudentDetail, setCachedStudentDetail } from '@/components/teacher/teacher-cache';
 

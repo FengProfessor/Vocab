@@ -1,10 +1,9 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   ArrowRight, BookOpen, Check, ChevronLeft, Clock3, Download, Loader2, Plus, Search, Sparkles, Upload, Volume2, X,
 } from 'lucide-react';

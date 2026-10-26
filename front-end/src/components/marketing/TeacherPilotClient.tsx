@@ -1,8 +1,7 @@
-'use client';
 import { AdminApi } from '@/features/admin/api';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   ArrowRight,
   CheckCircle2,

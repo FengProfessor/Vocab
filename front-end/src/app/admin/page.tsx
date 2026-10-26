@@ -1,12 +1,11 @@
-'use client';
 import { AdminApi } from '@/features/admin/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { Brain, Users, BookOpen, Target, TrendingUp, ChevronLeft, CreditCard, Building2, Trophy } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 
 interface UserStat {
   id: string;

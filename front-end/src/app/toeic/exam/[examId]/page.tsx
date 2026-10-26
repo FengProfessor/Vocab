@@ -1,4 +1,3 @@
-'use client';
 import { ExamApi } from '@/features/exam/api';
 import { authService } from '@/features/auth/session';
 
@@ -16,8 +15,8 @@ import { authService } from '@/features/auth/session';
  */
 
 import React, { useMemo, useState, Suspense, useEffect, useCallback, useRef } from 'react';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import { ArrowLeft, Loader2, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';

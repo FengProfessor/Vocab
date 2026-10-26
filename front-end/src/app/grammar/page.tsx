@@ -1,12 +1,11 @@
-'use client';
 import { GrammarApi } from '@/features/grammar/api';
 import { authService } from '@/features/auth/session';
 
 
 import { useState, useEffect, useMemo, useRef, use, Fragment } from 'react';
 import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   Search,
   BookOpen,

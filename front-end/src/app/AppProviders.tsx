@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { ThemeProvider as NextThemesProvider } from '@/shared/ui/theme';
 import { PostHogProvider } from '@/components/PostHogProvider';
 import { ClientBoot } from '@/components/ClientBoot';
 import { ErrorBoundary } from '@/components/ErrorBoundary';

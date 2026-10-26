@@ -1,4 +1,3 @@
-'use client';
 
 import { useEffect, useRef } from 'react';
 import { Heart, Sparkles, X } from 'lucide-react';

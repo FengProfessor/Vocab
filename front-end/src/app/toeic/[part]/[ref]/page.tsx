@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * TOEIC Reading Player — 1 trang xử lý cả 3 dạng bài Reading:
@@ -8,12 +7,12 @@
  * Decoupled from initial static bundle via dynamic import. Xong → POST roadmap progress.
  */
 import { useState, useEffect, useCallback, useMemo, Suspense } from 'react';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, CheckCircle2, Lightbulb, BookOpen, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import { stripHtmlTags } from '@/components/toeic/ToeicSplitPane';
 import type {

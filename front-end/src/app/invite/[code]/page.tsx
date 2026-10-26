@@ -1,10 +1,9 @@
-'use client';
 import { SocialApi } from '@/features/social/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useState, use } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   Gift,
   Sparkles,

@@ -1,8 +1,7 @@
-'use client';
 
 import React, { useState, use, useMemo } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   ChevronLeft,
   ChevronRight,

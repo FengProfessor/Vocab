@@ -1,4 +1,3 @@
-'use client';
 import { DictionaryApi } from '@/features/dictionary/api';
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';

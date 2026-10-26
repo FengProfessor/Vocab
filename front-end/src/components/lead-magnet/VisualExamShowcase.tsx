@@ -1,7 +1,6 @@
-'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+import Image from '@/shared/ui/image';
 import { Eye, CheckCircle2, AlertTriangle, HelpCircle, ArrowRight, Sparkles } from 'lucide-react';
 
 interface ExamExample {

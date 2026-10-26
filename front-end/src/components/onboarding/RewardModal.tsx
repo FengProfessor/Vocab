@@ -1,8 +1,7 @@
-'use client';
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import dynamic from 'next/dynamic';
+import dynamic from '@/shared/ui/dynamic';
 import { useOnboarding } from './OnboardingProvider';
 import { Mascot } from '@/components/gamification/Mascot';
 import {

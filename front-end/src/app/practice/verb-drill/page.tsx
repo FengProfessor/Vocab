@@ -1,4 +1,3 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 
 /**
@@ -10,7 +9,7 @@ import { VocabApi } from '@/features/vocab/api';
  */
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { BookOpen, Check, ChevronLeft, Loader2, RotateCcw, Volume2, X } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';

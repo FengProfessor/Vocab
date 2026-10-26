@@ -1,4 +1,3 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 
 import { useState, useMemo, useCallback } from 'react';

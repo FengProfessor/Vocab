@@ -1,4 +1,3 @@
-'use client';
 import { ReadingApi } from '@/features/reading/api';
 import { DictionaryApi } from '@/features/dictionary/api';
 
@@ -12,8 +11,8 @@ import { DictionaryApi } from '@/features/dictionary/api';
  */
 
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import Link from 'next/link';
-import { useSearchParams, useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useSearchParams, useRouter } from '@/shared/router/navigation';
 import {
   BookOpen,
   Check,

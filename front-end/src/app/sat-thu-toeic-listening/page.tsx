@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata } from '@/shared/router/navigation';
 import LeadMagnetClient from '@/components/lead-magnet/LeadMagnetClient';
 
 export const metadata: Metadata = {

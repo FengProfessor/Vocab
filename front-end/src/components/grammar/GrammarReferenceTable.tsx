@@ -1,7 +1,6 @@
-'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import Image from '@/shared/ui/image';
 import PronounMatrixTable from './PronounMatrixTable';
 import TenseTimeline from './TenseTimeline';
 import FormattedText from './FormattedText';

@@ -1,9 +1,8 @@
-'use client';
 import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';
 
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   Sparkles,
   Flame,

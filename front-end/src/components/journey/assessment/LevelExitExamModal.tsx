@@ -1,4 +1,3 @@
-'use client';
 import { RoadmapApi } from '@/features/roadmap/api';
 
 /**
@@ -8,7 +7,7 @@ import { RoadmapApi } from '@/features/roadmap/api';
  * Strictly requires >= 80% to graduate and unlock the next level.
  */
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   Dialog,
   DialogContent,

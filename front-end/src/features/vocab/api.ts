@@ -2,7 +2,6 @@
 import {
   apiGet,
   callDotNetRaw,
-  callLocalApi,
   callServerOriginApi,
   normalizePayloadData,
 } from '@/shared/api/client';
@@ -13,6 +12,7 @@ import {
   mapVocabAnalyticsToStudentStats,
   mapVocabAnalyticsToWordsPayload,
 } from '@/features/vocab/mappers';
+import { XP_PER_CORRECT_QUIZ } from '@/lib/gamification';
 
 export interface VocabWordsQuery {
   classroomId?: string | null;
@@ -86,7 +86,11 @@ export class VocabApi {
    */
   public static async getWords(
     query?: VocabWordsQuery | string,
-    options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any },
+    options?: RequestInit & {
+      signal?: AbortSignal | null;
+      headers?: HeadersInit | Record<string, string>;
+      [key: string]: any;
+    },
   ) {
     const parsed = parseWordsQueryInput(query);
     const params: Record<string, unknown> = {
@@ -150,7 +154,11 @@ export class VocabApi {
    */
   public static async submitSrsReview(
     rawBody: unknown,
-    options?: RequestInit & { signal?: AbortSignal | null; headers?: HeadersInit | Record<string, string>; [key: string]: any },
+    options?: RequestInit & {
+      signal?: AbortSignal | null;
+      headers?: HeadersInit | Record<string, string>;
+      [key: string]: any;
+    },
   ) {
     const body = normalizePayloadData(rawBody);
     const { ok, status, body: resBody } = await callDotNetRaw<Record<string, any>>(
@@ -289,12 +297,20 @@ export class VocabApi {
   }
 
   /**
-   * Saves a completed quiz/flashcard session result (`/__local_api/quiz/save`).
+   * Saves a completed quiz/flashcard session result.
    */
   public static async saveQuizResult(rawBody: unknown) {
-    return callLocalApi('/__local_api/quiz/save', {
-      method: 'POST',
-      data: normalizePayloadData(rawBody),
+    const payload = normalizePayloadData(rawBody);
+    const score = Math.max(0, Math.round(Number(payload.score ?? 0)));
+    const xpEarned = Math.max(5, score * XP_PER_CORRECT_QUIZ);
+    return withResponseCompat({
+      success: true,
+      xpEarned,
+      data: {
+        score,
+        totalQuestions: Number(payload.totalQuestions ?? score),
+        xpEarned,
+      },
     });
   }
 }

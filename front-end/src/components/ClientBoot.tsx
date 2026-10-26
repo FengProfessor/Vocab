@@ -1,8 +1,7 @@
-'use client';
 
 import { useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { usePathname } from 'next/navigation';
+import dynamic from '@/shared/ui/dynamic';
+import { usePathname } from '@/shared/router/navigation';
 import { captureReferralCode } from '@/lib/referral-tracker';
 
 const FirebaseInitializer = dynamic(

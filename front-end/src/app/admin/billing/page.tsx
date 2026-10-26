@@ -1,18 +1,17 @@
-'use client';
 import { BillingApi } from '@/features/billing/api';
 import { authService } from '@/features/auth/session';
 
 
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   ChevronLeft, DollarSign, Users, TrendingUp, Clock,
   CheckCircle2, XCircle, Loader2, Search, CreditCard,
   ArrowUpRight, ShoppingBag, Eye, Percent, Plus, Trash2, Copy
 } from 'lucide-react';
-import dynamic from 'next/dynamic';
+import dynamic from '@/shared/ui/dynamic';
 import { toast } from 'sonner';
 import { formatVND } from '@/lib/billing';
 

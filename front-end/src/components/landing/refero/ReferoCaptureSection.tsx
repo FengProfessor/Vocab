@@ -1,8 +1,7 @@
-'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from '@/shared/ui/image';
+import Link from '@/shared/router/navigation';
 import { LazyVideo } from '@/components/perf/LazyVideo';
 import {
   BookmarkPlus,

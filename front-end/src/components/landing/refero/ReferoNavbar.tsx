@@ -1,7 +1,6 @@
-'use client';
 
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Brain, ArrowRight, Menu, X, Gift } from 'lucide-react';
 
 export function ReferoNavbar() {

@@ -1,4 +1,3 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
@@ -7,8 +6,8 @@ import { authService } from '@/features/auth/session';
  * Load due words → pick item mode → chấm → POST /api/words/srs
  */
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   ArrowRight, ChevronLeft, Loader2, Snail, Volume2,
 } from 'lucide-react';

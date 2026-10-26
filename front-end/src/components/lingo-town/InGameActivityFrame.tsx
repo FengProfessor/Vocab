@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * Panel ôn tập gọn trong game — 1 cửa sổ, map vẫn thấy phía sau.

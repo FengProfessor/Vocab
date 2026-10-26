@@ -1,4 +1,3 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { ReadingApi } from '@/features/reading/api';
 
@@ -8,7 +7,7 @@ import { ReadingApi } from '@/features/reading/api';
  */
 
 import { Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   Check,
   Crown,
@@ -17,7 +16,7 @@ import {
   Sparkles,
   Wand2,
 } from 'lucide-react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from '@/shared/router/navigation';
 import { usePlan } from '@/hooks/usePlan';
 import { FREE_CODEMIX_UPGRADE_DAILY_LIMIT } from '@/lib/entitlement';
 import {

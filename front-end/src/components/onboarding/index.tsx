@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * Onboarding Orchestrator — layers + bootstrap toàn app.

@@ -1,12 +1,11 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { DictionaryApi } from '@/features/dictionary/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import {
   Brain, ChevronLeft, Upload, FileText, Camera, Loader2,
@@ -824,7 +823,6 @@ export default function ImportPage() {
               className="w-full border-2 border-dashed border-purple-200 hover:border-purple-400 rounded-2xl overflow-hidden transition-colors"
             >
               {ocrImage ? (
-                // eslint-disable-next-line @next/next/no-img-element
                 <img src={ocrImage} alt="Xem trước ảnh OCR" className="w-full max-h-64 object-contain" />
               ) : (
                 <div className="p-10 flex flex-col items-center gap-3 group">

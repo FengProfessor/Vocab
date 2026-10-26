@@ -1,6 +1,6 @@
-import type { Metadata } from 'next';
+import type { Metadata } from '@/shared/router/navigation';
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import {

@@ -1,6 +1,5 @@
 import { RoadmapApi } from '@/features/roadmap/api';
 // Client helpers cho lộ trình — gọi từ journey/flashcard/grammar/pronunciation/checkpoint.
-'use client';
 
 import exitStandardsArtifact from '@/data/roadmap/exit-standards-v1.json';
 

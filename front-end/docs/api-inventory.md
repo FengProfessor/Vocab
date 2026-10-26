@@ -1,28 +1,27 @@
 # Kiểm kê API phía client (`front-end/src`) ↔ .NET
 
 > Tài liệu nền cho việc refactor front-end. Cập nhật mỗi khi thêm/gỡ một path hoặc endpoint.
-> Cập nhật sau khi hợp nhất tầng API (xoá `src/lib/auth-fetch.ts` và `installGlobalApiBridge`, chuyển 100% call sites sang `src/shared/api/*` + `src/features/<domain>/{api.ts, mappers.ts, queries.ts}`).
+> Cập nhật sau khi hợp nhất tầng API và gỡ toàn bộ `src/app/api/**`, `src/shims/**`, `src/proxy.ts`, `callLocalApi`, các module server-only trong `src/lib/*`, và directive `'use client'`.
 
 ## Kiến trúc API phía client hiện tại
 
-1. **Khung dùng chung (`src/shared/api/`):**
-   - `src/shared/api/client.ts`: xuất `apiClient` (Axios singleton có CSRF header `X-LingoPro-Request: 1`, Bearer token từ memory `TokenStore`, và single-flight refresh `/auth/refresh`), cùng các helper `apiGet`, `apiPost`, `apiPut`, `apiPatch`, `apiDelete`, `callDotNetRaw`, `callLocalApi` (`/__local_api/*`), và `callServerOriginApi`.
+1. **Khung dùng chung (`src/shared/api/`, `src/shared/router/`, `src/shared/ui/`):**
+   - `src/shared/api/client.ts`: xuất `apiClient` (Axios singleton có CSRF header `X-LingoPro-Request: 1`, Bearer token từ memory `TokenStore`, và single-flight refresh `/auth/refresh`), cùng các helper `apiGet`, `apiPost`, `apiPut`, `apiPatch`, `apiDelete`, `callDotNetRaw`, và `callServerOriginApi`.
    - `src/shared/api/unwrap.ts`: định nghĩa `ApiError` (`status`, `message`, `errors`, `errorCode`), `unwrapApiResponse<T>(body)`, và `withResponseCompat`.
    - `src/shared/api/queryKeys.ts`: định nghĩa bộ React Query keys tập trung cho 12 domain (`auth`, `vocab`, `classroom`, `grammar`, `roadmap`, `dictionary`, `exam`, `reading`, `challenge`, `billing`, `social`, `admin`).
+   - `src/shared/router/navigation.tsx`, `src/shared/ui/image.tsx`, `src/shared/ui/dynamic.tsx`, `src/shared/ui/theme.tsx`: các helper điều hướng React Router và UI thuần client thay thế hoàn toàn `src/shims/*` và `next/*`.
 2. **Domain API Services (`src/features/<domain>/`):**
-   - Mỗi domain gồm `api.ts` (service class gọi qua `apiClient`), `mappers.ts` (chuyển đổi DTO ↔ UI model, có unit test Vitest), và `queries.ts` (`useQuery` / `useMutation` hooks).
-   - Monkey-patch `window.fetch` (`installGlobalApiBridge`) và file `src/lib/auth-fetch.ts` đã được **xoá hoàn toàn**.
-   - Guardrail ESLint `no-restricted-syntax` cấm mọi lời gọi `fetch('/api/...')`, `window.fetch('/api/...')`, và `authFetch(...)` ở mức **`error`** trên toàn bộ code client ngoài `src/app/api/**`.
+   - Mỗi domain gồm `api.ts` (service class gọi qua `apiClient` và các bộ nạp dataset phía client), `mappers.ts` (chuyển đổi DTO ↔ UI model, có unit test Vitest), và `queries.ts` (`useQuery` / `useMutation` hooks).
+   - Toàn bộ `src/app/api/**` (137 route handlers), `src/shims/**`, `src/proxy.ts`, `callLocalApi` (`/__local_api/*`), và `lingoProLocalRoutePlugin` đã được **xoá hoàn toàn**.
+   - Guardrail ESLint cấm mọi lời gọi `supabase.from(...)` / `supabase.rpc(...)`, `fetch('/api/...')`, `authFetch(...)`, và mọi import `next` / `next/*` ở mức **`error`** trên toàn bộ `src/**`.
 
 ### Chú giải trạng thái
 
 | Ký hiệu | Ý nghĩa |
 |---|---|
-| ✅ | Đã nối qua Domain Service (`src/features/<domain>/api.ts`) tới endpoint `.NET 10` (`/api/v1/*`) |
+| ✅ | Đã nối qua Domain Service (`src/features/<domain>/api.ts`) tới endpoint `.NET 10` (`/api/v1/*`) hoặc bộ nạp dataset client chuẩn |
 | ⚠️ | Đã nối qua Domain Service tới `.NET 10` nhưng dùng chung/adapter DTO, cần tách endpoint chuyên biệt khi mở rộng |
 | 🟡 | Đã gom vào Domain Service (`callServerOriginApi`), chờ bổ sung endpoint `.NET 10` tương ứng |
-| 🧪 | Đã gom vào Domain Service (`callLocalApi` qua `apiClient` tới `/__local_api/*`), chờ chuyển dataset đề thi sang `.NET 10` (D3) |
-| ❌ | Sẽ gỡ cùng các trang `demo/*`, `test-fcm` ở bước dọn mã chết (D4) |
 
 ---
 
@@ -60,7 +59,7 @@
 | `VocabApi.getImportPackages`, `importPackage` | `GET/POST /api/import/packages` | `library`, `journey`, `StudentProvider`, `VocabRoadmapSection` | 🟡 |
 | `VocabApi.generateLibraryGloss` | `POST /api/library/gloss` | `app/library/page.tsx` | 🟡 |
 | `VocabApi.getVocabTopic` | `GET /api/vocab/topic` | `lib/vocab-topics.ts` | 🟡 |
-| `VocabApi.saveQuizResult` | `POST /__local_api/quiz/save` | `flashcard`, `flashcard/LearnMode`, `quiz`, `writing` | 🧪 |
+| `VocabApi.saveQuizResult` | Client XP calculation (`XP_PER_CORRECT_QUIZ`) | `flashcard`, `flashcard/LearnMode`, `quiz`, `writing` | ✅ |
 
 ## 3. Từ điển, dịch, AI Coaching (`src/features/dictionary/`)
 
@@ -81,14 +80,14 @@
 
 | Domain Service Method | Endpoint đích | Nơi gọi chính | Trạng thái |
 |---|---|---|---|
-| `GrammarApi.getTopics` / `useGrammarTopicsQuery` | `GET /api/v1/grammar/topics` | `grammar/practice`, `teacher/GrammarPanel`, `teacher/grammar` | ✅ |
+| `GrammarApi.getTopics` / `useGrammarTopicsQuery` | `GET /api/v1/grammar/topics` (+ fallback catalog) | `grammar/practice`, `teacher/GrammarPanel`, `teacher/grammar` | ✅ |
 | `GrammarApi.getProgress` / `useGrammarProgressQuery` | `GET /api/v1/vocab/analytics` | `grammar`, `StudentProvider`, `StudentShell` | ⚠️ |
 | `GrammarApi.submitProgress`, `submitReview` | `POST /api/v1/grammar/progress` | `grammar/practice` | ✅ |
 | `GrammarApi.deleteExercise` | `DELETE /api/v1/grammar/exercises/{exerciseId}` | `teacher/GrammarPanel.tsx` | ✅ |
 | `GrammarApi.createExercise` | `POST /api/grammar` | `teacher/GrammarPanel.tsx` | 🟡 |
-| `GrammarApi.getReviewSchedule` | `GET /__local_api/grammar/review` | `grammar`, `grammar/practice` | 🧪 |
-| `GrammarApi.getTheory` / `useGrammarTheoryQuery` | `GET /__local_api/grammar/theory` | `grammar`, `grammar/practice` | 🧪 |
-| `GrammarApi.getLessons`, `saveLesson`, `deleteLesson` | `GET/POST/PUT/DELETE /__local_api/grammar/lessons` | `teacher/grammar`, `teacher/GrammarPanel` | 🧪 |
+| `GrammarApi.getReviewSchedule` | Client wrong-answer queue (`readLocalGrammarWrongQueue`) | `grammar`, `grammar/practice` | ✅ |
+| `GrammarApi.getTheory` / `useGrammarTheoryQuery` | Embedded curriculum catalog (`UNIFIED_GRAMMAR_TOPICS` + `grammar-topic-assets.json`) | `grammar`, `grammar/practice` | ✅ |
+| `GrammarApi.getLessons`, `saveLesson`, `deleteLesson` | Embedded curriculum catalog + client storage | `teacher/grammar`, `teacher/GrammarPanel` | ✅ |
 | `GrammarApi.generateLesson` | `POST /api/grammar/generate` | `app/teacher/grammar/page.tsx` | 🟡 |
 
 ## 5. Lộ trình (roadmap) & checkpoint (`src/features/roadmap/`)
@@ -96,26 +95,25 @@
 | Domain Service Method | Endpoint đích | Nơi gọi chính | Trạng thái |
 |---|---|---|---|
 | `RoadmapApi.getRoadmap` / `useRoadmapQuery` | `GET /api/v1/roadmap?track=` | `StudentProvider`, `lib/roadmap-client.ts` | ✅ |
-| `RoadmapApi.getPlacementTest` | `GET /api/roadmap/placement` | `app/journey/page.tsx` | 🟡 |
+| `RoadmapApi.getPlacementTest` | Embedded placement catalog (`getPlacement()`) | `app/journey/page.tsx` | ✅ |
 | `RoadmapApi.submitPlacement` | `POST /api/v1/roadmap/placement` | `app/journey/page.tsx` | ✅ |
 | `RoadmapApi.completeStep` / `useCompleteRoadmapStepMutation` | `POST /api/v1/roadmap/steps/complete` | `lib/roadmap-client.ts` | ✅ |
-| `RoadmapApi.getCheckpoint` / `useRoadmapCheckpointQuery` | `GET /__local_api/roadmap/checkpoint` | `journey/checkpoint/[unitId]` | 🧪 |
-| `RoadmapApi.submitAssessment` | `POST /__local_api/roadmap/assessment` | `journey/checkpoint`, `journey/exam`, `LevelExitExamModal`, `NodeMiniQuizModal` | 🧪 |
+| `RoadmapApi.getCheckpoint` / `useRoadmapCheckpointQuery` | Embedded curriculum checkpoint builder (`resolveUnit`) | `journey/checkpoint/[unitId]` | ✅ |
+| `RoadmapApi.submitAssessment` | `POST /api/v1/roadmap/steps/complete` | `journey/checkpoint`, `journey/exam`, `LevelExitExamModal`, `NodeMiniQuizModal` | ✅ |
 
 ## 6. Đề thi (TOEIC / VSTEP / VNU Bậc 3) (`src/features/exam/`)
 
 | Domain Service Method | Endpoint đích | Nơi gọi chính | Trạng thái |
 |---|---|---|---|
-| `ExamApi.getToeicTest` | `GET/POST /__local_api/toeic/test` | `toeic/exam/[examId]` | 🧪 |
-| `ExamApi.explainToeicQuestion` | `POST /__local_api/toeic/explain` | `toeic/exam/[examId]`, `ToeicFlaggedReviewView` | 🧪 |
-| `ExamApi.submitToeicExam` / `useSubmitToeicExamMutation` | `POST /__local_api/toeic/submit` + `POST /api/v1/exams/toeic/submit` | `toeic/exam/[examId]`, `hooks/useToeicExamSession.ts` | ✅ |
+| `ExamApi.getToeicTest`, `explainToeicQuestion` | Client dataset loader (`toeic-test-loader.ts`) | `toeic/exam/[examId]`, `ToeicFlaggedReviewView` | ✅ |
+| `ExamApi.submitToeicExam` / `useSubmitToeicExamMutation` | Client scorer + `POST /api/v1/exams/toeic/submit` | `toeic/exam/[examId]`, `hooks/useToeicExamSession.ts` | ✅ |
 | `ExamApi.getToeicHistory`, `saveToeicHistory`, `clearToeicHistory` | `GET/POST/DELETE /api/v1/exams/toeic/history` | `lib/toeic-question-history.ts` | ✅ |
-| `ExamApi.getVstepTest`, `explainVstepQuestion` | `POST /__local_api/vstep/test`, `/explain` | `vstep/exam/[examId]` | 🧪 |
-| `ExamApi.submitVstepExam` | `POST /__local_api/vstep/submit` + `POST /api/v1/exams/vstep/submit` | `vstep/exam/[examId]` | ✅ |
-| `ExamApi.evaluateWriting` / `useEvaluateWritingMutation` | `POST /api/v1/exams/writing/evaluate` | `vstep/exam/[examId]`, `VnuExamRoom` | ✅ |
-| `ExamApi.getVnuCatalog` / `useVnuCatalogQuery` | `GET /__local_api/vnu-bac-3?action=catalog` | `app/vnu-bac-3/page.tsx` | 🧪 |
-| `ExamApi.getVnuTest`, `explainVnuQuestion` | `GET/POST /__local_api/vnu-bac-3/test`, `/explain` | `VnuExamRoom` | 🧪 |
-| `ExamApi.submitVnuExam` | `POST /__local_api/vnu-bac-3/submit` + `POST /api/v1/exams/vstep/submit` | `VnuExamRoom` | ✅ |
+| `ExamApi.getVstepTest`, `explainVstepQuestion` | Client dataset loader (`vstep-test-loader.ts`) | `vstep/exam/[examId]` | ✅ |
+| `ExamApi.submitVstepExam` | Client scorer + `POST /api/v1/exams/vstep/submit` | `vstep/exam/[examId]` | ✅ |
+| `ExamApi.evaluateWriting` / `useEvaluateWritingMutation` | `POST /api/v1/exams/writing/evaluate` (+ deterministic rubric fallback) | `vstep/exam/[examId]`, `VnuExamRoom` | ✅ |
+| `ExamApi.getVnuCatalog` / `useVnuCatalogQuery` | Client dataset loader (`vnu-bac-3/loader.ts`) | `app/vnu-bac-3/page.tsx` | ✅ |
+| `ExamApi.getVnuTest`, `explainVnuQuestion` | Client dataset loader (`vnu-bac-3/loader.ts`) | `VnuExamRoom` | ✅ |
+| `ExamApi.submitVnuExam` | Client scorer (`vnu-bac-3/scoring.ts`) + `POST /api/v1/exams/vstep/submit` | `VnuExamRoom` | ✅ |
 
 ## 7. Đọc hiểu & luyện tập (`src/features/reading/`)
 
@@ -126,7 +124,7 @@
 | `ReadingApi.submitProgress`, `submitDailyReading` | `POST /api/v1/reading/daily/submit` | `practice/reading-library`, `practice/daily-reading` | ✅ |
 | `ReadingApi.getDailyReading` / `useDailyReadingQuery` | `GET /api/v1/reading/daily` | `practice/daily-reading`, `app/student`, `StudentProvider` | ✅ |
 | `ReadingApi.saveDailyReadingWord`, `generateDailyReading` | `POST /api/practice/daily-reading/save-word`, `/generate` | `practice/daily-reading` | 🟡 |
-| `ReadingApi.generatePackPassage` | `POST /api/practice/pack-passage` | `practice/pack-reading`, `demo/pack-practice` | 🟡 |
+| `ReadingApi.generatePackPassage` | `POST /api/practice/pack-passage` | `practice/pack-reading` | 🟡 |
 | `ReadingApi.upgradeCodemix` | `POST /api/practice/codemix-upgrade` | `practice/codemix` | 🟡 |
 
 ## 8. Lớp học & giáo viên (`src/features/classroom/`)

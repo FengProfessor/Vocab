@@ -1,10 +1,9 @@
-'use client';
 import { BillingApi } from '@/features/billing/api';
 import { authService } from '@/features/auth/session';
 
 import { Suspense, useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   ArrowRight,
   Check,

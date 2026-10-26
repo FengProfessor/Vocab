@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import { Volume2, AlertCircle, ArrowLeftRight, GitFork, Scale, GitBranch, Target, BookOpen, MapPin, Mic, Compass } from 'lucide-react';

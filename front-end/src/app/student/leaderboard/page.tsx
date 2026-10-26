@@ -1,11 +1,10 @@
-'use client';
 import { ClassroomApi } from '@/features/classroom/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, Suspense } from 'react';
 import { apiClient } from '@/lib/apiClient';
 import type { ApiResponse } from '@/types/api/ApiResponse';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   Trophy,
   Flame,

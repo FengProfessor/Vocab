@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * THPT player — 1 trang xử lý mọi dạng bài luyện thi:
@@ -9,12 +8,12 @@
  * Nội dung import trực tiếp từ content-v1.json (như bài phát âm). Xong → POST roadmap progress.
  */
 import { useMemo, useState } from 'react';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import contentData from '@/data/thpt/content-v1.json';
 
 interface Blank { options: string[]; answer: string; explain: string }

@@ -1,4 +1,3 @@
-'use client';
 import { RoadmapApi } from '@/features/roadmap/api';
 
 /**
@@ -9,8 +8,8 @@ import { RoadmapApi } from '@/features/roadmap/api';
  * Trao huy hiệu tốt nghiệp, chứng nhận digital và mở khóa cấp độ tiếp theo.
  */
 import React, { useState, useEffect, useMemo } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useParams, useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   GraduationCap,
   ArrowLeft,

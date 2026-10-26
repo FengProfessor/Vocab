@@ -1,4 +1,3 @@
-'use client';
 import { RoadmapApi } from '@/features/roadmap/api';
 
 /**
@@ -10,7 +9,7 @@ import { RoadmapApi } from '@/features/roadmap/api';
  * Pass ≥80% → unlock chặng sau, lưu tiến độ và chúc mừng vượt chặng.
  */
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { playWordAudio } from '@/lib/audio';
@@ -26,7 +25,7 @@ import { DiagnosticReportCard } from '@/components/journey/assessment/Diagnostic
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Volume2, ArrowLeft, Loader2, Sparkles, Flag } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 
 interface CheckpointQuestion {
   id: string;

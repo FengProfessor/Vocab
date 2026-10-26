@@ -1,8 +1,7 @@
-'use client';
 import { DictionaryApi } from '@/features/dictionary/api';
 
 import { useCallback, useRef, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Search, Loader2, Volume2, Plus, ArrowRight, CheckCircle2, Lock } from 'lucide-react';
 import type { DictionaryData, DictionaryMeaning } from '@/lib/supabase';
 import { speak } from '@/lib/study';
@@ -196,7 +195,6 @@ export default function DictionaryDemo() {
               </div>
             </div>
             {result.imageUrl && (
-              // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={resolveImageSrc(result.imageUrl)}
                   referrerPolicy="no-referrer"

@@ -1,11 +1,10 @@
-'use client';
 import { SocialApi } from '@/features/social/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   Users,
   Copy,

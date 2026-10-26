@@ -1,4 +1,3 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
@@ -10,8 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import {
   ChevronLeft, Volume2, Snail, ArrowRight, RotateCcw, BookOpen, GraduationCap, Sparkles, HelpCircle,
 } from 'lucide-react';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';

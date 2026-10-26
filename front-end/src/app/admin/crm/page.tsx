@@ -1,18 +1,17 @@
-'use client';
 import { AdminApi } from '@/features/admin/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   ChevronLeft, Users, UserPlus, Crown, Activity, AlertTriangle,
   Search, Download, X, Mail, Calendar, BookOpen, Target,
   CreditCard, TrendingUp, Building2, Brain, RotateCcw,
   RefreshCw, Zap, Flame, FileText,
 } from 'lucide-react';
-import dynamic from 'next/dynamic';
+import dynamic from '@/shared/ui/dynamic';
 import { formatVND } from '@/lib/billing';
 import type { MultiSkillStats } from '@/lib/activity/universal-activity';
 

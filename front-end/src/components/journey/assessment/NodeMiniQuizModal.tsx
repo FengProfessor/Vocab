@@ -1,4 +1,3 @@
-'use client';
 import { RoadmapApi } from '@/features/roadmap/api';
 
 /**

@@ -1,9 +1,8 @@
-'use client';
 import { ExamApi } from '@/features/exam/api';
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import Link from 'next/link';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   Clock,
   Flag,
@@ -35,7 +34,7 @@ import {
   VstepScoreResult,
   VstepSkillType
 } from '@/lib/vstep-types';
-import type { WritingEvalResult } from '@/app/api/vstep/writing-eval/route';
+import type { WritingEvalResult } from '@/features/exam/api';
 import { getCefrDescription } from '@/lib/vstep-scoring';
 import {
   batchRecordVstepAnswers,

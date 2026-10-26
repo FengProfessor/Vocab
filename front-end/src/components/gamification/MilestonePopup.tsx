@@ -1,8 +1,7 @@
-'use client';
 
 import { useEffect, useId, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import dynamic from 'next/dynamic';
+import dynamic from '@/shared/ui/dynamic';
 import { X } from 'lucide-react';
 import { Mascot } from '@/components/gamification/Mascot';
 import type { CelebrationIntensity } from '@/components/gamification/Celebration';

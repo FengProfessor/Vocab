@@ -1,4 +1,3 @@
-'use client';
 import { authService } from '@/features/auth/session';
 
 /**

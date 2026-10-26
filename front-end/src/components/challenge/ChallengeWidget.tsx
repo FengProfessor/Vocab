@@ -1,8 +1,7 @@
-'use client'
 import { ChallengeApi } from '@/features/challenge/api';
 
 import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
+import Link from '@/shared/router/navigation'
 import { Flame, Trophy, ChevronRight, CheckCircle2 } from 'lucide-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'

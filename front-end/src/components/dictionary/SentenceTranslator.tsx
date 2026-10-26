@@ -1,4 +1,3 @@
-'use client';
 import { DictionaryApi } from '@/features/dictionary/api';
 import { VocabApi } from '@/features/vocab/api';
 

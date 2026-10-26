@@ -1,7 +1,6 @@
-"use client";
 
 import React, { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
+import { useTheme } from '@/shared/ui/theme';
 import { useLocation } from "react-router-dom";
 import { Sun, Moon, Monitor, Check, Sparkles } from "lucide-react";
 

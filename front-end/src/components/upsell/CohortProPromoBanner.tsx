@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * Thanh flash sale Pro — dashboard + /upgrade.
@@ -6,7 +5,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Sparkles, X } from 'lucide-react';
 import {
   COHORT_PRO_PROMO_LABEL,

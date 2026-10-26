@@ -3,7 +3,6 @@
  * File: src/components/vnu-bac-3/VnuQuestionPalette.tsx
  */
 
-'use client';
 
 import React, { useState } from 'react';
 import { Flag, Filter } from 'lucide-react';

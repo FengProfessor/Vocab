@@ -1,7 +1,6 @@
-'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Brain } from 'lucide-react';
 import { ReferoNavbar } from './ReferoNavbar';
 import { ReferoHero } from './ReferoHero';

@@ -1,4 +1,3 @@
-"use client";
 
 import { Player } from "@remotion/player";
 import { StyleOne } from "@/remotion/styles/StyleOne";

@@ -1,9 +1,8 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   ArrowLeft,
   Brain,

@@ -1,4 +1,3 @@
-'use client';
 import { GrammarApi } from '@/features/grammar/api';
 
 

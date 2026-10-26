@@ -1,4 +1,3 @@
-'use client';
 import { ChallengeApi } from '@/features/challenge/api';
 
 import React, { useState, useEffect } from 'react';

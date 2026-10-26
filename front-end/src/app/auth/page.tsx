@@ -1,11 +1,10 @@
-'use client';
 import { SocialApi } from '@/features/social/api';
 
 import { useState, useEffect, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { authService } from '@/features/auth/session';
 import { describeOAuthQueryError, formatRawMessage } from '@/features/auth/errors';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   Brain,
   Mail,

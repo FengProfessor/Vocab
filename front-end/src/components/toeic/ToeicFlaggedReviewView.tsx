@@ -1,8 +1,7 @@
-'use client';
 import { ExamApi } from '@/features/exam/api';
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   Bookmark,
   Flag,

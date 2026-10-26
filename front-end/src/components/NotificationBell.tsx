@@ -1,8 +1,7 @@
-'use client';
 
 import { useState, useRef, useEffect } from 'react';
 import { Bell, BookOpen, Flame, Target, X } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 
 interface Notification {
   id: string;

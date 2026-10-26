@@ -1,4 +1,3 @@
-'use client';
 
 import React, { useState, useMemo } from 'react';
 import { Check, X, RotateCcw, ArrowRight, Layers, CheckCircle2 } from 'lucide-react';

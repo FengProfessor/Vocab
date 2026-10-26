@@ -1,6 +1,5 @@
-'use client';
 
-import dynamic from 'next/dynamic';
+import dynamic from '@/shared/ui/dynamic';
 import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { GrammarFormula } from '@/components/grammar/GrammarFormula';

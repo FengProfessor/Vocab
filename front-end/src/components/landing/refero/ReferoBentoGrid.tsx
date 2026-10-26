@@ -1,8 +1,7 @@
-'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from '@/shared/ui/image';
+import Link from '@/shared/router/navigation';
 import {
   Repeat2,
   Bot,

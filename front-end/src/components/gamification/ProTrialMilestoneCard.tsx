@@ -1,10 +1,9 @@
-'use client';
 import { BillingApi } from '@/features/billing/api';
 import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useState, type ReactNode } from 'react';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
+import Link from '@/shared/router/navigation';
+import dynamic from '@/shared/ui/dynamic';
 import { Crown, Flame, BookOpen, Loader2, Check, Gift, Lock } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';

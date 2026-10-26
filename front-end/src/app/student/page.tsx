@@ -1,16 +1,15 @@
-'use client';
 import { ClassroomApi } from '@/features/classroom/api';
 import { VocabApi } from '@/features/vocab/api';
 import { ReadingApi } from '@/features/reading/api';
 import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useMemo, useRef, useSyncExternalStore } from 'react';
-import dynamic from 'next/dynamic';
+import dynamic from '@/shared/ui/dynamic';
 import { AuthApi } from '@/features/auth/api';
 import type { Profile, Word } from '@/lib/supabase';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import Image from '@/shared/ui/image';
+import { useRouter } from '@/shared/router/navigation';
 import {
   Loader2, Plus, ArrowRight,
   X, Clock, UserPlus, Search, ChevronDown, Sparkles,
@@ -53,7 +52,7 @@ import {
   readLastDailyReadingCache,
   writeDailyReadingCache,
 } from '@/lib/dashboard-snapshot-cache';
-import { STAMPEDE_MODE } from '@/lib/stampede';
+const STAMPEDE_MODE = true;
 import { parseIpa } from '@/lib/study';
 import { getAllVideoWatchProgress } from '@/lib/listening-recommendation';
 

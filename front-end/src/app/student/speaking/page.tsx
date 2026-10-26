@@ -1,10 +1,9 @@
 import { DictionaryApi } from '@/features/dictionary/api';
 import { authService } from '@/features/auth/session';
-"use client";
 
 import { useState, useEffect, useRef, useMemo } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { supabase } from "@/lib/supabase";
 import {
   ChevronLeft, Loader2, Volume2, Bot, User, Sparkles,

@@ -1,4 +1,3 @@
-'use client';
 import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';
 

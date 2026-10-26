@@ -1,9 +1,8 @@
-'use client';
 
 import { useEffect, useRef, useSyncExternalStore } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import Image from '@/shared/ui/image';
+import { useRouter } from '@/shared/router/navigation';
 import {
   X,
   Zap,

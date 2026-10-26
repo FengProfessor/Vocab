@@ -1,10 +1,9 @@
-'use client';
 import { DictionaryApi } from '@/features/dictionary/api';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
 import { useEffect, useState, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { apiClient } from '@/lib/apiClient';
 import type { ApiResponse } from '@/types/api/ApiResponse';
 import type { Word, SRSProgress, RichCollocationEntry, WordFamilyEntry, DictionaryMeaning } from '@/lib/supabase';
@@ -429,7 +428,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
             {/* Image */}
             {word.image_url && !imageFailed ? (
               <div className="relative w-full h-44 overflow-hidden rounded-t-2xl bg-slate-100 dark:bg-slate-800">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {}
                 <img
                   src={resolveImageSrc(word.image_url)}
                   referrerPolicy="no-referrer"

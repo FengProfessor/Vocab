@@ -1,4 +1,3 @@
-'use client';
 import { SocialApi } from '@/features/social/api';
 import { authService } from '@/features/auth/session';
 

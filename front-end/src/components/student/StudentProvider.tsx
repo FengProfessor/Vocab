@@ -1,4 +1,3 @@
-'use client';
 import { VocabApi } from '@/features/vocab/api';
 import { SocialApi } from '@/features/social/api';
 import { RoadmapApi } from '@/features/roadmap/api';

@@ -1,7 +1,6 @@
-'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Target, Award, CheckCircle2, ArrowRight } from 'lucide-react';
 import type { AudienceTrack, AudienceType } from './types';
 

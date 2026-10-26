@@ -1,4 +1,3 @@
-'use client';
 
 import { metaForActivity, type RoomPresenceMember } from '@/lib/room-presence';
 import { cn } from '@/lib/utils';

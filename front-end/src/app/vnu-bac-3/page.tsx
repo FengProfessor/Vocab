@@ -1,4 +1,3 @@
-'use client';
 import { ExamApi } from '@/features/exam/api';
 
 /**
@@ -7,7 +6,7 @@ import { ExamApi } from '@/features/exam/api';
  */
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   BookOpen,
   ShieldCheck,

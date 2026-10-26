@@ -1,9 +1,8 @@
-'use client';
 import { AuthApi } from '@/features/auth/api';
 import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/shared/router/navigation';
 import { supabase } from '@/lib/supabase';
 import {
   FREE_WORD_MONTHLY_LIMIT,

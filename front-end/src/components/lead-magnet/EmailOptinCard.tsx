@@ -1,8 +1,7 @@
-'use client';
 import { SocialApi } from '@/features/social/api';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   Mail,
   User,

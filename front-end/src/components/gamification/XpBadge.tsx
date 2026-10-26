@@ -1,4 +1,3 @@
-'use client';
 import { levelProgress } from '@/lib/gamification';
 
 interface Props {

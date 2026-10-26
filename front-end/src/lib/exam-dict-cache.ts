@@ -1,5 +1,5 @@
 import { DictionaryApi } from '@/features/dictionary/api';
-import { resolveProxyMediaUrl } from './toeic-media-proxy';
+import { resolveImageSrc as resolveProxyMediaUrl } from './media-url';
 
 export interface ExamDictPhrase {
   phrase: string;
