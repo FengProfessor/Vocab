@@ -12,6 +12,7 @@ import {
   getTopicBySlug,
 } from '@/lib/grammar-roadmap-data';
 import { readLocalGrammarWrongQueue } from '@/lib/grammar-exercises';
+import { VocabApi } from '@/features/vocab/api';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
 
 function extractQueryParam(input: string, key: string): string {
@@ -120,19 +121,17 @@ export class GrammarApi {
   }
 
   /**
-   * Retrieves grammar due counts and progress summary via `GET /api/v1/vocab/analytics`.
+   * Retrieves grammar due counts and progress summary via shared `VocabApi.fetchAnalyticsRaw`.
    */
   public static async getProgress(
     _params?: Record<string, unknown> | string,
     options?: LegacyRequestOptions,
   ) {
-    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>('/vocab/analytics', {
-      method: 'GET',
-      params: { limit: 0, offset: 0 },
-      headers: options?.headers,
-      signal: options?.signal,
-    });
-    const grammarDueCount = Number(body?.data?.grammarDueCount ?? 0);
+    const { ok, status, data } = await VocabApi.fetchAnalyticsRaw(
+      { limit: 0, offset: 0 },
+      options,
+    );
+    const grammarDueCount = Number(data?.grammarDueCount ?? 0);
     return withResponseCompat(
       {
         success: ok,
@@ -148,6 +147,7 @@ export class GrammarApi {
    * Submits grammar topic mastery or review results via `POST /api/v1/grammar/progress`.
    */
   public static async submitProgress(rawBody: unknown) {
+    VocabApi.invalidateAnalyticsCache();
     const body = normalizePayloadData(rawBody);
     const { ok, status, body: resBody } = await callDotNetRaw<Record<string, unknown>>(
       '/grammar/progress',

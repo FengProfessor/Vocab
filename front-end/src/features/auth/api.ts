@@ -59,14 +59,29 @@ function normalizeLegacyRole(role?: string | number): 'teacher' | 'student' | 'a
   return 'student';
 }
 
+const PROFILE_CACHE_TTL_MS = 15_000;
+let cachedProfileDto: DotNetAuthTokensDto | null = null;
+let cachedProfileAt = 0;
+let inflightProfilePromise: Promise<DotNetAuthTokensDto> | null = null;
+
 /**
  * Client for all .NET `/api/v1/auth/*` and onboarding endpoints.
  */
 export class AuthApi {
   /**
+   * Invalidates the short-lived in-memory profile & gamification cache.
+   */
+  public static invalidateProfileCache(): void {
+    cachedProfileDto = null;
+    cachedProfileAt = 0;
+    inflightProfilePromise = null;
+  }
+
+  /**
    * Authenticates a user with email and password via `POST /api/v1/auth/login`.
    */
   public static async login(email: string, password: string): Promise<AuthTokensPayload> {
+    AuthApi.invalidateProfileCache();
     const response = await apiClient.post<ApiResponse<AuthTokensPayload>>('/auth/login', {
       email: email.trim(),
       password,
@@ -83,6 +98,7 @@ export class AuthApi {
     fullName: string,
     role: UserRole | 'student' | 'teacher' = UserRole.Student,
   ): Promise<AuthTokensPayload> {
+    AuthApi.invalidateProfileCache();
     const response = await apiClient.post<ApiResponse<AuthTokensPayload>>('/auth/register', {
       email: email.trim(),
       password,
@@ -116,6 +132,7 @@ export class AuthApi {
     codeVerifier: string,
     role: UserRole | 'student' | 'teacher' = UserRole.Student,
   ): Promise<AuthTokensPayload> {
+    AuthApi.invalidateProfileCache();
     const response = await apiClient.post<ApiResponse<AuthTokensPayload>>(
       '/auth/callback/google',
       {
@@ -128,11 +145,31 @@ export class AuthApi {
   }
 
   /**
-   * Retrieves the current user's profile and gamification summary via `GET /api/v1/auth/profile`.
+   * Retrieves the current user's profile and gamification summary via `GET /api/v1/auth/profile`
+   * with single-flight deduplication and a short TTL cache to prevent redundant calls on mount/focus.
    */
-  public static async getProfile(): Promise<DotNetAuthTokensDto> {
-    const response = await apiClient.get<ApiResponse<DotNetAuthTokensDto>>('/auth/profile');
-    return AuthApi.unwrap(response.data);
+  public static async getProfile(options?: { force?: boolean }): Promise<DotNetAuthTokensDto> {
+    const now = Date.now();
+    if (!options?.force && cachedProfileDto && now - cachedProfileAt < PROFILE_CACHE_TTL_MS) {
+      return cachedProfileDto;
+    }
+    if (!options?.force && inflightProfilePromise) {
+      return inflightProfilePromise;
+    }
+
+    inflightProfilePromise = apiClient
+      .get<ApiResponse<DotNetAuthTokensDto>>('/auth/profile')
+      .then((response) => {
+        const dto = AuthApi.unwrap(response.data);
+        cachedProfileDto = dto;
+        cachedProfileAt = Date.now();
+        return dto;
+      })
+      .finally(() => {
+        inflightProfilePromise = null;
+      });
+
+    return inflightProfilePromise;
   }
 
   /**
@@ -188,6 +225,7 @@ export class AuthApi {
    * Ends the session server-side and clears auth cookies via `POST /api/v1/auth/logout`.
    */
   public static async logout(): Promise<void> {
+    AuthApi.invalidateProfileCache();
     await apiClient.post('/auth/logout');
   }
 
@@ -234,7 +272,10 @@ export class AuthApi {
       learningGoal: input.learningGoal ?? 'General',
       dailyTargetMins: Number(input.dailyTargetMins ?? 10),
     });
-    return AuthApi.unwrap(response.data);
+    const dto = AuthApi.unwrap(response.data);
+    cachedProfileDto = dto;
+    cachedProfileAt = Date.now();
+    return dto;
   }
 
   /**
@@ -242,7 +283,10 @@ export class AuthApi {
    */
   public static async claimTeacherRole(): Promise<DotNetAuthTokensDto> {
     const response = await apiClient.post<ApiResponse<DotNetAuthTokensDto>>('/auth/role/teacher');
-    return AuthApi.unwrap(response.data);
+    const dto = AuthApi.unwrap(response.data);
+    cachedProfileDto = dto;
+    cachedProfileAt = Date.now();
+    return dto;
   }
 
   /**
@@ -250,6 +294,7 @@ export class AuthApi {
    */
   public static async claimOnboardingXp(): Promise<boolean> {
     const response = await apiClient.post<ApiResponse<boolean>>('/users/me/onboarding/claim-xp');
+    AuthApi.invalidateProfileCache();
     return AuthApi.unwrap(response.data);
   }
 

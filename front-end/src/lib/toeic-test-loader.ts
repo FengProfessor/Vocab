@@ -281,6 +281,73 @@ if (catalogIndex && catalogIndex.practiceParts) {
  */
 const testCache = new Map<string, ToeicUnifiedQuestion[]>();
 
+/**
+ * Lazy Vite glob map for browser-side dynamic loading of TOEIC datasets.
+ * Each dataset JSON is code-split into its own on-demand chunk rather than bundled eagerly.
+ */
+function createToeicDatasetGlob(): Record<string, () => Promise<unknown>> {
+  try {
+    return (import.meta as any).glob('../data/toeic/datasets/**/*.json', {
+      import: 'default',
+    }) as Record<string, () => Promise<unknown>>;
+  } catch {
+    return {};
+  }
+}
+
+const toeicDatasetGlob: Record<string, () => Promise<unknown>> = createToeicDatasetGlob();
+
+/**
+ * In-memory cache of raw parsed dataset JSON objects keyed by relative path under `datasets/`.
+ */
+const rawDatasetMemoryCache = new Map<string, any>();
+
+function readToeicDatasetJson(...segments: string[]): any | null {
+  const relKey = segments.join('/');
+  if (rawDatasetMemoryCache.has(relKey)) {
+    return rawDatasetMemoryCache.get(relKey);
+  }
+
+  const fullPath = getCrawlerDataPath(...segments);
+  if (!fullPath) return null;
+
+  const fsModule = getNodeFs();
+  if (!fsModule) return null;
+
+  try {
+    const content = fsModule.readFileSync(fullPath, 'utf8');
+    const parsed = JSON.parse(content);
+    rawDatasetMemoryCache.set(relKey, parsed);
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+async function preloadToeicDatasetJson(...segments: string[]): Promise<any | null> {
+  const relKey = segments.join('/');
+  if (rawDatasetMemoryCache.has(relKey)) {
+    return rawDatasetMemoryCache.get(relKey);
+  }
+
+  const globKey = `../data/toeic/datasets/${relKey}`;
+  const loader = toeicDatasetGlob[globKey];
+  if (typeof loader === 'function') {
+    try {
+      const loaded = await loader();
+      const data = (loaded as any)?.default ?? loaded;
+      if (data && typeof data === 'object') {
+        rawDatasetMemoryCache.set(relKey, data);
+        return data;
+      }
+    } catch (err) {
+      console.warn(`[ToeicLoader] Failed to dynamically import ${globKey}:`, err);
+    }
+  }
+
+  return readToeicDatasetJson(...segments);
+}
+
 function cloneUnifiedQuestions(questions: ToeicUnifiedQuestion[]): ToeicUnifiedQuestion[] {
   return questions.map((q) => ({
     ...q,
@@ -774,17 +841,12 @@ function loadEstudymeFullTest(testNumber: number): ToeicUnifiedQuestion[] {
   if (testNumber === 11) fname = 'test-11-new.json';
   if (testNumber === 12) fname = 'test-12-new.json';
 
-  const fullPath = getCrawlerDataPath('estudyme_data', 'full_tests', fname);
-  if (!fullPath) {
+  const data = readToeicDatasetJson('estudyme_data', 'full_tests', fname);
+  if (!data || !Array.isArray(data.cards)) {
     // Fallback to 6852 if files cannot be located
     return loadFullToeicTest('6852');
   }
 
-  const fsModule = getNodeFs();
-  if (!fsModule) return loadFullToeicTest('6852');
-
-  const content = fsModule.readFileSync(fullPath, 'utf8');
-  const data = JSON.parse(content);
   const questions = adaptEstudymeCardsToUnified(data.cards, `estudyme-test-${testNumber}`, {
     isFullTest: true,
   });
@@ -804,14 +866,9 @@ function loadEstudymePracticeTest(item: ToeicCatalogPracticeItem): ToeicUnifiedQ
 
   if (!item.file) return [];
   const segments = item.file.split('/');
-  const fullPath = getCrawlerDataPath('estudyme_data', 'practice_parts', ...segments);
-  if (!fullPath) return [];
+  const data = readToeicDatasetJson('estudyme_data', 'practice_parts', ...segments);
+  if (!data || !Array.isArray(data.cards)) return [];
 
-  const fsModule = getNodeFs();
-  if (!fsModule) return [];
-
-  const content = fsModule.readFileSync(fullPath, 'utf8');
-  const data = JSON.parse(content);
   const questions = adaptEstudymeCardsToUnified(data.cards, item.id, {
     isFullTest: false,
     part: item.part as ToeicPart,
@@ -830,18 +887,13 @@ function loadStudy4Test(testId: string): ToeicUnifiedQuestion[] {
     return cloneUnifiedQuestions(testCache.get(cacheKey)!);
   }
 
-  const fullPath =
-    getCrawlerDataPath('study4_data', `study4_test_${testId}.json`) ||
-    getCrawlerDataPath('toeic_data', `study4_test_${testId}.json`);
-  if (!fullPath) {
+  const data =
+    readToeicDatasetJson('study4_data', `study4_test_${testId}.json`) ||
+    readToeicDatasetJson('toeic_data', `study4_test_${testId}.json`);
+  if (!data) {
     return loadFullToeicTest(testId);
   }
 
-  const fsModule = getNodeFs();
-  if (!fsModule) return loadFullToeicTest(testId);
-
-  const content = fsModule.readFileSync(fullPath, 'utf8');
-  const data = JSON.parse(content);
   const questions = adaptStudy4ToUnified(data, testId);
 
   testCache.set(cacheKey, questions);
@@ -863,17 +915,12 @@ export function loadEtsTest(year: '2024' | '2026' | string, testNumber: number):
 
   const folder = `ets_${yearStr}`;
   const fname = `ets_${yearStr}_test_${pad}.json`;
-  const fullPath = getCrawlerDataPath(folder, fname);
-  if (!fullPath) {
+  const data = readToeicDatasetJson(folder, fname);
+  if (!data) {
     return loadFullToeicTest('6852');
   }
 
-  const fsModule = getNodeFs();
-  if (!fsModule) return loadFullToeicTest('6852');
-
   try {
-    const content = fsModule.readFileSync(fullPath, 'utf8');
-    const data = JSON.parse(content);
     const questions: ToeicUnifiedQuestion[] = Array.isArray(data.questions) ? data.questions : [];
     if (questions.length > 0) {
       testCache.set(cacheKey, questions);
@@ -900,17 +947,12 @@ export function loadEtsProTest(testNumber: number): ToeicUnifiedQuestion[] {
 
   const folder = 'ets_pro';
   const fname = `ets_pro_test_${pad}.json`;
-  const fullPath = getCrawlerDataPath(folder, fname);
-  if (!fullPath) {
+  const data = readToeicDatasetJson(folder, fname);
+  if (!data) {
     return loadFullToeicTest('6852');
   }
 
-  const fsModule = getNodeFs();
-  if (!fsModule) return loadFullToeicTest('6852');
-
   try {
-    const content = fsModule.readFileSync(fullPath, 'utf8');
-    const data = JSON.parse(content);
     const questions: ToeicUnifiedQuestion[] = Array.isArray(data.questions) ? data.questions : [];
     if (questions.length > 0) {
       testCache.set(cacheKey, questions);
@@ -921,6 +963,114 @@ export function loadEtsProTest(testNumber: number): ToeicUnifiedQuestion[] {
   }
 
   return loadFullToeicTest('6852');
+}
+
+async function preloadToeicDatasetForTestId(testId?: unknown): Promise<void> {
+  if (testId === null || testId === undefined) return;
+  const rawStr = typeof testId === 'string' ? testId.trim() : String(testId).trim();
+  if (!rawStr || rawStr === '[object Object]') return;
+
+  const etsProMatch = rawStr.match(/^(?:ets[-_]?pro[-_]?(?:test[-_]?)?|ets[-_]pro[-_])(\d{1,2})$/i);
+  if (etsProMatch) {
+    const num = parseInt(etsProMatch[1], 10);
+    if (num >= 1 && num <= 20) {
+      const pad = String(num).padStart(2, '0');
+      await preloadToeicDatasetJson('ets_pro', `ets_pro_test_${pad}.json`);
+      return;
+    }
+  }
+
+  const etsMatch = rawStr.match(/^ets[-_]?(2024|2026)[-_]?(?:test[-_]?)?(\d{1,2})$/i);
+  if (etsMatch) {
+    const year = etsMatch[1];
+    const num = parseInt(etsMatch[2], 10);
+    if (num >= 1 && num <= 10) {
+      const pad = String(num).padStart(2, '0');
+      await preloadToeicDatasetJson(`ets_${year}`, `ets_${year}_test_${pad}.json`);
+      return;
+    }
+  }
+
+  const estudymeFullMatch =
+    rawStr.match(/^estudyme-test-?(\d{1,2})$/i) ||
+    rawStr.match(/^test-?(\d{1,2})$/i) ||
+    rawStr.match(/^ets-?(\d{1,2})$/i) ||
+    rawStr.match(/^estudyme-(\d{1,2})$/i);
+  if (estudymeFullMatch) {
+    const num = parseInt(estudymeFullMatch[1], 10);
+    if (num >= 1 && num <= 21) {
+      let fname = `test-${num}.json`;
+      if (num === 11) fname = 'test-11-new.json';
+      if (num === 12) fname = 'test-12-new.json';
+      await preloadToeicDatasetJson('estudyme_data', 'full_tests', fname);
+      return;
+    }
+  }
+
+  const practiceItem = practiceLookupMap.get(rawStr.toLowerCase());
+  if (practiceItem?.file) {
+    await preloadToeicDatasetJson('estudyme_data', 'practice_parts', ...practiceItem.file.split('/'));
+    return;
+  }
+
+  const study4Match = rawStr.match(/(?:study4[_-]?(?:test[_-]?)?)?(\d{4})/i);
+  if (study4Match) {
+    const s4Num = study4Match[1];
+    const isBundledAuth = AUTHENTIC_TEST_METADATA.some((t) => t.testId === s4Num);
+    if (!isBundledAuth) {
+      await preloadToeicDatasetJson('study4_data', `study4_test_${s4Num}.json`);
+    }
+  }
+}
+
+/**
+ * Preloads TOEIC dataset JSON into memory via Vite lazy glob before calling synchronous loaders.
+ */
+export async function preloadToeicTestData(options: {
+  testId?: unknown;
+  part?: ToeicPart | number | null;
+  questionIds?: string[];
+}): Promise<void> {
+  const tasks: Promise<unknown>[] = [];
+
+  if (options.testId !== undefined && options.testId !== null) {
+    const cleanId = typeof options.testId === 'string' ? options.testId.trim().toLowerCase() : '';
+    const isAllBank =
+      cleanId === 'all' || cleanId === 'bank' || cleanId === 'all-tests' || cleanId === 'toan-bo';
+
+    if (isAllBank && options.part) {
+      const items = (catalogIndex?.practiceParts?.[String(options.part)] || []).slice(0, 10);
+      for (const item of items) {
+        if (item.file) {
+          tasks.push(preloadToeicDatasetJson('estudyme_data', 'practice_parts', ...item.file.split('/')));
+        }
+      }
+    } else {
+      tasks.push(preloadToeicDatasetForTestId(options.testId));
+    }
+  }
+
+  if (Array.isArray(options.questionIds) && options.questionIds.length > 0) {
+    const candidateIds = new Set<string>();
+    for (const id of options.questionIds) {
+      if (!id || typeof id !== 'string') continue;
+      if (id.startsWith('ets-pro-')) {
+        const parts = id.split('-');
+        if (parts.length >= 4) {
+          candidateIds.add(`ets-pro-${parts[2]}`);
+        }
+      } else if (id.startsWith('q-') && id.lastIndexOf('-') > 2) {
+        candidateIds.add(id.substring(2, id.lastIndexOf('-')));
+      }
+    }
+    for (const cid of candidateIds) {
+      tasks.push(preloadToeicDatasetForTestId(cid));
+    }
+  }
+
+  if (tasks.length > 0) {
+    await Promise.all(tasks);
+  }
 }
 
 /**

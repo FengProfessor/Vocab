@@ -50,9 +50,7 @@ export function revokeOfflineAudioUrl(url: string): void {
 }
 
 /**
- * Attempts to download and cache an audio Blob for a word.
- * Uses same-origin /api/tts (which proxies Google TTS + Youdao server-side with 1-year cache)
- * to avoid browser CSP connect-src violations and CORS blocks on dict.youdao.com.
+ * Attempts to download and cache an audio Blob for a word when an explicit audioUrl is provided.
  */
 export async function cacheWordAudio(
   word: string,
@@ -78,15 +76,17 @@ export async function cacheWordAudio(
     ) {
       candidates.push(audioUrl);
     }
-    // Same-origin TTS proxy endpoint (Google TTS + Youdao server-side fallback)
-    candidates.push(`/api/tts?q=${encodeURIComponent(cleanWord)}`);
+    if (candidates.length === 0) {
+      return false;
+    }
 
     for (const url of candidates) {
       try {
         const res = await fetch(url, {
           signal: AbortSignal.timeout(3500),
         });
-        if (res.ok) {
+        const contentType = res.headers.get('content-type') || '';
+        if (res.ok && contentType.includes('audio')) {
           const blob = await res.blob();
           if (blob && blob.size > 100) {
             await putAudio(storageKey, blob, blob.type || 'audio/mp3');
@@ -108,11 +108,10 @@ import { getNetworkPolicy } from './network-policy';
 
 /**
  * Rolling-window audio prefetcher for active study screens (Flashcard, LearnMode, Review).
- * Prefetches only the next 3–5 words ahead of the current card so mobile/4G connections
- * never suffer a 25-request burst while still enjoying 0ms audio on every card flip.
+ * Only prefetches items that carry an explicit CORS-safe audioUrl.
  */
 export async function prefetchAudioWindow(
-  items: ReadonlyArray<string | { word?: string | null }>,
+  items: ReadonlyArray<string | { word?: string | null; audioUrl?: string | null }>,
   startIndex = 0,
   windowSize = 4,
 ): Promise<void> {
@@ -121,9 +120,8 @@ export async function prefetchAudioWindow(
 
   const slice = items.slice(Math.max(0, startIndex), Math.max(0, startIndex) + windowSize);
   for (const item of slice) {
-    const wordText = typeof item === 'string' ? item : item?.word;
-    if (wordText && wordText.trim()) {
-      await cacheWordAudio(wordText);
+    if (typeof item === 'object' && item !== null && item.word?.trim() && item.audioUrl) {
+      await cacheWordAudio(item.word, item.audioUrl);
     }
   }
 }

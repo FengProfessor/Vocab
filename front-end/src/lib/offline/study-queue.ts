@@ -14,7 +14,6 @@ import {
   getSyncMetadata,
 } from './db';
 import type { OfflineStudyWord, SyncMetadata } from './types';
-import { cacheWordAudio } from './audio-cache';
 import { getNetworkPolicy } from './network-policy';
 
 let isPrefetching = false;
@@ -125,19 +124,6 @@ export async function prefetchStudyQueue(
         lastSyncAt: existingMeta?.lastSyncAt ?? 0,
       };
       await setSyncMetadata(meta);
-    }
-
-    // Background bulk audio caching ONLY on unmetered Wi-Fi / Ethernet.
-    // On cellular (4G/5G) or mobile devices, audio is prefetched in small 3-5 word rolling windows during study.
-    if (wordsToPersist.length > 0 && policy.canBulkPrefetchMedia) {
-      const wordsForAudio = wordsToPersist.slice(0, 15);
-      setTimeout(() => {
-        void (async () => {
-          for (const w of wordsForAudio) {
-            await cacheWordAudio(w.word);
-          }
-        })();
-      }, 800);
     }
   } catch (err) {
     // Silent degradation

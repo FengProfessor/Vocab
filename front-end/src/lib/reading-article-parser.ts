@@ -3,16 +3,48 @@
  * Parses VSTEP practice & exam sets, TOEIC Part 6 & 7, and external sources.
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
 import type {
   ReadingArticle,
   ReadingQuestion,
-  ReadingClozeData,
   ReadingClozeBlank,
   CEFRLevel,
 } from '../types/reading-library';
 import { classifyReadingTheme } from './reading-theme-classifier';
+import toeicReadingRaw from '../data/toeic/content-toeic-reading-v1.json';
+import externalStarterRaw from '../data/reading/external-starter-articles.json';
+
+type VstepJsonModuleMap = Record<string, () => Promise<Record<string, any>>>;
+
+function createVstepReadingLoaders(): VstepJsonModuleMap | null {
+  try {
+    return (import.meta as any).glob(
+      ['../data/vstep/practice/*.json', '../data/vstep/tests/*.json'],
+      { import: 'default' },
+    ) as VstepJsonModuleMap;
+  } catch {
+    return null;
+  }
+}
+
+const vstepReadingLoaders: VstepJsonModuleMap | null = createVstepReadingLoaders();
+
+let cachedLocalArticlesPromise: Promise<ReadingArticle[]> | null = null;
+
+function getNodeFs(): { fs: any; path: any } | null {
+  if (typeof window !== 'undefined') return null;
+  try {
+    // eslint-disable-next-line no-eval
+    const req = eval('require');
+    const fs = req('fs');
+    const path = req('path');
+    if (fs && typeof fs.existsSync === 'function') {
+      return { fs, path };
+    }
+  } catch {
+    // Browser environment
+  }
+  return null;
+}
 
 export function cleanHtml(text: string): string {
   if (!text) return '';
@@ -69,13 +101,97 @@ function mapVstepLevel(taskId: string): CEFRLevel {
   return 'B2';
 }
 
+function parseVstepExamData(fileOrId: string, data: Record<string, any>): ReadingArticle[] {
+  const articles: ReadingArticle[] = [];
+  const examId = data.id || fileOrId.replace(/\.json$/i, '');
+  const examTitle = data.title || examId;
+
+  const sections = Array.isArray(data.sections) ? data.sections : [];
+  for (const section of sections) {
+    if (section.type && section.type !== 'reading') continue;
+
+    const tasks = Array.isArray(section.tasks) ? section.tasks : [];
+    for (let taskIdx = 0; taskIdx < tasks.length; taskIdx++) {
+      const task = tasks[taskIdx];
+      const p = task.passage;
+      if (!p) continue;
+
+      const passageHtml = typeof p === 'string' ? p : p.text || '';
+      if (!passageHtml || passageHtml.trim().length < 50) continue;
+
+      const passagePlain = cleanHtml(passageHtml);
+      const { wordCount, readMinutes } = calculateReadingStats(passagePlain);
+
+      const taskId = task.id || `part${taskIdx + 1}`;
+      const passageTitle =
+        (typeof p === 'object' && p.title ? p.title.trim() : '') ||
+        `${examTitle} - ${taskId.toUpperCase()}`;
+
+      const cefrLevel = mapVstepLevel(taskId);
+      const themeId = classifyReadingTheme(passageTitle, passagePlain);
+
+      // Parse questions
+      const questions: ReadingQuestion[] = [];
+      const rawQuestions = Array.isArray(task.questions) ? task.questions : [];
+      for (let qIdx = 0; qIdx < rawQuestions.length; qIdx++) {
+        const q = rawQuestions[qIdx];
+        questions.push({
+          id: q.id || `q-${qIdx + 1}`,
+          type: 'mcq',
+          question: cleanHtml(q.question || ''),
+          options: (q.options || []).map((opt: string) => cleanHtml(opt)),
+          answer: typeof q.answer === 'number' ? q.answer : (q.answer || 0),
+          explain: q.explain ? cleanHtml(q.explain) : undefined,
+        });
+      }
+
+      const sourceId = `${examId}-${taskId}`;
+      const slug = generateSlug('vstep', sourceId, passageTitle);
+
+      articles.push({
+        id: slug,
+        slug,
+        title: passageTitle,
+        cefr_level: cefrLevel,
+        theme_id: themeId,
+        passage: passageHtml,
+        passage_plain: passagePlain,
+        word_count: wordCount,
+        estimated_read_minutes: readMinutes,
+        translation: null,
+        summary: null,
+        cloze: { blanks: [] },
+        questions,
+        vocabulary_highlights: [],
+        source_type: 'vstep',
+        source_id: sourceId,
+        source_metadata: {
+          examId,
+          examTitle,
+          taskId,
+          suggestion: task.suggestion ? cleanHtml(task.suggestion).slice(0, 1000) : null,
+        },
+        status: 'published',
+        difficulty_score: cefrLevel === 'B1' ? 3.0 : cefrLevel === 'B2' ? 4.0 : 4.8,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      });
+    }
+  }
+
+  return articles;
+}
+
 /**
- * Parse all VSTEP Reading passages from given directories
+ * Parse all VSTEP Reading passages from given directories (Node.js)
  */
 export function parseVstepArticles(
   dirs: string[] = ['src/data/vstep/practice', 'src/data/vstep/tests']
 ): ReadingArticle[] {
   const articles: ReadingArticle[] = [];
+  const nodeEnv = getNodeFs();
+  if (!nodeEnv) return articles;
+  const { fs, path } = nodeEnv;
   const dataDir = path.join(process.cwd(), 'src', 'data');
 
   for (const dir of dirs) {
@@ -83,88 +199,14 @@ export function parseVstepArticles(
     const fullDir = path.join(dataDir, sub);
     if (!fs.existsSync(fullDir)) continue;
 
-    const files = fs.readdirSync(fullDir).filter((f) => f.endsWith('.json'));
+    const files = fs.readdirSync(fullDir).filter((f: string) => f.endsWith('.json'));
 
     for (const file of files) {
       try {
         const filePath = path.join(fullDir, file);
         const content = fs.readFileSync(filePath, 'utf-8');
         const data = JSON.parse(content);
-        const examId = data.id || file.replace('.json', '');
-        const examTitle = data.title || examId;
-
-        const sections = Array.isArray(data.sections) ? data.sections : [];
-        for (const section of sections) {
-          if (section.type && section.type !== 'reading') continue;
-
-          const tasks = Array.isArray(section.tasks) ? section.tasks : [];
-          for (let taskIdx = 0; taskIdx < tasks.length; taskIdx++) {
-            const task = tasks[taskIdx];
-            const p = task.passage;
-            if (!p) continue;
-
-            const passageHtml = typeof p === 'string' ? p : p.text || '';
-            if (!passageHtml || passageHtml.trim().length < 50) continue;
-
-            const passagePlain = cleanHtml(passageHtml);
-            const { wordCount, readMinutes } = calculateReadingStats(passagePlain);
-
-            const taskId = task.id || `part${taskIdx + 1}`;
-            const passageTitle =
-              (typeof p === 'object' && p.title ? p.title.trim() : '') ||
-              `${examTitle} - ${taskId.toUpperCase()}`;
-
-            const cefrLevel = mapVstepLevel(taskId);
-            const themeId = classifyReadingTheme(passageTitle, passagePlain);
-
-            // Parse questions
-            const questions: ReadingQuestion[] = [];
-            const rawQuestions = Array.isArray(task.questions) ? task.questions : [];
-            for (let qIdx = 0; qIdx < rawQuestions.length; qIdx++) {
-              const q = rawQuestions[qIdx];
-              questions.push({
-                id: q.id || `q-${qIdx + 1}`,
-                type: 'mcq',
-                question: cleanHtml(q.question || ''),
-                options: (q.options || []).map((opt: string) => cleanHtml(opt)),
-                answer: typeof q.answer === 'number' ? q.answer : (q.answer || 0),
-                explain: q.explain ? cleanHtml(q.explain) : undefined,
-              });
-            }
-
-            const sourceId = `${examId}-${taskId}`;
-            const slug = generateSlug('vstep', sourceId, passageTitle);
-
-            articles.push({
-              id: '', // Will be assigned by DB or random uuid
-              slug,
-              title: passageTitle,
-              cefr_level: cefrLevel,
-              theme_id: themeId,
-              passage: passageHtml,
-              passage_plain: passagePlain,
-              word_count: wordCount,
-              estimated_read_minutes: readMinutes,
-              translation: null,
-              summary: null,
-              cloze: { blanks: [] },
-              questions,
-              vocabulary_highlights: [],
-              source_type: 'vstep',
-              source_id: sourceId,
-              source_metadata: {
-                examId,
-                examTitle,
-                taskId,
-                suggestion: task.suggestion ? cleanHtml(task.suggestion).slice(0, 1000) : null,
-              },
-              status: 'published',
-              difficulty_score: cefrLevel === 'B1' ? 3.0 : cefrLevel === 'B2' ? 4.0 : 4.8,
-              created_at: new Date().toISOString(),
-              updated_at: new Date().toISOString(),
-            });
-          }
-        }
+        articles.push(...parseVstepExamData(file, data));
       } catch (err: any) {
         console.warn(`[VSTEP Parser] Error parsing ${file}: ${err.message}`);
       }
@@ -181,15 +223,17 @@ export function parseToeicArticles(
   jsonRelativePath = 'src/data/toeic/content-toeic-reading-v1.json'
 ): ReadingArticle[] {
   const articles: ReadingArticle[] = [];
-  const sub = jsonRelativePath.replace(/^src\/data\//, '');
-  const fullPath = path.join(process.cwd(), 'src', 'data', sub);
-  if (!fs.existsSync(fullPath)) {
-    console.warn(`[TOEIC Parser] File not found: ${fullPath}`);
-    return articles;
-  }
+  let data: Record<string, any> = toeicReadingRaw as Record<string, any>;
 
-  const raw = fs.readFileSync(fullPath, 'utf-8');
-  const data = JSON.parse(raw);
+  const nodeEnv = getNodeFs();
+  if (nodeEnv && jsonRelativePath !== 'src/data/toeic/content-toeic-reading-v1.json') {
+    const sub = jsonRelativePath.replace(/^src\/data\//, '');
+    const fullPath = nodeEnv.path.join(process.cwd(), 'src', 'data', sub);
+    if (nodeEnv.fs.existsSync(fullPath)) {
+      const raw = nodeEnv.fs.readFileSync(fullPath, 'utf-8');
+      data = JSON.parse(raw);
+    }
+  }
 
   // 1. Part 6: Text completion / Cloze passages
   const part6List = Array.isArray(data.part6) ? data.part6 : [];
@@ -221,7 +265,7 @@ export function parseToeicArticles(
     const slug = generateSlug('toeic', sourceId, title);
 
     articles.push({
-      id: '',
+      id: slug,
       slug,
       title,
       cefr_level: cefrLevel,
@@ -266,7 +310,7 @@ export function parseToeicArticles(
       (q: any, qIdx: number) => ({
         id: q.id || `q-${qIdx + 1}`,
         type: 'mcq',
-        question: cleanHtml(q.question || ''),
+        question: cleanHtml(q.question || q.q || ''),
         options: (q.options || []).map((opt: string) => cleanHtml(opt)),
         answer: q.answer || 0,
         explain: q.explain ? cleanHtml(q.explain) : undefined,
@@ -277,7 +321,7 @@ export function parseToeicArticles(
     const slug = generateSlug('toeic', sourceId, title);
 
     articles.push({
-      id: '',
+      id: slug,
       slug,
       title,
       cefr_level: cefrLevel,
@@ -308,4 +352,54 @@ export function parseToeicArticles(
   }
 
   return articles;
+}
+
+/**
+ * Parse the 7 external starter articles (VOA, RACE, OpenStax) with full translations, cloze, questions, and mindmaps.
+ */
+export function parseExternalStarterArticles(): ReadingArticle[] {
+  const rawList = Array.isArray(externalStarterRaw) ? externalStarterRaw : [];
+  return rawList.map((item: any, idx: number) => {
+    const slug = item.slug || `starter-${idx + 1}`;
+    return {
+      ...item,
+      id: item.id || slug,
+      slug,
+    } as ReadingArticle;
+  });
+}
+
+/**
+ * Asynchronously loads and caches the full 588-article Reading Library catalog in both browser (Vite) and Node runtimes.
+ * Order matches commit e9911557a95f51f714f746c8b8078d61c95ac4bf: TOEIC -> VSTEP -> External Starter (VOA, RACE, OpenStax).
+ */
+export async function loadAllLocalReadingArticles(): Promise<ReadingArticle[]> {
+  if (!cachedLocalArticlesPromise) {
+    cachedLocalArticlesPromise = (async () => {
+      const toeic = parseToeicArticles();
+
+      let vstep: ReadingArticle[] = [];
+      if (vstepReadingLoaders && Object.keys(vstepReadingLoaders).length > 0) {
+        const entries = Object.entries(vstepReadingLoaders).sort(([a], [b]) => a.localeCompare(b));
+        const loaded = await Promise.all(
+          entries.map(async ([filePath, loader]) => {
+            try {
+              const data = await loader();
+              const fileName = filePath.split('/').pop() || filePath;
+              return parseVstepExamData(fileName, data);
+            } catch {
+              return [];
+            }
+          }),
+        );
+        vstep = loaded.flat();
+      } else {
+        vstep = parseVstepArticles();
+      }
+
+      const starter = parseExternalStarterArticles();
+      return [...toeic, ...vstep, ...starter];
+    })();
+  }
+  return cachedLocalArticlesPromise;
 }

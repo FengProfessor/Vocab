@@ -1,8 +1,7 @@
-﻿import { VocabApi } from '@/features/vocab/api';
+import { VocabApi } from '@/features/vocab/api';
 import { SocialApi } from '@/features/social/api';
 import { RoadmapApi } from '@/features/roadmap/api';
 import { ReadingApi } from '@/features/reading/api';
-import { GrammarApi } from '@/features/grammar/api';
 
 import React, {
   createContext,
@@ -294,6 +293,8 @@ export function useStudentContext() {
   return useContext(StudentContext);
 }
 
+const FOCUS_REVALIDATE_THROTTLE_MS = 60_000;
+
 function StudentProviderInner({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<ShellProfile | null>(() => readLastProfileCache());
@@ -370,9 +371,12 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let isCancelled = false;
+    let lastBootstrapAt = 0;
+    let bootstrappedUserId: string | null = null;
 
     const bootstrap = async () => {
       const version = authStateVersion();
+      lastBootstrapAt = Date.now();
       try {
         const currentSession = await fetchSessionOnce();
         if (isCancelled || version !== authStateVersion()) return;
@@ -383,6 +387,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           setIsLoading(false);
           return;
         }
+        bootstrappedUserId = userId;
 
         // SWR: Synchronous hydration from cache first
         const cachedProfile = getStoredProfile(userId);
@@ -406,7 +411,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           });
         }
 
-        // Parallel single-flight background validation (profile + gamification + teacher + wordSummary)
+        // Parallel single-flight background validation (profile + gamification share AuthApi.getProfile single-flight)
         const [profData, gamData, teacherFlag, wordSum] = await Promise.all([
           fetchProfileOnce(userId),
           fetchGamificationOnce(userId),
@@ -476,7 +481,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                       if (d?.success && Array.isArray(d.routes)) {
                         snapMod.writeLibraryCatalogCache({
                           routes: d.routes,
-                          microPackSize: d.microPackSize || 7,
+                          microPackSize: d.packSize || d.microPackSize || 7,
                           catalogVersion: d.catalogVersion || '',
                         });
                       }
@@ -494,16 +499,6 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     })
                     .catch(() => {});
                 }
-                if (!snapMod.readLastProfileStatsCache(userId)) {
-                  void VocabApi.getStudentStats()
-                    .then((r) => r.json())
-                    .then((d) => {
-                      if (d?.success && d.data) {
-                        snapMod.writeProfileStatsCache(userId, d.data);
-                      }
-                    })
-                    .catch(() => {});
-                }
                 if (!snapMod.readLastDailyReadingCache(userId)) {
                   void ReadingApi.getDailyReading('/api/practice/daily-reading')
                     .then((r) => r.json())
@@ -516,24 +511,6 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                           hasUncompleted: d.hasUncompleted,
                           uncompletedExerciseId: d.uncompletedExerciseId,
                         });
-                      }
-                    })
-                    .catch(() => {});
-                }
-                if (!localStorage.getItem('lingo_grammar_topic_progress')) {
-                  void GrammarApi.getProgress('/api/grammar/progress?view=topics')
-                    .then((r) => r.json())
-                    .then((d) => {
-                      if (d?.success && Array.isArray(d.data)) {
-                        const map: Record<string, { score: number; completed: boolean; completedAt?: string }> = {};
-                        for (const row of d.data) {
-                          map[row.topic_id] = {
-                            score: row.best_score,
-                            completed: row.completed,
-                            completedAt: row.completed_at ?? undefined,
-                          };
-                        }
-                        localStorage.setItem('lingo_grammar_topic_progress', JSON.stringify(map));
                       }
                     })
                     .catch(() => {});
@@ -563,6 +540,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
     } = authService.onAuthStateChange((event, nextSession) => {
       if (isCancelled) return;
       if (event === 'SIGNED_OUT') {
+        bootstrappedUserId = null;
         setSession(null);
         setProfile(null);
         setGamification(DEFAULT_GAMIFICATION);
@@ -571,13 +549,15 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
         clearDashboardSnapshotCache();
       } else if (nextSession?.user) {
         setSession(nextSession);
-        if (event === 'SIGNED_IN') {
+        const isDifferentUser = bootstrappedUserId && bootstrappedUserId !== nextSession.user.id;
+        if (event === 'SIGNED_IN' && isDifferentUser) {
+          bootstrappedUserId = nextSession.user.id;
           setProfile(null);
           setGamification(DEFAULT_GAMIFICATION);
           setWordSummary(DEFAULT_WORD_SUMMARY);
           setIsTeacherUser(false);
         }
-        if (event === 'SIGNED_IN' || event === 'USER_UPDATED') {
+        if (event === 'USER_UPDATED' || (event === 'SIGNED_IN' && isDifferentUser)) {
           const version = authStateVersion();
           void fetchProfileOnce(nextSession.user.id).then((p) => {
             if (!isCancelled && version === authStateVersion() && p) {
@@ -595,17 +575,23 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
       }
     });
 
-    const revalidate = () => { void bootstrap(); };
-    window.addEventListener('focus', revalidate);
-    window.addEventListener('online', revalidate);
-    window.addEventListener('lingopro-plan-changed', revalidate);
+    const revalidateOnFocus = () => {
+      if (Date.now() - lastBootstrapAt < FOCUS_REVALIDATE_THROTTLE_MS) return;
+      void bootstrap();
+    };
+    const revalidateImmediate = () => {
+      void bootstrap();
+    };
+    window.addEventListener('focus', revalidateOnFocus);
+    window.addEventListener('online', revalidateImmediate);
+    window.addEventListener('lingopro-plan-changed', revalidateImmediate);
 
     return () => {
       isCancelled = true;
       subscription.unsubscribe();
-      window.removeEventListener('focus', revalidate);
-      window.removeEventListener('online', revalidate);
-      window.removeEventListener('lingopro-plan-changed', revalidate);
+      window.removeEventListener('focus', revalidateOnFocus);
+      window.removeEventListener('online', revalidateImmediate);
+      window.removeEventListener('lingopro-plan-changed', revalidateImmediate);
     };
   }, []);
 

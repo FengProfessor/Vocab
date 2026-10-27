@@ -79,6 +79,8 @@ export function useStudentShellData({
   const pathname = usePathname();
   const router = useRouter();
   const context = useStudentContext();
+  const hasContext = Boolean(context);
+  const contextUserId = context?.session?.user?.id ?? context?.profile?.id ?? null;
 
   const [internalProfile, setInternalProfile] = useState<ShellProfile | null>(() => {
     if (propProfile || context?.profile) return null;
@@ -111,7 +113,7 @@ export function useStudentShellData({
   const [embedMode, setEmbedMode] = useState(false);
 
   const { data: fallbackGamification } = useGamification(
-    context ? null : (internalProfile?.id ?? null),
+    hasContext ? null : (internalProfile?.id ?? null),
   );
 
   const cachedGamification = useMemo(() => {
@@ -160,10 +162,10 @@ export function useStudentShellData({
         if (effectiveProfile) {
           setIsBootstrapping(false);
         }
-        if (context) {
-          const result = context.session ? null : await authService.getSession();
+        if (hasContext) {
+          const result = context?.session ? null : await authService.getSession();
           if (result?.error) return;
-          const session = context.session ?? result?.data.session;
+          const session = context?.session ?? result?.data.session;
           if (isCancelled) return;
           if (!session?.user) {
             if (requireAuth) {
@@ -306,7 +308,8 @@ export function useStudentShellData({
       isCancelled = true;
       subscription.unsubscribe();
     };
-  }, [router, requireAuth, context, effectiveProfile]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router, requireAuth, hasContext, contextUserId]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;

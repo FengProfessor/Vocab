@@ -1,10 +1,12 @@
 import { Clock } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
-import { LearningAnalyticsPanel } from '@/components/student/LearningAnalyticsPanel';
 import { useStudentDashboard } from '@/components/student/dashboard/useStudentDashboard';
 import { StudentHeroSection } from '@/components/student/dashboard/StudentHeroSection';
 import { StudentSkillsAndProgressSection } from '@/components/student/dashboard/StudentSkillsAndProgressSection';
-import { StudentVaultSidebarSection } from '@/components/student/dashboard/StudentVaultSidebarSection';
+import {
+  StudentVaultSidebarSection,
+  StudentVocabularyVaultSection,
+} from '@/components/student/dashboard/StudentVaultSidebarSection';
 import { StudentDashboardModals } from '@/components/student/dashboard/StudentDashboardModals';
 
 export default function StudentDashboard() {
@@ -12,10 +14,10 @@ export default function StudentDashboard() {
     isDesktop,
     profile,
     words,
+    vocabPacks,
     classroomId,
     currentClassScope,
     enrolledClassrooms,
-    dailyActivity,
     todayNewWords,
     countdown,
     selectedWord,
@@ -40,18 +42,14 @@ export default function StudentDashboard() {
     countsReady,
     wordsLoading,
     isLoadingMore,
-    avgStabilityDays,
-    retentionRate,
-    grammarDueCount,
-    skillScores,
-    quizTrend,
     serverWeakWords,
-    analyticsWeakWords,
     searchQuery,
     setSearchQuery,
     debouncedQuery,
     statusFilter,
     setStatusFilter,
+    sortBy,
+    setSortBy,
     gamification,
     studyStreak,
     milestonePopup,
@@ -129,52 +127,46 @@ export default function StudentDashboard() {
             onSelectActionModal={setActionModalType}
           />
 
-          <LearningAnalyticsPanel
-            stats={{
-              total: totalWords,
-              due: reviewDueCount,
-              new: newCount,
-              learned: Math.max(0, totalWords - newCount),
-            }}
-            wordBreakdown={{
-              l1: levelCounts[0] || 0,
-              l2: levelCounts[1] || 0,
-              l3: levelCounts[2] || 0,
-              l4: levelCounts[3] || 0,
-              l5: levelCounts[4] || 0,
-              l6: levelCounts[5] || 0,
-            }}
-            avgStabilityDays={avgStabilityDays}
-            retentionRate={retentionRate}
-            skillScores={skillScores}
-            dailyActivity={dailyActivity}
-            quizTrend={quizTrend}
-            grammarDue={grammarDueCount}
-            weakWords={analyticsWeakWords}
-            currentStreak={studyStreak}
-            longestStreak={gamification.longest_streak}
-            totalXp={gamification.total_xp}
-            todayXp={gamification.today_xp}
-            dailyGoal={gamification.daily_goal}
-          />
-
           <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_340px] gap-6 items-start">
-            <StudentSkillsAndProgressSection
-              onSelectActionModal={setActionModalType}
-              activePack={activePack}
-              activePackPct={activePackPct}
-              activePackHref={activePackHref}
-              priorityWords={priorityWords}
-              serverWeakWords={serverWeakWords}
-              reviewHref={reviewHref}
-              onSelectWordId={setSelectedWordId}
-              profileId={profile?.id}
-              studyStreak={studyStreak}
-              countsReady={countsReady}
-              totalWords={totalWords}
-              onProTrialClaimed={handleProTrialClaimed}
-              badges={badges}
-            />
+            <div className="flex min-w-0 flex-col gap-6">
+              <StudentSkillsAndProgressSection
+                onSelectActionModal={setActionModalType}
+                activePack={activePack}
+                activePackPct={activePackPct}
+                activePackHref={activePackHref}
+                priorityWords={priorityWords}
+                serverWeakWords={serverWeakWords}
+                reviewHref={reviewHref}
+                onSelectWordId={setSelectedWordId}
+                profileId={profile?.id}
+                studyStreak={studyStreak}
+                countsReady={countsReady}
+                totalWords={totalWords}
+                onProTrialClaimed={handleProTrialClaimed}
+                badges={badges}
+              />
+
+              <StudentVocabularyVaultSection
+                words={words}
+                filteredWords={filteredWords}
+                vocabPacks={vocabPacks}
+                totalWords={totalWords}
+                newCount={newCount}
+                reviewDueCount={reviewDueCount}
+                levelCounts={levelCounts}
+                wordsLoading={wordsLoading}
+                isLoadingMore={isLoadingMore}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                debouncedQuery={debouncedQuery}
+                statusFilter={statusFilter}
+                setStatusFilter={setStatusFilter}
+                sortBy={sortBy}
+                setSortBy={setSortBy}
+                loadMoreWords={loadMoreWords}
+                onSelectWordId={setSelectedWordId}
+              />
+            </div>
 
             <StudentVaultSidebarSection
               weekDaysStrip={weekDaysStrip}

@@ -175,12 +175,50 @@ export class DictionaryApi {
   }
 
   /**
-   * Translates text between languages (`/api/translate`).
+   * Translates text between languages (`/api/translate` with direct Google Translate GTX fallback).
    */
   public static async translate(rawBody: unknown, options?: LegacyRequestOptions) {
+    const payload = normalizePayloadData(rawBody) as Record<string, any>;
+    const text = typeof payload?.text === 'string' ? payload.text.trim() : '';
+    const sourceLang = typeof payload?.sourceLang === 'string' ? payload.sourceLang : 'en';
+    const targetLang = typeof payload?.targetLang === 'string' ? payload.targetLang : 'vi';
+
+    if (text) {
+      try {
+        const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=${encodeURIComponent(
+          sourceLang,
+        )}&tl=${encodeURIComponent(targetLang)}&dt=t&q=${encodeURIComponent(text)}`;
+        const res = await fetch(url, { signal: options?.signal });
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data?.[0])) {
+            const translatedText = data[0]
+              .map((seg: any) => (Array.isArray(seg) && typeof seg[0] === 'string' ? seg[0] : ''))
+              .join('');
+            if (translatedText) {
+              return withResponseCompat(
+                {
+                  success: true,
+                  translatedText,
+                  translation: translatedText,
+                  result: translatedText,
+                  sourceLang,
+                  targetLang,
+                },
+                200,
+                true,
+              );
+            }
+          }
+        }
+      } catch {
+        // Fall through to server-origin API
+      }
+    }
+
     return callServerOriginApi('/api/translate', {
       method: 'POST',
-      data: normalizePayloadData(rawBody),
+      data: payload,
       signal: options?.signal,
     });
   }

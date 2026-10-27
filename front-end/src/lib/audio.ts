@@ -241,15 +241,7 @@ export async function playWordAudio(
     }
   }
 
-  // 5) Neural TTS (Google Translate / Youdao proxy) — rõ, hỗ trợ cụm
-  if (!alive()) return 'tts';
-  const neural = neuralUrl(text);
-  if (await playUrl(neural, mp3Rate, myGen)) {
-    urlCache.set(cacheKey, neural);
-    return 'neural';
-  }
-
-  // 6) Web Speech robot — chỉ khi request còn là latest
+  // 5) Web Speech robot — chỉ khi request còn là latest
   if (!alive()) return 'tts';
   await speakLocal(text, rate, region === 'UK' ? 'en-GB' : 'en-US');
   if (!alive()) {

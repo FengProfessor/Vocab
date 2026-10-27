@@ -69,16 +69,22 @@ interface WeakWord {
 interface StatsData {
   wordStats: { total: number; levelCounts: number[]; avgStability: number; wordsDue: number };
   dailyActivity: DayActivity[];
-  quizHistory: { accuracy: number; score: number; total: number; created_at: string }[];
+  quizHistory: { accuracy: number; score: number; total: number; created_at: string; type?: string; date?: string }[];
   studyStreak: number;
   avgAccuracy: number;
   bestScore: number;
   weakWords: WeakWord[];
+  skillScores?: {
+    vocabScore?: number;
+    grammarScore?: number;
+    reflexScore?: number;
+    readingScore?: number;
+    listeningScore?: number;
+  };
+  retentionRate?: number;
+  grammarDueCount?: number;
   gamification: { totalXp: number; streak: number; todayXp: number } | null;
 }
-
-const LEVEL_COLORS = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#06b6d4', '#8b5cf6'];
-const LEVEL_LABELS = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'];
 
 function heatColor(count: number): string {
   if (count === 0) return 'bg-slate-200';
@@ -141,9 +147,9 @@ export default function ProfilePage() {
   const [province, setProvince] = useState(() => initialProfile?.province ?? '');
 
   const router = useRouter();
-  const { data: gamification } = useGamification(profile?.id ?? null);
+  const { data: fallbackGamification } = useGamification(studentCtx ? null : (profile?.id ?? null));
+  const gamification = studentCtx?.gamification ?? fallbackGamification;
 
-  /** Streak = ngày học liên tiếp (từ stats heatmap), không phải tổng ngày học / raw DB. */
   const displayStreak =
     typeof stats?.studyStreak === 'number'
       ? stats.studyStreak
@@ -179,7 +185,9 @@ export default function ProfilePage() {
           .then((response) => response.json())
           .catch(() => null);
 
-        const prof = await AuthApi.getLegacyProfile(session.user.id).catch(() => null);
+        const prof =
+          studentCtx?.profile ??
+          (await AuthApi.getLegacyProfile(session.user.id).catch(() => null));
 
         const statsResponse = await statsPromise;
 
@@ -205,7 +213,7 @@ export default function ProfilePage() {
     };
 
     void checkAuth();
-  }, [router]);
+  }, [router, studentCtx?.profile]);
 
   const handleSave = async () => {
     if (!profile) return;
@@ -344,7 +352,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <StudentShell title="Hồ sơ">
+    <StudentShell title="Hồ sơ & Phân tích">
       <div className="mx-auto max-w-2xl space-y-3">
         {/* Header */}
         <div className="flex items-center gap-3">
@@ -400,15 +408,15 @@ export default function ProfilePage() {
           />
         </div>
 
-        {/* Stats */}
-        <section id="stats" className="space-y-2.5 rounded-xl border bg-background p-3 shadow-sm">
+        {/* Stats & Learning Analytics */}
+        <section id="stats" className="space-y-3 rounded-xl border bg-background p-3 shadow-sm">
           <div className="flex items-center justify-between gap-2">
             <h3 className="flex items-center gap-1.5 text-sm font-black">
               <BarChart3 className="h-4 w-4 text-primary" />
-              Thống kê
+              Thống kê & Phân tích học tập
             </h3>
             {stats && (
-              <span className="text-[10px] font-semibold text-muted-foreground">30 ngày</span>
+              <span className="text-[10px] font-semibold text-muted-foreground">30 ngày gần nhất</span>
             )}
           </div>
 
@@ -425,17 +433,17 @@ export default function ProfilePage() {
                   },
                   {
                     icon: <BookOpen className="h-3.5 w-3.5 text-blue-500" />,
-                    label: 'Từ',
+                    label: 'Tổng từ',
                     value: String(stats.wordStats.total),
                   },
                   {
                     icon: <AlertCircle className="h-3.5 w-3.5 text-amber-500" />,
-                    label: 'Due',
+                    label: 'Đến hạn',
                     value: String(stats.wordStats.wordsDue),
                   },
                   {
                     icon: <Target className="h-3.5 w-3.5 text-green-500" />,
-                    label: 'Quiz',
+                    label: 'Độ chính xác Quiz',
                     value: `${stats.avgAccuracy}%`,
                   },
                 ].map((card) => (
@@ -456,7 +464,7 @@ export default function ProfilePage() {
                 <div className="space-y-1.5">
                   <p className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
                     <Flame className="h-3 w-3 text-orange-500" />
-                    Ngày có học (không phải streak)
+                    Bản đồ nhiệt ngày có học (30 ngày)
                   </p>
                   <div className="space-y-1">
                     {statsWeeks.map((week, weekIndex) => (
@@ -478,85 +486,13 @@ export default function ProfilePage() {
                 </div>
               )}
 
-              <div className="space-y-1">
-                <p className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
-                  SRS
-                </p>
-                {LEVEL_LABELS.map((label, index) => {
-                  const count = stats.wordStats.levelCounts[index] ?? 0;
-                  const pct =
-                    stats.wordStats.total > 0
-                      ? Math.round((count / stats.wordStats.total) * 100)
-                      : 0;
-                  return (
-                    <div key={label} className="flex items-center gap-2">
-                      <span
-                        className="w-6 text-[10px] font-bold"
-                        style={{ color: LEVEL_COLORS[index] }}
-                      >
-                        {label}
-                      </span>
-                      <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-muted">
-                        <div
-                          className="h-full rounded-full"
-                          style={{
-                            width: `${pct}%`,
-                            backgroundColor: LEVEL_COLORS[index],
-                          }}
-                        />
-                      </div>
-                      <span className="w-10 text-right text-[10px] tabular-nums text-muted-foreground">
-                        {count}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {stats.weakWords.length > 0 && (
-                <div className="space-y-1">
-                  <p className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
-                    Từ yếu
-                  </p>
-                  <div className="space-y-1">
-                    {stats.weakWords.slice(0, 5).map((word, index) => (
-                      <div
-                        key={word.word_id}
-                        className="flex items-center gap-2 rounded-lg border bg-muted/20 px-2 py-1.5"
-                      >
-                        <span className="w-3 text-[10px] font-bold text-muted-foreground">
-                          {index + 1}
-                        </span>
-                        <div className="min-w-0 flex-1">
-                          <span className="truncate text-xs font-semibold">{word.word || word.word_id}</span>
-                          {word.translation && (
-                            <span className="ml-1 truncate text-[10px] text-muted-foreground">
-                              {word.translation}
-                            </span>
-                          )}
-                        </div>
-                        <span
-                          className="shrink-0 rounded px-1.5 py-0.5 text-[10px] font-bold"
-                          style={{
-                            backgroundColor: `${LEVEL_COLORS[Math.max(0, word.level - 1)]}33`,
-                            color: LEVEL_COLORS[Math.max(0, word.level - 1)],
-                          }}
-                        >
-                          L{word.level}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Chuyên sâu: Biểu đồ Phân tích FSRS & Đa kỹ năng */}
-              <div className="pt-2">
+              {/* Biểu đồ Phân tích FSRS & Đa kỹ năng hợp nhất (không lặp lại khối SRS/Từ yếu bên ngoài) */}
+              <div className="pt-1">
                 <LearningAnalyticsPanel
                   compact
                   stats={{
                     total: stats.wordStats.total,
-                    due: 0,
+                    due: stats.wordStats.wordsDue,
                     new: stats.wordStats.levelCounts[0] ?? 0,
                     learned: Math.max(0, stats.wordStats.total - (stats.wordStats.levelCounts[0] ?? 0)),
                   }}
@@ -568,6 +504,31 @@ export default function ProfilePage() {
                     l5: stats.wordStats.levelCounts[4] ?? 0,
                     l6: stats.wordStats.levelCounts[5] ?? 0,
                   }}
+                  avgStabilityDays={stats.wordStats.avgStability}
+                  retentionRate={stats.retentionRate}
+                  grammarDue={stats.grammarDueCount}
+                  skillScores={
+                    stats.skillScores
+                      ? {
+                          vocabScore: Number(stats.skillScores.vocabScore ?? 0),
+                          grammarScore: Number(stats.skillScores.grammarScore ?? 0),
+                          reflexScore: Number(stats.skillScores.reflexScore ?? 0),
+                          readingScore: Number(stats.skillScores.readingScore ?? 0),
+                          listeningScore: Number(stats.skillScores.listeningScore ?? 0),
+                        }
+                      : undefined
+                  }
+                  dailyActivity={stats.dailyActivity}
+                  quizTrend={
+                    Array.isArray(stats.quizHistory)
+                      ? stats.quizHistory.map((q) => ({
+                          score: q.score,
+                          max_score: q.total || 10,
+                          completed_at: q.created_at || q.date || new Date().toISOString(),
+                          quiz_type: q.type || 'vocabulary',
+                        }))
+                      : undefined
+                  }
                   weakWords={stats.weakWords.map((w) => ({
                     word: w.word || w.word_id,
                     meaning: w.translation || '',

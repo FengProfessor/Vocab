@@ -67,6 +67,22 @@ const safeExamMemoryCache = new Map<string, VstepExam>();
  */
 const globalMasterVstepQuestionIndex = new Map<string, VstepQuestion>();
 
+/**
+ * Lazy Vite glob map for browser-side dynamic loading of VSTEP exams and practice sets.
+ * Each JSON file is code-split into its own on-demand chunk rather than bundled eagerly.
+ */
+function createVstepExamGlob(): Record<string, () => Promise<unknown>> {
+  try {
+    return (import.meta as any).glob('../data/vstep/{tests,practice}/*.json', {
+      import: 'default',
+    }) as Record<string, () => Promise<unknown>>;
+  } catch {
+    return {};
+  }
+}
+
+const vstepExamGlob: Record<string, () => Promise<unknown>> = createVstepExamGlob();
+
 type VstepPracticeExam = VstepExam & {
   metadata: VstepPracticeResponse['metadata'];
 };
@@ -219,16 +235,11 @@ export const EXAM_ROUTE_RULES: ExamRouteRule[] = [
 ];
 
 /**
- * Resolves the absolute filesystem path for an exam ID.
- * Implements 4-layer defense-in-depth:
- *  1. Input whitelist & fast-fail: string check, length <= 64, reject '..', slashes, '\0', '?', '#', '&', '%', etc.
- *  2. Anchored exact regex: table-driven EXAM_ROUTE_RULES with strict range clamping.
- *  3. Safe filename synthesis: filenamePrefix + numStr + .json.
- *     Never interpolates raw untrusted strings into filenames.
- *  4. Canonical directory containment: path.resolve(fullPath).startsWith(path.resolve(targetDir) + path.sep)
- *     Verifies file exists on disk via fs.existsSync before returning.
+ * Pure (environment-agnostic) resolution of target directory and candidate filenames for a VSTEP exam ID.
  */
-export function resolveExamFilePath(testId: string): string | null {
+function resolveExamRelativeCandidates(
+  testId: string
+): { targetDir: 'tests' | 'practice'; candidateFilenames: string[] } | null {
   // Layer 1: Input Whitelist & Boundary Guard
   if (!testId || typeof testId !== 'string') {
     return null;
@@ -265,11 +276,6 @@ export function resolveExamFilePath(testId: string): string | null {
   }
 
   const normalized = trimmed.toLowerCase();
-  // Keep the dynamic filesystem lookup statically scoped so Turbopack/NFT only
-  // traces the VSTEP data folders instead of conservatively tracing the project.
-  const fs = getNodeFs(); const path = getNodePath(); if (!fs || !path) return null;
-  const testsDir = path.join(/* turbopackIgnore: true */ process.cwd(), 'src', 'data', 'vstep', 'tests');
-  const practiceDir = path.join(/* turbopackIgnore: true */ process.cwd(), 'src', 'data', 'vstep', 'practice');
 
   // Layer 2: Anchored Exact Regex Matching & Range Clamping
   let matchedRule: ExamRouteRule | null = null;
@@ -293,7 +299,6 @@ export function resolveExamFilePath(testId: string): string | null {
     return null;
   }
 
-  const targetDir = matchedRule.targetDir === 'tests' ? testsDir : practiceDir;
   const numStr = String(parsedNumber).padStart(2, '0');
 
   // Layer 3: Safe filename synthesis
@@ -304,13 +309,45 @@ export function resolveExamFilePath(testId: string): string | null {
     candidateFilenames.push(`${matchedRule.alternatePrefix}${numStr}.json`);
   }
 
+  return {
+    targetDir: matchedRule.targetDir,
+    candidateFilenames,
+  };
+}
+
+/**
+ * Resolves the absolute filesystem path for an exam ID.
+ * Implements 4-layer defense-in-depth:
+ *  1. Input whitelist & fast-fail: string check, length <= 64, reject '..', slashes, '\0', '?', '#', '&', '%', etc.
+ *  2. Anchored exact regex: table-driven EXAM_ROUTE_RULES with strict range clamping.
+ *  3. Safe filename synthesis: filenamePrefix + numStr + .json.
+ *     Never interpolates raw untrusted strings into filenames.
+ *  4. Canonical directory containment: path.resolve(fullPath).startsWith(path.resolve(targetDir) + path.sep)
+ *     Verifies file exists on disk via fs.existsSync before returning.
+ */
+export function resolveExamFilePath(testId: string): string | null {
+  const candidates = resolveExamRelativeCandidates(testId);
+  if (!candidates) {
+    return null;
+  }
+
+  // Keep the dynamic filesystem lookup statically scoped so Turbopack/NFT only
+  // traces the VSTEP data folders instead of conservatively tracing the project.
+  const fs = getNodeFs();
+  const path = getNodePath();
+  if (!fs || !path) return null;
+  const testsDir = path.join(/* turbopackIgnore: true */ process.cwd(), 'src', 'data', 'vstep', 'tests');
+  const practiceDir = path.join(/* turbopackIgnore: true */ process.cwd(), 'src', 'data', 'vstep', 'practice');
+
+  const targetDir = candidates.targetDir === 'tests' ? testsDir : practiceDir;
+
   // Layer 4: Canonical Directory Containment Enforcement
   const resolvedTargetDir = path.resolve(targetDir);
   const allowedPrefix = resolvedTargetDir.endsWith(path.sep)
     ? resolvedTargetDir
     : resolvedTargetDir + path.sep;
 
-  for (const filename of candidateFilenames) {
+  for (const filename of candidates.candidateFilenames) {
     const fullPath = path.resolve(resolvedTargetDir, filename);
 
     const normFullPath = process.platform === 'win32' ? fullPath.toLowerCase() : fullPath;
@@ -350,6 +387,112 @@ export function clearVstepExamCache(): void {
   globalMasterVstepQuestionIndex.clear();
 }
 
+function cacheRawVstepExam(cacheKey: string, exam: VstepExam): void {
+  indexExamQuestions(exam);
+  examMemoryCache.set(cacheKey, exam);
+  if (exam.id) {
+    examMemoryCache.set(exam.id.toLowerCase(), exam);
+  }
+  if (cacheKey.includes('-mock-')) {
+    examMemoryCache.set(cacheKey.replace('-mock-', '-exam-'), exam);
+  } else if (cacheKey.includes('-exam-')) {
+    examMemoryCache.set(cacheKey.replace('-exam-', '-mock-'), exam);
+  }
+}
+
+/**
+ * Preloads a single VSTEP exam by ID into in-memory cache via Vite lazy glob (browser) or Node fs.
+ */
+export async function preloadVstepExamById(testId: string): Promise<VstepExam | null> {
+  if (!testId || typeof testId !== 'string') return null;
+  const cacheKey = testId.trim().toLowerCase();
+  if (!cacheKey) return null;
+
+  if (examMemoryCache.has(cacheKey)) {
+    return examMemoryCache.get(cacheKey)!;
+  }
+
+  const candidates = resolveExamRelativeCandidates(testId);
+  if (!candidates) return null;
+
+  for (const filename of candidates.candidateFilenames) {
+    const globKey = `../data/vstep/${candidates.targetDir}/${filename}`;
+    const loader = vstepExamGlob[globKey];
+    if (typeof loader === 'function') {
+      try {
+        const loaded = await loader();
+        const exam = ((loaded as any)?.default ?? loaded) as VstepExam;
+        if (
+          exam &&
+          typeof exam === 'object' &&
+          typeof exam.id === 'string' &&
+          Array.isArray(exam.sections)
+        ) {
+          const cloned = JSON.parse(JSON.stringify(exam)) as VstepExam;
+          cacheRawVstepExam(cacheKey, cloned);
+          return cloned;
+        }
+      } catch (err) {
+        console.warn(`[VstepLoader] Failed to dynamically import ${globKey}:`, err);
+      }
+    }
+  }
+
+  return loadRawVstepExam(testId);
+}
+
+/**
+ * Preloads VSTEP exam and/or skill bank data into memory before synchronous loader execution.
+ */
+export async function preloadVstepExamData(options: {
+  testId?: string;
+  skill?: VstepSkillType;
+  questionIds?: string[];
+}): Promise<void> {
+  const idsToLoad = new Set<string>();
+
+  if (options.testId && options.testId !== 'bank' && options.testId !== 'all') {
+    idsToLoad.add(options.testId);
+  }
+
+  if (options.skill) {
+    const defaultBaseId =
+      options.skill === 'listening' ? 'vstep-listening-01' : 'vstep-reading-01';
+    idsToLoad.add(defaultBaseId);
+
+    if (!options.testId || options.testId === 'bank' || options.testId === 'all') {
+      const skillCandidates = getExamIdsForSkill(options.skill).slice(0, 8);
+      for (const cid of skillCandidates) {
+        idsToLoad.add(cid);
+      }
+    }
+  }
+
+  if (Array.isArray(options.questionIds)) {
+    for (const rawId of options.questionIds) {
+      if (!rawId || typeof rawId !== 'string') continue;
+      const trimmed = rawId.trim();
+      if (trimmed.includes(':')) {
+        const candidateExamId = trimmed.substring(0, trimmed.indexOf(':'));
+        if (candidateExamId) idsToLoad.add(candidateExamId);
+      } else if (trimmed.startsWith('otv-r')) {
+        const m = trimmed.match(/^otv-r(\d+)/);
+        if (m) idsToLoad.add(`vstep-reading-onthi-${parseInt(m[1], 10)}`);
+      } else if (trimmed.startsWith('ets-r')) {
+        const m = trimmed.match(/^ets-r(\d+)/);
+        if (m) idsToLoad.add(`vstep-reading-ets-${parseInt(m[1], 10)}`);
+      } else if (trimmed.startsWith('ets-l')) {
+        const m = trimmed.match(/^ets-l(\d+)/);
+        if (m) idsToLoad.add(`vstep-listening-ets-${parseInt(m[1], 10)}`);
+      }
+    }
+  }
+
+  if (idsToLoad.size > 0) {
+    await Promise.all(Array.from(idsToLoad).map((id) => preloadVstepExamById(id)));
+  }
+}
+
 /**
  * Nạp nguyên bản đề thi từ filesystem kèm cache bộ nhớ (bao gồm đáp án để server chấm điểm)
  */
@@ -363,15 +506,20 @@ export function loadRawVstepExam(testId: string): VstepExam | null {
     return JSON.parse(JSON.stringify(examMemoryCache.get(cacheKey)!));
   }
 
-  // 2. Resolve filesystem path
+  // 2. Validate exam ID syntax before any fallback
+  const candidates = resolveExamRelativeCandidates(testId);
+  if (!candidates) {
+    return null;
+  }
+
+  // 3. Resolve filesystem path (Node / Vitest environment)
   const fs = getNodeFs();
   const filePath = resolveExamFilePath(testId);
   if (!filePath || !fs) {
     if (!fs) {
       const fallback = JSON.parse(JSON.stringify(vstepExam01Raw)) as VstepExam;
       fallback.id = testId;
-      indexExamQuestions(fallback);
-      examMemoryCache.set(cacheKey, fallback);
+      cacheRawVstepExam(cacheKey, fallback);
       return JSON.parse(JSON.stringify(fallback));
     }
     return null;
@@ -392,19 +540,8 @@ export function loadRawVstepExam(testId: string): VstepExam | null {
       return null;
     }
 
-    // Index questions for dynamic grading
-    indexExamQuestions(exam);
-
-    // Cache under requested key, canonical exam.id, and aliases
-    examMemoryCache.set(cacheKey, exam);
-    if (exam.id) {
-      examMemoryCache.set(exam.id.toLowerCase(), exam);
-    }
-    if (cacheKey.includes('-mock-')) {
-      examMemoryCache.set(cacheKey.replace('-mock-', '-exam-'), exam);
-    } else if (cacheKey.includes('-exam-')) {
-      examMemoryCache.set(cacheKey.replace('-exam-', '-mock-'), exam);
-    }
+    // Index and cache exam
+    cacheRawVstepExam(cacheKey, exam);
 
     return JSON.parse(JSON.stringify(exam));
   } catch (error) {

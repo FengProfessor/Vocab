@@ -69,7 +69,21 @@ public sealed class ReadingRepository(IApplicationDbContext dbContext) : IReadin
                 a.SourceType,
                 a.WordCount,
                 a.Passage,
-                a.Questions))
+                a.Questions,
+                a.PassagePlain,
+                a.EstimatedReadMinutes,
+                a.Translation,
+                a.Summary,
+                a.Cloze,
+                a.VocabularyHighlights,
+                a.AudioUrl,
+                a.PodcastMeta,
+                a.MindmapData,
+                a.SourceId,
+                a.SourceMetadata,
+                a.DifficultyScore,
+                a.CreatedAt,
+                a.UpdatedAt))
             .ToListAsync(ct);
     }
 
