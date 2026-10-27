@@ -10,7 +10,7 @@ namespace LingoPro.WebApi.Controllers;
 
 /// <summary>
 /// REST API controller for FSRS-5 spaced repetition vocabulary review, due cards retrieval,
-/// and L1-L6 learning analytics aggregations.
+/// curated vocabulary pack imports, and L1-L6 learning analytics aggregations.
 /// </summary>
 [Route("api/v1/vocab")]
 [Authorize]
@@ -41,10 +41,33 @@ public sealed class VocabController : ApiControllerBase
         [FromQuery] string? classroomId = null,
         [FromQuery] int limit = 500,
         [FromQuery] int offset = 0,
+        [FromQuery] string? filter = null,
+        [FromQuery] string? q = null,
+        [FromQuery] string? sort = null,
+        [FromQuery] string? ids = null,
         CancellationToken ct = default)
     {
-        var result = await Mediator.Send(new GetVocabAnalyticsQuery(classroomId, limit, offset), ct);
+        var result = await Mediator.Send(
+            new GetVocabAnalyticsQuery(classroomId, limit, offset, filter, q, sort, ids),
+            ct);
         return OkResponse(result, "Vocabulary FSRS L1-L6 breakdown and learning analytics retrieved successfully.");
+    }
+
+    [HttpGet("packs")]
+    public async Task<ActionResult<ApiResponse<IReadOnlyList<UserVocabPackDto>>>> GetUserPacks(
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetUserVocabPacksQuery(), ct);
+        return OkResponse(result, "User vocabulary packs retrieved successfully.");
+    }
+
+    [HttpPost("packs/import")]
+    public async Task<ActionResult<ApiResponse<ImportVocabPackResultDto>>> ImportPack(
+        [FromBody] ImportVocabPackCommand command,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(command, ct);
+        return OkResponse(result, "Vocabulary pack imported into personal classroom successfully.");
     }
 
     [HttpPost("review")]

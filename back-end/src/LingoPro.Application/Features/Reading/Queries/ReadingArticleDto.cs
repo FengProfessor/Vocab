@@ -1,4 +1,4 @@
-﻿using LingoPro.Domain.Enums;
+using LingoPro.Domain.Enums;
 
 namespace LingoPro.Application.Features.Reading.Queries;
 
@@ -14,5 +14,19 @@ public record ReadingArticleDto(
     string SourceType,
     int WordCount,
     string ContentText,
-    string QuestionsJson
+    string QuestionsJson,
+    string PassagePlain = "",
+    int EstimatedReadMinutes = 1,
+    string? Translation = null,
+    string? Summary = null,
+    string ClozeJson = "{}",
+    string VocabularyHighlightsJson = "[]",
+    string? AudioUrl = null,
+    string? PodcastMetaJson = "{}",
+    string? MindmapDataJson = "{}",
+    string? SourceId = null,
+    string? SourceMetadataJson = "{}",
+    double? DifficultyScore = 0,
+    DateTimeOffset? CreatedAt = null,
+    DateTimeOffset? UpdatedAt = null
 );

@@ -250,21 +250,28 @@ function InteractivePassageWord({
   const isHighlighted = Boolean(highlight);
 
   return (
-    <button
-      type="button"
+    <span
+      role="button"
+      tabIndex={0}
       onClick={(e) => {
         e.stopPropagation();
         onLookup(wordText, highlight);
       }}
-      className={`inline-block mx-0.5 rounded px-1 py-0.2 text-left transition-colors cursor-pointer ${
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onLookup(wordText, highlight);
+        }
+      }}
+      className={`inline cursor-pointer select-text transition-colors ${
         isHighlighted
-          ? 'font-bold text-indigo-700 bg-indigo-50/90 hover:bg-indigo-100 hover:text-indigo-900 dark:text-indigo-300 dark:bg-indigo-950/70 dark:hover:bg-indigo-900/80 underline decoration-indigo-300 underline-offset-2'
-          : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-inherit'
+          ? 'font-bold text-indigo-700 dark:text-indigo-300 bg-indigo-50/90 dark:bg-indigo-950/70 px-0.5 rounded-xs underline decoration-indigo-400 decoration-1 underline-offset-3 hover:bg-indigo-100 dark:hover:bg-indigo-900'
+          : 'hover:text-indigo-600 dark:hover:text-indigo-300 hover:underline decoration-indigo-300/60 underline-offset-3 text-inherit'
       }`}
-      title={highlight ? `${wordText}: ${highlight.meaning_vi}` : `Tra từ: ${wordText}`}
+      title={highlight ? `${wordText}: ${highlight.meaning_vi}` : `Bấm để tra từ: ${wordText}`}
     >
       {wordText}
-    </button>
+    </span>
   );
 }
 
@@ -289,7 +296,9 @@ function ReadingLibraryContent() {
 
   // Active Reading Article State
   const [activeArticle, setActiveArticle] = useState<ReadingArticle | null>(null);
-  const [readingTab, setReadingTab] = useState<'passage' | 'cloze' | 'mcq' | 'mindmap'>('passage');
+  const [exerciseTab, setExerciseTab] = useState<'mcq' | 'cloze' | 'vocab' | 'mindmap'>('mcq');
+  const [mobileTab, setMobileTab] = useState<'passage' | 'exercise'>('passage');
+  const [mobilePeekOpen, setMobilePeekOpen] = useState<boolean>(false);
   const [showTranslation, setShowTranslation] = useState<boolean>(false);
   const [activeTranslation, setActiveTranslation] = useState<string | null>(null);
   const [isTranslating, setIsTranslating] = useState<boolean>(false);
@@ -397,8 +406,8 @@ function ReadingLibraryContent() {
           setArticles([]);
           setHasMore(false);
         }
-      } catch (err: any) {
-        setError(err?.message || 'Không thể tải danh sách bài đọc');
+      } catch (err: unknown) {
+        setError(err instanceof Error ? err.message : 'Không thể tải danh sách bài đọc');
       } finally {
         setLoading(false);
       }
@@ -421,16 +430,34 @@ function ReadingLibraryContent() {
       const match = articles.find((a) => a.id === idOrSlug || a.slug === idOrSlug);
       if (match) {
         setActiveArticle(match);
+        setActiveTranslation(match.translation || null);
+        setExerciseTab(
+          match.questions && match.questions.length > 0
+            ? 'mcq'
+            : match.cloze?.blanks && match.cloze.blanks.length > 0
+            ? 'cloze'
+            : 'vocab'
+        );
         return;
       }
 
       try {
-        const res = await ReadingApi.getArticles(`/api/reading/articles?id=${encodeURIComponent(idOrSlug)}&slug=${encodeURIComponent(idOrSlug)}`);
+        const res = await ReadingApi.getArticles(
+          `/api/reading/articles?id=${encodeURIComponent(idOrSlug)}&slug=${encodeURIComponent(idOrSlug)}`
+        );
         if (res.ok) {
           const json = await res.json();
           if (!cancelled && json.article) {
-            setActiveArticle(json.article);
-            setActiveTranslation(json.article.translation || null);
+            const art = json.article as ReadingArticle;
+            setActiveArticle(art);
+            setActiveTranslation(art.translation || null);
+            setExerciseTab(
+              art.questions && art.questions.length > 0
+                ? 'mcq'
+                : art.cloze?.blanks && art.cloze.blanks.length > 0
+                ? 'cloze'
+                : 'vocab'
+            );
           }
         }
       } catch {
@@ -488,7 +515,15 @@ function ReadingLibraryContent() {
     stopSpeech();
     setIsPlayingAudio(false);
     setActiveArticle(art);
-    setReadingTab('passage');
+    setExerciseTab(
+      art.questions && art.questions.length > 0
+        ? 'mcq'
+        : art.cloze?.blanks && art.cloze.blanks.length > 0
+        ? 'cloze'
+        : 'vocab'
+    );
+    setMobileTab('passage');
+    setMobilePeekOpen(false);
     setShowTranslation(false);
     setActiveTranslation(art.translation || null);
     setIsTranslating(false);
@@ -512,6 +547,8 @@ function ReadingLibraryContent() {
     stopSpeech();
     setIsPlayingAudio(false);
     setActiveArticle(null);
+    setMobileTab('passage');
+    setMobilePeekOpen(false);
     setInspectedWord(null);
     setShowTranslation(false);
     setActiveTranslation(null);
@@ -737,7 +774,7 @@ function ReadingLibraryContent() {
     });
   };
 
-  // Render Passage text with clickable words
+  // Render Passage text with clickable words and natural English typography
   const renderPassageParagraphs = (article: ReadingArticle) => {
     const paragraphs = getPassageParagraphs(article);
 
@@ -747,36 +784,47 @@ function ReadingLibraryContent() {
     });
 
     return paragraphs.map((para, pIdx) => {
-      // Split paragraph into words and punctuation
-      const tokens = para.split(/(\s+|[.,!?;:()"“”'’—–]+)/g);
+      // Split paragraph by whitespace only to keep words intact
+      const words = para.trim().split(/\s+/);
 
       return (
         <p
           key={pIdx}
-          style={{ fontSize: `calc(1rem + ${fontSizeOffset}px)` }}
-          className="mb-4 leading-relaxed text-slate-800 dark:text-slate-200 font-serif"
+          style={{
+            fontSize: `calc(1.0625rem + ${fontSizeOffset}px)`,
+            lineHeight: 1.8,
+          }}
+          className="mb-5 text-slate-850 dark:text-slate-200 font-serif tracking-normal text-left selection:bg-indigo-100 dark:selection:bg-indigo-900/60 leading-relaxed"
         >
-          {tokens.map((token, tIdx) => {
-            const clean = token.toLowerCase().trim();
+          {words.map((chunk, wIdx) => {
+            const isLast = wIdx === words.length - 1;
+            // Match leading non-alphanumeric, middle word, trailing punctuation
+            const match = chunk.match(/^([^a-zA-Z0-9]*)([a-zA-Z0-9'-]+)([^a-zA-Z0-9]*)$/);
+
+            if (!match) {
+              return (
+                <span key={wIdx}>
+                  {chunk}
+                  {!isLast && ' '}
+                </span>
+              );
+            }
+
+            const [, prefix, wordCore, suffix] = match;
+            const clean = wordCore.toLowerCase();
             const highlight = highlightsMap.get(clean);
 
-            if (/^\s+$/.test(token)) {
-              return <span key={tIdx}>{token}</span>;
-            }
-
-            if (/^[.,!?;:()"“”'’—–]+$/.test(token)) {
-              return <span key={tIdx} className="text-slate-400 dark:text-slate-500">{token}</span>;
-            }
-
             return (
-              <InteractivePassageWord
-                key={tIdx}
-                wordText={token}
-                highlight={highlight}
-                onLookup={(word, item) => {
-                  void handleWordClick(word, item);
-                }}
-              />
+              <span key={wIdx}>
+                {prefix && <span>{prefix}</span>}
+                <InteractivePassageWord
+                  wordText={wordCore}
+                  highlight={highlight}
+                  onLookup={(w, h) => void handleWordClick(w, h)}
+                />
+                {suffix && <span>{suffix}</span>}
+                {!isLast && ' '}
+              </span>
             );
           })}
         </p>
@@ -920,184 +968,163 @@ function ReadingLibraryContent() {
               </div>
             </div>
 
-            {/* Article Header Card */}
-            <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-6 shadow-xs">
-              <div className="flex flex-wrap items-center gap-2 mb-2">
-                {/* Level Badge */}
-                {CEFR_CONFIG[activeArticle.cefr_level] && (
-                  <span
-                    className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-bold ${
-                      CEFR_CONFIG[activeArticle.cefr_level].bg
-                    } ${CEFR_CONFIG[activeArticle.cefr_level].text} ${
-                      CEFR_CONFIG[activeArticle.cefr_level].border
-                    }`}
-                  >
-                    {activeArticle.cefr_level}
-                  </span>
-                )}
+            {/* Mobile Mode Switcher (< lg) */}
+            <div className="lg:hidden flex items-center justify-between gap-1 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl text-xs font-bold">
+              <button
+                type="button"
+                onClick={() => setMobileTab('passage')}
+                className={`flex-1 py-2 px-3 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+                  mobileTab === 'passage'
+                    ? 'bg-indigo-600 text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900 dark:text-slate-400'
+                }`}
+              >
+                <BookOpen className="h-3.5 w-3.5" />
+                <span>📖 Bài đọc</span>
+              </button>
 
-                {/* Source Badge */}
-                {SOURCE_CONFIG[activeArticle.source_type] && (
-                  <span
-                    className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
-                      SOURCE_CONFIG[activeArticle.source_type].color
-                    }`}
-                  >
-                    {SOURCE_CONFIG[activeArticle.source_type].tag}
-                  </span>
-                )}
-
-                {/* Theme Badge */}
-                {(() => {
-                  const theme = getPackTheme(activeArticle.theme_id);
-                  return (
-                    <span className="inline-flex items-center gap-1 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-700 dark:text-slate-300">
-                      <span>{theme?.emoji || '📖'}</span>
-                      <span>{theme?.labelVi || activeArticle.theme_id}</span>
-                    </span>
-                  );
-                })()}
-
-                <span className="text-xs text-slate-400 dark:text-slate-500">
-                  {activeArticle.word_count || 120} từ · ~{activeArticle.estimated_read_minutes || 2} phút đọc
-                </span>
-              </div>
-
-              <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-slate-100 leading-tight">
-                {activeArticle.title}
-              </h2>
-
-              {activeArticle.summary && (
-                <p className="mt-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400 italic">
-                  &ldquo;{activeArticle.summary}&rdquo;
-                </p>
-              )}
-
-              {/* Reader Tabs */}
-              <div className="mt-5 flex items-center gap-1.5 border-b border-slate-200 dark:border-slate-800 pb-2 overflow-x-auto scrollbar-none">
-                <button
-                  type="button"
-                  onClick={() => setReadingTab('passage')}
-                  className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all shrink-0 cursor-pointer ${
-                    readingTab === 'passage'
-                      ? 'bg-indigo-600 text-white shadow-xs'
-                      : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800'
-                  }`}
-                >
-                  <BookOpen className="h-3.5 w-3.5" />
-                  <span>Bài đọc & Dịch</span>
-                </button>
-
-                {activeArticle.cloze?.blanks?.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => setReadingTab('cloze')}
-                    className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all shrink-0 cursor-pointer ${
-                      readingTab === 'cloze'
-                        ? 'bg-indigo-600 text-white shadow-xs'
-                        : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    <span>✍️ Điền từ</span>
-                    <span className="rounded-full bg-indigo-100 dark:bg-indigo-950 px-1.5 py-0.2 text-[10px] text-indigo-700 dark:text-indigo-300 font-black">
-                      {activeArticle.cloze.blanks.length}
-                    </span>
-                  </button>
-                )}
-
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileTab('exercise');
+                  if (!activeArticle.questions?.length && clozeBlanksList.length > 0) {
+                    setExerciseTab('cloze');
+                  }
+                }}
+                className={`flex-1 py-2 px-3 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+                  mobileTab === 'exercise'
+                    ? 'bg-indigo-600 text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900 dark:text-slate-400'
+                }`}
+              >
+                <span>🎯 Bài tập & Đáp án</span>
                 {activeArticle.questions?.length > 0 && (
-                  <button
-                    type="button"
-                    onClick={() => setReadingTab('mcq')}
-                    className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all shrink-0 cursor-pointer ${
-                      readingTab === 'mcq'
-                        ? 'bg-indigo-600 text-white shadow-xs'
-                        : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800'
-                    }`}
-                  >
-                    <span>🎯 Trắc nghiệm</span>
-                    <span className="rounded-full bg-indigo-100 dark:bg-indigo-950 px-1.5 py-0.2 text-[10px] text-indigo-700 dark:text-indigo-300 font-black">
-                      {activeArticle.questions.length}
-                    </span>
-                  </button>
+                  <span className={`rounded-full px-1.5 py-0.2 text-[10px] font-black ${
+                    mobileTab === 'exercise' ? 'bg-white/20 text-white' : 'bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300'
+                  }`}>
+                    {activeArticle.questions.length}
+                  </span>
                 )}
-
-                <button
-                  type="button"
-                  onClick={() => setReadingTab('mindmap')}
-                  className={`inline-flex items-center gap-1.5 rounded-xl px-3.5 py-1.5 text-xs font-bold transition-all shrink-0 cursor-pointer ${
-                    readingTab === 'mindmap'
-                      ? 'bg-indigo-600 text-white shadow-xs'
-                      : 'text-slate-600 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800'
-                  }`}
-                >
-                  <Brain className="h-3.5 w-3.5" />
-                  <span>Sơ đồ tư duy</span>
-                </button>
-              </div>
+              </button>
             </div>
 
-            {/* TAB CONTENT 1: PASSAGE & VOCABULARY */}
-            {readingTab === 'passage' && (
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                <div className="lg:col-span-2 space-y-4">
-                  {/* Passage Text Container */}
-                  <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-7 shadow-xs">
-                    <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
-                      <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
-                        Nhấp vào từ bất kỳ để tra nghĩa & phát âm:
-                      </span>
-                      {/* Vietnamese Translation Button (always available with on-demand AI translation) */}
-                      <button
-                        type="button"
-                        onClick={handleToggleTranslation}
-                        disabled={isTranslating}
-                        className="inline-flex items-center gap-1.5 rounded-lg border border-indigo-200 bg-indigo-50/80 px-2.5 py-1 text-xs font-bold text-indigo-700 dark:border-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 hover:bg-indigo-100 transition-colors cursor-pointer disabled:opacity-60"
+            {/* Split-Pane Grid: Left Passage, Right Sticky Quiz & Answers */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+              {/* ============================================================== */}
+              {/* LEFT COLUMN: ARTICLE PASSAGE & BILINGUAL TRANSLATION           */}
+              {/* ============================================================== */}
+              <div
+                className={`${
+                  mobileTab === 'passage' ? 'space-y-4' : 'hidden lg:block lg:col-span-7 xl:col-span-7 space-y-4'
+                } lg:col-span-7 xl:col-span-7`}
+              >
+                {/* Article Header Card */}
+                <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 sm:p-6 shadow-xs">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    {/* Level Badge */}
+                    {CEFR_CONFIG[activeArticle.cefr_level] && (
+                      <span
+                        className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-bold ${
+                          CEFR_CONFIG[activeArticle.cefr_level].bg
+                        } ${CEFR_CONFIG[activeArticle.cefr_level].text} ${
+                          CEFR_CONFIG[activeArticle.cefr_level].border
+                        }`}
                       >
-                        {isTranslating ? (
-                          <>
-                            <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                            <span>Đang dịch bản ngữ…</span>
-                          </>
-                        ) : showTranslation ? (
-                          <>
-                            <EyeOff className="h-3.5 w-3.5" />
-                            <span>Ẩn bản dịch</span>
-                          </>
-                        ) : (
-                          <>
-                            <Eye className="h-3.5 w-3.5" />
-                            <span>Xem bản dịch TV</span>
-                          </>
-                        )}
-                      </button>
-                    </div>
-
-                    {/* Formatted Paragraphs */}
-                    <div className="prose dark:prose-invert max-w-none">
-                      {renderPassageParagraphs(activeArticle)}
-                    </div>
-
-                    {/* Vietnamese Translation Panel (Toggleable & On-Demand) */}
-                    {showTranslation && (activeTranslation || activeArticle.translation) && (
-                      <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/70 dark:border-emerald-900/60 dark:bg-emerald-950/30 p-4 sm:p-5 animate-in fade-in duration-200">
-                        <div className="flex items-center gap-2 mb-2 font-bold text-xs text-emerald-800 dark:text-emerald-300">
-                          <Eye className="h-4 w-4" />
-                          <span>Bản dịch tiếng Việt song ngữ:</span>
-                        </div>
-                        <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-sans whitespace-pre-line">
-                          {activeTranslation || activeArticle.translation}
-                        </p>
-                      </div>
+                        {activeArticle.cefr_level}
+                      </span>
                     )}
+
+                    {/* Source Badge */}
+                    {SOURCE_CONFIG[activeArticle.source_type] && (
+                      <span
+                        className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
+                          SOURCE_CONFIG[activeArticle.source_type].color
+                        }`}
+                      >
+                        {SOURCE_CONFIG[activeArticle.source_type].tag}
+                      </span>
+                    )}
+
+                    {/* Theme Badge */}
+                    {(() => {
+                      const theme = getPackTheme(activeArticle.theme_id);
+                      return (
+                        <span className="inline-flex items-center gap-1 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 text-xs font-medium text-slate-700 dark:text-slate-300">
+                          <span>{theme?.emoji || '📖'}</span>
+                          <span>{theme?.labelVi || activeArticle.theme_id}</span>
+                        </span>
+                      );
+                    })()}
+
+                    <span className="text-xs text-slate-400 dark:text-slate-500">
+                      {activeArticle.word_count || 120} từ · ~{activeArticle.estimated_read_minutes || 2} phút đọc
+                    </span>
                   </div>
+
+                  <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-slate-100 leading-tight">
+                    {activeArticle.title}
+                  </h2>
+
+                  {activeArticle.summary && (
+                    <p className="mt-2 text-xs sm:text-sm text-slate-500 dark:text-slate-400 italic">
+                      &ldquo;{activeArticle.summary}&rdquo;
+                    </p>
+                  )}
                 </div>
 
-                {/* Sidebar: Word Lookup & Key Vocabulary Highlights */}
-                <div className="space-y-4">
+                {/* Passage Text Container */}
+                <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-7 shadow-xs">
+                  <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+                    <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
+                      Nhấp vào từ bất kỳ để tra nghĩa & phát âm:
+                    </span>
+                    {/* Vietnamese Translation Button */}
+                    <button
+                      type="button"
+                      onClick={handleToggleTranslation}
+                      disabled={isTranslating}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-indigo-200 bg-indigo-50/80 px-2.5 py-1 text-xs font-bold text-indigo-700 dark:border-indigo-800 dark:bg-indigo-950/60 dark:text-indigo-300 hover:bg-indigo-100 transition-colors cursor-pointer disabled:opacity-60"
+                    >
+                      {isTranslating ? (
+                        <>
+                          <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                          <span>Đang dịch bản ngữ…</span>
+                        </>
+                      ) : showTranslation ? (
+                        <>
+                          <EyeOff className="h-3.5 w-3.5" />
+                          <span>Ẩn bản dịch</span>
+                        </>
+                      ) : (
+                        <>
+                          <Eye className="h-3.5 w-3.5" />
+                          <span>Bản dịch TV</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Formatted Paragraphs */}
+                  <div className="prose dark:prose-invert max-w-none">
+                    {renderPassageParagraphs(activeArticle)}
+                  </div>
+
+                  {/* Vietnamese Translation Panel */}
+                  {showTranslation && (activeTranslation || activeArticle.translation) && (
+                    <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/70 dark:border-emerald-900/60 dark:bg-emerald-950/30 p-4 sm:p-5 animate-in fade-in duration-200">
+                      <div className="flex items-center gap-2 mb-2 font-bold text-xs text-emerald-800 dark:text-emerald-300">
+                        <Eye className="h-4 w-4" />
+                        <span>Bản dịch tiếng Việt song ngữ:</span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-emerald-950 dark:text-emerald-100 leading-relaxed font-sans whitespace-pre-line">
+                        {activeTranslation || activeArticle.translation}
+                      </p>
+                    </div>
+                  )}
+
                   {/* Floating Inspected Word Box */}
                   {inspectedWord && (
-                    <div className="rounded-2xl border border-indigo-200 bg-indigo-50/80 dark:border-indigo-900/80 dark:bg-indigo-950/50 p-4 shadow-sm animate-in fade-in zoom-in-95 duration-150">
+                    <div className="mt-5 rounded-2xl border border-indigo-200 bg-indigo-50/80 dark:border-indigo-900/80 dark:bg-indigo-950/50 p-4 shadow-sm animate-in fade-in zoom-in-95 duration-150">
                       <div className="flex items-start justify-between gap-2">
                         <div className="min-w-0">
                           <div className="flex items-center gap-2">
@@ -1155,446 +1182,492 @@ function ReadingLibraryContent() {
                     </div>
                   )}
 
-                  {/* Vocabulary Highlights Card */}
-                  <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-xs">
-                    <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100 dark:border-slate-800">
-                      <div className="flex items-center gap-1.5 font-bold text-xs text-slate-900 dark:text-slate-100">
-                        <Sparkles className="h-4 w-4 text-amber-500" />
-                        <span>Từ vựng trọng tâm ({activeArticle.vocabulary_highlights?.length || 0})</span>
-                      </div>
-                    </div>
-
-                    {activeArticle.vocabulary_highlights && activeArticle.vocabulary_highlights.length > 0 ? (
-                      <div className="space-y-2.5 max-h-[480px] overflow-y-auto pr-1">
-                        {activeArticle.vocabulary_highlights.map((voc, idx) => (
-                          <div
-                            key={idx}
-                            className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 p-2.5 hover:border-indigo-200 dark:hover:border-indigo-800 transition-colors"
-                          >
-                            <div className="flex items-center justify-between gap-1.5">
-                              <span className="font-bold text-xs text-indigo-700 dark:text-indigo-300">
-                                {voc.word}
-                              </span>
-                              <div className="flex items-center gap-1">
-                                {voc.pos && (
-                                  <span className="rounded bg-slate-200/70 dark:bg-slate-700 px-1 py-0.2 text-[10px] text-slate-600 dark:text-slate-300 font-mono">
-                                    {voc.pos}
-                                  </span>
-                                )}
-                                <button
-                                  type="button"
-                                  onClick={() => speakText(voc.word)}
-                                  className="p-1 text-slate-400 hover:text-indigo-600"
-                                  title="Phát âm"
-                                >
-                                  <Volume2 className="h-3.5 w-3.5" />
-                                </button>
-                              </div>
-                            </div>
-                            {voc.phonetic && (
-                              <p className="text-[10px] text-slate-400 font-mono">{voc.phonetic}</p>
-                            )}
-                            <p className="mt-1 text-xs font-medium text-slate-700 dark:text-slate-200">
-                              {voc.meaning_vi}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <p className="text-xs text-slate-400 py-3 text-center">
-                        Nhấp trực tiếp vào bất kỳ từ nào trên đoạn văn để tra nghĩa và phát âm.
-                      </p>
-                    )}
+                  {/* Mobile Jump to Exercise Button */}
+                  <div className="lg:hidden mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMobileTab('exercise');
+                        setExerciseTab('mcq');
+                      }}
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 text-sm shadow-sm transition-all"
+                    >
+                      <span>🎯 Sang phần trắc nghiệm & đáp án ({activeArticle.questions?.length || 0} câu)</span>
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
                   </div>
                 </div>
               </div>
-            )}
 
-            {/* TAB CONTENT 2: CLOZE BLANKS */}
-            {readingTab === 'cloze' && (
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-7 shadow-xs space-y-6">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100">
-                      ✍️ Bài tập điền từ vào chỗ trống ({clozeBlanksList.length} câu)
-                    </h3>
-                    <p className="text-xs text-slate-500">
-                      Chọn đáp án thích hợp cho mỗi vị trí đục lỗ trong bài đọc.
-                    </p>
+              {/* ============================================================== */}
+              {/* RIGHT COLUMN: STICKY COMPACT EXERCISE & ANSWERS PANE           */}
+              {/* ============================================================== */}
+              <div
+                className={`${
+                  mobileTab === 'exercise' ? 'space-y-4' : 'hidden lg:block lg:col-span-5 xl:col-span-5'
+                } lg:col-span-5 xl:col-span-5`}
+              >
+                <div className="lg:sticky lg:top-4 max-h-[calc(100vh-2.5rem)] flex flex-col rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm overflow-hidden">
+                  {/* Mobile Peek Accordion (< lg only) */}
+                  <div className="lg:hidden border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 p-2.5">
+                    <button
+                      type="button"
+                      onClick={() => setMobilePeekOpen((prev) => !prev)}
+                      className="w-full flex items-center justify-between text-xs font-bold text-indigo-700 dark:text-indigo-300 py-1 px-2"
+                    >
+                      <span className="flex items-center gap-1.5">
+                        <BookOpen className="h-3.5 w-3.5" />
+                        <span>Xem nhanh nội dung bài đọc</span>
+                      </span>
+                      {mobilePeekOpen ? (
+                        <ChevronUp className="h-4 w-4 text-indigo-500" />
+                      ) : (
+                        <ChevronDown className="h-4 w-4 text-indigo-500" />
+                      )}
+                    </button>
+                    {mobilePeekOpen && (
+                      <div className="mt-2 p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 max-h-56 overflow-y-auto text-xs font-serif leading-relaxed text-slate-800 dark:text-slate-200 whitespace-pre-line animate-in fade-in duration-150">
+                        {activeArticle.passage_plain || activeArticle.passage}
+                      </div>
+                    )}
                   </div>
-                  {clozeScore && (
-                    <div className="rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 px-3 py-1.5 text-xs font-black text-emerald-800 dark:text-emerald-300">
-                      Kết quả: {clozeScore.correct}/{clozeScore.total} câu đúng ({Math.round((clozeScore.correct / clozeScore.total) * 100)}%)
-                    </div>
-                  )}
-                </div>
 
-                {/* Cloze Passage Context */}
-                <div className="rounded-xl border border-indigo-100 bg-indigo-50/40 dark:border-indigo-900/50 dark:bg-indigo-950/20 p-4 sm:p-5">
-                  <span className="text-xs font-bold text-indigo-900 dark:text-indigo-300 block mb-2 uppercase tracking-wider">
-                    📄 Đoạn văn chứa vị trí đục lỗ:
-                  </span>
-                  <div className="text-xs sm:text-sm leading-relaxed text-slate-800 dark:text-slate-200 font-serif whitespace-pre-line">
-                    {activeArticle.cloze.text || activeArticle.passage_plain || ''}
-                  </div>
-                </div>
+                  {/* Exercise Subtabs Header */}
+                  <div className="flex items-center gap-1 border-b border-slate-200 dark:border-slate-800 p-2 bg-slate-50/80 dark:bg-slate-800/40 overflow-x-auto scrollbar-none shrink-0">
+                    <button
+                      type="button"
+                      onClick={() => setExerciseTab('mcq')}
+                      className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                        exerciseTab === 'mcq'
+                          ? 'bg-indigo-600 text-white shadow-xs'
+                          : 'text-slate-600 hover:bg-slate-200/60 dark:text-slate-400 dark:hover:bg-slate-800'
+                      }`}
+                    >
+                      <span>🎯 Trắc nghiệm</span>
+                      {activeArticle.questions?.length > 0 && (
+                        <span className={`rounded-full px-1.5 py-0.2 text-[10px] font-black ${
+                          exerciseTab === 'mcq' ? 'bg-white/20 text-white' : 'bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300'
+                        }`}>
+                          {activeArticle.questions.length}
+                        </span>
+                      )}
+                    </button>
 
-                {/* Cloze Text or Blank Question Cards */}
-                <div className="space-y-4">
-                  {clozeBlanksList.map((blank, bIdx) => {
-                    const blankKey = String(blank.id ?? blank.index);
-                    const selected = clozeAnswers[blankKey] || '';
-                    const expected = getExpectedClozeAnswer(blank);
-                    const isCorrect = selected.trim().toLowerCase() === expected.trim().toLowerCase();
-
-                    return (
-                      <div
-                        key={blankKey}
-                        className={`rounded-xl border p-4 transition-all ${
-                          clozeRevealed
-                            ? isCorrect
-                              ? 'border-emerald-300 bg-emerald-50/50 dark:border-emerald-800 dark:bg-emerald-950/30'
-                              : 'border-rose-300 bg-rose-50/50 dark:border-rose-800 dark:bg-rose-950/30'
-                            : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40'
+                    {clozeBlanksList.length > 0 && (
+                      <button
+                        type="button"
+                        onClick={() => setExerciseTab('cloze')}
+                        className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                          exerciseTab === 'cloze'
+                            ? 'bg-indigo-600 text-white shadow-xs'
+                            : 'text-slate-600 hover:bg-slate-200/60 dark:text-slate-400 dark:hover:bg-slate-800'
                         }`}
                       >
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-xs font-bold text-indigo-700 dark:text-indigo-400">
-                            Vị trí ({bIdx + 1}): {blank.word ? `Từ gốc: ${blank.word}` : `Câu hỏi ${blank.index || bIdx + 1}`}
+                        <span>✍️ Điền từ</span>
+                        <span className={`rounded-full px-1.5 py-0.2 text-[10px] font-black ${
+                          exerciseTab === 'cloze' ? 'bg-white/20 text-white' : 'bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300'
+                        }`}>
+                          {clozeBlanksList.length}
+                        </span>
+                      </button>
+                    )}
+
+                    <button
+                      type="button"
+                      onClick={() => setExerciseTab('vocab')}
+                      className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                        exerciseTab === 'vocab'
+                          ? 'bg-indigo-600 text-white shadow-xs'
+                          : 'text-slate-600 hover:bg-slate-200/60 dark:text-slate-400 dark:hover:bg-slate-800'
+                      }`}
+                    >
+                      <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+                      <span>Từ vựng</span>
+                      {activeArticle.vocabulary_highlights?.length > 0 && (
+                        <span className={`rounded-full px-1.5 py-0.2 text-[10px] font-black ${
+                          exerciseTab === 'vocab' ? 'bg-white/20 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                        }`}>
+                          {activeArticle.vocabulary_highlights.length}
+                        </span>
+                      )}
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setExerciseTab('mindmap')}
+                      className={`inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-bold transition-all shrink-0 cursor-pointer ${
+                        exerciseTab === 'mindmap'
+                          ? 'bg-indigo-600 text-white shadow-xs'
+                          : 'text-slate-600 hover:bg-slate-200/60 dark:text-slate-400 dark:hover:bg-slate-800'
+                      }`}
+                    >
+                      <Brain className="h-3.5 w-3.5" />
+                      <span>Sơ đồ</span>
+                    </button>
+                  </div>
+
+                  {/* Scrollable Exercise Content Area */}
+                  <div className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-4">
+                    {/* 1. MCQ QUESTIONS WITH SIDE-BY-SIDE ANSWERS & EXPLANATIONS */}
+                    {exerciseTab === 'mcq' && (
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                          <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                            Câu hỏi trắc nghiệm ({activeArticle.questions?.length || 0} câu)
                           </span>
-                          {clozeRevealed && (
-                            <span className={`text-xs font-bold ${isCorrect ? 'text-emerald-600' : 'text-rose-600'}`}>
-                              {isCorrect ? '✓ Đúng' : `✗ Sai (Đáp án: ${expected})`}
+                          {mcqScore && (
+                            <span className="rounded-lg bg-emerald-100 dark:bg-emerald-950/80 px-2 py-0.5 text-xs font-black text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                              Đúng {mcqScore.correct}/{mcqScore.total} ({Math.round((mcqScore.correct / mcqScore.total) * 100)}%)
                             </span>
                           )}
                         </div>
 
-                        {/* Options Buttons */}
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                          {(blank.options || []).map((opt) => {
-                            const isThisOptionSelected = selected === opt;
-                            const isThisOptionCorrect = opt.trim().toLowerCase() === expected.trim().toLowerCase();
+                        {(!activeArticle.questions || activeArticle.questions.length === 0) ? (
+                          <div className="py-8 text-center text-xs text-slate-400">
+                            Bài đọc này chưa có câu hỏi trắc nghiệm. Bạn có thể luyện điền từ hoặc tra cứu từ vựng.
+                          </div>
+                        ) : (
+                          activeArticle.questions.map((q, qIdx) => {
+                            const qKey = q.id || qIdx;
+                            const selectedIdx = mcqAnswers[qKey];
+                            const expectedIdx = getExpectedMcqIndex(q);
+                            const isCorrect = selectedIdx !== undefined && selectedIdx === expectedIdx;
 
                             return (
-                              <button
-                                key={opt}
-                                type="button"
-                                disabled={clozeRevealed}
-                                onClick={() => {
-                                  setClozeAnswers((prev) => ({ ...prev, [blankKey]: opt }));
-                                }}
-                                className={`rounded-lg border px-3 py-2 text-xs font-bold transition-all text-left ${
-                                  clozeRevealed
-                                    ? isThisOptionCorrect
-                                      ? 'border-emerald-500 bg-emerald-100 text-emerald-900 dark:bg-emerald-900 dark:text-emerald-100 font-extrabold'
-                                      : isThisOptionSelected
-                                      ? 'border-rose-500 bg-rose-100 text-rose-900 dark:bg-rose-900 dark:text-rose-100 line-through'
-                                      : 'border-slate-200 dark:border-slate-800 text-slate-400'
-                                    : isThisOptionSelected
-                                    ? 'border-indigo-600 bg-indigo-600 text-white shadow-xs'
-                                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-indigo-300'
+                              <div
+                                key={qKey}
+                                className={`rounded-xl border p-3.5 transition-all ${
+                                  mcqRevealed
+                                    ? isCorrect
+                                      ? 'border-emerald-300 bg-emerald-50/40 dark:border-emerald-800 dark:bg-emerald-950/20'
+                                      : 'border-rose-300 bg-rose-50/40 dark:border-rose-800 dark:bg-rose-950/20'
+                                    : 'border-slate-200 dark:border-slate-800 bg-slate-50/40 dark:bg-slate-800/30'
                                 }`}
                               >
-                                {opt}
-                              </button>
+                                <div className="flex items-start gap-2 mb-2.5">
+                                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-indigo-100 dark:bg-indigo-950 text-[11px] font-black text-indigo-700 dark:text-indigo-300">
+                                    {qIdx + 1}
+                                  </span>
+                                  <p className="flex-1 font-bold text-xs text-slate-900 dark:text-slate-100 leading-snug">
+                                    {q.question}
+                                  </p>
+                                  {mcqRevealed && (
+                                    <span className={`text-[11px] font-bold shrink-0 ${isCorrect ? 'text-emerald-600' : 'text-rose-600'}`}>
+                                      {isCorrect ? '✓ Đúng' : '✗ Sai'}
+                                    </span>
+                                  )}
+                                </div>
+
+                                {/* Options Stack */}
+                                <div className="space-y-1.5 pl-7">
+                                  {q.options.map((opt, optIdx) => {
+                                    const letters = ['A', 'B', 'C', 'D'];
+                                    const isChosen = selectedIdx === optIdx;
+                                    const isExpected = optIdx === expectedIdx;
+
+                                    return (
+                                      <button
+                                        key={optIdx}
+                                        type="button"
+                                        disabled={mcqRevealed}
+                                        onClick={() => {
+                                          setMcqAnswers((prev) => ({ ...prev, [qKey]: optIdx }));
+                                        }}
+                                        className={`w-full flex items-center gap-2 rounded-lg border px-2.5 py-1.5 text-xs text-left transition-all ${
+                                          mcqRevealed
+                                            ? isExpected
+                                              ? 'border-emerald-500 bg-emerald-100 dark:bg-emerald-900/60 text-emerald-900 dark:text-emerald-100 font-bold'
+                                              : isChosen
+                                              ? 'border-rose-400 bg-rose-100 dark:bg-rose-900/60 text-rose-900 dark:text-rose-100 line-through'
+                                              : 'border-slate-200 dark:border-slate-800 opacity-60'
+                                            : isChosen
+                                            ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-200 font-bold shadow-2xs'
+                                            : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-indigo-300'
+                                        }`}
+                                      >
+                                        <span
+                                          className={`flex h-4 w-4 shrink-0 items-center justify-center rounded text-[10px] font-bold ${
+                                            mcqRevealed && isExpected
+                                              ? 'bg-emerald-600 text-white'
+                                              : isChosen
+                                              ? 'bg-indigo-600 text-white'
+                                              : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
+                                          }`}
+                                        >
+                                          {letters[optIdx] || optIdx + 1}
+                                        </span>
+                                        <span className="flex-1 leading-snug">{opt}</span>
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+
+                                {/* Compact Explanation Right Beside Question */}
+                                {mcqRevealed && q.explain && (
+                                  <div className="mt-2.5 ml-7 rounded-lg border border-indigo-200 bg-indigo-50/70 dark:border-indigo-900 dark:bg-indigo-950/40 p-2.5 text-[11px] text-indigo-950 dark:text-indigo-200 leading-relaxed">
+                                    <span className="font-bold">💡 Giải thích: </span>
+                                    <span>{q.explain}</span>
+                                  </div>
+                                )}
+                              </div>
                             );
-                          })}
+                          })
+                        )}
+                      </div>
+                    )}
+
+                    {/* 2. CLOZE FILL-IN-THE-BLANKS */}
+                    {exerciseTab === 'cloze' && (
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
+                          <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                            Điền từ vào chỗ trống ({clozeBlanksList.length} câu)
+                          </span>
+                          {clozeScore && (
+                            <span className="rounded-lg bg-emerald-100 dark:bg-emerald-950/80 px-2 py-0.5 text-xs font-black text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                              Đúng {clozeScore.correct}/{clozeScore.total}
+                            </span>
+                          )}
                         </div>
 
-                        {clozeRevealed && blank.explain && (
-                          <p className="mt-2.5 text-xs text-slate-600 dark:text-slate-300 italic bg-white/60 dark:bg-slate-900/60 p-2 rounded border border-slate-200/60 dark:border-slate-800">
-                            💡 Giải thích: {blank.explain}
+                        {clozeBlanksList.map((blank, bIdx) => {
+                          const blankKey = String(blank.id ?? blank.index);
+                          const selected = clozeAnswers[blankKey] || '';
+                          const expected = getExpectedClozeAnswer(blank);
+                          const isCorrect = selected.trim().toLowerCase() === expected.trim().toLowerCase();
+
+                          return (
+                            <div
+                              key={blankKey}
+                              className={`rounded-xl border p-3 transition-all ${
+                                clozeRevealed
+                                  ? isCorrect
+                                    ? 'border-emerald-300 bg-emerald-50/50 dark:border-emerald-800 dark:bg-emerald-950/30'
+                                    : 'border-rose-300 bg-rose-50/50 dark:border-rose-800 dark:bg-rose-950/30'
+                                  : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/40'
+                              }`}
+                            >
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="text-xs font-bold text-indigo-700 dark:text-indigo-400">
+                                  Vị trí ({bIdx + 1}): {blank.word ? `Từ: ${blank.word}` : `Chỗ trống ${bIdx + 1}`}
+                                </span>
+                                {clozeRevealed && (
+                                  <span className={`text-[11px] font-bold ${isCorrect ? 'text-emerald-600' : 'text-rose-600'}`}>
+                                    {isCorrect ? '✓ Đúng' : `✗ Đáp án: ${expected}`}
+                                  </span>
+                                )}
+                              </div>
+
+                              <div className="grid grid-cols-2 gap-1.5">
+                                {(blank.options || []).map((opt) => {
+                                  const isThisOptionSelected = selected === opt;
+                                  const isThisOptionCorrect = opt.trim().toLowerCase() === expected.trim().toLowerCase();
+
+                                  return (
+                                    <button
+                                      key={opt}
+                                      type="button"
+                                      disabled={clozeRevealed}
+                                      onClick={() => {
+                                        setClozeAnswers((prev) => ({ ...prev, [blankKey]: opt }));
+                                      }}
+                                      className={`rounded-lg border px-2.5 py-1.5 text-xs font-bold transition-all text-left truncate ${
+                                        clozeRevealed
+                                          ? isThisOptionCorrect
+                                            ? 'border-emerald-500 bg-emerald-100 text-emerald-900 dark:bg-emerald-900 dark:text-emerald-100 font-extrabold'
+                                            : isThisOptionSelected
+                                            ? 'border-rose-500 bg-rose-100 text-rose-900 dark:bg-rose-900 dark:text-rose-100 line-through'
+                                            : 'border-slate-200 dark:border-slate-800 text-slate-400'
+                                          : isThisOptionSelected
+                                          ? 'border-indigo-600 bg-indigo-600 text-white shadow-xs'
+                                          : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-indigo-300'
+                                      }`}
+                                    >
+                                      {opt}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+
+                              {clozeRevealed && blank.explain && (
+                                <p className="mt-2 text-[11px] text-slate-600 dark:text-slate-300 italic bg-white/60 dark:bg-slate-900/60 p-2 rounded border border-slate-200/60 dark:border-slate-800">
+                                  💡 Giải thích: {blank.explain}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+
+                    {/* 3. VOCABULARY HIGHLIGHTS LIST */}
+                    {exerciseTab === 'vocab' && (
+                      <div className="space-y-3">
+                        <div className="pb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300">
+                          Từ vựng trọng tâm ({activeArticle.vocabulary_highlights?.length || 0} từ)
+                        </div>
+
+                        {activeArticle.vocabulary_highlights && activeArticle.vocabulary_highlights.length > 0 ? (
+                          activeArticle.vocabulary_highlights.map((voc, idx) => (
+                            <div
+                              key={idx}
+                              className="rounded-xl border border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 p-2.5 hover:border-indigo-200 dark:hover:border-indigo-800 transition-colors"
+                            >
+                              <div className="flex items-center justify-between gap-1.5">
+                                <span className="font-bold text-xs text-indigo-700 dark:text-indigo-300">
+                                  {voc.word}
+                                </span>
+                                <div className="flex items-center gap-1">
+                                  {voc.pos && (
+                                    <span className="rounded bg-slate-200/70 dark:bg-slate-700 px-1 py-0.2 text-[10px] text-slate-600 dark:text-slate-300 font-mono">
+                                      {voc.pos}
+                                    </span>
+                                  )}
+                                  <button
+                                    type="button"
+                                    onClick={() => speakText(voc.word)}
+                                    className="p-1 text-slate-400 hover:text-indigo-600"
+                                    title="Phát âm"
+                                  >
+                                    <Volume2 className="h-3.5 w-3.5" />
+                                  </button>
+                                </div>
+                              </div>
+                              {voc.phonetic && (
+                                <p className="text-[10px] text-slate-400 font-mono">{voc.phonetic}</p>
+                              )}
+                              <p className="mt-1 text-xs font-medium text-slate-700 dark:text-slate-200">
+                                {voc.meaning_vi}
+                              </p>
+                              {voc.context_sentence && (
+                                <p className="mt-1 text-[11px] text-slate-500 italic border-l-2 border-indigo-200 pl-2">
+                                  &ldquo;{voc.context_sentence}&rdquo;
+                                </p>
+                              )}
+                            </div>
+                          ))
+                        ) : (
+                          <p className="text-xs text-slate-400 py-4 text-center">
+                            Nhấp trực tiếp vào bất kỳ từ nào trên đoạn văn để tra nghĩa và phát âm.
                           </p>
                         )}
                       </div>
-                    );
-                  })}
-                </div>
+                    )}
 
-                {/* Submit / Reset Buttons */}
-                <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-                  {clozeRevealed ? (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setClozeAnswers({});
-                        setClozeRevealed(false);
-                      }}
-                      className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-800 px-4 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                    >
-                      <RotateCcw className="h-3.5 w-3.5" />
-                      <span>Làm lại bài đục lỗ</span>
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setClozeRevealed(true)}
-                      className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-indigo-700 active:scale-95 transition-all"
-                    >
-                      <Check className="h-4 w-4" />
-                      <span>Kiểm tra kết quả</span>
-                    </button>
-                  )}
-                </div>
-              </div>
-            )}
+                    {/* 4. MINDMAP & OUTLINE */}
+                    {exerciseTab === 'mindmap' && (
+                      <div className="space-y-4">
+                        <div className="pb-2 border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                          <Brain className="h-3.5 w-3.5 text-indigo-500" />
+                          <span>Cấu trúc luận điểm & Ý chính</span>
+                        </div>
 
-            {/* TAB CONTENT 3: MCQ COMPREHENSION */}
-            {readingTab === 'mcq' && (
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-7 shadow-xs space-y-6">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100">
-                      🎯 Câu hỏi đọc hiểu trắc nghiệm ({activeArticle.questions?.length || 0} câu)
-                    </h3>
-                    <p className="text-xs text-slate-500">
-                      Đọc kỹ câu hỏi và chọn đáp án chính xác nhất theo nội dung bài đọc.
-                    </p>
-                  </div>
-                  {mcqScore && (
-                    <div className="rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-300 dark:border-indigo-800 px-3 py-1.5 text-xs font-black text-indigo-800 dark:text-indigo-300">
-                      Điểm: {mcqScore.correct}/{mcqScore.total} câu ({Math.round((mcqScore.correct / mcqScore.total) * 100)}%)
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-6">
-                  {(activeArticle.questions || []).map((q, qIdx) => {
-                    const qKey = q.id || qIdx;
-                    const selectedIdx = mcqAnswers[qKey];
-                    const expectedIdx = getExpectedMcqIndex(q);
-                    const isCorrect = selectedIdx !== undefined && selectedIdx === expectedIdx;
-
-                    return (
-                      <div
-                        key={qKey}
-                        className={`rounded-2xl border p-4 sm:p-5 transition-all ${
-                          mcqRevealed
-                            ? isCorrect
-                              ? 'border-emerald-300 bg-emerald-50/40 dark:border-emerald-800 dark:bg-emerald-950/20'
-                              : 'border-rose-300 bg-rose-50/40 dark:border-rose-800 dark:bg-rose-950/20'
-                            : 'border-slate-200 dark:border-slate-800 bg-slate-50/40 dark:bg-slate-800/30'
-                        }`}
-                      >
-                        <div className="flex items-start gap-2.5 mb-3">
-                          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-950 text-xs font-black text-indigo-700 dark:text-indigo-300">
-                            {qIdx + 1}
-                          </span>
-                          <div className="flex-1 font-bold text-xs sm:text-sm text-slate-900 dark:text-slate-100 leading-snug">
-                            {q.question}
+                        {activeArticle.mindmap_data?.root ? (
+                          <div className="pt-1">
+                            <MindmapTreeItem node={activeArticle.mindmap_data.root} depth={0} />
                           </div>
-                          {mcqRevealed && (
-                            <span className={`text-xs font-bold shrink-0 ${isCorrect ? 'text-emerald-600' : 'text-rose-600'}`}>
-                              {isCorrect ? '✓ Đúng' : '✗ Chưa đúng'}
-                            </span>
-                          )}
-                        </div>
-
-                        {/* MCQ Options */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pl-0 sm:pl-8">
-                          {q.options.map((opt, optIdx) => {
-                            const letters = ['A', 'B', 'C', 'D'];
-                            const isChosen = selectedIdx === optIdx;
-                            const isExpected = optIdx === expectedIdx;
-
-                            return (
-                              <button
-                                key={optIdx}
-                                type="button"
-                                disabled={mcqRevealed}
-                                onClick={() => {
-                                  setMcqAnswers((prev) => ({ ...prev, [qKey]: optIdx }));
-                                }}
-                                className={`flex items-start gap-2.5 rounded-xl border p-3 text-xs text-left transition-all ${
-                                  mcqRevealed
-                                    ? isExpected
-                                      ? 'border-emerald-500 bg-emerald-100 text-emerald-900 dark:bg-emerald-900 dark:text-emerald-100 font-bold'
-                                      : isChosen
-                                      ? 'border-rose-500 bg-rose-100 text-rose-900 dark:bg-rose-900 dark:text-rose-100 line-through'
-                                      : 'border-slate-200 dark:border-slate-800 opacity-60'
-                                    : isChosen
-                                    ? 'border-indigo-600 bg-indigo-50/90 dark:bg-indigo-950 text-indigo-900 dark:text-indigo-200 font-bold shadow-2xs'
-                                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-indigo-300 hover:bg-slate-50'
-                                }`}
-                              >
-                                <span
-                                  className={`flex h-5 w-5 shrink-0 items-center justify-center rounded text-[11px] font-bold ${
-                                    mcqRevealed && isExpected
-                                      ? 'bg-emerald-600 text-white'
-                                      : isChosen
-                                      ? 'bg-indigo-600 text-white'
-                                      : 'bg-slate-100 dark:bg-slate-800 text-slate-500'
-                                  }`}
-                                >
-                                  {letters[optIdx] || optIdx + 1}
-                                </span>
-                                <span className="flex-1 leading-snug">{opt}</span>
-                              </button>
-                            );
-                          })}
-                        </div>
-
-                        {/* Question Explanation Box */}
-                        {mcqRevealed && q.explain && (
-                          <div className="mt-3.5 pl-0 sm:pl-8">
-                            <div className="rounded-xl border border-indigo-200/80 bg-indigo-50/60 dark:border-indigo-900/60 dark:bg-indigo-950/40 p-3 text-xs text-indigo-950 dark:text-indigo-200 leading-relaxed">
-                              <span className="font-bold">💡 Giải thích chi tiết: </span>
-                              <span>{q.explain}</span>
+                        ) : (
+                          <div className="space-y-3">
+                            <div className="rounded-xl border border-indigo-200 bg-indigo-50/50 dark:border-indigo-900 dark:bg-indigo-950/30 p-3">
+                              <h4 className="text-[11px] font-bold text-indigo-900 dark:text-indigo-200 uppercase tracking-wider mb-1">
+                                📌 Ý chính bài đọc
+                              </h4>
+                              <p className="text-xs text-slate-800 dark:text-slate-200 leading-relaxed">
+                                {activeArticle.summary || activeArticle.title}
+                              </p>
                             </div>
+
+                            {(() => {
+                              const paras = getPassageParagraphs(activeArticle);
+                              if (paras.length <= 1) return null;
+                              return (
+                                <div className="space-y-2">
+                                  <h4 className="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+                                    📑 Bố cục {paras.length} đoạn văn
+                                  </h4>
+                                  {paras.map((p, idx) => (
+                                    <div
+                                      key={idx}
+                                      className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 p-2.5 text-xs"
+                                    >
+                                      <span className="font-bold text-indigo-700 dark:text-indigo-300 block mb-0.5">
+                                        Đoạn {idx + 1}
+                                      </span>
+                                      <p className="text-slate-600 dark:text-slate-300 italic line-clamp-2">
+                                        &ldquo;{p.slice(0, 120)}...&rdquo;
+                                      </p>
+                                    </div>
+                                  ))}
+                                </div>
+                              );
+                            })()}
                           </div>
                         )}
                       </div>
-                    );
-                  })}
-                </div>
-
-                {/* MCQ Submit Button */}
-                <div className="flex items-center justify-end gap-3 pt-3 border-t border-slate-100 dark:border-slate-800">
-                  {mcqRevealed ? (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setMcqAnswers({});
-                        setMcqRevealed(false);
-                      }}
-                      className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-800 px-4 py-2 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
-                    >
-                      <RotateCcw className="h-3.5 w-3.5" />
-                      <span>Làm lại bài trắc nghiệm</span>
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={handleGradeMcq}
-                      className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-5 py-2.5 text-xs font-bold text-white shadow-xs hover:bg-indigo-700 active:scale-95 transition-all"
-                    >
-                      <Check className="h-4 w-4" />
-                      <span>Nộp bài & Chấm điểm</span>
-                    </button>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* TAB CONTENT 4: MINDMAP & STRUCTURAL BREAKDOWN */}
-            {readingTab === 'mindmap' && (
-              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-5 sm:p-7 shadow-xs space-y-4">
-                <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
-                  <div>
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
-                      <Brain className="h-4 w-4 text-indigo-500" />
-                      <span>Sơ đồ tư duy & Cấu trúc bài đọc</span>
-                    </h3>
-                    <p className="text-xs text-slate-500">
-                      Trực quan hóa cấu trúc luận điểm, luận cứ và mối liên hệ ý tưởng.
-                    </p>
+                    )}
                   </div>
-                </div>
 
-                {activeArticle.mindmap_data?.root ? (
-                  <div className="pt-2">
-                    <MindmapTreeItem node={activeArticle.mindmap_data.root} depth={0} />
-                  </div>
-                ) : (
-                  <div className="space-y-4 pt-2">
-                    {/* Fallback Structured View */}
-                    <div className="rounded-xl border border-indigo-200 bg-indigo-50/50 dark:border-indigo-900 dark:bg-indigo-950/30 p-4">
-                      <h4 className="text-xs font-bold text-indigo-900 dark:text-indigo-200 uppercase tracking-wider mb-2">
-                        📌 Luận điểm & Ý chính (Main Purpose)
-                      </h4>
-                      <p className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
-                        {activeArticle.summary || activeArticle.title}
-                      </p>
-                    </div>
-
-                    {/* Paragraph-by-paragraph breakdown */}
-                    {(() => {
-                      const paras = getPassageParagraphs(activeArticle);
-                      if (paras.length <= 1) return null;
-                      return (
-                        <div className="space-y-2">
-                          <h4 className="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                            📑 Cấu trúc phân đoạn bài đọc ({paras.length} đoạn)
-                          </h4>
-                          <div className="grid grid-cols-1 gap-2.5">
-                            {paras.map((p, idx) => {
-                              const preview = p.slice(0, 160).trim();
-                              const role =
-                                idx === 0
-                                  ? 'Đoạn 1 · Mở đầu & Bối cảnh chủ đề'
-                                  : idx === paras.length - 1
-                                  ? `Đoạn ${idx + 1} · Kết luận & Tác động`
-                                  : `Đoạn ${idx + 1} · Phát triển luận điểm & Chi tiết dẫn chứng`;
-
-                              return (
-                                <div
-                                  key={idx}
-                                  className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-800/40 p-3"
-                                >
-                                  <div className="flex items-center justify-between text-xs font-bold text-indigo-700 dark:text-indigo-300 mb-1">
-                                    <span>{role}</span>
-                                    <span className="text-[10px] text-slate-400 font-normal">
-                                      ~{p.split(/\s+/).filter(Boolean).length} từ
-                                    </span>
-                                  </div>
-                                  <p className="text-xs text-slate-600 dark:text-slate-300 font-serif italic line-clamp-2">
-                                    &ldquo;{preview}...&rdquo;
-                                  </p>
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      );
-                    })()}
-
-                    {/* Key vocabulary chips */}
-                    {activeArticle.vocabulary_highlights && activeArticle.vocabulary_highlights.length > 0 && (
-                      <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-3.5 bg-slate-50/50 dark:bg-slate-800/40">
-                        <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">
-                          💡 Từ khóa cốt lõi của bài đọc:
-                        </span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {activeArticle.vocabulary_highlights.map((v, i) => (
-                            <button
-                              key={i}
-                              type="button"
-                              onClick={() => {
-                                setReadingTab('passage');
-                                setInspectedWord({ word: v.word, item: v });
-                              }}
-                              className="rounded-lg border border-indigo-200 dark:border-indigo-800 bg-white dark:bg-slate-900 px-2 py-1 text-xs text-indigo-700 dark:text-indigo-300 font-medium hover:border-indigo-400 cursor-pointer shadow-2xs"
-                            >
-                              {v.word} ({v.meaning_vi})
-                            </button>
-                          ))}
-                        </div>
-                      </div>
+                  {/* Right Pane Footer Actions */}
+                  <div className="p-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/60 flex items-center justify-between shrink-0">
+                    {exerciseTab === 'mcq' && (
+                      mcqRevealed ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setMcqAnswers({});
+                            setMcqRevealed(false);
+                          }}
+                          className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-700 px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                        >
+                          <RotateCcw className="h-3.5 w-3.5" />
+                          <span>Làm lại trắc nghiệm</span>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={handleGradeMcq}
+                          className="w-full inline-flex items-center justify-center gap-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 text-xs shadow-xs transition-all cursor-pointer"
+                        >
+                          <Check className="h-3.5 w-3.5" />
+                          <span>Kiểm tra đáp án & Chấm điểm</span>
+                        </button>
+                      )
                     )}
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-3.5 bg-slate-50/50 dark:bg-slate-800/40">
-                        <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                          📊 Thang đo độ khó CEFR
-                        </span>
-                        <p className="text-xs text-slate-600 dark:text-slate-400">
-                          {CEFR_CONFIG[activeArticle.cefr_level]?.desc || 'Độ khó chuẩn hóa quốc tế'}
-                        </p>
-                      </div>
+                    {exerciseTab === 'cloze' && (
+                      clozeRevealed ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setClozeAnswers({});
+                            setClozeRevealed(false);
+                          }}
+                          className="inline-flex items-center gap-1.5 rounded-xl border border-slate-200 dark:border-slate-700 px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                        >
+                          <RotateCcw className="h-3.5 w-3.5" />
+                          <span>Làm lại bài đục lỗ</span>
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setClozeRevealed(true)}
+                          className="w-full inline-flex items-center justify-center gap-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 text-xs shadow-xs transition-all cursor-pointer"
+                        >
+                          <Check className="h-3.5 w-3.5" />
+                          <span>Kiểm tra đáp án</span>
+                        </button>
+                      )
+                    )}
 
-                      <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-3.5 bg-slate-50/50 dark:bg-slate-800/40">
-                        <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-1">
-                          🎯 Chiến lược đọc hiểu
-                        </span>
-                        <p className="text-xs text-slate-600 dark:text-slate-400">
-                          Skimming lấy ý chính đoạn 1 & cuối; Scanning từ khóa và mốc thời gian để làm trắc nghiệm.
-                        </p>
-                      </div>
-                    </div>
+                    {(exerciseTab === 'vocab' || exerciseTab === 'mindmap') && (
+                      <span className="text-[11px] text-slate-500 italic">
+                        Bấm vào từ khóa hoặc đoạn văn để đối chiếu.
+                      </span>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
-            )}
+            </div>
           </div>
         ) : (
           /* ============================================================== */

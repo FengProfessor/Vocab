@@ -7,7 +7,7 @@ namespace LingoPro.Application.Features.Vocab.Queries;
 
 /// <summary>
 /// Handles <see cref="GetVocabAnalyticsQuery"/> by aggregating FSRS L1-L6 level counts,
-/// learning analytics metrics, and paginated vocabulary items from the repository.
+/// learning analytics metrics, and filtered/paginated vocabulary items from the repository.
 /// </summary>
 public sealed class GetVocabAnalyticsQueryHandler(
     ICurrentUserService currentUser,
@@ -24,6 +24,10 @@ public sealed class GetVocabAnalyticsQueryHandler(
             request.ClassroomId,
             limit,
             offset,
+            request.Filter,
+            request.SearchQuery,
+            request.Sort,
+            request.Ids,
             ct);
 
         return ApiResponse<VocabAnalyticsDto>.Ok(

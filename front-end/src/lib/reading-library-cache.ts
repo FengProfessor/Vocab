@@ -6,7 +6,7 @@
 import type { ReadingArticle } from '@/types/reading-library';
 import { BrowserStorage, STORAGE_KEYS } from '@/shared/lib/storage';
 
-const CACHE_KEY_PREFIX = STORAGE_KEYS.READING_LIBRARY_QUERY_PREFIX;
+const CACHE_KEY_PREFIX = `${STORAGE_KEYS.READING_LIBRARY_QUERY_PREFIX}:v2`;
 const BOOKMARKS_KEY = STORAGE_KEYS.READING_LIBRARY_BOOKMARKS;
 
 export interface CachedLibraryResponse {
@@ -39,9 +39,21 @@ export function readLibraryCache(opts: {
   search: string;
 }): CachedLibraryResponse | null {
   const parsed = BrowserStorage.getSession<CachedLibraryResponse | null>(buildCacheKey(opts), null);
-  if (!parsed) return null;
+  if (!parsed || !Array.isArray(parsed.articles)) return null;
   // Stale window: 15 minutes
   if (Date.now() - parsed.timestamp > 15 * 60 * 1000) return null;
+  // Invalidate legacy/broken cache entries missing snake_case ReadingArticle fields or full catalog
+  if (
+    parsed.articles.length === 0 ||
+    parsed.articles.some((a) => !a?.cefr_level || !a?.passage) ||
+    ((!opts.level || opts.level === 'all') &&
+      (!opts.theme || opts.theme === 'all') &&
+      (!opts.source || opts.source === 'all') &&
+      !opts.search &&
+      (parsed.total ?? parsed.articles.length) < 18)
+  ) {
+    return null;
+  }
   return parsed;
 }
 

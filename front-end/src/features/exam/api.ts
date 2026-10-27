@@ -25,6 +25,7 @@ import {
   loadAnyToeicTest,
   loadToeicPartPractice,
   loadToeicQuestionsByIds,
+  preloadToeicTestData,
   stripSensitiveClusterData,
   stripSensitiveToeicData,
   type ToeicPartPracticeOptions,
@@ -42,6 +43,7 @@ import {
   loadVstepExamSafe,
   loadVstepQuestionsByIds,
   loadVstepSkillPractice,
+  preloadVstepExamData,
 } from '@/lib/vstep-test-loader';
 import { calculateVstepScore } from '@/lib/vstep-scoring';
 import {
@@ -189,6 +191,15 @@ export class ExamApi {
             seed,
           }
         : undefined;
+
+    await preloadToeicTestData({
+      testId: cleanTestId,
+      part: partNum,
+      questionIds: [
+        ...(parsedExcludedIds || []),
+        ...(parsedMistakeIds || []),
+      ],
+    });
 
     let questions: ToeicUnifiedQuestion[] = [];
     let title = '';
@@ -356,6 +367,12 @@ export class ExamApi {
           : rawQuestionId
       : undefined;
 
+    await preloadToeicTestData({
+      testId: cleanTestId,
+      part: requiredPart,
+      questionIds: normalizedQuestionId ? [normalizedQuestionId] : undefined,
+    });
+
     let target: ToeicUnifiedQuestion | undefined;
 
     if (normalizedQuestionId) {
@@ -460,6 +477,14 @@ export class ExamApi {
       }
     }
     const limitNum = body.limit ? Number(body.limit) : undefined;
+
+    await preloadToeicTestData({
+      testId,
+      part: partNum,
+      questionIds: Array.isArray(body.questionIds)
+        ? (body.questionIds as string[])
+        : undefined,
+    });
 
     let masterQuestions: ToeicUnifiedQuestion[] = [];
     if (Array.isArray(body.questionIds) && body.questionIds.length > 0) {
@@ -568,6 +593,24 @@ export class ExamApi {
     }
 
     const catalogPracticeSkill = getCatalogPracticeSkill(testId);
+    const preloadSkill: VstepSkillType | undefined =
+      skillParam ||
+      catalogPracticeSkill ||
+      (testId === 'practice' || testId === 'bank'
+        ? testId?.includes('reading')
+          ? 'reading'
+          : 'listening'
+        : undefined);
+
+    await preloadVstepExamData({
+      testId,
+      skill: preloadSkill,
+      questionIds: [
+        ...(Array.isArray(body.excludedIds) ? (body.excludedIds as string[]) : []),
+        ...(Array.isArray(body.mistakeIds) ? (body.mistakeIds as string[]) : []),
+      ],
+    });
+
     if (testId && isProductiveSkill(catalogPracticeSkill)) {
       const safeExam = loadVstepExamSafe(testId);
       if (!safeExam) {
@@ -654,6 +697,10 @@ export class ExamApi {
     const body = normalizePayloadData(rawBody);
     const testId = String(body.testId || '');
     const questionId = String(body.questionId || '');
+    await preloadVstepExamData({
+      testId: testId || undefined,
+      questionIds: questionId ? [questionId] : undefined,
+    });
     const details = getVstepQuestionExplanation(testId, questionId);
     if (!details) {
       return withResponseCompat(
@@ -696,6 +743,12 @@ export class ExamApi {
         false,
       );
     }
+
+    await preloadVstepExamData({
+      testId,
+      skill: practiceSkill,
+      questionIds,
+    });
 
     const rawExam = loadRawVstepExam(testId);
     let reviewExam: VstepExam;

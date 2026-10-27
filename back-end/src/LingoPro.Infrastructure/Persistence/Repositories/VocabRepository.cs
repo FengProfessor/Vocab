@@ -1,7 +1,10 @@
+using System.Text.Json;
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Interfaces.Repositories;
+using LingoPro.Application.Features.Vocab.Commands;
 using LingoPro.Application.Features.Vocab.Queries;
 using LingoPro.Domain.Entities.Auth;
+using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Entities.Vocab;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +12,7 @@ namespace LingoPro.Infrastructure.Persistence.Repositories;
 
 /// <summary>
 /// EF Core repository executing vocabulary FSRS review persistence, due review queue queries,
-/// and real-time L1-L6 learning analytics aggregations.
+/// curated vocabulary pack imports, and real-time L1-L6 learning analytics aggregations.
 /// </summary>
 public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRepository
 {
@@ -57,6 +60,10 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
         string? classroomScope,
         int limit,
         int offset,
+        string? filter = null,
+        string? searchQuery = null,
+        string? sort = null,
+        string? ids = null,
         CancellationToken ct = default)
     {
         var nowUtc = DateTime.UtcNow;
@@ -93,7 +100,8 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
         if (!string.IsNullOrWhiteSpace(classroomScope) &&
             !string.Equals(classroomScope, "all", StringComparison.OrdinalIgnoreCase))
         {
-            if (string.Equals(classroomScope, "personal", StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(classroomScope, "personal", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(classroomScope, "__personal__", StringComparison.OrdinalIgnoreCase))
             {
                 if (personalClassroomId.HasValue)
                 {
@@ -168,6 +176,38 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
         if (extraWordsFromSrs.Count > 0)
         {
             userWords.AddRange(extraWordsFromSrs);
+        }
+
+        // If specific word IDs were requested (e.g., from a newly imported pack) and aren't in userWords yet, fetch them directly
+        var requestedIds = ParseGuidList(ids);
+        if (requestedIds.Count > 0)
+        {
+            var missingIds = requestedIds.Where(id => !existingWordIds.Contains(id) && extraWordsFromSrs.All(x => x.Id != id)).ToList();
+            if (missingIds.Count > 0)
+            {
+                var explicitWords = await dbContext.Words
+                    .AsNoTracking()
+                    .Where(w => missingIds.Contains(w.Id) && w.IsDeleted != true)
+                    .Select(w => new
+                    {
+                        w.Id,
+                        w.Term,
+                        w.Translation,
+                        w.Ipa,
+                        w.Pos,
+                        w.Example,
+                        w.ExampleVi,
+                        w.ImageUrl,
+                        w.ClassroomId,
+                        w.CreatedAt
+                    })
+                    .ToListAsync(ct);
+
+                if (explicitWords.Count > 0)
+                {
+                    userWords.AddRange(explicitWords);
+                }
+            }
         }
 
         // 3. Compute L1-L6 breakdown, due counts, stability & retention
@@ -257,7 +297,7 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
             ? (int)Math.Round((retentionSum / reviewedWordsCount) * 100.0)
             : 0;
 
-        // 4. Weak words diagnostic (lowest stability among reviewed words, or lowest stability overall)
+        // 4. Weak words diagnostic (lowest stability among reviewed words)
         var weakWords = enrichedWords
             .Where(w => w.ReviewCount > 0)
             .OrderBy(w => w.Stability)
@@ -490,8 +530,59 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
             readingScore,
             listeningScore);
 
+        // 9. Apply optional IDs, filter, search query, and sort to produce the paginated words list
+        IEnumerable<VocabWordItemDto> filteredWords = enrichedWords;
+
+        if (requestedIds.Count > 0)
+        {
+            var idOrderMap = requestedIds
+                .Select((id, idx) => (id, idx))
+                .GroupBy(x => x.id)
+                .ToDictionary(g => g.Key, g => g.First().idx);
+
+            filteredWords = filteredWords
+                .Where(w => idOrderMap.ContainsKey(w.Id))
+                .OrderBy(w => idOrderMap[w.Id]);
+        }
+
+        if (!string.IsNullOrWhiteSpace(filter) &&
+            !string.Equals(filter, "all", StringComparison.OrdinalIgnoreCase))
+        {
+            string normalizedFilter = filter.Trim().ToLowerInvariant();
+            filteredWords = normalizedFilter switch
+            {
+                "new" => filteredWords.Where(w => w.ReviewCount <= 0),
+                "review" => filteredWords.Where(w => w.ReviewCount > 0 && (w.NextReviewDate == null || w.NextReviewDate.Value <= nowUtc)),
+                "due" => filteredWords.Where(w => w.ReviewCount <= 0 || w.NextReviewDate == null || w.NextReviewDate.Value <= nowUtc),
+                "learned" => filteredWords.Where(w => w.ReviewCount > 0 && w.SrsLevel < 5),
+                "mastered" => filteredWords.Where(w => w.ReviewCount > 0 && w.SrsLevel >= 5),
+                _ => filteredWords
+            };
+        }
+
+        if (!string.IsNullOrWhiteSpace(searchQuery))
+        {
+            string needle = searchQuery.Trim();
+            filteredWords = filteredWords.Where(w =>
+                w.Word.Contains(needle, StringComparison.OrdinalIgnoreCase) ||
+                w.Translation.Contains(needle, StringComparison.OrdinalIgnoreCase));
+        }
+
+        if (!string.IsNullOrWhiteSpace(sort))
+        {
+            string normalizedSort = sort.Trim().ToLowerInvariant();
+            filteredWords = normalizedSort switch
+            {
+                "oldest" => filteredWords.OrderBy(w => w.CreatedAt),
+                "az" => filteredWords.OrderBy(w => w.Word, StringComparer.OrdinalIgnoreCase),
+                "hardest" => filteredWords.OrderBy(w => w.SrsLevel).ThenBy(w => w.ReviewCount),
+                "newest" => filteredWords.OrderByDescending(w => w.CreatedAt),
+                _ => filteredWords
+            };
+        }
+
         var pagedWords = limit > 0
-            ? enrichedWords.Skip(offset).Take(limit).ToList()
+            ? filteredWords.Skip(offset).Take(limit).ToList()
             : [];
 
         return new VocabAnalyticsDto(
@@ -519,6 +610,276 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
             pagedWords);
     }
 
+    public async Task<ImportVocabPackResultDto> ImportVocabPackAsync(
+        Guid userId,
+        ImportVocabPackCommand command,
+        CancellationToken ct = default)
+    {
+        var nowUtc = DateTime.UtcNow;
+
+        // 1. Resolve or create the user's personal classroom (__personal__)
+        var personalClassroom = await dbContext.Classrooms
+            .FirstOrDefaultAsync(c => c.TeacherId == userId && c.Name == "__personal__" && c.IsDeleted != true, ct);
+
+        if (personalClassroom == null)
+        {
+            personalClassroom = new ClassroomEntity
+            {
+                Id = Guid.NewGuid(),
+                TeacherId = userId,
+                Name = "__personal__",
+                Description = "Kho từ vựng cá nhân",
+                InviteCode = $"P{Guid.NewGuid():N}"[..8].ToUpperInvariant(),
+                CreatedAt = nowUtc
+            };
+            dbContext.Classrooms.Add(personalClassroom);
+        }
+
+        var classroomId = personalClassroom.Id;
+
+        // 2. Deduplicate input words while preserving order
+        var inputWords = new List<ImportVocabPackWordInputDto>();
+        var seenHeadwords = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        if (command.Words != null)
+        {
+            foreach (var w in command.Words)
+            {
+                if (string.IsNullOrWhiteSpace(w.Word)) continue;
+                string headword = w.Word.Trim().ToLowerInvariant();
+                if (seenHeadwords.Add(headword))
+                {
+                    inputWords.Add(w);
+                }
+            }
+        }
+
+        // 3. Load existing words in the personal classroom and global dictionary entries for enrichment
+        var existingWords = await dbContext.Words
+            .Where(w => w.ClassroomId == classroomId && w.IsDeleted != true)
+            .ToListAsync(ct);
+
+        var existingByTerm = existingWords
+            .GroupBy(w => w.Term.Trim().ToLowerInvariant())
+            .ToDictionary(g => g.Key, g => g.First(), StringComparer.OrdinalIgnoreCase);
+
+        var headwordList = inputWords.Select(w => w.Word.Trim().ToLowerInvariant()).ToList();
+        var dictEntries = await dbContext.GlobalDictionaries
+            .AsNoTracking()
+            .Where(d => headwordList.Contains(d.Word.ToLower()))
+            .ToListAsync(ct);
+
+        var dictByWord = dictEntries
+            .GroupBy(d => d.Word.Trim().ToLowerInvariant())
+            .ToDictionary(g => g.Key, g => g.First(), StringComparer.OrdinalIgnoreCase);
+
+        var orderedWordIds = new List<Guid>(inputWords.Count);
+        int importedCount = 0;
+
+        foreach (var item in inputWords)
+        {
+            string normalizedTerm = item.Word.Trim().ToLowerInvariant();
+            dictByWord.TryGetValue(normalizedTerm, out var dictEntry);
+            var (dictMeaning, dictIpa, dictPos, dictExample, dictExampleVi) = ParseGlobalDictionaryData(dictEntry?.Data);
+
+            string translation = !string.IsNullOrWhiteSpace(item.Translation)
+                ? item.Translation.Trim()
+                : (dictMeaning ?? item.Word.Trim());
+            string? ipa = !string.IsNullOrWhiteSpace(item.Ipa) ? item.Ipa.Trim() : dictIpa;
+            string? pos = !string.IsNullOrWhiteSpace(item.Pos) ? item.Pos.Trim() : dictPos;
+            string? example = !string.IsNullOrWhiteSpace(item.Example) ? item.Example.Trim() : dictExample;
+            string? exampleVi = !string.IsNullOrWhiteSpace(item.ExampleVi) ? item.ExampleVi.Trim() : dictExampleVi;
+            string? imageUrl = dictEntry?.ImageUrl;
+
+            if (existingByTerm.TryGetValue(normalizedTerm, out var existingWord))
+            {
+                if (string.IsNullOrWhiteSpace(existingWord.Translation) && !string.IsNullOrWhiteSpace(translation))
+                    existingWord.Translation = translation;
+                if (string.IsNullOrWhiteSpace(existingWord.Ipa) && !string.IsNullOrWhiteSpace(ipa))
+                    existingWord.Ipa = ipa;
+                if (string.IsNullOrWhiteSpace(existingWord.Pos) && !string.IsNullOrWhiteSpace(pos))
+                    existingWord.Pos = pos;
+                if (string.IsNullOrWhiteSpace(existingWord.Example) && !string.IsNullOrWhiteSpace(example))
+                    existingWord.Example = example;
+                if (string.IsNullOrWhiteSpace(existingWord.ExampleVi) && !string.IsNullOrWhiteSpace(exampleVi))
+                    existingWord.ExampleVi = exampleVi;
+                if (string.IsNullOrWhiteSpace(existingWord.ImageUrl) && !string.IsNullOrWhiteSpace(imageUrl))
+                    existingWord.ImageUrl = imageUrl;
+
+                orderedWordIds.Add(existingWord.Id);
+            }
+            else
+            {
+                var newWord = new Word
+                {
+                    Id = Guid.NewGuid(),
+                    ClassroomId = classroomId,
+                    AddedBy = userId,
+                    Term = normalizedTerm,
+                    Translation = translation,
+                    Ipa = ipa,
+                    Pos = pos,
+                    Example = example,
+                    ExampleVi = exampleVi,
+                    ImageUrl = imageUrl,
+                    CreatedAt = nowUtc
+                };
+
+                dbContext.Words.Add(newWord);
+                existingByTerm[normalizedTerm] = newWord;
+                orderedWordIds.Add(newWord.Id);
+                importedCount++;
+            }
+        }
+
+        // 4. Record or update pack progress in user_vocab_packs and user_vocab_pack_words
+        int reviewedCount = 0;
+        if (orderedWordIds.Count > 0)
+        {
+            reviewedCount = await dbContext.SrsProgresses
+                .AsNoTracking()
+                .CountAsync(s => s.UserId == userId && orderedWordIds.Contains(s.WordId) && s.ReviewCount > 0, ct);
+        }
+
+        string packId = command.PackId.Trim();
+        string topicId = !string.IsNullOrWhiteSpace(command.TopicId) ? command.TopicId.Trim() : packId;
+        string topicTitle = !string.IsNullOrWhiteSpace(command.TopicTitle) ? command.TopicTitle.Trim() : packId;
+        int packIndex = Math.Max(1, command.PackIndex);
+        string catalogVersion = !string.IsNullOrWhiteSpace(command.CatalogVersion) ? command.CatalogVersion.Trim() : "v1";
+        string status = orderedWordIds.Count > 0 && reviewedCount >= orderedWordIds.Count
+            ? "completed"
+            : "in_progress";
+
+        var userPack = await dbContext.UserVocabPacks
+            .Include(p => p.PackWords)
+            .FirstOrDefaultAsync(p => p.UserId == userId && p.PackId == packId, ct);
+
+        if (userPack == null)
+        {
+            userPack = new UserVocabPack
+            {
+                UserId = userId,
+                PackId = packId,
+                CatalogVersion = catalogVersion,
+                TopicId = topicId,
+                TopicTitle = topicTitle,
+                PackIndex = packIndex,
+                Status = status,
+                WordCount = orderedWordIds.Count,
+                ReviewedCount = reviewedCount,
+                StartedAt = nowUtc,
+                LastStudiedAt = nowUtc,
+                CompletedAt = status == "completed" ? nowUtc : null
+            };
+            dbContext.UserVocabPacks.Add(userPack);
+        }
+        else
+        {
+            userPack.TopicId = topicId;
+            userPack.TopicTitle = topicTitle;
+            userPack.PackIndex = packIndex;
+            userPack.CatalogVersion = catalogVersion;
+            userPack.WordCount = orderedWordIds.Count;
+            userPack.ReviewedCount = reviewedCount;
+            userPack.Status = status;
+            userPack.StartedAt ??= nowUtc;
+            userPack.LastStudiedAt = nowUtc;
+            if (status == "completed" && userPack.CompletedAt == null)
+            {
+                userPack.CompletedAt = nowUtc;
+            }
+
+            if (userPack.PackWords.Count > 0)
+            {
+                dbContext.UserVocabPackWords.RemoveRange(userPack.PackWords);
+            }
+        }
+
+        for (int pos = 0; pos < orderedWordIds.Count; pos++)
+        {
+            dbContext.UserVocabPackWords.Add(new UserVocabPackWord
+            {
+                UserId = userId,
+                PackId = packId,
+                WordId = orderedWordIds[pos],
+                Position = pos
+            });
+        }
+
+        await dbContext.SaveChangesAsync(ct);
+
+        return new ImportVocabPackResultDto(
+            importedCount,
+            orderedWordIds.Count,
+            classroomId,
+            packId,
+            topicTitle,
+            packIndex,
+            orderedWordIds);
+    }
+
+    public async Task<IReadOnlyList<UserVocabPackDto>> GetUserVocabPacksAsync(
+        Guid userId,
+        CancellationToken ct = default)
+    {
+        var packs = await dbContext.UserVocabPacks
+            .AsNoTracking()
+            .Include(p => p.PackWords)
+            .Where(p => p.UserId == userId)
+            .OrderByDescending(p => p.LastStudiedAt ?? p.StartedAt)
+            .ToListAsync(ct);
+
+        if (packs.Count == 0)
+        {
+            return [];
+        }
+
+        var allWordIds = packs
+            .SelectMany(p => p.PackWords.Select(pw => pw.WordId))
+            .Distinct()
+            .ToList();
+
+        var reviewedWordIds = allWordIds.Count > 0
+            ? (await dbContext.SrsProgresses
+                .AsNoTracking()
+                .Where(s => s.UserId == userId && allWordIds.Contains(s.WordId) && s.ReviewCount > 0)
+                .Select(s => s.WordId)
+                .ToListAsync(ct))
+                .ToHashSet()
+            : [];
+
+        var result = new List<UserVocabPackDto>(packs.Count);
+        foreach (var p in packs)
+        {
+            var orderedIds = p.PackWords
+                .OrderBy(pw => pw.Position)
+                .Select(pw => pw.WordId)
+                .ToList();
+
+            int wordCount = orderedIds.Count > 0 ? orderedIds.Count : p.WordCount;
+            int reviewed = orderedIds.Count(id => reviewedWordIds.Contains(id));
+            int effectiveReviewed = Math.Max(reviewed, p.ReviewedCount);
+
+            string status = wordCount > 0 && effectiveReviewed >= wordCount
+                ? "completed"
+                : (effectiveReviewed > 0 || p.Status == "in_progress" ? "in_progress" : "not_started");
+
+            result.Add(new UserVocabPackDto(
+                p.PackId,
+                p.TopicId,
+                p.TopicTitle,
+                p.PackIndex,
+                status,
+                wordCount,
+                effectiveReviewed,
+                p.StartedAt,
+                p.LastStudiedAt,
+                p.CompletedAt,
+                orderedIds));
+        }
+
+        return result;
+    }
+
     public Task<Word?> GetWordByIdAsNoTrackingAsync(Guid wordId, CancellationToken ct = default)
         => dbContext.Words.AsNoTracking().FirstOrDefaultAsync(w => w.Id == wordId && w.IsDeleted != true, ct);
 
@@ -533,5 +894,78 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
         if (stability < 30.0) return 4;
         if (stability < 90.0) return 5;
         return 6;
+    }
+
+    private static List<Guid> ParseGuidList(string? rawIds)
+    {
+        var list = new List<Guid>();
+        if (string.IsNullOrWhiteSpace(rawIds)) return list;
+
+        var parts = rawIds.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+        foreach (var part in parts)
+        {
+            if (Guid.TryParse(part, out var guid))
+            {
+                list.Add(guid);
+            }
+        }
+
+        return list;
+    }
+
+    private static (string? Meaning, string? Ipa, string? Pos, string? Example, string? ExampleVi) ParseGlobalDictionaryData(string? json)
+    {
+        if (string.IsNullOrWhiteSpace(json))
+            return (null, null, null, null, null);
+
+        try
+        {
+            using var doc = JsonDocument.Parse(json);
+            var root = doc.RootElement;
+            if (root.ValueKind != JsonValueKind.Object)
+                return (null, null, null, null, null);
+
+            string? meaning = TryGetString(root, "meaning") ?? TryGetString(root, "translation");
+            string? ipa = TryGetString(root, "ipa") ?? TryGetString(root, "phonetic");
+            string? pos = TryGetString(root, "pos") ?? TryGetString(root, "partOfSpeech");
+            string? example = TryGetString(root, "example");
+            string? exampleVi = TryGetString(root, "example_vi") ?? TryGetString(root, "exampleVi");
+
+            if (root.TryGetProperty("meanings", out var meaningsEl) &&
+                meaningsEl.ValueKind == JsonValueKind.Array &&
+                meaningsEl.GetArrayLength() > 0)
+            {
+                var firstMeaning = meaningsEl[0];
+                pos ??= TryGetString(firstMeaning, "partOfSpeech") ?? TryGetString(firstMeaning, "pos");
+                if (firstMeaning.TryGetProperty("definitions", out var defsEl) &&
+                    defsEl.ValueKind == JsonValueKind.Array &&
+                    defsEl.GetArrayLength() > 0)
+                {
+                    var firstDef = defsEl[0];
+                    meaning ??= TryGetString(firstDef, "definition_vi") ?? TryGetString(firstDef, "definition");
+                    example ??= TryGetString(firstDef, "example");
+                    exampleVi ??= TryGetString(firstDef, "example_vi");
+                }
+            }
+
+            return (meaning, ipa, pos, example, exampleVi);
+        }
+        catch
+        {
+            return (null, null, null, null, null);
+        }
+    }
+
+    private static string? TryGetString(JsonElement element, string propertyName)
+    {
+        if (element.ValueKind == JsonValueKind.Object &&
+            element.TryGetProperty(propertyName, out var prop) &&
+            prop.ValueKind == JsonValueKind.String)
+        {
+            var val = prop.GetString();
+            return string.IsNullOrWhiteSpace(val) ? null : val.Trim();
+        }
+
+        return null;
     }
 }

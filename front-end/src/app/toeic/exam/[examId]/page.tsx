@@ -320,7 +320,16 @@ function ToeicExamRoomInner() {
       } catch (err) {
         console.warn('[ToeicExam] Failed to load sanitized questions via API, attempting dynamic fallback:', err);
         try {
-          const { loadAnyToeicTest, loadToeicPartPractice, stripSensitiveToeicData } = await import('@/lib/toeic-test-loader');
+          const {
+            loadAnyToeicTest,
+            loadToeicPartPractice,
+            preloadToeicTestData,
+            stripSensitiveToeicData,
+          } = await import('@/lib/toeic-test-loader');
+          await preloadToeicTestData({
+            testId: isPartPractice && partNum ? targetTestId : decodedExamId,
+            part: partNum,
+          });
           let fallback: ToeicUnifiedQuestion[] = [];
           if (isPartPractice && partNum) {
             const answeredIds = getAnsweredQuestionIds(partNum);

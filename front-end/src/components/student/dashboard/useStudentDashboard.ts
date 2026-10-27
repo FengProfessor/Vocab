@@ -34,7 +34,7 @@ import {
   writeDailyReadingCache,
 } from '@/lib/dashboard-snapshot-cache';
 import { getAllVideoWatchProgress } from '@/lib/listening-recommendation';
-import { useStudentContext, fetchWordSummaryOnce } from '@/components/student/StudentProvider';
+import { useStudentContext } from '@/components/student/StudentProvider';
 
 const STAMPEDE_MODE = true;
 const WORDS_PAGE_SIZE = 20;
@@ -86,6 +86,7 @@ export interface WeakWordSummary {
 }
 
 export type WordStatusFilter = 'all' | 'new' | 'due' | 'learned' | 'mastered';
+export type WordSortOption = 'newest' | 'oldest' | 'az' | 'hardest';
 
 export function useIsDesktop(breakpoint = 768): boolean {
   return useSyncExternalStore(
@@ -209,7 +210,7 @@ export function useStudentDashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<WordStatusFilter>('all');
-  const [sortBy] = useState<'newest' | 'oldest' | 'az' | 'hardest'>('newest');
+  const [sortBy, setSortBy] = useState<WordSortOption>('newest');
   const router = useRouter();
   const initialGamification = studentCtx?.gamification ?? readLastGamificationCache();
   const {
@@ -522,11 +523,7 @@ export function useStudentDashboard() {
     );
   }, [dailyActivity, gamification.current_streak, gamification.last_active_date]);
 
-  const loadSecondaryDashboard = (userId: string, targetScope?: string) => {
-    const scope = targetScope !== undefined ? targetScope : currentClassScope;
-    const scopeParam =
-      scope && scope !== '__personal__' ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
-
+  const loadSecondaryDashboard = (userId: string) => {
     loadActivityStats(userId);
 
     void ReadingApi.getDailyReading('/api/practice/daily-reading')
@@ -568,21 +565,6 @@ export function useStudentDashboard() {
         writeDashboardSecondaryCache(userId, { vocabPacks: packData.packs });
       })
       .catch(() => {});
-
-    const loadLevelsFallback = () => {
-      if (levelCountsRef.current.some((n) => n > 0)) return;
-      void VocabApi.getWords(`/api/words?summary=1&levels=1${scopeParam}`)
-        .then((r) => r.json())
-        .then((sum) => {
-          if (sum?.success) applySummaryCounts(userId, sum, scope);
-        })
-        .catch(() => {});
-    };
-    if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
-      window.requestIdleCallback(loadLevelsFallback, { timeout: 2500 });
-    } else {
-      setTimeout(loadLevelsFallback, 1000);
-    }
   };
 
   const loadData = async (userId: string, targetScope?: string) => {
@@ -600,19 +582,6 @@ export function useStudentDashboard() {
                   data: null,
                   error: { message: err instanceof Error ? err.message : 'Profile fetch failed' },
                 }));
-
-        if (!scope || scope === '__personal__') {
-          void fetchWordSummaryOnce(userId).then((sum) => {
-            if (sum) applySummaryCounts(userId, sum, scope);
-          });
-        } else {
-          void VocabApi.getWords(`/api/words?summary=1${scopeParam}`)
-            .then((r) => r.json())
-            .then((sum) => {
-              if (sum?.success) applySummaryCounts(userId, sum, scope);
-            })
-            .catch(() => {});
-        }
 
         const [profRes, wordsJson] = await Promise.all([
           profPromise,
@@ -641,17 +610,9 @@ export function useStudentDashboard() {
         }
         setWordsLoading(false);
 
-        loadSecondaryDashboard(userId, scope);
+        loadSecondaryDashboard(userId);
         return;
       }
-
-      const summaryP = VocabApi.getWords(`/api/words?summary=1${scopeParam}`)
-        .then((r) => r.json())
-        .then((sum) => {
-          if (sum?.success) applySummaryCounts(userId, sum, scope);
-          return sum;
-        })
-        .catch(() => null);
 
       const [profRes] = await Promise.all([
         AuthApi.getLegacyProfile(userId)
@@ -660,7 +621,6 @@ export function useStudentDashboard() {
             data: null,
             error: { message: err instanceof Error ? err.message : 'Profile fetch failed' },
           })),
-        summaryP,
       ]);
 
       if (profRes.error) {
@@ -676,7 +636,7 @@ export function useStudentDashboard() {
       setIsLoading(false);
       setWordsLoading(true);
 
-      loadSecondaryDashboard(userId, scope);
+      loadSecondaryDashboard(userId);
 
       try {
         const wordsJson = await VocabApi.getWords(`/api/words?limit=${WORDS_PAGE_SIZE}&offset=0${scopeParam}`)
@@ -1227,6 +1187,7 @@ export function useStudentDashboard() {
     isDesktop,
     profile,
     words,
+    vocabPacks,
     classroomId,
     currentClassScope,
     enrolledClassrooms,
@@ -1267,6 +1228,8 @@ export function useStudentDashboard() {
     debouncedQuery,
     statusFilter,
     setStatusFilter,
+    sortBy,
+    setSortBy,
     gamification,
     studyStreak,
     milestonePopup,
