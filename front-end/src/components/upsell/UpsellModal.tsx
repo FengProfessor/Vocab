@@ -1,7 +1,6 @@
-'use client';
 
 import { useEffect } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { ArrowRight, BookOpen, Clock3, Sparkles, X } from 'lucide-react';
 import {
   FREE_WORD_MONTHLY_LIMIT,

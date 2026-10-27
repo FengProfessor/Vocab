@@ -1,4 +1,4 @@
-﻿'use client';
+import { RoadmapApi } from '@/features/roadmap/api';
 
 /**
  * Trang Bài thi Tốt nghiệp Cấp độ (Capstone Level Exit Exam)
@@ -8,8 +8,8 @@
  * Trao huy hiệu tốt nghiệp, chứng nhận digital và mở khóa cấp độ tiếp theo.
  */
 import React, { useState, useEffect, useMemo } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useParams, useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   GraduationCap,
   ArrowLeft,
@@ -23,7 +23,6 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import {
   evaluateDiagnostic,
   getDiagnosticStorageKey,
@@ -87,7 +86,7 @@ export default function LevelExitExamPage() {
       setFinished(true);
 
       // Lưu kết quả vào /api/roadmap/assessment
-      await authFetch('/api/roadmap/assessment', {
+      await RoadmapApi.submitAssessment({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

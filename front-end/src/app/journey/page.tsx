@@ -1,4 +1,6 @@
-'use client';
+import { RoadmapApi } from '@/features/roadmap/api';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 /**
  * Lộ trình học (Learning Journey / Roadmap) — Giao diện Module Cards Hiện Đại & Đa Track.
@@ -8,10 +10,9 @@
  * - Đồng bộ tiến độ 2 chiều và mở khóa tuyến tính khoa học.
  */
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
-import { authFetch } from '@/lib/auth-fetch';
 import {
   fetchRoadmap,
   readCachedRoadmapResponse,
@@ -43,8 +44,8 @@ import {
   Trophy,
 } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
+import Link from '@/shared/router/navigation';
+import dynamic from '@/shared/ui/dynamic';
 import { StudentShell } from '@/components/student/StudentShell';
 import { TrackSwitcher, type TrackStats } from '@/components/journey/TrackSwitcher';
 import { ModuleCard } from '@/components/journey/ModuleCard';
@@ -283,7 +284,7 @@ export default function JourneyPage() {
     void (async () => {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) {
         // Allow guest exploration of vocab track or general roadmap without login block
         let urlTrack: RoadmapTrackId | null = null;
@@ -351,7 +352,7 @@ export default function JourneyPage() {
 
   const startTest = async (): Promise<void> => {
     try {
-      const res = await authFetch('/api/roadmap/placement');
+      const res = await RoadmapApi.getPlacementTest();
       const json = (await res.json()) as {
         success: boolean;
         data?: { questions: PlacementQuestionView[] };
@@ -374,7 +375,7 @@ export default function JourneyPage() {
   }): Promise<void> => {
     setSubmitting(true);
     try {
-      const res = await authFetch('/api/roadmap/placement', {
+      const res = await RoadmapApi.submitPlacement({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -452,7 +453,7 @@ OK = học lại · Cancel = giữ nguyên.`,
 
       if (step.type === 'vocab') {
         toast.loading('Đang chuẩn bị gói từ...', { id: 'journey-open' });
-        const res = await authFetch('/api/import/packages', {
+        const res = await VocabApi.importPackage({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ packId: step.ref }),
@@ -472,7 +473,7 @@ OK = học lại · Cancel = giữ nguyên.`,
         const refreshCtrl = new AbortController();
         const refreshTimer = setTimeout(() => refreshCtrl.abort(), 8000);
         try {
-          await authFetch('/api/words/refresh', {
+          await VocabApi.refreshWords({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ classroomId: data.classroomId, wordIds: data.wordIds }),

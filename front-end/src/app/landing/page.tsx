@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata } from '@/shared/router/navigation';
 import { ReferoLandingMaster } from '@/components/landing/refero/ReferoLandingMaster';
 import { FAQ_DATA } from '@/components/landing/refero/faq-data';
 

@@ -1,4 +1,4 @@
-'use client';
+import { SocialApi } from '@/features/social/api';
 
 import React, { useState, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
@@ -56,7 +56,7 @@ export default function EbookReaderModal({ isOpen, onClose }: EbookReaderModalPr
   useEffect(() => {
     let ignore = false;
     if (isOpen && !content) {
-      fetch('/api/lead-magnet/ebook')
+      SocialApi.getLeadMagnetEbook()
         .then((res) => res.json())
         .then((data) => {
           if (!ignore && data.content) {

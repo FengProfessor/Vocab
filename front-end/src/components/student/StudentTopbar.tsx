@@ -1,7 +1,6 @@
-'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { NotificationBell } from '@/components/NotificationBell';

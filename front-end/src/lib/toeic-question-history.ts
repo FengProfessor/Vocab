@@ -1,4 +1,4 @@
-'use client';
+﻿import { authService } from '@/features/auth/session';
 
 /**
  * TOEIC Question History Tracker & Cloud Synchronization Protocol
@@ -12,7 +12,8 @@
  * - Offline sync queue & Last-Write-Wins (LWW) reconciliation
  */
 
-import { supabase } from '@/lib/supabase';
+import { apiClient } from '@/lib/apiClient';
+import type { ApiResponse } from '@/types/api';
 
 // ── 1. Storage Keys & Constants ──────────────────────────────────────────────
 
@@ -658,60 +659,44 @@ export async function syncQuestionHistoryToSupabase(
   try {
     const {
       data: { session },
-    } = await supabase.auth.getSession();
+    } = await authService.getSession();
     if (!session?.user?.id) {
       // Guest mode: gracefully remain in localStorage only
       return;
     }
 
-    const userId = session.user.id;
-
     for (let i = 0; i < records.length; i += SYNC_BATCH_CHUNK_SIZE) {
       const chunk = records.slice(i, i + SYNC_BATCH_CHUNK_SIZE);
-      const rows = chunk.map((r) => {
+      const entries = chunk.map((r) => {
         const lastAnswered =
           ('lastAnsweredAt' in r ? r.lastAnsweredAt : r.answeredAt) || new Date().toISOString();
-        const attemptCount = ('attemptCount' in r ? r.attemptCount : 1) || 1;
-        const isFlagged = Boolean('isFlagged' in r ? r.isFlagged : false);
-        const flaggedAt = ('flaggedAt' in r ? r.flaggedAt : undefined) || null;
-        const notes = ('notes' in r ? r.notes : undefined) || null;
-        const notesUpdatedAt = ('notesUpdatedAt' in r ? r.notesUpdatedAt : undefined) || null;
+        const attemptCount = Math.max(
+          1,
+          Number(('attemptCount' in r ? r.attemptCount : 1) || 1)
+        );
 
         return {
-          user_id: userId,
-          question_id: r.questionId.trim(),
+          questionId: r.questionId.trim(),
           part: Number(r.part) || 1,
-          last_answered_at: lastAnswered,
-          is_correct: Boolean(r.isCorrect),
-          attempt_count: attemptCount,
-          selected_option: (r.selectedOption || '').trim().toUpperCase(),
-          is_flagged: isFlagged,
-          flagged_at: flaggedAt,
-          notes: notes,
-          notes_updated_at: notesUpdatedAt,
+          lastAnsweredAt: lastAnswered,
+          isCorrect: Boolean(r.isCorrect),
+          attemptCount,
+          selectedOption: (r.selectedOption || '').trim().toUpperCase(),
         };
       });
 
-      let { error } = await supabase
-        .from('user_toeic_question_history')
-        .upsert(rows, { onConflict: 'user_id,question_id' });
+      const response = await apiClient.post<ApiResponse<number>>('/exams/toeic/history', {
+        entries,
+      });
 
-      if (error && (error.message.includes('column') || error.message.includes('does not exist'))) {
-        const baseRows = rows.map(({ is_flagged, flagged_at, notes, notes_updated_at, ...base }: any) => base);
-        const retryRes = await supabase
-          .from('user_toeic_question_history')
-          .upsert(baseRows, { onConflict: 'user_id,question_id' });
-        error = retryRes.error;
-      }
-
-      if (error) {
-        console.warn('[ToeicHistory] Supabase upsert error:', error.message);
+      if (!response.data?.success) {
+        console.warn('[ToeicHistory] Backend sync error:', response.data?.message);
         enqueueFailedSync(chunk);
         return;
       }
     }
   } catch (err) {
-    console.warn('[ToeicHistory] Network error during Supabase sync:', err);
+    console.warn('[ToeicHistory] Network error during backend sync:', err);
     enqueueFailedSync(records);
   }
 }
@@ -720,7 +705,7 @@ export async function syncQuestionHistoryToSupabase(
 export const syncAnswersToSupabase = syncQuestionHistoryToSupabase;
 
 /**
- * Bidirectional reconciliation between LocalStorage and Supabase.
+ * Bidirectional reconciliation between LocalStorage and .NET Backend.
  * Applies Last-Write-Wins (LWW) by timestamp and Math.max for attemptCount.
  */
 export async function reconcileQuestionHistoryOnLogin(): Promise<void> {
@@ -729,30 +714,36 @@ export async function reconcileQuestionHistoryOnLogin(): Promise<void> {
   try {
     const {
       data: { session },
-    } = await supabase.auth.getSession();
+    } = await authService.getSession();
     if (!session?.user?.id) return;
 
-    const userId = session.user.id;
+    const response = await apiClient.get<
+      ApiResponse<
+        Array<{
+          questionId: string;
+          part: number;
+          lastAnsweredAt: string;
+          isCorrect: boolean;
+          attemptCount: number;
+          selectedOption: string;
+        }>
+      >
+    >('/exams/toeic/history');
 
-    // Fetch remote records for user (with fallback if schema does not have is_flagged yet)
-    let { data: remoteRows, error } = await supabase
-      .from('user_toeic_question_history')
-      .select('question_id, part, last_answered_at, is_correct, attempt_count, selected_option, is_flagged, flagged_at, notes, notes_updated_at')
-      .eq('user_id', userId);
-
-    if (error && (error.message.includes('column') || error.message.includes('does not exist'))) {
-      const fallback = await supabase
-        .from('user_toeic_question_history')
-        .select('question_id, part, last_answered_at, is_correct, attempt_count, selected_option')
-        .eq('user_id', userId);
-      remoteRows = (fallback.data as typeof remoteRows);
-      error = fallback.error;
-    }
-
-    if (error || !remoteRows) {
-      console.warn('[ToeicHistory] Failed to fetch remote history:', error?.message);
+    const remoteItems = response.data?.data;
+    if (!response.data?.success || !remoteItems) {
+      console.warn('[ToeicHistory] Failed to fetch remote history:', response.data?.message);
       return;
     }
+
+    const remoteRows = remoteItems.map((item) => ({
+      question_id: item.questionId,
+      part: item.part,
+      last_answered_at: item.lastAnsweredAt,
+      is_correct: item.isCorrect,
+      attempt_count: item.attemptCount,
+      selected_option: item.selectedOption,
+    }));
 
     const storage = loadToeicQuestionHistory();
     let hasLocalUpdates = false;
@@ -871,20 +862,19 @@ export async function deleteRemotePartProgress(part?: number): Promise<void> {
   try {
     const {
       data: { session },
-    } = await supabase.auth.getSession();
+    } = await authService.getSession();
     if (!session?.user?.id) return;
 
-    let query = supabase.from('user_toeic_question_history').delete().eq('user_id', session.user.id);
-    if (part !== undefined && part >= 1 && part <= 7) {
-      query = query.eq('part', part);
-    }
-
-    const { error } = await query;
-    if (error) {
-      console.warn('[ToeicHistory] Supabase delete error:', error.message);
+    const params = part !== undefined && part >= 1 && part <= 7 ? { partNumber: part } : undefined;
+    const response = await apiClient.delete<ApiResponse<number>>('/exams/toeic/history', {
+      params,
+      data: params ? { partNumber: part } : {},
+    });
+    if (!response.data?.success) {
+      console.warn('[ToeicHistory] Backend delete error:', response.data?.message);
     }
   } catch (err) {
-    console.warn('[ToeicHistory] Network error during Supabase delete:', err);
+    console.warn('[ToeicHistory] Network error during backend delete:', err);
   }
 }
 

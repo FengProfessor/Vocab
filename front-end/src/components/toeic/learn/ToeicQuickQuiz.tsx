@@ -1,4 +1,3 @@
-'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
 import {
@@ -227,7 +226,7 @@ export function ToeicQuickQuiz({
               {/* Optional Image */}
               {checkpoint.imageUrl && (
                 <div className="overflow-hidden rounded-xs border border-slate-200 dark:border-slate-800 max-w-md">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {}
                   <img
                     src={checkpoint.imageUrl}
                     alt={`Stimulus for question ${checkpoint.order}`}

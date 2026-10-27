@@ -46,6 +46,31 @@ public sealed class AuthRepository(IApplicationDbContext dbContext) : IAuthRepos
     public void AddUserGamification(UserGamification gamification)
         => dbContext.UserGamifications.Add(gamification);
 
+    public Task<bool> HasXpAwardEventAsync(Guid userId, string eventKey, CancellationToken ct = default)
+        => dbContext.XpAwardEvents
+            .AsNoTracking()
+            .AnyAsync(
+                e => e.UserId == userId
+                     && (e.EventKey == eventKey
+                         || ((eventKey == "onboarding_complete" || eventKey == "onboarding_completed")
+                             && (e.EventKey == "onboarding_complete" || e.EventKey == "onboarding_completed"))),
+                ct);
+
+    public void AddXpAwardEvent(XpAwardEvent awardEvent)
+        => dbContext.XpAwardEvents.Add(awardEvent);
+
+    public async Task ClearDuplicateFcmTokenAsync(Guid currentUserId, string fcmToken, CancellationToken ct = default)
+    {
+        var duplicates = await dbContext.Profiles
+            .Where(p => p.Id != currentUserId && p.FcmToken == fcmToken)
+            .ToListAsync(ct);
+
+        foreach (var duplicate in duplicates)
+        {
+            duplicate.FcmToken = null;
+        }
+    }
+
     public Task<int> SaveChangesAsync(CancellationToken ct = default)
         => dbContext.SaveChangesAsync(ct);
 }

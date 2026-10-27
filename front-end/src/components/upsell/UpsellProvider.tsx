@@ -1,7 +1,8 @@
-'use client';
+import { AuthApi } from '@/features/auth/api';
+import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname } from '@/shared/router/navigation';
 import { supabase } from '@/lib/supabase';
 import {
   FREE_WORD_MONTHLY_LIMIT,
@@ -143,13 +144,11 @@ export function UpsellProvider() {
     (async () => {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user || cancelled) return;
 
       try {
-        const res = await fetch('/api/profile', {
-          headers: { 'X-LingoPro-Request': '1' },
-        });
+        const res = await AuthApi.getProfileSession();
         if (!res.ok || cancelled) return;
 
         const json = (await res.json()) as {

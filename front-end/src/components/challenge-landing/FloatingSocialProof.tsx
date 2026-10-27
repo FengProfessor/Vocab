@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * FloatingSocialProof đã được vô hiệu hóa để tuân thủ tính liêm chính học thuật

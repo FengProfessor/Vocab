@@ -33,6 +33,27 @@ public sealed class ClassroomsController : ApiControllerBase
         return CreatedResponse(result, "Classroom created successfully.");
     }
 
+    [HttpPut("{classroomId:guid}")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<ClassroomDto>>> UpdateClassroom(
+        [FromRoute] Guid classroomId,
+        [FromBody] CreateClassroomCommand request,
+        CancellationToken ct)
+    {
+        var result = await Mediator.Send(new UpdateClassroomCommand(classroomId, request.Name, request.Description), ct);
+        return OkResponse(result, "Classroom updated successfully.");
+    }
+
+    [HttpDelete("{classroomId:guid}")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<bool>>> DeleteClassroom(
+        [FromRoute] Guid classroomId,
+        CancellationToken ct)
+    {
+        var result = await Mediator.Send(new DeleteClassroomCommand(classroomId), ct);
+        return OkResponse(result, "Classroom deleted successfully.");
+    }
+
     [HttpPost("join")]
     public async Task<ActionResult<ApiResponse<ClassroomDto>>> JoinClassroom(
         [FromBody] JoinClassroomCommand command,

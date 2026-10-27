@@ -1,8 +1,7 @@
-'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from '@/shared/ui/image';
+import Link from '@/shared/router/navigation';
 import { Volume2, Sparkles, User, Users, ChevronDown, ChevronUp, Lightbulb, Dumbbell, ArrowRight, RotateCcw } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import GrammarCardNavigator from './GrammarCardNavigator';

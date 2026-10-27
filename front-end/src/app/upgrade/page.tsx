@@ -1,8 +1,9 @@
-'use client';
+import { BillingApi } from '@/features/billing/api';
+import { authService } from '@/features/auth/session';
 
 import { Suspense, useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   ArrowRight,
   Check,
@@ -16,7 +17,7 @@ import {
   Plus,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { supabase } from '@/lib/supabase';
+import { AuthApi } from '@/features/auth/api';
 import {
   GROUP_SEATS_DEFAULT,
   GROUP_SEATS_MAX,
@@ -169,7 +170,7 @@ function UpgradePageContent() {
       const {
         data: { user },
         error,
-      } = await supabase.auth.getUser();
+      } = await authService.getUser();
 
       if (cancelled || error) return;
 
@@ -179,16 +180,12 @@ function UpgradePageContent() {
         return;
       }
 
-      const { data } = await supabase
-        .from('profiles')
-        .select('plan, plan_expires_at')
-        .eq('id', user.id)
-        .single();
+      const prof = await AuthApi.getLegacyProfile(user.id).catch(() => null);
 
       if (cancelled) return;
 
-      setCurrentPlan((data?.plan as Plan) ?? 'free');
-      setExpiresAt(data?.plan_expires_at ?? null);
+      setCurrentPlan((prof?.plan as Plan) ?? 'free');
+      setExpiresAt(prof?.plan_expires_at ?? null);
       setIsLoading(false);
     })();
 
@@ -209,15 +206,10 @@ function UpgradePageContent() {
 
     const interval = setInterval(async () => {
       try {
-        const { data, error } = await supabase
-          .from('orders')
-          .select('status, plan, expires_at')
-          .eq('id', orderCreated.orderId)
-          .single();
+        const prof = await AuthApi.getLegacyProfile().catch(() => null);
+        if (!prof) return;
 
-        if (error) throw error;
-
-        if (data?.status === 'paid') {
+        if (prof.plan && prof.plan !== 'free') {
           import('canvas-confetti')
             .then((confetti) => {
               confetti.default({ particleCount: 150, spread: 80, origin: { y: 0.6 } });
@@ -225,8 +217,8 @@ function UpgradePageContent() {
             .catch((err) => console.error(err));
 
           setOrderCreated((prev) => (prev ? { ...prev, status: 'paid' } : null));
-          setCurrentPlan((data.plan as Plan) ?? 'free');
-          setExpiresAt(data.expires_at ?? null);
+          setCurrentPlan((prof.plan as Plan) ?? 'free');
+          setExpiresAt(prof.plan_expires_at ?? null);
           toast.success('Kích hoạt gói thành công!');
           clearInterval(interval);
         }
@@ -283,14 +275,14 @@ function UpgradePageContent() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) {
         const returnUrl = window.location.pathname + window.location.search;
         router.push(`/auth?redirectTo=${encodeURIComponent(returnUrl)}`);
         return;
       }
 
-      const res = await fetch('/api/billing/redeem-gift', {
+      const res = await BillingApi.redeemGift({
         method: 'POST',
         headers: {
           'X-LingoPro-Request': '1',
@@ -348,7 +340,7 @@ function UpgradePageContent() {
     setCouponChecking(true);
     try {
 
-      const res = await fetch('/api/billing/coupons/validate', {
+      const res = await BillingApi.validateCoupon({
         method: 'POST',
         headers: {
           'X-LingoPro-Request': '1',
@@ -405,7 +397,7 @@ function UpgradePageContent() {
     const appliedCode = ((couponValid?.code ?? couponCode).trim()).toUpperCase();
     try {
 
-      const response = await fetch('/api/billing/orders', {
+      const response = await BillingApi.createOrder({
         method: 'POST',
         headers: {
           'X-LingoPro-Request': '1',

@@ -1,9 +1,10 @@
-'use client';
+import { DictionaryApi } from '@/features/dictionary/api';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Volume2, BookmarkPlus, Check, X, Loader2, Sparkles } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
-import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
 import { tokenizeSentence, type WordToken } from '@/lib/listening';
 import type { CoreVocabulary } from '@/types/listening';
@@ -185,7 +186,7 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
     playWordAudio(token.raw);
 
     try {
-      const res = await fetch(`/api/dictionary/lookup?word=${encodeURIComponent(cleanWord)}`);
+      const res = await DictionaryApi.lookup(`/api/dictionary/lookup?word=${encodeURIComponent(cleanWord)}`);
       if (res.ok) {
         const data = await res.json();
         const coreSenses = Array.isArray(data?.core_senses) ? data.core_senses : [];
@@ -268,9 +269,9 @@ export const WordLookupPopover: React.FC<WordLookupPopoverProps> = ({
     setIsSaving(true);
 
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (session?.user) {
-        const res = await authFetch('/api/words', {
+        const res = await VocabApi.saveWords({
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

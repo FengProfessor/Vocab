@@ -1,8 +1,7 @@
-'use client';
 
 import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
-import { useParams } from 'next/navigation';
-import Link from 'next/link';
+import { useParams } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   ArrowLeft,
   Headphones,

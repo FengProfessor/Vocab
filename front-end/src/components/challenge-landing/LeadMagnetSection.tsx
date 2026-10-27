@@ -1,4 +1,4 @@
-'use client';
+import { ChallengeApi } from '@/features/challenge/api';
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -36,7 +36,7 @@ export function LeadMagnetSection({ onSuccessSubmitted }: LeadMagnetSectionProps
     setErrorMsg(null);
 
     try {
-      const res = await fetch('/api/challenge/lead', {
+      const res = await ChallengeApi.submitLead({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

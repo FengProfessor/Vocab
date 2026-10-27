@@ -1,7 +1,6 @@
-'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Button } from '@/components/ui/button';
 import { Flame, Gift, ArrowRight, Menu, X, ShieldCheck } from 'lucide-react';
 

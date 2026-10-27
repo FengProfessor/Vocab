@@ -1,7 +1,6 @@
-'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import Image from '@/shared/ui/image';
 import { Sparkles, FileText, CheckCircle2, Star, ShieldCheck, Eye } from 'lucide-react';
 
 interface BookCover3DProps {

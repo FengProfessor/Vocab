@@ -21,6 +21,7 @@ public interface IApplicationDbContext
 {
     DbSet<Profile> Profiles { get; }
     DbSet<UserGamification> UserGamifications { get; }
+    DbSet<XpAwardEvent> XpAwardEvents { get; }
     DbSet<Word> Words { get; }
     DbSet<SrsProgress> SrsProgresses { get; }
     DbSet<SrsReviewEvent> SrsReviewEvents { get; }

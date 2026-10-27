@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import { Star, MessageSquareQuote, CheckCircle, TrendingUp, Award } from 'lucide-react';

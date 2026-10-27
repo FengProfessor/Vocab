@@ -1,7 +1,6 @@
-'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
+import Image from '@/shared/ui/image';
 import {
   Volume2,
   ChevronDown,

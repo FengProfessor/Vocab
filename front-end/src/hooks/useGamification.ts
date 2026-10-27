@@ -1,7 +1,6 @@
-'use client';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
+import { useGamificationQuery } from '@/features/auth/queries';
 import { effectiveCurrentStreak } from '@/lib/gamification';
-import { supabase } from '@/lib/supabase';
 import type { UserGamification } from '@/lib/supabase';
 
 const DEFAULT: UserGamification = {
@@ -24,40 +23,13 @@ function normalizeGamification(row: UserGamification): UserGamification {
 }
 
 export function useGamification(userId: string | null) {
-  const [data, setData] = useState<UserGamification>(DEFAULT);
-  const [loading, setLoading] = useState(true);
+  const { data: rawData, isLoading, refetch } = useGamificationQuery(userId);
+  const data = rawData ? normalizeGamification(rawData) : DEFAULT;
 
   const refresh = useCallback(async () => {
     if (!userId) return;
-    const { data: row } = await supabase
-      .from('user_gamification')
-      .select('*')
-      .eq('user_id', userId)
-      .single();
-    if (row) setData(normalizeGamification(row as UserGamification));
-  }, [userId]);
+    await refetch();
+  }, [userId, refetch]);
 
-  useEffect(() => {
-    let cancelled = false;
-    if (!userId) {
-      // Defer setState to avoid synchronous setState-in-effect lint warning
-      const t = setTimeout(() => { if (!cancelled) setLoading(false); }, 0);
-      return () => { cancelled = true; clearTimeout(t); };
-    }
-    // Defer setLoading(true) to avoid synchronous setState-in-effect lint error
-    const startTimer = setTimeout(() => { if (!cancelled) setLoading(true); }, 0);
-    supabase
-      .from('user_gamification')
-      .select('*')
-      .eq('user_id', userId)
-      .single()
-      .then(({ data: row }) => {
-        if (cancelled) return;
-        if (row) setData(normalizeGamification(row as UserGamification));
-        setLoading(false);
-      });
-    return () => { cancelled = true; clearTimeout(startTimer); };
-  }, [userId]);
-
-  return { data, loading, refresh };
+  return { data, loading: Boolean(userId) && isLoading, refresh };
 }

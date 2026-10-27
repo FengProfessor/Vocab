@@ -1,14 +1,13 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   ArrowRight, BookOpen, Check, ChevronLeft, Clock3, Download, Loader2, Plus, Search, Sparkles, Upload, Volume2, X,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
-import { supabase } from '@/lib/supabase';
 import { StudentShell } from '@/components/student/StudentShell';
 import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
 import { playWordAudio } from '@/lib/audio';
@@ -93,14 +92,19 @@ export default function LibraryPage() {
     let active = true;
     void (async () => {
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (!session?.user?.id) return;
-        const { data: existing } = await supabase
-          .from('words')
-          .select('word')
-          .eq('added_by', session.user.id)
-          .in('word', previewPack.words);
-        if (active && existing && existing.length > 0) {
+        const wordsRes = await VocabApi.getWords('/api/words?limit=500&offset=0&classroomId=__personal__')
+          .then((r) => r.json())
+          .catch(() => null);
+        const allWords = Array.isArray(wordsRes?.data)
+          ? (wordsRes.data as Array<{ word?: string }>)
+          : [];
+        const packSet = new Set(previewPack.words.map((w) => w.toLowerCase().trim()));
+        const existing = allWords.filter(
+          (item) => item.word && packSet.has(item.word.toLowerCase().trim()),
+        );
+        if (active && existing.length > 0) {
           setSavedWords((prev) => {
             const next = new Set(prev);
             for (const item of existing) {
@@ -140,7 +144,7 @@ export default function LibraryPage() {
   useEffect(() => {
     let active = true;
     const load = async (): Promise<void> => {
-      const { data: { session }, error } = await supabase.auth.getSession();
+      const { data: { session }, error } = await authService.getSession();
       if (error) {
         if (active) setLoading(false);
         return;
@@ -151,7 +155,7 @@ export default function LibraryPage() {
         return;
       }
       try {
-        const res = await authFetch('/api/import/packages');
+        const res = await VocabApi.getImportPackages();
         const data = await res.json() as CatalogResponse;
         if (!res.ok || !data.success || !data.routes) throw new Error(data.error || 'Không thể tải danh mục');
         if (active) {
@@ -262,7 +266,7 @@ export default function LibraryPage() {
   const fetchGlosses = async (words: string[]): Promise<Record<string, WordGloss>> => {
     const unique = [...new Set(words.map((w) => w.trim().toLowerCase()).filter(Boolean))];
     if (unique.length === 0) return {};
-    const res = await authFetch('/api/library/gloss', {
+    const res = await VocabApi.generateLibraryGloss({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ words: unique }),
@@ -411,7 +415,7 @@ export default function LibraryPage() {
     setImportingPack(previewPack.id);
     toast.loading(`Đang thêm ${previewPack.wordCount} từ...`, { id: 'catalog-import' });
     try {
-      const res = await authFetch('/api/import/packages', {
+      const res = await VocabApi.importPackage({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ packId: previewPack.id, catalogVersion }),
@@ -420,7 +424,7 @@ export default function LibraryPage() {
       if (!res.ok || !data.success) throw new Error(data.error || 'Không thể thêm gói từ');
       if (!data.classroomId || !data.wordIds?.length) throw new Error('Gói từ đã thêm nhưng chưa thể mở phiên học');
 
-      const refreshRes = await authFetch('/api/words/refresh', {
+      const refreshRes = await VocabApi.refreshWords({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ classroomId: data.classroomId, wordIds: data.wordIds }),
@@ -460,7 +464,7 @@ export default function LibraryPage() {
     }
 
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.saveWords({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ word: cleanWord }),

@@ -1,9 +1,8 @@
-'use client';
-import { authFetch } from '@/lib/auth-fetch';
+import { GrammarApi } from '@/features/grammar/api';
 
 
 import { useState, useEffect } from 'react';
-import { supabase } from '@/lib/supabase';
+import { apiClient } from '@/lib/apiClient';
 import type { GrammarExercise, GrammarTopic, GrammarLesson, GrammarLevel } from '@/lib/supabase';
 import { ChevronDown, Loader2, BookOpen, Trash2, BarChart3, Sparkles, GraduationCap } from 'lucide-react';
 import { toast } from 'sonner';
@@ -35,8 +34,8 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
       setIsLoading(true);
       const authHeaders = { 'X-LingoPro-Request': '1' };
       const [exRes, topicRes] = await Promise.all([
-        authFetch(`/api/grammar?classroomId=${classroomId}`, { headers: authHeaders }).then((r) => r.json()).catch(() => null),
-        authFetch('/api/grammar/topics').then((r) => r.json()).catch(() => null),
+        GrammarApi.getTopics(`/api/grammar?classroomId=${classroomId}`, { headers: authHeaders }).then((r) => r.json()).catch(() => null),
+        GrammarApi.getTopics().then((r) => r.json()).catch(() => null),
       ]);
       if (exRes?.success) setExercises(exRes.data);
       if (topicRes?.success) setTopics(topicRes.data);
@@ -53,7 +52,7 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
     setExpandedTopic(topicId);
     if (!lessonsByTopic[topicId]) {
       setLoadingTopic(topicId);
-      const res = await authFetch(`/api/grammar/lessons?topicId=${topicId}`).then((r) => r.json()).catch(() => null);
+      const res = await GrammarApi.getLessons(`/api/grammar/lessons?topicId=${topicId}`).then((r) => r.json()).catch(() => null);
       if (res?.success) setLessonsByTopic((prev) => ({ ...prev, [topicId]: res.data }));
       setLoadingTopic(null);
     }
@@ -68,7 +67,7 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
     }
     setIsGenerating(true);
     try {
-      const res = await fetch('/api/grammar', {
+      const res = await GrammarApi.createExercise({
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
         body: JSON.stringify({ classroomId, topic, level, count }),
@@ -88,7 +87,7 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
   const handleGenerateForLesson = async (lesson: GrammarLesson) => {
     setGeneratingLesson(lesson.id);
     try {
-      const res = await fetch('/api/grammar', {
+      const res = await GrammarApi.createExercise({
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
         body: JSON.stringify({ classroomId, topic: lesson.title, level, count, lessonId: lesson.id }),
@@ -105,9 +104,14 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
   };
 
   const handleDelete = async (id: string) => {
-    await supabase.from('grammar_exercises').delete().eq('id', id);
-    setExercises(exercises.filter((e) => e.id !== id));
-    toast.success('Đã xóa bài tập.');
+    try {
+      await apiClient.delete(`/grammar/exercises/${id}`);
+      setExercises(exercises.filter((e) => e.id !== id));
+      toast.success('Đã xóa bài tập.');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Không thể xóa bài tập';
+      toast.error(msg);
+    }
   };
 
   if (isLoading)

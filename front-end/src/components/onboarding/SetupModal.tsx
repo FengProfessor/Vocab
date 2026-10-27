@@ -1,4 +1,5 @@
-'use client';
+import { AuthApi } from '@/features/auth/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
@@ -32,9 +33,9 @@ export function SetupModal() {
       const token = await requestForToken();
       if (!token) throw new Error('Không lấy được mã thiết bị. Thử lại sau.');
 
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (session) {
-        const res = await fetch('/api/push/fcm-register', {
+        const res = await AuthApi.fcmRegister({
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

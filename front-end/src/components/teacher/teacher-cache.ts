@@ -1,4 +1,4 @@
-import { authFetch } from '@/lib/auth-fetch';
+import { ClassroomApi } from '@/features/classroom/api';
 import type { StudentProgress } from '@/lib/supabase';
 
 export interface HistoryPoint {
@@ -141,7 +141,7 @@ export async function prefetchStudent(studentId: string, classroomId: string): P
 
   inFlightRequests.add(key);
   try {
-    const detailPromise = authFetch(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`)
+    const detailPromise = ClassroomApi.getStudentDetail(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`)
       .then(async (res) => {
         if (!res.ok) return;
         const data = await res.json() as StudentDetailPayload;
@@ -151,7 +151,7 @@ export async function prefetchStudent(studentId: string, classroomId: string): P
       })
       .catch(() => {});
 
-    const errorsPromise = authFetch(`/api/teacher/student-errors?studentId=${studentId}&classroomId=${classroomId}`)
+    const errorsPromise = ClassroomApi.getStudentErrors(`/api/teacher/student-errors?studentId=${studentId}&classroomId=${classroomId}`)
       .then(async (res) => {
         if (!res.ok) return;
         const data = await res.json() as { success: boolean; data: StudentErrorItem[] };

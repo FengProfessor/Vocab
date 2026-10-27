@@ -1,7 +1,6 @@
-'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Play, ArrowRight, ShieldCheck, Sparkles, SlidersHorizontal } from 'lucide-react';
 import type { BridgeToPractice } from '@/data/toeic/theory/types';
 

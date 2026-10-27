@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { Suspense, lazy, useMemo } from 'react';
 import {
   Navigate,
@@ -15,7 +16,7 @@ type PageModule = {
   default: React.ComponentType<any>;
 };
 
-// Auto-discovers all page.tsx routes ported from /src/app
+// Auto-discovers all page.tsx routes in /src/app
 const PAGE_MODULES = import.meta.glob<PageModule>('./**/page.tsx');
 
 // Creates a React 19 compatible pre-fulfilled Thenable Promise so pages calling
@@ -30,7 +31,7 @@ function createFulfilledPromise<T>(value: T): Promise<T> {
   return p;
 }
 
-// Converts a Next.js App Router relative path (./journey/checkpoint/[unitId]/page.tsx)
+// Converts an app route relative path (./journey/checkpoint/[unitId]/page.tsx)
 // into a React Router v7 path (/journey/checkpoint/:unitId).
 function toRouterPath(globKey: string): string {
   const stripped = globKey
@@ -105,10 +106,22 @@ const AdminLayoutOutlet: React.FC = () => (
 );
 
 export const AppRouter: React.FC = () => {
+  const location = useLocation();
+  const isChallengeSubdomain =
+    typeof window !== 'undefined' &&
+    window.location.hostname.startsWith('challenge.');
+
+  if (
+    isChallengeSubdomain &&
+    !location.pathname.startsWith('/challenge-landing')
+  ) {
+    return <Navigate to="/challenge-landing" replace />;
+  }
+
   return (
     <Suspense fallback={<RouteLoadingFallback />}>
       <Routes>
-        {/* Legacy route redirects from /src/app */}
+        {/* Route redirects */}
         <Route
           path="/grammar/foundation"
           element={<Navigate to="/grammar?level=A0" replace />}

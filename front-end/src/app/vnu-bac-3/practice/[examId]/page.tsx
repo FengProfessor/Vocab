@@ -3,10 +3,9 @@
  * File: src/app/vnu-bac-3/practice/[examId]/page.tsx
  */
 
-'use client';
 
 import React from 'react';
-import { useParams } from 'next/navigation';
+import { useParams } from '@/shared/router/navigation';
 import { VnuExamRoom } from '@/components/vnu-bac-3/VnuExamRoom';
 
 export default function VnuBac3PracticePage() {

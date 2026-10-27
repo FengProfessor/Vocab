@@ -1,10 +1,14 @@
-'use client';
+﻿import { ClassroomApi } from '@/features/classroom/api';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
-import { supabase } from '@/lib/supabase';
+import { AuthApi } from '@/features/auth/api';
+import { apiClient } from '@/lib/apiClient';
+import type { ApiResponse } from '@/types/api';
 import type { Classroom, Profile, StudentProgress } from '@/lib/supabase';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   Brain, Plus, Users, BookOpen, LogOut, Copy, Zap,
   Loader2, Trash2, TrendingUp, GraduationCap, ChevronDown, Check,
@@ -12,7 +16,6 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
-import { authFetch } from '@/lib/auth-fetch';
 import { track } from '@/lib/analytics';
 import WordsPanel from '@/components/teacher/WordsPanel';
 import GrammarPanel from '@/components/teacher/GrammarPanel';
@@ -103,7 +106,7 @@ export default function TeacherDashboard() {
   const loadAnalytics = useCallback(async (classroomId: string) => {
     setIsLoadingAnalytics(true);
     try {
-      const res = await authFetch(`/api/teacher/analytics?classroomId=${classroomId}`);
+      const res = await ClassroomApi.getTeacherAnalytics(`/api/teacher/analytics?classroomId=${classroomId}`);
       const data = await res.json();
       if (data.error) throw new Error(data.error);
       setAnalytics(data as AnalyticsData);
@@ -116,7 +119,7 @@ export default function TeacherDashboard() {
 
   const loadPendingWords = useCallback(async (classroomId: string) => {
     try {
-      const res = await authFetch(`/api/words?classroomId=${classroomId}&status=pending`);
+      const res = await VocabApi.getWords(`/api/words?classroomId=${classroomId}&status=pending`);
       const data = (await res.json()) as { success?: boolean; data?: PendingWord[] };
       if (data.success) setPendingWords(data.data ?? []);
     } catch {
@@ -127,7 +130,7 @@ export default function TeacherDashboard() {
   const loadStudents = useCallback(
     async (classroomId: string) => {
       try {
-        const res = await authFetch(`/api/teacher/stats?classroomId=${classroomId}&_t=${Date.now()}`, {
+        const res = await ClassroomApi.getTeacherStats(`/api/teacher/stats?classroomId=${classroomId}&_t=${Date.now()}`, {
           cache: 'no-store',
         });
         const data = await res.json();
@@ -145,7 +148,7 @@ export default function TeacherDashboard() {
     const {
       data: { user },
       error,
-    } = await supabase.auth.getUser();
+    } = await authService.getUser();
     if (error) return;
     if (!user) {
       router.push('/auth');
@@ -154,13 +157,13 @@ export default function TeacherDashboard() {
     setUserId(user.id);
 
     try {
-      const res = await authFetch(`/api/teacher/stats?_t=${Date.now()}`, {
+      const res = await ClassroomApi.getTeacherStats(`/api/teacher/stats?_t=${Date.now()}`, {
         cache: 'no-store',
       });
       const data = await res.json();
       if (data.error) throw new Error(data.error);
 
-      const { data: prof } = await supabase.from('profiles').select('*').eq('id', user.id).single();
+      const prof = await AuthApi.getLegacyProfile(user.id).catch(() => null);
       setProfile(prof ?? ({ id: user.id } as Profile));
 
       const loadedClasses = (data.classrooms || []) as Classroom[];
@@ -204,39 +207,62 @@ export default function TeacherDashboard() {
     e.preventDefault();
     if (!profile || !newClassName.trim()) return;
     setIsCreating(true);
-    const { data, error } = await supabase
-      .from('classrooms')
-      .insert({
-        teacher_id: profile.id,
+    try {
+      const response = await apiClient.post<
+        ApiResponse<{
+          id: string;
+          name: string;
+          description?: string | null;
+          inviteCode: string;
+          teacherId: string;
+          studentCount: number;
+          createdAt: string;
+        }>
+      >('/classrooms', {
         name: newClassName.trim(),
         description: newClassDesc.trim() || null,
-      })
-      .select()
-      .single();
-
-    if (error) {
-      console.error('Create classroom error:', error);
-      toast.error(`Không thể tạo lớp: ${error.message}`);
-    } else {
-      toast.success(`Đã tạo lớp "${data.name}"!`);
-      const newCls = { ...data, enrollment_count: 0 };
+      });
+      const dto = response.data?.data;
+      if (!response.data?.success || !dto) {
+        throw new Error(response.data?.message || 'Không thể tạo lớp');
+      }
+      toast.success(`Đã tạo lớp "${dto.name}"!`);
+      const newCls: Classroom = {
+        id: dto.id,
+        teacher_id: dto.teacherId,
+        name: dto.name,
+        description: dto.description ?? undefined,
+        invite_code: dto.inviteCode,
+        created_at: dto.createdAt,
+        enrollment_count: 0,
+      };
       setClassrooms([newCls, ...classrooms]);
-      track('teacher_class_created', { classroom_id: data.id, classroom_count: classrooms.length + 1 });
+      track('teacher_class_created', { classroom_id: dto.id, classroom_count: classrooms.length + 1 });
       setSelectedClass(newCls);
       setShowCreateModal(false);
       setNewClassName('');
       setNewClassDesc('');
+    } catch (error: unknown) {
+      const msg = error instanceof Error ? error.message : 'Lỗi không xác định';
+      console.error('Create classroom error:', error);
+      toast.error(`Không thể tạo lớp: ${msg}`);
+    } finally {
+      setIsCreating(false);
     }
-    setIsCreating(false);
   };
 
   const handleDeleteClass = async (id: string) => {
     if (!confirm('Xóa lớp này? Toàn bộ dữ liệu của lớp sẽ bị xóa.')) return;
-    await supabase.from('classrooms').delete().eq('id', id);
-    const updated = classrooms.filter((c) => c.id !== id);
-    setClassrooms(updated);
-    setSelectedClass(updated[0] || null);
-    toast.success('Đã xóa lớp.');
+    try {
+      await apiClient.delete(`/classrooms/${id}`);
+      const updated = classrooms.filter((c) => c.id !== id);
+      setClassrooms(updated);
+      setSelectedClass(updated[0] || null);
+      toast.success('Đã xóa lớp.');
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : 'Không thể xóa lớp';
+      toast.error(msg);
+    }
   };
 
   const openClassSettings = () => {
@@ -252,15 +278,13 @@ export default function TeacherDashboard() {
     if (!selectedClass || !settingsName.trim()) return;
     setIsSavingSettings(true);
     try {
-      const { error } = await supabase
-        .from('classrooms')
-        .update({
-          name: settingsName.trim(),
-          description: settingsDesc.trim() || null,
-        })
-        .eq('id', selectedClass.id);
-
-      if (error) throw error;
+      const response = await apiClient.put<ApiResponse<unknown>>(`/classrooms/${selectedClass.id}`, {
+        name: settingsName.trim(),
+        description: settingsDesc.trim() || null,
+      });
+      if (!response.data?.success) {
+        throw new Error(response.data?.message || 'Không thể cập nhật lớp học');
+      }
 
       const updatedClass: Classroom = {
         ...selectedClass,
@@ -299,11 +323,7 @@ export default function TeacherDashboard() {
   const handleWordStatus = async (wordId: string, status: 'approved' | 'rejected') => {
     setApprovingId(wordId);
     try {
-      const res = await fetch(`/api/words/${wordId}/status`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
-        body: JSON.stringify({ status }),
-      });
+      const res = await VocabApi.updateWordStatus(wordId, { status });
       const json = (await res.json()) as { success?: boolean };
       if (!json.success) throw new Error('Failed');
       setPendingWords((prev) => prev.filter((w) => w.id !== wordId));
@@ -316,7 +336,7 @@ export default function TeacherDashboard() {
   };
 
   const handleSignOut = async () => {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await authService.signOut();
     if (error) { alert(error.message); return; }
     router.push('/');
   };

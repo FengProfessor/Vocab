@@ -1,8 +1,9 @@
-'use client';
+import { BillingApi } from '@/features/billing/api';
+import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useState, type ReactNode } from 'react';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
+import Link from '@/shared/router/navigation';
+import dynamic from '@/shared/ui/dynamic';
 import { Crown, Flame, BookOpen, Loader2, Check, Gift, Lock } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
@@ -103,7 +104,7 @@ export function ProTrialMilestoneCard({
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session) {
         if (!snap) {
           setSnap(null);
@@ -112,7 +113,7 @@ export function ProTrialMilestoneCard({
         return;
       }
 
-      const res = await fetch('/api/billing/pro-milestone', {
+      const res = await BillingApi.getProMilestone({
         headers: { 'X-LingoPro-Request': '1' },
         cache: 'no-store',
       });
@@ -183,10 +184,10 @@ export function ProTrialMilestoneCard({
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session) throw new Error('Cần đăng nhập');
 
-      const res = await fetch('/api/billing/pro-milestone', {
+      const res = await BillingApi.claimProMilestone({
         method: 'POST',
         headers: {
           'X-LingoPro-Request': '1',

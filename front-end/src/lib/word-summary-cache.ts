@@ -1,7 +1,14 @@
 /**
- * Cache ngắn (sessionStorage) cho newCount / reviewDueCount.
+ * Cache ngắn (sessionStorage + localStorage) cho newCount / reviewDueCount.
  * Stale-while-revalidate: paint số cũ ngay → fetch background → ghi đè.
  */
+
+import {
+  STORAGE_KEYS,
+  userStorage,
+  getLastUserId,
+  getBrowserStorages,
+} from '@/shared/lib/storage';
 
 export type WordSummaryCache = {
   total: number;
@@ -14,15 +21,12 @@ export type WordSummaryCache = {
 };
 
 const TTL_MS = 60_000;
-const LAST_USER_ID_KEY = 'lp:last_user_id';
-const keyFor = (userId: string) => `lp:word-summary:${userId}`;
+const LAST_USER_ID_KEY = STORAGE_KEYS.LAST_USER_ID;
 
 export function readWordSummaryCache(userId: string): WordSummaryCache | null {
-  if (typeof window === 'undefined') return null;
+  if (typeof window === 'undefined' || !userId) return null;
   try {
-    const raw = sessionStorage.getItem(keyFor(userId)) || localStorage.getItem(keyFor(userId));
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as WordSummaryCache;
+    const parsed = userStorage(userId).get<WordSummaryCache>(STORAGE_KEYS.WORD_SUMMARY);
     if (!parsed || typeof parsed.ts !== 'number') return null;
     // Vẫn trả stale (kể cả hết TTL) — caller quyết định revalidate
     return parsed;
@@ -37,19 +41,21 @@ export function readWordSummaryCache(userId: string): WordSummaryCache | null {
 export function readLastWordSummaryCache(): WordSummaryCache | null {
   if (typeof window === 'undefined') return null;
   try {
-    const lastUserId = localStorage.getItem(LAST_USER_ID_KEY) || sessionStorage.getItem(LAST_USER_ID_KEY);
+    const lastUserId = getLastUserId();
     if (lastUserId) {
       const cached = readWordSummaryCache(lastUserId);
       if (cached) return cached;
     }
     // Fallback nếu không có lastUserId: tìm key lp:word-summary:* đầu tiên
-    for (let i = 0; i < localStorage.length; i++) {
-      const k = localStorage.key(i);
-      if (k?.startsWith('lp:word-summary:')) {
-        const raw = localStorage.getItem(k);
-        if (raw) {
-          const parsed = JSON.parse(raw) as WordSummaryCache;
-          if (parsed && typeof parsed.ts === 'number') return parsed;
+    for (const store of getBrowserStorages()) {
+      for (let i = 0; i < store.length; i++) {
+        const k = store.key(i);
+        if (k?.startsWith(`lp:${STORAGE_KEYS.WORD_SUMMARY}:`)) {
+          const raw = store.getItem(k);
+          if (raw) {
+            const parsed = JSON.parse(raw) as WordSummaryCache;
+            if (parsed && typeof parsed.ts === 'number') return parsed;
+          }
         }
       }
     }
@@ -68,7 +74,7 @@ export function writeWordSummaryCache(
   userId: string,
   data: Omit<WordSummaryCache, 'ts'>,
 ): void {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined' || !userId) return;
   try {
     const existing = readWordSummaryCache(userId);
     const hasNonZeroLevels =
@@ -83,11 +89,7 @@ export function writeWordSummaryCache(
       ...(resolvedLevels ? { levelCounts: resolvedLevels } : {}),
       ts: Date.now(),
     };
-    const serialized = JSON.stringify(payload);
-    sessionStorage.setItem(keyFor(userId), serialized);
-    localStorage.setItem(keyFor(userId), serialized);
-    sessionStorage.setItem(LAST_USER_ID_KEY, userId);
-    localStorage.setItem(LAST_USER_ID_KEY, userId);
+    userStorage(userId).set(STORAGE_KEYS.WORD_SUMMARY, payload);
   } catch {
     // quota / private mode — silent
   }
@@ -97,26 +99,22 @@ export function invalidateWordSummaryCache(userId?: string | null): void {
   if (typeof window === 'undefined') return;
   try {
     if (userId) {
-      sessionStorage.removeItem(keyFor(userId));
-      localStorage.removeItem(keyFor(userId));
+      userStorage(userId).remove(STORAGE_KEYS.WORD_SUMMARY);
       return;
     }
-    // Xóa mọi key lp:word-summary:* nếu không biết userId
-    const keys: string[] = [];
-    for (let i = 0; i < sessionStorage.length; i++) {
-      const k = sessionStorage.key(i);
-      if (k?.startsWith('lp:word-summary:')) keys.push(k);
+    for (const store of getBrowserStorages()) {
+      const keys: string[] = [];
+      for (let i = 0; i < store.length; i++) {
+        const k = store.key(i);
+        if (k?.startsWith(`lp:${STORAGE_KEYS.WORD_SUMMARY}:`)) {
+          keys.push(k);
+        }
+      }
+      for (const k of keys) {
+        store.removeItem(k);
+      }
+      store.removeItem(LAST_USER_ID_KEY);
     }
-    for (let i = 0; i < localStorage.length; i++) {
-      const k = localStorage.key(i);
-      if (k?.startsWith('lp:word-summary:') && !keys.includes(k)) keys.push(k);
-    }
-    keys.forEach((k) => {
-      sessionStorage.removeItem(k);
-      localStorage.removeItem(k);
-    });
-    sessionStorage.removeItem(LAST_USER_ID_KEY);
-    localStorage.removeItem(LAST_USER_ID_KEY);
   } catch {
     // silent
   }
@@ -185,4 +183,3 @@ export function notifyWordReviewedOptimistic(userId?: string | null): void {
     window.dispatchEvent(new CustomEvent(WORD_SUMMARY_EVENTS.REVIEWED));
   }
 }
-

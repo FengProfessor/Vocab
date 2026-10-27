@@ -1,9 +1,9 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { Volume2, BookmarkPlus, Check, X, Loader2, Sparkles, Lightbulb } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
-import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
 import {
   type ExamDictResult,
@@ -141,10 +141,10 @@ export function ExamWordLookupCard({
       // 2. If user is authenticated, sync to Supabase SRS system
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
 
       if (session?.user) {
-        await authFetch('/api/words', {
+        await VocabApi.saveWords({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

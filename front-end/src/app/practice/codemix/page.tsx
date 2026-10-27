@@ -1,4 +1,5 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { ReadingApi } from '@/features/reading/api';
 
 /**
  * Sử dụng từ / Đặt câu: chọn bulk 1–20 từ → viết VI+EN → AI full EN.
@@ -6,7 +7,7 @@
  */
 
 import { Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   Check,
   Crown,
@@ -15,8 +16,7 @@ import {
   Sparkles,
   Wand2,
 } from 'lucide-react';
-import { useSearchParams } from 'next/navigation';
-import { authFetch } from '@/lib/auth-fetch';
+import { useSearchParams } from '@/shared/router/navigation';
 import { usePlan } from '@/hooks/usePlan';
 import { FREE_CODEMIX_UPGRADE_DAILY_LIMIT } from '@/lib/entitlement';
 import {
@@ -238,7 +238,7 @@ function CodeMixPracticeInner() {
 
         for (let page = 0; page < 6; page++) {
           const offset = page * 50;
-          const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
+          const res = await VocabApi.getWords(`/api/words?limit=50&offset=${offset}`);
           const json = (await res.json()) as {
             success?: boolean;
             data?: Array<{
@@ -434,7 +434,7 @@ function CodeMixPracticeInner() {
       setUpgradeError(null);
       setQuotaBlocked(false);
       try {
-        const res = await authFetch('/api/practice/codemix-upgrade', {
+        const res = await ReadingApi.upgradeCodemix({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

@@ -1,16 +1,17 @@
-'use client';
+import { AdminApi } from '@/features/admin/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   ChevronLeft, Users, UserPlus, Crown, Activity, AlertTriangle,
   Search, Download, X, Mail, Calendar, BookOpen, Target,
   CreditCard, TrendingUp, Building2, Brain, RotateCcw,
   RefreshCw, Zap, Flame, FileText,
 } from 'lucide-react';
-import dynamic from 'next/dynamic';
+import dynamic from '@/shared/ui/dynamic';
 import { formatVND } from '@/lib/billing';
 import type { MultiSkillStats } from '@/lib/activity/universal-activity';
 
@@ -188,13 +189,9 @@ export default function CrmDashboard() {
     }
     setError('');
     try {
-      // getSession() → trả cả user + token, tránh gọi getUser() riêng + getSession() trong authFetch
-      const { data: { session } } = await supabase.auth.getSession();
+            const { data: { session } } = await authService.getSession();
       if (!session?.user) { router.push('/auth'); return; }
-      const url = forceRefresh ? '/api/admin/crm?refresh=1' : '/api/admin/crm';
-      const res = await fetch(url, {
-        headers: { 'X-LingoPro-Request': '1' },
-      });
+      const res = await AdminApi.getCrmDashboard({ forceRefresh: Boolean(forceRefresh) });
       const json = await res.json().catch(() => null);
 
       if (res.status === 403) {
@@ -309,7 +306,7 @@ export default function CrmDashboard() {
     ]);
     const esc = (v: string | number) => `"${String(v).replace(/"/g, '""')}"`;
     const csv = [head, ...rows].map(r => r.map(esc).join(',')).join('\n');
-    const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
+    const blob = new Blob(['' + csv], { type: 'text/csv;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;

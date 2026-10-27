@@ -1,4 +1,4 @@
-﻿using LingoPro.Domain.Enums;
+using LingoPro.Domain.Enums;
 
 namespace LingoPro.Application.Features.Auth.Queries;
 
@@ -18,5 +18,12 @@ public record ProfileDto(
     int LongestStreak,
     string? LearningGoal,
     int DailyTargetMins,
-    bool OnboardingCompleted
+    bool OnboardingCompleted,
+    int TodayXp = 0,
+    DateOnly? TodayDate = null,
+    DateOnly? LastActiveDate = null,
+    int? NotificationHour = null,
+    string? Province = null,
+    string? City = null,
+    DateTime? CreatedAt = null
 );

@@ -1,4 +1,4 @@
-﻿using LingoPro.Application.Common.Models;
+using LingoPro.Application.Common.Models;
 using LingoPro.Application.Features.Grammar.Commands;
 using LingoPro.Application.Features.Grammar.Queries;
 using LingoPro.Domain.Enums;
@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.RateLimiting;
 namespace LingoPro.WebApi.Controllers;
 
 /// <summary>
-/// REST API controller for canonical grammar topics catalog and learner grammar mastery progression.
+/// REST API controller for canonical grammar topics catalog, classroom grammar exercises, and learner grammar mastery progression.
 /// </summary>
 [Route("api/v1/grammar")]
 [Authorize]
@@ -34,5 +34,15 @@ public sealed class GrammarController : ApiControllerBase
     {
         var result = await Mediator.Send(command, ct);
         return OkResponse(result, "Grammar topic mastery updated successfully.");
+    }
+
+    [HttpDelete("exercises/{exerciseId:guid}")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<bool>>> DeleteGrammarExercise(
+        [FromRoute] Guid exerciseId,
+        CancellationToken ct)
+    {
+        var result = await Mediator.Send(new DeleteGrammarExerciseCommand(exerciseId), ct);
+        return OkResponse(result, "Grammar exercise deleted successfully.");
     }
 }

@@ -3,7 +3,6 @@
  * File: src/components/vnu-bac-3/VnuAudioPlayer.tsx
  */
 
-'use client';
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Play, Pause, Lock, Volume2, Volume1, VolumeX, AlertCircle, Loader2, RotateCcw } from 'lucide-react';

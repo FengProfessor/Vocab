@@ -1,10 +1,10 @@
-'use client';
+import { ChallengeApi } from '@/features/challenge/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { authFetch } from '@/lib/auth-fetch';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import {
   ChevronLeft, Trophy, Plus, Users, Calendar, Banknote,
@@ -104,10 +104,10 @@ export default function AdminChallengesPage() {
 
   const loadChallenges = async () => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user } } = await authService.getUser();
       if (!user) { router.push('/auth'); return; }
 
-      const res = await authFetch('/api/challenges?includeAll=1');
+      const res = await ChallengeApi.getChallenges({ includeAll: 1 });
       const json = await res.json();
       if (json.success) {
         setChallenges(json.challenges || []);
@@ -126,7 +126,7 @@ export default function AdminChallengesPage() {
     }
     setIsSaving(true);
     try {
-      const res = await authFetch('/api/challenges', {
+      const res = await ChallengeApi.createChallenge({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

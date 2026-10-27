@@ -216,24 +216,81 @@ public class SupabaseAuthService(
         }
     }
 
-    public async Task RequestPasswordRecoveryAsync(string email, string redirectUri, CancellationToken ct = default)
+    public async Task RequestPasswordRecoveryAsync(string email, string? redirectUri = null, CancellationToken ct = default)
     {
-        var req = CreateAuthRequest(HttpMethod.Post, $"/auth/v1/recover?redirect_to={Uri.EscapeDataString(redirectUri)}");
+        var effectiveRedirect = !string.IsNullOrWhiteSpace(redirectUri)
+            ? redirectUri.Trim()
+            : $"{_options.NormalizedFrontendBaseUrl}/auth/recovery";
+
+        var req = CreateAuthRequest(HttpMethod.Post, $"/auth/v1/recover?redirect_to={Uri.EscapeDataString(effectiveRedirect)}");
         req.Content = JsonContent.Create(new { email });
 
-        await httpClient.SendAsync(req, ct);
+        try
+        {
+            var response = await httpClient.SendAsync(req, ct);
+            if (!response.IsSuccessStatusCode)
+            {
+                await LogSupabaseFailureAsync(response, "Password recovery request", ct);
+            }
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            logger.LogWarning(ex, "Password recovery dispatch failed upstream; suppressing to prevent email enumeration.");
+        }
     }
 
-    public async Task ResetPasswordAsync(string recoveryAccessToken, string newPassword, CancellationToken ct = default)
+    public async Task ResetPasswordAsync(string? recoveryAccessToken, string? tokenHash, string newPassword, CancellationToken ct = default)
     {
+        var bearerToken = recoveryAccessToken?.Trim();
+
+        if (string.IsNullOrWhiteSpace(bearerToken) && !string.IsNullOrWhiteSpace(tokenHash))
+        {
+            var verifyReq = CreateAuthRequest(HttpMethod.Post, "/auth/v1/verify");
+            verifyReq.Content = JsonContent.Create(new
+            {
+                token_hash = tokenHash.Trim(),
+                type = "recovery"
+            });
+
+            var verifyResponse = await httpClient.SendAsync(verifyReq, ct);
+            if (!verifyResponse.IsSuccessStatusCode)
+            {
+                await LogSupabaseFailureAsync(verifyResponse, "Password recovery token_hash verify", ct);
+                throw new DomainException("Password reset failed. Recovery session may have expired.", "PASSWORD_RESET_FAILED");
+            }
+
+            using var verifyDoc = await JsonDocument.ParseAsync(await verifyResponse.Content.ReadAsStreamAsync(ct), cancellationToken: ct);
+            if (verifyDoc.RootElement.TryGetProperty("access_token", out var atProp))
+            {
+                bearerToken = atProp.GetString();
+            }
+        }
+
+        if (string.IsNullOrWhiteSpace(bearerToken))
+        {
+            throw new DomainException("Password reset failed. Recovery token is missing or invalid.", "PASSWORD_RESET_FAILED");
+        }
+
         var req = CreateAuthRequest(HttpMethod.Put, "/auth/v1/user");
-        req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", recoveryAccessToken);
+        req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
         req.Content = JsonContent.Create(new { password = newPassword });
 
         var response = await httpClient.SendAsync(req, ct);
         if (!response.IsSuccessStatusCode)
         {
+            await LogSupabaseFailureAsync(response, "Password reset", ct);
             throw new DomainException("Password reset failed. Recovery session may have expired.", "PASSWORD_RESET_FAILED");
+        }
+
+        try
+        {
+            var logoutReq = CreateAuthRequest(HttpMethod.Post, "/auth/v1/logout?scope=global");
+            logoutReq.Headers.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
+            await httpClient.SendAsync(logoutReq, ct);
+        }
+        catch (Exception ex) when (ex is not OperationCanceledException)
+        {
+            logger.LogDebug(ex, "Best-effort recovery token global logout failed.");
         }
     }
 

@@ -1,7 +1,6 @@
-'use client';
 
 import { useEffect } from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter, useParams } from '@/shared/router/navigation';
 import { Loader2 } from 'lucide-react';
 
 /**

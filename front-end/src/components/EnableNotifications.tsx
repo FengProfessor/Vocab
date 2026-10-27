@@ -1,9 +1,10 @@
-'use client';
+import { AuthApi } from '@/features/auth/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect } from 'react';
 import { Loader2 } from 'lucide-react';
 import { requestForToken } from '@/lib/firebase';
-import { supabase } from '@/lib/supabase';
+
 import { toast } from 'sonner';
 import {
   dismissEnablePrompt,
@@ -14,7 +15,7 @@ import {
   markPushDeviceRegistered,
   PUSH_DEVICE_REGISTERED_KEY,
 } from '@/lib/push-device-state';
-import { PUSH_FORCE_GEN, PUSH_FORCE_GEN_STORAGE_KEY } from '@/lib/push-force-gen';
+import { PUSH_FORCE_GEN, PUSH_FORCE_GEN_STORAGE_KEY } from '@/lib/push-device-state';
 
 const STALE_DAYS = 5;
 
@@ -89,11 +90,9 @@ export function EnableNotifications() {
       }
 
       try {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (!session) return;
-        const res = await fetch('/api/push/fcm-register', {
-          headers: { 'X-LingoPro-Request': '1' },
-        });
+        const res = await AuthApi.fcmRegister();
         const data = await res.json() as {
           success?: boolean;
           count?: number;
@@ -122,9 +121,9 @@ export function EnableNotifications() {
       const token = await requestForToken();
       if (!token) throw new Error('Chưa lấy được mã thiết bị. Thử lại sau.');
 
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (session) {
-        const res = await fetch('/api/push/fcm-register', {
+        const res = await AuthApi.fcmRegister({
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

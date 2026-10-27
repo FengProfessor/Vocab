@@ -1,7 +1,6 @@
-'use client';
 
 import { createPortal } from 'react-dom';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { useOnboarding } from './OnboardingProvider';
 import { Mascot } from '@/components/gamification/Mascot';
 import { isTourMobile, resolveHowTo } from './onboarding-steps';

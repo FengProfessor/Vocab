@@ -1,4 +1,3 @@
-'use client';
 
 export type MascotMood = 'happy' | 'cheer' | 'sleepy' | 'sad' | 'thinking';
 

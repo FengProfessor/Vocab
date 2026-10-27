@@ -1,4 +1,3 @@
-'use client';
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Volume2, CheckCircle2, RotateCcw, Sparkles, Clock, Target } from 'lucide-react';

@@ -1,8 +1,8 @@
-'use client';
+import { ExamApi } from '@/features/exam/api';
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import Link from 'next/link';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   Clock,
   Flag,
@@ -34,7 +34,7 @@ import {
   VstepScoreResult,
   VstepSkillType
 } from '@/lib/vstep-types';
-import type { WritingEvalResult } from '@/app/api/vstep/writing-eval/route';
+import type { WritingEvalResult } from '@/features/exam/api';
 import { getCefrDescription } from '@/lib/vstep-scoring';
 import {
   batchRecordVstepAnswers,
@@ -43,7 +43,6 @@ import {
   getIncorrectVstepQuestionIds,
 } from '@/lib/vstep-history';
 import { stripHtmlTags } from '@/components/toeic/ToeicSplitPane';
-import { authFetch } from '@/lib/auth-fetch';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 function getVstepQuestionKey(question: VstepQuestion): string {
@@ -134,7 +133,7 @@ function VstepExamPageInner() {
         const answeredIds = Array.from(getAnsweredVstepQuestionIds());
         const mistakeIds = Array.from(getIncorrectVstepQuestionIds());
 
-        const res = await fetch('/api/vstep/test', {
+        const res = await ExamApi.getVstepTest({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -489,7 +488,7 @@ function VstepExamPageInner() {
         .filter(Boolean)
         .map((s) => stripHtmlTags(String(s)))
         .join('\n');
-      const res = await fetch('/api/vstep/writing-eval', {
+      const res = await ExamApi.evaluateWriting({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -500,7 +499,7 @@ function VstepExamPageInner() {
           minWords: task.minWords || (taskId === 'part1' ? 120 : 250),
           text,
         }),
-      });
+      }, 'Vstep');
       const data = await res.json();
       if (!res.ok || !data.success || !data.evaluation) {
         throw new Error(data.error || 'Không thể chấm bài viết lúc này.');
@@ -529,7 +528,7 @@ function VstepExamPageInner() {
     if (onDemandExplanations[qKey] || explainingQuestionKey === qKey) return;
     setExplainingQuestionKey(qKey);
     try {
-      const res = await fetch('/api/vstep/explain', {
+      const res = await ExamApi.explainVstepQuestion({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -567,7 +566,7 @@ function VstepExamPageInner() {
     try {
       const practiceSkill = exam.id.startsWith('vstep-practice-') ? exam.sections[0]?.type : undefined;
       const isPracticeSession = practiceSkill === 'listening' || practiceSkill === 'reading';
-      const res = await authFetch('/api/vstep/submit', {
+      const res = await ExamApi.submitVstepExam({
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
         body: JSON.stringify({

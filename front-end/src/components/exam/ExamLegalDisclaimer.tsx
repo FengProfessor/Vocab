@@ -1,7 +1,6 @@
-'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { ShieldAlert, ExternalLink } from 'lucide-react';
 
 interface ExamLegalDisclaimerProps {

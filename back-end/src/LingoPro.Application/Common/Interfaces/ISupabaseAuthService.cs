@@ -22,6 +22,6 @@ public interface ISupabaseAuthService
     Task<SupabaseAuthResult> ExchangeOAuthCodeAsync(string authCode, string codeVerifier, CancellationToken ct = default);
     Task<string> GetGoogleLinkIdentityUrlAsync(string userAccessToken, string redirectUri, CancellationToken ct = default);
     Task UnlinkGoogleIdentityAsync(string userAccessToken, string identityId, CancellationToken ct = default);
-    Task RequestPasswordRecoveryAsync(string email, string redirectUri, CancellationToken ct = default);
-    Task ResetPasswordAsync(string recoveryAccessToken, string newPassword, CancellationToken ct = default);
+    Task RequestPasswordRecoveryAsync(string email, string? redirectUri = null, CancellationToken ct = default);
+    Task ResetPasswordAsync(string? recoveryAccessToken, string? tokenHash, string newPassword, CancellationToken ct = default);
 }

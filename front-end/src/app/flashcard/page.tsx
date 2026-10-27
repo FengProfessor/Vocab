@@ -1,15 +1,15 @@
-'use client';
-import { authFetch } from '@/lib/auth-fetch';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from '@/shared/router/navigation';
 import { supabase, type SRSProgress } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ChevronLeft, Volume2, RotateCcw, Loader2, RefreshCw, Snail, ChevronDown, HelpCircle } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { useGamification } from '@/hooks/useGamification';
 import { XP_BY_QUALITY } from '@/lib/gamification';
@@ -143,7 +143,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         // 1. Instant hydration from IndexedDB (<5ms) in parallel with auth session check
         const cachedUserId = readLastProfileCache()?.id ?? null;
         const [sessionRes] = await Promise.all([
-          supabase.auth.getSession(),
+          authService.getSession(),
           cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
         ]);
         const { data: { session }, error } = sessionRes;
@@ -161,7 +161,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           ? `/api/words?classroomId=${classroomId}&filter=review&limit=40`
           : `/api/words?filter=review&limit=40`;
 
-        const res = await fetch(url, {
+        const res = await VocabApi.getWords(url, {
           headers: { 'X-LingoPro-Request': '1' },
         });
         const data = await res.json();
@@ -260,12 +260,12 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   const loadFreeReview = async () => {
     setIsLoading(true);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (!session) return;
       const url = classroomId
         ? `/api/words?classroomId=${classroomId}&limit=40`
         : `/api/words?limit=40`;
-      const res = await fetch(url, {
+      const res = await VocabApi.getWords(url, {
         headers: { 'X-LingoPro-Request': '1' },
       });
       const data = await res.json();
@@ -418,7 +418,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     // Background sync: Lưu kết quả SRS ngầm không chặn animation chuyển thẻ
     saveSrsReview(currentWordId, quality, crypto.randomUUID(), userId ?? undefined)
       .then(async () => {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (session?.user?.id) invalidateWordSummaryCache(session.user.id);
       })
       .catch((error) => {
@@ -480,7 +480,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
           // sessionResults là snapshot TRƯỚC thẻ này nên cộng thêm thẻ hiện tại; clamp ≤ total.
           const remembered = (quality === 4 || quality === 5) ? sessionResults.easy + 1 : sessionResults.easy;
           const finalScore = Math.min(remembered, total);
-          await authFetch('/api/quiz/save', {
+          await VocabApi.saveQuizResult({
             method: 'POST',
             headers: authHeaders,
             body: JSON.stringify({
@@ -726,7 +726,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                         e.stopPropagation();
                         toast.info('Finding a better image...', { icon: '🔍' });
                         try {
-                          const res = await fetch('/api/words/refresh-image', {
+                          const res = await VocabApi.refreshWordImage({
                             method: 'POST',
                             headers: {
                               'Content-Type': 'application/json',

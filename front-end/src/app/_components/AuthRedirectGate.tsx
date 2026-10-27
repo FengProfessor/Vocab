@@ -1,7 +1,7 @@
-'use client';
+import { authService } from '@/features/auth/session';
 
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { supabase } from '@/lib/supabase';
 import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
 
@@ -16,7 +16,7 @@ export default function AuthRedirectGate() {
     if (readLastProfileCache()) {
       router.replace('/student');
     }
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    authService.getSession().then(({ data: { session } }) => {
       if (session) {
         router.replace('/student');
       }

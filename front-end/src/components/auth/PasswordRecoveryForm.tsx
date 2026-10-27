@@ -1,13 +1,46 @@
-'use client';
 
 import { useEffect, useState, type FormEvent } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { ArrowLeft, KeyRound, Mail, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
-import { appAuth } from '@/lib/app-auth-client';
+import { AuthApi } from '@/features/auth/api';
+import { authService } from '@/features/auth/session';
 
-interface Props { mode: 'request' | 'reset' }
+interface Props {
+  mode: 'request' | 'reset';
+}
+
+interface RecoveryTokens {
+  accessToken: string | null;
+  tokenHash: string | null;
+}
+
+function extractRecoveryTokensFromLocation(): RecoveryTokens {
+  if (typeof window === 'undefined') {
+    return { accessToken: null, tokenHash: null };
+  }
+
+  let accessToken: string | null = null;
+  let tokenHash: string | null = null;
+
+  if (window.location.hash) {
+    const hashParams = new URLSearchParams(window.location.hash.slice(1));
+    accessToken = hashParams.get('access_token');
+    tokenHash = hashParams.get('token_hash');
+  }
+
+  const searchParams = new URLSearchParams(window.location.search);
+  if (!tokenHash) {
+    tokenHash = searchParams.get('token_hash') ?? searchParams.get('token');
+  }
+  if (!accessToken) {
+    accessToken = searchParams.get('access_token');
+  }
+
+  return { accessToken, tokenHash };
+}
 
 export default function PasswordRecoveryForm({ mode }: Props) {
+  const [tokens, setTokens] = useState<RecoveryTokens>(() => extractRecoveryTokensFromLocation());
   const [ready, setReady] = useState(mode === 'request');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,56 +50,62 @@ export default function PasswordRecoveryForm({ mode }: Props) {
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    // Không consume implicit bearer fragment; xóa khỏi URL trước mọi request/UI.
-    if (window.location.hash) window.history.replaceState(null, '', window.location.pathname);
+    const captured = extractRecoveryTokensFromLocation();
+    // Strip recovery tokens from URL bar immediately so they never leak via Referer or history.
+    if (window.location.hash || window.location.search) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+
     if (mode !== 'reset') return;
-    let cancelled = false;
-    void fetch('/api/auth/recovery', { headers: { 'X-LingoPro-Request': '1' }, cache: 'no-store' })
-      .then(async response => {
-        const body: unknown = await response.json();
-        const available = response.ok && !!body && typeof body === 'object' && 'ready' in body && body.ready === true;
-        if (!cancelled) {
-          setReady(available);
-          if (!available) setMessage('Liên kết không hợp lệ, đã dùng hoặc hết hạn. Vui lòng yêu cầu liên kết mới.');
-        }
-      }).catch(() => { if (!cancelled) setMessage('Dịch vụ tạm thời không khả dụng. Vui lòng thử lại sau.'); });
-    return () => { cancelled = true; };
-  }, [mode]);
+
+    const effectiveAccessToken = captured.accessToken ?? tokens.accessToken;
+    const effectiveTokenHash = captured.tokenHash ?? tokens.tokenHash;
+
+    if (effectiveAccessToken || effectiveTokenHash) {
+      setTokens({ accessToken: effectiveAccessToken, tokenHash: effectiveTokenHash });
+      setReady(true);
+    } else {
+      setReady(false);
+      setMessage('Liên kết không hợp lệ, đã dùng hoặc hết hạn. Vui lòng yêu cầu liên kết mới.');
+    }
+  }, [mode, tokens.accessToken, tokens.tokenHash]);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (busy || !ready || done) return;
     if (mode === 'reset' && password !== confirmation) {
-      setMessage('Hai mật khẩu chưa khớp.'); return;
+      setMessage('Hai mật khẩu chưa khớp.');
+      return;
     }
-    setBusy(true); setMessage('');
+    setBusy(true);
+    setMessage('');
     try {
-      const response = await fetch(mode === 'request' ? '/api/auth/recovery/request' : '/api/auth/recovery', {
-        method: 'POST', headers: { 'Content-Type': 'application/json', 'X-LingoPro-Request': '1' },
-        body: JSON.stringify(mode === 'request' ? { email } : { password, confirmation }), cache: 'no-store',
-      });
-      const body: unknown = await response.json();
-      const accepted = !!body && typeof body === 'object' && (mode === 'request' ?
-        'accepted' in body && body.accepted === true : 'success' in body && body.success === true &&
-        'reloginRequired' in body && body.reloginRequired === true);
-      if (response.ok && accepted) {
-        if (mode === 'reset') appAuth.passwordRecoveryCompleted();
-        setMessage(mode === 'request' 
-          ? 'Nếu tài khoản tồn tại, hướng dẫn sẽ được gửi. Mở liên kết trong cùng trình duyệt này.' 
-          : 'Đã đổi mật khẩu. Đăng nhập lại bằng mật khẩu mới.');
+      if (mode === 'request') {
+        await AuthApi.forgotPassword(email.trim());
+        setMessage(
+          'Nếu tài khoản tồn tại, hướng dẫn sẽ được gửi. Mở liên kết trong cùng trình duyệt này.',
+        );
         setDone(true);
-      } else if (response.status === 429) {
-        setMessage('Quá nhiều yêu cầu. Thử lại sau.');
-      } else if (response.status === 400) {
-        setMessage('Kiểm tra email hoặc yêu cầu mật khẩu của tài khoản.');
       } else {
-        setMessage('Liên kết không khả dụng. Yêu cầu liên kết mới hoặc thử lại sau.');
-        if (mode === 'reset') setReady(false);
+        await AuthApi.resetPassword({
+          newPassword: password,
+          accessToken: tokens.accessToken,
+          tokenHash: tokens.tokenHash,
+        });
+        authService.passwordRecoveryCompleted();
+        setMessage('Đã đổi mật khẩu. Đăng nhập lại bằng mật khẩu mới.');
+        setDone(true);
       }
-    } catch { 
-      setMessage('Tạm thời không khả dụng. Thử lại sau.'); 
-    } finally { 
-      setPassword(''); setConfirmation(''); setBusy(false); 
+    } catch (error) {
+      const errMessage = AuthApi.describeError(error);
+      setMessage(errMessage);
+      if (mode === 'reset' && errMessage.includes('hết hạn')) {
+        setReady(false);
+      }
+    } finally {
+      setPassword('');
+      setConfirmation('');
+      setBusy(false);
     }
   }
 
@@ -82,8 +121,8 @@ export default function PasswordRecoveryForm({ mode }: Props) {
             {mode === 'request' ? 'Quên mật khẩu' : 'Đặt mật khẩu mới'}
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-xs">
-            {mode === 'request' 
-              ? 'Nhập địa chỉ email tài khoản để nhận liên kết khôi phục an toàn' 
+            {mode === 'request'
+              ? 'Nhập địa chỉ email tài khoản để nhận liên kết khôi phục an toàn'
               : 'Tạo mật khẩu mới cho tài khoản học tập LingoPro của bạn'}
           </p>
         </div>
@@ -112,7 +151,10 @@ export default function PasswordRecoveryForm({ mode }: Props) {
           <form onSubmit={submit} className="flex flex-col gap-4">
             {mode === 'request' ? (
               <div className="space-y-1.5">
-                <label htmlFor="recovery-email" className="block text-xs font-bold text-slate-700 dark:text-slate-300">
+                <label
+                  htmlFor="recovery-email"
+                  className="block text-xs font-bold text-slate-700 dark:text-slate-300"
+                >
                   Địa chỉ Email
                 </label>
                 <div className="relative">
@@ -125,7 +167,7 @@ export default function PasswordRecoveryForm({ mode }: Props) {
                     maxLength={254}
                     placeholder="email@example.com"
                     value={email}
-                    onChange={event => setEmail(event.target.value)}
+                    onChange={(event) => setEmail(event.target.value)}
                     className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-950/50 pl-10 pr-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 transition-all"
                   />
                 </div>
@@ -133,7 +175,10 @@ export default function PasswordRecoveryForm({ mode }: Props) {
             ) : (
               <>
                 <div className="space-y-1.5">
-                  <label htmlFor="recovery-password" className="block text-xs font-bold text-slate-700 dark:text-slate-300">
+                  <label
+                    htmlFor="recovery-password"
+                    className="block text-xs font-bold text-slate-700 dark:text-slate-300"
+                  >
                     Mật khẩu mới
                   </label>
                   <div className="relative">
@@ -147,14 +192,17 @@ export default function PasswordRecoveryForm({ mode }: Props) {
                       maxLength={1024}
                       placeholder="Tối thiểu 6 ký tự"
                       value={password}
-                      onChange={event => setPassword(event.target.value)}
+                      onChange={(event) => setPassword(event.target.value)}
                       className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-950/50 pl-10 pr-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 transition-all"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label htmlFor="recovery-confirmation" className="block text-xs font-bold text-slate-700 dark:text-slate-300">
+                  <label
+                    htmlFor="recovery-confirmation"
+                    className="block text-xs font-bold text-slate-700 dark:text-slate-300"
+                  >
                     Xác nhận mật khẩu mới
                   </label>
                   <div className="relative">
@@ -168,7 +216,7 @@ export default function PasswordRecoveryForm({ mode }: Props) {
                       maxLength={1024}
                       placeholder="Nhập lại mật khẩu mới"
                       value={confirmation}
-                      onChange={event => setConfirmation(event.target.value)}
+                      onChange={(event) => setConfirmation(event.target.value)}
                       className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-950/50 pl-10 pr-3.5 py-2.5 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 transition-all"
                     />
                   </div>

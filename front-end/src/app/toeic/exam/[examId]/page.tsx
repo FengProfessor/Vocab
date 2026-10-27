@@ -1,4 +1,5 @@
-'use client';
+import { ExamApi } from '@/features/exam/api';
+import { authService } from '@/features/auth/session';
 
 /**
  * Authentic ETS/IIG Computer-Based TOEIC Exam & Practice Environment.
@@ -14,8 +15,8 @@
  */
 
 import React, { useMemo, useState, Suspense, useEffect, useCallback, useRef } from 'react';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import { ArrowLeft, Loader2, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
@@ -44,7 +45,6 @@ import {
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { supabase } from '@/lib/supabase';
 import type { AppUser as User } from '@/lib/app-session-types';
-import { authFetch } from '@/lib/auth-fetch';
 import type {
   ToeicUnifiedQuestion,
   ToeicClientQuestion,
@@ -207,7 +207,7 @@ function ToeicExamRoomInner() {
       inFlightExplanationRef.current.add(qNum);
 
       try {
-        const res = await fetch('/api/toeic/explain', {
+        const res = await ExamApi.explainToeicQuestion({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -253,11 +253,11 @@ function ToeicExamRoomInner() {
 
   useEffect(() => {
     let mounted = true;
-    supabase.auth.getUser().then(({ data: { user } }) => {
+    authService.getUser().then(({ data: { user } }) => {
       if (mounted) setCurrentUser(user);
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = authService.onAuthStateChange((_event, session) => {
       if (mounted) setCurrentUser(session?.user ?? null);
     });
 
@@ -279,7 +279,7 @@ function ToeicExamRoomInner() {
       try {
         let res: Response;
         if (isBankPractice || (isPartPractice && partNum)) {
-          res = await fetch('/api/toeic/test', {
+          res = await ExamApi.getToeicTest({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -292,7 +292,7 @@ function ToeicExamRoomInner() {
               excludedIds,
               mistakeIds,
             }),
-          });
+          }, 'POST');
         } else {
           const query = new URLSearchParams({
             testId: targetTestId,
@@ -303,7 +303,7 @@ function ToeicExamRoomInner() {
             ...(filterMode ? { filterMode } : {}),
           });
 
-          res = await fetch(`/api/toeic/test?${query.toString()}`);
+          res = await ExamApi.getToeicTest(`/api/toeic/test?${query.toString()}`, 'GET');
         }
 
         if (res.ok) {
@@ -571,7 +571,7 @@ function ToeicExamRoomInner() {
           setIsExamSubmittedState(true);
         }
 
-        const { data: { session: authSession } } = await supabase.auth.getSession();
+        const { data: { session: authSession } } = await authService.getSession();
         if (!authSession?.user) {
           // Still a guest
           setIsGuestState(true);
@@ -580,7 +580,7 @@ function ToeicExamRoomInner() {
         }
 
         // User is authenticated! Sync pending exam to database
-        const res = await authFetch('/api/toeic/submit', {
+        const res = await ExamApi.submitToeicExam({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -668,7 +668,7 @@ function ToeicExamRoomInner() {
       );
 
       const redirectTo = `${window.location.origin}/auth/callback`;
-      const { error } = await supabase.auth.signInWithOAuth({
+      const { error } = await authService.signInWithOAuth({
         provider: 'google',
         options: {
           redirectTo,

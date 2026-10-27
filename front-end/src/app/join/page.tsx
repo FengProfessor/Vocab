@@ -1,7 +1,6 @@
-'use client';
 
 import { Suspense, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import { Loader2 } from 'lucide-react';
 
 function JoinRedirectContent() {

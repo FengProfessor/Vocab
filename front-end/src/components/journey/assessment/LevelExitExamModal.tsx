@@ -1,4 +1,4 @@
-﻿'use client';
+import { RoadmapApi } from '@/features/roadmap/api';
 
 /**
  * LevelExitExamModal
@@ -7,7 +7,7 @@
  * Strictly requires >= 80% to graduate and unlock the next level.
  */
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   Dialog,
   DialogContent,
@@ -32,7 +32,6 @@ import {
   BookOpen,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import { playWordAudio } from '@/lib/audio';
 import {
   evaluateDiagnostic,
@@ -552,7 +551,7 @@ export function LevelExitExamModal({
       setFinished(true);
 
       // Lưu lịch sử đánh giá vào /api/roadmap/assessment
-      await authFetch('/api/roadmap/assessment', {
+      await RoadmapApi.submitAssessment({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

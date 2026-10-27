@@ -1,7 +1,7 @@
-'use client';
+import { SocialApi } from '@/features/social/api';
 
 import { useEffect, useRef } from 'react';
-import { supabase } from '@/lib/supabase';
+import { authService } from '@/features/auth/session';
 import { Loader2 } from 'lucide-react';
 import { getStoredReferralCode, clearStoredReferralCode } from '@/lib/referral-tracker';
 import { safeInternalRedirect } from '@/lib/internal-redirect';
@@ -12,7 +12,7 @@ const OAUTH_SOURCE_KEY = 'lingopro_oauth_source';
 const OAUTH_REDIRECT_TO_KEY = 'lingopro_oauth_redirect_to';
 
 /**
- * OAuth callback — PKCE exchange.
+ * OAuth callback — PKCE exchange completion.
  * Role/pilot lấy từ sessionStorage (không query trên redirectTo — tránh Google chặn).
  */
 export default function AuthCallbackPage() {
@@ -68,17 +68,17 @@ export default function AuthCallbackPage() {
 
       try {
         let session = null as Awaited<
-          ReturnType<typeof supabase.auth.getSession>
+          ReturnType<typeof authService.getSession>
         >['data']['session'];
 
         if (!session) {
-          const { data } = await supabase.auth.getSession();
+          const { data } = await authService.getSession();
           session = data.session;
         }
 
         if (!session) {
           await new Promise((r) => setTimeout(r, 200));
-          const { data } = await supabase.auth.getSession();
+          const { data } = await authService.getSession();
           session = data.session;
         }
 
@@ -92,7 +92,7 @@ export default function AuthCallbackPage() {
         if (refCode && session.user) {
           try {
             await Promise.race([
-              fetch('/api/referral/claim', {
+              SocialApi.claimReferral({
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ export default function AuthCallbackPage() {
         }
 
         if (requestedRole === 'teacher') {
-          void supabase.rpc('claim_teacher_role').then(({ error: roleErr }) => {
+          void authService.claimTeacherRole().then(({ error: roleErr }) => {
             if (roleErr) console.warn('[AuthCallback] claim_teacher_role:', roleErr.message);
           });
         }

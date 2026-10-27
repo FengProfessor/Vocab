@@ -1,8 +1,9 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   AlertCircle,
   BarChart3,
@@ -34,7 +35,8 @@ import {
   resolveDisplayStreak,
   xpToLevel,
 } from '@/lib/gamification';
-import { supabase, type Profile } from '@/lib/supabase';
+import type { Profile } from '@/lib/supabase';
+import { AuthApi } from '@/features/auth/api';
 import { PROVINCES } from '@/lib/provinces';
 import { useStudentContext } from '@/components/student/StudentProvider';
 import {
@@ -160,7 +162,7 @@ export default function ProfilePage() {
         const {
           data: { session },
           error,
-        } = await supabase.auth.getSession();
+        } = await authService.getSession();
         if (error) {
           setIsLoading(false);
           return;
@@ -171,17 +173,13 @@ export default function ProfilePage() {
           return;
         }
 
-        const statsPromise = fetch('/api/student/stats', {
+        const statsPromise = VocabApi.getStudentStats({
           headers: { 'X-LingoPro-Request': '1' },
         })
           .then((response) => response.json())
           .catch(() => null);
 
-        const { data: prof } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
+        const prof = await AuthApi.getLegacyProfile(session.user.id).catch(() => null);
 
         const statsResponse = await statsPromise;
 
@@ -216,10 +214,10 @@ export default function ProfilePage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) throw new Error('Chưa đăng nhập');
 
-      const res = await fetch('/api/profile', {
+      const res = await AuthApi.updateProfile({
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -265,9 +263,9 @@ export default function ProfilePage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) throw new Error('Chưa đăng nhập');
-      const res = await fetch('/api/extension-token', {
+      const res = await AuthApi.createExtensionToken({
         method: 'POST', headers: { 'X-LingoPro-Request': '1' },
       });
       const result = (await res.json()) as { success?: boolean; token?: string };
@@ -291,13 +289,13 @@ export default function ProfilePage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user) throw new Error('Chưa đăng nhập');
 
       const fcmToken = await requestForToken();
       if (!fcmToken) throw new Error('Không lấy được mã thiết bị');
 
-      const res = await fetch('/api/push/fcm-register', {
+      const res = await AuthApi.fcmRegister({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

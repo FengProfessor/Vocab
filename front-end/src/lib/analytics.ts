@@ -1,11 +1,13 @@
 /**
  * Wrapper an toàn quanh PostHog — gọi được ở bất kỳ client component nào.
- * No-op nếu chạy server-side hoặc chưa cấu hình NEXT_PUBLIC_POSTHOG_KEY.
+ * No-op nếu chạy server-side hoặc chưa cấu hình VITE_POSTHOG_KEY.
  * Dynamic import: không kéo posthog-js vào initial bundle của trang gọi track().
  */
 
+import { env } from '@/shared/config/env';
+
 const enabled = () =>
-  typeof window !== 'undefined' && !!process.env.NEXT_PUBLIC_POSTHOG_KEY;
+  typeof window !== 'undefined' && Boolean(env.posthogKey);
 
 export interface AnalyticsEvents {
   premium_gate_hit: { feature: string; upgradeTo: string };

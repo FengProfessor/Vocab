@@ -1,16 +1,16 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { supabase, type SRSProgress } from '@/lib/supabase';
-import { authFetch } from '@/lib/auth-fetch';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import {
   ChevronLeft, Volume2, Snail, ArrowRight, RotateCcw, BookOpen, GraduationCap, Sparkles, HelpCircle,
 } from 'lucide-react';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
@@ -141,7 +141,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         // 1. Instant hydration from IndexedDB for new words (<5ms) in parallel with auth session check
         const cachedUserId = readLastProfileCache()?.id ?? null;
         const [sessionRes] = await Promise.all([
-          supabase.auth.getSession(),
+          authService.getSession(),
           cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
         ]);
         const { data: { session }, error } = sessionRes;
@@ -160,7 +160,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
           if (filter) query.set('filter', filter);
           if (initialClassroomId) query.set('classroomId', initialClassroomId);
           if (idsParam !== null) query.set('ids', idsParam);
-          const res = await authFetch(`/api/words?${query.toString()}`);
+          const res = await VocabApi.getWords(`/api/words?${query.toString()}`);
           const data = await res.json() as { success?: boolean; data?: WordItem[]; classroomId?: string };
           if (!data.success || !data.data) return { words: [] };
           return { words: data.data, classroomId: data.classroomId };
@@ -431,7 +431,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     const quality = verdictToQuality(v);
     saveSrsReview(wordIdToSave, quality, crypto.randomUUID(), userId ?? undefined)
       .then(async () => {
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (session?.user?.id) invalidateWordSummaryCache(session.user.id);
       })
       .catch((error) => {
@@ -509,7 +509,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   // Chỉ ghi step khi đã học hết batch còn lại (remainingNew === 0) — tránh pass sớm giữa chừng gói.
   useEffect(() => {
     if (phase !== 'done') return;
-    authFetch('/api/quiz/save', {
+    VocabApi.saveQuizResult({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

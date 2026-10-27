@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+import type { Metadata } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import { Brain, ArrowLeft } from 'lucide-react';
 
 export const metadata: Metadata = {

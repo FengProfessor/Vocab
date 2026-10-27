@@ -1,8 +1,8 @@
-'use client';
+import { authService } from '@/features/auth/session';
 
 import React, { useState, useEffect, useMemo } from 'react';
-import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useSearchParams } from '@/shared/router/navigation';
 import { StudentShell } from '@/components/student/StudentShell';
 import { IpaSoundboard } from '@/components/ipa/IpaSoundboard';
 import { IpaPracticeStudio } from '@/components/ipa/IpaPracticeStudio';
@@ -45,7 +45,7 @@ function IpaMasterclassContent() {
 
   // Check auth session
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    authService.getSession().then(({ data: { session } }) => {
       setHasSession(!!session?.user);
     }).catch(() => {
       setHasSession(false);

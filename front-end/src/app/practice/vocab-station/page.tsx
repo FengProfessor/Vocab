@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * Trạm Luyện Từ Vựng Đa Năng (Vocab Practice Station)
@@ -14,8 +13,8 @@
  */
 
 import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import {
   ArrowLeft,

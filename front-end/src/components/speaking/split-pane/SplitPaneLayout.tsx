@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * SplitPaneLayout Component

@@ -1,7 +1,6 @@
-'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Check, Sparkles, Zap, ShieldCheck } from 'lucide-react';
 
 export function ReferoPricingSection() {

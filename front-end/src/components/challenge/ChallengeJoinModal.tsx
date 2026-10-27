@@ -1,11 +1,10 @@
-'use client'
+import { ChallengeApi } from '@/features/challenge/api';
 
 import React, { useState } from 'react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Challenge } from '@/lib/challenge'
-import { authFetch } from '@/lib/auth-fetch'
 import { toast } from 'sonner'
 import { AlertCircle, QrCode, Sparkles } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
@@ -33,7 +32,7 @@ export function ChallengeJoinModal({ challenge, open, onOpenChange, onJoined }: 
 
     setLoading(true)
     try {
-      const res = await authFetch(`/api/challenges/${challenge.id}/join`, {
+      const res = await ChallengeApi.joinChallenge(challenge.id, {
         method: 'POST'
       })
 

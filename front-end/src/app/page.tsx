@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+import type { Metadata } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   ArrowDownToLine,
   ArrowRight,
@@ -252,7 +252,7 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 border-b border-[#bca58f]/30 bg-[#f6efe6]/90 backdrop-blur-xl">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4 sm:h-16 sm:px-6">
           <Link href="/" className="flex shrink-0 items-center gap-2.5 text-[#241710]">
-            {/* eslint-disable-next-line @next/next/no-img-element -- brand logo static public */}
+            {}
             <img
               src="/icons/icon-96.webp?v=parrot1"
               alt="LingoPro"
@@ -820,7 +820,7 @@ export default function LandingPage() {
       <footer className="border-t border-[#d7c7b6]/70 px-4 py-8 sm:px-6">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 text-sm text-[#6d574a] sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2.5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+            {}
             <img
               src="/icons/icon-96.webp?v=parrot1"
               alt="LingoPro"

@@ -1,4 +1,3 @@
-'use client';
 import { Lock } from 'lucide-react';
 import type { EarnedBadge } from '@/lib/gamification';
 

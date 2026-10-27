@@ -1,9 +1,9 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from '@/shared/router/navigation';
 import { supabase } from '@/lib/supabase';
-import { authFetch } from '@/lib/auth-fetch';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -20,7 +20,7 @@ import {
   Trophy,
   Volume2,
 } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { XP_PER_CORRECT_QUIZ } from '@/lib/gamification';
 import { StudentShell } from '@/components/student/StudentShell';
@@ -97,7 +97,7 @@ function QuizContent() {
         const {
           data: { user },
           error,
-        } = await supabase.auth.getUser();
+        } = await authService.getUser();
         if (error) return;
         if (!user) {
           router.replace('/auth');
@@ -106,7 +106,7 @@ function QuizContent() {
         setUserId(user.id);
 
         const url = classroomId ? `/api/words?classroomId=${classroomId}` : `/api/words`;
-        const res = await authFetch(url);
+        const res = await VocabApi.getWords(url);
         const data = await res.json();
 
         if (data.success && data.data?.length >= 2) {
@@ -190,7 +190,7 @@ function QuizContent() {
           setXpEarned(totalXp);
 
           try {
-            await authFetch('/api/quiz/save', {
+            await VocabApi.saveQuizResult({
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({

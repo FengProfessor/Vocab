@@ -1,4 +1,5 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { ReadingApi } from '@/features/reading/api';
 
 /**
  * Luyện đọc gói từ (kiểu codemix):
@@ -7,8 +8,8 @@
  */
 
 import { Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
-import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useSearchParams } from '@/shared/router/navigation';
 import {
   BookOpen,
   Check,
@@ -19,7 +20,6 @@ import {
   Sparkles,
   Zap,
 } from 'lucide-react';
-import { authFetch } from '@/lib/auth-fetch';
 import { usePlan } from '@/hooks/usePlan';
 import { FREE_PACK_READING_DAILY_LIMIT } from '@/lib/entitlement';
 import { StudentShell } from '@/components/student/StudentShell';
@@ -327,7 +327,7 @@ function PackReadingInner() {
 
         for (let page = 0; page < 6; page++) {
           const offset = page * 50;
-          const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
+          const res = await VocabApi.getWords(`/api/words?limit=50&offset=${offset}`);
           let json: {
             success?: boolean;
             data?: Array<{
@@ -536,7 +536,7 @@ function PackReadingInner() {
         translation: w.translation,
         pos: w.pos,
       }));
-      const res = await authFetch('/api/practice/pack-passage', {
+      const res = await ReadingApi.generatePackPassage({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

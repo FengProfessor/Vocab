@@ -1,4 +1,3 @@
-﻿'use client';
 
 /**
  * DiagnosticReportCard
@@ -10,8 +9,8 @@
  * - Action buttons: "Học lại phần yếu", "Làm lại bài kiểm tra", "Tiếp tục lộ trình"
  */
 import React, { useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   type DiagnosticReport,
   type AssessmentSkill,

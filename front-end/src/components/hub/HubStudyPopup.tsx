@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * Popup “cắt” page ôn thật — iframe route + embed=1 (StudentShell ẩn chrome).

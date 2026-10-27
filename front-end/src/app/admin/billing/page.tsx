@@ -1,17 +1,17 @@
-'use client';
-import { authFetch } from '@/lib/auth-fetch';
+import { BillingApi } from '@/features/billing/api';
+import { authService } from '@/features/auth/session';
 
 
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   ChevronLeft, DollarSign, Users, TrendingUp, Clock,
   CheckCircle2, XCircle, Loader2, Search, CreditCard,
   ArrowUpRight, ShoppingBag, Eye, Percent, Plus, Trash2, Copy
 } from 'lucide-react';
-import dynamic from 'next/dynamic';
+import dynamic from '@/shared/ui/dynamic';
 import { toast } from 'sonner';
 import { formatVND } from '@/lib/billing';
 
@@ -125,7 +125,7 @@ export default function BillingDashboard() {
   const loadStats = useCallback(async () => {
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch('/api/billing/stats', { headers });
+      const res = await BillingApi.getStats({ headers });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setStats(data.stats);
@@ -141,7 +141,7 @@ export default function BillingDashboard() {
       const headers = await getAuthHeaders();
       const params = new URLSearchParams({ page: String(page), limit: '20' });
       if (status) params.set('status', status);
-      const res = await authFetch(`/api/billing/orders?${params}`, { headers });
+      const res = await BillingApi.getOrders(`/api/billing/orders?${params}`, { headers });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setOrders(data.orders ?? []);
@@ -156,7 +156,7 @@ export default function BillingDashboard() {
   const loadCoupons = useCallback(async () => {
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch('/api/billing/coupons', { headers });
+      const res = await BillingApi.getCoupons({ headers });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error);
       setCoupons(data.coupons ?? []);
@@ -168,7 +168,7 @@ export default function BillingDashboard() {
   // Initial load
   useEffect(() => {
     const init = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user } } = await authService.getUser();
       if (!user) { router.push('/auth'); return; }
       await Promise.all([loadStats(), loadOrders(), loadCoupons()]);
       setIsLoading(false);
@@ -181,7 +181,7 @@ export default function BillingDashboard() {
     setConfirmingId(orderId);
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch(`/api/billing/orders/${orderId}/confirm`, {
+      const res = await BillingApi.confirmOrder(orderId, {
         method: 'POST', headers, body: JSON.stringify({}),
       });
       const data = await res.json();
@@ -200,7 +200,7 @@ export default function BillingDashboard() {
     e.preventDefault();
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch('/api/billing/coupons', {
+      const res = await BillingApi.createCoupon({
         method: 'POST', headers,
         body: JSON.stringify({
           code: newCoupon.code,
@@ -225,7 +225,7 @@ export default function BillingDashboard() {
     if (!confirm('Delete this coupon?')) return;
     try {
       const headers = await getAuthHeaders();
-      const res = await authFetch(`/api/billing/coupons?id=${id}`, { method: 'DELETE', headers });
+      const res = await BillingApi.deleteCoupon(`/api/billing/coupons?id=${id}`, { method: 'DELETE', headers });
       if (!res.ok) throw new Error('Failed');
       toast.success('Coupon deleted');
       await loadCoupons();

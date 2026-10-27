@@ -1,4 +1,5 @@
-'use client';
+import { ReadingApi } from '@/features/reading/api';
+import { DictionaryApi } from '@/features/dictionary/api';
 
 /**
  * /practice/reading-library — Thư viện 588 bài đọc LingoPro
@@ -10,8 +11,8 @@
  */
 
 import { Suspense, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
-import Link from 'next/link';
-import { useSearchParams, useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useSearchParams, useRouter } from '@/shared/router/navigation';
 import {
   BookOpen,
   Check,
@@ -47,7 +48,6 @@ import {
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { PACK_THEMES, getPackTheme } from '@/lib/pack-themes';
-import { authFetch } from '@/lib/auth-fetch';
 import {
   readLibraryCache,
   writeLibraryCache,
@@ -370,7 +370,7 @@ function ReadingLibraryContent() {
         if (source && source !== 'all') params.set('source', source);
         if (search) params.set('search', search);
 
-        const res = await authFetch(`/api/reading/articles?${params.toString()}`);
+        const res = await ReadingApi.getArticles(`/api/reading/articles?${params.toString()}`);
         if (!res.ok) throw new Error(`Lỗi kết nối máy chủ (${res.status})`);
         const json = await res.json();
 
@@ -425,9 +425,7 @@ function ReadingLibraryContent() {
       }
 
       try {
-        const res = await authFetch(
-          `/api/reading/articles?id=${encodeURIComponent(idOrSlug)}&slug=${encodeURIComponent(idOrSlug)}`
-        );
+        const res = await ReadingApi.getArticles(`/api/reading/articles?id=${encodeURIComponent(idOrSlug)}&slug=${encodeURIComponent(idOrSlug)}`);
         if (res.ok) {
           const json = await res.json();
           if (!cancelled && json.article) {
@@ -468,7 +466,7 @@ function ReadingLibraryContent() {
   // Load user bookmarks from server on mount
   useEffect(() => {
     let cancelled = false;
-    authFetch('/api/reading/progress')
+    ReadingApi.getProgress()
       .then((r) => r.json())
       .then((data) => {
         if (!cancelled && Array.isArray(data.bookmarks)) {
@@ -544,7 +542,7 @@ function ReadingLibraryContent() {
     try {
       const paras = getPassageParagraphs(activeArticle);
       const textToTranslate = paras.join('\n\n').slice(0, 2800);
-      const res = await authFetch('/api/translate', {
+      const res = await DictionaryApi.translate({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -588,7 +586,7 @@ function ReadingLibraryContent() {
     setLookingUpWord(clean);
 
     try {
-      const res = await authFetch(`/api/dictionary/lookup?word=${encodeURIComponent(clean)}`);
+      const res = await DictionaryApi.lookup(`/api/dictionary/lookup?word=${encodeURIComponent(clean)}`);
       if (res.ok) {
         const data = await res.json();
         const meaning =
@@ -627,7 +625,7 @@ function ReadingLibraryContent() {
     writeLocalBookmark(artId, nextState);
 
     try {
-      await authFetch('/api/reading/progress', {
+      await ReadingApi.submitProgress({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -727,7 +725,7 @@ function ReadingLibraryContent() {
       if (userChoice !== undefined && userChoice === expected) correct++;
     });
 
-    void authFetch('/api/reading/progress', {
+    void ReadingApi.submitProgress({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

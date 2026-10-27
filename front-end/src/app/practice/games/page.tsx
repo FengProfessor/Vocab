@@ -1,7 +1,8 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import {
   ArrowLeft,
   Brain,
@@ -15,7 +16,6 @@ import {
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { EnglishGameSession } from '@/components/games/EnglishGameSession';
-import { supabase } from '@/lib/supabase';
 import {
   GAME_MODES,
   GAME_TOPICS,
@@ -127,14 +127,13 @@ export default function EnglishGamesPage() {
       try {
         const {
           data: { user },
-        } = await supabase.auth.getUser();
+        } = await authService.getUser();
         if (!user) return;
-        const { data } = await supabase
-          .from('words')
-          .select('word, translation, example')
-          .eq('user_id', user.id)
-          .limit(60);
-        if (!cancelled) setPersonalWords(cleanGameWords(data ?? []));
+        const res = await VocabApi.getWords('/api/words?limit=60&offset=0&classroomId=__personal__')
+          .then((r) => r.json())
+          .catch(() => null);
+        const data = Array.isArray(res?.data) ? res.data : [];
+        if (!cancelled) setPersonalWords(cleanGameWords(data));
       } finally {
         if (!cancelled) setLoadingPersonal(false);
       }

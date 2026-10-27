@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import { Gift, BookOpen, Headphones, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';

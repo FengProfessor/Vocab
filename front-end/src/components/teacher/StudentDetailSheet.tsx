@@ -1,9 +1,9 @@
-'use client';
+import { ClassroomApi } from '@/features/classroom/api';
 
 import { useState, useEffect, useCallback, useTransition, useRef } from 'react';
 import type { StudentProgress } from '@/lib/supabase';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
+import dynamic from '@/shared/ui/dynamic';
+import Link from '@/shared/router/navigation';
 import {
   X, ChevronUp, ChevronDown, ExternalLink, Sparkles,
   Copy, CheckCircle2, Plus, Loader2,
@@ -11,7 +11,6 @@ import {
   Zap, Headphones, FileText
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import { getStudentStatus } from './StudentsPanel';
 import {
   getCachedStudentDetail,
@@ -178,7 +177,7 @@ export default function StudentDetailSheet({
     setAiSuggestion('');
     setIsAiLoading(true);
     try {
-      const res = await authFetch('/api/teacher/coaching-insight', {
+      const res = await ClassroomApi.getCoachingInsight({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -228,7 +227,7 @@ export default function StudentDetailSheet({
     setTimeline([]);
     setIsLoadingDetail(true);
     try {
-      const res = await authFetch(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`);
+      const res = await ClassroomApi.getStudentDetail(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`);
       const json = await res.json();
       if (json.success) {
         setCachedStudentDetail(studentId, classroomId, json);
@@ -260,7 +259,7 @@ export default function StudentDetailSheet({
     setErrorsList([]);
     setIsLoadingErrors(true);
     try {
-      const res = await authFetch(`/api/teacher/student-errors?studentId=${studentId}&classroomId=${classroomId}`);
+      const res = await ClassroomApi.getStudentErrors(`/api/teacher/student-errors?studentId=${studentId}&classroomId=${classroomId}`);
       const json = await res.json();
       if (json.success && Array.isArray(json.data)) {
         setCachedStudentErrors(studentId, classroomId, json.data);
@@ -319,7 +318,7 @@ export default function StudentDetailSheet({
     if (!student) return;
     setIsAssigningDrill(true);
     try {
-      const res = await authFetch('/api/teacher/assign-drill', {
+      const res = await ClassroomApi.assignDrill({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ studentId: student.student_id, classroomId }),

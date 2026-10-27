@@ -1,4 +1,3 @@
-'use client';
 
 import React, { useState, useMemo } from 'react';
 import type { IpaPhoneme, UserPhonemeProgress } from '@/types/ipa';

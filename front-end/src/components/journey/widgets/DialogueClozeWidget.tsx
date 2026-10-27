@@ -1,4 +1,3 @@
-'use client';
 
 import React, { useState, useMemo, useRef } from 'react';
 import { Volume2, CheckCircle2, XCircle, Lightbulb, RotateCcw, ArrowRight, MessageSquare, AlertCircle } from 'lucide-react';

@@ -5,6 +5,8 @@
  * persisting in first-party cookie (30 days) and sessionStorage across Google OAuth PKCE flows.
  */
 
+import { env } from '@/shared/config/env';
+
 export const REFERRAL_COOKIE_NAME = 'lingopro_ref';
 export const REFERRAL_STORAGE_KEY = 'lingopro_ref_code';
 export const REFERRAL_MAX_AGE_SECONDS = 30 * 24 * 60 * 60; // 30 days
@@ -108,7 +110,7 @@ export function clearStoredReferralCode(): void {
  * Strictly avoids internal binding IPs like 0.0.0.0 or private addresses.
  */
 export function resolvePublicOrigin(req?: Request): string {
-  const envUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.NEXT_PUBLIC_SITE_URL;
+  const envUrl = env.siteUrl;
   if (envUrl && !envUrl.includes('0.0.0.0')) {
     return envUrl.replace(/\/$/, '');
   }
@@ -120,7 +122,7 @@ export function resolvePublicOrigin(req?: Request): string {
     if (forwardedHost && !forwardedHost.includes('0.0.0.0')) {
       if (
         (forwardedHost.includes('localhost') || forwardedHost.includes('127.0.0.1')) &&
-        process.env.NODE_ENV === 'development'
+        env.isDevelopment
       ) {
         return `${forwardedProto}://${forwardedHost}`.replace(/\/$/, '');
       }
@@ -153,6 +155,5 @@ export function getClientShareUrl(code?: string, rawShareUrl?: string): string {
     return rawShareUrl;
   }
 
-  return cleanCode ? `https://lingopro.online/invite/${cleanCode}` : 'https://lingopro.online';
+  return cleanCode ? `${env.siteUrl}/invite/${cleanCode}` : env.siteUrl;
 }
-

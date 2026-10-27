@@ -1,7 +1,7 @@
-'use client';
+import { SocialApi } from '@/features/social/api';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import confetti from 'canvas-confetti';
 import {
   Gift,
@@ -52,7 +52,7 @@ export default function NhanQuaKhaiGiangPage() {
 
     setIsSubmitting(true);
     try {
-      const res = await fetch('/api/campaign/khaigiang', {
+      const res = await SocialApi.submitKhaiGiangCampaign({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -176,6 +176,8 @@ export default function NhanQuaKhaiGiangPage() {
           </div>
         </div>
 
+        {/* The registration form is intentionally switched off; keep the markup for a future campaign. */}
+        {/* eslint-disable-next-line no-constant-condition, no-constant-binary-expression */}
         {false && !isSuccess ? (
           <form
             onSubmit={handleSubmit}

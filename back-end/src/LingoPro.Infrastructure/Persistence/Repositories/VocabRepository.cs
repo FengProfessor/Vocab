@@ -519,6 +519,9 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
             pagedWords);
     }
 
+    public Task<Word?> GetWordByIdAsNoTrackingAsync(Guid wordId, CancellationToken ct = default)
+        => dbContext.Words.AsNoTracking().FirstOrDefaultAsync(w => w.Id == wordId && w.IsDeleted != true, ct);
+
     public Task<int> SaveChangesAsync(CancellationToken ct = default)
         => dbContext.SaveChangesAsync(ct);
 

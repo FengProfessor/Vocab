@@ -1,16 +1,14 @@
 /**
  * Entitlement — nguồn sự thật về việc mỗi gói (plan) được dùng tính năng nào.
  *
- * THIẾT KẾ AN TOÀN: enforcement TẮT mặc định (ENTITLEMENT_ENFORCED !== 'true').
+ * THIẾT KẾ AN TOÀN: enforcement TẮT mặc định (VITE_ENTITLEMENT_ENFORCED !== 'true').
  * → Khi chưa bật, mọi user (kể cả 'free') vẫn dùng đủ tính năng như hiện tại,
  *   KHÔNG vỡ app đang chạy cho 50-100 học sinh hiện có.
- * → Khi sẵn sàng thu phí: set env ENTITLEMENT_ENFORCED=true để bật gating.
- *
- * Dùng được cả server (API routes) lẫn client (hook usePlan).
+ * → Khi sẵn sàng thu phí: set env VITE_ENTITLEMENT_ENFORCED=true để bật gating.
  */
 
-import type { SupabaseClient } from '@supabase/supabase-js';
 import type { Plan } from '@/lib/supabase';
+import { env } from '@/shared/config/env';
 
 export type { Plan };
 
@@ -18,7 +16,7 @@ export type { Plan };
 const PLAN_RANK: Record<Plan, number> = { free: 0, pro: 1, premium: 2 };
 
 /** Có bật cưỡng chế gating hay không. Mặc định false để không chặn ai. */
-export const ENTITLEMENT_ENFORCED = process.env.ENTITLEMENT_ENFORCED === 'true';
+export const ENTITLEMENT_ENFORCED = env.entitlementEnforced;
 
 /** Quota lượt AI/ngày cho gói Free (chỉ áp khi ENTITLEMENT_ENFORCED). */
 export const FREE_AI_DAILY_LIMIT = 5;
@@ -93,7 +91,6 @@ export function getRemainingDays(expiresAt: string | null | undefined): number |
   return Math.ceil(diff / (1000 * 60 * 60 * 24));
 }
 
-
 /** Tính năng → gói tối thiểu cần có. */
 export type Feature =
   | 'ai_lookup'        // tra từ AI (free có quota/ngày, pro+ không giới hạn)
@@ -118,11 +115,6 @@ export const FEATURE_MIN_PLAN: Record<Feature, Plan> = {
   pack_reading: 'free',     // free 2/ngày (chậm), pro nhanh
 };
 
-// ── Lộ trình học (level-gate thay vì on/off) ──
-// Free: trọn A0 + A1 (máy retention — tạo thói quen trước khi thu phí).
-// Pro trở lên: mở hết A2→B2.
-// LƯU Ý: grammar lesson đi QUA lộ trình free A0/A1 không bị chặn bởi grammar_read
-// (gate lộ trình kiểm ở /api/roadmap/progress theo cấp, không theo feature grammar).
 export type RoadmapLevel = 'A0' | 'A1' | 'A2' | 'B1' | 'B2';
 const ROADMAP_LEVEL_RANK: Record<RoadmapLevel, number> = { A0: 0, A1: 1, A2: 2, B1: 3, B2: 4 };
 export const ROADMAP_FREE_MAX_LEVEL: RoadmapLevel = 'A1';
@@ -172,5 +164,3 @@ export function checkAccess(plan: Plan, feature: Feature): AccessResult {
   if (planMeets(plan, required)) return { allowed: true };
   return { allowed: false, upgradeTo: required };
 }
-
-// Removed server-side functions (moved to entitlement-server.ts)

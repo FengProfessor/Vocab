@@ -1,4 +1,3 @@
-'use client';
 
 import React from 'react';
 import { Volume2, Layers } from 'lucide-react';

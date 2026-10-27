@@ -1,7 +1,7 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   Volume2,
   CheckCircle2,
@@ -14,7 +14,6 @@ import {
 import { toast } from 'sonner';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { authFetch } from '@/lib/auth-fetch';
 import { playWordAudio, stopWordAudio } from '@/lib/audio';
 import {
   getFoundationVerbPacks,
@@ -216,7 +215,7 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
     setLoadingPackId(packId);
     toast.loading('Đang mở gói học Flashcard...', { id: 'vocab-launch' });
     try {
-      const res = await authFetch('/api/import/packages', {
+      const res = await VocabApi.importPackage({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ packId }),
@@ -231,7 +230,7 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
         throw new Error(data.error || 'Không mở được gói từ.');
       }
       try {
-        await authFetch('/api/words/refresh', {
+        await VocabApi.refreshWords({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ classroomId: data.classroomId, wordIds: data.wordIds }),

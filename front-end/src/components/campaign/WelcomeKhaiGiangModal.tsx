@@ -1,7 +1,8 @@
-'use client';
+import { AuthApi } from '@/features/auth/api';
+import { authService } from '@/features/auth/session';
 
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   Sparkles,
   Flame,
@@ -107,7 +108,7 @@ export function WelcomeKhaiGiangModal({
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
 
       if (session?.user) {
         const payload: Record<string, unknown> = {};
@@ -120,7 +121,7 @@ export function WelcomeKhaiGiangModal({
         }
 
         if (Object.keys(payload).length > 0) {
-          await fetch('/api/profile', {
+          await AuthApi.updateProfile({
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',

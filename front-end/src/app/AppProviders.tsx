@@ -1,14 +1,22 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import { ThemeProvider as NextThemesProvider } from '@/shared/ui/theme';
 import { PostHogProvider } from '@/components/PostHogProvider';
 import { ClientBoot } from '@/components/ClientBoot';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { AuthProvider } from '@/features/auth/AuthProvider';
 import { StudentProvider } from '@/components/student/StudentProvider';
 import { Toaster } from '@/components/ui/sonner';
 import { GlobalThemeDock } from '@/components/common/ThemeToggle';
-import { AppProvidersProps } from '@/app/types/AppProvidersProps';
+
+/**
+ * Props for the AppProviders wrapper component.
+ */
+export interface AppProvidersProps {
+  /** Application child tree. */
+  children: React.ReactNode;
+}
 
 /**
  * Singleton React Query client with generous stale windows for snappy offline-first transitions.
@@ -26,7 +34,7 @@ const queryClient = new QueryClient({
 
 /**
  * Root provider composition replicating /src/app/layout.tsx (BrowserRouter, ErrorBoundary,
- * PostHogProvider, NextThemesProvider, ClientBoot, StudentProvider, Sonner Toaster).
+ * PostHogProvider, NextThemesProvider, ClientBoot, AuthProvider, StudentProvider, Sonner Toaster).
  * BrowserRouter wraps the entire tree so any provider or boot component calling
  * usePathname() / useRouter() / useSearchParams() has valid Router context.
  */
@@ -42,10 +50,12 @@ export const AppProviders: React.FC<AppProvidersProps> = ({ children }) => {
               enableSystem
               storageKey="lingopro-theme"
             >
-              <ClientBoot />
-              <StudentProvider>{children}</StudentProvider>
-              <GlobalThemeDock />
-              <Toaster position="bottom-right" richColors />
+              <AuthProvider>
+                <ClientBoot />
+                <StudentProvider>{children}</StudentProvider>
+                <GlobalThemeDock />
+                <Toaster position="bottom-right" richColors />
+              </AuthProvider>
             </NextThemesProvider>
           </QueryClientProvider>
         </PostHogProvider>

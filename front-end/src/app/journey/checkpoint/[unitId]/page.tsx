@@ -1,4 +1,4 @@
-﻿'use client';
+import { RoadmapApi } from '@/features/roadmap/api';
 
 /**
  * Checkpoint chặng (Milestone 4 Upgrade)
@@ -9,9 +9,8 @@
  * Pass ≥80% → unlock chặng sau, lưu tiến độ và chúc mừng vượt chặng.
  */
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
 import { toast } from 'sonner';
-import { authFetch } from '@/lib/auth-fetch';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
 import { playWordAudio } from '@/lib/audio';
 import { judgeAnswer } from '@/lib/study';
@@ -26,7 +25,7 @@ import { DiagnosticReportCard } from '@/components/journey/assessment/Diagnostic
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Volume2, ArrowLeft, Loader2, Sparkles, Flag } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 
 interface CheckpointQuestion {
   id: string;
@@ -72,7 +71,7 @@ export default function CheckpointPage() {
 
   const load = useCallback(async (): Promise<void> => {
     try {
-      const res = await authFetch(`/api/roadmap/checkpoint?unit=${encodeURIComponent(unitId)}`);
+      const res = await RoadmapApi.getCheckpoint(`/api/roadmap/checkpoint?unit=${encodeURIComponent(unitId)}`);
       const json = (await res.json()) as {
         success: boolean;
         data?: { title: string; questions: CheckpointQuestion[] };
@@ -182,7 +181,7 @@ export default function CheckpointPage() {
     // Lưu kết quả vào cơ sở dữ liệu qua /api/roadmap/assessment
     try {
       setSubmitting(true);
-      await authFetch('/api/roadmap/assessment', {
+      await RoadmapApi.submitAssessment({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

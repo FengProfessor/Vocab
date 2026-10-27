@@ -1,10 +1,10 @@
-"use client";
+import { DictionaryApi } from '@/features/dictionary/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef, useMemo } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { supabase } from "@/lib/supabase";
-import { authFetch } from "@/lib/auth-fetch";
 import {
   ChevronLeft, Loader2, Volume2, Bot, User, Sparkles,
   MessageSquare, VolumeX, Send, RefreshCw, Filter, Lightbulb,
@@ -53,7 +53,7 @@ export default function StudentSpeakingPage() {
 
   useEffect(() => {
     const checkAuth = async () => {
-      const { data: { session }, error } = await supabase.auth.getSession();
+      const { data: { session }, error } = await authService.getSession();
       if (error) {
         setIsLoading(false);
         return;
@@ -104,7 +104,7 @@ export default function StudentSpeakingPage() {
     setIsAiLoading(true);
 
     try {
-      const res = await authFetch("/api/dictionary/ai-speaking", {
+      const res = await DictionaryApi.evaluateSpeakingDialogue({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

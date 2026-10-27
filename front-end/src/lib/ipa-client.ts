@@ -1,4 +1,3 @@
-'use client';
 
 import ipaDataJson from '@/data/pronunciation/ipa-chart-v1.json';
 import type { IpaChartData, IpaPhoneme, UserPhonemeProgress } from '@/types/ipa';

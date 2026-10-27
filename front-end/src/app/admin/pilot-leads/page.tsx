@@ -1,10 +1,9 @@
-'use client';
-import { authFetch } from '@/lib/auth-fetch';
+import { AdminApi } from '@/features/admin/api';
 
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   ArrowLeft,
   Building2,
@@ -55,7 +54,7 @@ export default function PilotLeadsAdminPage() {
 
   const loadLeads = useCallback(async () => {
     const headers = await getHeaders();
-    const res = await authFetch('/api/admin/pilot-leads', { headers });
+    const res = await AdminApi.getPilotLeads({ headers });
     if (res.status === 403) {
       router.replace('/');
       return;
@@ -225,7 +224,7 @@ export default function PilotLeadsAdminPage() {
     setSavingId(lead.id);
     try {
       const headers = await getHeaders();
-      const res = await authFetch('/api/admin/pilot-leads', {
+      const res = await AdminApi.updatePilotLead({
         method: 'PATCH',
         headers,
         body: JSON.stringify({ id: lead.id, status: lead.status, adminNote: lead.admin_note }),

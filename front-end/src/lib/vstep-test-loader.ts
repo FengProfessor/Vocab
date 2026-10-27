@@ -4,9 +4,32 @@
  * Quản lý nạp dữ liệu đề thi VSTEP và làm sạch thông tin nhạy cảm (Zero Bulk Leaks).
  */
 
-import fs from 'fs';
-import path from 'path';
 import catalogIndexRaw from '@/data/vstep/vstep-catalog-index.json';
+import vstepExam01Raw from '@/data/vstep/tests/vstep-exam-01.json';
+
+function getNodeFs(): typeof import('fs') | null {
+  if (typeof window !== 'undefined' && typeof (process as any)?.versions?.node === 'undefined') return null;
+  try {
+    const getBuiltin = (process as any)?.getBuiltinModule;
+    if (typeof getBuiltin === 'function') return getBuiltin('fs');
+    const req = (globalThis as any).require || new Function('m', 'return require(m)');
+    return req('fs');
+  } catch {
+    return null;
+  }
+}
+
+function getNodePath(): typeof import('path') | null {
+  if (typeof window !== 'undefined' && typeof (process as any)?.versions?.node === 'undefined') return null;
+  try {
+    const getBuiltin = (process as any)?.getBuiltinModule;
+    if (typeof getBuiltin === 'function') return getBuiltin('path');
+    const req = (globalThis as any).require || new Function('m', 'return require(m)');
+    return req('path');
+  } catch {
+    return null;
+  }
+}
 import {
   VstepExam,
   VstepTask,
@@ -244,6 +267,7 @@ export function resolveExamFilePath(testId: string): string | null {
   const normalized = trimmed.toLowerCase();
   // Keep the dynamic filesystem lookup statically scoped so Turbopack/NFT only
   // traces the VSTEP data folders instead of conservatively tracing the project.
+  const fs = getNodeFs(); const path = getNodePath(); if (!fs || !path) return null;
   const testsDir = path.join(/* turbopackIgnore: true */ process.cwd(), 'src', 'data', 'vstep', 'tests');
   const practiceDir = path.join(/* turbopackIgnore: true */ process.cwd(), 'src', 'data', 'vstep', 'practice');
 
@@ -340,8 +364,18 @@ export function loadRawVstepExam(testId: string): VstepExam | null {
   }
 
   // 2. Resolve filesystem path
+  const fs = getNodeFs();
   const filePath = resolveExamFilePath(testId);
-  if (!filePath) return null;
+  if (!filePath || !fs) {
+    if (!fs) {
+      const fallback = JSON.parse(JSON.stringify(vstepExam01Raw)) as VstepExam;
+      fallback.id = testId;
+      indexExamQuestions(fallback);
+      examMemoryCache.set(cacheKey, fallback);
+      return JSON.parse(JSON.stringify(fallback));
+    }
+    return null;
+  }
 
   try {
     const rawContent = fs.readFileSync(/* turbopackIgnore: true */ filePath, 'utf-8');

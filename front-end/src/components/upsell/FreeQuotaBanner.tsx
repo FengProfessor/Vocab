@@ -1,4 +1,5 @@
-'use client';
+import { AuthApi } from '@/features/auth/api';
+import { authService } from '@/features/auth/session';
 
 /**
  * Banner dính cho Free ≥150 từ — luôn thấy (không phụ thuộc modal dismiss).
@@ -6,7 +7,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { Crown, X } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 import { FREE_WORD_MONTHLY_LIMIT, requestUpsell } from '@/lib/upsell';
@@ -35,13 +36,11 @@ export function FreeQuotaBanner() {
     (async () => {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session?.user || cancelled) return;
 
       try {
-        const res = await fetch('/api/profile', {
-          headers: { 'X-LingoPro-Request': '1' },
-        });
+        const res = await AuthApi.getProfileSession();
         if (!res.ok || cancelled) return;
         const json = (await res.json()) as {
           success?: boolean;

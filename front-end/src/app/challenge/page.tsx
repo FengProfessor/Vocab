@@ -1,34 +1,15 @@
-'use client'
 
-import React, { useEffect, useState } from 'react'
-import { Trophy, Target, Award, Sparkles } from 'lucide-react'
-import { ChallengeCard } from '@/components/challenge/ChallengeCard'
-import { authFetch } from '@/lib/auth-fetch'
-import { Challenge } from '@/lib/challenge'
+import React from 'react';
+import { Trophy, Target, Award, Sparkles } from 'lucide-react';
+import { ChallengeCard } from '@/components/challenge/ChallengeCard';
+import { Challenge } from '@/lib/challenge';
+import { useChallengesQuery } from '@/features/challenge/queries';
 
 export default function ChallengePage() {
-  const [challenges, setChallenges] = useState<Challenge[]>([])
-  const [participantCounts, setParticipantCounts] = useState<Record<string, number>>({})
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    async function fetchChallenges() {
-      try {
-        const res = await authFetch('/api/challenges')
-        if (res.ok) {
-          const data = await res.json()
-          setChallenges(data.challenges || [])
-          setParticipantCounts(data.participantCounts || {})
-        }
-      } catch (error) {
-        console.error('Failed to fetch challenges:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchChallenges()
-  }, [])
+  const { data: responseData, isLoading: loading } = useChallengesQuery();
+  const challenges: Challenge[] = (responseData?.challenges as Challenge[]) || [];
+  const participantCounts: Record<string, number> =
+    (responseData as Record<string, any> | undefined)?.participantCounts || {};
 
   return (
     <div className="container max-w-5xl mx-auto py-8 px-4 space-y-10">
@@ -84,16 +65,16 @@ export default function ChallengePage() {
 
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map(i => (
+            {[1, 2, 3].map((i) => (
               <div key={i} className="h-80 bg-slate-100 dark:bg-slate-900 rounded-xl animate-pulse" />
             ))}
           </div>
         ) : challenges.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {challenges.map(challenge => (
-              <ChallengeCard 
-                key={challenge.id} 
-                challenge={challenge} 
+            {challenges.map((challenge) => (
+              <ChallengeCard
+                key={challenge.id}
+                challenge={challenge}
                 participantCount={participantCounts[challenge.id] || 0}
               />
             ))}
@@ -105,5 +86,5 @@ export default function ChallengePage() {
         )}
       </section>
     </div>
-  )
+  );
 }

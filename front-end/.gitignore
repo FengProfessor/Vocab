@@ -41,3 +41,8 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Playwright / Vitest artifacts
+test-results/
+playwright-report/
+coverage/

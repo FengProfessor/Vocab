@@ -1,3 +1,4 @@
+import { VocabApi } from '@/features/vocab/api';
 /**
  * Vocab Topics Lightweight Catalog & Dynamic Loader
  * 
@@ -68,7 +69,7 @@ export async function loadVocabTopic(topicId: string): Promise<VocabStageTopic |
 
   // Tier 1: Fetch single topic payload from Server API route (~15KB gzipped vs 1.49MB chunk)
   try {
-    const res = await fetch(`/api/vocab/topic?id=${encodeURIComponent(norm)}`);
+    const res = await VocabApi.getVocabTopic(`/api/vocab/topic?id=${encodeURIComponent(norm)}`);
     if (res.ok) {
       const data = await res.json();
       if (data?.topic && Array.isArray(data.topic.words)) {

@@ -1,4 +1,3 @@
-'use client';
 
 import { useEffect, useRef, useState, type VideoHTMLAttributes } from 'react';
 

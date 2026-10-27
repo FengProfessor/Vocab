@@ -1,11 +1,11 @@
-'use client';
+﻿import { authService } from '@/features/auth/session';
 
 /**
  * Hub thư viện pixel rộng (~100 chỗ), không sidebar.
  * Học = popup panel (không full-page).
  */
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { StudentShell } from '@/components/student/StudentShell';
 import { PixelHubRoom } from '@/components/hub/PixelHubRoom';
 import { DisplayNameEditor } from '@/components/hub/DisplayNameEditor';
@@ -15,7 +15,9 @@ import {
   type HubStudyKind,
 } from '@/components/hub/HubStudyPopup';
 import { useRoomPresence } from '@/hooks/useRoomPresence';
-import { supabase } from '@/lib/supabase';
+import { AuthApi } from '@/features/auth/api';
+import { apiClient } from '@/lib/apiClient';
+import type { ApiResponse } from '@/types/api';
 
 export default function HubPage() {
   const [roomId, setRoomId] = useState<string | null>(null);
@@ -31,37 +33,25 @@ export default function HubPage() {
       try {
         const {
           data: { user },
-        } = await supabase.auth.getUser();
+        } = await authService.getUser();
         if (!user) {
           setLoading(false);
           return;
         }
         setUserId(user.id);
 
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('full_name')
-          .eq('id', user.id)
-          .maybeSingle();
+        const profile = await AuthApi.getLegacyProfile(user.id).catch(() => null);
         setDisplayName(
           (profile?.full_name as string) || user.email?.split('@')[0] || 'Học viên',
         );
 
-        const { data: enrollments } = await supabase
-          .from('enrollments')
-          .select('classroom_id, classrooms(id, name)')
-          .eq('student_id', user.id)
-          .limit(5);
+        const classroomsRes = await apiClient
+          .get<ApiResponse<Array<{ id: string; name: string }>>>('/classrooms')
+          .catch(() => null);
+        const list = classroomsRes?.data?.data ?? [];
 
-        type EnrollRow = {
-          classroom_id: string;
-          classrooms: { id: string; name: string } | { id: string; name: string }[] | null;
-        };
-
-        const rows = (enrollments ?? []) as EnrollRow[];
         let picked: { id: string; name: string } | null = null;
-        for (const e of rows) {
-          const c = Array.isArray(e.classrooms) ? e.classrooms[0] : e.classrooms;
+        for (const c of list) {
           if (c?.id) {
             picked = { id: c.id, name: c.name || 'Lớp học' };
             if (c.id !== '__personal__' && !String(c.name || '').includes('personal')) {

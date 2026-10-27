@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
+import type { Metadata } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   AlertTriangle,
   ArrowDownToLine,
@@ -170,7 +170,7 @@ export default function DownloadPage() {
 
         <div className="min-w-0 space-y-3">
           <div className="overflow-hidden rounded-2xl border border-[#ececf1] bg-white p-2.5 shadow-[0_16px_48px_rgba(15,23,42,0.08)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+            {}
             <img
               src="/downloads/desktop/main-panel-vi.png"
               alt="Bảng chính LingoPro Desktop — tra nhanh tiếng Việt"
@@ -179,7 +179,7 @@ export default function DownloadPage() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="overflow-hidden rounded-xl border border-[#ececf1] bg-white p-2 shadow-sm">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {}
               <img
                 src="/downloads/desktop/pet-bubble.png"
                 alt="Pet bubble nhắc ôn"
@@ -187,7 +187,7 @@ export default function DownloadPage() {
               />
             </div>
             <div className="overflow-hidden rounded-xl border border-[#ececf1] bg-white p-2 shadow-sm">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {}
               <img
                 src="/downloads/desktop/settings-language-vi.png"
                 alt="Cài đặt và token tiếng Việt"

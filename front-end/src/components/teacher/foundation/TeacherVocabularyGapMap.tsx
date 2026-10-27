@@ -1,4 +1,4 @@
-'use client';
+import { ClassroomApi } from '@/features/classroom/api';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import {
@@ -43,7 +43,7 @@ export default function TeacherVocabularyGapMap({
     setIsLoading(true);
     setError(null);
     try {
-      const res = await fetch(`/api/foundation/vocabulary-map?learner_id=${learnerId}`);
+      const res = await ClassroomApi.getVocabularyGapMap(`/api/foundation/vocabulary-map?learner_id=${learnerId}`);
       const data = await res.json();
       if (data.success) {
         setItems(data.items || []);
@@ -59,7 +59,7 @@ export default function TeacherVocabularyGapMap({
 
   useEffect(() => {
     let active = true;
-    fetch(`/api/foundation/vocabulary-map?learner_id=${learnerId}`)
+    ClassroomApi.getVocabularyGapMap(`/api/foundation/vocabulary-map?learner_id=${learnerId}`)
       .then((res) => res.json())
       .then((data) => {
         if (!active) return;

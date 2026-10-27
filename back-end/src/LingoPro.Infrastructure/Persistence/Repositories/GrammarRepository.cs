@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 namespace LingoPro.Infrastructure.Persistence.Repositories;
 
 /// <summary>
-/// EF Core repository executing canonical grammar topic queries and FSRS grammar progress persistence.
+/// EF Core repository executing canonical grammar topic queries, exercise management, and FSRS grammar progress persistence.
 /// </summary>
 public sealed class GrammarRepository(IApplicationDbContext dbContext) : IGrammarRepository
 {
@@ -27,6 +27,28 @@ public sealed class GrammarRepository(IApplicationDbContext dbContext) : IGramma
 
     public void AddGrammarProgress(GrammarProgress progress)
         => dbContext.GrammarProgresses.Add(progress);
+
+    public async Task<GrammarExercise?> GetGrammarExerciseWithClassroomByIdAsync(Guid exerciseId, CancellationToken ct = default)
+    {
+        var exercise = await dbContext.GrammarExercises
+            .FirstOrDefaultAsync(e => e.Id == exerciseId, ct);
+
+        if (exercise is { ClassroomId: { } classroomId } && exercise.Classroom == null)
+        {
+            var classroom = await dbContext.Classrooms
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Id == classroomId && c.IsDeleted != true, ct);
+            if (classroom != null)
+            {
+                exercise.Classroom = classroom;
+            }
+        }
+
+        return exercise;
+    }
+
+    public void RemoveGrammarExercise(GrammarExercise exercise)
+        => dbContext.GrammarExercises.Remove(exercise);
 
     public async Task AwardXpAsync(Guid userId, int xp, DateOnly todayLocal, CancellationToken ct = default)
     {

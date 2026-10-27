@@ -3,12 +3,66 @@
  * Bảo vệ kho đề thi VSTEP độc quyền (Reading, Listening, Writing, Speaking)
  */
 
-import { createHmac, createHash } from 'crypto';
 import { VstepQuestion } from './vstep-types';
 
-const HMAC_SECRET =
-  process.env.VSTEP_SECURITY_SECRET ||
-  'lingopro_vstep_anti_scraping_guard_2026_b1b2c1';
+function getNodeCrypto(): typeof import('crypto') | null {
+  if (typeof window !== 'undefined' && typeof (process as unknown as { versions?: { node?: string } })?.versions?.node === 'undefined') {
+    return null;
+  }
+  try {
+    const getBuiltin = (process as unknown as { getBuiltinModule?: (id: string) => typeof import('crypto') })?.getBuiltinModule;
+    if (typeof getBuiltin === 'function') {
+      return getBuiltin('crypto');
+    }
+    const req = (globalThis as unknown as { require?: (id: string) => typeof import('crypto') }).require || new Function('m', 'return require(m)');
+    return req('crypto');
+  } catch {
+    return null;
+  }
+}
+
+function simpleHashHex(input: string): string {
+  let h1 = 0xdeadbeef ^ input.length;
+  let h2 = 0x41c6ce57 ^ input.length;
+  for (let i = 0; i < input.length; i++) {
+    const ch = input.charCodeAt(i);
+    h1 = Math.imul(h1 ^ ch, 2654435761);
+    h2 = Math.imul(h2 ^ ch, 1597334677);
+  }
+  h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+  h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+  return (h1 >>> 0).toString(16).padStart(8, '0') + (h2 >>> 0).toString(16).padStart(8, '0');
+}
+
+function hmacHex(secret: string, payload: string): string {
+  const cryptoMod = getNodeCrypto();
+  if (cryptoMod) {
+    return cryptoMod.createHmac('sha256', secret).update(payload).digest('hex');
+  }
+  return simpleHashHex(`${secret}:${payload}`);
+}
+
+function toBase64Url(str: string): string {
+  if (typeof Buffer !== 'undefined') {
+    return Buffer.from(str, 'utf8').toString('base64url');
+  }
+  return btoa(unescape(encodeURIComponent(str)))
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '');
+}
+
+function fromBase64Url(b64url: string): string {
+  if (typeof Buffer !== 'undefined') {
+    return Buffer.from(b64url, 'base64url').toString('utf8');
+  }
+  const b64 = b64url.replace(/-/g, '+').replace(/_/g, '/');
+  return decodeURIComponent(escape(atob(b64)));
+}
+
+import { env } from '@/shared/config/env';
+
+const HMAC_SECRET = env.vstepSecuritySecret;
 
 // Invisible Zero-Width Unicode Characters for Text Steganography
 export const ZW_ZERO = '\u200B';
@@ -104,10 +158,8 @@ export function generateVstepSessionToken(
 ): string {
   const expiresAt = Math.floor(Date.now() / 1000) + expiresInSeconds;
   const rawPayload = `${clientIp}|${testId}|${expiresAt}`;
-  const sig = createHmac('sha256', HMAC_SECRET)
-    .update(rawPayload)
-    .digest('hex');
-  return Buffer.from(`${rawPayload}|${sig}`).toString('base64url');
+  const sig = hmacHex(HMAC_SECRET, rawPayload);
+  return toBase64Url(`${rawPayload}|${sig}`);
 }
 
 /**
@@ -119,7 +171,7 @@ export function verifyVstepSessionToken(
   testId: string
 ): boolean {
   try {
-    const decoded = Buffer.from(token, 'base64url').toString('utf8');
+    const decoded = fromBase64Url(token);
     const parts = decoded.split('|');
     if (parts.length !== 4) return false;
 
@@ -135,9 +187,7 @@ export function verifyVstepSessionToken(
 
     if (tTestId !== testId && tTestId !== '*') return false;
 
-    const expectedSig = createHmac('sha256', HMAC_SECRET)
-      .update(`${tIp}|${tTestId}|${tExpiresAt}`)
-      .digest('hex');
+    const expectedSig = hmacHex(HMAC_SECRET, `${tIp}|${tTestId}|${tExpiresAt}`);
 
     return expectedSig === tSig;
   } catch {

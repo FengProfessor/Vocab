@@ -15,6 +15,14 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
     public void AddClassroom(ClassroomEntity classroom)
         => dbContext.Classrooms.Add(classroom);
 
+    public void RemoveClassroom(ClassroomEntity classroom)
+        => dbContext.Classrooms.Remove(classroom);
+
+    public Task<ClassroomEntity?> GetClassroomByIdAsync(Guid classroomId, CancellationToken ct = default)
+        => dbContext.Classrooms
+            .Include(c => c.Enrollments)
+            .FirstOrDefaultAsync(c => c.Id == classroomId && c.IsDeleted != true, ct);
+
     public Task<ClassroomEntity?> GetPublicClassroomWithEnrollmentsByInviteCodeAsync(string normalizedCode, CancellationToken ct = default)
         => dbContext.Classrooms
             .Include(c => c.Enrollments)

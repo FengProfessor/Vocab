@@ -1,13 +1,12 @@
-'use client'
+import { ChallengeApi } from '@/features/challenge/api';
 
 import React, { useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
-import Link from 'next/link'
+import { useParams, useRouter } from '@/shared/router/navigation'
+import Link from '@/shared/router/navigation'
 import { ArrowLeft, Calendar, Coins, Users, AlertCircle, Share2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { authFetch } from '@/lib/auth-fetch'
 import { ChallengeDailyProgress } from '@/components/challenge/ChallengeDailyProgress'
 import { ChallengeCalendar } from '@/components/challenge/ChallengeCalendar'
 import { ChallengeJoinModal } from '@/components/challenge/ChallengeJoinModal'
@@ -24,7 +23,7 @@ export default function ChallengeDetailPage() {
   useEffect(() => {
     async function fetchChallengeDetail() {
       try {
-        const res = await authFetch(`/api/challenges/${slug}`)
+        const res = await ChallengeApi.getChallengeBySlug(slug)
         if (res.ok) {
           const data = await res.json()
           setChallengeData(data)

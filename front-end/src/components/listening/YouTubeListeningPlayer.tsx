@@ -1,4 +1,3 @@
-'use client';
 
 import React, { useEffect, useRef, useState, useImperativeHandle, forwardRef, useCallback } from 'react';
 

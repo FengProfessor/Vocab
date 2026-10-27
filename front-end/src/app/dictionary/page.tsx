@@ -1,11 +1,11 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
+import { DictionaryApi } from '@/features/dictionary/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { supabase } from '@/lib/supabase';
-import { authFetch } from '@/lib/auth-fetch';
 import type { DictionaryData, DictionaryMeaning, WordFamilyEntry, RichCollocationEntry, MorphologyData } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import {
   Search, Loader2, Volume2, X, CheckCircle2, Layers, GitFork, Link2, Languages, Sparkles
@@ -320,7 +320,7 @@ export default function DictionaryPage() {
 
   useEffect(() => {
     (async () => {
-      const { data: { session }, error } = await supabase.auth.getSession();
+      const { data: { session }, error } = await authService.getSession();
       if (error) return;
       if (!session?.user) { router.replace('/auth'); return; }
     })();
@@ -360,26 +360,21 @@ export default function DictionaryPage() {
     }
 
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (!session?.user) return;
 
-      // Lấy personal classroom của user
-      const { data: cls } = await supabase
-        .from('classrooms')
-        .select('id')
-        .eq('teacher_id', session.user.id)
-        .eq('name', '__personal__')
-        .maybeSingle();
+      const wordsRes = await VocabApi.getWords('/api/words?limit=200&offset=0&classroomId=__personal__')
+        .then((r) => r.json())
+        .catch(() => null);
 
-      if (!cls?.id) return;
+      const allWords = Array.isArray(wordsRes?.data)
+        ? (wordsRes.data as Array<{ word?: string; translation?: string | null }>)
+        : [];
+      const existingWords = allWords.filter(
+        (w) => (w.word || '').toLowerCase().trim() === cleanWord,
+      );
 
-      const { data: existingWords } = await supabase
-        .from('words')
-        .select('id, translation, pos')
-        .eq('classroom_id', cls.id)
-        .ilike('word', word.trim());
-
-      if (existingWords && existingWords.length > 0) {
+      if (existingWords.length > 0) {
         setWordAlreadySaved(true);
         saveWordLocally(cleanWord);
         const dbTranslations = existingWords
@@ -446,10 +441,7 @@ export default function DictionaryPage() {
 
       // Tier 1: local dictionary (cụm nếu đã có trong kho)
       try {
-        const res = await fetch(
-          `/api/dictionary/lookup?word=${encodeURIComponent(trimmed)}`,
-          { signal: AbortSignal.timeout(2000) },
-        );
+        const res = await DictionaryApi.lookup(`/api/dictionary/lookup?word=${encodeURIComponent(trimmed)}`, { signal: AbortSignal.timeout(2000) });
         const json = await res.json().catch(() => ({}));
         if (res.ok) {
           if ((json.results && json.results.length > 0) || (json.core_senses && json.core_senses.length > 0) || json.definition) {
@@ -479,10 +471,7 @@ export default function DictionaryPage() {
       // Tier 2: external (từ đơn hiệu quả cao trên Wiktionary; cụm từ bỏ qua để không chờ đợi vô ích)
       if (!isPhrase) {
         try {
-          const res = await fetch(
-            `/api/dictionary/external?word=${encodeURIComponent(trimmed)}`,
-            { signal: AbortSignal.timeout(2500) },
-          );
+          const res = await DictionaryApi.lookupExternal(`/api/dictionary/external?word=${encodeURIComponent(trimmed)}`, { signal: AbortSignal.timeout(2500) });
           if (res.ok) {
             const json = await res.json().catch(() => ({}));
             if (json.success && (json.results?.length > 0 || json.pronunciations?.length > 0)) {
@@ -507,7 +496,7 @@ export default function DictionaryPage() {
       // Tier 3: AI word/phrase (free có quota ngày — prompt đã hỗ trợ phrase)
       if (trimmed.length <= 80) {
         try {
-          const res = await authFetch('/api/dictionary/ai-lookup', {
+          const res = await DictionaryApi.aiLookup({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ word: trimmed }),
@@ -541,7 +530,7 @@ export default function DictionaryPage() {
       // Tier 4 (cụm): ai-phrase-lookup Pro — normalize collocation base form
       if (isPhrase) {
         try {
-          const res = await authFetch('/api/dictionary/ai-phrase-lookup', {
+          const res = await DictionaryApi.aiPhraseLookup({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ phrase: trimmed }),
@@ -576,7 +565,7 @@ export default function DictionaryPage() {
 
   const lookupSentence = useCallback(async (trimmed: string): Promise<LookupResult | 'pro' | 'busy' | null> => {
     try {
-      const res = await authFetch('/api/dictionary/ai-sentence', {
+      const res = await DictionaryApi.analyzeSentence({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sentence: trimmed }),
@@ -698,7 +687,7 @@ export default function DictionaryPage() {
 
     // Nếu từ đơn/cụm không tìm thấy: tự động lấy gợi ý sửa lỗi gõ sai từ RAM trie engine
     try {
-      const sugRes = await fetch(`/api/dictionary/suggest?q=${encodeURIComponent(trimmed)}`);
+      const sugRes = await DictionaryApi.suggest(`/api/dictionary/suggest?q=${encodeURIComponent(trimmed)}`);
       if (sugRes.ok) {
         const sugJson = (await sugRes.json()) as { didYouMean?: string[]; suggestions?: string[] };
         if (sugJson.didYouMean && sugJson.didYouMean.length > 0) {
@@ -784,10 +773,7 @@ export default function DictionaryPage() {
       suggestAbortRef.current = ctrl;
 
       try {
-        const res = await fetch(
-          `/api/dictionary/suggest?q=${encodeURIComponent(q)}`,
-          { signal: ctrl.signal }
-        );
+        const res = await DictionaryApi.suggest(`/api/dictionary/suggest?q=${encodeURIComponent(q)}`, { signal: ctrl.signal });
         if (!res.ok) { setSuggestions([]); setShowSuggest(false); return; }
         const json = (await res.json()) as {
           success: boolean;
@@ -852,7 +838,7 @@ export default function DictionaryPage() {
     }
 
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.saveWords({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

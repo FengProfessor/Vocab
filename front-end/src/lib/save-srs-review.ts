@@ -1,4 +1,4 @@
-import { authFetch } from '@/lib/auth-fetch';
+import { VocabApi } from '@/features/vocab/api';
 import { queueOfflineReview } from '@/lib/offline/review-sync';
 import { updateOfflineWordSrs } from '@/lib/offline/study-queue';
 import { deleteReviewEvent, updateReviewEvent } from '@/lib/offline/db';
@@ -39,7 +39,7 @@ export async function saveSrsReview(
 
   // 3. Attempt immediate server sync
   try {
-    const response = await authFetch('/api/words/srs', {
+    const response = await VocabApi.submitSrsReview({
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ wordId, quality, reviewId }),

@@ -1,8 +1,8 @@
-'use client';
+import { SocialApi } from '@/features/social/api';
+import { authService } from '@/features/auth/session';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { usePathname } from 'next/navigation';
-import { authFetch } from '@/lib/auth-fetch';
+import { usePathname } from '@/shared/router/navigation';
 import { supabase } from '@/lib/supabase';
 import {
   PRESENCE_HEARTBEAT_MS,
@@ -47,7 +47,7 @@ export function useRoomPresence(opts: {
   const userIdRef = useRef<string | null>(null);
 
   useEffect(() => {
-    void supabase.auth.getSession().then(({ data }) => {
+    void authService.getSession().then(({ data }) => {
       userIdRef.current = data.session?.user?.id ?? null;
     });
   }, []);
@@ -80,7 +80,7 @@ export function useRoomPresence(opts: {
     });
 
     try {
-      const res = await authFetch('/api/hub/presence', {
+      const res = await SocialApi.updateRoomPresence({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -121,9 +121,7 @@ export function useRoomPresence(opts: {
     }
 
     try {
-      const res = await authFetch(
-        `/api/hub/presence?roomId=${encodeURIComponent(roomId)}`
-      );
+      const res = await SocialApi.getRoomPresence(`/api/hub/presence?roomId=${encodeURIComponent(roomId)}`);
       const json = await res.json();
       if (json.meta?.notReady) {
         setNotReady(true);
@@ -200,7 +198,7 @@ export function useRoomPresence(opts: {
   useEffect(() => {
     if (!roomId || !enabled || !heartbeat) return;
     const leave = () => {
-      void authFetch('/api/hub/presence', { method: 'DELETE' });
+      void SocialApi.leaveRoomPresence();
     };
     window.addEventListener('pagehide', leave);
     return () => window.removeEventListener('pagehide', leave);

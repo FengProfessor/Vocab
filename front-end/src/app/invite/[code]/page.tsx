@@ -1,8 +1,9 @@
-'use client';
+import { SocialApi } from '@/features/social/api';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useState, use } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from '@/shared/router/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import {
   Gift,
   Sparkles,
@@ -55,8 +56,8 @@ export default function InviteLandingPage({
       try {
         // 1 & 2. Concurrently check auth session and resolve referrer info
         const [sessionRes, resolveRes] = await Promise.all([
-          supabase.auth.getSession(),
-          fetch('/api/referral/resolve', {
+          authService.getSession(),
+          SocialApi.resolveReferral({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code }),
@@ -95,14 +96,14 @@ export default function InviteLandingPage({
   const handleClaimAndStart = async () => {
     setIsClaiming(true);
     try {
-      const { data: { session } } = await supabase.auth.getSession();
+      const { data: { session } } = await authService.getSession();
       if (!session?.user) {
         router.push(`/auth?ref=${encodeURIComponent(code)}&mode=signup`);
         return;
       }
 
       // User is logged in, claim referral directly
-      const res = await fetch('/api/referral/claim', {
+      const res = await SocialApi.claimReferral({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

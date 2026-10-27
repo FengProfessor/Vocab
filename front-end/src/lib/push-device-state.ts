@@ -6,6 +6,14 @@ export const PUSH_DEVICE_REGISTERED_KEY = 'lingopro_push_device_registered_v2';
 const PUSH_DEVICE_REGISTERED_LEGACY = 'lingopro_push_device_registered';
 export const PUSH_RECONNECT_DISMISS_KEY = 'lingopro_push_reconnect_dismissed';
 
+/**
+ * Bump số này mỗi khi cần ÉP mọi client kết nối lại FCM
+ * (token chết, đổi policy 1-token, cron im lặng lâu…).
+ * Client so với localStorage → hiện banner reconnect + re-register.
+ */
+export const PUSH_FORCE_GEN = 4;
+export const PUSH_FORCE_GEN_STORAGE_KEY = 'lingopro_push_force_gen';
+
 const ENABLE_DISMISS_DAYS = 7;
 
 export function markPushDeviceRegistered(): void {

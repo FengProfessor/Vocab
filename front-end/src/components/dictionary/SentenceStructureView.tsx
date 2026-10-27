@@ -1,4 +1,4 @@
-'use client';
+import { VocabApi } from '@/features/vocab/api';
 
 import { useState, useMemo } from 'react';
 import {
@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { speak } from '@/lib/study';
-import { authFetch } from '@/lib/auth-fetch';
 import { cn } from '@/lib/utils';
 import {
   SentenceAnalysisData,
@@ -76,7 +75,7 @@ export function SentenceStructureView({
 
     setSavingChunk(word);
     try {
-      const res = await authFetch('/api/words', {
+      const res = await VocabApi.saveWords({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ word, translation }),

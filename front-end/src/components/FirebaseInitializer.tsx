@@ -1,4 +1,5 @@
-'use client';
+import { AuthApi } from '@/features/auth/api';
+import { authService } from '@/features/auth/session';
 
 import { useEffect } from 'react';
 
@@ -32,10 +33,10 @@ export default function FirebaseInitializer() {
         const token = await requestForToken();
         if (!token || cancelled) return;
 
-        const { data: { session } } = await supabase.auth.getSession();
+        const { data: { session } } = await authService.getSession();
         if (!session || cancelled) return;
 
-        const res = await fetch('/api/push/fcm-register', {
+        const res = await AuthApi.fcmRegister({
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -56,7 +57,7 @@ export default function FirebaseInitializer() {
         // Ack force-gen nền (user đã có permission → auto re-bind token)
         if (typeof result.forceGen === 'number') {
           try {
-            const { PUSH_FORCE_GEN_STORAGE_KEY } = await import('@/lib/push-force-gen');
+            const { PUSH_FORCE_GEN_STORAGE_KEY } = await import('@/lib/push-device-state');
             localStorage.setItem(PUSH_FORCE_GEN_STORAGE_KEY, String(result.forceGen));
             const { markPushDeviceRegistered } = await import('@/lib/push-device-state');
             markPushDeviceRegistered();

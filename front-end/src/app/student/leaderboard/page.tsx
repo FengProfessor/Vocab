@@ -1,8 +1,10 @@
-'use client';
+﻿import { ClassroomApi } from '@/features/classroom/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, Suspense } from 'react';
-import { supabase } from '@/lib/supabase';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { apiClient } from '@/lib/apiClient';
+import type { ApiResponse } from '@/types/api';
+import { useRouter, useSearchParams } from '@/shared/router/navigation';
 import {
   Trophy,
   Flame,
@@ -69,7 +71,7 @@ function LeaderboardContent() {
       const {
         data: { user },
         error,
-      } = await supabase.auth.getUser();
+      } = await authService.getUser();
       if (error) return;
       if (!user) {
         router.replace('/auth');
@@ -77,16 +79,13 @@ function LeaderboardContent() {
       }
       setCurrentUserId(user.id);
 
-      const { data: enrollments } = await supabase
-        .from('enrollments')
-        .select('classroom:classrooms(id, name)')
-        .eq('student_id', user.id);
-
-      const classes: Classroom[] = [];
-      for (const e of enrollments ?? []) {
-        const cls = e.classroom as unknown as { id: string; name: string } | null;
-        if (cls) classes.push(cls);
-      }
+      const res = await apiClient
+        .get<ApiResponse<Array<{ id: string; name: string }>>>('/classrooms')
+        .catch(() => null);
+      const classes: Classroom[] = (res?.data?.data ?? []).map((c) => ({
+        id: c.id,
+        name: c.name,
+      }));
       setClassrooms(classes);
       if (classes.length > 0 && !preselectedClass) setSelectedClassId(classes[0].id);
     };
@@ -102,10 +101,7 @@ function LeaderboardContent() {
   const loadLeaderboard = async () => {
     setIsLoading(true);
     try {
-      const res = await fetch(
-        `/api/classrooms/${selectedClassId}/leaderboard?period=${period}`,
-        { headers: { 'X-LingoPro-Request': '1' } },
-      );
+      const res = await ClassroomApi.getLeaderboard(selectedClassId, { headers: { 'X-LingoPro-Request': '1' } });
       const data = (await res.json()) as {
         success: boolean;
         data?: LeaderboardEntry[];

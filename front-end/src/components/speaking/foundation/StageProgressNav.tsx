@@ -1,7 +1,6 @@
-'use client';
 
 import React from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { ChevronRight, Home, CheckCircle2, Sparkles, Volume2, MessageSquare, Layers, Mic, Brain } from 'lucide-react';
 import type { SpeakingStageId } from '@/types/speaking-foundation';
 

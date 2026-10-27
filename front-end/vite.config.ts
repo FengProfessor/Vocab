@@ -1,112 +1,22 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { defineConfig, type Plugin } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 /**
- * Vite dev/preview middleware plugin that executes any `/src/app/api/<route>/route.ts`
- * handler when requested via `/__local_api/<route>` (used for local JSON dataset loaders
- * such as TOEIC, VSTEP, VNU Bậc 3 test/explain/submit/media-proxy and Roadmap checkpoints).
- */
-function lingoProLocalRoutePlugin(): Plugin {
-  return {
-    name: 'lingopro-local-route-plugin',
-    configureServer(server) {
-      server.middlewares.use(async (req, res, next) => {
-        const rawUrl = req.url || '';
-        if (!rawUrl.startsWith('/__local_api/')) {
-          return next();
-        }
-
-        try {
-          const apiUrl = rawUrl.replace(/^\/__local_api\//, '/api/');
-          const [pathname] = apiUrl.split('?');
-          const relRoute = pathname.replace(/^\/api\//, '');
-          const routeModulePath = `/src/app/api/${relRoute}/route.ts`;
-
-          const mod = await server.ssrLoadModule(routeModulePath);
-          const { NextRequest } = await server.ssrLoadModule('/src/shims/next-server.ts');
-
-          const method = (req.method || 'GET').toUpperCase();
-          const handler = mod[method] || mod.GET || mod.POST;
-          if (typeof handler !== 'function') {
-            res.statusCode = 405;
-            res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify({ success: false, error: `Method ${method} not allowed` }));
-            return;
-          }
-
-          const chunks: Buffer[] = [];
-          if (method !== 'GET' && method !== 'HEAD') {
-            for await (const chunk of req) {
-              chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
-            }
-          }
-          const bodyBuffer = chunks.length > 0 ? Buffer.concat(chunks) : undefined;
-
-          const headers = new Headers();
-          for (const [k, v] of Object.entries(req.headers)) {
-            if (typeof v === 'string') headers.set(k, v);
-            else if (Array.isArray(v)) headers.set(k, v.join(', '));
-          }
-
-          const fullUrl = `http://${req.headers.host || 'localhost:5173'}${apiUrl}`;
-          const nextReq = new NextRequest(fullUrl, {
-            method,
-            headers,
-            body: bodyBuffer && bodyBuffer.length > 0 ? bodyBuffer : undefined,
-          });
-
-          const response: Response = await handler(nextReq);
-          res.statusCode = response.status;
-          response.headers.forEach((val, key) => {
-            res.setHeader(key, val);
-          });
-
-          const arrayBuf = await response.arrayBuffer();
-          res.end(Buffer.from(arrayBuf));
-        } catch (err: unknown) {
-          const msg = err instanceof Error ? err.message : 'Local API execution error';
-          res.statusCode = 500;
-          res.setHeader('Content-Type', 'application/json');
-          res.end(JSON.stringify({ success: false, error: msg }));
-        }
-      });
-    },
-  };
-}
-
-/**
  * Vite configuration for the LingoPro React 19 Single Page Application.
- * Aliases all Next.js imports (next/link, next/navigation, next/image, next/dynamic, next/font/google, next/server, next/og)
- * to client-side React Router & browser shims so 100% of /src runs as an API-driven SPA without SSR.
  */
 export default defineConfig({
-  plugins: [react(), lingoProLocalRoutePlugin()],
+  plugins: [react()],
   define: {
     'process.env': {
       NODE_ENV: process.env.NODE_ENV || 'development',
-      NEXT_PUBLIC_SITE_URL: process.env.VITE_SITE_URL || 'https://lingopro.online',
-      NEXT_PUBLIC_SUPABASE_URL:
-        process.env.VITE_SUPABASE_URL || 'https://jyhdxhqkftirncbstfpe.supabase.co',
-      NEXT_PUBLIC_SUPABASE_ANON_KEY:
-        process.env.VITE_SUPABASE_ANON_KEY ||
-        'sb_publishable_cNsBhEJMkhMDa_2k5MHJCw_I68kPEEf',
     },
   },
   resolve: {
     alias: [
-      { find: 'next/link', replacement: path.resolve(__dirname, 'src/shims/next-link.tsx') },
-      { find: 'next/navigation', replacement: path.resolve(__dirname, 'src/shims/next-navigation.ts') },
-      { find: 'next/image', replacement: path.resolve(__dirname, 'src/shims/next-image.tsx') },
-      { find: 'next/dynamic', replacement: path.resolve(__dirname, 'src/shims/next-dynamic.tsx') },
-      { find: 'next/font/google', replacement: path.resolve(__dirname, 'src/shims/next-font-google.ts') },
-      { find: 'next/server', replacement: path.resolve(__dirname, 'src/shims/next-server.ts') },
-      { find: 'next/og', replacement: path.resolve(__dirname, 'src/shims/next-og.tsx') },
-      { find: /^next$/, replacement: path.resolve(__dirname, 'src/shims/next-types.ts') },
-      { find: 'react-is', replacement: path.resolve(__dirname, 'src/shims/react-is.ts') },
       { find: '@', replacement: path.resolve(__dirname, 'src') },
     ],
   },
@@ -129,5 +39,82 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          const normalized = id.replace(/\\/g, '/');
+
+          if (normalized.includes('/node_modules/')) {
+            if (
+              normalized.includes('/node_modules/react/') ||
+              normalized.includes('/node_modules/react-dom/') ||
+              normalized.includes('/node_modules/react-router') ||
+              normalized.includes('/node_modules/scheduler/')
+            ) {
+              return 'vendor-react';
+            }
+            if (
+              normalized.includes('/node_modules/recharts') ||
+              normalized.includes('/node_modules/d3-') ||
+              normalized.includes('/node_modules/victory-vendor')
+            ) {
+              return 'vendor-charts';
+            }
+            if (
+              normalized.includes('/node_modules/lucide-react') ||
+              normalized.includes('/node_modules/@base-ui/react') ||
+              normalized.includes('/node_modules/sonner')
+            ) {
+              return 'vendor-ui';
+            }
+            if (
+              normalized.includes('/node_modules/@tanstack/react-query') ||
+              normalized.includes('/node_modules/axios') ||
+              normalized.includes('/node_modules/zustand')
+            ) {
+              return 'vendor-query';
+            }
+          }
+
+          if (
+            normalized.includes('/src/data/speaking/') ||
+            normalized.includes('/src/data/conversations/')
+          ) {
+            return 'data-speaking';
+          }
+          if (
+            normalized.includes('/src/data/toeic/') ||
+            normalized.includes('sat-thu-toeic-listening-data') ||
+            normalized.includes('/src/lib/toeic-test-loader')
+          ) {
+            return 'data-toeic';
+          }
+          if (
+            normalized.includes('/src/data/vstep/') ||
+            normalized.includes('/src/data/vnu-bac-3/') ||
+            normalized.includes('/src/lib/vstep-test-loader')
+          ) {
+            return 'data-vstep';
+          }
+          if (
+            normalized.includes('/src/data/grammar') ||
+            normalized.includes('/src/lib/grammar-roadmap-data') ||
+            normalized.includes('/src/lib/grammar-exercises')
+          ) {
+            return 'data-grammar';
+          }
+          if (
+            normalized.includes('/src/data/vocab/') ||
+            normalized.includes('/src/data/roadmap/') ||
+            normalized.includes('/src/lib/vocab-catalog') ||
+            normalized.includes('/src/lib/roadmap.ts')
+          ) {
+            return 'data-vocab';
+          }
+
+          return undefined;
+        },
+      },
+    },
   },
 });

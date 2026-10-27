@@ -1,4 +1,5 @@
-'use client';
+import { SocialApi } from '@/features/social/api';
+import { authService } from '@/features/auth/session';
 
 import { useEffect, useState } from 'react';
 import {
@@ -247,10 +248,10 @@ export default function ReferralHubPage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session) return;
 
-      const res = await fetch('/api/referral/hub', {
+      const res = await SocialApi.getReferralHub({
         headers: { 'X-LingoPro-Request': '1' },
       });
 
@@ -396,10 +397,10 @@ export default function ReferralHubPage() {
     try {
       const {
         data: { session },
-      } = await supabase.auth.getSession();
+      } = await authService.getSession();
       if (!session) return;
 
-      const res = await fetch('/api/referral/payout', {
+      const res = await SocialApi.requestReferralPayout({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

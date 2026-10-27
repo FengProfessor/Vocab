@@ -1,4 +1,3 @@
-'use client';
 
 import { useCallback, useEffect, useState } from 'react';
 import { ChevronDown, MoreVertical, PlusSquare, Share, Smartphone, X } from 'lucide-react';

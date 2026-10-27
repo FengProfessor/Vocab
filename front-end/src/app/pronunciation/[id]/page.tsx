@@ -1,4 +1,3 @@
-'use client';
 
 /**
  * Bài phát âm — dạy 1 âm/chủ điểm cho người Việt:
@@ -7,7 +6,7 @@
  * Xong drill → POST roadmap progress (nếu mở từ lộ trình).
  */
 import { useEffect, useMemo, useState, useCallback } from 'react';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useParams, useRouter, useSearchParams } from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import { completeRoadmapStep } from '@/lib/roadmap-client';
 import { playWordAudio, stopWordAudio } from '@/lib/audio';
@@ -15,7 +14,7 @@ import { speak } from '@/lib/study';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Volume2, ArrowLeft, Ear } from 'lucide-react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import pronunciationData from '@/data/pronunciation/lessons-v1.json';
 import { InteractiveIpaVideoPlayer, pauseIpaVideo } from '@/components/pronunciation/InteractiveIpaVideoPlayer';
 import type { PronunciationLesson, RachelVideoMeta } from '@/types/pronunciation';

@@ -3,7 +3,6 @@
  * File: src/components/vnu-bac-3/VnuSplitPane.tsx
  */
 
-'use client';
 
 import React, { useState, useEffect } from 'react';
 import {

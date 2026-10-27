@@ -1,9 +1,10 @@
-'use client';
+import { SocialApi } from '@/features/social/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/shared/router/navigation';
+import Link from '@/shared/router/navigation';
 import {
   Users,
   Copy,
@@ -58,7 +59,7 @@ export default function GroupPage() {
     const {
       data: { session },
       error,
-    } = await supabase.auth.getSession();
+    } = await authService.getSession();
     if (error) return true;
     return Boolean(session?.user);
   }, []);
@@ -70,7 +71,7 @@ export default function GroupPage() {
       return;
     }
     try {
-      const res = await fetch('/api/groups/mine', {
+      const res = await SocialApi.getMyGroups({
         headers: { 'X-LingoPro-Request': '1' },
       });
       const json = await res.json();
@@ -107,7 +108,7 @@ export default function GroupPage() {
     setBusy(true);
     try {
       await hasSession();
-      const res = await fetch('/api/groups/join', {
+      const res = await SocialApi.joinGroup({
         method: 'POST',
         headers: { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' },
         body: JSON.stringify({ inviteCode: code }),
@@ -130,7 +131,7 @@ export default function GroupPage() {
     setBusy(true);
     try {
       await hasSession();
-      const res = await fetch(`/api/groups/${owned.id}/remove`, {
+      const res = await SocialApi.removeGroupMember(owned.id, {
         method: 'POST',
         headers: { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId }),
@@ -151,7 +152,7 @@ export default function GroupPage() {
     setBusy(true);
     try {
       await hasSession();
-      const res = await fetch('/api/groups/leave', {
+      const res = await SocialApi.leaveGroup({
         method: 'POST',
         headers: { 'X-LingoPro-Request': '1', 'Content-Type': 'application/json' },
         body: JSON.stringify({}),

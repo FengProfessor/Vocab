@@ -1,4 +1,8 @@
-'use client';
+﻿import { VocabApi } from '@/features/vocab/api';
+import { SocialApi } from '@/features/social/api';
+import { RoadmapApi } from '@/features/roadmap/api';
+import { ReadingApi } from '@/features/reading/api';
+import { GrammarApi } from '@/features/grammar/api';
 
 import React, {
   createContext,
@@ -10,10 +14,12 @@ import React, {
   type ReactNode,
 } from 'react';
 import type { AppSession as Session } from '@/lib/app-session-types';
-import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
+import type { Profile, UserGamification } from '@/lib/supabase';
+import { AuthApi } from '@/features/auth/api';
+import { apiClient } from '@/lib/apiClient';
+import type { ApiResponse } from '@/types/api';
 import { effectiveCurrentStreak } from '@/lib/gamification';
-import { authFetch } from '@/lib/auth-fetch';
-import { authStateVersion } from '@/lib/app-auth-client';
+import { authService, authStateVersion } from '@/features/auth/session';
 import {
   readWordSummaryCache,
   readLastWordSummaryCache,
@@ -84,7 +90,7 @@ const inFlightTeacherChecks = new Map<string, Promise<boolean>>();
 
 export function fetchSessionOnce(): Promise<Session | null> {
   if (inFlightSession) return inFlightSession;
-  inFlightSession = supabase.auth
+  inFlightSession = authService
     .getSession()
     .then((res) => {
       inFlightSession = null;
@@ -105,13 +111,9 @@ export function fetchProfileOnce(userId: string): Promise<ShellProfile | null> {
 
   const promise = (async () => {
     try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
-        .eq('id', userId)
-        .single();
+      const data = await AuthApi.getLegacyProfile(userId);
       if (version !== authStateVersion()) return null;
-      if (!error && data) {
+      if (data) {
         setStoredProfile(userId, data as ShellProfile);
         return data as ShellProfile;
       }
@@ -134,13 +136,9 @@ export function fetchGamificationOnce(userId: string): Promise<UserGamification 
   const version = authStateVersion();
   const promise = (async () => {
     try {
-      const { data, error } = await supabase
-        .from('user_gamification')
-        .select('*')
-        .eq('user_id', userId)
-        .single();
+      const data = await AuthApi.getGamification(userId);
       if (version !== authStateVersion()) return null;
-      if (!error && data) {
+      if (data) {
         const normalized: UserGamification = {
           ...data,
           current_streak: effectiveCurrentStreak(data.current_streak, data.last_active_date),
@@ -167,14 +165,14 @@ export function fetchTeacherCheckOnce(userId: string): Promise<boolean> {
   const version = authStateVersion();
   const promise = (async () => {
     try {
-      const { data, error } = await supabase
-        .from('classrooms')
-        .select('id')
-        .eq('teacher_id', userId)
-        .neq('name', '__personal__')
-        .limit(1);
+      const response = await apiClient.get<
+        ApiResponse<Array<{ id: string; name: string; teacherId: string }>>
+      >('/classrooms');
       if (version !== authStateVersion()) return false;
-      const isTeacher = !error && Boolean(data && data.length > 0);
+      const list = response.data?.data ?? [];
+      const isTeacher = list.some(
+        (c) => c.teacherId === userId && c.name !== '__personal__',
+      );
       setStoredTeacher(userId, isTeacher);
       return isTeacher;
     } catch {
@@ -197,7 +195,7 @@ export function fetchWordSummaryOnce(userId: string): Promise<WordSummaryData | 
   const version = authStateVersion();
   const promise = (async () => {
     try {
-      const res = await authFetch('/api/words?summary=1&classroomId=__personal__', {});
+      const res = await VocabApi.getWords('/api/words?summary=1&classroomId=__personal__');
       const json = await res.json();
       if (version !== authStateVersion()) return null;
       if (json?.success) {
@@ -433,7 +431,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           try {
             if (!sessionStorage.getItem('lp_ref_checked')) {
               sessionStorage.setItem('lp_ref_checked', '1');
-              void fetch('/api/referral/evaluate-activation', {
+              void SocialApi.evaluateReferralActivation({
                 method: 'POST',
                 headers: { 'X-LingoPro-Request': '1' },
               }).catch(() => null);
@@ -472,7 +470,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
                 const snapMod = await import('@/lib/dashboard-snapshot-cache');
                 if (!snapMod.readLibraryCatalogCache()) {
-                  void authFetch('/api/import/packages')
+                  void VocabApi.getImportPackages()
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.routes)) {
@@ -486,7 +484,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     .catch(() => {});
                 }
                 if (!snapMod.readLastRoadmapCache('cefr', userId)) {
-                  void authFetch('/api/roadmap?track=cefr')
+                  void RoadmapApi.getRoadmap('/api/roadmap?track=cefr')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && d.data && typeof d.data === 'object') {
@@ -497,7 +495,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     .catch(() => {});
                 }
                 if (!snapMod.readLastProfileStatsCache(userId)) {
-                  void authFetch('/api/student/stats')
+                  void VocabApi.getStudentStats()
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && d.data) {
@@ -507,7 +505,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     .catch(() => {});
                 }
                 if (!snapMod.readLastDailyReadingCache(userId)) {
-                  void authFetch('/api/practice/daily-reading')
+                  void ReadingApi.getDailyReading('/api/practice/daily-reading')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.exercises)) {
@@ -523,7 +521,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
                     .catch(() => {});
                 }
                 if (!localStorage.getItem('lingo_grammar_topic_progress')) {
-                  void authFetch('/api/grammar/progress?view=topics')
+                  void GrammarApi.getProgress('/api/grammar/progress?view=topics')
                     .then((r) => r.json())
                     .then((d) => {
                       if (d?.success && Array.isArray(d.data)) {
@@ -562,7 +560,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, nextSession) => {
+    } = authService.onAuthStateChange((event, nextSession) => {
       if (isCancelled) return;
       if (event === 'SIGNED_OUT') {
         setSession(null);

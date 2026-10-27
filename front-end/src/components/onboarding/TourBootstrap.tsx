@@ -1,7 +1,6 @@
-'use client';
 
 import { useEffect, useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from '@/shared/router/navigation';
 import { supabase } from '@/lib/supabase';
 import { OnboardingProvider, useOnboarding } from './OnboardingProvider';
 import { SpotlightOverlay } from './SpotlightOverlay';

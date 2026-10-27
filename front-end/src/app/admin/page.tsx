@@ -1,11 +1,11 @@
-'use client';
+import { AdminApi } from '@/features/admin/api';
+import { authService } from '@/features/auth/session';
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/shared/router/navigation';
 import { Brain, Users, BookOpen, Target, TrendingUp, ChevronLeft, CreditCard, Building2, Trophy } from 'lucide-react';
-import Link from 'next/link';
-import { authFetch } from '@/lib/auth-fetch';
+import Link from '@/shared/router/navigation';
 
 interface UserStat {
   id: string;
@@ -29,10 +29,10 @@ export default function AdminPage() {
 
   useEffect(() => {
     const load = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
+      const { data: { user } } = await authService.getUser();
       if (!user) { router.push('/auth'); return; }
 
-      const res = await authFetch('/api/admin/stats');
+      const res = await AdminApi.getStats();
       if (!res.ok) { router.push('/'); return; }
       const data = await res.json();
       if (data.success) {

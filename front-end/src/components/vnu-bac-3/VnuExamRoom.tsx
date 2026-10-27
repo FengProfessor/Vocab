@@ -1,12 +1,12 @@
+import { ExamApi } from '@/features/exam/api';
 /**
  * VNU Test Bậc 3 Exam Room Component (4-Skill Interactive Support)
  * File: src/components/vnu-bac-3/VnuExamRoom.tsx
  */
 
-'use client';
 
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import Link from 'next/link';
+import Link from '@/shared/router/navigation';
 import { toast } from 'sonner';
 import {
   Clock,
@@ -78,7 +78,7 @@ export function VnuExamRoom({ examId, initialMode }: VnuExamRoomProps) {
     setLoading(true);
     setError(null);
 
-    fetch(`/api/vnu-bac-3/test?id=${examId}`)
+    ExamApi.getVnuTest(`/api/vnu-bac-3/test?id=${examId}`)
       .then((res) => {
         if (!res.ok) throw new Error(`Lỗi tải đề thi (HTTP ${res.status})`);
         return res.json();
@@ -210,7 +210,7 @@ export function VnuExamRoom({ examId, initialMode }: VnuExamRoomProps) {
   const performSubmit = useCallback(async () => {
     setSubmitting(true);
     try {
-      const res = await fetch('/api/vnu-bac-3/submit', {
+      const res = await ExamApi.submitVnuExam({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -328,7 +328,7 @@ export function VnuExamRoom({ examId, initialMode }: VnuExamRoomProps) {
       }
       setEvaluatingTaskId(taskId);
       try {
-        const res = await fetch('/api/vnu-bac-3/writing-eval', {
+        const res = await ExamApi.evaluateWriting({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -338,7 +338,7 @@ export function VnuExamRoom({ examId, initialMode }: VnuExamRoomProps) {
             minWords,
             text,
           }),
-        });
+        }, 'VnuBac3');
         const data = await res.json();
         if (!res.ok || !data.success || !data.evaluation) {
           throw new Error(data.error || 'Không thể chấm bài viết lúc này.');
@@ -406,7 +406,7 @@ export function VnuExamRoom({ examId, initialMode }: VnuExamRoomProps) {
   // Xin giải thích từng câu (On-Demand Explain)
   const handleRequestExplain = async (questionId: string) => {
     try {
-      const res = await fetch('/api/vnu-bac-3/explain', {
+      const res = await ExamApi.explainVnuQuestion({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
