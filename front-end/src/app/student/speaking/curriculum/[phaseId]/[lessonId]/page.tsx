@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useState, use, useMemo } from 'react';
 import Link from '@/shared/router/navigation';
@@ -27,6 +28,7 @@ import { Button } from '@/components/ui/button';
 import {
   DualSpeedAudioButton,
   SafeHarborRecorder,
+  SpeakingStepLayout,
 } from '@/components/speaking';
 import {
   getCurriculumLessonById,
@@ -72,7 +74,7 @@ function renderHighlightedText(text: string, keywords?: string[]) {
           return (
             <mark
               key={idx}
-              className="rounded bg-indigo-500/25 px-1 py-0.5 font-bold text-indigo-300 border border-indigo-500/40 not-italic inline-block mx-0.5"
+              className="rounded bg-indigo-500/20 px-1 py-0.5 font-bold text-indigo-700 dark:text-indigo-300 border border-indigo-500/40 not-italic inline-block mx-0.5"
             >
               {part}
             </mark>
@@ -132,12 +134,12 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
     return (
       <StudentShell title="Không tìm thấy bài học">
         <div className="min-h-[70vh] flex flex-col items-center justify-center p-6 text-center space-y-4">
-          <div className="size-16 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400">
+          <div className="size-16 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500 dark:text-red-400">
             <AlertCircle className="size-8" />
           </div>
-          <h2 className="text-xl font-bold text-white">Không tìm thấy bài học</h2>
-          <p className="text-sm text-slate-400 max-w-md">
-            Mã bài học <code className="text-indigo-300 bg-slate-800 px-2 py-0.5 rounded">{lessonId}</code> không tồn tại trong hệ thống hoặc đã được cập nhật.
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white">Không tìm thấy bài học</h2>
+          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md">
+            Mã bài học <code className="text-indigo-700 dark:text-indigo-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded">{lessonId}</code> không tồn tại trong hệ thống hoặc đã được cập nhật.
           </p>
           <Link href="/student/speaking/curriculum">
             <Button className="bg-indigo-600 hover:bg-indigo-500 text-white font-medium mt-2">
@@ -214,123 +216,107 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
   ];
 
   return (
-    <StudentShell title={`${lesson.titleVi} - Luyện Nói Phản Xạ`} contentClassName="p-0">
-      <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
-        {/* Sticky Header Navigation */}
-        <header className="sticky top-header-safe z-30 border-b border-slate-800/80 bg-slate-900/95 backdrop-blur px-4 py-3 sm:px-8">
-          <div className="mx-auto max-w-6xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            {/* Breadcrumb info */}
-            <div className="flex items-center gap-2 text-xs text-slate-400 flex-wrap">
-              <Link
-                href="/student/speaking"
-                className="hover:text-white transition-colors flex items-center gap-1"
+    <SpeakingStepLayout
+      currentStage="curriculum"
+      shellTitle={`${lesson.titleVi} - Luyện Nói Phản Xạ`}
+      headerTitle={`Bài ${String(lesson.order).padStart(2, '0')}: ${lesson.titleVi}`}
+      headerIcon={<BookOpen className="h-4 w-4 text-indigo-400" />}
+      headerActions={
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
+            {lesson.cefrLevel}
+          </span>
+          <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-blue-500/10 text-blue-700 dark:text-blue-400 border border-blue-500/30 hidden sm:inline-block">
+            IELTS {lesson.targetBandIelts}
+          </span>
+          <Link href="/student/speaking/curriculum">
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white h-8 px-2.5"
+            >
+              <ChevronLeft className="size-3.5 mr-1" /> 32 Bài
+            </Button>
+          </Link>
+        </div>
+      }
+      contentClassName="space-y-6 flex flex-col justify-between"
+    >
+      {/* 4-Stage Step Navigation Pills */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+        {stagesList.map((step) => {
+          const Icon = step.icon;
+          const isActive = currentStageNum === step.stageNumber;
+          const isPassed =
+            step.stageNumber < currentStageNum ||
+            (step.stageNumber === 4 && isPassedStage4);
+
+          return (
+            <button
+              key={step.stageNumber}
+              onClick={() => setCurrentStageNum(step.stageNumber)}
+              className={`flex items-center gap-2.5 p-2.5 rounded-xl border text-left transition-all ${
+                isActive
+                  ? 'bg-indigo-50 dark:bg-indigo-600/20 border-indigo-500 text-slate-900 dark:text-white shadow-sm shadow-indigo-500/10 dark:shadow-indigo-950/40'
+                  : isPassed
+                  ? 'bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/60 hover:text-slate-900 dark:hover:text-white'
+                  : 'bg-slate-50 dark:bg-slate-900/30 border-slate-200/80 dark:border-slate-800/80 text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+              }`}
+            >
+              <div
+                className={`size-7 rounded-lg flex items-center justify-center shrink-0 text-xs font-bold ${
+                  isActive
+                    ? 'bg-indigo-600 text-white'
+                    : isPassed
+                    ? 'bg-emerald-500/15 dark:bg-emerald-600/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30'
+                    : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                }`}
               >
-                Speaking
-              </Link>
-              <span>/</span>
-              <Link
-                href="/student/speaking/curriculum"
-                className="hover:text-white transition-colors flex items-center gap-1"
-              >
-                Curriculum
-              </Link>
-              <span>/</span>
-              <span className="font-semibold text-slate-200 truncate max-w-xs sm:max-w-md">
-                Bài {String(lesson.order).padStart(2, '0')}: {lesson.titleVi}
-              </span>
-            </div>
+                {isPassed && !isActive ? (
+                  <CheckCircle2 className="size-4 text-emerald-600 dark:text-emerald-400" />
+                ) : (
+                  <Icon className="size-3.5" />
+                )}
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-xs font-bold truncate leading-none">
+                  {step.shortTitle}
+                </div>
+                <div className="text-[10px] text-slate-500 dark:text-slate-400 truncate mt-1">
+                  {step.tag}
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
 
-            {/* Badges */}
-            <div className="flex items-center gap-2 shrink-0">
-              <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                {lesson.cefrLevel}
-              </span>
-              <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-blue-500/10 text-blue-400 border border-blue-500/30">
-                IELTS {lesson.targetBandIelts}
-              </span>
-              <span className="text-[11px] font-medium text-slate-400 flex items-center gap-1">
-                <Clock className="size-3" /> {lesson.estimatedMinutes}m
-              </span>
-            </div>
-          </div>
-
-          {/* 4-Stage Step Navigation Pills */}
-          <div className="mx-auto max-w-6xl mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2">
-            {stagesList.map((step) => {
-              const Icon = step.icon;
-              const isActive = currentStageNum === step.stageNumber;
-              const isPassed =
-                step.stageNumber < currentStageNum ||
-                (step.stageNumber === 4 && isPassedStage4);
-
-              return (
-                <button
-                  key={step.stageNumber}
-                  onClick={() => setCurrentStageNum(step.stageNumber)}
-                  className={`flex items-center gap-2.5 p-2.5 rounded-xl border text-left transition-all ${
-                    isActive
-                      ? 'bg-indigo-600/20 border-indigo-500 text-white shadow-sm shadow-indigo-950/40'
-                      : isPassed
-                      ? 'bg-slate-900/60 border-slate-800 text-slate-300 hover:bg-slate-800/60 hover:text-white'
-                      : 'bg-slate-900/30 border-slate-850 text-slate-500 hover:text-slate-300'
-                  }`}
-                >
-                  <div
-                    className={`size-7 rounded-lg flex items-center justify-center shrink-0 text-xs font-bold ${
-                      isActive
-                        ? 'bg-indigo-600 text-white'
-                        : isPassed
-                        ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/30'
-                        : 'bg-slate-800 text-slate-400'
-                    }`}
-                  >
-                    {isPassed && !isActive ? (
-                      <CheckCircle2 className="size-4 text-emerald-400" />
-                    ) : (
-                      <Icon className="size-3.5" />
-                    )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="text-xs font-bold truncate leading-none">
-                      {step.shortTitle}
-                    </div>
-                    <div className="text-[10px] text-slate-400 truncate mt-1">
-                      {step.tag}
-                    </div>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </header>
-
-        {/* Lesson Stage Body Container */}
-        <main className="mx-auto max-w-6xl w-full px-4 sm:px-8 py-6 flex-1 flex flex-col justify-between">
-          <div className="space-y-6">
+      {/* Lesson Stage Body Container */}
+      <div className="space-y-6">
             {/* ── STAGE 1: Warm-up & Phonetics Drill ── */}
             {currentStageNum === 1 && (
               <section className="space-y-6 animate-in fade-in duration-300">
                 {/* Stage Header Banner */}
-                <div className="rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-500/10 via-slate-900 to-slate-900 p-5 sm:p-6 space-y-3">
+                <div className="rounded-2xl border border-amber-500/30 bg-gradient-to-r from-amber-50 via-white to-white dark:from-amber-500/10 dark:via-slate-900 dark:to-slate-900 p-5 sm:p-6 space-y-3 shadow-sm dark:shadow-none">
                   <div className="flex items-center justify-between flex-wrap gap-2">
-                    <div className="inline-flex items-center gap-2 rounded-lg bg-amber-500/20 px-3 py-1 text-xs font-bold text-amber-300 border border-amber-500/30">
-                      <Volume2 className="size-4 text-amber-400" />
+                    <div className="inline-flex items-center gap-2 rounded-lg bg-amber-500/15 dark:bg-amber-500/20 px-3 py-1 text-xs font-bold text-amber-800 dark:text-amber-300 border border-amber-500/30">
+                      <Volume2 className="size-4 text-amber-600 dark:text-amber-400" />
                       <span>Chặng 1: Khởi Động Khẩu Hình & Trị Lỗi Ngữ Âm</span>
                     </div>
-                    <div className="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-800 text-amber-300 border border-slate-700">
-                      Âm Trọng Tâm: <span className="text-white text-sm ml-1 font-mono">{lesson.stage1Phonetics.focusSound}</span>
+                    <div className="text-xs font-bold px-2.5 py-1 rounded-full bg-amber-50 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-slate-700">
+                      Âm Trọng Tâm: <span className="text-slate-900 dark:text-white text-sm ml-1 font-mono">{lesson.stage1Phonetics.focusSound}</span>
                     </div>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-black text-white">
+                  <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
                     {lesson.stage1Phonetics.titleVi}
                   </h2>
 
                   {/* Vietnamese Contrastive Tip Card */}
-                  <div className="rounded-xl border border-amber-500/30 bg-amber-950/20 p-4 text-xs sm:text-sm text-amber-200/90 leading-relaxed flex items-start gap-3">
-                    <Lightbulb className="size-5 text-amber-400 shrink-0 mt-0.5" />
+                  <div className="rounded-xl border border-amber-400/50 dark:border-amber-500/30 bg-amber-50/80 dark:bg-amber-950/20 p-4 text-xs sm:text-sm text-amber-900 dark:text-amber-200/90 leading-relaxed flex items-start gap-3">
+                    <Lightbulb className="size-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
                     <div>
-                      <strong className="text-amber-300 font-bold block mb-1">
+                      <strong className="text-amber-800 dark:text-amber-300 font-bold block mb-1">
                         Mẹo Khẩu Hình Cho Người Việt (Contrastive Articulatory Tip):
                       </strong>
                       <p>{lesson.stage1Phonetics.vietnameseContrastiveTip}</p>
@@ -342,10 +328,10 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                 {lesson.stage1Phonetics.minimalPairs && lesson.stage1Phonetics.minimalPairs.length > 0 && (
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-base font-bold text-white flex items-center gap-2">
-                        <Sparkles className="size-4 text-amber-400" /> Cặp Âm Tối Thiểu (Minimal Pairs Drill)
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <Sparkles className="size-4 text-amber-500 dark:text-amber-400" /> Cặp Âm Tối Thiểu (Minimal Pairs Drill)
                       </h3>
-                      <span className="text-xs text-slate-400">
+                      <span className="text-xs text-slate-500 dark:text-slate-400">
                         Nghe đối chiếu 0.8x & 1.0x để phân biệt
                       </span>
                     </div>
@@ -354,20 +340,20 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                       {lesson.stage1Phonetics.minimalPairs.map((pair, idx) => (
                         <div
                           key={idx}
-                          className="rounded-xl border border-slate-800 bg-slate-900/60 p-4 space-y-3 hover:border-slate-700 transition-colors"
+                          className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 space-y-3 hover:border-slate-300 dark:hover:border-slate-700 transition-colors shadow-sm dark:shadow-none"
                         >
-                          <div className="grid grid-cols-2 gap-3 divide-x divide-slate-800">
+                          <div className="grid grid-cols-2 gap-3 divide-x divide-slate-200 dark:divide-slate-800">
                             {/* Word A */}
                             <div className="space-y-1.5 pr-2">
                               <div className="flex items-baseline justify-between">
-                                <span className="text-base sm:text-lg font-bold text-white">
+                                <span className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                                   {pair.wordA}
                                 </span>
-                                <span className="text-xs font-mono text-amber-300">
+                                <span className="text-xs font-mono text-amber-600 dark:text-amber-300">
                                   {pair.ipaA}
                                 </span>
                               </div>
-                              <p className="text-xs text-slate-400">{pair.meaningA}</p>
+                              <p className="text-xs text-slate-500 dark:text-slate-400">{pair.meaningA}</p>
                               <div className="pt-1">
                                 <DualSpeedAudioButton
                                   text={pair.wordA}
@@ -380,14 +366,14 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                             {/* Word B */}
                             <div className="space-y-1.5 pl-3">
                               <div className="flex items-baseline justify-between">
-                                <span className="text-base sm:text-lg font-bold text-white">
+                                <span className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                                   {pair.wordB}
                                 </span>
-                                <span className="text-xs font-mono text-cyan-300">
+                                <span className="text-xs font-mono text-cyan-600 dark:text-cyan-300">
                                   {pair.ipaB}
                                 </span>
                               </div>
-                              <p className="text-xs text-slate-400">{pair.meaningB}</p>
+                              <p className="text-xs text-slate-500 dark:text-slate-400">{pair.meaningB}</p>
                               <div className="pt-1">
                                 <DualSpeedAudioButton
                                   text={pair.wordB}
@@ -400,8 +386,8 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
 
                           {/* Distinction tip */}
                           {pair.distinctionVi && (
-                            <div className="pt-2 border-t border-slate-800 text-[11px] text-slate-300 italic flex items-center gap-1.5">
-                              <span className="text-amber-400 not-italic font-bold">🔍 Khác biệt:</span>
+                            <div className="pt-2 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-700 dark:text-slate-300 italic flex items-center gap-1.5">
+                              <span className="text-amber-600 dark:text-amber-400 not-italic font-bold">🔍 Khác biệt:</span>
                               <span>{pair.distinctionVi}</span>
                             </div>
                           )}
@@ -414,26 +400,26 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                 {/* Practice Sentences Section */}
                 {lesson.stage1Phonetics.practiceSentences && lesson.stage1Phonetics.practiceSentences.length > 0 && (
                   <div className="space-y-3 pt-2">
-                    <h3 className="text-base font-bold text-white flex items-center gap-2">
-                      <Volume2 className="size-4 text-emerald-400" /> Câu Luyện Nhịp Điệu & Âm Đuôi
+                    <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                      <Volume2 className="size-4 text-emerald-500 dark:text-emerald-400" /> Câu Luyện Nhịp Điệu & Âm Đuôi
                     </h3>
 
                     <div className="space-y-3">
                       {lesson.stage1Phonetics.practiceSentences.map((s, idx) => (
                         <div
                           key={idx}
-                          className="rounded-xl border border-slate-800 bg-slate-900/60 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-indigo-500/40 transition-colors"
+                          className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-indigo-500/40 transition-colors shadow-sm dark:shadow-none"
                         >
                           <div className="space-y-1">
                             <div className="flex items-center gap-2">
-                              <span className="text-xs font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                              <span className="text-xs font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20">
                                 {s.phoneticTarget}
                               </span>
                             </div>
-                            <p className="text-sm sm:text-base font-semibold text-white">
+                            <p className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">
                               {s.sentence}
                             </p>
-                            <p className="text-xs text-slate-400">
+                            <p className="text-xs text-slate-500 dark:text-slate-400">
                               {s.vietnameseTranslation}
                             </p>
                           </div>
@@ -457,52 +443,52 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
             {currentStageNum === 2 && (
               <section className="space-y-6 animate-in fade-in duration-300">
                 {/* Stage Header & Formula Box */}
-                <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-500/10 via-slate-900 to-slate-900 p-5 sm:p-6 space-y-4">
+                <div className="rounded-2xl border border-blue-500/30 bg-gradient-to-r from-blue-50 via-white to-white dark:from-blue-500/10 dark:via-slate-900 dark:to-slate-900 p-5 sm:p-6 space-y-4 shadow-sm dark:shadow-none">
                   <div className="flex items-center justify-between flex-wrap gap-2">
-                    <div className="inline-flex items-center gap-2 rounded-lg bg-blue-500/20 px-3 py-1 text-xs font-bold text-blue-300 border border-blue-500/30">
-                      <Layers className="size-4 text-blue-400" />
+                    <div className="inline-flex items-center gap-2 rounded-lg bg-blue-500/15 dark:bg-blue-500/20 px-3 py-1 text-xs font-bold text-blue-800 dark:text-blue-300 border border-blue-500/30">
+                      <Layers className="size-4 text-blue-600 dark:text-blue-400" />
                       <span>Chặng 2: Khung Câu Cố Định & Khối Lego (Slot Substitution)</span>
                     </div>
-                    <span className="text-xs font-medium text-slate-400">
+                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
                       Tốc độ mục tiêu: &lt; 1000ms
                     </span>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-black text-white">
+                  <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
                     {lesson.stage2CorePatterns.titleVi}
                   </h2>
 
                   {/* Formula Box */}
-                  <div className="rounded-xl border border-blue-500/40 bg-blue-950/30 p-4 space-y-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-blue-300">
+                  <div className="rounded-xl border border-blue-400/50 dark:border-blue-500/40 bg-blue-50/70 dark:bg-blue-950/30 p-4 space-y-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300">
                       Công thức khung câu bất biến (Zero-Conjugation Frame):
                     </span>
-                    <div className="text-base sm:text-xl font-mono font-extrabold text-white tracking-wide bg-slate-900/80 p-3 rounded-lg border border-slate-800">
+                    <div className="text-base sm:text-xl font-mono font-extrabold text-slate-900 dark:text-white tracking-wide bg-white dark:bg-slate-900/80 p-3 rounded-lg border border-slate-200 dark:border-slate-800">
                       {lesson.stage2CorePatterns.formula}
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
-                      💡 <strong className="text-blue-300">Quy tắc sư phạm:</strong> {lesson.stage2CorePatterns.vietnameseGrammarRule}
+                    <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed pt-1">
+                      💡 <strong className="text-blue-700 dark:text-blue-300">Quy tắc sư phạm:</strong> {lesson.stage2CorePatterns.vietnameseGrammarRule}
                     </p>
                   </div>
                 </div>
 
                 {/* Interactive Lego Slot Substitution Simulator */}
                 {activeLegoItem && (
-                  <div className="rounded-2xl border border-indigo-500/40 bg-slate-900/80 p-5 sm:p-6 space-y-5 shadow-lg shadow-indigo-950/20">
+                  <div className="rounded-2xl border border-indigo-400/40 dark:border-indigo-500/40 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-5 shadow-md dark:shadow-lg dark:shadow-indigo-950/20">
                     <div className="flex items-center justify-between flex-wrap gap-2">
-                      <h3 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
-                        <Sparkles className="size-5 text-indigo-400" />
+                      <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <Sparkles className="size-5 text-indigo-500 dark:text-indigo-400" />
                         <span>Bộ Ghép Khối Lego Tương Tác (Interactive Lego Simulator)</span>
                       </h3>
-                      <span className="text-xs text-slate-400">
+                      <span className="text-xs text-slate-500 dark:text-slate-400">
                         Bấm vào từng khối từ để biến đổi câu tức thì
                       </span>
                     </div>
 
                     {/* Template Representation */}
-                    <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                      <span className="text-xs text-slate-400 block font-medium">Khung đế Lego:</span>
-                      <div className="text-sm sm:text-base font-mono text-slate-200">
+                    <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 space-y-2">
+                      <span className="text-xs text-slate-500 dark:text-slate-400 block font-medium">Khung đế Lego:</span>
+                      <div className="text-sm sm:text-base font-mono text-slate-800 dark:text-slate-200">
                         {activeLegoItem.template}
                       </div>
                     </div>
@@ -514,7 +500,7 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
 
                         return (
                           <div key={slotKey} className="space-y-2">
-                            <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">
+                            <span className="text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-wider block">
                               Khối thế [{slotKey}]:
                             </span>
                             <div className="flex flex-wrap gap-2">
@@ -527,7 +513,7 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                                     className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all border ${
                                       isSelected
                                         ? 'bg-indigo-600 text-white border-indigo-400 shadow-md shadow-indigo-900/40 scale-[1.02]'
-                                        : 'bg-slate-800/80 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white'
+                                        : 'bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white'
                                     }`}
                                   >
                                     {choice}
@@ -541,24 +527,24 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                     </div>
 
                     {/* Live Assembled Sentence Output Card */}
-                    <div className="p-4 sm:p-5 rounded-xl border-2 border-dashed border-indigo-500/50 bg-indigo-950/20 space-y-3">
+                    <div className="p-4 sm:p-5 rounded-xl border-2 border-dashed border-indigo-400/60 dark:border-indigo-500/50 bg-indigo-50/60 dark:bg-indigo-950/20 space-y-3">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider flex items-center gap-1.5">
-                          <CheckCircle2 className="size-4 text-emerald-400" />
+                        <span className="text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-wider flex items-center gap-1.5">
+                          <CheckCircle2 className="size-4 text-emerald-500 dark:text-emerald-400" />
                           Câu phản xạ hoàn chỉnh vừa lắp ghép:
                         </span>
-                        <span className="text-[11px] text-slate-400">
+                        <span className="text-[11px] text-slate-500 dark:text-slate-400">
                           Bấm nghe chậm 0.8x & chuẩn 1.0x
                         </span>
                       </div>
 
-                      <p className="text-base sm:text-xl font-bold text-white tracking-wide">
+                      <p className="text-base sm:text-xl font-bold text-slate-900 dark:text-white tracking-wide">
                         &ldquo;{assembledSentence}&rdquo;
                       </p>
 
                       <div className="pt-2 flex items-center justify-between flex-wrap gap-3">
                         <DualSpeedAudioButton text={assembledSentence} size="default" />
-                        <span className="text-xs text-slate-400 italic">
+                        <span className="text-xs text-slate-500 dark:text-slate-400 italic">
                           Tập nhả âm cả cụm không ngập ngừng &lt;1s
                         </span>
                       </div>
@@ -567,20 +553,20 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                     {/* Curated Pre-built Examples */}
                     {activeLegoItem.examples && activeLegoItem.examples.length > 0 && (
                       <div className="pt-2 space-y-2">
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">
+                        <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                           Các ví dụ chuẩn mẫu:
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                           {activeLegoItem.examples.map((ex, exIdx) => (
                             <div
                               key={exIdx}
-                              className="p-3 rounded-lg border border-slate-800 bg-slate-900/50 flex items-center justify-between gap-2"
+                              className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 flex items-center justify-between gap-2"
                             >
                               <div>
-                                <p className="text-xs sm:text-sm font-semibold text-slate-200">
+                                <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
                                   {ex.en}
                                 </p>
-                                <p className="text-xs text-slate-400">{ex.vi}</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">{ex.vi}</p>
                               </div>
                               <div className="shrink-0">
                                 <DualSpeedAudioButton
@@ -601,29 +587,29 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                 {/* High-frequency Vocab */}
                 {lesson.stage2CorePatterns.highFrequencyVocab &&
                   lesson.stage2CorePatterns.highFrequencyVocab.length > 0 && (
-                    <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-4 space-y-3">
-                      <h3 className="text-sm font-bold text-slate-300 uppercase tracking-wider">
+                    <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-4 space-y-3 shadow-sm dark:shadow-none">
+                      <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                         Từ vựng tần suất cao & Collocation:
                       </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {lesson.stage2CorePatterns.highFrequencyVocab.map((vocab, vIdx) => (
                           <div
                             key={vIdx}
-                            className="p-3 rounded-lg border border-slate-800 bg-slate-900/40 space-y-1"
+                            className="p-3 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 space-y-1"
                           >
                             <div className="flex items-baseline justify-between">
-                              <span className="font-bold text-white text-sm">
+                              <span className="font-bold text-slate-900 dark:text-white text-sm">
                                 {vocab.term}
                               </span>
                               {vocab.partOfSpeech && (
-                                <span className="text-[10px] text-indigo-400 uppercase font-mono">
+                                <span className="text-[10px] text-indigo-600 dark:text-indigo-400 uppercase font-mono">
                                   {vocab.partOfSpeech}
                                 </span>
                               )}
                             </div>
-                            <p className="text-xs text-slate-300">{vocab.meaningVi}</p>
+                            <p className="text-xs text-slate-600 dark:text-slate-300">{vocab.meaningVi}</p>
                             {vocab.collocationHintVi && (
-                              <p className="text-[11px] text-amber-300/80 italic">
+                              <p className="text-[11px] text-amber-700 dark:text-amber-300/80 italic">
                                 💡 {vocab.collocationHintVi}
                               </p>
                             )}
@@ -639,24 +625,24 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
             {currentStageNum === 3 && (
               <section className="space-y-6 animate-in fade-in duration-300">
                 {/* Stage Header Banner */}
-                <div className="rounded-2xl border border-indigo-500/30 bg-gradient-to-r from-indigo-500/10 via-slate-900 to-slate-900 p-5 sm:p-6 space-y-3">
+                <div className="rounded-2xl border border-indigo-500/30 bg-gradient-to-r from-indigo-50 via-white to-white dark:from-indigo-500/10 dark:via-slate-900 dark:to-slate-900 p-5 sm:p-6 space-y-3 shadow-sm dark:shadow-none">
                   <div className="flex items-center justify-between flex-wrap gap-2">
-                    <div className="inline-flex items-center gap-2 rounded-lg bg-indigo-500/20 px-3 py-1 text-xs font-bold text-indigo-300 border border-indigo-500/30">
-                      <MessageSquare className="size-4 text-indigo-400" />
+                    <div className="inline-flex items-center gap-2 rounded-lg bg-indigo-500/15 dark:bg-indigo-500/20 px-3 py-1 text-xs font-bold text-indigo-800 dark:text-indigo-300 border border-indigo-500/30">
+                      <MessageSquare className="size-4 text-indigo-600 dark:text-indigo-400" />
                       <span>Chặng 3: Luyện Đàm Thoại Tương Tác (Guided Dialogue)</span>
                     </div>
                     {lesson.stage3GuidedDialogue.frameworkType && (
-                      <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-800 text-indigo-300 border border-slate-700 uppercase">
+                      <span className="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-50 dark:bg-slate-800 text-indigo-700 dark:text-indigo-300 border border-indigo-300 dark:border-slate-700 uppercase">
                         Khung: {lesson.stage3GuidedDialogue.frameworkType}
                       </span>
                     )}
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-black text-white">
+                  <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
                     {lesson.stage3GuidedDialogue.titleVi}
                   </h2>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                     <strong>Bối cảnh thực tế:</strong> {lesson.stage3GuidedDialogue.contextVi}
                   </p>
                 </div>
@@ -674,8 +660,8 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                         key={tIdx}
                         className={`rounded-2xl border p-4 sm:p-5 transition-all ${
                           isLearner
-                            ? 'bg-emerald-950/20 border-emerald-500/40 ml-0 sm:ml-8'
-                            : 'bg-slate-900/70 border-slate-800 mr-0 sm:mr-8'
+                            ? 'bg-emerald-50/70 dark:bg-emerald-950/20 border-emerald-400/50 dark:border-emerald-500/40 ml-0 sm:ml-8'
+                            : 'bg-white dark:bg-slate-900/70 border-slate-200 dark:border-slate-800 mr-0 sm:mr-8 shadow-sm dark:shadow-none'
                         }`}
                       >
                         <div className="flex items-start justify-between gap-3 mb-2">
@@ -691,7 +677,7 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                             </span>
                             <span
                               className={`text-xs font-bold uppercase tracking-wider ${
-                                isLearner ? 'text-emerald-400' : 'text-indigo-300'
+                                isLearner ? 'text-emerald-700 dark:text-emerald-400' : 'text-indigo-700 dark:text-indigo-300'
                               }`}
                             >
                               Người nói {turn.speaker} {isLearner ? '(Vai của bạn)' : '(Đối tác)'}
@@ -706,24 +692,24 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                         </div>
 
                         {/* English sentence with highlighted core keywords */}
-                        <div className="text-sm sm:text-base font-semibold text-white leading-relaxed">
+                        <div className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white leading-relaxed">
                           {renderHighlightedText(turn.en, turn.coreKeywords)}
                         </div>
 
                         {/* Vietnamese translation */}
-                        <div className="text-xs text-slate-400 mt-1.5 italic">
+                        <div className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 italic">
                           {turn.vi}
                         </div>
 
                         {/* Suggested starters or tips */}
                         {turn.suggestedStartersVi && turn.suggestedStartersVi.length > 0 && (
-                          <div className="mt-3 pt-2 border-t border-slate-800/80 flex items-center gap-1.5 flex-wrap text-[11px] text-amber-300/90">
-                            <Lightbulb className="size-3.5 text-amber-400 shrink-0" />
+                          <div className="mt-3 pt-2 border-t border-slate-200 dark:border-slate-800/80 flex items-center gap-1.5 flex-wrap text-[11px] text-amber-800 dark:text-amber-300/90">
+                            <Lightbulb className="size-3.5 text-amber-500 dark:text-amber-400 shrink-0" />
                             <span>Gợi ý mở đầu:</span>
                             {turn.suggestedStartersVi.map((hint, hIdx) => (
                               <span
                                 key={hIdx}
-                                className="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700"
+                                className="px-2 py-0.5 rounded bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700"
                               >
                                 {hint}
                               </span>
@@ -741,42 +727,42 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
             {currentStageNum === 4 && (
               <section className="space-y-6 animate-in fade-in duration-300">
                 {/* Stage Header Banner */}
-                <div className="rounded-2xl border border-emerald-500/40 bg-gradient-to-r from-emerald-500/10 via-slate-900 to-slate-900 p-5 sm:p-6 space-y-3">
+                <div className="rounded-2xl border border-emerald-500/40 bg-gradient-to-r from-emerald-50 via-white to-white dark:from-emerald-500/10 dark:via-slate-900 dark:to-slate-900 p-5 sm:p-6 space-y-3 shadow-sm dark:shadow-none">
                   <div className="flex items-center justify-between flex-wrap gap-2">
-                    <div className="inline-flex items-center gap-2 rounded-lg bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-300 border border-emerald-500/30">
-                      <ShieldCheck className="size-4 text-emerald-400" />
+                    <div className="inline-flex items-center gap-2 rounded-lg bg-emerald-500/15 dark:bg-emerald-500/20 px-3 py-1 text-xs font-bold text-emerald-800 dark:text-emerald-300 border border-emerald-500/30">
+                      <ShieldCheck className="size-4 text-emerald-600 dark:text-emerald-400" />
                       <span>Chặng 4: Đánh Giá Phản Xạ SafeHarbor Không Áp Lực</span>
                     </div>
-                    <div className="text-xs font-bold px-2.5 py-1 rounded-full bg-slate-800 text-emerald-300 border border-slate-700">
+                    <div className="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-slate-700">
                       Điểm Đạt Yêu Cầu: &ge; {lesson.stage4SafeHarborEvaluation.minimumPassingScore}%
                     </div>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-black text-white">
+                  <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
                     {lesson.stage4SafeHarborEvaluation.titleVi}
                   </h2>
 
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                     {lesson.stage4SafeHarborEvaluation.instructionsVi ||
                       'Phương pháp SafeHarbor: Không phạt lỗi ngữ pháp nhỏ, tập trung ghi nhận từ khóa nội dung và sự tự tin nhả âm của bạn!'}
                   </p>
                 </div>
 
                 {/* Target Prompt Card */}
-                <div className="rounded-2xl border border-slate-800 bg-slate-900/80 p-5 sm:p-6 space-y-4">
+                <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 p-5 sm:p-6 space-y-4 shadow-sm dark:shadow-none">
                   <div className="space-y-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                       Đề bài phản xạ (Hãy nhả âm bằng tiếng Anh):
                     </span>
-                    <div className="text-base sm:text-lg font-bold text-emerald-300 bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div className="text-base sm:text-lg font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50/50 dark:bg-slate-950 p-4 rounded-xl border border-emerald-200 dark:border-slate-800">
                       &ldquo;{lesson.stage4SafeHarborEvaluation.promptVi}&rdquo;
                     </div>
                   </div>
 
                   {/* Target Sentence Reference & Audio */}
-                  <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-2">
+                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-2">
                     <div className="flex items-center justify-between flex-wrap gap-2">
-                      <span className="text-xs font-semibold text-slate-400">
+                      <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                         Câu đích tham chiếu:
                       </span>
                       <DualSpeedAudioButton
@@ -785,7 +771,7 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                         size="sm"
                       />
                     </div>
-                    <p className="text-sm sm:text-base font-bold text-white">
+                    <p className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
                       {lesson.stage4SafeHarborEvaluation.targetSentence}
                     </p>
                   </div>
@@ -793,14 +779,14 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                   {/* Core Keywords Tokens */}
                   {lesson.stage4SafeHarborEvaluation.coreKeywords && (
                     <div className="space-y-1.5">
-                      <span className="text-xs text-slate-400 block font-medium">
+                      <span className="text-xs text-slate-500 dark:text-slate-400 block font-medium">
                         Từ khóa cốt lõi cần nhả âm (Content Keywords):
                       </span>
                       <div className="flex flex-wrap gap-2">
                         {lesson.stage4SafeHarborEvaluation.coreKeywords.map((kw, kwIdx) => (
                           <span
                             key={kwIdx}
-                            className="px-2.5 py-1 rounded-md bg-indigo-500/15 text-indigo-300 text-xs font-semibold border border-indigo-500/30"
+                            className="px-2.5 py-1 rounded-md bg-indigo-500/15 text-indigo-700 dark:text-indigo-300 text-xs font-semibold border border-indigo-500/30"
                           >
                             ✓ {kw}
                           </span>
@@ -810,7 +796,7 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                   )}
 
                   {/* Integrated SafeHarbor Voice Recorder */}
-                  <div className="pt-4 border-t border-slate-800">
+                  <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
                     <SafeHarborRecorder
                       targetSentence={lesson.stage4SafeHarborEvaluation.targetSentence}
                       coreKeywords={lesson.stage4SafeHarborEvaluation.coreKeywords}
@@ -820,16 +806,16 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
 
                   {/* Passing Status Celebratory Banner */}
                   {isPassedStage4 && (
-                    <div className="p-5 rounded-2xl border-2 border-emerald-500/50 bg-gradient-to-r from-emerald-950/40 via-slate-900 to-emerald-950/40 text-center space-y-3 animate-in zoom-in-95 duration-300">
-                      <div className="size-12 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto">
+                    <div className="p-5 rounded-2xl border-2 border-emerald-500/50 bg-gradient-to-r from-emerald-50 via-white to-emerald-50 dark:from-emerald-950/40 dark:via-slate-900 dark:to-emerald-950/40 text-center space-y-3 animate-in zoom-in-95 duration-300">
+                      <div className="size-12 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto">
                         <Award className="size-7" />
                       </div>
-                      <h3 className="text-lg sm:text-xl font-black text-white">
+                      <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white">
                         🎉 Chúc mừng! Bạn đã chinh phục bài học thành công!
                       </h3>
-                      <p className="text-xs sm:text-sm text-emerald-200 max-w-md mx-auto">
+                      <p className="text-xs sm:text-sm text-emerald-800 dark:text-emerald-200 max-w-md mx-auto">
                         Bạn đã đạt chuẩn phản xạ SafeHarbor với mức điểm{' '}
-                        <strong className="font-extrabold text-white text-base">
+                        <strong className="font-extrabold text-slate-900 dark:text-white text-base">
                           {safeHarborResult?.score || 85}%
                         </strong>
                         . Cơ miệng của bạn đã hình thành phản xạ tự nhiên!
@@ -862,7 +848,7 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
           </div>
 
           {/* Bottom Stage Progression Bar */}
-          <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
+          <div className="mt-8 pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between gap-3">
             <Button
               variant="outline"
               size="sm"
@@ -872,13 +858,13 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                 }
               }}
               disabled={currentStageNum === 1}
-              className="border-slate-800 text-slate-300 hover:bg-slate-800 hover:text-white disabled:opacity-40 text-xs"
+              className="border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white disabled:opacity-40 text-xs"
             >
               <ChevronLeft className="size-4 mr-1" /> Chặng trước
             </Button>
 
-            <div className="text-xs text-slate-400 font-medium">
-              Chặng <span className="text-white font-bold">{currentStageNum}</span> / 4
+            <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              Chặng <span className="text-slate-900 dark:text-white font-bold">{currentStageNum}</span> / 4
             </div>
 
             {currentStageNum < 4 ? (
@@ -909,7 +895,7 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="border-slate-700 bg-slate-800 text-white text-xs hover:bg-slate-700"
+                  className="border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-700 dark:text-white text-xs hover:bg-slate-100 dark:hover:bg-slate-700"
                 >
                   <span>Về danh sách bài</span>
                   <BookOpen className="size-3.5 ml-1.5" />
@@ -917,8 +903,6 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
               </Link>
             )}
           </div>
-        </main>
-      </div>
-    </StudentShell>
+    </SpeakingStepLayout>
   );
 }

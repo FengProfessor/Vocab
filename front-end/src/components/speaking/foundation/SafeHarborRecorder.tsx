@@ -264,17 +264,17 @@ export const SafeHarborRecorder: React.FC<SafeHarborRecorderProps> = ({
 
   return (
     <div
-      className={`w-full flex flex-col items-center gap-4 p-5 rounded-2xl bg-slate-900/50 border border-slate-800/80 shadow-inner ${className}`}
+      className={`w-full flex flex-col items-center gap-4 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/80 shadow-inner ${className}`}
     >
       {/* Live Interim Transcript Display */}
       {isRecording && (
         <div className="w-full flex flex-col items-center gap-2 animate-fadeIn">
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-medium animate-pulse">
+          <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-xs font-medium animate-pulse">
             <Radio className="size-3.5" />
             <span>Đang lắng nghe... Hãy nói to và tự tin</span>
           </div>
 
-          <div className="min-h-[44px] flex items-center justify-center px-4 py-2 rounded-xl bg-indigo-950/40 border border-indigo-700/40 text-sm text-indigo-200 text-center italic max-w-md">
+          <div className="min-h-[44px] flex items-center justify-center px-4 py-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-300 dark:border-indigo-700/40 text-sm text-indigo-800 dark:text-indigo-200 text-center italic max-w-md">
             {interimText ? `“${interimText}”` : 'Đang nhận tín hiệu âm thanh...'}
           </div>
         </div>
@@ -282,7 +282,7 @@ export const SafeHarborRecorder: React.FC<SafeHarborRecorderProps> = ({
 
       {/* Permission / Browser Guidance Alert */}
       {permissionError && (
-        <div className="w-full max-w-md flex items-start gap-2.5 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs">
+        <div className="w-full max-w-md flex items-start gap-2.5 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300 text-xs">
           <AlertCircle className="size-4 shrink-0 mt-0.5" />
           <div className="flex-1">
             <p className="font-medium">{permissionError}</p>
@@ -320,7 +320,7 @@ export const SafeHarborRecorder: React.FC<SafeHarborRecorderProps> = ({
         )}
       </div>
 
-      <span className="text-xs text-slate-400 text-center font-medium">
+      <span className="text-xs text-slate-600 dark:text-slate-400 text-center font-medium">
         {isRecording
           ? 'Nhấn nút vuông đỏ khi nói xong'
           : evaluation
@@ -330,8 +330,8 @@ export const SafeHarborRecorder: React.FC<SafeHarborRecorderProps> = ({
 
       {/* Self-Listening Audio Playback Bar (if MediaRecorder was used) */}
       {recordedAudioUrl && !isRecording && (
-        <div className="w-full max-w-sm flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800/80 border border-slate-700 text-xs text-slate-300">
-          <Volume2 className="size-4 text-indigo-400 shrink-0" />
+        <div className="w-full max-w-sm flex items-center gap-2 px-3 py-2 rounded-lg bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300">
+          <Volume2 className="size-4 text-indigo-500 dark:text-indigo-400 shrink-0" />
           <span className="text-[11px]">Bản thu của bạn:</span>
           <audio controls src={recordedAudioUrl} className="h-7 w-full max-w-[200px]" />
         </div>
@@ -339,53 +339,53 @@ export const SafeHarborRecorder: React.FC<SafeHarborRecorderProps> = ({
 
       {/* Safe Harbor Evaluation Result Card */}
       {evaluation && (
-        <div className="w-full max-w-lg flex flex-col gap-3 p-4 rounded-xl bg-slate-900/90 border border-slate-800 shadow-lg transition-all animate-fadeIn">
+        <div className="w-full max-w-lg flex flex-col gap-3 p-4 rounded-xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-lg transition-all animate-fadeIn">
           {/* Header with Score & Tier Badge */}
-          <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
+          <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800/80 pb-2.5">
             <div className="flex items-center gap-2">
               {evaluation.tier === 'excellent' ? (
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-semibold">
-                  <Sparkles className="size-3.5 text-emerald-400" />
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40 text-xs font-semibold">
+                  <Sparkles className="size-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>Xuất sắc (Bản ngữ hiểu 100%)</span>
                 </div>
               ) : evaluation.passed ? (
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 text-xs font-semibold">
-                  <ShieldCheck className="size-3.5 text-emerald-400" />
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40 text-xs font-semibold">
+                  <ShieldCheck className="size-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>Đạt chuẩn an toàn (Safe Harbor)</span>
                 </div>
               ) : evaluation.tier === 'getting_closer' ? (
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-semibold">
-                  <CheckCircle2 className="size-3.5 text-amber-400" />
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40 text-xs font-semibold">
+                  <CheckCircle2 className="size-3.5 text-amber-600 dark:text-amber-400" />
                   <span>Rất gần rồi (Tiếp tục nhé)</span>
                 </div>
               ) : (
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 text-xs font-semibold">
-                  <RotateCcw className="size-3.5 text-indigo-400" />
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/40 text-xs font-semibold">
+                  <RotateCcw className="size-3.5 text-indigo-600 dark:text-indigo-400" />
                   <span>Thử lại nhẹ nhàng</span>
                 </div>
               )}
 
               {selfPracticed && (
-                <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-700">
                   Tự luyện
                 </span>
               )}
             </div>
 
-            <span className="font-mono text-xs px-2 py-0.5 rounded bg-slate-800/80 text-slate-300 border border-slate-700/60 font-medium">
+            <span className="font-mono text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-700/60 font-medium">
               {evaluation.score}% Chuẩn
             </span>
           </div>
 
           {/* Supportive Vietnamese Pedagogical Feedback */}
-          <p className="text-xs text-slate-200 leading-relaxed font-medium">
+          <p className="text-xs text-slate-700 dark:text-slate-200 leading-relaxed font-medium">
             {evaluation.feedbackVi}
           </p>
 
           {/* Visual Word-by-Word Breakdown */}
           {detailedEvaluation && detailedEvaluation.tokenFeedback.length > 0 && (
             <div className="flex flex-col gap-1.5 pt-1">
-              <span className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">
+              <span className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider font-semibold">
                 Chi tiết từ vựng đã nhận diện:
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -394,10 +394,10 @@ export const SafeHarborRecorder: React.FC<SafeHarborRecorderProps> = ({
                     key={idx}
                     className={`text-xs px-2 py-0.5 rounded font-mono font-medium transition-colors ${
                       tok.status === 'matched'
-                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                        ? 'bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/40'
                         : tok.status === 'missed'
-                        ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
-                        : 'bg-slate-800/50 text-slate-500 border border-slate-800'
+                        ? 'bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/40'
+                        : 'bg-slate-100 dark:bg-slate-800/50 text-slate-500 border border-slate-200 dark:border-slate-800'
                     }`}
                     title={
                       tok.status === 'matched'
@@ -415,13 +415,13 @@ export const SafeHarborRecorder: React.FC<SafeHarborRecorderProps> = ({
           )}
 
           {/* Quick Retry Action */}
-          <div className="flex items-center justify-end gap-2 pt-1 border-t border-slate-800/80">
+          <div className="flex items-center justify-end gap-2 pt-1 border-t border-slate-200 dark:border-slate-800/80">
             <Button
               type="button"
               size="xs"
               variant="ghost"
               onClick={handleStartRecording}
-              className="text-slate-400 hover:text-white flex items-center gap-1 text-xs"
+              className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1 text-xs"
             >
               <RefreshCw className="size-3" />
               <span>Nói lại lần nữa</span>
@@ -432,8 +432,8 @@ export const SafeHarborRecorder: React.FC<SafeHarborRecorderProps> = ({
 
       {/* Fallback Option: Self-Practice Button */}
       {(!browserSupportSTT || permissionError) && !evaluation && (
-        <div className="w-full max-w-md flex flex-col items-center gap-2 p-3 rounded-xl bg-slate-800/40 border border-slate-700/60 text-center">
-          <p className="text-xs text-slate-400">
+        <div className="w-full max-w-md flex flex-col items-center gap-2 p-3 rounded-xl bg-slate-100 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/60 text-center">
+          <p className="text-xs text-slate-600 dark:text-slate-400">
             Trình duyệt hạn chế thu âm? Bạn vẫn có thể luyện nói to theo mẫu và tự đánh giá.
           </p>
           <Button
@@ -441,9 +441,9 @@ export const SafeHarborRecorder: React.FC<SafeHarborRecorderProps> = ({
             size="sm"
             variant="outline"
             onClick={handleSelfPracticePass}
-            className="border-indigo-500/40 bg-indigo-950/30 text-indigo-300 hover:bg-indigo-900/50 text-xs"
+            className="border-indigo-400/50 dark:border-indigo-500/40 bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 text-xs"
           >
-            <CheckCircle2 className="size-3.5 mr-1.5 text-indigo-400" />
+            <CheckCircle2 className="size-3.5 mr-1.5 text-indigo-600 dark:text-indigo-400" />
             <span>Tôi đã nói to câu này (Tự đánh giá)</span>
           </Button>
         </div>

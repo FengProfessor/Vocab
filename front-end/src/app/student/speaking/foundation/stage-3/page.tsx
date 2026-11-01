@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { StageProgressNav } from '@/components/speaking/foundation/StageProgressNav';
+import { SpeakingStepLayout } from '@/components/speaking/SpeakingStepLayout';
 import { DualSpeedAudioButton } from '@/components/speaking/foundation/DualSpeedAudioButton';
 import { SafeHarborRecorder } from '@/components/speaking/foundation/SafeHarborRecorder';
 import {
@@ -54,12 +55,15 @@ export default function Stage3ExpansionsPage() {
   const [activeRecordingTurnIndex, setActiveRecordingTurnIndex] = useState<number | null>(null);
 
   return (
-    <StudentShell title="Chặng 3: Quy tắc nở câu 3 nhịp & Hội thoại vi mô">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
-        {/* Navigation Breadcrumbs & Stage Tabs */}
-        <StageProgressNav currentStage="stage-3" showBreadcrumbs={true} />
-
-        {/* Page Header */}
+    <SpeakingStepLayout
+      currentStage="foundation"
+      shellTitle="Chặng 3: Quy tắc nở câu 3 nhịp & Hội thoại vi mô"
+      headerTitle="Bước 1 • Chặng 3: Quy tắc nở câu 3 nhịp & Hội thoại vi mô"
+      headerIcon={<Sparkles className="h-4 w-4 text-purple-400" />}
+      subHeaderSlot={<StageProgressNav currentStage="stage-3" showBreadcrumbs={false} />}
+      contentClassName="space-y-6"
+    >
+      {/* Page Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -282,21 +286,21 @@ export default function Stage3ExpansionsPage() {
               </div>
 
               {/* Assembled Full Sentence Banner */}
-              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-indigo-950 text-white space-y-4 shadow-md">
+              <div className="p-5 sm:p-6 rounded-2xl border border-indigo-200 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-slate-900 dark:to-indigo-950 text-slate-900 dark:text-white space-y-4 shadow-sm dark:shadow-md">
                 <div className="space-y-1.5">
-                  <span className="text-xs font-bold text-purple-300 uppercase tracking-wider">
+                  <span className="text-xs font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wider">
                     Câu nở hoàn chỉnh (Full 3-Beat Sentence)
                   </span>
                   <div className="text-lg sm:text-xl font-bold tracking-tight leading-relaxed">
                     &quot;{activeExpansion.fullSentence}&quot;
                   </div>
-                  <div className="text-xs sm:text-sm text-slate-300">
+                  <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
                     {activeExpansion.fullMeaningVi}
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-white/10">
-                  <span className="text-xs text-slate-400">Nghe mẫu toàn câu:</span>
+                <div className="flex flex-wrap items-center gap-3 pt-3 border-t border-slate-200 dark:border-white/10">
+                  <span className="text-xs text-slate-500 dark:text-slate-400">Nghe mẫu toàn câu:</span>
                   <DualSpeedAudioButton text={activeExpansion.fullSentence} size="default" showLabels={true} />
                 </div>
               </div>
@@ -520,7 +524,6 @@ export default function Stage3ExpansionsPage() {
             </Button>
           </Link>
         </div>
-      </div>
-    </StudentShell>
+    </SpeakingStepLayout>
   );
 }

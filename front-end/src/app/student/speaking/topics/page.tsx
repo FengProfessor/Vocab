@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useState, useMemo, useRef, useCallback } from 'react';
 import Link from '@/shared/router/navigation';
@@ -6,17 +7,16 @@ import {
   ChevronRight,
   Search,
   X,
-  Mic,
   BookOpen,
-  Layers,
-  Sparkles,
   ArrowRight,
   Compass,
+  Filter,
+  Bot,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { StudentShell } from '@/components/student/StudentShell';
+import { StudentShell as _StudentShell } from '@/components/student/StudentShell';
 import { allTopicLibraryItems } from '@/data/speaking/topic-library';
-import { MasterSpeakingRoadmap } from '@/components/speaking/MasterSpeakingRoadmap';
+import { SpeakingStepLayout } from '@/components/speaking/SpeakingStepLayout';
 import {
   TOPIC_LIBRARY_CATEGORY_LABELS,
   TOPIC_LIBRARY_CATEGORY_ICONS,
@@ -62,13 +62,13 @@ function resolveTopicImageUrl(topic: TopicLibraryItem): string {
 function getCefrBadgeClasses(level: TopicLibraryCefrLevel): string {
   switch (level) {
     case 'A1':
-      return 'border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40';
+      return 'border-emerald-300 dark:border-emerald-700/70 text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/70';
     case 'A2':
-      return 'border-blue-300 dark:border-blue-800 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/40';
+      return 'border-blue-300 dark:border-blue-700/70 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/70';
     case 'B1':
-      return 'border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/40';
+      return 'border-amber-300 dark:border-amber-700/70 text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/70';
     case 'B2':
-      return 'border-purple-300 dark:border-purple-800 text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/40';
+      return 'border-purple-300 dark:border-purple-700/70 text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/70';
     default:
       return 'border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900';
   }
@@ -90,7 +90,7 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic }) => {
   return (
     <Link
       href={`/student/speaking/topics/${topic.id}`}
-      className="group flex flex-col w-[260px] sm:w-[285px] shrink-0 snap-start border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-none hover:border-slate-400 dark:hover:border-slate-600 transition-colors rounded-none"
+      className="group flex flex-col w-[250px] sm:w-[275px] shrink-0 snap-start border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 shadow-none hover:border-indigo-500/60 dark:hover:border-indigo-500/60 hover:bg-slate-50/70 dark:hover:bg-slate-900 transition-colors rounded-none"
       title={`${topic.titleEn} - ${topic.titleVi}`}
     >
       {/* 16:9 Image Thumbnail */}
@@ -118,7 +118,7 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic }) => {
         {/* Subcategory Label */}
         {topic.subcategory && (
           <div className="absolute top-2 right-2 max-w-[130px] truncate">
-            <span className="font-mono text-[9px] uppercase px-1.5 py-0.5 border border-slate-700/80 bg-slate-900/80 text-slate-200 backdrop-blur-xs rounded-none block truncate">
+            <span className="font-mono text-[9px] uppercase px-1.5 py-0.5 border border-slate-700/80 bg-slate-900/85 text-slate-200 backdrop-blur-xs rounded-none block truncate">
               {topic.subcategory}
             </span>
           </div>
@@ -149,7 +149,7 @@ const TopicCard: React.FC<TopicCardProps> = ({ topic }) => {
         {/* Card Footer */}
         <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-[10px] font-mono text-slate-500 dark:text-slate-400">
           <span>{vocabCount} từ vựng</span>
-          <span className="uppercase font-semibold text-slate-600 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors flex items-center gap-1">
+          <span className="uppercase font-semibold text-slate-700 dark:text-slate-300 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors flex items-center gap-1">
             Luyện nói <ArrowRight className="w-3 h-3" />
           </span>
         </div>
@@ -177,16 +177,16 @@ const CategoryCarousel: React.FC<CategoryCarouselProps> = ({ category, topics })
   const description = CATEGORY_DESCRIPTIONS[category];
 
   return (
-    <section className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-none shadow-none p-4 sm:p-5">
+    <section className="border border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/60 rounded-none shadow-none p-4 sm:p-5">
       {/* Category Header Row */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-100 dark:border-slate-800">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 mb-3 border-b border-slate-200 dark:border-slate-800">
         <div>
           <div className="flex items-center gap-2">
             <span className="text-base select-none">{icon}</span>
             <h3 className="font-bold text-sm sm:text-base text-slate-900 dark:text-slate-100 tracking-tight">
               {label}
             </h3>
-            <span className="font-mono text-xs text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 border border-slate-200 dark:border-slate-700 rounded-none">
+            <span className="font-mono text-xs text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-1.5 py-0.5 border border-slate-200 dark:border-slate-700 rounded-none">
               {topics.length} chủ đề
             </span>
           </div>
@@ -233,7 +233,7 @@ const CategoryCarousel: React.FC<CategoryCarouselProps> = ({ category, topics })
           ))}
         </div>
       ) : (
-        <div className="p-8 text-center border border-dashed border-slate-200 dark:border-slate-800 rounded-none bg-slate-50/50 dark:bg-slate-950/50">
+        <div className="p-8 text-center border border-dashed border-slate-200 dark:border-slate-800 rounded-none bg-white/50 dark:bg-slate-950/50">
           <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
             Không có chủ đề nào phù hợp với bộ lọc trong danh mục này.
           </p>
@@ -246,6 +246,9 @@ const CategoryCarousel: React.FC<CategoryCarouselProps> = ({ category, topics })
 export default function SpeakingTopicLibraryPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedLevel, setSelectedLevel] = useState<'ALL' | TopicLibraryCefrLevel>('ALL');
+  const [selectedCategoryFilter, setSelectedCategoryFilter] = useState<
+    'ALL' | TopicLibraryCategory
+  >('ALL');
 
   // Filter topics based on search query and CEFR level
   const filteredTopics = useMemo(() => {
@@ -288,171 +291,69 @@ export default function SpeakingTopicLibraryPage() {
     return grouped;
   }, [filteredTopics]);
 
+  const visibleCategories = useMemo(() => {
+    if (selectedCategoryFilter === 'ALL') return PRIMARY_CATEGORIES;
+    return PRIMARY_CATEGORIES.filter((c) => c === selectedCategoryFilter);
+  }, [selectedCategoryFilter]);
+
   // Summary statistics
   const totalTopics = allTopicLibraryItems.length;
   const matchCount = filteredTopics.length;
-  const isFiltering = searchQuery.trim() !== '' || selectedLevel !== 'ALL';
+  const isFiltering =
+    searchQuery.trim() !== '' || selectedLevel !== 'ALL' || selectedCategoryFilter !== 'ALL';
 
   const clearFilters = useCallback(() => {
     setSearchQuery('');
     setSelectedLevel('ALL');
+    setSelectedCategoryFilter('ALL');
   }, []);
 
   return (
-    <StudentShell
-      title="Thư Viện Chủ Đề Nói (250+ Topics)"
-      contentClassName="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8"
-    >
-      <div className="space-y-6 sm:space-y-8">
-        {/* Breadcrumb Navigation */}
-        <nav
-          className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono"
-          aria-label="Breadcrumb"
-        >
+    <SpeakingStepLayout
+      currentStage="topics"
+      shellTitle="Thư Viện Chủ Đề Nói (250+ Topics)"
+      headerTitle="Thư Viện Chủ Đề Nói Tiếng Anh (250+ Topics)"
+      headerIcon={<Compass className="h-4 w-4 text-amber-600 dark:text-amber-400" />}
+      headerActions={
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2">
+          <Link
+            href="/student/speaking/curriculum"
+            className="px-2.5 py-1.5 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5 rounded-none shadow-none"
+          >
+            <BookOpen className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+            <span className="hidden sm:inline">Bước 2: 32 Bài</span>
+          </Link>
           <Link
             href="/student/speaking"
-            className="hover:text-slate-900 dark:hover:text-slate-200 transition-colors"
+            className="px-2.5 py-1.5 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white flex items-center gap-1.5 rounded-none shadow-none"
           >
-            Luyện nói AI
+            <Bot className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
+            <span className="hidden sm:inline">Bước 4: AI Tutor</span>
           </Link>
-          <span className="text-slate-400">/</span>
-          <span className="text-slate-900 dark:text-slate-100 font-semibold">
-            Thư viện chủ đề
-          </span>
         </nav>
-
-        {/* Master Speaking 4-Step Progressive Roadmap */}
-        <MasterSpeakingRoadmap currentStage="topics" />
-
-        {/* Beginner Orientation Callout Banner */}
-        <div className="p-3.5 rounded-xl border border-amber-500/30 bg-amber-950/20 text-xs text-amber-200/90 flex items-start gap-3 shadow-md">
-          <Sparkles className="size-4.5 text-amber-400 shrink-0 mt-0.5" />
-          <div className="space-y-1 flex-1">
-            <div className="flex items-center gap-2 font-bold text-amber-300">
-              <span>💡 Hướng dẫn chọn chủ đề theo trình độ:</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 uppercase font-mono font-bold">
-                Bước 3 Thực Chiến
-              </span>
-            </div>
-            <p className="text-[11px] leading-relaxed text-slate-300">
-              Thư viện 250+ chủ đề là <strong>Bước 3 (Thực chiến ngữ cảnh)</strong> giúp bạn mở rộng vốn từ. Nếu bạn là người mất gốc (A0-A1) hoặc chưa quen ghép khung câu, hãy hoàn thành{' '}
-              <Link href="/student/speaking/foundation" className="text-amber-400 underline font-semibold hover:text-amber-300">
-                Bước 1: Khóa Nền Tảng A0-A1
-              </Link>{' '}
-              và{' '}
-              <Link href="/student/speaking/curriculum" className="text-indigo-400 underline font-semibold hover:text-indigo-300">
-                Bước 2: Lộ Trình 32 Bài Chuẩn Hóa
-              </Link>{' '}
-              để nói tự tin mà không lo dịch thầm!
-            </p>
-          </div>
-        </div>
-
-        {/* Dashboard Header Banner */}
-        <header className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-none shadow-none p-5 sm:p-6">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xl sm:text-2xl select-none">🎙️</span>
-                <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-                  Thư Viện Chủ Đề Nói Tiếng Anh
-                </h1>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-3xl leading-relaxed">
-                Kho tài nguyên 229+ kịch bản hội thoại thực tế được làm giàu toàn diện với hình ảnh trực quan,
-                cặp từ vựng then chốt, cụm hành động song ngữ và dàn bài phản xạ giao tiếp theo chuẩn CEFR (A1 - B2).
-              </p>
-            </div>
-
-            {/* Quick Metrics Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 shrink-0 pt-2 lg:pt-0">
-              <div className="border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-2.5 rounded-none text-center">
-                <span className="block font-mono text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100">
-                  {totalTopics}
-                </span>
-                <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400">
-                  Chủ đề
-                </span>
-              </div>
-              <div className="border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-2.5 rounded-none text-center">
-                <span className="block font-mono text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100">
-                  4
-                </span>
-                <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400">
-                  Danh mục
-                </span>
-              </div>
-              <div className="border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-2.5 rounded-none text-center">
-                <span className="block font-mono text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100">
-                  A1-B2
-                </span>
-                <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400">
-                  Cấp độ
-                </span>
-              </div>
-              <div className="border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-2.5 rounded-none text-center">
-                <span className="block font-mono text-base sm:text-lg font-bold text-emerald-600 dark:text-emerald-400">
-                  100%
-                </span>
-                <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400">
-                  Hình ảnh
-                </span>
-              </div>
-            </div>
+      }
+      contentClassName="flex flex-col md:flex-row gap-4 sm:gap-6"
+    >
+      {/* Left Main Panel: Topic Carousels Studio Workspace */}
+      <div className="flex-1 min-w-0 flex flex-col bg-white dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800/80 rounded-none shadow-none overflow-hidden">
+        {/* Active Workspace Header Bar */}
+        <header className="px-4 py-2.5 bg-slate-50/90 dark:bg-slate-900/80 border-b border-slate-200 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-xs rounded-none shadow-none">
+          <div className="flex items-center gap-2">
+            <span className="text-base select-none">🎙️</span>
+            <h1 className="font-semibold text-slate-800 dark:text-slate-200 text-xs sm:text-sm">
+              Thư Viện Chủ Đề Nói Tiếng Anh
+            </h1>
+            <span className="font-mono text-[10px] text-amber-700 dark:text-amber-300 font-bold px-1.5 py-0.5 bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-800/50 rounded-none">
+              {matchCount} kịch bản
+            </span>
           </div>
 
-          {/* Interactive Search & Filter Toolbar */}
-          <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-col md:flex-row md:items-center justify-between gap-3">
-            {/* Search Input Box */}
-            <div className="relative flex-1 max-w-lg">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Tìm kiếm chủ đề, từ vựng (ví dụ: coffee, interview, airport)..."
-                className="w-full pl-9 pr-8 py-2 text-xs border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 focus:outline-hidden focus:border-slate-900 dark:focus:border-slate-300 rounded-none shadow-none"
-              />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
-                  aria-label="Xóa từ khóa tìm kiếm"
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              )}
-            </div>
-
-            {/* CEFR Level Filter Chips */}
-            <div className="flex flex-wrap items-center gap-1.5">
-              {CEFR_LEVEL_TABS.map((tab) => {
-                const isActive = selectedLevel === tab.value;
-                return (
-                  <button
-                    key={tab.value}
-                    type="button"
-                    onClick={() => setSelectedLevel(tab.value)}
-                    className={cn(
-                      'px-2.5 py-1 text-xs font-mono transition-colors border rounded-none shadow-none',
-                      isActive
-                        ? 'border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900 font-bold'
-                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
-                    )}
-                  >
-                    {tab.label}
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Filter Status Indicator */}
           {isFiltering && (
-            <div className="mt-3 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono pt-2 border-t border-slate-100 dark:border-slate-800/60">
+            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-mono">
               <span>
-                Tìm thấy <strong>{matchCount}</strong> / {totalTopics} chủ đề phù hợp
+                Đang lọc:{' '}
+                <strong className="text-slate-900 dark:text-slate-100">{matchCount}</strong>/
+                {totalTopics}
               </span>
               <button
                 type="button"
@@ -465,34 +366,194 @@ export default function SpeakingTopicLibraryPage() {
           )}
         </header>
 
+        {/* Context Banner */}
+        <div className="px-4 py-3 bg-indigo-50/40 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800/60 text-xs space-y-1.5">
+          <p className="text-[11px] text-slate-700 dark:text-slate-300 leading-relaxed">
+            <strong className="text-amber-700 dark:text-amber-400/90">Thực chiến ngữ cảnh:</strong>{' '}
+            Kho tài nguyên {totalTopics}+ kịch bản hội thoại thực tế với hình ảnh trực quan, cặp
+            từ vựng then chốt, cụm hành động song ngữ và dàn bài phản xạ giao tiếp theo chuẩn CEFR
+            (A1 - B2).
+          </p>
+        </div>
+
         {/* 4 Category Carousel Rows */}
-        <div className="space-y-6 sm:space-y-8">
-          {PRIMARY_CATEGORIES.map((catKey) => {
+        <div className="flex-1 p-4 sm:p-5 space-y-5 overflow-y-auto">
+          {visibleCategories.map((catKey) => {
             const catTopics = topicsByCategory[catKey] || [];
             return <CategoryCarousel key={catKey} category={catKey} topics={catTopics} />;
           })}
+
+          {/* Global Empty State */}
+          {matchCount === 0 && (
+            <div className="border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 rounded-none shadow-none p-12 text-center">
+              <Compass className="w-10 h-10 mx-auto text-slate-400 mb-3" />
+              <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+                Không tìm thấy chủ đề nào
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
+                Không có kịch bản nào khớp với từ khóa &ldquo;{searchQuery}&rdquo; ở cấp độ đã
+                chọn.
+              </p>
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="mt-4 px-4 py-2 border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-white text-xs font-mono uppercase tracking-wider rounded-none shadow-none hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+              >
+                Xóa bộ lọc và xem tất cả
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Right Sidebar: Search, CEFR Filter & Category Filter */}
+      <div className="w-full md:w-80 shrink-0 flex flex-col gap-3">
+        <div className="flex items-center justify-between">
+          <h3 className="text-xs font-bold text-slate-600 dark:text-slate-400 px-1 uppercase tracking-wider flex items-center gap-1.5">
+            <Filter className="w-3.5 h-3.5" /> Bộ lọc chủ đề ({matchCount}/{totalTopics})
+          </h3>
+          <span className="font-mono text-[10px] text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/50 border border-amber-300 dark:border-amber-800/50 px-1.5 py-0.5 rounded-none">
+            CEFR A1-B2
+          </span>
         </div>
 
-        {/* Global Empty State */}
-        {matchCount === 0 && (
-          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 rounded-none shadow-none p-12 text-center">
-            <Compass className="w-10 h-10 mx-auto text-slate-400 mb-3" />
-            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
-              Không tìm thấy chủ đề nào
-            </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
-              Không có kịch bản nào khớp với từ khóa &ldquo;{searchQuery}&rdquo; ở cấp độ đã chọn.
-            </p>
+        {/* Search Input Box */}
+        <div className="relative w-full">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Tìm chủ đề, từ vựng (coffee, interview)..."
+            className="w-full pl-9 pr-8 py-2 text-xs border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/80 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-hidden focus:border-indigo-500 rounded-none shadow-none"
+          />
+          {searchQuery && (
             <button
               type="button"
-              onClick={clearFilters}
-              className="mt-4 px-4 py-2 border border-slate-900 dark:border-slate-100 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-xs font-mono uppercase tracking-wider rounded-none shadow-none hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors"
+              onClick={() => setSearchQuery('')}
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+              aria-label="Xóa từ khóa tìm kiếm"
             >
-              Xóa bộ lọc và xem tất cả
+              <X className="w-3.5 h-3.5" />
             </button>
+          )}
+        </div>
+
+        {/* CEFR Level Filter Chips */}
+        <div className="flex flex-wrap items-center gap-1.5">
+          {CEFR_LEVEL_TABS.map((tab) => {
+            const isActive = selectedLevel === tab.value;
+            return (
+              <button
+                key={tab.value}
+                type="button"
+                onClick={() => setSelectedLevel(tab.value)}
+                className={cn(
+                  'px-2.5 py-1 text-[11px] font-mono transition-colors border rounded-none shadow-none',
+                  isActive
+                    ? 'border-indigo-500 bg-indigo-600 text-white font-bold'
+                    : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
+                )}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Category Selector Cards */}
+        <div className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-y-auto pr-1 scrollbar-thin">
+          <button
+            type="button"
+            onClick={() => setSelectedCategoryFilter('ALL')}
+            className={cn(
+              'flex-1 md:flex-none text-left p-3 border transition-all text-xs shrink-0 w-56 md:w-full rounded-none shadow-none',
+              selectedCategoryFilter === 'ALL'
+                ? 'bg-indigo-50/90 dark:bg-indigo-600/15 border-indigo-500 text-slate-900 dark:text-white'
+                : 'bg-white dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/80'
+            )}
+          >
+            <div className="flex items-center justify-between gap-1 mb-1">
+              <span className="font-bold truncate">📚 Tất cả 4 danh mục</span>
+              <span className="font-mono text-[10px] px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-none">
+                {matchCount}
+              </span>
+            </div>
+            <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">
+              Hiển thị toàn bộ {totalTopics} kịch bản thực chiến
+            </div>
+          </button>
+
+          {PRIMARY_CATEGORIES.map((catKey) => {
+            const isActive = selectedCategoryFilter === catKey;
+            const catCount = topicsByCategory[catKey]?.length || 0;
+            const label = TOPIC_LIBRARY_CATEGORY_LABELS[catKey] || catKey;
+            const icon = TOPIC_LIBRARY_CATEGORY_ICONS[catKey] || '📁';
+
+            return (
+              <button
+                key={catKey}
+                type="button"
+                onClick={() => setSelectedCategoryFilter(catKey)}
+                className={cn(
+                  'flex-1 md:flex-none text-left p-3 border transition-all text-xs shrink-0 w-60 md:w-full rounded-none shadow-none',
+                  isActive
+                    ? 'bg-indigo-50/90 dark:bg-indigo-600/15 border-indigo-500 text-slate-900 dark:text-white'
+                    : 'bg-white dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/80'
+                )}
+              >
+                <div className="flex items-center justify-between gap-1 mb-1">
+                  <span className="font-bold truncate">
+                    {icon} {label}
+                  </span>
+                  <span className="font-mono text-[10px] px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-none">
+                    {catCount}
+                  </span>
+                </div>
+                <div className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">
+                  {CATEGORY_DESCRIPTIONS[catKey]}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Quick Metrics Bar in Sidebar */}
+        <div className="grid grid-cols-2 gap-2">
+          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/60 p-2.5 rounded-none text-center shadow-none">
+            <span className="block font-mono text-base font-bold text-slate-900 dark:text-slate-100">
+              {totalTopics}
+            </span>
+            <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400">
+              Chủ đề
+            </span>
           </div>
-        )}
+          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/60 p-2.5 rounded-none text-center shadow-none">
+            <span className="block font-mono text-base font-bold text-slate-900 dark:text-slate-100">
+              4
+            </span>
+            <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400">
+              Danh mục
+            </span>
+          </div>
+          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/60 p-2.5 rounded-none text-center shadow-none">
+            <span className="block font-mono text-base font-bold text-slate-900 dark:text-slate-100">
+              A1-B2
+            </span>
+            <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400">
+              Cấp độ
+            </span>
+          </div>
+          <div className="border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/60 p-2.5 rounded-none text-center shadow-none">
+            <span className="block font-mono text-base font-bold text-emerald-600 dark:text-emerald-400">
+              100%
+            </span>
+            <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400">
+              Hình ảnh
+            </span>
+          </div>
+        </div>
       </div>
-    </StudentShell>
+    </SpeakingStepLayout>
   );
 }

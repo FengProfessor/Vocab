@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { StageProgressNav } from '@/components/speaking/foundation/StageProgressNav';
+import { SpeakingStepLayout } from '@/components/speaking/SpeakingStepLayout';
 import { DualSpeedAudioButton } from '@/components/speaking/foundation/DualSpeedAudioButton';
 import { SafeHarborRecorder } from '@/components/speaking/foundation/SafeHarborRecorder';
 import {
@@ -156,12 +157,15 @@ export default function Stage2LegoSlotsPage() {
   };
 
   return (
-    <StudentShell title="Chặng 2: Luyện tập thế khối Lego (Slot Substitution)">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6">
-        {/* Navigation Breadcrumbs & Stage Tabs */}
-        <StageProgressNav currentStage="stage-2" showBreadcrumbs={true} />
-
-        {/* Page Header */}
+    <SpeakingStepLayout
+      currentStage="foundation"
+      shellTitle="Chặng 2: Luyện tập thế khối Lego (Slot Substitution)"
+      headerTitle="Bước 1 • Chặng 2: Luyện tập thế khối Lego (Phản xạ <1s)"
+      headerIcon={<Layers className="h-4 w-4 text-emerald-400" />}
+      subHeaderSlot={<StageProgressNav currentStage="stage-2" showBreadcrumbs={false} />}
+      contentClassName="space-y-6"
+    >
+      {/* Page Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -451,7 +455,6 @@ export default function Stage2LegoSlotsPage() {
             </Button>
           </Link>
         </div>
-      </div>
-    </StudentShell>
+    </SpeakingStepLayout>
   );
 }

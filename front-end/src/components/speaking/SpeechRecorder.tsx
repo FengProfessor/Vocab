@@ -120,7 +120,7 @@ export function SpeechRecorder({
 
   if (!supported) {
     return (
-      <div className="flex items-center gap-2 p-3 text-xs bg-amber-500/10 border border-amber-500/20 text-amber-300 rounded-lg">
+      <div className="flex items-center gap-2 p-3 text-xs bg-amber-50 dark:bg-amber-500/10 border border-amber-300 dark:border-amber-500/20 text-amber-800 dark:text-amber-300 rounded-lg">
         <MicOff className="size-4 shrink-0" />
         <span>Trình duyệt của bạn không hỗ trợ nhận diện giọng nói (Web Speech API). Hãy dùng Chrome/Safari.</span>
       </div>
@@ -130,13 +130,13 @@ export function SpeechRecorder({
   return (
     <div className="flex flex-col items-center gap-3 w-full max-w-sm mx-auto">
       {error && (
-        <div className="flex items-center gap-2 text-xs text-red-400 bg-red-500/10 border border-red-500/20 p-2.5 rounded-lg w-full">
+        <div className="flex items-center gap-2 text-xs text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 p-2.5 rounded-lg w-full">
           <AlertCircle className="size-4 shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
-      <div className="relative flex items-center justify-center p-6 bg-slate-900/40 backdrop-blur-md rounded-2xl border border-slate-800 w-full">
+      <div className="relative flex items-center justify-center p-6 bg-slate-100/80 dark:bg-slate-900/40 backdrop-blur-md rounded-2xl border border-slate-200 dark:border-slate-800 w-full">
         {isRecording && (
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <span className="animate-ping absolute inline-flex h-16 w-16 rounded-full bg-red-500/20 opacity-75"></span>
@@ -167,7 +167,7 @@ export function SpeechRecorder({
         )}
       </div>
 
-      <span className="text-xs text-slate-400 font-medium">
+      <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">
         {isRecording ? "Đang lắng nghe... Hãy nói tiếng Anh" : "Bấm Micro và bắt đầu nói"}
       </span>
     </div>
