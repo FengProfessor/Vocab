@@ -103,32 +103,34 @@ export const StageProgressNav: React.FC<StageProgressNavProps> = ({
       {showBreadcrumbs && (
         <nav
           aria-label="Breadcrumb"
-          className="flex items-center gap-1.5 text-xs text-slate-400 overflow-x-auto py-1 whitespace-nowrap scrollbar-none"
+          className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 overflow-x-auto py-1 whitespace-nowrap scrollbar-none"
         >
           <Link
             href="/student"
-            className="flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors"
+            className="flex items-center gap-1 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 transition-colors"
           >
             <Home className="size-3.5" />
             <span>Học tập</span>
           </Link>
 
-          <ChevronRight className="size-3 text-slate-600 shrink-0" />
+          <ChevronRight className="size-3 text-slate-400 dark:text-slate-600 shrink-0" />
 
           <Link
             href="/student/speaking/foundation"
-            className={`transition-colors hover:text-slate-200 flex items-center gap-1 ${
-              !currentStage ? 'text-indigo-400 font-medium' : 'text-slate-400'
+            className={`transition-colors hover:text-slate-900 dark:hover:text-slate-200 flex items-center gap-1 ${
+              !currentStage
+                ? 'text-indigo-600 dark:text-indigo-400 font-medium'
+                : 'text-slate-500 dark:text-slate-400'
             }`}
           >
-            <Mic className="size-3.5 text-indigo-400" />
+            <Mic className="size-3.5 text-indigo-600 dark:text-indigo-400" />
             <span>Luyện nói Nền tảng</span>
           </Link>
 
           {currentStageInfo && (
             <>
-              <ChevronRight className="size-3 text-slate-600 shrink-0" />
-              <span className="text-white font-medium truncate max-w-[200px] sm:max-w-none">
+              <ChevronRight className="size-3 text-slate-400 dark:text-slate-600 shrink-0" />
+              <span className="text-slate-900 dark:text-white font-medium truncate max-w-[200px] sm:max-w-none">
                 {currentStageInfo.shortTitle}
               </span>
             </>
@@ -151,8 +153,8 @@ export const StageProgressNav: React.FC<StageProgressNavProps> = ({
               href={stage.href}
               className={`snap-start shrink-0 flex items-center gap-2.5 px-3.5 py-2.5 rounded-lg border transition-all duration-200 text-left ${
                 isActive
-                  ? 'bg-indigo-950/60 border-indigo-500/70 text-white shadow-sm shadow-indigo-950/40 ring-1 ring-indigo-500/30'
-                  : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200 hover:bg-slate-850'
+                  ? 'bg-indigo-50/90 dark:bg-indigo-950/60 border-indigo-500/70 text-slate-900 dark:text-white shadow-sm ring-1 ring-indigo-500/30'
+                  : 'bg-white dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-700 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-850'
               }`}
             >
               {/* Icon / Status badge */}
@@ -161,12 +163,12 @@ export const StageProgressNav: React.FC<StageProgressNavProps> = ({
                   isActive
                     ? 'bg-indigo-600 text-white shadow-inner'
                     : isCompleted
-                    ? 'bg-emerald-950/70 text-emerald-400 border border-emerald-800/50'
-                    : 'bg-slate-800 text-slate-400'
+                    ? 'bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
                 }`}
               >
                 {isCompleted ? (
-                  <CheckCircle2 className="size-4 text-emerald-400" />
+                  <CheckCircle2 className="size-4 text-emerald-600 dark:text-emerald-400" />
                 ) : (
                   <IconComponent className="size-4" />
                 )}
@@ -177,7 +179,7 @@ export const StageProgressNav: React.FC<StageProgressNavProps> = ({
                 <div className="flex items-center gap-1.5">
                   <span
                     className={`text-xs font-semibold whitespace-nowrap ${
-                      isActive ? 'text-white' : 'text-slate-300'
+                      isActive ? 'text-indigo-950 dark:text-white' : 'text-slate-700 dark:text-slate-300'
                     }`}
                   >
                     Chặng {stage.stageNumber}
@@ -185,23 +187,23 @@ export const StageProgressNav: React.FC<StageProgressNavProps> = ({
                   <span
                     className={`text-[10px] px-1.5 py-0.2 rounded font-mono ${
                       isActive
-                        ? 'bg-indigo-800/60 text-indigo-200 border border-indigo-700/50'
-                        : 'bg-slate-800/80 text-slate-400'
+                        ? 'bg-indigo-100 dark:bg-indigo-800/60 text-indigo-800 dark:text-indigo-200 border border-indigo-300 dark:border-indigo-700/50'
+                        : 'bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400'
                     }`}
                   >
                     {stage.tag}
                   </span>
                 </div>
-                <span className="text-[11px] text-slate-400 truncate max-w-[130px] sm:max-w-[170px]">
+                <span className="text-[11px] text-slate-500 dark:text-slate-400 truncate max-w-[130px] sm:max-w-[170px]">
                   {stage.title.split(': ')[1] || stage.title}
                 </span>
 
                 {/* Micro progress indicator if available */}
                 {percent > 0 && (
-                  <div className="w-full bg-slate-800 rounded-full h-1 mt-1 overflow-hidden">
+                  <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-1 mt-1 overflow-hidden">
                     <div
                       className={`h-full rounded-full transition-all duration-300 ${
-                        isCompleted ? 'bg-emerald-400' : 'bg-indigo-400'
+                        isCompleted ? 'bg-emerald-500 dark:bg-emerald-400' : 'bg-indigo-500 dark:bg-indigo-400'
                       }`}
                       style={{ width: `${Math.min(100, Math.max(0, percent))}%` }}
                     />

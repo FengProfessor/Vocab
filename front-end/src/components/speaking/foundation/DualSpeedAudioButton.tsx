@@ -171,14 +171,14 @@ export const DualSpeedAudioButton: React.FC<DualSpeedAudioButtonProps> = ({
         aria-label="Phát âm thanh chậm 0.8x"
         className={`flex items-center gap-1.5 transition-colors ${
           isSlowActive
-            ? 'bg-amber-500/20 border-amber-500/50 text-amber-300 dark:text-amber-200'
-            : 'border-slate-700 bg-slate-800/60 text-slate-300 hover:bg-slate-800 hover:text-white'
+            ? 'bg-amber-500/20 border-amber-500/50 text-amber-800 dark:text-amber-200'
+            : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
         }`}
       >
         {isSlowActive ? (
-          <Pause className="size-3.5 animate-pulse text-amber-400" />
+          <Pause className="size-3.5 animate-pulse text-amber-500 dark:text-amber-400" />
         ) : (
-          <Snail className="size-3.5 text-amber-400" />
+          <Snail className="size-3.5 text-amber-500 dark:text-amber-400" />
         )}
         {showLabels && (
           <span className="text-xs font-medium">
@@ -199,14 +199,14 @@ export const DualSpeedAudioButton: React.FC<DualSpeedAudioButtonProps> = ({
         aria-label="Phát âm thanh chuẩn 1.0x"
         className={`flex items-center gap-1.5 transition-colors ${
           isNormalActive
-            ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-300 dark:text-indigo-200'
-            : 'border-slate-700 bg-slate-800/60 text-slate-300 hover:bg-slate-800 hover:text-white'
+            ? 'bg-indigo-500/20 border-indigo-500/50 text-indigo-800 dark:text-indigo-200'
+            : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
         }`}
       >
         {isNormalActive ? (
-          <Pause className="size-3.5 animate-pulse text-indigo-400" />
+          <Pause className="size-3.5 animate-pulse text-indigo-500 dark:text-indigo-400" />
         ) : (
-          <Rabbit className="size-3.5 text-indigo-400" />
+          <Rabbit className="size-3.5 text-indigo-500 dark:text-indigo-400" />
         )}
         {showLabels && (
           <span className="text-xs font-medium">

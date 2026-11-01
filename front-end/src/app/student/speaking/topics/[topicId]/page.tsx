@@ -2,8 +2,9 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import Link from '@/shared/router/navigation';
 import { useParams, useRouter } from '@/shared/router/navigation';
-import { ChevronLeft, ArrowRight, RotateCcw, AlertTriangle, BookOpen, Volume2, Sparkles } from 'lucide-react';
+import { ChevronLeft, ArrowRight, RotateCcw, AlertTriangle, BookOpen, Volume2, Sparkles, Compass } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
+import { SpeakingStepLayout } from '@/components/speaking/SpeakingStepLayout';
 import {
   SplitPaneLayout,
   SpeakingStimulusPane,
@@ -240,73 +241,76 @@ export default function SpeakingTopicDetailPage() {
   const targetKeywords = (topic.keyVocabulary || []).map((v) => v.term);
 
   return (
-    <StudentShell title={`Luyện nói: ${topic.titleEn}`}>
-      <div className="w-full flex flex-col h-[calc(100vh-4rem)] overflow-hidden">
-        {/* Sub-header Navigation */}
-        <div className="h-10 px-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between shrink-0 text-xs">
+    <SpeakingStepLayout
+      currentStage="topics"
+      shellTitle={`Luyện nói: ${topic.titleEn}`}
+      headerTitle={`Chủ đề: ${topic.titleEn} (${topic.titleVi})`}
+      headerIcon={<Compass className="h-4 w-4 text-amber-400" />}
+      showOrientationBanner={false}
+      headerActions={
+        <div className="flex items-center gap-2.5 text-xs">
+          <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 hidden sm:inline">
+            Cấp độ: <strong className="text-amber-700 dark:text-amber-300">{topic.level}</strong>
+          </span>
           <Link
             href="/student/speaking/topics"
-            className="flex items-center gap-1 text-slate-500 hover:text-slate-900 dark:hover:text-slate-100 font-mono transition-colors"
+            className="flex items-center gap-1 px-2.5 py-1 border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-mono text-[11px] transition-colors"
           >
-            <ChevronLeft className="size-4" />
-            <span>Thư viện chủ đề</span>
+            <ChevronLeft className="size-3.5" />
+            <span>Thư viện</span>
           </Link>
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-[11px] text-slate-400">
-              Cấp độ: <strong className="text-slate-700 dark:text-slate-200">{topic.level}</strong>
-            </span>
-            {nextTopic && (
-              <button
-                onClick={() => router.push(`/student/speaking/topics/${nextTopic.id}`)}
-                className="flex items-center gap-1 font-mono text-[11px] text-indigo-600 dark:text-indigo-400 hover:underline"
-              >
-                <span>Chủ đề tiếp theo</span>
-                <ArrowRight className="size-3" />
-              </button>
-            )}
-          </div>
+          {nextTopic && (
+            <button
+              onClick={() => router.push(`/student/speaking/topics/${nextTopic.id}`)}
+              className="flex items-center gap-1 px-2.5 py-1 border border-indigo-400/50 dark:border-indigo-500/40 bg-indigo-50 dark:bg-indigo-950/50 font-mono text-[11px] text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-colors"
+            >
+              <span>Tiếp theo</span>
+              <ArrowRight className="size-3" />
+            </button>
+          )}
         </div>
-
-        {/* Core Split-Pane Layout */}
-        <div className="flex-1 overflow-hidden">
-          <SplitPaneLayout
-            ratio="50/50"
-            leftPane={
-              <div className="p-3 sm:p-5 h-full overflow-y-auto">
-                <SpeakingStimulusPane stimulus={stimulusData} isRecording={isRecording} />
+      }
+      contentClassName="flex flex-col overflow-hidden"
+    >
+      {/* Core Split-Pane Layout */}
+      <div className="flex-1 overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/40 rounded-2xl shadow-sm dark:shadow-none">
+        <SplitPaneLayout
+          ratio="50/50"
+          leftPane={
+            <div className="p-3 sm:p-5 h-full overflow-y-auto">
+              <SpeakingStimulusPane stimulus={stimulusData} isRecording={isRecording} />
+            </div>
+          }
+          rightPane={
+            <div className="p-3 sm:p-5 h-full flex flex-col justify-center items-center overflow-y-auto">
+              <div className="w-full max-w-xl">
+                <SpeakingInteractionPane
+                  taskPrompt={`Thực hành nói theo ngữ cảnh: "${topic.titleEn}"`}
+                  contextVietnamese={topic.situationVi}
+                  targetKeywords={targetKeywords}
+                  suggestedStarters={starters}
+                  hintsVi={hintsVi}
+                  isRecording={isRecording}
+                  audioLevel={audioLevel}
+                  onStartRecording={handleStartRecording}
+                  onStopRecording={handleStopRecording}
+                  interimTranscript={interimTranscript}
+                  finalTranscript={finalTranscript}
+                  recordedAudioUrl={recordedAudioUrl}
+                  evaluation={evaluation}
+                  onReset={handleReset}
+                  onRetry={handleReset}
+                  onNextTask={() => {
+                    if (nextTopic) {
+                      router.push(`/student/speaking/topics/${nextTopic.id}`);
+                    }
+                  }}
+                />
               </div>
-            }
-            rightPane={
-              <div className="p-3 sm:p-5 h-full flex flex-col justify-center items-center overflow-y-auto">
-                <div className="w-full max-w-xl">
-                  <SpeakingInteractionPane
-                    taskPrompt={`Thực hành nói theo ngữ cảnh: "${topic.titleEn}"`}
-                    contextVietnamese={topic.situationVi}
-                    targetKeywords={targetKeywords}
-                    suggestedStarters={starters}
-                    hintsVi={hintsVi}
-                    isRecording={isRecording}
-                    audioLevel={audioLevel}
-                    onStartRecording={handleStartRecording}
-                    onStopRecording={handleStopRecording}
-                    interimTranscript={interimTranscript}
-                    finalTranscript={finalTranscript}
-                    recordedAudioUrl={recordedAudioUrl}
-                    evaluation={evaluation}
-                    onReset={handleReset}
-                    onRetry={handleReset}
-                    onNextTask={() => {
-                      if (nextTopic) {
-                        router.push(`/student/speaking/topics/${nextTopic.id}`);
-                      }
-                    }}
-                  />
-                </div>
-              </div>
-            }
-          />
-        </div>
+            </div>
+          }
+        />
       </div>
-    </StudentShell>
+    </SpeakingStepLayout>
   );
 }

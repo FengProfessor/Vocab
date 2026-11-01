@@ -16,3 +16,6 @@ export { SpeechRecorder } from './SpeechRecorder';
 
 export { MasterSpeakingRoadmap, SPEAKING_ROADMAP_STAGES } from './MasterSpeakingRoadmap';
 export type { MasterSpeakingRoadmapProps, SpeakingRoadmapStage, SpeakingStageMetadata } from './MasterSpeakingRoadmap';
+
+export { SpeakingStepLayout } from './SpeakingStepLayout';
+export type { SpeakingStepLayoutProps, SpeakingOrientationBannerConfig } from './SpeakingStepLayout';

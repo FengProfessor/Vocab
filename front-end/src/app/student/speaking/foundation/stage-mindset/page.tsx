@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { StageProgressNav } from '@/components/speaking/foundation/StageProgressNav';
+import { SpeakingStepLayout } from '@/components/speaking/SpeakingStepLayout';
 import { DualSpeedAudioButton } from '@/components/speaking/foundation/DualSpeedAudioButton';
 import {
   STAGE_MINDSET_LESSONS,
@@ -66,47 +67,50 @@ export default function SpeakingFoundationStageMindsetPage() {
   };
 
   return (
-    <StudentShell title="Chặng Khởi Động: Hệ Điều Hành Tư Duy Nói">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-8">
-        {/* Navigation Breadcrumb */}
-        <StageProgressNav currentStage="stage-mindset" showBreadcrumbs={true} />
-
-        {/* Hero Header */}
-        <div className="relative overflow-hidden rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white p-6 sm:p-8 shadow-xl">
+    <SpeakingStepLayout
+      currentStage="foundation"
+      shellTitle="Chặng Khởi Động: Hệ Điều Hành Tư Duy Nói"
+      headerTitle="Bước 1 • Khởi động: Hệ Điều Hành Tư Duy Nói (Mindset OS)"
+      headerIcon={<Brain className="h-4 w-4 text-indigo-400" />}
+      subHeaderSlot={<StageProgressNav currentStage="stage-mindset" showBreadcrumbs={false} />}
+      contentClassName="space-y-6"
+    >
+      {/* Hero Header */}
+        <div className="relative overflow-hidden rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-50 via-white to-indigo-50/70 dark:from-slate-900 dark:via-indigo-950 dark:to-slate-900 text-slate-900 dark:text-white p-6 sm:p-8 shadow-sm dark:shadow-xl">
           <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="relative z-10 space-y-4 max-w-3xl">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
+              <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-amber-500/15 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5" />
                 Bước Bắt Buộc Đầu Tiên (Start Here)
               </span>
-              <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 flex items-center gap-1">
+              <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-indigo-500/15 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-500/30 flex items-center gap-1">
                 <Brain className="w-3.5 h-3.5" />
                 Hệ Điều Hành Tư Duy Nói (Mindset OS)
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
               Khai Phóng Tư Duy Nói — Xóa Bỏ Nỗi Sợ Mất Gốc
             </h1>
 
-            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
               Bạn không thể học nói thành công nếu mang theo tâm lý sợ sai và thói quen dịch thầm từ
               tiếng Việt. 6 mô hình tư duy dưới đây là &quot;liều vắc-xin tâm lý&quot; giúp bạn gỡ bỏ
               vết thương ngữ pháp 12 năm phổ thông và tự tin mở miệng giao tiếp.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-slate-300">
+            <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-slate-700 dark:text-slate-300">
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>6 Mô hình tư duy cốt lõi</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>Phá vỡ vòng lặp dịch thầm</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>Cam kết giải phóng tâm lý</span>
               </div>
             </div>
@@ -400,7 +404,6 @@ export default function SpeakingFoundationStageMindsetPage() {
             </Button>
           </Link>
         </div>
-      </div>
-    </StudentShell>
+    </SpeakingStepLayout>
   );
 }
