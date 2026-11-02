@@ -157,6 +157,24 @@ export function mapVocabAnalyticsToStudentStats(
   const reviewDueCount = Number(safeDto.reviewDueCount ?? 0);
   const dueCount = Number(safeDto.dueCount ?? newCount + reviewDueCount);
   const reviewedWords = Math.max(0, totalWords - newCount);
+  const avgStability = Number(safeDto.avgStabilityDays ?? safeDto.avgStability ?? 0);
+  const retentionRate = Number(safeDto.retentionRatePercent ?? safeDto.retentionRate ?? 0);
+  const quizHistory = Array.isArray(safeDto.quizHistory) ? safeDto.quizHistory : [];
+  const validQuizzes = quizHistory.filter(
+    (q: Record<string, any>) => Number(q?.total ?? q?.totalQuestions ?? 0) > 0,
+  );
+  const avgAccuracy =
+    typeof safeDto.avgAccuracy === 'number'
+      ? Number(safeDto.avgAccuracy)
+      : validQuizzes.length > 0
+        ? Math.round(
+            validQuizzes.reduce(
+              (acc: number, q: Record<string, any>) =>
+                acc + (Number(q.score ?? 0) / Number(q.total ?? q.totalQuestions ?? 10)) * 100,
+              0,
+            ) / validQuizzes.length,
+          )
+        : retentionRate;
 
   const statsData: Record<string, any> & {
     lite: boolean;
@@ -176,6 +194,14 @@ export function mapVocabAnalyticsToStudentStats(
     todayReviewWords: number;
     avgStability: number;
     retentionRate: number;
+    avgAccuracy: number;
+    bestScore: number;
+    wordStats: {
+      total: number;
+      levelCounts: number[];
+      avgStability: number;
+      wordsDue: number;
+    };
     wordBreakdown: {
       level1: number;
       level2: number;
@@ -211,8 +237,16 @@ export function mapVocabAnalyticsToStudentStats(
     todayWords: Number(safeDto.todayWords ?? 0),
     todayNewWords: Number(safeDto.todayNewWords ?? 0),
     todayReviewWords: Number(safeDto.todayReviewWords ?? 0),
-    avgStability: Number(safeDto.avgStabilityDays ?? 0),
-    retentionRate: Number(safeDto.retentionRatePercent ?? 0),
+    avgStability,
+    retentionRate,
+    avgAccuracy,
+    bestScore: Number(safeDto.bestScore ?? 0),
+    wordStats: {
+      total: totalWords,
+      levelCounts: lc,
+      avgStability,
+      wordsDue: reviewDueCount || dueCount,
+    },
     wordBreakdown: {
       level1: lc[0],
       level2: lc[1],

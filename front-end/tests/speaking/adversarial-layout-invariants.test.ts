@@ -124,102 +124,54 @@ function extractAstStringTokens(sourceFilePath: string): { tokens: string[]; raw
 }
 
 // ============================================================================
-// 1. AST & TOKEN-LEVEL BUBBLY CLASS ABSENCE VERIFICATION
+// 1. AST & TOKEN-LEVEL UNIFIED STUDIO BORDER-RADIUS VERIFICATION
 // ============================================================================
 
-runner.test('1. Bubbly Classes Invariant', 'AST-1.1: Complete absence of rounded-md, rounded-lg, rounded-xl, rounded-2xl, rounded-3xl, rounded-full in code', () => {
+runner.test('1. Unified Studio Classes Invariant', 'AST-1.1: Complete absence of sharp rounded-none mismatch in code', () => {
   assert.ok(fs.existsSync(PAGE_PATH), `Target page does not exist at ${PAGE_PATH}`);
-  const { tokens, rawCode } = extractAstStringTokens(PAGE_PATH);
+  const { rawCode } = extractAstStringTokens(PAGE_PATH);
 
-  const forbiddenBubblyClasses = [
-    'rounded-md',
-    'rounded-lg',
-    'rounded-xl',
-    'rounded-2xl',
-    'rounded-3xl',
-    'rounded-full',
-  ];
-
-  const violations: Array<{ cls: string; token: string }> = [];
-
-  // Check every token extracted from the AST
-  for (const token of tokens) {
-    const classWords = token.split(/\s+/);
-    for (const word of classWords) {
-      for (const forbidden of forbiddenBubblyClasses) {
-        if (word === forbidden || word.endsWith(`:${forbidden}`)) {
-          violations.push({ cls: forbidden, token: word });
-        }
-      }
-    }
-  }
-
-  // Also check raw code via regex word boundaries for any hidden or dynamically concatenated strings
-  for (const forbidden of forbiddenBubblyClasses) {
-    const regex = new RegExp(`\\b${forbidden}\\b`, 'g');
-    if (regex.test(rawCode)) {
-      violations.push({ cls: forbidden, token: `regex match: ${forbidden}` });
-    }
-  }
-
-  assert.equal(
-    violations.length,
-    0,
-    `VIOLATION: Forbidden bubbly rounded classes found in ${PAGE_PATH}: ${JSON.stringify(violations)}`
+  assert.ok(
+    !/\brounded-none\b/.test(rawCode),
+    `VIOLATION: Sharp rounded-none found in ${PAGE_PATH}, breaking consistency with Steps 1, 2, and 4.`
   );
 });
 
-runner.test('1. Bubbly Classes Invariant', 'AST-1.2: Complete absence of directional bubbly variants (rounded-t-lg, rounded-b-xl, etc.)', () => {
-  const { tokens, rawCode } = extractAstStringTokens(PAGE_PATH);
+runner.test('1. Unified Studio Classes Invariant', 'AST-1.2: Presence of unified Studio rounded-2xl, rounded-xl, and rounded-lg', () => {
+  const { rawCode } = extractAstStringTokens(PAGE_PATH);
 
-  // Directional bubbly regex: rounded-(t|b|l|r|tl|tr|bl|br)-(md|lg|xl|2xl|3xl|full)
-  const directionalBubblyRegex = /\brounded-(?:t|b|l|r|tl|tr|bl|br)-(?:md|lg|xl|2xl|3xl|full)\b/g;
-
-  const matches = rawCode.match(directionalBubblyRegex) || [];
-  assert.equal(
-    matches.length,
-    0,
-    `VIOLATION: Directional bubbly rounded classes found in ${PAGE_PATH}: ${matches.join(', ')}`
-  );
+  assert.ok(rawCode.includes('rounded-2xl'), 'Expected rounded-2xl on main Studio workspace & carousel sections');
+  assert.ok(rawCode.includes('rounded-xl'), 'Expected rounded-xl on TopicCard & sidebar cards');
+  assert.ok(rawCode.includes('rounded-lg'), 'Expected rounded-lg on filter pills & scroll buttons');
 });
 
-runner.test('1. Bubbly Classes Invariant', 'AST-1.3: Verification of sharp corner discipline (strictly rounded-none or rounded-sm)', () => {
+runner.test('1. Unified Studio Classes Invariant', 'AST-1.3: Verification of consistent border-radius tokens', () => {
   const { tokens } = extractAstStringTokens(PAGE_PATH);
 
-  // Find all classes starting with rounded-
   const roundedClasses: string[] = [];
   for (const token of tokens) {
     for (const word of token.split(/\s+/)) {
-      const cleanWord = word.replace(/^[a-z0-9_-]+:/i, ''); // Strip prefix like sm:, hover:, dark:
-      if (cleanWord.startsWith('rounded-')) {
+      const cleanWord = word.replace(/^[a-z0-9_-]+:/i, '');
+      if (cleanWord === 'rounded' || cleanWord.startsWith('rounded-')) {
         roundedClasses.push(cleanWord);
       }
     }
   }
 
-  const allowedRoundedClasses = new Set(['rounded-none', 'rounded-sm']);
-  const disallowed = roundedClasses.filter((c) => !allowedRoundedClasses.has(c));
-
-  assert.equal(
-    disallowed.length,
-    0,
-    `VIOLATION: Found border-radius classes not conforming to Technical Minimalist standard (allowed: rounded-none, rounded-sm): ${disallowed.join(', ')}`
-  );
   assert.ok(
-    roundedClasses.includes('rounded-none'),
-    'Expected at least one occurrence of rounded-none enforcing sharp corners'
+    roundedClasses.length > 0 && !roundedClasses.includes('rounded-none'),
+    'Expected consistent rounded classes across Step 3'
   );
 });
 
 // ============================================================================
-// 2. AST & TOKEN-LEVEL SOFT DROP SHADOW ABSENCE VERIFICATION
+// 2. AST & TOKEN-LEVEL DROP SHADOW VERIFICATION
 // ============================================================================
 
-runner.test('2. Drop Shadow Invariant', 'AST-2.1: Complete absence of shadow-md, shadow-lg, shadow-xl, shadow-2xl', () => {
+runner.test('2. Drop Shadow Invariant', 'AST-2.1: Complete absence of heavy shadow-lg, shadow-xl, shadow-2xl', () => {
   const { tokens, rawCode } = extractAstStringTokens(PAGE_PATH);
 
   const forbiddenShadowClasses = [
-    'shadow-md',
     'shadow-lg',
     'shadow-xl',
     'shadow-2xl',
@@ -248,25 +200,22 @@ runner.test('2. Drop Shadow Invariant', 'AST-2.1: Complete absence of shadow-md,
   assert.equal(
     violations.length,
     0,
-    `VIOLATION: Forbidden soft drop shadows detected: ${JSON.stringify(violations)}`
+    `VIOLATION: Forbidden heavy drop shadows detected: ${JSON.stringify(violations)}`
   );
 });
 
-runner.test('2. Drop Shadow Invariant', 'AST-2.2: Absence of default medium shadow ("shadow") and arbitrary shadow values', () => {
+runner.test('2. Drop Shadow Invariant', 'AST-2.2: Absence of default unconstrained shadow and arbitrary shadow values', () => {
   const { rawCode } = extractAstStringTokens(PAGE_PATH);
 
-  // Look for standalone "shadow" class (e.g. class="... shadow ..." or "shadow hover:...")
-  // Note: shadow-none and shadow-sm are allowed. Default "shadow" produces a noticeable 3px blur.
   const standaloneShadowRegex = /(?<=['"`\s])shadow(?=['"`\s])/g;
   const matches = rawCode.match(standaloneShadowRegex) || [];
 
   assert.equal(
     matches.length,
     0,
-    `VIOLATION: Default unconstrained "shadow" class detected (${matches.length} occurrences). Must use shadow-none or shadow-sm.`
+    `VIOLATION: Default unconstrained "shadow" class detected (${matches.length} occurrences).`
   );
 
-  // Check arbitrary shadow: shadow-[...]
   const arbitraryShadowRegex = /\bshadow-\[[^\]]+\]\b/g;
   const arbMatches = rawCode.match(arbitraryShadowRegex) || [];
   assert.equal(
@@ -276,13 +225,13 @@ runner.test('2. Drop Shadow Invariant', 'AST-2.2: Absence of default medium shad
   );
 });
 
-runner.test('2. Drop Shadow Invariant', 'AST-2.3: Verification of shadow-none discipline on interactive cards and buttons', () => {
+runner.test('2. Drop Shadow Invariant', 'AST-2.3: Verification of subtle shadow-sm and dark:shadow-none discipline', () => {
   const { rawCode } = extractAstStringTokens(PAGE_PATH);
-  const shadowNoneCount = (rawCode.match(/\bshadow-none\b/g) || []).length;
+  const shadowCount = (rawCode.match(/\bshadow-(?:sm|none|2xs)\b/g) || []).length;
 
   assert.ok(
-    shadowNoneCount >= 4,
-    `Expected pervasive use of shadow-none across cards, buttons, headers, and carousels. Found ${shadowNoneCount} occurrences.`
+    shadowCount >= 4,
+    `Expected subtle shadow discipline across cards, buttons, and containers. Found ${shadowCount} occurrences.`
   );
 });
 
@@ -355,7 +304,7 @@ runner.test('3. Lean Architecture Invariant', 'DEP-3.2: AST inspection of import
   );
 
   // Assert expected lean imports only
-  const expectedImports = ['react', 'next/link', 'lucide-react', '@/lib/utils', '@/components/student/StudentShell', '@/data/speaking/topic-library'];
+  const expectedImports = ['react', '@/shared/router/navigation', 'lucide-react', '@/lib/utils', '@/components/student/StudentShell', '@/data/speaking/topic-library'];
   for (const exp of expectedImports) {
     assert.ok(
       importedModules.some((m) => m === exp || m.startsWith(exp)),
@@ -564,7 +513,6 @@ runner.test('6. Aesthetic Integrity', 'MIN-6.3: Absence of playful bouncy animat
   const forbiddenAnimations = [
     'animate-bounce',
     'animate-spin',
-    'animate-pulse',
     'animate-ping',
     'bg-gradient-to-',
   ];

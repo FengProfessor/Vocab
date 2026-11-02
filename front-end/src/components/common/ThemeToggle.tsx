@@ -68,7 +68,7 @@ export function ThemeToggle({
       <div
         role="radiogroup"
         aria-label="Chế độ giao diện Sáng, Tối hoặc Theo hệ thống"
-        className={`grid grid-cols-1 sm:grid-cols-3 gap-3 ${className}`}
+        className={`grid grid-cols-3 gap-2 sm:gap-3 ${className}`}
         data-testid="theme-selector-cards"
       >
         {THEME_OPTIONS.map((opt) => {
@@ -82,39 +82,42 @@ export function ThemeToggle({
               aria-checked={active}
               onClick={() => setTheme(opt.value)}
               data-testid={`theme-option-${opt.value}`}
-              className={`group relative flex flex-col items-start p-4 rounded-2xl border-2 text-left transition-all duration-200 cursor-pointer min-h-[44px] ${
+              className={`group relative min-w-0 flex flex-col items-center lg:items-start p-3 lg:p-4 rounded-2xl border-2 text-center lg:text-left transition-all duration-200 cursor-pointer min-h-[44px] ${
                 active
-                  ? "border-indigo-600 bg-indigo-50/70 dark:border-indigo-400 dark:bg-indigo-950/50 shadow-sm"
-                  : "border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900/90 hover:border-indigo-300 dark:hover:border-slate-700"
+                  ? "border-indigo-600 bg-indigo-50/70 dark:border-[#7B67FF] dark:bg-[#20253F] shadow-xs"
+                  : "border-slate-200/80 dark:border-[#272C47] bg-white dark:bg-[#161A2E] hover:border-indigo-300 dark:hover:border-slate-700"
               }`}
             >
-              <div className="flex items-center justify-between w-full mb-2.5">
+              <div className="flex items-center justify-center lg:justify-between w-full gap-2 mb-1.5 lg:mb-2.5">
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
+                  className={`w-9 h-9 lg:w-10 lg:h-10 shrink-0 rounded-xl flex items-center justify-center transition-colors ${
                     active
-                      ? "bg-indigo-600 text-white shadow-sm shadow-indigo-500/30"
-                      : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 group-hover:bg-indigo-50 dark:group-hover:bg-slate-700"
+                      ? "bg-indigo-600 dark:bg-[#7B67FF] text-white shadow-sm shadow-indigo-500/30"
+                      : "bg-slate-100 dark:bg-[#20253F] text-slate-600 dark:text-[#A5AAC6] group-hover:bg-indigo-50 dark:group-hover:bg-[#272C47]"
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4 lg:w-5 lg:h-5" />
                 </div>
                 {active && (
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-indigo-600 text-white">
+                  <span className="hidden lg:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-bold bg-indigo-600 dark:bg-[#7B67FF] text-white whitespace-nowrap">
                     <Check className="w-3 h-3" /> Đang dùng
                   </span>
                 )}
               </div>
-              <p className="text-sm font-bold text-slate-900 dark:text-slate-100">
-                {opt.label}
+              <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-[#F2F3FB] flex items-center justify-center lg:justify-start gap-1 max-w-full">
+                <span className="truncate">{opt.label}</span>
+                {active && <Check className="w-3.5 h-3.5 shrink-0 text-indigo-600 dark:text-[#B3A8FF] lg:hidden" />}
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+              <p className="hidden lg:block text-xs text-slate-500 dark:text-[#A5AAC6] mt-1 leading-relaxed">
                 {opt.description}
               </p>
               {opt.value === "system" && mounted && (
-                <span className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-indigo-600 dark:text-indigo-400">
-                  <Sparkles className="w-3 h-3" />
-                  Thiết bị hiện tại:{" "}
-                  {resolvedTheme === "dark" ? "Tối" : "Sáng"}
+                <span className="mt-1 lg:mt-2 inline-flex items-center gap-1 text-[10px] lg:text-[11px] font-semibold text-indigo-600 dark:text-[#B3A8FF]">
+                  <Sparkles className="w-2.5 h-2.5 lg:w-3 lg:h-3 shrink-0" />
+                  <span className="lg:hidden">{resolvedTheme === "dark" ? "Đang Tối" : "Đang Sáng"}</span>
+                  <span className="hidden lg:inline">
+                    Thiết bị hiện tại: {resolvedTheme === "dark" ? "Tối" : "Sáng"}
+                  </span>
                 </span>
               )}
             </button>

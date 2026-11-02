@@ -87,6 +87,9 @@ describe('vocab mappers', () => {
     expect(stats.reviewedWords).toBe(20);
     expect(stats.wordBreakdown.l1).toBe(10);
     expect(stats.wordBreakdown.l6).toBe(1);
+    expect(stats.wordStats.total).toBe(30);
+    expect(stats.wordStats.wordsDue).toBe(5);
+    expect(stats.wordStats.levelCounts).toEqual([10, 8, 5, 4, 2, 1]);
     expect(stats.studyStreak).toBe(7);
     expect(stats.totalXp).toBe(450);
   });

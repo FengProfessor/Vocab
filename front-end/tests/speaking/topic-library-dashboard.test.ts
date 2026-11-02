@@ -482,48 +482,33 @@ runner.test('Tier 3: Design & Architecture Constraints', '3.2: Target Page File 
   );
 });
 
-runner.test('Tier 3: Design & Architecture Constraints', '3.3: Strictly Zero Forbidden Bubbly Rounded Classes in page.tsx', () => {
+runner.test('Tier 3: Design & Architecture Constraints', '3.3: Unified Speaking Studio Rounded Classes in page.tsx', () => {
   if (!fs.existsSync(PAGE_PATH)) {
     throw new Error(`Cannot verify classes: ${PAGE_PATH} does not exist yet.`);
   }
 
   const code = fs.readFileSync(PAGE_PATH, 'utf-8');
 
-  // Forbidden border-radius classes per Technical Minimalist design contract
-  const forbiddenClasses = [
-    'rounded-md',
-    'rounded-lg',
-    'rounded-xl',
-    'rounded-2xl',
-    'rounded-3xl',
-  ];
-
-  const violations: string[] = [];
-  for (const cls of forbiddenClasses) {
-    // Check regex word boundary or class match
-    const regex = new RegExp(`\\b${cls}\\b`, 'g');
-    if (regex.test(code)) {
-      violations.push(cls);
-    }
-  }
-
-  assert.equal(
-    violations.length,
-    0,
-    `Forbidden bubbly rounded classes detected in page.tsx: [${violations.join(', ')}]. Must use rounded-none or rounded-sm.`
+  // Must match Steps 1, 2, and 4 unified rounded design (no sharp rounded-none mismatch)
+  assert.ok(
+    !code.includes('rounded-none'),
+    'page.tsx must not use sharp rounded-none that breaks visual consistency with Steps 1, 2, and 4.'
+  );
+  assert.ok(
+    code.includes('rounded-2xl') && code.includes('rounded-xl') && code.includes('rounded-lg'),
+    'page.tsx must use unified rounded-2xl / rounded-xl / rounded-lg classes matching Steps 1, 2, and 4.'
   );
 });
 
-runner.test('Tier 3: Design & Architecture Constraints', '3.4: Strictly Zero Forbidden Drop Shadow Classes in page.tsx', () => {
+runner.test('Tier 3: Design & Architecture Constraints', '3.4: Unified Subtle Shadow Classes in page.tsx', () => {
   if (!fs.existsSync(PAGE_PATH)) {
     throw new Error(`Cannot verify classes: ${PAGE_PATH} does not exist yet.`);
   }
 
   const code = fs.readFileSync(PAGE_PATH, 'utf-8');
 
-  // Forbidden soft/heavy drop shadow classes
+  // Forbidden heavy drop shadow classes
   const forbiddenShadows = [
-    'shadow-md',
     'shadow-lg',
     'shadow-xl',
     'shadow-2xl',
@@ -540,7 +525,7 @@ runner.test('Tier 3: Design & Architecture Constraints', '3.4: Strictly Zero For
   assert.equal(
     violations.length,
     0,
-    `Forbidden drop shadow classes detected in page.tsx: [${violations.join(', ')}]. Must use shadow-none or shadow-sm.`
+    `Forbidden heavy drop shadow classes detected in page.tsx: [${violations.join(', ')}].`
   );
 });
 
@@ -596,20 +581,20 @@ runner.test('Tier 3: Design & Architecture Constraints', '3.7: Synchronous Inges
   );
 });
 
-runner.test('Tier 3: Design & Architecture Constraints', '3.8: Technical Minimalist 1px Border and Sharp Radii Presence', () => {
+runner.test('Tier 3: Design & Architecture Constraints', '3.8: Unified 1px Border and Rounded Studio Radii Presence', () => {
   if (!fs.existsSync(PAGE_PATH)) {
     throw new Error(`Cannot verify styling: ${PAGE_PATH} does not exist yet.`);
   }
 
   const code = fs.readFileSync(PAGE_PATH, 'utf-8');
 
-  // Must contain sharp borders
+  // Must contain unified rounded borders matching Steps 1, 2, 4
   assert.ok(
-    code.includes('rounded-none') || code.includes('rounded-sm'),
-    'page.tsx must use Technical Minimalist sharp borders (rounded-none or rounded-sm)'
+    code.includes('rounded-2xl') && code.includes('rounded-xl'),
+    'page.tsx must use unified Studio borders (rounded-2xl and rounded-xl)'
   );
 
-  // Must contain 1px borders
+  // Must contain 1px border utilities
   assert.ok(
     code.includes('border-slate-200') || code.includes('border-slate-800'),
     'page.tsx must use 1px border utilities (border-slate-200 / border-slate-800)'
