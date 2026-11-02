@@ -5,17 +5,17 @@ import { useEffect, useState } from 'react';
 import Link from '@/shared/router/navigation';
 import { useRouter } from '@/shared/router/navigation';
 import {
-  AlertCircle,
   BarChart3,
   Bell,
-  BookOpen,
   CheckCircle2,
+  ChevronDown,
   Copy,
   Crown,
-  Flame,
+  LayoutGrid,
   Loader2,
+  LogOut,
   Save,
-  Target,
+  Settings,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { StudentShell } from '@/components/student/StudentShell';
@@ -59,11 +59,13 @@ interface DayActivity {
 }
 
 interface WeakWord {
-  word_id: string;
+  word_id?: string;
   word: string;
-  translation: string;
-  review_count: number;
+  translation?: string;
+  meaning?: string;
+  review_count?: number;
   level: number;
+  stability?: number;
 }
 
 interface StatsData {
@@ -86,20 +88,114 @@ interface StatsData {
   gamification: { totalXp: number; streak: number; todayXp: number } | null;
 }
 
-function heatColor(count: number): string {
-  if (count === 0) return 'bg-slate-200';
-  if (count <= 2) return 'bg-green-200';
-  if (count <= 5) return 'bg-green-400';
-  return 'bg-green-600';
-}
+/**
+ * Normalizes both flat `mapVocabAnalyticsToStudentStats` payloads and legacy nested `StatsData`
+ * objects so that `stats.wordStats.levelCounts`, `stats.dailyActivity`, `stats.weakWords`, and
+ * `stats.quizHistory` are always guaranteed to be defined arrays/numbers.
+ */
+function normalizeStatsPayload(raw: unknown): StatsData | null {
+  if (!raw || typeof raw !== 'object') return null;
+  const r = raw as Record<string, unknown>;
+  const ws = (r.wordStats && typeof r.wordStats === 'object' ? r.wordStats : {}) as Record<string, unknown>;
+  const wb = (r.wordBreakdown && typeof r.wordBreakdown === 'object' ? r.wordBreakdown : {}) as Record<string, unknown>;
 
-function fmtDay(isoDate: string): string {
-  return isoDate.slice(8) + '/' + isoDate.slice(5, 7);
+  let levelCounts: number[] = [0, 0, 0, 0, 0, 0];
+  if (Array.isArray(ws.levelCounts) && ws.levelCounts.length === 6) {
+    levelCounts = ws.levelCounts.map((n) => Number(n) || 0);
+  } else if (Array.isArray(r.levelCounts) && r.levelCounts.length === 6) {
+    levelCounts = r.levelCounts.map((n) => Number(n) || 0);
+  } else if (Object.keys(wb).length > 0) {
+    levelCounts = [
+      Number(wb.l1 ?? wb.level1 ?? 0),
+      Number(wb.l2 ?? wb.level2 ?? 0),
+      Number(wb.l3 ?? wb.level3 ?? 0),
+      Number(wb.l4 ?? wb.level4 ?? 0),
+      Number(wb.l5 ?? wb.level5 ?? 0),
+      Number(wb.l6 ?? wb.level6 ?? 0),
+    ];
+  }
+
+  const total = Number(ws.total ?? r.totalWords ?? r.total ?? levelCounts.reduce((a, b) => a + b, 0));
+  const avgStability = Number(ws.avgStability ?? r.avgStability ?? r.avgStabilityDays ?? 0);
+  const wordsDue = Number(ws.wordsDue ?? r.reviewDueCount ?? r.dueCount ?? r.dueForReview ?? 0);
+
+  const dailyActivity: DayActivity[] = Array.isArray(r.dailyActivity)
+    ? r.dailyActivity.map((item) => {
+        const d = (item ?? {}) as Record<string, unknown>;
+        return {
+          date: String(d.date ?? d.day ?? ''),
+          count: Number(d.count ?? d.words ?? 0),
+        };
+      })
+    : [];
+
+  const quizHistory = Array.isArray(r.quizHistory)
+    ? r.quizHistory.map((item) => {
+        const q = (item ?? {}) as Record<string, unknown>;
+        const score = Number(q.score ?? 0);
+        const totalQ = Number(q.total ?? q.totalQuestions ?? 10) || 10;
+        return {
+          accuracy: Number(q.accuracy ?? Math.round((score / totalQ) * 100)),
+          score,
+          total: totalQ,
+          created_at: String(q.created_at ?? q.date ?? q.completedAt ?? new Date().toISOString()),
+          type: String(q.type ?? q.quizType ?? 'vocabulary'),
+          date: String(q.date ?? q.created_at ?? ''),
+        };
+      })
+    : [];
+
+  const weakWords: WeakWord[] = Array.isArray(r.weakWords)
+    ? r.weakWords.map((item) => {
+        const w = (item ?? {}) as Record<string, unknown>;
+        return {
+          word_id: String(w.word_id ?? w.id ?? w.word ?? ''),
+          word: String(w.word ?? w.word_id ?? ''),
+          translation: String(w.translation ?? w.meaning ?? ''),
+          meaning: String(w.meaning ?? w.translation ?? ''),
+          review_count: Number(w.review_count ?? w.reviewCount ?? 0),
+          level: Number(w.level ?? 1),
+          stability: typeof w.stability === 'number' ? w.stability : undefined,
+        };
+      })
+    : [];
+
+  const retentionRate =
+    typeof r.retentionRate === 'number'
+      ? r.retentionRate
+      : typeof r.retentionRatePercent === 'number'
+        ? r.retentionRatePercent
+        : undefined;
+
+  return {
+    wordStats: {
+      total,
+      levelCounts,
+      avgStability,
+      wordsDue,
+    },
+    dailyActivity,
+    quizHistory,
+    studyStreak: Number(r.studyStreak ?? r.streak ?? 0),
+    avgAccuracy: Number(r.avgAccuracy ?? r.accuracy ?? retentionRate ?? 0),
+    bestScore: Number(r.bestScore ?? 0),
+    weakWords,
+    skillScores:
+      r.skillScores && typeof r.skillScores === 'object'
+        ? (r.skillScores as StatsData['skillScores'])
+        : undefined,
+    retentionRate,
+    grammarDueCount: typeof r.grammarDueCount === 'number' ? r.grammarDueCount : undefined,
+    gamification:
+      r.gamification && typeof r.gamification === 'object'
+        ? (r.gamification as StatsData['gamification'])
+        : null,
+  };
 }
 
 function resolveInitialStats(userId?: string | null): StatsData | null {
-  const cached = readLastProfileStatsCache<StatsData>(userId);
-  if (cached && cached.wordStats) return cached;
+  const cached = normalizeStatsPayload(readLastProfileStatsCache(userId));
+  if (cached) return cached;
   const wordSum = readLastWordSummaryCache();
   const sec = readLastDashboardSecondaryCache(userId);
   const gam = readLastGamificationCache();
@@ -140,6 +236,8 @@ export default function ProfilePage() {
   const [isEnablingPush, setIsEnablingPush] = useState(false);
   const [isCopyingToken, setIsCopyingToken] = useState(false);
   const [tokenCopied, setTokenCopied] = useState(false);
+  const [isSigningOut, setIsSigningOut] = useState(false);
+  const [mobileSection, setMobileSection] = useState<'all' | 'analytics' | 'settings'>('all');
 
   const [fullName, setFullName] = useState(() => initialProfile?.full_name ?? '');
   const [dailyGoal, setDailyGoal] = useState(() => initialProfile?.daily_goal ?? 30);
@@ -202,8 +300,11 @@ export default function ProfilePage() {
         }
 
         if (statsResponse?.success && statsResponse.data) {
-          setStats(statsResponse.data as StatsData);
-          writeProfileStatsCache(session.user.id, statsResponse.data);
+          const normalized = normalizeStatsPayload(statsResponse.data);
+          if (normalized) {
+            setStats(normalized);
+            writeProfileStatsCache(session.user.id, normalized);
+          }
         }
       } catch {
         // preserve cached Frame-0 state if offline
@@ -326,80 +427,150 @@ export default function ProfilePage() {
     }
   };
 
+  const handleSignOut = async () => {
+    setIsSigningOut(true);
+    try {
+      const { error } = await authService.signOut();
+      if (error) {
+        toast.error(error.message);
+        return;
+      }
+      router.replace('/auth');
+    } finally {
+      setIsSigningOut(false);
+    }
+  };
+
   if (isLoading) {
     return (
-      <div className="flex min-h-dvh items-center justify-center bg-muted/40">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <div className="flex min-h-dvh items-center justify-center bg-[#F6F7FB] dark:bg-[#0D0F1E]">
+        <Loader2 className="h-8 w-8 animate-spin text-indigo-600 dark:text-[#7B67FF]" />
       </div>
     );
   }
 
-  const initials = (profile?.full_name ?? profile?.email ?? 'U')
-    .split(' ')
-    .map((word) => word[0])
-    .slice(0, 2)
-    .join('')
-    .toUpperCase();
+  const initials =
+    (profile?.full_name ?? profile?.email ?? 'U')
+      .split(' ')
+      .filter(Boolean)
+      .map((word) => word[0])
+      .slice(0, 2)
+      .join('')
+      .toUpperCase() || 'U';
 
   const level = xpToLevel(gamification.total_xp);
   const isPaid = Boolean(profile?.plan && profile.plan !== 'free');
-
-  const statsWeeks: DayActivity[][] = [];
-  if (stats) {
-    for (let index = 0; index < 30; index += 7) {
-      statsWeeks.push(stats.dailyActivity.slice(index, index + 7));
-    }
-  }
+  const safeLevelCounts = stats?.wordStats?.levelCounts ?? [0, 0, 0, 0, 0, 0];
+  const safeTotalWords = stats?.wordStats?.total ?? 0;
+  const safeWordsDue = stats?.wordStats?.wordsDue ?? 0;
+  const safeAvgStability = stats?.wordStats?.avgStability ?? 0;
+  const safeDailyActivity = Array.isArray(stats?.dailyActivity) ? stats.dailyActivity : [];
+  const safeWeakWords = Array.isArray(stats?.weakWords) ? stats.weakWords : [];
+  const safeQuizHistory = Array.isArray(stats?.quizHistory) ? stats.quizHistory : [];
 
   return (
     <StudentShell title="Hồ sơ & Phân tích">
-      <div className="mx-auto max-w-2xl space-y-3">
-        {/* Header */}
-        <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary text-base font-black text-primary-foreground shadow">
-            {initials}
-          </div>
-          <div className="min-w-0 flex-1">
-            <h2 className="truncate text-base font-black text-foreground">
-              {profile?.full_name || 'Chưa đặt tên'}
-            </h2>
-            <p className="truncate text-[11px] font-medium text-muted-foreground">
-              {profile?.email}
-            </p>
-            <div className="mt-1 flex flex-wrap items-center gap-1">
-              <Badge variant="outline" className="px-1.5 py-0 text-[10px] font-bold">
-                {profile?.role === 'teacher' ? 'GV' : 'HS'}
-              </Badge>
-              <Badge className="bg-amber-500 px-1.5 py-0 text-[10px] font-bold text-white">
-                Lv {level}
-              </Badge>
-              {isPaid ? (
-                <Badge className="bg-violet-600 px-1.5 py-0 text-[10px] font-bold capitalize text-white">
-                  {profile?.plan}
+      <div className="mx-auto max-w-4xl min-w-0 space-y-4 sm:space-y-5">
+        {/* Header Profile Card */}
+        <section className="flex flex-col lg:flex-row lg:items-center justify-between gap-3.5 sm:gap-4 rounded-[18px] border border-slate-200/90 bg-white p-4 sm:p-[22px] shadow-xs dark:border-[#272C47] dark:bg-[#161A2E]">
+          <div className="flex items-center gap-3.5 min-w-0">
+            <div className="flex h-13 w-13 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-2xl bg-indigo-600 text-base sm:text-lg font-extrabold text-white shadow-sm shadow-indigo-500/20 dark:bg-[#7B67FF]">
+              {initials}
+            </div>
+            <div className="min-w-0 flex-1">
+              <h2 className="truncate text-base sm:text-lg font-extrabold text-slate-900 dark:text-[#F2F3FB]">
+                {profile?.full_name || 'Chưa đặt tên'}
+              </h2>
+              <p className="truncate text-xs font-medium text-slate-500 dark:text-[#A5AAC6]">
+                {profile?.email}
+              </p>
+              <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
+                <Badge
+                  variant="outline"
+                  className="border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-bold text-slate-700 dark:border-[#272C47] dark:bg-[#20253F] dark:text-[#F2F3FB]"
+                >
+                  {profile?.role === 'teacher' ? 'Giáo viên' : 'Học viên'}
                 </Badge>
-              ) : (
-                <Badge variant="outline" className="px-1.5 py-0 text-[10px] font-bold text-muted-foreground">
-                  Free
+                <Badge className="bg-indigo-600 px-2 py-0.5 text-[11px] font-bold text-white dark:bg-[#7B67FF]">
+                  Lv.{level}
                 </Badge>
-              )}
+                {isPaid ? (
+                  <Badge className="bg-emerald-600 px-2 py-0.5 text-[11px] font-bold capitalize text-white">
+                    {profile?.plan}
+                  </Badge>
+                ) : (
+                  <Badge
+                    variant="outline"
+                    className="border-slate-200 bg-slate-50 px-2 py-0.5 text-[11px] font-bold text-slate-500 dark:border-[#272C47] dark:bg-[#20253F] dark:text-[#A5AAC6]"
+                  >
+                    Free
+                  </Badge>
+                )}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Pro */}
-        <Link
-          href="/upgrade"
-          className="flex items-center gap-2 rounded-xl border border-violet-200 bg-violet-50/80 px-3 py-2 transition hover:border-violet-300"
+          <Link
+            href="/upgrade"
+            className="w-full lg:w-auto inline-flex items-center justify-between lg:justify-center gap-2 rounded-xl border-[1.5px] border-[#7B67FF] bg-indigo-50/60 px-4 py-2.5 text-xs sm:text-[13px] font-bold text-indigo-600 transition hover:bg-indigo-100/70 shrink-0 dark:bg-[#20253F] dark:text-[#B3A8FF] dark:hover:bg-[#272C47]"
+          >
+            <span className="inline-flex items-center gap-2">
+              <Crown className="h-4 w-4 shrink-0" />
+              <span>{isPaid ? 'Quản lý gói Pro' : 'Nâng cấp Pro · AI không giới hạn'}</span>
+            </span>
+            <span className="font-extrabold">→</span>
+          </Link>
+        </section>
+
+        {/* Mobile Quick View Switcher (helps mobile users jump directly between Analytics & Account Settings) */}
+        <nav
+          aria-label="Chuyển nhanh khu vực hồ sơ trên di động"
+          className="grid grid-cols-3 sm:hidden gap-1.5 rounded-2xl border border-slate-200/90 bg-white p-1.5 shadow-xs dark:border-[#272C47] dark:bg-[#161A2E]"
         >
-          <Crown className="h-4 w-4 shrink-0 text-violet-600" />
-          <span className="min-w-0 flex-1 text-xs font-bold text-violet-900">
-            {isPaid ? 'Quản lý gói Pro' : 'Nâng cấp Pro · AI không giới hạn'}
-          </span>
-          <span className="text-xs font-black text-violet-600">→</span>
-        </Link>
+          <button
+            type="button"
+            onClick={() => setMobileSection('all')}
+            className={`inline-flex items-center justify-center gap-1.5 rounded-xl py-2 px-2 text-xs font-bold transition-all cursor-pointer ${
+              mobileSection === 'all'
+                ? 'bg-indigo-600 text-white shadow-xs dark:bg-[#7B67FF]'
+                : 'text-slate-600 hover:text-slate-900 dark:text-[#A5AAC6] dark:hover:text-[#F2F3FB]'
+            }`}
+          >
+            <LayoutGrid className="h-3.5 w-3.5 shrink-0" />
+            <span>Tất cả</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setMobileSection('analytics')}
+            className={`inline-flex items-center justify-center gap-1.5 rounded-xl py-2 px-2 text-xs font-bold transition-all cursor-pointer ${
+              mobileSection === 'analytics'
+                ? 'bg-indigo-600 text-white shadow-xs dark:bg-[#7B67FF]'
+                : 'text-slate-600 hover:text-slate-900 dark:text-[#A5AAC6] dark:hover:text-[#F2F3FB]'
+            }`}
+          >
+            <BarChart3 className="h-3.5 w-3.5 shrink-0" />
+            <span>Phân tích</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setMobileSection('settings')}
+            className={`inline-flex items-center justify-center gap-1.5 rounded-xl py-2 px-2 text-xs font-bold transition-all cursor-pointer ${
+              mobileSection === 'settings'
+                ? 'bg-indigo-600 text-white shadow-xs dark:bg-[#7B67FF]'
+                : 'text-slate-600 hover:text-slate-900 dark:text-[#A5AAC6] dark:hover:text-[#F2F3FB]'
+            }`}
+          >
+            <Settings className="h-3.5 w-3.5 shrink-0" />
+            <span>Cài đặt</span>
+          </button>
+        </nav>
 
-        {/* XP + Streak */}
-        <div className="grid grid-cols-2 gap-2">
+        {/* XP + Streak (Fluid auto-fit grid so cards never crush at intermediate widths) */}
+        <div
+          className={`${
+            mobileSection === 'settings' ? 'hidden sm:grid' : 'grid'
+          } grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-3.5 sm:gap-4`}
+        >
           <XpBadge totalXp={gamification.total_xp} variant="detailed" />
           <StreakCounter
             streak={displayStreak}
@@ -408,289 +579,287 @@ export default function ProfilePage() {
           />
         </div>
 
-        {/* Stats & Learning Analytics */}
-        <section id="stats" className="space-y-3 rounded-xl border bg-background p-3 shadow-sm">
-          <div className="flex items-center justify-between gap-2">
-            <h3 className="flex items-center gap-1.5 text-sm font-black">
-              <BarChart3 className="h-4 w-4 text-primary" />
-              Thống kê & Phân tích học tập
-            </h3>
-            {stats && (
-              <span className="text-[10px] font-semibold text-muted-foreground">30 ngày gần nhất</span>
-            )}
-          </div>
-
+        {/* Learning Analytics (Unified FSRS & Multi-Skill Panel without duplicate wrapper) */}
+        <div
+          id="stats"
+          className={mobileSection === 'settings' ? 'hidden sm:block' : 'block'}
+        >
           {!stats ? (
-            <p className="text-xs text-muted-foreground">Chưa tải được thống kê.</p>
+            <section className="rounded-[18px] border border-slate-200/90 bg-white p-4 sm:p-[22px] text-xs font-medium text-slate-500 shadow-xs dark:border-[#272C47] dark:bg-[#161A2E] dark:text-[#A5AAC6]">
+              Chưa tải được thống kê học tập.
+            </section>
           ) : (
-            <>
-              <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-4">
-                {[
-                  {
-                    icon: <Flame className="h-3.5 w-3.5 text-orange-500" />,
-                    label: 'Streak liên tiếp',
-                    value: `${typeof stats.studyStreak === 'number' ? stats.studyStreak : displayStreak}`,
-                  },
-                  {
-                    icon: <BookOpen className="h-3.5 w-3.5 text-blue-500" />,
-                    label: 'Tổng từ',
-                    value: String(stats.wordStats.total),
-                  },
-                  {
-                    icon: <AlertCircle className="h-3.5 w-3.5 text-amber-500" />,
-                    label: 'Đến hạn',
-                    value: String(stats.wordStats.wordsDue),
-                  },
-                  {
-                    icon: <Target className="h-3.5 w-3.5 text-green-500" />,
-                    label: 'Độ chính xác Quiz',
-                    value: `${stats.avgAccuracy}%`,
-                  },
-                ].map((card) => (
-                  <div
-                    key={card.label}
-                    className="rounded-lg border bg-muted/30 px-2 py-2 text-center"
-                  >
-                    <div className="mb-0.5 flex justify-center">{card.icon}</div>
-                    <div className="text-base font-black tabular-nums">{card.value}</div>
-                    <div className="text-[10px] font-semibold text-muted-foreground">
-                      {card.label}
-                    </div>
-                  </div>
-                ))}
+            <LearningAnalyticsPanel
+              compact
+              stats={{
+                total: safeTotalWords,
+                due: safeWordsDue,
+                new: safeLevelCounts[0] ?? 0,
+                learned: Math.max(0, safeTotalWords - (safeLevelCounts[0] ?? 0)),
+              }}
+              wordBreakdown={{
+                l1: safeLevelCounts[0] ?? 0,
+                l2: safeLevelCounts[1] ?? 0,
+                l3: safeLevelCounts[2] ?? 0,
+                l4: safeLevelCounts[3] ?? 0,
+                l5: safeLevelCounts[4] ?? 0,
+                l6: safeLevelCounts[5] ?? 0,
+              }}
+              avgStabilityDays={safeAvgStability}
+              retentionRate={stats.retentionRate}
+              grammarDue={stats.grammarDueCount}
+              skillScores={
+                stats.skillScores
+                  ? {
+                      vocabScore: Number(stats.skillScores.vocabScore ?? 0),
+                      grammarScore: Number(stats.skillScores.grammarScore ?? 0),
+                      reflexScore: Number(stats.skillScores.reflexScore ?? 0),
+                      readingScore: Number(stats.skillScores.readingScore ?? 0),
+                      listeningScore: Number(stats.skillScores.listeningScore ?? 0),
+                    }
+                  : undefined
+              }
+              dailyActivity={safeDailyActivity}
+              quizTrend={
+                safeQuizHistory.length > 0
+                  ? safeQuizHistory.map((q) => ({
+                      score: q.score,
+                      max_score: q.total || 10,
+                      completed_at: q.created_at || q.date || new Date().toISOString(),
+                      quiz_type: q.type || 'vocabulary',
+                    }))
+                  : undefined
+              }
+              weakWords={safeWeakWords.map((w) => ({
+                word: w.word || w.word_id || '',
+                meaning: w.translation || w.meaning || '',
+                level: w.level,
+                stability:
+                  typeof w.stability === 'number' && w.stability > 0
+                    ? Number(w.stability.toFixed(1))
+                    : Number((w.level <= 1 ? 1.0 : w.level * 1.8).toFixed(1)),
+              }))}
+              currentStreak={displayStreak}
+              longestStreak={gamification.longest_streak}
+              totalXp={gamification.total_xp}
+              todayXp={gamification.today_xp}
+              dailyGoal={gamification.daily_goal}
+            />
+          )}
+        </div>
+
+        {/* Settings & Devices wrapper (hidden on mobile only when user explicitly filters 'analytics') */}
+        <div
+          id="account-settings"
+          className={`${
+            mobileSection === 'analytics' ? 'hidden sm:block' : 'block'
+          } space-y-4 sm:space-y-5`}
+        >
+          {/* Cài đặt Giao diện Sáng / Tối / Hệ thống */}
+          <section className="space-y-3.5 rounded-[18px] border border-slate-200/90 bg-white p-4 sm:p-[22px] shadow-xs dark:border-[#272C47] dark:bg-[#161A2E]">
+            <div>
+              <h3 className="text-[15px] sm:text-[16px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                Giao diện Hiển thị (Sáng / Tối)
+              </h3>
+              <p className="text-xs sm:text-[13px] font-medium text-slate-500 mt-0.5 dark:text-[#A5AAC6]">
+                Tùy chỉnh chế độ màu sắc theo sở thích cá nhân hoặc đồng bộ tự động theo hệ thống thiết bị
+              </p>
+            </div>
+            <ThemeToggle variant="cards" />
+          </section>
+
+          {/* Settings + Thiết bị (2-column grid on wide desktop) */}
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-4 sm:gap-5 items-start">
+            {/* Cài đặt cá nhân */}
+            <section className="xl:col-span-7 min-w-0 space-y-4 rounded-[18px] border border-slate-200/90 bg-white p-4 sm:p-[22px] shadow-xs dark:border-[#272C47] dark:bg-[#161A2E]">
+              <div>
+                <h3 className="text-[15px] sm:text-[16px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                  Cài đặt tài khoản
+                </h3>
+                <p className="text-xs sm:text-[13px] font-medium text-slate-500 mt-0.5 dark:text-[#A5AAC6]">
+                  Cập nhật thông tin hồ sơ, mục tiêu học tập và khung giờ nhắc ôn hàng ngày
+                </p>
               </div>
 
-              {statsWeeks.length > 0 && (
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,200px),1fr))] gap-3.5">
+                <div className="space-y-1.5 col-span-full">
+                  <Label htmlFor="full-name" className="text-xs font-bold text-slate-700 dark:text-[#F2F3FB]">
+                    Họ tên
+                  </Label>
+                  <Input
+                    id="full-name"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    maxLength={50}
+                    placeholder="Nhập họ tên…"
+                    className="h-11 rounded-xl border-slate-200 bg-slate-50/60 text-sm font-semibold dark:border-[#272C47] dark:bg-[#20253F] dark:text-[#F2F3FB]"
+                  />
+                </div>
+
                 <div className="space-y-1.5">
-                  <p className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
-                    <Flame className="h-3 w-3 text-orange-500" />
-                    Bản đồ nhiệt ngày có học (30 ngày)
-                  </p>
-                  <div className="space-y-1">
-                    {statsWeeks.map((week, weekIndex) => (
-                      <div key={weekIndex} className="flex gap-1">
-                        {week.map((day) => (
-                          <div
-                            key={day.date}
-                            title={`${fmtDay(day.date)}: ${day.count} từ`}
-                            className={`h-4 flex-1 rounded-sm ${heatColor(day.count)}`}
-                          />
-                        ))}
-                        {week.length < 7 &&
-                          Array.from({ length: 7 - week.length }).map((_, padIndex) => (
-                            <div key={`pad-${padIndex}`} className="h-4 flex-1" />
-                          ))}
-                      </div>
-                    ))}
+                  <Label htmlFor="notification-hour" className="text-xs font-bold text-slate-700 dark:text-[#F2F3FB]">
+                    Giờ nhắc học
+                  </Label>
+                  <div className="relative">
+                    <select
+                      id="notification-hour"
+                      value={notificationHour}
+                      onChange={(e) => setNotificationHour(Number(e.target.value))}
+                      className="h-11 w-full cursor-pointer appearance-none rounded-xl border border-slate-200 bg-slate-50/60 pl-3.5 pr-9 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 dark:border-[#272C47] dark:bg-[#20253F] dark:text-[#F2F3FB]"
+                    >
+                      {Array.from({ length: 17 }, (_, index) => index + 6).map((hour) => (
+                        <option key={hour} value={hour}>
+                          {String(hour).padStart(2, '0')}:00
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-[#A5AAC6]" />
                   </div>
                 </div>
-              )}
 
-              {/* Biểu đồ Phân tích FSRS & Đa kỹ năng hợp nhất (không lặp lại khối SRS/Từ yếu bên ngoài) */}
-              <div className="pt-1">
-                <LearningAnalyticsPanel
-                  compact
-                  stats={{
-                    total: stats.wordStats.total,
-                    due: stats.wordStats.wordsDue,
-                    new: stats.wordStats.levelCounts[0] ?? 0,
-                    learned: Math.max(0, stats.wordStats.total - (stats.wordStats.levelCounts[0] ?? 0)),
-                  }}
-                  wordBreakdown={{
-                    l1: stats.wordStats.levelCounts[0] ?? 0,
-                    l2: stats.wordStats.levelCounts[1] ?? 0,
-                    l3: stats.wordStats.levelCounts[2] ?? 0,
-                    l4: stats.wordStats.levelCounts[3] ?? 0,
-                    l5: stats.wordStats.levelCounts[4] ?? 0,
-                    l6: stats.wordStats.levelCounts[5] ?? 0,
-                  }}
-                  avgStabilityDays={stats.wordStats.avgStability}
-                  retentionRate={stats.retentionRate}
-                  grammarDue={stats.grammarDueCount}
-                  skillScores={
-                    stats.skillScores
-                      ? {
-                          vocabScore: Number(stats.skillScores.vocabScore ?? 0),
-                          grammarScore: Number(stats.skillScores.grammarScore ?? 0),
-                          reflexScore: Number(stats.skillScores.reflexScore ?? 0),
-                          readingScore: Number(stats.skillScores.readingScore ?? 0),
-                          listeningScore: Number(stats.skillScores.listeningScore ?? 0),
-                        }
-                      : undefined
-                  }
-                  dailyActivity={stats.dailyActivity}
-                  quizTrend={
-                    Array.isArray(stats.quizHistory)
-                      ? stats.quizHistory.map((q) => ({
-                          score: q.score,
-                          max_score: q.total || 10,
-                          completed_at: q.created_at || q.date || new Date().toISOString(),
-                          quiz_type: q.type || 'vocabulary',
-                        }))
-                      : undefined
-                  }
-                  weakWords={stats.weakWords.map((w) => ({
-                    word: w.word || w.word_id,
-                    meaning: w.translation || '',
-                    level: w.level,
-                    stability: Number((w.level <= 1 ? 1.0 : w.level * 1.8).toFixed(1)),
-                  }))}
-                  currentStreak={displayStreak}
-                  longestStreak={gamification.longest_streak}
-                  totalXp={gamification.total_xp}
-                  todayXp={gamification.today_xp}
-                  dailyGoal={gamification.daily_goal}
+                <div className="space-y-1.5">
+                  <Label htmlFor="province-select" className="text-xs font-bold text-slate-700 dark:text-[#F2F3FB]">
+                    Tỉnh / Thành phố
+                  </Label>
+                  <div className="relative">
+                    <select
+                      id="province-select"
+                      value={province}
+                      onChange={(e) => setProvince(e.target.value)}
+                      className="h-11 w-full cursor-pointer appearance-none rounded-xl border border-slate-200 bg-slate-50/60 pl-3.5 pr-9 text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 dark:border-[#272C47] dark:bg-[#20253F] dark:text-[#F2F3FB]"
+                    >
+                      <option value="">-- Chưa chọn Tỉnh / Thành phố --</option>
+                      {PROVINCES.map((p) => (
+                        <option key={p} value={p}>
+                          {p}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 dark:text-[#A5AAC6]" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-2.5 rounded-xl border border-slate-200/80 bg-slate-50/60 p-3.5 dark:border-[#272C47] dark:bg-[#20253F]/60">
+                <div className="flex items-center justify-between">
+                  <Label htmlFor="daily-goal" className="text-xs font-bold text-slate-700 dark:text-[#F2F3FB]">
+                    Mục tiêu ngày
+                  </Label>
+                  <span className="rounded-full bg-indigo-500/15 px-2.5 py-0.5 text-xs font-extrabold text-indigo-600 dark:bg-[#20253F] dark:text-[#B3A8FF]">
+                    {dailyGoal} phút / ngày
+                  </span>
+                </div>
+                <div className="grid grid-cols-5 gap-1.5">
+                  {[10, 15, 20, 30, 45].map((preset) => (
+                    <button
+                      key={preset}
+                      type="button"
+                      onClick={() => setDailyGoal(preset)}
+                      className={`h-8 rounded-lg text-xs font-bold transition-colors cursor-pointer ${
+                        dailyGoal === preset
+                          ? 'bg-indigo-600 text-white dark:bg-[#7B67FF]'
+                          : 'bg-white text-slate-600 border border-slate-200/80 hover:border-indigo-300 dark:bg-[#161A2E] dark:text-[#A5AAC6] dark:border-[#272C47]'
+                      }`}
+                    >
+                      {preset}p
+                    </button>
+                  ))}
+                </div>
+                <input
+                  id="daily-goal"
+                  type="range"
+                  min={5}
+                  max={50}
+                  step={5}
+                  value={dailyGoal}
+                  onChange={(e) => setDailyGoal(Number(e.target.value))}
+                  className="w-full cursor-pointer accent-indigo-600 dark:accent-[#7B67FF]"
                 />
               </div>
-            </>
-          )}
-        </section>
 
-        {/* Cài đặt Giao diện Sáng / Tối / Hệ thống */}
-        <section className="space-y-3 rounded-xl border bg-background p-4 shadow-sm">
-          <div>
-            <h3 className="text-sm font-black">Giao diện Hiển thị (Sáng / Tối)</h3>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              Tùy chỉnh chế độ màu sắc theo sở thích cá nhân hoặc đồng bộ tự động theo hệ thống thiết bị
-            </p>
+              <Button
+                onClick={handleSave}
+                disabled={isSaving}
+                className="h-11 w-full rounded-xl bg-indigo-600 text-sm font-bold text-white hover:bg-indigo-700 dark:bg-[#7B67FF] dark:hover:opacity-95"
+              >
+                {isSaving ? (
+                  <>
+                    <Loader2 className="mr-1.5 h-4 w-4 animate-spin" /> Đang lưu…
+                  </>
+                ) : (
+                  <>
+                    <Save className="mr-1.5 h-4 w-4" /> Lưu thay đổi
+                  </>
+                )}
+              </Button>
+            </section>
+
+            {/* Thiết bị & Tiện ích mở rộng */}
+            <section className="xl:col-span-5 min-w-0 space-y-3.5 rounded-[18px] border border-slate-200/90 bg-white p-4 sm:p-[22px] shadow-xs dark:border-[#272C47] dark:bg-[#161A2E]">
+              <div>
+                <h3 className="text-[15px] sm:text-[16px] font-bold text-slate-900 dark:text-[#F2F3FB]">
+                  Thiết bị &amp; Tiện ích
+                </h3>
+                <p className="text-xs sm:text-[13px] font-medium text-slate-500 mt-0.5 dark:text-[#A5AAC6]">
+                  Kết nối Chrome Extension để lưu từ nhanh và bật thông báo đẩy nhắc ôn tập trên thiết bị này
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-2.5">
+                <Button
+                  type="button"
+                  onClick={handleCopyExtensionToken}
+                  disabled={isCopyingToken}
+                  className="h-11 w-full justify-center rounded-xl bg-indigo-600 text-xs sm:text-[13px] font-bold text-white hover:bg-indigo-700 dark:bg-[#7B67FF] dark:hover:opacity-95"
+                >
+                  {isCopyingToken ? (
+                    <Loader2 className="mr-1.5 h-4 w-4 animate-spin" />
+                  ) : tokenCopied ? (
+                    <CheckCircle2 className="mr-1.5 h-4 w-4" />
+                  ) : (
+                    <Copy className="mr-1.5 h-4 w-4" />
+                  )}
+                  {tokenCopied ? 'Đã sao chép mã kết nối' : 'Copy token Chrome Extension'}
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleEnablePush}
+                  disabled={isEnablingPush}
+                  className="h-11 w-full justify-center rounded-xl border-[1.5px] border-[#7B67FF] bg-transparent text-xs sm:text-[13px] font-bold text-indigo-600 hover:bg-indigo-50/60 dark:text-[#B3A8FF] dark:hover:bg-[#20253F]"
+                >
+                  {isEnablingPush ? (
+                    <Loader2 className="mr-1.5 h-4 w-4 animate-spin" />
+                  ) : (
+                    <Bell className="mr-1.5 h-4 w-4" />
+                  )}
+                  Bật thông báo nhắc ôn
+                </Button>
+              </div>
+
+              <p className="rounded-xl bg-slate-50 p-3 text-[11.5px] font-medium leading-relaxed text-slate-500 dark:bg-[#20253F] dark:text-[#A5AAC6]">
+                Dán mã token vào tiện ích LingoPro trên trình duyệt để tra và lưu từ vựng trực tiếp khi đọc báo hoặc xem phụ đề.
+              </p>
+
+              <div className="pt-2 border-t border-slate-200/80 dark:border-[#272C47]">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleSignOut}
+                  disabled={isSigningOut}
+                  className="h-11 w-full justify-center rounded-xl border-rose-200/80 bg-rose-50/50 text-xs sm:text-[13px] font-bold text-rose-600 hover:bg-rose-100/70 dark:border-[#272C47] dark:bg-[#2D1B2A]/60 dark:text-[#FF8FAA] dark:hover:bg-[#2D1B2A]"
+                >
+                  {isSigningOut ? (
+                    <Loader2 className="mr-1.5 h-4 w-4 animate-spin" />
+                  ) : (
+                    <LogOut className="mr-1.5 h-4 w-4" />
+                  )}
+                  Đăng xuất tài khoản
+                </Button>
+              </div>
+            </section>
           </div>
-          <ThemeToggle variant="cards" />
-        </section>
-
-        {/* Settings gộp */}
-        <section className="space-y-3 rounded-xl border bg-background p-3 shadow-sm">
-          <h3 className="text-sm font-black">Cài đặt</h3>
-
-          <div className="space-y-1.5">
-            <Label htmlFor="full-name" className="text-xs font-bold">
-              Họ tên
-            </Label>
-            <Input
-              id="full-name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              maxLength={50}
-              placeholder="Nhập họ tên…"
-              className="h-9 text-sm font-semibold"
-            />
-          </div>
-
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="daily-goal" className="text-xs font-bold">
-                Mục tiêu ngày
-              </Label>
-              <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-black text-primary">
-                {dailyGoal} phút
-              </span>
-            </div>
-            <input
-              id="daily-goal"
-              type="range"
-              min={5}
-              max={50}
-              step={5}
-              value={dailyGoal}
-              onChange={(e) => setDailyGoal(Number(e.target.value))}
-              className="w-full cursor-pointer accent-primary"
-            />
-          </div>
-
-          <div className="space-y-1.5">
-            <Label htmlFor="notification-hour" className="text-xs font-bold">
-              Giờ nhắc
-            </Label>
-            <select
-              id="notification-hour"
-              value={notificationHour}
-              onChange={(e) => setNotificationHour(Number(e.target.value))}
-              className="h-9 w-full cursor-pointer appearance-none rounded-lg border bg-background px-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/30"
-            >
-              {Array.from({ length: 17 }, (_, index) => index + 6).map((hour) => (
-                <option key={hour} value={hour}>
-                  {String(hour).padStart(2, '0')}:00
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="space-y-1.5">
-            <Label htmlFor="province-select" className="text-xs font-bold">
-              Tỉnh / Thành phố
-            </Label>
-            <select
-              id="province-select"
-              value={province}
-              onChange={(e) => setProvince(e.target.value)}
-              className="h-9 w-full cursor-pointer appearance-none rounded-lg border bg-background px-3 text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-primary/30"
-            >
-              <option value="">-- Chưa chọn Tỉnh / Thành phố --</option>
-              {PROVINCES.map((p) => (
-                <option key={p} value={p}>
-                  {p}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <Button
-            onClick={handleSave}
-            disabled={isSaving}
-            className="h-10 w-full rounded-xl text-sm font-black"
-          >
-            {isSaving ? (
-              <>
-                <Loader2 className="mr-1.5 h-4 w-4 animate-spin" /> Đang lưu…
-              </>
-            ) : (
-              <>
-                <Save className="mr-1.5 h-4 w-4" /> Lưu
-              </>
-            )}
-          </Button>
-        </section>
-
-        {/* Extension + push — gọn */}
-        <section className="space-y-2 rounded-xl border bg-background p-3 shadow-sm">
-          <h3 className="text-sm font-black">Thiết bị</h3>
-
-          <div className="flex flex-wrap items-center gap-2">
-            <Button
-              type="button"
-              size="sm"
-              onClick={handleCopyExtensionToken}
-              disabled={isCopyingToken}
-              className="h-8 text-xs font-bold"
-            >
-              {isCopyingToken ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : tokenCopied ? (
-                <CheckCircle2 className="h-3.5 w-3.5" />
-              ) : (
-                <Copy className="h-3.5 w-3.5" />
-              )}
-              {tokenCopied ? 'Đã copy' : 'Copy token extension'}
-            </Button>
-            <Button
-              type="button"
-              size="sm"
-              variant="outline"
-              onClick={handleEnablePush}
-              disabled={isEnablingPush}
-              className="h-8 text-xs font-bold"
-            >
-              {isEnablingPush ? (
-                <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              ) : (
-                <Bell className="h-3.5 w-3.5" />
-              )}
-              Bật thông báo
-            </Button>
-          </div>
-          <p className="text-[10px] text-muted-foreground">
-            Token dán vào Chrome extension · thông báo nhắc ôn trên máy này
-          </p>
-        </section>
+        </div>
       </div>
     </StudentShell>
   );

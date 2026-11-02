@@ -3,6 +3,7 @@ import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import Link from '@/shared/router/navigation';
 import { useParams, useRouter } from '@/shared/router/navigation';
 import { ChevronLeft, ArrowRight, RotateCcw, AlertTriangle, BookOpen, Volume2, Sparkles, Compass } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { StudentShell } from '@/components/student/StudentShell';
 import { SpeakingStepLayout } from '@/components/speaking/SpeakingStepLayout';
 import {
@@ -169,7 +170,7 @@ export default function SpeakingTopicDetailPage() {
     return (
       <StudentShell title="Không tìm thấy bài học">
         <div className="max-w-xl mx-auto py-16 px-4 text-center space-y-4">
-          <div className="inline-flex p-3 bg-amber-500/10 text-amber-500 rounded-none border border-amber-500/30">
+          <div className="inline-flex p-3 bg-amber-500/10 text-amber-500 rounded-2xl border border-amber-500/30">
             <AlertTriangle className="size-8" />
           </div>
           <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">
@@ -179,11 +180,10 @@ export default function SpeakingTopicDetailPage() {
             ID: {topicId || 'unknown'}
           </p>
           <div className="pt-4">
-            <Link
-              href="/student/speaking/topics"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900 font-mono text-xs uppercase hover:opacity-90 transition-opacity"
-            >
-              <ChevronLeft className="size-4" /> Quay lại thư viện chủ đề
+            <Link href="/student/speaking/topics">
+              <Button className="bg-indigo-600 hover:bg-indigo-500 text-white font-medium">
+                <ChevronLeft className="size-4 mr-1.5" /> Quay lại thư viện chủ đề
+              </Button>
             </Link>
           </div>
         </div>
@@ -248,25 +248,30 @@ export default function SpeakingTopicDetailPage() {
       headerIcon={<Compass className="h-4 w-4 text-amber-400" />}
       showOrientationBanner={false}
       headerActions={
-        <div className="flex items-center gap-2.5 text-xs">
-          <span className="font-mono text-[11px] text-slate-600 dark:text-slate-400 hidden sm:inline">
-            Cấp độ: <strong className="text-amber-700 dark:text-amber-300">{topic.level}</strong>
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/30 hidden sm:inline-block">
+            CEFR {topic.level}
           </span>
-          <Link
-            href="/student/speaking/topics"
-            className="flex items-center gap-1 px-2.5 py-1 border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-mono text-[11px] transition-colors"
-          >
-            <ChevronLeft className="size-3.5" />
-            <span>Thư viện</span>
+          <Link href="/student/speaking/topics">
+            <Button
+              variant="outline"
+              size="sm"
+              className="border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/80 text-xs text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white h-8 px-2.5"
+            >
+              <ChevronLeft className="size-3.5 mr-1" />
+              <span>Thư viện</span>
+            </Button>
           </Link>
           {nextTopic && (
-            <button
+            <Button
+              variant="outline"
+              size="sm"
               onClick={() => router.push(`/student/speaking/topics/${nextTopic.id}`)}
-              className="flex items-center gap-1 px-2.5 py-1 border border-indigo-400/50 dark:border-indigo-500/40 bg-indigo-50 dark:bg-indigo-950/50 font-mono text-[11px] text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-colors"
+              className="border-indigo-300 dark:border-indigo-500/40 bg-indigo-50 dark:bg-indigo-950/50 text-xs text-indigo-700 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 h-8 px-2.5"
             >
               <span>Tiếp theo</span>
-              <ArrowRight className="size-3" />
-            </button>
+              <ArrowRight className="size-3.5 ml-1" />
+            </Button>
           )}
         </div>
       }

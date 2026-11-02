@@ -278,52 +278,70 @@ export function StreakCounter({
 
   return (
     <div
-      className={`rounded-2xl border border-orange-200 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50 p-4 shadow-sm ${className}`}
+      className={`flex h-full flex-col justify-between rounded-[18px] border border-slate-200/90 bg-white p-4 sm:p-5 shadow-xs transition-colors dark:border-[#272C47] dark:bg-[#161A2E] ${className}`}
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3.5 sm:gap-4">
         <div
-          className={`flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-4xl ${
+          className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-2xl ${
             isActive
-              ? 'bg-gradient-to-br from-orange-400 to-red-500 shadow-lg shadow-orange-200'
-              : 'bg-slate-100 grayscale'
+              ? 'bg-amber-500/15 text-amber-500 dark:bg-amber-500/20 dark:text-[#FBA94C]'
+              : 'bg-slate-100 text-slate-400 grayscale dark:bg-[#20253F]'
           }`}
         >
           🔥
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline gap-1.5">
-            <span className={`text-3xl font-black tabular-nums ${isActive ? 'text-orange-600' : 'text-slate-400'}`}>
+            <span
+              className={`text-2xl font-extrabold tabular-nums ${
+                isActive ? 'text-slate-900 dark:text-[#F2F3FB]' : 'text-slate-400 dark:text-[#A5AAC6]'
+              }`}
+            >
               {streak}
             </span>
-            <span className={`text-xs font-black uppercase tracking-widest ${isActive ? 'text-orange-500' : 'text-slate-400'}`}>
+            <span
+              className={`text-xs font-extrabold uppercase tracking-wider ${
+                isActive ? 'text-amber-600 dark:text-[#FBA94C]' : 'text-slate-400 dark:text-[#A5AAC6]'
+              }`}
+            >
               ngày liên tiếp
             </span>
           </div>
           {!isActive && (
-            <p className="mt-0.5 text-[11px] font-bold text-orange-600/80">Học hôm nay để mở streak!</p>
+            <p className="mt-0.5 text-[11px] font-semibold text-amber-600 dark:text-[#FBA94C]">
+              Học hôm nay để mở chuỗi ngày học!
+            </p>
           )}
           {isActive && (
-            <p className="mt-0.5 text-[11px] font-semibold text-slate-500">Không tính ngày rải rác</p>
+            <p className="mt-0.5 text-[11px] font-medium text-slate-500 dark:text-[#A5AAC6]">
+              Duy trì nhịp học đều đặn mỗi ngày
+            </p>
           )}
         </div>
       </div>
-      <div className="mt-3 flex items-center justify-between gap-1">
+      <div className="mt-3.5 flex items-center justify-between gap-1 border-t border-slate-100 pt-3 dark:border-[#272C47]">
         {days.map((d, i) => (
           <div key={i} className="flex flex-1 flex-col items-center gap-1">
-            <span className={`text-[9px] font-black uppercase ${d.isToday ? 'text-orange-600' : 'text-slate-400'}`}>
+            <span
+              className={`text-[10px] font-bold uppercase ${
+                d.isToday
+                  ? 'text-indigo-600 dark:text-[#B3A8FF]'
+                  : 'text-slate-400 dark:text-[#A5AAC6]'
+              }`}
+            >
               {d.label}
             </span>
             <span
-              className={`flex h-5 w-5 items-center justify-center rounded-full text-[10px] ${
+              className={`flex h-6 w-6 items-center justify-center rounded-full text-[11px] transition-colors ${
                 d.active
-                  ? 'bg-gradient-to-br from-orange-400 to-red-500 text-white shadow-sm'
+                  ? 'bg-emerald-500 text-white shadow-2xs dark:bg-[#3DD6A0] dark:text-[#161A2E]'
                   : d.isToday
-                    ? 'border-2 border-dashed border-orange-300 bg-white'
-                    : 'bg-orange-100/60'
+                    ? 'border-2 border-[#7B67FF] bg-slate-50 dark:bg-[#20253F]'
+                    : 'bg-slate-100 dark:bg-[#20253F]'
               }`}
               title={d.date.toLocaleDateString('vi-VN')}
             >
-              {d.active ? '🔥' : ''}
+              {d.active ? '✓' : ''}
             </span>
           </div>
         ))}
