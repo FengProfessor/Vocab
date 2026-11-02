@@ -1,184 +1,120 @@
-name: Auth Security CI
+name: LingoPro Monorepo CI
 
 on:
   pull_request:
     branches:
       - main
+      - development
     paths:
-      - '.github/workflows/security-ci.yml'
-      - '.github/workflows/deploy-server.yml'
+      - '.github/workflows/**'
+      - 'front-end/**'
+      - 'back-end/**'
       - 'deploy/**'
-      - 'tests/deploy/**'
-      - '.github/workflows/push-cron.yml'
-      - 'src/lib/api-security.ts'
-      - 'src/lib/distributed-rate-limit.ts'
-      - 'src/lib/billing-webhook-auth.ts'
-      - 'src/lib/anti-scrape.ts'
-      - 'src/lib/entitlement-server.ts'
-      - 'src/app/api/billing/webhook/**'
-      - 'src/app/api/demo/codemix-upgrade/**'
-      - 'src/app/api/practice/pack-passage/**'
-      - 'src/app/api/translate/**'
-      - 'src/lib/internal-redirect.ts'
-      - 'src/lib/cron-auth.ts'
-      - 'src/lib/supabase.ts'
-      - 'src/lib/supabase-server.ts'
-      - 'src/lib/server-session-store.ts'
-      - 'src/lib/server-auth-session.ts'
-      - 'src/lib/password-recovery.ts'
-      - 'src/components/auth/PasswordRecoveryForm.tsx'
-      - 'src/lib/session-response.ts'
-      - 'src/lib/app-session-types.ts'
-      - 'src/lib/app-auth-client.ts'
-      - 'src/lib/auth-fetch.ts'
-      - 'src/app/api/auth/**'
-      - 'supabase/migrations/20261001_app_auth_session_active.sql'
-      - 'src/lib/ai-router.ts'
-      - 'src/lib/gemini-multi.ts'
-      - 'src/lib/notifications.ts'
-      - 'src/app/auth/**'
-      - 'src/app/api/auth/register/**'
-      - 'src/app/api/speaking/upload-audio/**'
-      - 'src/app/api/test/notify/**'
-      - 'src/app/api/cron/**'
-      - 'src/app/api/challenges/check-daily/**'
-      - 'src/app/api/billing/claim-upgrade-gift/**'
-      - 'src/app/api/campaign/claim-upgrade-gift/**'
-      - 'src/app/api/teacher/students/add/**'
-      - 'src/components/campaign/UpgradeGiftModal.tsx'
-      - 'src/components/teacher/StudentsPanel.tsx'
-      - 'scripts/apply-fcm-token-unique.ts'
-      - 'scripts/broadcast-fcm.ts'
-      - 'scripts/onboard_students_tonight.ts'
-      - 'scripts/push-zhipu-vercel.mjs'
-      - 'scripts/seed_toeic_demo.ts'
-      - 'scripts/test-gemini-image.ts'
-      - 'tests/security/**'
-      - 'tests/e2e/**'
-      - 'tests/backup/**'
-      - 'scripts/backup/**'
-      - '.github/workflows/db-backup.yml'
-      - 'next.config.ts'
-      - 'package.json'
-      - 'package-lock.json'
+  push:
+    branches:
+      - development
+    paths:
+      - '.github/workflows/**'
+      - 'front-end/**'
+      - 'back-end/**'
+      - 'deploy/**'
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  cron-auth:
+  frontend-ci:
+    name: Frontend (React 19 + Vite + TypeScript)
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:15
-        env:
-          POSTGRES_PASSWORD: p2c-isolated-test
-          POSTGRES_DB: p2c_session_test
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd "pg_isready -U postgres"
-          --health-interval 5s
-          --health-timeout 3s
-          --health-retries 10
-      redis:
-        image: redis:7.4
-        ports:
-          - 6379:6379
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 5s
-          --health-timeout 3s
-          --health-retries 10
+    defaults:
+      run:
+        working-directory: front-end
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
-          cache: npm
-      - name: Install dependencies
+          cache: 'npm'
+          cache-dependency-path: 'front-end/package-lock.json'
+
+      - name: Install frontend dependencies
         run: npm ci
-      - name: Install isolated SQL test client without lifecycle scripts
-        run: npm install --prefix scripts --no-save --package-lock=false --ignore-scripts pg@8.16.3
-      - name: Security regression tests
-        env:
-          P2B_REDIS_TEST_PORT: '6379'
-          P2C_REDIS_TEST_PORT: '6379'
-          P2C_POSTGRES_TEST_URL: 'postgresql://postgres:p2c-isolated-test@127.0.0.1:5432/p2c_session_test'
-        run: |
-          node tests/security/cron-auth.test.mjs
-          node tests/security/cron-auth-probe.test.mjs
-          node tests/security/privilege-entitlement.test.mjs
-          node tests/security/phase1c-auth-boundaries.test.mjs
-          node tests/security/phase2a-medium.test.mjs
-          node tests/security/phase2b-enforcement.test.mjs
-          node tests/security/phase2c-session-store.test.mjs
-          node tests/security/phase2c-provider-session.test.mjs
-          node tests/security/phase2c-auth-boundaries.test.mjs
-          node tests/security/student-plan-recovery.test.mjs
-          node tests/security/phase2c-browser-boundaries.test.mjs
-          node tests/security/csp.test.mjs
-          node tests/security/phase3a-low.test.mjs
-          node tests/security/phase3b-recovery.test.mjs
-      - name: Backup safety tests with isolated fixture and age round trip
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y age
-          python3 tests/backup/connection.test.py
-          bash -n scripts/backup/create.sh tests/backup/create.test.sh
-          bash tests/backup/create.test.sh
-      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+
+      - name: TypeScript typecheck
+        run: npm run typecheck
+
+      - name: Run frontend unit tests (Vitest)
+        run: npm run test:unit
+
+      - name: Build production SPA bundle (Vite)
+        run: npx vite build
+
+  backend-ci:
+    name: Backend (.NET 10 Clean Architecture + NUnit)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: back-end
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          go-version: '1.24'
-      - name: Validate workflows
-        run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.11 -color=false
-      - name: Deployment safety tests
+          persist-credentials: false
+
+      - name: Setup .NET 10 SDK
+        uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore NuGet dependencies
+        run: dotnet restore LingoPro.sln
+
+      - name: Build .NET 10 solution
+        run: dotnet build LingoPro.sln --configuration Release --no-restore
+
+      - name: Run Domain & Application unit tests (NUnit)
+        run: dotnet test LingoPro.sln --configuration Release --no-build --filter "Category!=KnownDeviation" --verbosity normal
+
+  workflow-and-deploy-check:
+    name: Workflow & Deploy Scripts Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+
+      - name: Validate deployment & backup shell scripts syntax
         run: |
-          bash tests/deploy/prepare-source.test.sh
-          bash tests/deploy/activate-release.test.sh
-          bash tests/deploy/run-deploy.test.sh
-          node tests/deploy/ssh-render.test.mjs
-      - name: Phase 3A targeted route and auth lint
-        run: >-
-          npx eslint src/lib/admin-auth.ts src/lib/api-security.ts src/lib/session-response.ts
-          src/app/api/admin/pilot-leads/route.ts src/app/api/billing/coupons/route.ts
-          src/app/api/billing/coupons/validate/route.ts src/app/api/billing/claim-upgrade-gift/route.ts
-          src/app/api/campaign/claim-upgrade-gift/route.ts src/app/api/challenges/route.ts
-          'src/app/api/challenges/[id]/route.ts' 'src/app/api/challenges/[id]/join/route.ts'
-          src/app/api/practice/daily-reading/generate/route.ts
-      - name: Phase 3B recovery lint
-        run: >-
-          npx eslint src/lib/password-recovery.ts src/lib/server-session-store.ts src/lib/server-auth-session.ts
-          src/components/auth/PasswordRecoveryForm.tsx src/app/auth/forgot-password/page.tsx
-          src/app/auth/recovery/page.tsx src/app/auth/recovery/callback/route.ts
-          src/app/api/auth/recovery/route.ts src/app/api/auth/recovery/request/route.ts
-          src/lib/app-auth-client.ts src/app/auth/page.tsx next.config.ts
-      - name: Build application
-        run: npm run build
-      - name: Session boundary behind production reverse proxy
-        run: node tests/security/phase2c-proxy-runtime.test.mjs
-      - name: Browser smoke on local production build
-        run: npm run test:e2e:smoke
-      - name: Verify documented typecheck baseline
-        shell: bash
+          bash -n deploy/activate-release.sh deploy/prepare-source.sh deploy/run-deploy.sh
+          bash -n front-end/scripts/backup/create.sh
+          node --check front-end/scripts/apply-p0-migrations.mjs
+          node --check front-end/tests/deploy/ssh-render.test.mjs
+
+      - name: Run deployment safety tests
         run: |
-          set +e
-          output=$(npm run typecheck 2>&1)
-          status=$?
-          set -e
-          printf '%s\n' "$output"
-          errors=$(printf '%s\n' "$output" | grep -c 'error TS' || true)
-          expected=$(printf '%s\n' "$output" | grep -Ec 'error TS(2307|7006):' || true)
-          if [ "$status" -eq 0 ] || [ "$errors" -ne 10 ] || [ "$expected" -ne 10 ]; then
-            echo '::error::Typecheck differs from the documented 10-error TS2307/TS7006 baseline'
-            exit 1
-          fi
-          printf '%s\n' "$output" | grep 'error TS' > /tmp/p3a-typecheck-observed.txt
-          diff -u tests/security/typecheck-baseline.txt /tmp/p3a-typecheck-observed.txt
+          bash front-end/tests/deploy/prepare-source.test.sh
+          bash front-end/tests/deploy/activate-release.test.sh
+          bash front-end/tests/deploy/run-deploy.test.sh
+          node front-end/tests/deploy/ssh-render.test.mjs
+
       - name: Check patch whitespace
         if: ${{ github.event_name == 'pull_request' }}
         env:

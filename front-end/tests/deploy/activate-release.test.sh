@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-repo_root="$(cd "$(dirname "$0")/../.." && pwd -P)"
+repo_root="$(cd "$(dirname "$0")/../../.." && pwd -P)"
 test_root="$(mktemp -d)"
 cleanup() {
   if [[ "$test_root" == /tmp/tmp.* ]] && [[ -d "$test_root" ]]; then
