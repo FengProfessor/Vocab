@@ -5,7 +5,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const repoRoot = resolve(fileURLToPath(new URL('../..', import.meta.url)));
+const repoRoot = resolve(fileURLToPath(new URL('../../..', import.meta.url)));
 const workflowPath = join(repoRoot, '.github', 'workflows', 'deploy-server.yml');
 const workflow = readFileSync(workflowPath, 'utf8');
 const lines = workflow.split(/\r?\n/);

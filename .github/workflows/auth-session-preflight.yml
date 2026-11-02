@@ -2,10 +2,10 @@ name: P2C Auth Read-only Preflight
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, development]
     paths:
       - '.github/workflows/auth-session-preflight.yml'
-      - 'scripts/audit-auth-session-schema.mjs'
+      - 'front-end/scripts/audit-auth-session-schema.mjs'
       - 'docs/security/p1-phase2c-*'
       - 'docs/security/supabase-prod-ca-2021.crt'
 
@@ -26,8 +26,8 @@ jobs:
         with:
           node-version: '22'
       - name: Install metadata client without lifecycle scripts
-        run: npm install --prefix scripts --no-save --package-lock=false --ignore-scripts pg@8.16.3
+        run: npm install --prefix front-end/scripts --no-save --package-lock=false --ignore-scripts pg@8.16.3
       - name: Inspect auth schema metadata in read-only transaction
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
-        run: node scripts/audit-auth-session-schema.mjs
+        run: node front-end/scripts/audit-auth-session-schema.mjs

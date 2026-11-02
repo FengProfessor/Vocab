@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '22'
       - name: Install migration client
-        run: npm install --prefix scripts --no-save --package-lock=false --ignore-scripts pg@8.16.3
+        run: npm install --prefix front-end/scripts --no-save --package-lock=false --ignore-scripts pg@8.16.3
       - name: Apply migrations
         env:
           SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
@@ -37,4 +37,4 @@ jobs:
             echo '::error::Missing database connection secret (DATABASE_URL, SUPABASE_DB_URL, or SUPABASE_DB_PASSWORD)'
             exit 1
           fi
-          node scripts/apply-p0-migrations.mjs
+          node front-end/scripts/apply-p0-migrations.mjs
