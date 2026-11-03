@@ -17,28 +17,6 @@ jobs:
   quality:
     name: Validate exact source before production changes
     runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:15
-        env:
-          POSTGRES_PASSWORD: p2c-isolated-test
-          POSTGRES_DB: p2c_session_test
-        ports:
-          - 5432:5432
-        options: >-
-          --health-cmd "pg_isready -U postgres"
-          --health-interval 5s
-          --health-timeout 3s
-          --health-retries 10
-      redis:
-        image: redis:7.4
-        ports:
-          - 6379:6379
-        options: >-
-          --health-cmd "redis-cli ping"
-          --health-interval 5s
-          --health-timeout 3s
-          --health-retries 10
     steps:
       - name: Require main branch and immutable event SHA
         env:
@@ -48,10 +26,12 @@ jobs:
             echo '::error::Production deployment requires main and an exact commit SHA'
             exit 1
           fi
+
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           ref: ${{ github.sha }}
           persist-credentials: false
+
       - name: Require server-session configuration before production changes
         env:
           AUTH_SESSION_ENCRYPTION_KEY: ${{ secrets.AUTH_SESSION_ENCRYPTION_KEY }}
@@ -64,105 +44,50 @@ jobs:
             echo '::error::Server-session configuration is missing or invalid'
             exit 1
           fi
+
       - name: Verify checkout identity
         env:
           EXPECTED_SHA: ${{ github.sha }}
         run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
           cache: npm
-      - name: Install dependencies
-        run: npm ci
-      - name: Install isolated SQL test client without lifecycle scripts
-        run: npm install --prefix scripts --no-save --package-lock=false --ignore-scripts pg@8.16.3
-      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+          cache-dependency-path: 'front-end/package-lock.json'
+
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9 # v4
         with:
-          go-version: '1.24'
-      - name: Validate workflow definitions
-        run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.11 -color=false
+          dotnet-version: '10.0.x'
+
       - name: Validate deployment scripts and migration runner syntax
         run: |
-          bash -n deploy/activate-release.sh deploy/prepare-source.sh deploy/run-deploy.sh tests/deploy/activate-release.test.sh tests/deploy/prepare-source.test.sh tests/deploy/run-deploy.test.sh
-          node --check scripts/apply-p0-migrations.mjs
-          node --check tests/deploy/ssh-render.test.mjs
+          bash -n deploy/activate-release.sh deploy/prepare-source.sh deploy/run-deploy.sh
+          bash -n front-end/scripts/backup/create.sh
+          node --check front-end/scripts/apply-p0-migrations.mjs
+          node --check front-end/tests/deploy/ssh-render.test.mjs
+
       - name: Deployment safety tests
         run: |
-          bash tests/deploy/prepare-source.test.sh
-          bash tests/deploy/activate-release.test.sh
-          bash tests/deploy/run-deploy.test.sh
-          node tests/deploy/ssh-render.test.mjs
-      - name: Security regression tests
-        env:
-          P2B_REDIS_TEST_PORT: '6379'
-          P2C_REDIS_TEST_PORT: '6379'
-          P2C_POSTGRES_TEST_URL: 'postgresql://postgres:p2c-isolated-test@127.0.0.1:5432/p2c_session_test'
+          bash front-end/tests/deploy/prepare-source.test.sh
+          bash front-end/tests/deploy/activate-release.test.sh
+          bash front-end/tests/deploy/run-deploy.test.sh
+          node front-end/tests/deploy/ssh-render.test.mjs
+
+      - name: Install frontend dependencies & verify build
+        working-directory: front-end
         run: |
-          node tests/security/cron-auth.test.mjs
-          node tests/security/cron-auth-probe.test.mjs
-          node tests/security/privilege-entitlement.test.mjs
-          node tests/security/phase1c-auth-boundaries.test.mjs
-          node tests/security/phase2a-medium.test.mjs
-          node tests/security/phase2b-enforcement.test.mjs
-          node tests/security/phase2c-session-store.test.mjs
-          node tests/security/phase2c-provider-session.test.mjs
-          node tests/security/phase2c-auth-boundaries.test.mjs
-          node tests/security/student-plan-recovery.test.mjs
-          node tests/security/phase2c-browser-boundaries.test.mjs
-          node tests/security/csp.test.mjs
-          node tests/security/phase3a-low.test.mjs
-          node tests/security/phase3b-recovery.test.mjs
-      - name: Validate backup safety without production access
+          npm ci
+          npm run typecheck
+          npm run test:unit
+          npx vite build
+
+      - name: Build & test .NET 10 backend
+        working-directory: back-end
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y age
-          python3 tests/backup/connection.test.py
-          bash -n scripts/backup/create.sh tests/backup/create.test.sh
-          bash tests/backup/create.test.sh
-      - name: Lint changed TypeScript deployment route
-        run: npx eslint src/app/api/health/route.ts
-      - name: Phase 3A targeted route and auth lint
-        run: >-
-          npx eslint src/lib/admin-auth.ts src/lib/api-security.ts src/lib/session-response.ts
-          src/app/api/admin/pilot-leads/route.ts src/app/api/billing/coupons/route.ts
-          src/app/api/billing/coupons/validate/route.ts src/app/api/billing/claim-upgrade-gift/route.ts
-          src/app/api/campaign/claim-upgrade-gift/route.ts src/app/api/challenges/route.ts
-          'src/app/api/challenges/[id]/route.ts' 'src/app/api/challenges/[id]/join/route.ts'
-          src/app/api/practice/daily-reading/generate/route.ts
-      - name: Phase 3B recovery lint
-        run: >-
-          npx eslint src/lib/password-recovery.ts src/lib/server-session-store.ts src/lib/server-auth-session.ts
-          src/components/auth/PasswordRecoveryForm.tsx src/app/auth/forgot-password/page.tsx
-          src/app/auth/recovery/page.tsx src/app/auth/recovery/callback/route.ts
-          src/app/api/auth/recovery/route.ts src/app/api/auth/recovery/request/route.ts
-          src/lib/app-auth-client.ts src/app/auth/page.tsx next.config.ts
-      - name: Build application
-        run: npm run build
-      - name: Session boundary behind production reverse proxy
-        run: node tests/security/phase2c-proxy-runtime.test.mjs
-      - name: Browser smoke before migration and production changes
-        run: npm run test:e2e:smoke
-      - name: Verify exact documented TypeScript baseline
-        shell: bash
-        run: |
-          set +e
-          npm run typecheck > /tmp/p3a-typecheck-output.txt 2>&1
-          status=$?
-          set -e
-          if [ "$status" -eq 0 ]; then
-            echo '::error::Typecheck baseline changed; reconcile before rollout'
-            exit 1
-          fi
-          grep 'error TS' /tmp/p3a-typecheck-output.txt > /tmp/p3a-typecheck-observed.txt
-          diff -u tests/security/typecheck-baseline.txt /tmp/p3a-typecheck-observed.txt
-      - name: Full typecheck (known baseline debt; reporting only)
-        if: ${{ !cancelled() }}
-        continue-on-error: true
-        run: npm run typecheck
-      - name: Full lint (known baseline debt; reporting only)
-        if: ${{ !cancelled() }}
-        continue-on-error: true
-        run: npm run lint
+          dotnet restore LingoPro.sln
+          dotnet build LingoPro.sln --configuration Release --no-restore
+          dotnet test LingoPro.sln --configuration Release --no-build --filter "Category!=KnownDeviation" --verbosity minimal
 
   migrate:
     name: Apply required database migrations

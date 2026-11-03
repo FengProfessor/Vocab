@@ -3,11 +3,17 @@ name: Build Mobile Apps
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'front-end/**'
+      - '.github/workflows/mobile-build.yml'
   workflow_dispatch: # Cho phép chạy bằng tay
 
 jobs:
   build-android:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: front-end
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
@@ -15,6 +21,8 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'front-end/package-lock.json'
 
       - name: Setup Java
         uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3 # v4
@@ -25,13 +33,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build web bundle for Capacitor
+        run: npx vite build
+
       - name: Sync Capacitor
         run: |
           mkdir -p android/app/src/main/assets
           npx cap sync android
 
       - name: Build Android APK
-        working-directory: ./android
+        working-directory: front-end/android
         run: |
           chmod +x gradlew
           ./gradlew assembleDebug
@@ -40,10 +51,13 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: app-debug.apk
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: front-end/android/app/build/outputs/apk/debug/app-debug.apk
 
   build-ios:
     runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: front-end
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
@@ -51,9 +65,14 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: 'front-end/package-lock.json'
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Build web bundle for Capacitor
+        run: npx vite build
 
       - name: Sync Capacitor
         run: npx cap sync ios
@@ -62,4 +81,4 @@ jobs:
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ios-project
-          path: ios/
+          path: front-end/ios/

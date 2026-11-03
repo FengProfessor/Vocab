@@ -24,6 +24,9 @@ jobs:
     name: Generate Vocab Images via Google Flow
     runs-on: ubuntu-latest
     timeout-minutes: 180
+    defaults:
+      run:
+        working-directory: front-end
 
     steps:
       - name: Checkout repository
@@ -36,6 +39,7 @@ jobs:
         with:
           node-version: '22'
           cache: 'npm'
+          cache-dependency-path: 'front-end/package-lock.json'
 
       - name: Setup Python
         uses: actions/setup-python@v5

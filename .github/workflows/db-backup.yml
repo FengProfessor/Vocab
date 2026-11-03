@@ -35,7 +35,7 @@ jobs:
           SUPABASE_PROJECT_REF: jyhdxhqkftirncbstfpe
           BACKUP_AGE_RECIPIENT: ${{ vars.BACKUP_AGE_RECIPIENT }}
           BACKUP_REQUIRE_ENCRYPTION: ${{ vars.BACKUP_REQUIRE_ENCRYPTION }}
-        run: bash scripts/backup/create.sh
+        run: bash front-end/scripts/backup/create.sh
       - name: Store verified backup and checksum (30 days)
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
