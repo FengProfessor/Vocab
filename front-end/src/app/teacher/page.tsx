@@ -400,6 +400,118 @@ export default function TeacherDashboard() {
     };
   }, [students]);
 
+  const resolvedAnalytics = useMemo<AnalyticsData | null>(() => {
+    if (!analytics && students.length === 0) return null;
+
+    const mappedStudents = students.map((s) => {
+      const sAny = s as unknown as Record<string, unknown>;
+      const wordsReviewed = Number(
+        s.words_reviewed ?? sAny.total_words_learned ?? s.total_words ?? 0,
+      );
+      const quizObj = sAny.latest_quiz as
+        | { score?: number; total_questions?: number; completed_at?: string; quiz_type?: string }
+        | null
+        | undefined;
+      const quizAcc =
+        quizObj && Number(quizObj.total_questions ?? 0) > 0
+          ? Math.round((Number(quizObj.score ?? 0) / Number(quizObj.total_questions ?? 1)) * 100)
+          : typeof s.avg_quiz_accuracy === 'number'
+            ? Math.round(s.avg_quiz_accuracy * (s.avg_quiz_accuracy <= 1 ? 100 : 1))
+            : Number(s.vms ?? 0);
+
+      return {
+        student_id: s.student_id,
+        student_name:
+          s.student_name ||
+          (sAny.full_name ? String(sAny.full_name) : '') ||
+          (s.email ? s.email.split('@')[0] : 'Học sinh'),
+        email: s.email || '',
+        vms: Number(s.vms ?? 0),
+        avg_accuracy: quizAcc,
+        words_reviewed: wordsReviewed,
+        lcs: Number(s.lcs ?? 0),
+        last_active: s.true_last_active || s.last_active || undefined,
+        true_last_active: s.true_last_active || s.last_active || undefined,
+        latest_quiz: quizObj,
+      };
+    });
+
+    const fallbackTop = [...mappedStudents]
+      .sort((a, b) => b.vms - a.vms || b.words_reviewed - a.words_reviewed)
+      .slice(0, 5);
+
+    const fallbackStruggling = [...mappedStudents]
+      .filter((s) => (s.avg_accuracy ?? 0) < 60 || s.vms < 60)
+      .sort((a, b) => (a.avg_accuracy ?? 0) - (b.avg_accuracy ?? 0) || a.vms - b.vms)
+      .slice(0, 5);
+
+    const fallbackFeed = mappedStudents
+      .flatMap((s) => {
+        const items: AnalyticsData['activityFeed'] = [];
+        if (s.latest_quiz?.completed_at) {
+          const score = Number(s.latest_quiz.score ?? 0);
+          const totalQ = Number(s.latest_quiz.total_questions ?? 10);
+          const pct = totalQ > 0 ? Math.round((score / totalQ) * 100) : 0;
+          items.push({
+            type: 'quiz',
+            student_id: s.student_id,
+            student_name: s.student_name,
+            detail: `Hoàn thành bài kiểm tra (${s.latest_quiz.quiz_type || 'từ vựng'}) — ${score}/${totalQ} (${pct}%)`,
+            timestamp: s.latest_quiz.completed_at,
+          });
+        }
+        if (s.last_active) {
+          items.push({
+            type: 'review',
+            student_id: s.student_id,
+            student_name: s.student_name,
+            detail:
+              s.words_reviewed > 0
+                ? `Đã học ${s.words_reviewed} từ vựng • Độ bền trí nhớ ${s.vms}%`
+                : `Tham gia học tập trong lớp • Độ bền trí nhớ ${s.vms}%`,
+            timestamp: s.last_active,
+          });
+        }
+        return items;
+      })
+      .sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+      .slice(0, 10);
+
+    const baseStats = analytics?.classStats;
+    const totalWordsDue = students.reduce((acc, s) => {
+      const sAny = s as unknown as Record<string, unknown>;
+      return acc + Number(sAny.words_due ?? 0);
+    }, 0);
+
+    return {
+      classStats: {
+        active_students:
+          Number(baseStats?.active_students ?? 0) ||
+          Number(kpiData.activeText.split('/')[0] || 0),
+        total_enrolled: Number(baseStats?.total_enrolled ?? 0) || students.length,
+        total_class_words:
+          Number(baseStats?.total_class_words ?? 0) ||
+          mappedStudents.reduce((acc, s) => acc + s.words_reviewed, 0),
+        avg_accuracy: Number(baseStats?.avg_accuracy ?? 0) || kpiData.avgVms,
+        words_due_today: Number(baseStats?.words_due_today ?? 0) || totalWordsDue,
+      },
+      topStudents:
+        analytics?.topStudents && analytics.topStudents.length > 0
+          ? analytics.topStudents
+          : fallbackTop,
+      strugglingStudents:
+        analytics?.strugglingStudents && analytics.strugglingStudents.length > 0
+          ? analytics.strugglingStudents
+          : fallbackStruggling,
+      wordCoverage: analytics?.wordCoverage ?? [],
+      wordDifficulty: analytics?.wordDifficulty ?? [],
+      activityFeed:
+        analytics?.activityFeed && analytics.activityFeed.length > 0
+          ? analytics.activityFeed
+          : fallbackFeed,
+    };
+  }, [analytics, students, kpiData]);
+
   if (isLoading) {
     return (
       <div className="min-h-dvh bg-muted/40 font-sans">
@@ -836,8 +948,8 @@ export default function TeacherDashboard() {
 
             {activeTab === 'analytics' && (
               <AnalyticsPanel
-                analytics={analytics}
-                isLoading={isLoadingAnalytics}
+                analytics={resolvedAnalytics}
+                isLoading={isLoadingAnalytics && !resolvedAnalytics}
                 pendingWords={pendingWords}
                 approvingId={approvingId}
                 onWordStatus={handleWordStatus}

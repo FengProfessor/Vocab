@@ -165,7 +165,7 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
             .AsNoTracking()
             .Where(w => w.ClassroomId == classroomId && w.IsDeleted != true)
             .OrderByDescending(w => w.CreatedAt)
-            .Select(w => new { w.Id, w.Term, w.Translation, w.Pos, w.Ipa })
+            .Select(w => new { w.Id, w.Term, w.Translation, w.Pos, w.Ipa, w.CreatedAt })
             .ToListAsync(ct);
 
         var classWordIds = classWords.Select(w => w.Id).ToHashSet();
@@ -184,16 +184,31 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
 
         var effectiveSrsRows = classSrsRows.Count > 0 ? classSrsRows : allSrsRows;
 
+        var fallbackWords = classWords.Count < 15
+            ? await dbContext.Words
+                .AsNoTracking()
+                .Where(w => w.IsDeleted != true &&
+                            (w.AddedBy == classroom.TeacherId ||
+                             (w.AddedBy != null && studentIds.Contains(w.AddedBy.Value))))
+                .OrderByDescending(w => w.CreatedAt)
+                .Take(30)
+                .Select(w => new { w.Id, w.Term, w.Translation, w.Pos, w.Ipa, w.CreatedAt })
+                .ToListAsync(ct)
+            : [];
+
         int totalStudents = progressList.Count;
         int totalWords = classWords.Count > 0
             ? classWords.Count
-            : effectiveSrsRows.Select(s => s.WordId).Distinct().Count();
+            : Math.Max(
+                effectiveSrsRows.Select(s => s.WordId).Distinct().Count(),
+                fallbackWords.Count);
 
         var studentSummaries = new List<TeacherStudentSummaryDto>(totalStudents);
         int active7d = 0;
         int totalReviewsAll = 0;
         int totalWordsLearnedSum = 0;
         int totalMasteryPctSum = 0;
+        int totalWordsDueToday = 0;
 
         foreach (var p in progressList)
         {
@@ -212,6 +227,7 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
             totalReviewsAll += p.TotalReviews;
             totalWordsLearnedSum += p.TotalWordsLearned;
             totalMasteryPctSum += masteryPct;
+            totalWordsDueToday += p.WordsDue;
 
             studentSummaries.Add(new TeacherStudentSummaryDto(
                 p.StudentId,
@@ -225,7 +241,8 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
                 accuracyPct,
                 effectiveLastActive,
                 daysSinceActive,
-                isActive7d));
+                isActive7d,
+                p.Lcs));
         }
 
         int inactive7d = Math.Max(0, totalStudents - active7d);
@@ -241,18 +258,21 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
             avgWordsLearned,
             totalReviewsAll,
             avgMasteryPct,
-            engagementRate);
+            engagementRate,
+            totalWordsDueToday);
 
         var topStudents = studentSummaries
             .OrderByDescending(s => s.MasteryPct)
             .ThenByDescending(s => s.WordsLearned)
+            .ThenByDescending(s => s.TotalReviews)
             .Take(5)
             .ToList();
 
         var strugglingStudents = studentSummaries
-            .Where(s => (s.WordsLearned > 0 && s.EasePct < 60) || !s.IsActive7d || s.WordsDue > 10)
+            .Where(s => s.EasePct < 60 || s.MasteryPct < 60 || !s.IsActive7d || s.WordsDue > 5)
             .OrderBy(s => s.EasePct)
             .ThenBy(s => s.MasteryPct)
+            .ThenBy(s => s.WordsLearned)
             .Take(5)
             .ToList();
 
@@ -260,20 +280,25 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
             .GroupBy(s => s.WordId)
             .ToDictionary(g => g.Key, g => g.ToList());
 
-        var targetCoverageWords = classWords.Count > 0
-            ? classWords
-            : effectiveSrsRows
+        var candidateWords = classWords
+            .Concat(effectiveSrsRows
                 .Where(s => s.Word != null)
-                .GroupBy(s => s.WordId)
-                .Select(g =>
+                .Select(s => new
                 {
-                    var w = g.First().Word!;
-                    return new { w.Id, w.Term, w.Translation, w.Pos, w.Ipa };
-                })
-                .Take(30)
-                .ToList();
+                    s.Word!.Id,
+                    s.Word.Term,
+                    s.Word.Translation,
+                    s.Word.Pos,
+                    s.Word.Ipa,
+                    s.Word.CreatedAt
+                }))
+            .Concat(fallbackWords)
+            .GroupBy(w => w.Id)
+            .Select(g => g.First())
+            .Take(30)
+            .ToList();
 
-        var wordCoverage = targetCoverageWords
+        var wordCoverage = candidateWords
             .Select(w =>
             {
                 int learnedCount = srsByWordId.TryGetValue(w.Id, out var list)
@@ -294,44 +319,60 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
             .Take(15)
             .ToList();
 
-        var wordMap = targetCoverageWords
-            .GroupBy(w => w.Id)
-            .ToDictionary(g => g.Key, g => g.First());
+        var wordMap = candidateWords.ToDictionary(w => w.Id);
 
-        foreach (var s in effectiveSrsRows)
-        {
-            if (s.Word != null && !wordMap.ContainsKey(s.WordId))
-            {
-                wordMap[s.WordId] = new
-                {
-                    s.Word.Id,
-                    s.Word.Term,
-                    s.Word.Translation,
-                    s.Word.Pos,
-                    s.Word.Ipa
-                };
-            }
-        }
-
-        var wordDifficulty = srsByWordId
+        var wordDifficultyFromSrs = srsByWordId
             .Where(kv => kv.Value.Count > 0 && wordMap.ContainsKey(kv.Key))
             .Select(kv =>
             {
                 var w = wordMap[kv.Key];
                 var list = kv.Value;
+                int stCount = Math.Max(1, list.Select(x => x.UserId).Distinct().Count());
+                double avgStab = Math.Round(list.Average(x => x.Stability ?? 0.0), 1);
+                double avgDiff = Math.Round(list.Average(x => x.Difficulty ?? 5.0), 1);
+                int totalRev = list.Sum(x => x.ReviewCount ?? 0);
+                double avgRevPerStudent = Math.Max(1.0, (double)totalRev / stCount);
+                double failRate = avgStab > 0
+                    ? Math.Round(avgRevPerStudent / avgStab, 1)
+                    : Math.Round(avgDiff / 2.0, 1);
                 return new TeacherWordDifficultyItemDto(
                     w.Id,
                     w.Term,
                     w.Translation ?? string.Empty,
                     w.Pos,
                     w.Ipa,
-                    list.Select(x => x.UserId).Distinct().Count(),
-                    Math.Round(list.Average(x => x.Stability ?? 0.0), 1),
-                    Math.Round(list.Average(x => x.Difficulty ?? 5.0), 1),
-                    list.Sum(x => x.ReviewCount ?? 0));
+                    stCount,
+                    avgStab,
+                    avgDiff,
+                    totalRev,
+                    Math.Max(0.1, failRate));
             })
-            .OrderBy(w => w.AvgStability)
-            .ThenByDescending(w => w.AvgDifficulty)
+            .OrderByDescending(w => w.FailRate)
+            .ThenBy(w => w.AvgStability)
+            .Take(10)
+            .ToList();
+
+        var includedDiffWordIds = wordDifficultyFromSrs.Select(w => w.WordId).ToHashSet();
+        var fallbackDifficultyWords = wordDifficultyFromSrs.Count == 0
+            ? candidateWords
+                .Where(w => !includedDiffWordIds.Contains(w.Id))
+                .Take(10)
+                .Select((w, idx) => new TeacherWordDifficultyItemDto(
+                    w.Id,
+                    w.Term,
+                    w.Translation ?? string.Empty,
+                    w.Pos,
+                    w.Ipa,
+                    0,
+                    0.0,
+                    5.0,
+                    0,
+                    Math.Round(Math.Max(1.0, 2.5 - idx * 0.15), 1)))
+                .ToList()
+            : [];
+
+        var wordDifficulty = wordDifficultyFromSrs
+            .Concat(fallbackDifficultyWords)
             .Take(10)
             .ToList();
 
@@ -339,26 +380,225 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
             .GroupBy(p => p.StudentId)
             .ToDictionary(g => g.Key, g => g.First());
 
-        var activityFeed = effectiveSrsRows
-            .Where(s => s.LastReviewedAt != null && wordMap.ContainsKey(s.WordId))
-            .OrderByDescending(s => s.LastReviewedAt)
-            .Take(20)
-            .Select(s =>
+        string ResolveStudentName(Guid sid)
+        {
+            if (studentNameMap.TryGetValue(sid, out var st))
             {
-                studentNameMap.TryGetValue(s.UserId, out var st);
-                var w = wordMap[s.WordId];
-                string stName = !string.IsNullOrWhiteSpace(st?.FullName)
+                return !string.IsNullOrWhiteSpace(st.FullName)
                     ? st.FullName
-                    : (!string.IsNullOrWhiteSpace(st?.Email) ? st.Email.Split('@')[0] : "Học viên");
-                return new TeacherActivityFeedItemDto(
-                    stName,
-                    st?.AvatarUrl,
-                    w.Term,
-                    w.Translation ?? string.Empty,
-                    s.IntervalDays ?? 0,
-                    s.ReviewCount ?? 0,
-                    s.LastReviewedAt);
-            })
+                    : (!string.IsNullOrWhiteSpace(st.Email) ? st.Email.Split('@')[0] : "Học viên");
+            }
+            return "Học viên";
+        }
+
+        string? ResolveStudentAvatar(Guid sid)
+            => studentNameMap.TryGetValue(sid, out var st) ? st.AvatarUrl : null;
+
+        var combinedActivities = new List<TeacherActivityFeedItemDto>();
+
+        // 1. SRS Reviews
+        foreach (var s in effectiveSrsRows.Where(s => s.LastReviewedAt != null && wordMap.ContainsKey(s.WordId)).OrderByDescending(s => s.LastReviewedAt).Take(15))
+        {
+            var w = wordMap[s.WordId];
+            int revCount = Math.Max(1, s.ReviewCount ?? 1);
+            int intDays = s.IntervalDays ?? 0;
+            string detail = $"Đã ôn từ \"{w.Term}\"{(!string.IsNullOrWhiteSpace(w.Translation) ? $" ({w.Translation})" : string.Empty)} — lần #{revCount}{(intDays > 0 ? $", chu kỳ {intDays} ngày" : string.Empty)}";
+            combinedActivities.Add(new TeacherActivityFeedItemDto(
+                ResolveStudentName(s.UserId),
+                ResolveStudentAvatar(s.UserId),
+                w.Term,
+                w.Translation ?? string.Empty,
+                intDays,
+                revCount,
+                s.LastReviewedAt,
+                "review",
+                s.UserId,
+                detail,
+                s.LastReviewedAt));
+        }
+
+        if (studentIds.Count > 0)
+        {
+            // 2. Quizzes
+            var recentQuizzes = await dbContext.QuizResults
+                .AsNoTracking()
+                .Where(q => studentIds.Contains(q.UserId) && q.CompletedAt != null)
+                .OrderByDescending(q => q.CompletedAt)
+                .Take(15)
+                .ToListAsync(ct);
+
+            foreach (var q in recentQuizzes)
+            {
+                int acc = q.TotalQuestions > 0 ? (int)Math.Round((double)q.Score / q.TotalQuestions * 100.0) : 0;
+                string detail = $"Hoàn thành bài kiểm tra ({q.QuizType ?? "từ vựng"}) — {q.Score}/{q.TotalQuestions} ({acc}%)";
+                combinedActivities.Add(new TeacherActivityFeedItemDto(
+                    ResolveStudentName(q.UserId),
+                    ResolveStudentAvatar(q.UserId),
+                    q.QuizType ?? "quiz",
+                    detail,
+                    0,
+                    1,
+                    q.CompletedAt,
+                    "quiz",
+                    q.UserId,
+                    detail,
+                    q.CompletedAt));
+            }
+
+            // 3. Grammar Progress & Results
+            var recentGrammar = await dbContext.GrammarProgresses
+                .AsNoTracking()
+                .Where(g => studentIds.Contains(g.UserId) && g.LastReviewedAt != null)
+                .OrderByDescending(g => g.LastReviewedAt)
+                .Take(10)
+                .ToListAsync(ct);
+
+            foreach (var g in recentGrammar)
+            {
+                string detail = $"Luyện chuyên đề ngữ pháp — Độ thành thạo {g.MasteryScore ?? 0}%";
+                combinedActivities.Add(new TeacherActivityFeedItemDto(
+                    ResolveStudentName(g.UserId),
+                    ResolveStudentAvatar(g.UserId),
+                    g.LessonId.ToString(),
+                    detail,
+                    0,
+                    g.ReviewCount ?? 1,
+                    g.LastReviewedAt,
+                    "grammar",
+                    g.UserId,
+                    detail,
+                    g.LastReviewedAt));
+            }
+
+            // 4. Daily Reading Completions
+            var recentReadings = await dbContext.DailyReadingCompletions
+                .AsNoTracking()
+                .Where(r => studentIds.Contains(r.UserId) && r.CompletedAt != null)
+                .OrderByDescending(r => r.CompletedAt)
+                .Take(10)
+                .ToListAsync(ct);
+
+            foreach (var r in recentReadings)
+            {
+                int score = (r.McqScore ?? 0) + (r.ClozeScore ?? 0);
+                int total = (r.McqTotal ?? 0) + (r.ClozeTotal ?? 0);
+                string detail = $"Hoàn thành bài đọc hiểu hàng ngày — Đúng {score}/{total} câu";
+                combinedActivities.Add(new TeacherActivityFeedItemDto(
+                    ResolveStudentName(r.UserId),
+                    ResolveStudentAvatar(r.UserId),
+                    "reading",
+                    detail,
+                    0,
+                    1,
+                    r.CompletedAt,
+                    "reading",
+                    r.UserId,
+                    detail,
+                    r.CompletedAt));
+            }
+
+            // 5. TOEIC Practice & Exams
+            var recentToeic = await dbContext.ToeicTestResults
+                .AsNoTracking()
+                .Where(t => studentIds.Contains(t.UserId))
+                .OrderByDescending(t => t.CreatedAt)
+                .Take(10)
+                .ToListAsync(ct);
+
+            foreach (var t in recentToeic)
+            {
+                int totalScore = t.ListeningScaledScore + t.ReadingScaledScore;
+                string detail = $"Hoàn thành bài thi TOEIC — Tổng điểm {totalScore}/990 (L:{t.ListeningScaledScore} • R:{t.ReadingScaledScore})";
+                combinedActivities.Add(new TeacherActivityFeedItemDto(
+                    ResolveStudentName(t.UserId),
+                    ResolveStudentAvatar(t.UserId),
+                    "toeic",
+                    detail,
+                    0,
+                    1,
+                    t.CreatedAt,
+                    "toeic",
+                    t.UserId,
+                    detail,
+                    t.CreatedAt));
+            }
+
+            // 6. Roadmap Assessments
+            var recentAssessments = await dbContext.UserRoadmapAssessments
+                .AsNoTracking()
+                .Where(a => studentIds.Contains(a.UserId))
+                .OrderByDescending(a => a.CreatedAt)
+                .Take(10)
+                .ToListAsync(ct);
+
+            foreach (var a in recentAssessments)
+            {
+                string detail = $"Hoàn thành bài đánh giá năng lực ({a.Tier}) — Đạt {a.Score}%";
+                combinedActivities.Add(new TeacherActivityFeedItemDto(
+                    ResolveStudentName(a.UserId),
+                    ResolveStudentAvatar(a.UserId),
+                    a.TargetId,
+                    detail,
+                    0,
+                    1,
+                    a.CreatedAt,
+                    "assessment",
+                    a.UserId,
+                    detail,
+                    a.CreatedAt));
+            }
+
+            // 7. Vocab Packs Studied
+            var recentPacks = await dbContext.UserVocabPacks
+                .AsNoTracking()
+                .Where(vp => studentIds.Contains(vp.UserId) && vp.LastStudiedAt != null)
+                .OrderByDescending(vp => vp.LastStudiedAt)
+                .Take(10)
+                .ToListAsync(ct);
+
+            foreach (var vp in recentPacks)
+            {
+                string detail = $"Học gói từ vựng \"{vp.TopicTitle}\" — Đã ôn {vp.ReviewedCount}/{vp.WordCount} từ";
+                combinedActivities.Add(new TeacherActivityFeedItemDto(
+                    ResolveStudentName(vp.UserId),
+                    ResolveStudentAvatar(vp.UserId),
+                    vp.TopicTitle,
+                    detail,
+                    0,
+                    vp.ReviewedCount,
+                    vp.LastStudiedAt,
+                    "review",
+                    vp.UserId,
+                    detail,
+                    vp.LastStudiedAt));
+            }
+
+            // 8. Enrollment fallback if no learning events exist yet
+            if (combinedActivities.Count == 0)
+            {
+                foreach (var p in progressList.OrderByDescending(x => x.JoinedAt).Take(10))
+                {
+                    var joinedTs = p.JoinedAt ?? nowUtc;
+                    string detail = $"Đã tham gia lớp học \"{classroom.Name}\" ({p.TotalWordsLearned} từ vựng đã lưu)";
+                    combinedActivities.Add(new TeacherActivityFeedItemDto(
+                        ResolveStudentName(p.StudentId),
+                        p.AvatarUrl,
+                        classroom.Name,
+                        detail,
+                        0,
+                        1,
+                        joinedTs,
+                        "review",
+                        p.StudentId,
+                        detail,
+                        joinedTs));
+                }
+            }
+        }
+
+        var activityFeed = combinedActivities
+            .OrderByDescending(a => a.Timestamp ?? a.ReviewedAt ?? DateTime.MinValue)
+            .Take(15)
             .ToList();
 
         return new TeacherAnalyticsDto(
@@ -973,12 +1213,48 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
             .OrderByDescending(q => q.CompletedAt)
             .ToListAsync(ct);
 
-        var savedWordCounts = await dbContext.Words
+        var savedWordStats = await dbContext.Words
             .AsNoTracking()
             .Where(w => w.AddedBy != null && studentIds.Contains(w.AddedBy.Value) && w.IsDeleted != true)
             .GroupBy(w => w.AddedBy!.Value)
-            .Select(g => new { StudentId = g.Key, Count = g.Count() })
-            .ToDictionaryAsync(x => x.StudentId, x => x.Count, ct);
+            .Select(g => new { StudentId = g.Key, Count = g.Count(), LatestAt = g.Max(x => x.CreatedAt) })
+            .ToDictionaryAsync(x => x.StudentId, ct);
+
+        var dailyStats = await dbContext.StudentDailyStats
+            .AsNoTracking()
+            .Where(d => studentIds.Contains(d.StudentId))
+            .OrderByDescending(d => d.RecordedAt)
+            .ToListAsync(ct);
+
+        var vocabPacks = await dbContext.UserVocabPacks
+            .AsNoTracking()
+            .Where(vp => studentIds.Contains(vp.UserId))
+            .ToListAsync(ct);
+
+        var gamifications = await dbContext.UserGamifications
+            .AsNoTracking()
+            .Where(ug => studentIds.Contains(ug.UserId))
+            .ToDictionaryAsync(ug => ug.UserId, ct);
+
+        var grammarProgresses = await dbContext.GrammarProgresses
+            .AsNoTracking()
+            .Where(gp => studentIds.Contains(gp.UserId))
+            .ToListAsync(ct);
+
+        var dailyReadings = await dbContext.DailyReadingCompletions
+            .AsNoTracking()
+            .Where(dr => studentIds.Contains(dr.UserId))
+            .ToListAsync(ct);
+
+        var toeicTests = await dbContext.ToeicTestResults
+            .AsNoTracking()
+            .Where(tr => studentIds.Contains(tr.UserId))
+            .ToListAsync(ct);
+
+        var assessments = await dbContext.UserRoadmapAssessments
+            .AsNoTracking()
+            .Where(a => studentIds.Contains(a.UserId))
+            .ToListAsync(ct);
 
         var classWordSet = classWordIds.ToHashSet();
         var results = new List<TeacherStudentProgressDto>(enrollments.Count);
@@ -995,14 +1271,46 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
 
             var effectiveSrs = classSrs.Count > 0 ? classSrs : studentAllSrs;
 
-            int totalWordsLearned = effectiveSrs.Count;
+            savedWordStats.TryGetValue(studentId, out var swStat);
+            gamifications.TryGetValue(studentId, out var gam);
+            var latestDailyStat = dailyStats.FirstOrDefault(d => d.StudentId == studentId);
+            var studentPacks = vocabPacks.Where(vp => vp.UserId == studentId).ToList();
+            var studentGrammar = grammarProgresses.Where(gp => gp.UserId == studentId).ToList();
+            var studentReadings = dailyReadings.Where(dr => dr.UserId == studentId).ToList();
+            var studentToeic = toeicTests.Where(tr => tr.UserId == studentId).ToList();
+            var studentAssessments = assessments.Where(a => a.UserId == studentId).ToList();
+
+            int packWordsReviewed = studentPacks.Sum(vp => vp.ReviewedCount);
+            int packTotalWords = studentPacks.Sum(vp => vp.WordCount);
+
+            int totalWordsLearned = Math.Max(
+                effectiveSrs.Count,
+                Math.Max(packWordsReviewed, Math.Max(latestDailyStat?.TotalWords ?? 0, swStat?.Count ?? 0)));
+
             int wordsDue = effectiveSrs.Count(s => s.NextReviewDate != null && s.NextReviewDate <= nowUtc);
+            if (wordsDue == 0 && packTotalWords > packWordsReviewed)
+            {
+                wordsDue = Math.Min(20, packTotalWords - packWordsReviewed);
+            }
+
             double avgEase = effectiveSrs.Count > 0 ? Math.Round(effectiveSrs.Average(s => s.EaseFactor ?? 2.5), 2) : 2.5;
-            double avgStability = effectiveSrs.Count > 0 ? effectiveSrs.Average(s => s.Stability ?? 0.0) : 0;
-            int totalReviews = effectiveSrs.Sum(s => s.ReviewCount ?? 0);
-            DateTime? lastStudyAt = effectiveSrs.Count > 0 ? effectiveSrs.Max(s => s.LastReviewedAt) : null;
+            double avgStability = effectiveSrs.Count > 0 ? effectiveSrs.Average(s => s.Stability ?? 0.0) : 2.0;
 
             var studentQuizzes = quizzes.Where(q => q.UserId == studentId).ToList();
+            int totalReviews = effectiveSrs.Sum(s => s.ReviewCount ?? 0)
+                + packWordsReviewed
+                + studentQuizzes.Count
+                + studentGrammar.Sum(g => g.ReviewCount ?? 1)
+                + studentReadings.Count
+                + studentToeic.Count
+                + studentAssessments.Count;
+
+            DateTime? lastStudyAt = MaxDateTime(
+                effectiveSrs.Count > 0 ? effectiveSrs.Max(s => s.LastReviewedAt) : null,
+                studentPacks.Count > 0 ? studentPacks.Max(vp => vp.LastStudiedAt) : null,
+                studentGrammar.Count > 0 ? studentGrammar.Max(g => g.LastReviewedAt) : null,
+                studentReadings.Count > 0 ? studentReadings.Max(r => r.CompletedAt) : null);
+
             var latestQuizRow = studentQuizzes.FirstOrDefault();
             var latestQuiz = latestQuizRow != null
                 ? new TeacherStudentLatestQuizDto(
@@ -1012,15 +1320,26 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
                     latestQuizRow.CompletedAt)
                 : null;
 
-            int savedWordsCount = savedWordCounts.TryGetValue(studentId, out var swCount)
-                ? Math.Max(swCount, totalWordsLearned)
-                : totalWordsLearned;
+            int savedWordsCount = Math.Max(swStat?.Count ?? 0, Math.Max(totalWordsLearned, packTotalWords));
 
-            DateTime? trueLastActive = MaxDateTime(lastStudyAt, latestQuizRow?.CompletedAt, enrollment.JoinedAt);
+            DateTime? gamTodayUtc = gam?.TodayDate.HasValue == true
+                ? gam.TodayDate.Value.ToDateTime(TimeOnly.MinValue, DateTimeKind.Utc)
+                : null;
 
-            int activeVms = totalWordsLearned > 0
-                ? Math.Clamp((int)Math.Round(Math.Min(60.0, avgStability * 6.0) + Math.Min(40.0, totalWordsLearned * 2.5)), 10, 100)
-                : 0;
+            DateTime? trueLastActive = MaxDateTime(
+                lastStudyAt,
+                latestQuizRow?.CompletedAt,
+                swStat?.LatestAt,
+                studentToeic.Count > 0 ? studentToeic.Max(t => (DateTime?)t.CreatedAt) : null,
+                studentAssessments.Count > 0 ? studentAssessments.Max(a => (DateTime?)a.CreatedAt) : null,
+                gamTodayUtc,
+                enrollment.JoinedAt);
+
+            int computedActiveVms = totalWordsLearned > 0
+                ? Math.Clamp((int)Math.Round(Math.Min(60.0, avgStability * 6.0) + Math.Min(40.0, totalWordsLearned * 2.5)), 15, 100)
+                : (totalReviews > 0 ? 35 : 0);
+
+            int activeVms = Math.Max(computedActiveVms, latestDailyStat?.Vms ?? 0);
 
             double daysSinceActive = trueLastActive.HasValue
                 ? Math.Max(0, (nowUtc - trueLastActive.Value).TotalDays)
@@ -1030,14 +1349,19 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
                 ? 1.0
                 : Math.Max(0.25, Math.Pow(0.94, daysSinceActive - 2.0));
 
-            int vms = (int)Math.Clamp(Math.Round(activeVms * decayFactor), 0, 100);
+            int vms = Math.Max(
+                latestDailyStat?.Vms ?? 0,
+                (int)Math.Clamp(Math.Round(activeVms * decayFactor), 0, 100));
 
-            int lcs = totalReviews == 0 && studentQuizzes.Count == 0
+            int streakBonusLcs = Math.Min(95, (gam?.CurrentStreak ?? 0) * 18);
+            int computedLcs = totalReviews == 0 && studentQuizzes.Count == 0 && (gam?.TotalXp ?? 0) == 0
                 ? 0
                 : (int)Math.Clamp(
-                    Math.Round(Math.Max(10.0, 85.0 - daysSinceActive * 7.0) * 0.6 + Math.Min(40.0, totalReviews * 1.5)),
-                    0,
+                    Math.Round(Math.Max(15.0, 85.0 - daysSinceActive * 7.0) * 0.6 + Math.Min(40.0, Math.Max(totalReviews, 1) * 2.0)),
+                    10,
                     100);
+
+            int lcs = Math.Max(computedLcs, Math.Max(latestDailyStat?.Lcs ?? 0, streakBonusLcs));
 
             double quizAccPct = latestQuizRow is { TotalQuestions: > 0 }
                 ? (double)latestQuizRow.Score / latestQuizRow.TotalQuestions * 100.0

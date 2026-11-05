@@ -32,6 +32,7 @@ export default function AnalyticsPanel({
     );
   }
 
+  const classStats = analytics?.classStats;
   const topStudents = Array.isArray(analytics?.topStudents) ? analytics.topStudents : [];
   const strugglingStudents = Array.isArray(analytics?.strugglingStudents) ? analytics.strugglingStudents : [];
   const activityFeed = Array.isArray(analytics?.activityFeed) ? analytics.activityFeed : [];
@@ -42,6 +43,48 @@ export default function AnalyticsPanel({
     <div className="space-y-6">
       {analytics && (
         <>
+          {/* Row 0: Class Curriculum Summary Strip */}
+          {classStats && (
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="bg-background border rounded-xl px-4 py-3 flex items-center justify-between">
+                <div>
+                  <p className="text-[11px] font-semibold text-muted-foreground">Từ vựng trong lớp</p>
+                  <p className="text-lg font-bold font-mono tabular-nums mt-0.5">
+                    {Number(classStats.total_class_words ?? 0)}
+                  </p>
+                </div>
+                <Target className="h-4 w-4 text-violet-500 shrink-0" />
+              </div>
+              <div className="bg-background border rounded-xl px-4 py-3 flex items-center justify-between">
+                <div>
+                  <p className="text-[11px] font-semibold text-muted-foreground">Độ chính xác TB</p>
+                  <p className="text-lg font-bold font-mono tabular-nums text-emerald-600 mt-0.5">
+                    {Number(classStats.avg_accuracy ?? 0)}%
+                  </p>
+                </div>
+                <Star className="h-4 w-4 text-amber-500 shrink-0" />
+              </div>
+              <div className="bg-background border rounded-xl px-4 py-3 flex items-center justify-between">
+                <div>
+                  <p className="text-[11px] font-semibold text-muted-foreground">Từ đến hạn ôn tập</p>
+                  <p className="text-lg font-bold font-mono tabular-nums text-amber-600 mt-0.5">
+                    {Number(classStats.words_due_today ?? 0)}
+                  </p>
+                </div>
+                <Flame className="h-4 w-4 text-orange-500 shrink-0" />
+              </div>
+              <div className="bg-background border rounded-xl px-4 py-3 flex items-center justify-between">
+                <div>
+                  <p className="text-[11px] font-semibold text-muted-foreground">Hoạt động 7 ngày</p>
+                  <p className="text-lg font-bold font-mono tabular-nums text-sky-600 mt-0.5">
+                    {Number(classStats.active_students ?? 0)}/{Number(classStats.total_enrolled ?? topStudents.length)}
+                  </p>
+                </div>
+                <Activity className="h-4 w-4 text-sky-500 shrink-0" />
+              </div>
+            </div>
+          )}
+
           {/* Row 1: Top Students + Needs Help */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
@@ -183,13 +226,15 @@ export default function AnalyticsPanel({
 
           {/* Row 3: Word Difficulty + Coverage */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {wordDifficulty.length > 0 && (
-              <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-                <div className="px-5 py-4 border-b flex items-center gap-2">
-                  <Flame className="h-4 w-4 text-orange-500" />
-                  <h3 className="font-bold text-sm">Từ khó nhất</h3>
-                  <span className="ml-auto text-xs text-muted-foreground">fail rate cao</span>
-                </div>
+            <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
+              <div className="px-5 py-4 border-b flex items-center gap-2">
+                <Flame className="h-4 w-4 text-orange-500" />
+                <h3 className="font-bold text-sm">Từ khó nhất</h3>
+                <span className="ml-auto text-xs text-muted-foreground">fail rate cao</span>
+              </div>
+              {wordDifficulty.length === 0 ? (
+                <div className="p-6 text-center text-xs text-muted-foreground">Chưa có dữ liệu từ khó trong lớp</div>
+              ) : (
                 <div className="p-5 space-y-2.5">
                   {wordDifficulty.map((wd, idx) => {
                     const maxRate = Math.max(Number(wordDifficulty[0]?.fail_rate) || 0, 1);
@@ -199,7 +244,7 @@ export default function AnalyticsPanel({
                     return (
                       <div key={wd.word_id || wd.word || idx} className="flex items-center gap-3">
                         <span className="text-[10px] font-bold text-muted-foreground w-4 shrink-0">{idx + 1}</span>
-                        <span className="text-sm font-semibold w-24 truncate shrink-0">{wd.word}</span>
+                        <span className="text-sm font-semibold w-28 truncate shrink-0">{wd.word}</span>
                         <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                           <div className="h-full rounded-full bg-orange-400 transition-all" style={{ width: `${pct}%` }} />
                         </div>
@@ -208,22 +253,24 @@ export default function AnalyticsPanel({
                     );
                   })}
                 </div>
-              </div>
-            )}
+              )}
+            </div>
 
-            {wordCoverage.length > 0 && (
-              <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-                <div className="px-5 py-4 border-b flex items-center gap-2">
-                  <Target className="h-4 w-4 text-violet-500" />
-                  <h3 className="font-bold text-sm">Vocabulary Coverage</h3>
-                  <span className="ml-auto text-xs text-muted-foreground">% học sinh đã ôn</span>
-                </div>
+            <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
+              <div className="px-5 py-4 border-b flex items-center gap-2">
+                <Target className="h-4 w-4 text-violet-500" />
+                <h3 className="font-bold text-sm">Vocabulary Coverage</h3>
+                <span className="ml-auto text-xs text-muted-foreground">% học sinh đã ôn</span>
+              </div>
+              {wordCoverage.length === 0 ? (
+                <div className="p-6 text-center text-xs text-muted-foreground">Chưa có từ vựng trong lớp</div>
+              ) : (
                 <div className="p-5 space-y-2.5">
                   {wordCoverage.slice(0, 10).map((wc, idx) => {
                     const covPct = Math.min(100, Math.max(0, Number(wc.coverage_pct ?? 0)));
                     return (
                       <div key={wc.word_id || wc.word || idx} className="flex items-center gap-3">
-                        <span className="text-sm font-semibold w-24 truncate shrink-0">{wc.word}</span>
+                        <span className="text-sm font-semibold w-28 truncate shrink-0">{wc.word}</span>
                         <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                           <div
                             className={`h-full rounded-full transition-all ${
@@ -234,13 +281,13 @@ export default function AnalyticsPanel({
                             style={{ width: `${covPct}%` }}
                           />
                         </div>
-                        <span className="text-[11px] text-muted-foreground w-8 text-right shrink-0">{covPct}%</span>
+                        <span className="text-[11px] text-muted-foreground w-10 text-right shrink-0">{covPct}%</span>
                       </div>
                     );
                   })}
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </>
       )}

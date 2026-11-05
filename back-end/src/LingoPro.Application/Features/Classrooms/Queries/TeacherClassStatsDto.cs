@@ -11,4 +11,5 @@ public record TeacherClassStatsDto(
     int AvgWordsLearned,
     int TotalReviews,
     int AvgMasteryPct,
-    int EngagementRate);
+    int EngagementRate,
+    int WordsDueToday = 0);
