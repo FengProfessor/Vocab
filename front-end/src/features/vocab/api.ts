@@ -424,11 +424,57 @@ export class VocabApi {
    */
   public static async saveWords(rawBody: unknown) {
     const payload = normalizePayloadData(rawBody);
-    const rawWords = Array.isArray(payload.words)
-      ? payload.words
-      : payload.word
-        ? [payload]
-        : [];
+    const classroomId =
+      typeof payload.classroomId === 'string' &&
+      payload.classroomId.trim().length > 0 &&
+      payload.classroomId !== 'personal' &&
+      payload.classroomId !== '__personal__'
+        ? payload.classroomId.trim()
+        : null;
+
+    if (typeof payload.word === 'string' && payload.word.trim().length > 0) {
+      const enriched = enrichClientWordEntry(payload.word, {
+        translation: payload.translation ? String(payload.translation) : undefined,
+        ipa: payload.ipa ? String(payload.ipa) : undefined,
+        pos: payload.pos ? String(payload.pos) : undefined,
+        example: payload.example ? String(payload.example) : undefined,
+        exampleVi: (payload.example_vi ?? payload.exampleVi)
+          ? String(payload.example_vi ?? payload.exampleVi)
+          : undefined,
+      });
+
+      const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>('/vocab/words', {
+        method: 'POST',
+        data: {
+          classroomId,
+          word: enriched.word,
+          translation: enriched.translation ?? null,
+          ipa: enriched.ipa ?? null,
+          pos: enriched.pos ?? null,
+          example: enriched.example ?? null,
+          exampleVi: enriched.exampleVi ?? null,
+          imageUrl: payload.imageUrl ?? payload.image_url ?? null,
+          sourceUrl: payload.sourceUrl ?? null,
+          synonyms: Array.isArray(payload.synonyms) ? payload.synonyms : null,
+          antonyms: Array.isArray(payload.antonyms) ? payload.antonyms : null,
+        },
+      });
+      VocabApi.invalidateAnalyticsCache();
+      const resData = (body?.data || {}) as Record<string, unknown>;
+      return withResponseCompat(
+        {
+          success: ok,
+          wordId: resData.wordId ? String(resData.wordId) : undefined,
+          alreadyExists: Boolean(resData.alreadyExists),
+          status: resData.status ? String(resData.status) : 'approved',
+          data: resData,
+        },
+        status,
+        ok,
+      );
+    }
+
+    const rawWords = Array.isArray(payload.words) ? payload.words : [];
 
     if (rawWords.length > 0) {
       const words: ImportWordPayloadItem[] = rawWords.map((item: unknown) => {
@@ -477,43 +523,91 @@ export class VocabApi {
       );
     }
 
-    return callServerOriginApi('/api/words', {
-      method: 'POST',
-      data: payload,
-    });
+    return withResponseCompat({ success: false, error: 'Không có từ vựng để lưu.' }, 400, false);
   }
 
   /**
-   * Updates an existing vocabulary word.
+   * Updates an existing vocabulary word via `PUT /api/v1/vocab/words/{wordId}`.
    */
   public static async updateWord(rawBody: unknown) {
+    const payload = normalizePayloadData(rawBody);
+    const wordId = String(payload.wordId ?? payload.id ?? '').trim();
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>(
+      `/vocab/words/${encodeURIComponent(wordId)}`,
+      {
+        method: 'PUT',
+        data: {
+          wordId,
+          word: payload.word ?? null,
+          translation: payload.translation ?? null,
+          pos: payload.pos ?? null,
+          ipa: payload.ipa ?? null,
+          example: payload.example ?? null,
+          exampleVi: payload.exampleVi ?? payload.example_vi ?? null,
+          imageUrl: payload.imageUrl ?? payload.image_url ?? null,
+        },
+      },
+    );
     VocabApi.invalidateAnalyticsCache();
-    return callServerOriginApi('/api/words', {
-      method: 'PUT',
-      data: normalizePayloadData(rawBody),
-    });
+    return withResponseCompat(
+      {
+        success: ok,
+        data: body?.data ?? null,
+        error: ok ? undefined : body?.message,
+      },
+      status,
+      ok,
+    );
   }
 
   /**
-   * Deletes vocabulary word(s).
+   * Deletes vocabulary word(s) via `DELETE /api/v1/vocab/words/{wordId}`.
    */
   public static async deleteWords(rawBody: unknown) {
+    const payload = normalizePayloadData(rawBody);
+    const wordId = String(payload.wordId ?? payload.id ?? '').trim();
+    const { ok, status, body } = await callDotNetRaw<boolean>(
+      `/vocab/words/${encodeURIComponent(wordId)}`,
+      {
+        method: 'DELETE',
+      },
+    );
     VocabApi.invalidateAnalyticsCache();
-    return callServerOriginApi('/api/words', {
-      method: 'DELETE',
-      data: normalizePayloadData(rawBody),
-    });
+    return withResponseCompat(
+      {
+        success: ok,
+        error: ok ? undefined : body?.message,
+      },
+      status,
+      ok,
+    );
   }
 
   /**
-   * Updates moderation status of a classroom vocabulary word (`PATCH /api/words/:id/status`).
+   * Updates moderation status of a classroom vocabulary word (`PATCH /api/v1/vocab/words/:id/status`).
    */
   public static async updateWordStatus(wordId: string, rawBody: unknown) {
+    const payload =
+      typeof rawBody === 'string'
+        ? { status: rawBody }
+        : normalizePayloadData(rawBody);
+    const targetStatus = String(payload.status ?? 'approved');
+    const { ok, status, body } = await callDotNetRaw<boolean>(
+      `/vocab/words/${encodeURIComponent(wordId)}/status`,
+      {
+        method: 'PATCH',
+        data: { wordId, status: targetStatus },
+      },
+    );
     VocabApi.invalidateAnalyticsCache();
-    return callServerOriginApi(`/api/words/${encodeURIComponent(wordId)}/status`, {
-      method: 'PATCH',
-      data: normalizePayloadData(rawBody),
-    });
+    return withResponseCompat(
+      {
+        success: ok,
+        error: ok ? undefined : body?.message,
+      },
+      status,
+      ok,
+    );
   }
 
   /**

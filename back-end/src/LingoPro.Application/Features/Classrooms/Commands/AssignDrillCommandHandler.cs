@@ -1,13 +1,14 @@
 using LingoPro.Application.Common.Interfaces;
 using LingoPro.Application.Common.Interfaces.Repositories;
 using LingoPro.Application.Common.Models;
+using LingoPro.Domain.Enums;
 using LingoPro.Domain.Exceptions;
 using MediatR;
 
 namespace LingoPro.Application.Features.Classrooms.Commands;
 
 /// <summary>
-/// Assigns a vocabulary drill to an enrolled student after verifying classroom ownership.
+/// Reschedules targeted vocabulary cards to today's review queue for an enrolled student, enforcing classroom ownership and IDOR protection.
 /// </summary>
 public class AssignDrillCommandHandler(
     ICurrentUserService currentUser,
@@ -15,32 +16,48 @@ public class AssignDrillCommandHandler(
 {
     public async Task<ApiResponse<int>> Handle(AssignDrillCommand request, CancellationToken ct)
     {
-        var teacherId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
+        var userId = currentUser.UserId ?? throw new UnauthorizedAccessException("User is not authenticated.");
 
-        var classroom = await classroomRepository.GetClassroomByIdAsNoTrackingAsync(request.ClassroomId, ct)
-            ?? throw new NotFoundException("Classroom", request.ClassroomId);
-
-        if (classroom.IsPersonal || (classroom.TeacherId != teacherId && !currentUser.IsAdmin))
+        var classroom = await classroomRepository.GetClassroomByIdAsync(request.ClassroomId, ct);
+        if (classroom == null)
         {
-            throw new ForbiddenAccessException("You are not authorized to manage this classroom.");
+            throw new NotFoundException("Classroom", request.ClassroomId);
         }
 
-        bool isEnrolled = await classroomRepository.IsStudentEnrolledAsync(request.ClassroomId, request.StudentId, ct);
+        if (classroom.IsPersonal || classroom.TeacherId != userId)
+        {
+            throw new ForbiddenAccessException("You do not own this classroom.");
+        }
 
+        var isEnrolled = await classroomRepository.IsStudentEnrolledAsync(request.ClassroomId, request.StudentId, ct);
         if (!isEnrolled)
         {
-            throw new ForbiddenAccessException("Target student is not enrolled in this classroom.");
+            throw new ForbiddenAccessException("The target student is not enrolled in this classroom.");
         }
 
-        var today = DateOnly.FromDateTime(DateTime.UtcNow);
-        var itemsToDrill = await classroomRepository.GetStudentSrsProgressesForDrillAsync(request.StudentId, request.WordIds, ct);
-        foreach (var item in itemsToDrill)
+        var progresses = await classroomRepository.GetStudentSrsProgressesForDrillAsync(
+            request.StudentId,
+            request.WordIds,
+            request.ClassroomId,
+            ct);
+
+        var today = DateTime.UtcNow.Date;
+        foreach (var p in progresses)
         {
-            item.NextReviewDate = today.ToDateTime(TimeOnly.MinValue);
+            p.NextReviewDate = today;
         }
 
         await classroomRepository.SaveChangesAsync(ct);
 
-        return ApiResponse<int>.Ok(itemsToDrill.Count, "Vocabulary drill assigned to student successfully.");
+        var terms = progresses
+            .Select(p => p.Word?.Term)
+            .Where(t => !string.IsNullOrWhiteSpace(t))
+            .ToList();
+
+        string message = terms.Count > 0
+            ? $"Assigned {progresses.Count} words to today's review queue: {string.Join(", ", terms)}"
+            : $"Assigned {progresses.Count} words to today's review queue.";
+
+        return ApiResponse<int>.Ok(progresses.Count, message);
     }
 }

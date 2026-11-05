@@ -52,13 +52,13 @@
 | `VocabApi.getWordById` / `useVocabWordDetailQuery` | `GET /api/v1/vocab/words/{wordId}` | `components/student/WordDetailModal.tsx` | ✅ |
 | `VocabApi.getDueWords` | `GET /api/v1/vocab/due` | `src/features/vocab/api.ts` | ✅ |
 | `VocabApi.submitSrsReview` / `useSubmitSrsReviewMutation` | `POST /api/v1/vocab/review` | `lib/save-srs-review.ts`, `lib/offline/review-sync.ts`, `app/writing` | ✅ |
-| `VocabApi.getPacks` | Stub `[]` | `app/student/page.tsx` | 🟡 |
-| `VocabApi.saveWords`, `updateWord`, `deleteWords` | `POST/PUT/DELETE /api/words` | `dictionary`, `import`, `library`, `WordsPanel`, `WordDetailModal`, `WordLookupPopover` | 🟡 |
-| `VocabApi.updateWordStatus` | `PATCH /api/words/:id/status` | `app/teacher/page.tsx` | 🟡 |
-| `VocabApi.refreshWords`, `refreshWordImage` | `POST /api/words/refresh`, `POST /api/words/refresh-image` | `import`, `journey`, `library`, `flashcard`, `WordsPanel`, `VocabRoadmapSection` | 🟡 |
-| `VocabApi.getImportPackages`, `importPackage` | `GET/POST /api/import/packages` | `library`, `journey`, `StudentProvider`, `VocabRoadmapSection` | 🟡 |
+| `VocabApi.getPacks` | `GET /api/v1/vocab/packs/progress` | `app/student/page.tsx` | ✅ |
+| `VocabApi.saveWords`, `updateWord`, `deleteWords` | `POST/PUT/DELETE /api/v1/vocab/words` | `dictionary`, `import`, `library`, `WordsPanel`, `WordDetailModal`, `WordLookupPopover` | ✅ |
+| `VocabApi.updateWordStatus` | `PATCH /api/v1/vocab/words/{wordId}/status` | `app/teacher/page.tsx`, `WordsPanel` | ✅ |
+| `VocabApi.refreshWords`, `refreshWordImage` | `POST /api/words/refresh-image` | `import`, `journey`, `library`, `flashcard`, `WordsPanel`, `VocabRoadmapSection` | 🟡 |
+| `VocabApi.getImportPackages`, `importPackage` | `POST /api/v1/vocab/packs/import` + client catalog | `library`, `journey`, `StudentProvider`, `VocabRoadmapSection` | ✅ |
 | `VocabApi.generateLibraryGloss` | `POST /api/library/gloss` | `app/library/page.tsx` | 🟡 |
-| `VocabApi.getVocabTopic` | `GET /api/vocab/topic` | `lib/vocab-topics.ts` | 🟡 |
+| `VocabApi.getVocabTopic` | Client catalog (`vocab-stages.ts`) | `lib/vocab-topics.ts` | ✅ |
 | `VocabApi.saveQuizResult` | Client XP calculation (`XP_PER_CORRECT_QUIZ`) | `flashcard`, `flashcard/LearnMode`, `quiz`, `writing` | ✅ |
 
 ## 3. Từ điển, dịch, AI Coaching (`src/features/dictionary/`)
@@ -83,12 +83,13 @@
 | `GrammarApi.getTopics` / `useGrammarTopicsQuery` | `GET /api/v1/grammar/topics` (+ fallback catalog) | `grammar/practice`, `teacher/GrammarPanel`, `teacher/grammar` | ✅ |
 | `GrammarApi.getProgress` / `useGrammarProgressQuery` | `GET /api/v1/vocab/analytics` | `grammar`, `StudentProvider`, `StudentShell` | ⚠️ |
 | `GrammarApi.submitProgress`, `submitReview` | `POST /api/v1/grammar/progress` | `grammar/practice` | ✅ |
+| `GrammarApi.getClassroomExercises` | `GET /api/v1/grammar/exercises` | `teacher/GrammarPanel.tsx` | ✅ |
 | `GrammarApi.deleteExercise` | `DELETE /api/v1/grammar/exercises/{exerciseId}` | `teacher/GrammarPanel.tsx` | ✅ |
-| `GrammarApi.createExercise` | `POST /api/grammar` | `teacher/GrammarPanel.tsx` | 🟡 |
+| `GrammarApi.createExercise` | `POST /api/v1/grammar/exercises/generate` | `teacher/GrammarPanel.tsx`, `app/teacher/grammar/page.tsx` | ✅ |
 | `GrammarApi.getReviewSchedule` | Client wrong-answer queue (`readLocalGrammarWrongQueue`) | `grammar`, `grammar/practice` | ✅ |
 | `GrammarApi.getTheory` / `useGrammarTheoryQuery` | Embedded curriculum catalog (`UNIFIED_GRAMMAR_TOPICS` + `grammar-topic-assets.json`) | `grammar`, `grammar/practice` | ✅ |
 | `GrammarApi.getLessons`, `saveLesson`, `deleteLesson` | Embedded curriculum catalog + client storage | `teacher/grammar`, `teacher/GrammarPanel` | ✅ |
-| `GrammarApi.generateLesson` | `POST /api/grammar/generate` | `app/teacher/grammar/page.tsx` | 🟡 |
+| `GrammarApi.generateLesson` | `POST /api/v1/grammar/lessons/generate` | `app/teacher/grammar/page.tsx` | ✅ |
 
 ## 5. Lộ trình (roadmap) & checkpoint (`src/features/roadmap/`)
 
@@ -135,11 +136,11 @@
 | `ClassroomApi.createClassroom`, `updateClassroom`, `deleteClassroom` | `POST/PUT/DELETE /api/v1/classrooms` | `app/teacher/page.tsx` | ✅ |
 | `ClassroomApi.joinClassroom` / `useJoinClassroomMutation` | `POST /api/v1/classrooms/join` | `app/student` | ✅ |
 | `ClassroomApi.assignDrill` | `POST /api/v1/classrooms/assign-drill` | `teacher/student/[id]`, `StudentDetailSheet` | ✅ |
-| `ClassroomApi.getLeaderboard` / `useClassroomLeaderboardQuery` | `GET /api/classrooms/:id/leaderboard` | `student/leaderboard` | 🟡 |
-| `ClassroomApi.getTeacherAnalytics`, `getTeacherStats` | `GET /api/teacher/analytics`, `/stats` | `app/teacher/page.tsx` | 🟡 |
-| `ClassroomApi.getStudentDetail`, `getStudentErrors`, `getCoachingInsight` | `GET/POST /api/teacher/student-*`, `/coaching-insight` | `teacher/student/[id]`, `StudentDetailSheet`, `teacher-cache` | 🟡 |
-| `ClassroomApi.addStudentToClassroom`, `removeStudentFromClassroom` | `POST /api/teacher/students/add`, `/remove` | `teacher/StudentsPanel` | 🟡 |
-| `ClassroomApi.getVocabularyGapMap` | `GET /api/foundation/vocabulary-map` | `TeacherVocabularyGapMap.tsx` | 🟡 |
+| `ClassroomApi.getLeaderboard` / `useClassroomLeaderboardQuery` | `GET /api/v1/classrooms/{classroomId}/leaderboard` | `student/leaderboard` | ✅ |
+| `ClassroomApi.getTeacherAnalytics`, `getTeacherStats` | `GET /api/v1/classrooms/{classroomId}/analytics`, `/api/v1/classrooms/teacher-stats` | `app/teacher/page.tsx`, `AnalyticsPanel.tsx` | ✅ |
+| `ClassroomApi.getStudentDetail`, `getStudentErrors`, `requestCoachingInsight` | `GET /api/v1/classrooms/student-detail`, `/student-errors`, `POST /api/v1/classrooms/coaching-insight` | `teacher/student/[id]`, `StudentDetailSheet`, `teacher-cache` | ✅ |
+| `ClassroomApi.addStudent`, `removeStudent` | `POST /api/v1/classrooms/{classroomId}/students`, `DELETE /api/v1/classrooms/{classroomId}/students/{studentId}` | `teacher/StudentsPanel` | ✅ |
+| `ClassroomApi.getVocabularyGapMap` | `GET /api/v1/speaking-foundation/vocabulary-map` | `TeacherVocabularyGapMap.tsx` | ✅ |
 
 ## 9. Cộng đồng, giới thiệu, thử thách (`src/features/social/`, `src/features/challenge/`)
 

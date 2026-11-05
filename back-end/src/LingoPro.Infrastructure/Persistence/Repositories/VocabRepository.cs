@@ -6,6 +6,7 @@ using LingoPro.Application.Features.Vocab.Queries;
 using LingoPro.Domain.Entities.Auth;
 using LingoPro.Domain.Entities.Classroom;
 using LingoPro.Domain.Entities.Vocab;
+using LingoPro.Domain.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace LingoPro.Infrastructure.Persistence.Repositories;
@@ -97,6 +98,9 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
             .AsNoTracking()
             .Where(w => w.IsDeleted != true);
 
+        bool isSpecificClassroomScope = false;
+        bool isPendingModerationFilter = string.Equals(filter?.Trim(), "pending", StringComparison.OrdinalIgnoreCase);
+
         if (!string.IsNullOrWhiteSpace(classroomScope) &&
             !string.Equals(classroomScope, "all", StringComparison.OrdinalIgnoreCase))
         {
@@ -115,7 +119,12 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
             }
             else if (Guid.TryParse(classroomScope, out var parsedClassroomId))
             {
+                isSpecificClassroomScope = true;
                 wordsQuery = wordsQuery.Where(w => w.ClassroomId == parsedClassroomId);
+                if (isPendingModerationFilter)
+                {
+                    wordsQuery = wordsQuery.Where(w => w.AddedBy != null && w.AddedBy != userId);
+                }
             }
             else
             {
@@ -154,24 +163,26 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
             .GroupBy(s => s.WordId)
             .ToDictionary(g => g.Key, g => g.First());
 
-        // If user has SrsProgress rows for words outside owned/enrolled classrooms, include those words too
+        // If user has SrsProgress rows for words outside owned/enrolled classrooms, include those words too (unless scoped to a specific classroom)
         var existingWordIds = userWords.Select(w => w.Id).ToHashSet();
-        var extraWordsFromSrs = srsRows
-            .Where(s => s.Word != null && !existingWordIds.Contains(s.WordId))
-            .Select(s => new
-            {
-                s.Word.Id,
-                s.Word.Term,
-                s.Word.Translation,
-                s.Word.Ipa,
-                s.Word.Pos,
-                s.Word.Example,
-                s.Word.ExampleVi,
-                s.Word.ImageUrl,
-                s.Word.ClassroomId,
-                s.Word.CreatedAt
-            })
-            .ToList();
+        var extraWordsFromSrs = isSpecificClassroomScope
+            ? []
+            : srsRows
+                .Where(s => s.Word != null && !existingWordIds.Contains(s.WordId))
+                .Select(s => new
+                {
+                    s.Word.Id,
+                    s.Word.Term,
+                    s.Word.Translation,
+                    s.Word.Ipa,
+                    s.Word.Pos,
+                    s.Word.Example,
+                    s.Word.ExampleVi,
+                    s.Word.ImageUrl,
+                    s.Word.ClassroomId,
+                    s.Word.CreatedAt
+                })
+                .ToList();
 
         if (extraWordsFromSrs.Count > 0)
         {
@@ -882,6 +893,251 @@ public sealed class VocabRepository(IApplicationDbContext dbContext) : IVocabRep
 
     public Task<Word?> GetWordByIdAsNoTrackingAsync(Guid wordId, CancellationToken ct = default)
         => dbContext.Words.AsNoTracking().FirstOrDefaultAsync(w => w.Id == wordId && w.IsDeleted != true, ct);
+
+    public async Task<SaveClassroomWordResultDto> SaveClassroomWordAsync(
+        Guid userId,
+        SaveClassroomWordCommand command,
+        bool isAdmin,
+        CancellationToken ct = default)
+    {
+        var nowUtc = DateTime.UtcNow;
+        Guid targetClassroomId;
+        bool isTeacherOrOwner = true;
+
+        if (command.ClassroomId.HasValue && command.ClassroomId.Value != Guid.Empty)
+        {
+            var cid = command.ClassroomId.Value;
+            var classroom = await dbContext.Classrooms
+                .AsNoTracking()
+                .FirstOrDefaultAsync(c => c.Id == cid && c.IsDeleted != true, ct)
+                ?? throw new NotFoundException("Classroom", cid);
+
+            isTeacherOrOwner = classroom.TeacherId == userId || isAdmin;
+            if (!isTeacherOrOwner)
+            {
+                bool isEnrolled = await dbContext.Enrollments
+                    .AsNoTracking()
+                    .AnyAsync(e => e.ClassroomId == cid && e.StudentId == userId, ct);
+
+                if (!isEnrolled)
+                {
+                    throw new ForbiddenAccessException("You do not have permission to add words to this classroom.");
+                }
+            }
+
+            targetClassroomId = cid;
+        }
+        else
+        {
+            var personalClassroom = await dbContext.Classrooms
+                .FirstOrDefaultAsync(c => c.TeacherId == userId && c.Name == "__personal__" && c.IsDeleted != true, ct);
+
+            if (personalClassroom == null)
+            {
+                personalClassroom = new ClassroomEntity
+                {
+                    Id = Guid.NewGuid(),
+                    TeacherId = userId,
+                    Name = "__personal__",
+                    Description = "Kho từ vựng cá nhân",
+                    InviteCode = $"P{Guid.NewGuid():N}"[..8].ToUpperInvariant(),
+                    CreatedAt = nowUtc
+                };
+                dbContext.Classrooms.Add(personalClassroom);
+            }
+
+            targetClassroomId = personalClassroom.Id;
+        }
+
+        string normalizedTerm = command.Word.Trim().ToLowerInvariant();
+        var existingWord = await dbContext.Words
+            .FirstOrDefaultAsync(
+                w => w.ClassroomId == targetClassroomId &&
+                     w.Term.ToLower() == normalizedTerm &&
+                     w.IsDeleted != true,
+                ct);
+
+        var dictEntry = await dbContext.GlobalDictionaries
+            .AsNoTracking()
+            .FirstOrDefaultAsync(d => d.Word.ToLower() == normalizedTerm, ct);
+
+        var (dictMeaning, dictIpa, dictPos, dictExample, dictExampleVi) = ParseGlobalDictionaryData(dictEntry?.Data);
+
+        string translation = !string.IsNullOrWhiteSpace(command.Translation)
+            ? command.Translation.Trim()
+            : (dictMeaning ?? command.Word.Trim());
+        string? ipa = !string.IsNullOrWhiteSpace(command.Ipa) ? command.Ipa.Trim() : dictIpa;
+        string? pos = !string.IsNullOrWhiteSpace(command.Pos) ? command.Pos.Trim() : dictPos;
+        string? example = !string.IsNullOrWhiteSpace(command.Example) ? command.Example.Trim() : dictExample;
+        string? exampleVi = !string.IsNullOrWhiteSpace(command.ExampleVi) ? command.ExampleVi.Trim() : dictExampleVi;
+        string? imageUrl = !string.IsNullOrWhiteSpace(command.ImageUrl) ? command.ImageUrl.Trim() : dictEntry?.ImageUrl;
+
+        string status = isTeacherOrOwner ? "approved" : "pending";
+
+        if (existingWord != null)
+        {
+            if (string.IsNullOrWhiteSpace(existingWord.Translation) && !string.IsNullOrWhiteSpace(translation))
+                existingWord.Translation = translation;
+            if (string.IsNullOrWhiteSpace(existingWord.Ipa) && !string.IsNullOrWhiteSpace(ipa))
+                existingWord.Ipa = ipa;
+            if (string.IsNullOrWhiteSpace(existingWord.Pos) && !string.IsNullOrWhiteSpace(pos))
+                existingWord.Pos = pos;
+            if (string.IsNullOrWhiteSpace(existingWord.Example) && !string.IsNullOrWhiteSpace(example))
+                existingWord.Example = example;
+            if (string.IsNullOrWhiteSpace(existingWord.ExampleVi) && !string.IsNullOrWhiteSpace(exampleVi))
+                existingWord.ExampleVi = exampleVi;
+            if (string.IsNullOrWhiteSpace(existingWord.ImageUrl) && !string.IsNullOrWhiteSpace(imageUrl))
+                existingWord.ImageUrl = imageUrl;
+
+            await dbContext.SaveChangesAsync(ct);
+            return new SaveClassroomWordResultDto(existingWord.Id, AlreadyExists: true, Status: status);
+        }
+
+        var newWord = new Word
+        {
+            Id = Guid.NewGuid(),
+            ClassroomId = targetClassroomId,
+            AddedBy = userId,
+            Term = normalizedTerm,
+            Translation = translation,
+            Ipa = ipa,
+            Pos = pos,
+            Example = example,
+            ExampleVi = exampleVi,
+            ImageUrl = imageUrl,
+            SourceUrl = command.SourceUrl,
+            Synonyms = command.Synonyms?.ToArray() ?? [],
+            Antonyms = command.Antonyms?.ToArray() ?? [],
+            CreatedAt = nowUtc
+        };
+
+        dbContext.Words.Add(newWord);
+        await dbContext.SaveChangesAsync(ct);
+
+        return new SaveClassroomWordResultDto(newWord.Id, AlreadyExists: false, Status: status);
+    }
+
+    public async Task<VocabWordItemDto> UpdateVocabWordAsync(
+        Guid userId,
+        UpdateVocabWordCommand command,
+        bool isAdmin,
+        CancellationToken ct = default)
+    {
+        var word = await dbContext.Words
+            .Include(w => w.Classroom)
+            .FirstOrDefaultAsync(w => w.Id == command.WordId && w.IsDeleted != true, ct)
+            ?? throw new NotFoundException("Word", command.WordId);
+
+        bool canModify = isAdmin ||
+                         word.AddedBy == userId ||
+                         (word.Classroom != null && word.Classroom.TeacherId == userId);
+
+        if (!canModify)
+        {
+            throw new ForbiddenAccessException("You are not authorized to update this vocabulary word.");
+        }
+
+        if (!string.IsNullOrWhiteSpace(command.Word))
+            word.Term = command.Word.Trim().ToLowerInvariant();
+        if (command.Translation != null)
+            word.Translation = command.Translation.Trim();
+        if (command.Pos != null)
+            word.Pos = string.IsNullOrWhiteSpace(command.Pos) ? null : command.Pos.Trim();
+        if (command.Ipa != null)
+            word.Ipa = string.IsNullOrWhiteSpace(command.Ipa) ? null : command.Ipa.Trim();
+        if (command.Example != null)
+            word.Example = string.IsNullOrWhiteSpace(command.Example) ? null : command.Example.Trim();
+        if (command.ExampleVi != null)
+            word.ExampleVi = string.IsNullOrWhiteSpace(command.ExampleVi) ? null : command.ExampleVi.Trim();
+        if (command.ImageUrl != null)
+            word.ImageUrl = string.IsNullOrWhiteSpace(command.ImageUrl) ? null : command.ImageUrl.Trim();
+
+        word.UpdatedAt = DateTime.UtcNow;
+        await dbContext.SaveChangesAsync(ct);
+
+        var srs = await dbContext.SrsProgresses
+            .AsNoTracking()
+            .FirstOrDefaultAsync(s => s.UserId == userId && s.WordId == word.Id, ct);
+
+        double stability = srs?.Stability ?? 0;
+        double difficulty = srs?.Difficulty ?? 5.0;
+
+        return new VocabWordItemDto(
+            word.Id,
+            word.Term,
+            word.Translation ?? string.Empty,
+            word.Ipa,
+            word.Pos,
+            word.Example,
+            word.ExampleVi,
+            word.ImageUrl,
+            word.ClassroomId,
+            MapStabilityToLevel(stability),
+            Math.Round(stability, 2),
+            Math.Round(difficulty, 2),
+            srs?.IntervalDays ?? 0,
+            srs?.ReviewCount ?? 0,
+            srs?.NextReviewDate,
+            srs?.LastReviewedAt,
+            word.CreatedAt ?? DateTime.UtcNow);
+    }
+
+    public async Task DeleteVocabWordAsync(
+        Guid userId,
+        Guid wordId,
+        bool isAdmin,
+        CancellationToken ct = default)
+    {
+        var word = await dbContext.Words
+            .Include(w => w.Classroom)
+            .FirstOrDefaultAsync(w => w.Id == wordId && w.IsDeleted != true, ct)
+            ?? throw new NotFoundException("Word", wordId);
+
+        bool canDelete = isAdmin ||
+                         word.AddedBy == userId ||
+                         (word.Classroom != null && word.Classroom.TeacherId == userId);
+
+        if (!canDelete)
+        {
+            throw new ForbiddenAccessException("You are not authorized to delete this vocabulary word.");
+        }
+
+        word.MarkAsDeleted(userId);
+        dbContext.Words.Remove(word);
+        await dbContext.SaveChangesAsync(ct);
+    }
+
+    public async Task UpdateVocabWordStatusAsync(
+        Guid userId,
+        Guid wordId,
+        string status,
+        bool isAdmin,
+        CancellationToken ct = default)
+    {
+        var word = await dbContext.Words
+            .Include(w => w.Classroom)
+            .FirstOrDefaultAsync(w => w.Id == wordId && w.IsDeleted != true, ct)
+            ?? throw new NotFoundException("Word", wordId);
+
+        if (word.Classroom == null || (word.Classroom.TeacherId != userId && !isAdmin))
+        {
+            throw new ForbiddenAccessException("Only the classroom teacher can moderate classroom words.");
+        }
+
+        string normalizedStatus = status.Trim().ToLowerInvariant();
+        if (normalizedStatus == "rejected")
+        {
+            word.MarkAsDeleted(userId);
+            dbContext.Words.Remove(word);
+        }
+        else
+        {
+            word.AddedBy = word.Classroom.TeacherId;
+            word.UpdatedAt = DateTime.UtcNow;
+        }
+
+        await dbContext.SaveChangesAsync(ct);
+    }
 
     public Task<int> SaveChangesAsync(CancellationToken ct = default)
         => dbContext.SaveChangesAsync(ct);

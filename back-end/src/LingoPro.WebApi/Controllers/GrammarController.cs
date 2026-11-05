@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.RateLimiting;
 namespace LingoPro.WebApi.Controllers;
 
 /// <summary>
-/// REST API controller for canonical grammar topics catalog, classroom grammar exercises, and learner grammar mastery progression.
+/// REST API controller for canonical grammar topics catalog, classroom grammar exercises, AI lesson generation, and learner grammar mastery progression.
 /// </summary>
 [Route("api/v1/grammar")]
 [Authorize]
@@ -25,6 +25,37 @@ public sealed class GrammarController : ApiControllerBase
     {
         var result = await Mediator.Send(new GetCanonicalGrammarTopicsQuery(cefrLevel), ct);
         return OkResponse(result, "Canonical grammar topics retrieved successfully.");
+    }
+
+    [HttpGet("exercises")]
+    public async Task<ActionResult<ApiResponse<IReadOnlyList<GrammarExerciseDto>>>> GetClassroomExercises(
+        [FromQuery] Guid classroomId,
+        [FromQuery] string? topic = null,
+        [FromQuery] string? level = null,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetClassroomGrammarExercisesQuery(classroomId, topic, level), ct);
+        return OkResponse(result);
+    }
+
+    [HttpPost("exercises/generate")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<IReadOnlyList<GrammarExerciseDto>>>> GenerateExercises(
+        [FromBody] GenerateGrammarExercisesCommand command,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(command, ct);
+        return CreatedResponse(result);
+    }
+
+    [HttpPost("lessons/generate")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<GeneratedGrammarLessonDto>>> GenerateLesson(
+        [FromBody] GenerateGrammarLessonCommand command,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(command, ct);
+        return OkResponse(result);
     }
 
     [HttpPost("progress")]

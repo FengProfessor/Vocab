@@ -5,7 +5,7 @@ using LingoPro.Domain.Entities.Vocab;
 namespace LingoPro.Application.Common.Interfaces.Repositories;
 
 /// <summary>
-/// Repository abstraction for vocabulary words, curated packs, FSRS review progress, and due review queues.
+/// Repository abstraction for vocabulary words, curated packs, classroom word moderation, FSRS review progress, and due review queues.
 /// </summary>
 public interface IVocabRepository
 {
@@ -43,6 +43,31 @@ public interface IVocabRepository
 
     Task<IReadOnlyList<UserVocabPackDto>> GetUserVocabPacksAsync(
         Guid userId,
+        CancellationToken ct = default);
+
+    Task<SaveClassroomWordResultDto> SaveClassroomWordAsync(
+        Guid userId,
+        SaveClassroomWordCommand command,
+        bool isAdmin,
+        CancellationToken ct = default);
+
+    Task<VocabWordItemDto> UpdateVocabWordAsync(
+        Guid userId,
+        UpdateVocabWordCommand command,
+        bool isAdmin,
+        CancellationToken ct = default);
+
+    Task DeleteVocabWordAsync(
+        Guid userId,
+        Guid wordId,
+        bool isAdmin,
+        CancellationToken ct = default);
+
+    Task UpdateVocabWordStatusAsync(
+        Guid userId,
+        Guid wordId,
+        string status,
+        bool isAdmin,
         CancellationToken ct = default);
 
     Task<int> SaveChangesAsync(CancellationToken ct = default);

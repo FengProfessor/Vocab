@@ -756,6 +756,17 @@ export default function StudentsPanel({
                             <span>{st.dot}</span>
                             <span>{st.label}</span>
                           </span>
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setStudentToRemove(s);
+                            }}
+                            title="Xóa học sinh khỏi lớp"
+                            className="p-1 rounded-md text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
+                          </button>
                           <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
                         </div>
                       </td>
