@@ -158,13 +158,8 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
         }
 
         var nowUtc = DateTime.UtcNow;
-        var enrollments = await dbContext.Enrollments
-            .AsNoTracking()
-            .Include(e => e.Student)
-            .Where(e => e.ClassroomId == classroomId)
-            .ToListAsync(ct);
-
-        var studentIds = enrollments.Select(e => e.StudentId).Distinct().ToList();
+        var progressList = await BuildClassroomStudentProgressListAsync(classroom, ct);
+        var studentIds = progressList.Select(p => p.StudentId).Distinct().ToList();
 
         var classWords = await dbContext.Words
             .AsNoTracking()
@@ -175,15 +170,24 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
 
         var classWordIds = classWords.Select(w => w.Id).ToHashSet();
 
-        var srsRows = studentIds.Count > 0 && classWordIds.Count > 0
+        var allSrsRows = studentIds.Count > 0
             ? await dbContext.SrsProgresses
                 .AsNoTracking()
-                .Where(s => studentIds.Contains(s.UserId) && classWordIds.Contains(s.WordId))
+                .Include(s => s.Word)
+                .Where(s => studentIds.Contains(s.UserId) && s.Word != null && s.Word.IsDeleted != true)
                 .ToListAsync(ct)
             : [];
 
-        int totalStudents = enrollments.Count;
-        int totalWords = classWords.Count;
+        var classSrsRows = classWordIds.Count > 0
+            ? allSrsRows.Where(s => classWordIds.Contains(s.WordId)).ToList()
+            : [];
+
+        var effectiveSrsRows = classSrsRows.Count > 0 ? classSrsRows : allSrsRows;
+
+        int totalStudents = progressList.Count;
+        int totalWords = classWords.Count > 0
+            ? classWords.Count
+            : effectiveSrsRows.Select(s => s.WordId).Distinct().Count();
 
         var studentSummaries = new List<TeacherStudentSummaryDto>(totalStudents);
         int active7d = 0;
@@ -191,38 +195,35 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
         int totalWordsLearnedSum = 0;
         int totalMasteryPctSum = 0;
 
-        foreach (var enrollment in enrollments)
+        foreach (var p in progressList)
         {
-            var profile = enrollment.Student;
-            var studentSrs = srsRows.Where(s => s.UserId == enrollment.StudentId).ToList();
-            int wordsLearned = studentSrs.Count;
-            int wordsDue = studentSrs.Count(s => s.NextReviewDate != null && s.NextReviewDate <= nowUtc);
-            int totalReviews = studentSrs.Sum(s => s.ReviewCount ?? 0);
-            DateTime? lastStudyAt = studentSrs.Count > 0 ? studentSrs.Max(s => s.LastReviewedAt) : null;
-            double avgEase = studentSrs.Count > 0 ? studentSrs.Average(s => s.EaseFactor ?? 2.5) : 2.5;
-            int masteryPct = totalWords > 0 ? (int)Math.Round((double)wordsLearned / totalWords * 100.0) : 0;
-            int easePct = (int)Math.Clamp(Math.Round((avgEase - 1.3) / (3.0 - 1.3) * 100.0), 0, 100);
-            int? daysSinceActive = lastStudyAt.HasValue
-                ? (int)Math.Max(0, Math.Floor((nowUtc - lastStudyAt.Value).TotalDays))
+            var effectiveLastActive = p.TrueLastActive ?? p.LastStudyAt;
+            int? daysSinceActive = effectiveLastActive.HasValue
+                ? (int)Math.Max(0, Math.Floor((nowUtc - effectiveLastActive.Value).TotalDays))
                 : null;
             bool isActive7d = daysSinceActive.HasValue && daysSinceActive.Value <= 7;
 
+            int masteryPct = p.Vms;
+            int accuracyPct = p.LatestQuiz is { TotalQuestions: > 0 }
+                ? (int)Math.Clamp(Math.Round((double)p.LatestQuiz.Score / p.LatestQuiz.TotalQuestions * 100.0), 0, 100)
+                : masteryPct;
+
             if (isActive7d) active7d++;
-            totalReviewsAll += totalReviews;
-            totalWordsLearnedSum += wordsLearned;
+            totalReviewsAll += p.TotalReviews;
+            totalWordsLearnedSum += p.TotalWordsLearned;
             totalMasteryPctSum += masteryPct;
 
             studentSummaries.Add(new TeacherStudentSummaryDto(
-                enrollment.StudentId,
-                profile?.FullName,
-                profile?.Email ?? string.Empty,
-                profile?.AvatarUrl,
-                wordsLearned,
-                wordsDue,
-                totalReviews,
+                p.StudentId,
+                p.FullName,
+                p.Email,
+                p.AvatarUrl,
+                p.TotalWordsLearned,
+                p.WordsDue,
+                p.TotalReviews,
                 masteryPct,
-                easePct,
-                lastStudyAt,
+                accuracyPct,
+                effectiveLastActive,
                 daysSinceActive,
                 isActive7d));
         }
@@ -243,26 +244,41 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
             engagementRate);
 
         var topStudents = studentSummaries
-            .OrderByDescending(s => s.WordsLearned)
-            .ThenByDescending(s => s.TotalReviews)
+            .OrderByDescending(s => s.MasteryPct)
+            .ThenByDescending(s => s.WordsLearned)
             .Take(5)
             .ToList();
 
         var strugglingStudents = studentSummaries
-            .Where(s => !s.IsActive7d || (totalWords > 0 && s.WordsLearned < totalWords * 0.2) || s.WordsDue > 10)
-            .OrderBy(s => s.IsActive7d)
-            .ThenBy(s => s.WordsLearned)
-            .Take(10)
+            .Where(s => (s.WordsLearned > 0 && s.EasePct < 60) || !s.IsActive7d || s.WordsDue > 10)
+            .OrderBy(s => s.EasePct)
+            .ThenBy(s => s.MasteryPct)
+            .Take(5)
             .ToList();
 
-        var srsByWordId = srsRows
+        var srsByWordId = effectiveSrsRows
             .GroupBy(s => s.WordId)
             .ToDictionary(g => g.Key, g => g.ToList());
 
-        var wordCoverage = classWords
+        var targetCoverageWords = classWords.Count > 0
+            ? classWords
+            : effectiveSrsRows
+                .Where(s => s.Word != null)
+                .GroupBy(s => s.WordId)
+                .Select(g =>
+                {
+                    var w = g.First().Word!;
+                    return new { w.Id, w.Term, w.Translation, w.Pos, w.Ipa };
+                })
+                .Take(30)
+                .ToList();
+
+        var wordCoverage = targetCoverageWords
             .Select(w =>
             {
-                int learnedCount = srsByWordId.TryGetValue(w.Id, out var list) ? list.Count : 0;
+                int learnedCount = srsByWordId.TryGetValue(w.Id, out var list)
+                    ? list.Select(x => x.UserId).Distinct().Count()
+                    : 0;
                 int covPct = totalStudents > 0 ? (int)Math.Round((double)learnedCount / totalStudents * 100.0) : 0;
                 return new TeacherWordCoverageItemDto(
                     w.Id,
@@ -273,12 +289,30 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
                     totalStudents,
                     covPct);
             })
-            .OrderBy(w => w.StudentsLearned)
+            .OrderByDescending(w => w.CoveragePct)
             .ThenBy(w => w.Word)
             .Take(15)
             .ToList();
 
-        var wordMap = classWords.ToDictionary(w => w.Id);
+        var wordMap = targetCoverageWords
+            .GroupBy(w => w.Id)
+            .ToDictionary(g => g.Key, g => g.First());
+
+        foreach (var s in effectiveSrsRows)
+        {
+            if (s.Word != null && !wordMap.ContainsKey(s.WordId))
+            {
+                wordMap[s.WordId] = new
+                {
+                    s.Word.Id,
+                    s.Word.Term,
+                    s.Word.Translation,
+                    s.Word.Pos,
+                    s.Word.Ipa
+                };
+            }
+        }
+
         var wordDifficulty = srsByWordId
             .Where(kv => kv.Value.Count > 0 && wordMap.ContainsKey(kv.Key))
             .Select(kv =>
@@ -291,7 +325,7 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
                     w.Translation ?? string.Empty,
                     w.Pos,
                     w.Ipa,
-                    list.Count,
+                    list.Select(x => x.UserId).Distinct().Count(),
                     Math.Round(list.Average(x => x.Stability ?? 0.0), 1),
                     Math.Round(list.Average(x => x.Difficulty ?? 5.0), 1),
                     list.Sum(x => x.ReviewCount ?? 0));
@@ -301,21 +335,21 @@ public sealed class ClassroomRepository(IApplicationDbContext dbContext) : IClas
             .Take(10)
             .ToList();
 
-        var studentMap = enrollments
-            .GroupBy(e => e.StudentId)
-            .ToDictionary(g => g.Key, g => g.First().Student);
+        var studentNameMap = progressList
+            .GroupBy(p => p.StudentId)
+            .ToDictionary(g => g.Key, g => g.First());
 
-        var activityFeed = srsRows
+        var activityFeed = effectiveSrsRows
             .Where(s => s.LastReviewedAt != null && wordMap.ContainsKey(s.WordId))
             .OrderByDescending(s => s.LastReviewedAt)
             .Take(20)
             .Select(s =>
             {
-                studentMap.TryGetValue(s.UserId, out var st);
+                studentNameMap.TryGetValue(s.UserId, out var st);
                 var w = wordMap[s.WordId];
                 string stName = !string.IsNullOrWhiteSpace(st?.FullName)
                     ? st.FullName
-                    : (st?.Email.Split('@')[0] ?? "Học viên");
+                    : (!string.IsNullOrWhiteSpace(st?.Email) ? st.Email.Split('@')[0] : "Học viên");
                 return new TeacherActivityFeedItemDto(
                     stName,
                     st?.AvatarUrl,

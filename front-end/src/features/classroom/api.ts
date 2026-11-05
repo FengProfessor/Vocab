@@ -274,22 +274,62 @@ export class ClassroomApi {
     );
 
     const dto = (body?.data || {}) as Record<string, unknown>;
-    const mapSummary = (s: Record<string, unknown>) => ({
-      student_id: String(s.studentId ?? ''),
-      full_name: s.fullName ? String(s.fullName) : null,
-      email: String(s.email ?? ''),
-      avatar_url: s.avatarUrl ? String(s.avatarUrl) : null,
-      words_learned: Number(s.wordsLearned ?? 0),
-      words_due: Number(s.wordsDue ?? 0),
-      total_reviews: Number(s.totalReviews ?? 0),
-      mastery_pct: Number(s.masteryPct ?? 0),
-      ease_pct: Number(s.easePct ?? 0),
-      last_study_at: s.lastStudyAt ? String(s.lastStudyAt) : null,
-      days_since_active: s.daysSinceActive !== null && s.daysSinceActive !== undefined ? Number(s.daysSinceActive) : null,
-      is_active_7d: Boolean(s.isActive7d),
-    });
+    const rawStats = (dto.classStats as Record<string, unknown>) || {};
 
-    const rawTop = Array.isArray(dto.topStudents) ? (dto.topStudents as Record<string, unknown>[]) : [];
+    const mapSummary = (s: Record<string, unknown>) => {
+      const fullName = s.fullName
+        ? String(s.fullName)
+        : s.student_name
+          ? String(s.student_name)
+          : null;
+      const email = String(s.email ?? '');
+      const studentName = fullName || (email ? email.split('@')[0] : 'Học sinh');
+      const wordsLearned = Number(
+        s.wordsReviewed ?? s.words_reviewed ?? s.wordsLearned ?? s.words_learned ?? 0,
+      );
+      const masteryPct = Number(s.vms ?? s.masteryPct ?? s.mastery_pct ?? 0);
+      const easePct = Number(s.avgAccuracy ?? s.avg_accuracy ?? s.easePct ?? s.ease_pct ?? masteryPct);
+      const lastStudyAt = s.lastActive
+        ? String(s.lastActive)
+        : s.last_active
+          ? String(s.last_active)
+          : s.lastStudyAt
+            ? String(s.lastStudyAt)
+            : undefined;
+      const isActive7d = Boolean(s.isActive7d ?? s.is_active_7d);
+      const lcs = Number(
+        s.lcs ?? (isActive7d ? Math.max(masteryPct, 75) : Math.min(masteryPct, 45)),
+      );
+
+      return {
+        student_id: String(s.studentId ?? s.student_id ?? ''),
+        student_name: studentName,
+        full_name: fullName,
+        email,
+        avatar_url: s.avatarUrl ? String(s.avatarUrl) : null,
+        vms: masteryPct,
+        avg_accuracy: easePct,
+        words_reviewed: wordsLearned,
+        words_learned: wordsLearned,
+        words_due: Number(s.wordsDue ?? s.words_due ?? 0),
+        total_reviews: Number(s.totalReviews ?? s.total_reviews ?? 0),
+        mastery_pct: masteryPct,
+        ease_pct: easePct,
+        lcs,
+        last_active: lastStudyAt,
+        true_last_active: lastStudyAt,
+        last_study_at: lastStudyAt ?? null,
+        days_since_active:
+          s.daysSinceActive !== null && s.daysSinceActive !== undefined
+            ? Number(s.daysSinceActive)
+            : null,
+        is_active_7d: isActive7d,
+      };
+    };
+
+    const rawTop = Array.isArray(dto.topStudents)
+      ? (dto.topStudents as Record<string, unknown>[])
+      : [];
     const rawStruggling = Array.isArray(dto.strugglingStudents)
       ? (dto.strugglingStudents as Record<string, unknown>[])
       : [];
@@ -306,47 +346,103 @@ export class ClassroomApi {
     return withResponseCompat(
       {
         success: ok,
-        classStats: (dto.classStats as Record<string, unknown>) ?? {
-          totalStudents: 0,
-          active7d: 0,
-          inactive7d: 0,
-          totalWords: 0,
-          avgWordsLearned: 0,
-          totalReviews: 0,
-          avgMasteryPct: 0,
-          engagementRate: 0,
+        classStats: {
+          active_students: Number(rawStats.active_students ?? rawStats.active7d ?? 0),
+          total_enrolled: Number(rawStats.total_enrolled ?? rawStats.totalStudents ?? 0),
+          total_class_words: Number(rawStats.total_class_words ?? rawStats.totalWords ?? 0),
+          avg_accuracy: Number(rawStats.avg_accuracy ?? rawStats.avgMasteryPct ?? 0),
+          words_due_today: Number(rawStats.words_due_today ?? 0),
+          totalStudents: Number(rawStats.totalStudents ?? rawStats.total_enrolled ?? 0),
+          active7d: Number(rawStats.active7d ?? rawStats.active_students ?? 0),
+          inactive7d: Number(rawStats.inactive7d ?? 0),
+          totalWords: Number(rawStats.totalWords ?? rawStats.total_class_words ?? 0),
+          avgWordsLearned: Number(rawStats.avgWordsLearned ?? 0),
+          totalReviews: Number(rawStats.totalReviews ?? 0),
+          avgMasteryPct: Number(rawStats.avgMasteryPct ?? rawStats.avg_accuracy ?? 0),
+          engagementRate: Number(rawStats.engagementRate ?? 0),
         },
         topStudents: rawTop.map(mapSummary),
         strugglingStudents: rawStruggling.map(mapSummary),
-        wordCoverage: rawCoverage.map((w) => ({
-          id: String(w.id ?? ''),
-          word: String(w.word ?? ''),
-          translation: String(w.translation ?? ''),
-          pos: String(w.pos ?? ''),
-          students_learned: Number(w.studentsLearned ?? 0),
-          total_students: Number(w.totalStudents ?? 0),
-          coverage_pct: Number(w.coveragePct ?? 0),
-        })),
-        wordDifficulty: rawDiff.map((w) => ({
-          word_id: String(w.wordId ?? ''),
-          word: String(w.word ?? ''),
-          translation: String(w.translation ?? ''),
-          pos: String(w.pos ?? ''),
-          ipa: String(w.ipa ?? ''),
-          student_count: Number(w.studentCount ?? 0),
-          avg_stability: Number(w.avgStability ?? 0),
-          avg_difficulty: Number(w.avgDifficulty ?? 0),
-          total_reviews: Number(w.totalReviews ?? 0),
-        })),
-        activityFeed: rawFeed.map((a) => ({
-          student_name: String(a.studentName ?? ''),
-          student_avatar: a.studentAvatar ? String(a.studentAvatar) : null,
-          word: String(a.word ?? ''),
-          translation: String(a.translation ?? ''),
-          interval_days: Number(a.intervalDays ?? 0),
-          review_count: Number(a.reviewCount ?? 0),
-          reviewed_at: String(a.reviewedAt ?? ''),
-        })),
+        wordCoverage: rawCoverage.map((w) => {
+          const wordId = String(w.wordId ?? w.word_id ?? w.id ?? '');
+          const studentsReviewed = Number(
+            w.studentsReviewed ?? w.students_reviewed ?? w.studentsLearned ?? w.students_learned ?? 0,
+          );
+          const coveragePct = Number(w.coveragePct ?? w.coverage_pct ?? 0);
+          return {
+            id: wordId,
+            word_id: wordId,
+            word: String(w.word ?? ''),
+            translation: String(w.translation ?? ''),
+            pos: String(w.pos ?? ''),
+            students_reviewed: studentsReviewed,
+            students_learned: studentsReviewed,
+            total_students: Number(w.totalStudents ?? w.total_students ?? 0),
+            coverage_pct: coveragePct,
+          };
+        }),
+        wordDifficulty: rawDiff.map((w) => {
+          const avgStability = Number(w.avgStability ?? w.avg_stability ?? 0);
+          const avgDifficulty = Number(w.avgDifficulty ?? w.avg_difficulty ?? 5);
+          const totalReviews = Number(w.totalReviews ?? w.total_reviews ?? 0);
+          const studentCount = Math.max(1, Number(w.studentCount ?? w.student_count ?? 1));
+          const avgReviewsPerStudent = totalReviews / studentCount;
+          const computedFailRate =
+            w.failRate !== undefined || w.fail_rate !== undefined
+              ? Number(w.failRate ?? w.fail_rate ?? 0)
+              : avgStability > 0
+                ? Math.round((Math.max(1, avgReviewsPerStudent) / avgStability) * 10) / 10
+                : Math.round((avgDifficulty / 2) * 10) / 10;
+
+          return {
+            word_id: String(w.wordId ?? w.word_id ?? ''),
+            word: String(w.word ?? ''),
+            fail_rate: Number.isFinite(computedFailRate) ? Math.max(0.1, computedFailRate) : 1.0,
+            translation: String(w.translation ?? ''),
+            pos: String(w.pos ?? ''),
+            ipa: String(w.ipa ?? ''),
+            student_count: studentCount,
+            avg_stability: avgStability,
+            avg_difficulty: avgDifficulty,
+            total_reviews: totalReviews,
+          };
+        }),
+        activityFeed: rawFeed.map((a, idx) => {
+          const studentName = String(a.studentName ?? a.student_name ?? 'Học sinh');
+          const word = String(a.word ?? '');
+          const translation = String(a.translation ?? '');
+          const reviewCount = Number(a.reviewCount ?? a.review_count ?? 1);
+          const intervalDays = Number(a.intervalDays ?? a.interval_days ?? 0);
+          const timestamp = String(
+            a.timestamp ?? a.reviewedAt ?? a.reviewed_at ?? new Date().toISOString(),
+          );
+          const type = (a.type ? String(a.type) : 'review') as
+            | 'quiz'
+            | 'review'
+            | 'grammar'
+            | 'reading'
+            | 'toeic'
+            | 'assessment';
+          const detail = a.detail
+            ? String(a.detail)
+            : word
+              ? `Đã ôn từ "${word}"${translation ? ` (${translation})` : ''} — lần #${reviewCount}${intervalDays > 0 ? `, chu kỳ ${intervalDays} ngày` : ''}`
+              : `Đã ôn tập ${reviewCount} từ vựng`;
+
+          return {
+            type,
+            student_id: String(a.studentId ?? a.student_id ?? `st-${idx}`),
+            student_name: studentName,
+            student_avatar: a.studentAvatar ? String(a.studentAvatar) : null,
+            detail,
+            timestamp,
+            word,
+            translation,
+            interval_days: intervalDays,
+            review_count: reviewCount,
+            reviewed_at: timestamp,
+          };
+        }),
       },
       status,
       ok,
