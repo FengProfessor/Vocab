@@ -32,6 +32,12 @@ export default function AnalyticsPanel({
     );
   }
 
+  const topStudents = Array.isArray(analytics?.topStudents) ? analytics.topStudents : [];
+  const strugglingStudents = Array.isArray(analytics?.strugglingStudents) ? analytics.strugglingStudents : [];
+  const activityFeed = Array.isArray(analytics?.activityFeed) ? analytics.activityFeed : [];
+  const wordDifficulty = Array.isArray(analytics?.wordDifficulty) ? analytics.wordDifficulty : [];
+  const wordCoverage = Array.isArray(analytics?.wordCoverage) ? analytics.wordCoverage : [];
+
   return (
     <div className="space-y-6">
       {analytics && (
@@ -44,25 +50,35 @@ export default function AnalyticsPanel({
                 <h3 className="font-bold text-sm">Top Students</h3>
                 <span className="ml-auto text-xs text-muted-foreground">by mastery</span>
               </div>
-              {analytics.topStudents.length === 0 ? (
+              {topStudents.length === 0 ? (
                 <div className="p-6 text-center text-xs text-muted-foreground">No data yet</div>
               ) : (
                 <ul className="divide-y">
-                  {analytics.topStudents.map((s, i) => {
-                    const initials = (s.student_name || s.email || '?')
-                      .split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+                  {topStudents.map((s, i) => {
+                    const displayName = s.student_name || s.email || 'Học sinh';
+                    const initials =
+                      displayName
+                        .split(' ')
+                        .filter(Boolean)
+                        .map(w => w[0])
+                        .join('')
+                        .toUpperCase()
+                        .slice(0, 2) || '?';
+                    const wordsReviewed = Number(s.words_reviewed ?? 0);
+                    const vms = Number(s.vms ?? 0);
+                    const lcs = Number(s.lcs ?? 0);
                     return (
-                      <li key={s.student_id} className="flex items-center gap-3 px-5 py-3">
+                      <li key={s.student_id || i} className="flex items-center gap-3 px-5 py-3">
                         <span className="w-5 text-xs font-bold text-muted-foreground shrink-0">{i + 1}</span>
                         <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
                           <span className="text-[11px] font-bold text-emerald-600">{initials}</span>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold truncate">{s.student_name || s.email}</p>
-                          <p className="text-[10px] text-muted-foreground">{s.words_reviewed} từ đã học</p>
+                          <p className="text-sm font-semibold truncate">{displayName}</p>
+                          <p className="text-[10px] text-muted-foreground">{wordsReviewed} từ đã học</p>
                         </div>
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 shrink-0">{s.vms}%</span>
-                        {s.lcs > 70 && <span className="text-sm shrink-0" title="Streak cao">🔥</span>}
+                        <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 shrink-0">{vms}%</span>
+                        {lcs > 70 && <span className="text-sm shrink-0" title="Streak cao">🔥</span>}
                       </li>
                     );
                   })}
@@ -76,24 +92,32 @@ export default function AnalyticsPanel({
                 <h3 className="font-bold text-sm">Học sinh cần chú ý</h3>
                 <span className="ml-auto text-xs text-muted-foreground">accuracy &lt; 60%</span>
               </div>
-              {analytics.strugglingStudents.length === 0 ? (
+              {strugglingStudents.length === 0 ? (
                 <div className="p-6 text-center text-xs text-muted-foreground">Tất cả học sinh đang ổn</div>
               ) : (
                 <ul className="divide-y">
-                  {analytics.strugglingStudents.map(s => {
-                    const daysSince = s.last_active
-                      ? Math.floor((now - new Date(s.last_active).getTime()) / 86_400_000)
+                  {strugglingStudents.map((s, i) => {
+                    const parsedActiveMs = s.last_active ? new Date(s.last_active).getTime() : NaN;
+                    const daysSince = !Number.isNaN(parsedActiveMs)
+                      ? Math.max(0, Math.floor((now - parsedActiveMs) / 86_400_000))
                       : null;
-                    const initials = (s.student_name || s.email || '?')
-                      .split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
-                    const accuracy = s.avg_accuracy ?? s.vms;
+                    const displayName = s.student_name || s.email || 'Học sinh';
+                    const initials =
+                      displayName
+                        .split(' ')
+                        .filter(Boolean)
+                        .map(w => w[0])
+                        .join('')
+                        .toUpperCase()
+                        .slice(0, 2) || '?';
+                    const accuracy = Number(s.avg_accuracy ?? s.vms ?? 0);
                     return (
-                      <li key={s.student_id} className="flex items-center gap-3 px-5 py-3">
+                      <li key={s.student_id || i} className="flex items-center gap-3 px-5 py-3">
                         <div className="w-8 h-8 rounded-full bg-rose-500/10 flex items-center justify-center shrink-0">
                           <span className="text-[11px] font-bold text-rose-600">{initials}</span>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold truncate">{s.student_name || s.email}</p>
+                          <p className="text-sm font-semibold truncate">{displayName}</p>
                           {daysSince !== null && (
                             <p className={`text-[10px] ${daysSince > 3 ? 'text-rose-500' : 'text-muted-foreground'}`}>
                               {daysSince === 0 ? 'Active hôm nay' : `${daysSince} ngày trước`}
@@ -116,16 +140,18 @@ export default function AnalyticsPanel({
               <h3 className="font-bold text-sm">Recent Activity</h3>
               <span className="ml-auto text-xs text-muted-foreground">last 7 days</span>
             </div>
-            {analytics.activityFeed.length === 0 ? (
+            {activityFeed.length === 0 ? (
               <div className="p-6 text-center text-xs text-muted-foreground">No recent activity</div>
             ) : (
               <ul className="divide-y">
-                {analytics.activityFeed.slice(0, 10).map((item, idx) => {
-                  const diff = now - new Date(item.timestamp).getTime();
+                {activityFeed.slice(0, 10).map((item, idx) => {
+                  const tsMs = item.timestamp ? new Date(item.timestamp).getTime() : NaN;
+                  const diff = !Number.isNaN(tsMs) ? Math.max(0, now - tsMs) : 0;
                   const mins = Math.floor(diff / 60_000);
                   const hrs = Math.floor(diff / 3_600_000);
                   const days = Math.floor(diff / 86_400_000);
-                  const timeLabel = mins < 1 ? 'vừa xong'
+                  const timeLabel = Number.isNaN(tsMs) ? ''
+                    : mins < 1 ? 'vừa xong'
                     : mins < 60 ? `${mins} phút trước`
                     : hrs < 24 ? `${hrs} giờ trước`
                     : `${days} ngày trước`;
@@ -142,10 +168,12 @@ export default function AnalyticsPanel({
                     <li key={idx} className="px-5 py-3 flex items-start gap-3">
                       <span className={`mt-0.5 shrink-0 w-2 h-2 rounded-full ${dotColor}`} />
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs font-semibold truncate">{item.student_name}</p>
+                        <p className="text-xs font-semibold truncate">{item.student_name || 'Học sinh'}</p>
                         <p className="text-[11px] text-muted-foreground">{item.detail}</p>
                       </div>
-                      <span className="text-[10px] text-muted-foreground shrink-0 whitespace-nowrap">{timeLabel}</span>
+                      {timeLabel && (
+                        <span className="text-[10px] text-muted-foreground shrink-0 whitespace-nowrap">{timeLabel}</span>
+                      )}
                     </li>
                   );
                 })}
@@ -155,7 +183,7 @@ export default function AnalyticsPanel({
 
           {/* Row 3: Word Difficulty + Coverage */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {analytics.wordDifficulty && analytics.wordDifficulty.length > 0 && (
+            {wordDifficulty.length > 0 && (
               <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
                 <div className="px-5 py-4 border-b flex items-center gap-2">
                   <Flame className="h-4 w-4 text-orange-500" />
@@ -163,17 +191,19 @@ export default function AnalyticsPanel({
                   <span className="ml-auto text-xs text-muted-foreground">fail rate cao</span>
                 </div>
                 <div className="p-5 space-y-2.5">
-                  {analytics.wordDifficulty.map((wd, idx) => {
-                    const maxRate = analytics.wordDifficulty[0]?.fail_rate || 1;
-                    const pct = Math.round((wd.fail_rate / maxRate) * 100);
+                  {wordDifficulty.map((wd, idx) => {
+                    const maxRate = Math.max(Number(wordDifficulty[0]?.fail_rate) || 0, 1);
+                    const failRate = Number(wd.fail_rate ?? 0);
+                    const safeFailRate = Number.isFinite(failRate) ? failRate : 0;
+                    const pct = Math.min(100, Math.max(0, Math.round((safeFailRate / maxRate) * 100)));
                     return (
-                      <div key={wd.word_id} className="flex items-center gap-3">
+                      <div key={wd.word_id || wd.word || idx} className="flex items-center gap-3">
                         <span className="text-[10px] font-bold text-muted-foreground w-4 shrink-0">{idx + 1}</span>
                         <span className="text-sm font-semibold w-24 truncate shrink-0">{wd.word}</span>
                         <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
                           <div className="h-full rounded-full bg-orange-400 transition-all" style={{ width: `${pct}%` }} />
                         </div>
-                        <span className="text-[11px] text-muted-foreground w-12 text-right shrink-0">{wd.fail_rate.toFixed(1)}x</span>
+                        <span className="text-[11px] text-muted-foreground w-12 text-right shrink-0">{safeFailRate.toFixed(1)}x</span>
                       </div>
                     );
                   })}
@@ -181,7 +211,7 @@ export default function AnalyticsPanel({
               </div>
             )}
 
-            {analytics.wordCoverage.length > 0 && (
+            {wordCoverage.length > 0 && (
               <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
                 <div className="px-5 py-4 border-b flex items-center gap-2">
                   <Target className="h-4 w-4 text-violet-500" />
@@ -189,22 +219,25 @@ export default function AnalyticsPanel({
                   <span className="ml-auto text-xs text-muted-foreground">% học sinh đã ôn</span>
                 </div>
                 <div className="p-5 space-y-2.5">
-                  {analytics.wordCoverage.slice(0, 10).map(wc => (
-                    <div key={wc.word_id} className="flex items-center gap-3">
-                      <span className="text-sm font-semibold w-24 truncate shrink-0">{wc.word}</span>
-                      <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-                        <div
-                          className={`h-full rounded-full transition-all ${
-                            wc.coverage_pct >= 80 ? 'bg-emerald-500'
-                            : wc.coverage_pct >= 50 ? 'bg-amber-400'
-                            : 'bg-rose-400'
-                          }`}
-                          style={{ width: `${wc.coverage_pct}%` }}
-                        />
+                  {wordCoverage.slice(0, 10).map((wc, idx) => {
+                    const covPct = Math.min(100, Math.max(0, Number(wc.coverage_pct ?? 0)));
+                    return (
+                      <div key={wc.word_id || wc.word || idx} className="flex items-center gap-3">
+                        <span className="text-sm font-semibold w-24 truncate shrink-0">{wc.word}</span>
+                        <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+                          <div
+                            className={`h-full rounded-full transition-all ${
+                              covPct >= 80 ? 'bg-emerald-500'
+                              : covPct >= 50 ? 'bg-amber-400'
+                              : 'bg-rose-400'
+                            }`}
+                            style={{ width: `${covPct}%` }}
+                          />
+                        </div>
+                        <span className="text-[11px] text-muted-foreground w-8 text-right shrink-0">{covPct}%</span>
                       </div>
-                      <span className="text-[11px] text-muted-foreground w-8 text-right shrink-0">{wc.coverage_pct}%</span>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             )}

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.RateLimiting;
 namespace LingoPro.WebApi.Controllers;
 
 /// <summary>
-/// REST API controller for classroom management, student enrollment, and teacher-only drill assignments.
+/// REST API controller for classroom management, student enrollment, teacher portal analytics, and teacher-only drill assignments.
 /// </summary>
 [Route("api/v1/classrooms")]
 [Authorize]
@@ -70,6 +70,91 @@ public sealed class ClassroomsController : ApiControllerBase
         CancellationToken ct)
     {
         var result = await Mediator.Send(command, ct);
-        return OkResponse(result, "Vocabulary drill assigned to classroom students.");
+        return OkResponse(result);
+    }
+
+    [HttpGet("teacher-stats")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<TeacherStatsDto>>> GetTeacherStats(
+        [FromQuery] Guid? classroomId = null,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetTeacherStatsQuery(classroomId), ct);
+        return OkResponse(result);
+    }
+
+    [HttpGet("{classroomId:guid}/analytics")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<TeacherAnalyticsDto>>> GetTeacherAnalytics(
+        [FromRoute] Guid classroomId,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetTeacherAnalyticsQuery(classroomId), ct);
+        return OkResponse(result);
+    }
+
+    [HttpGet("student-detail")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<TeacherStudentDetailDto>>> GetStudentDetail(
+        [FromQuery] Guid studentId,
+        [FromQuery] Guid? classroomId = null,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetTeacherStudentDetailQuery(studentId, classroomId), ct);
+        return OkResponse(result);
+    }
+
+    [HttpGet("student-errors")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<IReadOnlyList<TeacherStudentErrorWordDto>>>> GetStudentErrors(
+        [FromQuery] Guid studentId,
+        [FromQuery] Guid? classroomId = null,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetTeacherStudentErrorsQuery(studentId, classroomId), ct);
+        return OkResponse(result);
+    }
+
+    [HttpPost("{classroomId:guid}/students")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<TeacherAddedStudentDto>>> AddStudent(
+        [FromRoute] Guid classroomId,
+        [FromBody] AddClassroomStudentCommand command,
+        CancellationToken ct = default)
+    {
+        var effectiveCommand = command with { ClassroomId = classroomId };
+        var result = await Mediator.Send(effectiveCommand, ct);
+        return CreatedResponse(result);
+    }
+
+    [HttpDelete("{classroomId:guid}/students/{studentId:guid}")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<bool>>> RemoveStudent(
+        [FromRoute] Guid classroomId,
+        [FromRoute] Guid studentId,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new RemoveClassroomStudentCommand(classroomId, studentId), ct);
+        return OkResponse(result);
+    }
+
+    [HttpPost("coaching-insight")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<string>>> GenerateCoachingInsight(
+        [FromBody] GenerateTeacherCoachingInsightCommand command,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(command, ct);
+        return OkResponse(result);
+    }
+
+    [HttpGet("{classroomId:guid}/leaderboard")]
+    public async Task<ActionResult<ApiResponse<ClassroomLeaderboardDto>>> GetLeaderboard(
+        [FromRoute] Guid classroomId,
+        [FromQuery] string period = "all",
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new GetClassroomLeaderboardQuery(classroomId, period), ct);
+        return OkResponse(result);
     }
 }

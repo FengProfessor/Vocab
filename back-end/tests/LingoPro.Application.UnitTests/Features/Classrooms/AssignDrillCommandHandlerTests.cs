@@ -159,7 +159,6 @@ public sealed class AssignDrillCommandHandlerTests
     /// <summary>CLS-12: the original route lets only the classroom's own teacher assign drills (<c>cls.teacher_id !== auth.userId</c> is rejected, assign-drill/route.ts:36); an admin who does not own the class is refused.</summary>
     [Test]
     [Property("PlanId", "CLS-12")]
-    [Category("KnownDeviation")] // C# lets any admin assign drills in any classroom.
     public async Task Handle_AdminDoesNotOwnClassroom_ThrowsForbidden()
     {
         // Arrange
@@ -212,7 +211,6 @@ public sealed class AssignDrillCommandHandlerTests
     /// <summary>CLS-15: without explicit word ids only the 5 hardest cards of the classroom (highest difficulty) are assigned.</summary>
     [Test]
     [Property("PlanId", "CLS-15")]
-    [Category("KnownDeviation")] // C# reschedules every SRS card of the student when no word ids are given.
     public async Task Handle_NoWordIds_AssignsOnlyFiveHardestClassroomCards()
     {
         // Arrange
@@ -248,7 +246,6 @@ public sealed class AssignDrillCommandHandlerTests
     /// <summary>CLS-16: explicit word ids are filtered to words that belong to the classroom; outside cards are untouched.</summary>
     [Test]
     [Property("PlanId", "CLS-16")]
-    [Category("KnownDeviation")] // C# does not scope explicit word ids to the classroom's words.
     public async Task Handle_ExplicitWordIdsIncludingOutsideWord_OnlyClassroomWordsAreAssigned()
     {
         // Arrange

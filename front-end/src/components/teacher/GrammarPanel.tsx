@@ -34,7 +34,7 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
       setIsLoading(true);
       const authHeaders = { 'X-LingoPro-Request': '1' };
       const [exRes, topicRes] = await Promise.all([
-        GrammarApi.getTopics(`/api/grammar?classroomId=${classroomId}`, { headers: authHeaders }).then((r) => r.json()).catch(() => null),
+        GrammarApi.getClassroomExercises(classroomId, { headers: authHeaders }).then((r) => r.json()).catch(() => null),
         GrammarApi.getTopics().then((r) => r.json()).catch(() => null),
       ]);
       if (exRes?.success) setExercises(exRes.data);
@@ -74,8 +74,8 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
-      setExercises([...data.data, ...exercises]);
-      toast.success(`Đã sinh ${data.count} bài tập về "${topic}"! 🎉`);
+      setExercises([...(data.data || []), ...exercises]);
+      toast.success(`Đã sinh ${data.data?.length ?? count} bài tập về "${topic}"! 🎉`);
       setCustomTopic('');
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Unknown error';
@@ -94,8 +94,8 @@ export default function GrammarPanel({ classroomId }: GrammarPanelProps) {
       });
       const data = await res.json();
       if (!data.success) throw new Error(data.error);
-      setExercises([...data.data, ...exercises]);
-      toast.success(`Đã sinh ${data.count} bài tập cho bài "${lesson.title}"! 🎉`);
+      setExercises([...(data.data || []), ...exercises]);
+      toast.success(`Đã sinh ${data.data?.length ?? count} bài tập cho bài "${lesson.title}"! 🎉`);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Unknown error';
       toast.error(`Lỗi: ${msg}`);

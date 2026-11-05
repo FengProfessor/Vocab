@@ -602,7 +602,7 @@ export default function StudentDetailPage() {
       )}
 
       {/* Print & PDF Exporting styles */}
-      <style jsx global>{`
+      <style>{`
         @media print {
           body, .min-h-dvh {
             background: white !important;

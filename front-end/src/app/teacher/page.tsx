@@ -1,4 +1,4 @@
-﻿import { ClassroomApi } from '@/features/classroom/api';
+import { ClassroomApi } from '@/features/classroom/api';
 import { VocabApi } from '@/features/vocab/api';
 import { authService } from '@/features/auth/session';
 
@@ -129,14 +129,14 @@ export default function TeacherDashboard() {
 
   const loadStudents = useCallback(
     async (classroomId: string) => {
+      void loadAnalytics(classroomId);
+      void loadPendingWords(classroomId);
       try {
         const res = await ClassroomApi.getTeacherStats(`/api/teacher/stats?classroomId=${classroomId}&_t=${Date.now()}`, {
           cache: 'no-store',
         });
         const data = await res.json();
         setStudents(data.students || []);
-        void loadAnalytics(classroomId);
-        void loadPendingWords(classroomId);
       } catch {
         toast.error('Không tải được danh sách học sinh');
       }

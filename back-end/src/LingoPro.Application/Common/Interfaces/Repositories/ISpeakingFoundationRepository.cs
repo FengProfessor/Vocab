@@ -16,5 +16,7 @@ public interface ISpeakingFoundationRepository
 
     Task<IReadOnlyList<DiagnosticProbeDto>> GetDiagnosticProbesAsync(int limit, CancellationToken ct = default);
 
+    Task<LearnerVocabularyMapDto> GetLearnerVocabularyMapAsync(Guid learnerId, CancellationToken ct = default);
+
     Task<int> SaveChangesAsync(CancellationToken ct = default);
 }

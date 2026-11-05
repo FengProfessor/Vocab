@@ -1,7 +1,6 @@
 import {
   apiDelete,
   callDotNetRaw,
-  callServerOriginApi,
   LegacyRequestOptions,
   normalizePayloadData,
 } from '@/shared/api/client';
@@ -79,10 +78,56 @@ function buildDefaultLessons(): CustomGrammarLesson[] {
   return [...custom, ...baseLessons];
 }
 
+function mapDotNetGrammarExercise(raw: Record<string, unknown>) {
+  return {
+    id: String(raw.id ?? ''),
+    classroom_id: String(raw.classroomId ?? raw.classroom_id ?? ''),
+    topic: String(raw.topic ?? ''),
+    level: String(raw.level ?? 'beginner'),
+    question: String(raw.question ?? ''),
+    options: Array.isArray(raw.options) ? raw.options.map(String) : [],
+    correct_answer: String(raw.correctAnswer ?? raw.correct_answer ?? ''),
+    explanation: String(raw.explanation ?? ''),
+    type: String(raw.type ?? 'multiple_choice'),
+    difficulty: Number(raw.difficulty ?? 2),
+    lesson_id: raw.lessonId ? String(raw.lessonId) : raw.lesson_id ? String(raw.lesson_id) : null,
+    created_at: String(raw.createdAt ?? raw.created_at ?? new Date().toISOString()),
+  };
+}
+
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 /**
  * Domain API service for Grammar Topics, Theory, Quizzes, Exercises, and FSRS Grammar Mastery.
  */
 export class GrammarApi {
+  /**
+   * Retrieves classroom grammar exercises via `GET /api/v1/grammar/exercises`.
+   */
+  public static async getClassroomExercises(
+    classroomId: string,
+    options?: LegacyRequestOptions,
+  ) {
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>(
+      '/grammar/exercises',
+      {
+        method: 'GET',
+        params: { classroomId },
+        headers: options?.headers,
+        signal: options?.signal,
+      },
+    );
+    const list = Array.isArray(body?.data) ? body.data.map(mapDotNetGrammarExercise) : [];
+    return withResponseCompat(
+      {
+        success: ok,
+        data: list,
+      },
+      status,
+      ok,
+    );
+  }
+
   /**
    * Retrieves canonical grammar topics or classroom grammar exercises via `GET /api/v1/grammar/topics`.
    */
@@ -97,6 +142,10 @@ export class GrammarApi {
       queryParams = Object.fromEntries(new URLSearchParams(raw).entries());
     } else if (params) {
       queryParams = params;
+    }
+
+    if (typeof queryParams.classroomId === 'string' && queryParams.classroomId.trim().length > 0) {
+      return GrammarApi.getClassroomExercises(queryParams.classroomId.trim(), options);
     }
 
     const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>('/grammar/topics', {
@@ -338,37 +387,88 @@ export class GrammarApi {
   }
 
   /**
-   * Creates or updates a classroom grammar exercise.
+   * Creates or generates classroom grammar exercises via `POST /api/v1/grammar/exercises/generate`.
    */
   public static async createExercise(rawBody: unknown) {
-    const record =
-      rawBody && typeof rawBody === 'object'
-        ? (rawBody as Record<string, unknown>)
-        : {};
-    const inferredMethod =
-      typeof record.method === 'string'
-        ? (record.method.toUpperCase() as 'POST' | 'PUT' | 'DELETE')
-        : 'POST';
-    return callServerOriginApi('/api/grammar', {
-      method: inferredMethod,
-      data: normalizePayloadData(rawBody),
-    });
+    const payload = normalizePayloadData(rawBody);
+    const rawLessonId = typeof payload.lessonId === 'string' ? payload.lessonId.trim() : '';
+    const lessonId = UUID_REGEX.test(rawLessonId) ? rawLessonId : null;
+
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>[]>(
+      '/grammar/exercises/generate',
+      {
+        method: 'POST',
+        data: {
+          classroomId: String(payload.classroomId ?? ''),
+          topic: String(payload.topic ?? ''),
+          level: String(payload.level ?? 'beginner'),
+          count: Number(payload.count ?? 5),
+          customPrompt: typeof payload.customPrompt === 'string' ? payload.customPrompt : null,
+          saveToDb: payload.saveToDb !== false,
+          lessonId,
+        },
+      },
+    );
+
+    const list = Array.isArray(body?.data) ? body.data.map(mapDotNetGrammarExercise) : [];
+    return withResponseCompat(
+      {
+        success: ok,
+        data: list,
+        error: ok ? undefined : body?.message || 'Không thể tạo bài tập.',
+      },
+      status,
+      ok,
+    );
   }
 
   /**
    * Deletes a classroom grammar exercise via `DELETE /api/v1/grammar/exercises/{exerciseId}`.
    */
-  public static async deleteExercise(exerciseId: string): Promise<boolean> {
-    return apiDelete<boolean>(`/grammar/exercises/${exerciseId}`);
+  public static async deleteExercise(exerciseIdOrUrl: string) {
+    const id = extractQueryParam(exerciseIdOrUrl, 'id').replace(/^\/api\/grammar\/?/, '');
+    const ok = await apiDelete<boolean>(`/grammar/exercises/${encodeURIComponent(id)}`);
+    return withResponseCompat({
+      success: Boolean(ok),
+    });
   }
 
   /**
-   * Generates grammar lesson content with AI for teachers.
+   * Generates grammar lesson content with AI for teachers via `POST /api/v1/grammar/lessons/generate`.
    */
   public static async generateLesson(rawBody: unknown) {
-    return callServerOriginApi('/api/grammar/generate', {
-      method: 'POST',
-      data: normalizePayloadData(rawBody),
-    });
+    const payload = normalizePayloadData(rawBody);
+    const { ok, status, body } = await callDotNetRaw<Record<string, unknown>>(
+      '/grammar/lessons/generate',
+      {
+        method: 'POST',
+        data: {
+          topicTitle: String(payload.topicTitle ?? payload.title ?? ''),
+          topicTitleVi:
+            typeof payload.topicTitleVi === 'string' ? payload.topicTitleVi : null,
+          level: String(payload.level ?? 'beginner'),
+        },
+      },
+    );
+
+    const rawData = (body?.data || {}) as Record<string, unknown>;
+    const mapped = ok
+      ? {
+          theory_vi: String(rawData.theoryVi ?? rawData.theory_vi ?? ''),
+          formula: String(rawData.formula ?? ''),
+          usage_notes: String(rawData.usageNotes ?? rawData.usage_notes ?? ''),
+          examples: Array.isArray(rawData.examples) ? rawData.examples : [],
+        }
+      : null;
+
+    return withResponseCompat(
+      {
+        success: ok,
+        data: mapped,
+        error: ok ? undefined : body?.message || 'Lỗi tạo bài giảng bằng AI.',
+      },
+      status,
+      ok,
+    );
   }
 }

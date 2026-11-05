@@ -10,7 +10,7 @@ namespace LingoPro.WebApi.Controllers;
 
 /// <summary>
 /// REST API controller for FSRS-5 spaced repetition vocabulary review, due cards retrieval,
-/// curated vocabulary pack imports, and L1-L6 learning analytics aggregations.
+/// classroom word CRUD/moderation, curated vocabulary pack imports, and L1-L6 learning analytics aggregations.
 /// </summary>
 [Route("api/v1/vocab")]
 [Authorize]
@@ -24,6 +24,47 @@ public sealed class VocabController : ApiControllerBase
     {
         var result = await Mediator.Send(new GetVocabWordByIdQuery(wordId), ct);
         return OkResponse(result, "Vocabulary word retrieved successfully.");
+    }
+
+    [HttpPost("words")]
+    public async Task<ActionResult<ApiResponse<SaveClassroomWordResultDto>>> SaveWord(
+        [FromBody] SaveClassroomWordCommand command,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(command, ct);
+        return OkResponse(result);
+    }
+
+    [HttpPut("words/{wordId:guid}")]
+    public async Task<ActionResult<ApiResponse<VocabWordItemDto>>> UpdateWord(
+        [FromRoute] Guid wordId,
+        [FromBody] UpdateVocabWordCommand command,
+        CancellationToken ct = default)
+    {
+        var effectiveCommand = command with { WordId = wordId };
+        var result = await Mediator.Send(effectiveCommand, ct);
+        return OkResponse(result);
+    }
+
+    [HttpDelete("words/{wordId:guid}")]
+    public async Task<ActionResult<ApiResponse<bool>>> DeleteWord(
+        [FromRoute] Guid wordId,
+        CancellationToken ct = default)
+    {
+        var result = await Mediator.Send(new DeleteVocabWordCommand(wordId), ct);
+        return OkResponse(result);
+    }
+
+    [HttpPatch("words/{wordId:guid}/status")]
+    [Authorize(Policy = "RequireTeacher")]
+    public async Task<ActionResult<ApiResponse<bool>>> UpdateWordStatus(
+        [FromRoute] Guid wordId,
+        [FromBody] UpdateVocabWordStatusCommand command,
+        CancellationToken ct = default)
+    {
+        var effectiveCommand = command with { WordId = wordId };
+        var result = await Mediator.Send(effectiveCommand, ct);
+        return OkResponse(result);
     }
 
     [HttpGet("due")]
@@ -54,6 +95,7 @@ public sealed class VocabController : ApiControllerBase
     }
 
     [HttpGet("packs")]
+    [HttpGet("packs/progress")]
     public async Task<ActionResult<ApiResponse<IReadOnlyList<UserVocabPackDto>>>> GetUserPacks(
         CancellationToken ct = default)
     {
