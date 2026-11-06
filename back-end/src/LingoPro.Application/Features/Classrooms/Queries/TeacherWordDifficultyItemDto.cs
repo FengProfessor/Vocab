@@ -12,4 +12,5 @@ public record TeacherWordDifficultyItemDto(
     int StudentCount,
     double AvgStability,
     double AvgDifficulty,
-    int TotalReviews);
+    int TotalReviews,
+    double FailRate = 1.0);

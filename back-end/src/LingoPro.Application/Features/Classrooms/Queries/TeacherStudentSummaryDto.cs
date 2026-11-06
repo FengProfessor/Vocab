@@ -15,4 +15,5 @@ public record TeacherStudentSummaryDto(
     int EasePct,
     DateTime? LastStudyAt,
     int? DaysSinceActive,
-    bool IsActive7d);
+    bool IsActive7d,
+    int Lcs = 0);

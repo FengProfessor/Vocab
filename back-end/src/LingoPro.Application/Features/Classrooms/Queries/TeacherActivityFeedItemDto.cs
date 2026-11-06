@@ -10,4 +10,8 @@ public record TeacherActivityFeedItemDto(
     string Translation,
     int IntervalDays,
     int ReviewCount,
-    DateTime? ReviewedAt);
+    DateTime? ReviewedAt,
+    string Type = "review",
+    Guid? StudentId = null,
+    string? Detail = null,
+    DateTime? Timestamp = null);
