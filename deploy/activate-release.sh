@@ -166,3 +166,11 @@ wait_for_ready
 
 trap - EXIT
 echo "[Deploy] Candidate HEALTHY; previous release preserved at $rollback_dir/.next"
+
+rmdir "$candidate_dir" 2>/dev/null || true
+mapfile -t old_rollbacks < <(find "$live_app_dir" -maxdepth 1 -mindepth 1 -type d -name '.next-previous.*' -printf '%T@ %p\n' 2>/dev/null | sort -rn | tail -n +3 | cut -d' ' -f2-)
+for old_dir in "${old_rollbacks[@]}"; do
+  if [[ -n "$old_dir" && "$old_dir" != "$rollback_dir" ]]; then
+    rm -rf -- "$old_dir" || true
+  fi
+done

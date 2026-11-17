@@ -10,7 +10,7 @@ Thứ tự nguồn sự thật khi có mâu thuẫn: workflow đang chạy → s
 
 ## Luồng duy nhất
 
-Push `main` hoặc dispatch trên `main` → quality gate → migration → checkout đúng event SHA → build → `activate-release.sh` → restart `lingopro.service` → process và HTTP health check → thành công. Migration lỗi phải chặn deploy. Production SQL chỉ qua workflow chuẩn, trừ khi được ủy quyền rõ ràng để xử lý sự cố.
+Push `main` hoặc dispatch trên `main` → quality gate → migration → checkout đúng event SHA và build standalone bundle trên GitHub runner (chỉ nạp `NEXT_PUBLIC_*` công khai từ env đang chạy của host, giải nén và kiểm tra SHA tại `$HOME/Vocab-build` qua `PREBUILT_BUNDLE` để tránh tràn RAM trên host) → `activate-release.sh` (giữ tối đa 2 `.next-previous.*` gần nhất) → restart `lingopro.service` → process và HTTP health check → thành công. Migration lỗi phải chặn deploy. Production SQL chỉ qua workflow chuẩn, trừ khi được ủy quyền rõ ràng để xử lý sự cố.
 
 Chỉ một controller được phép triển khai production: workflow chuẩn. Truy cập SSH production, trigger deploy, migration, restart hoặc vô hiệu hóa automation trên host cần operator cho phép rõ ràng. Kiểm tra read-only trên host cũng cần quyền truy cập được cấp.
 

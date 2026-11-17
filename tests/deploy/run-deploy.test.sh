@@ -152,3 +152,55 @@ for scenario in missing-auth-key malformed-auth-key; do
   ! grep -q 'not-valid-hex-secret\|synthetic-token' "$test_root/$scenario.log"
   printf 'PASS %s\n' "$scenario"
 done
+
+prebuilt_root="$test_root/prebuilt-valid"
+mkdir -p "$prebuilt_root/bundle/.next/standalone" "$prebuilt_root/bundle/.next/static" \
+  "$prebuilt_root/build/deploy" "$prebuilt_root/build/public" "$prebuilt_root/build/src/data" \
+  "$prebuilt_root/live/.next/standalone"
+printf 'old env\n' > "$prebuilt_root/live/.env"
+printf 'old local env\n' > "$prebuilt_root/live/.env.local"
+touch "$prebuilt_root/live/.next/standalone/server.js" "$prebuilt_root/build/public/icon.png" \
+  "$prebuilt_root/build/src/data/data.json" "$prebuilt_root/bundle/.next/standalone/server.js" \
+  "$prebuilt_root/bundle/.next/static/app.js"
+printf '%s\n' "$expected_sha" > "$prebuilt_root/bundle/.next/.release-commit"
+tar -czf "$prebuilt_root/bundle.tar.gz" -C "$prebuilt_root/bundle" .next
+cat > "$prebuilt_root/build/deploy/prepare-source.sh" <<'MOCK'
+#!/usr/bin/env bash
+printf 'prepare %s %s\n' "$1" "$2" >> "$TEST_DEPLOY_LOG"
+MOCK
+cat > "$prebuilt_root/build/deploy/activate-release.sh" <<'MOCK'
+#!/usr/bin/env bash
+printf 'activate %s %s %s\n' "$1" "$2" "$3" >> "$TEST_DEPLOY_LOG"
+MOCK
+chmod +x "$prebuilt_root/build/deploy/"*.sh
+export TEST_DEPLOY_LOG="$prebuilt_root/deploy.log"
+export CRON_SECRET='test-secret' UPSTASH_REDIS_REST_URL='https://test.upstash.io' \
+  UPSTASH_REDIS_REST_TOKEN='synthetic-token' \
+  AUTH_SESSION_ENCRYPTION_KEY='aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+unset BILLING_WEBHOOK_SECRET
+PREBUILT_BUNDLE="$prebuilt_root/bundle.tar.gz" bash "$repo_root/deploy/run-deploy.sh" \
+  "$expected_sha" "$prebuilt_root/build" "$prebuilt_root/live" > "$prebuilt_root/run.log" 2>&1
+! grep -q '^npm ' "$prebuilt_root/deploy.log"
+grep -q "^activate $prebuilt_root/build $prebuilt_root/live $expected_sha$" "$prebuilt_root/deploy.log"
+[[ "$(cat "$prebuilt_root/build/.next/.release-commit")" == "$expected_sha" ]]
+[[ ! -f "$prebuilt_root/bundle.tar.gz" ]]
+[[ -f "$prebuilt_root/build/.next/standalone/public/icon.png" ]]
+printf 'PASS prebuilt-valid\n'
+
+prebuilt_bad="$test_root/prebuilt-sha-mismatch"
+mkdir -p "$prebuilt_bad/bundle/.next/standalone" "$prebuilt_bad/build/deploy" \
+  "$prebuilt_bad/live/.next/standalone"
+printf 'old env\n' > "$prebuilt_bad/live/.env"
+printf 'old local env\n' > "$prebuilt_bad/live/.env.local"
+touch "$prebuilt_bad/live/.next/standalone/server.js" "$prebuilt_bad/bundle/.next/standalone/server.js"
+printf '%s\n' 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb' > "$prebuilt_bad/bundle/.next/.release-commit"
+tar -czf "$prebuilt_bad/bad-bundle.tar.gz" -C "$prebuilt_bad/bundle" .next
+cp "$prebuilt_root/build/deploy/prepare-source.sh" "$prebuilt_bad/build/deploy/prepare-source.sh"
+cp "$prebuilt_root/build/deploy/activate-release.sh" "$prebuilt_bad/build/deploy/activate-release.sh"
+export TEST_DEPLOY_LOG="$prebuilt_bad/deploy.log"
+status=0
+PREBUILT_BUNDLE="$prebuilt_bad/bad-bundle.tar.gz" bash "$repo_root/deploy/run-deploy.sh" \
+  "$expected_sha" "$prebuilt_bad/build" "$prebuilt_bad/live" > "$prebuilt_bad/run.log" 2>&1 || status=$?
+[[ "$status" == 1 ]]
+! grep -q '^activate ' "$prebuilt_bad/deploy.log"
+printf 'PASS prebuilt-sha-mismatch\n'

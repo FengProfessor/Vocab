@@ -175,10 +175,86 @@ jobs:
     needs: migrate
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Verify checkout identity
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
       - name: Connect to Tailscale VPN
         uses: tailscale/github-action@4e4c49acaa9818630ce0bd7a564372c17e33fb4d # v2
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+      - name: Build and upload standalone release bundle
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          FALLBACK_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+        run: |
+          set -Eeuo pipefail
+          ssh_key_file="$HOME/.ssh/id_deploy"
+          bundle_path="/tmp/lingopro-prebuilt-${EXPECTED_SHA}.tar.gz"
+          cleanup_bundle() {
+            rm -f "$ssh_key_file" "$bundle_path" .env.production .env.production.local
+          }
+          trap cleanup_bundle EXIT
+
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          printf '%s\n' "$SSH_PRIVATE_KEY" > "$ssh_key_file"
+          chmod 600 "$ssh_key_file"
+
+          ssh_opts=(-i "$ssh_key_file" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=30)
+          remote_target="${SERVER_USER}@${SERVER_HOST}"
+
+          ssh "${ssh_opts[@]}" "$remote_target" 'bash -s' <<'REMOTE' > .env.production
+          live_app_dir="$HOME/Vocab"
+          if [ -d "$HOME/Vocab/web-app" ]; then
+            live_app_dir="$HOME/Vocab/web-app"
+          fi
+          if [ -f "$live_app_dir/.env" ]; then
+            grep -E '^[[:space:]]*(export[[:space:]]+)?NEXT_PUBLIC_[A-Za-z0-9_]+=' "$live_app_dir/.env" \
+              | sed -E 's/^[[:space:]]*(export[[:space:]]+)?//' || true
+          fi
+          REMOTE
+
+          ssh "${ssh_opts[@]}" "$remote_target" 'bash -s' <<'REMOTE' > .env.production.local
+          live_app_dir="$HOME/Vocab"
+          if [ -d "$HOME/Vocab/web-app" ]; then
+            live_app_dir="$HOME/Vocab/web-app"
+          fi
+          if [ -f "$live_app_dir/.env.local" ]; then
+            grep -E '^[[:space:]]*(export[[:space:]]+)?NEXT_PUBLIC_[A-Za-z0-9_]+=' "$live_app_dir/.env.local" \
+              | sed -E 's/^[[:space:]]*(export[[:space:]]+)?//' || true
+          fi
+          REMOTE
+
+          if ! grep -q '^NEXT_PUBLIC_SUPABASE_URL=' .env.production && ! grep -q '^NEXT_PUBLIC_SUPABASE_URL=' .env.production.local; then
+            if [ -n "$FALLBACK_SUPABASE_URL" ]; then
+              printf 'NEXT_PUBLIC_SUPABASE_URL="%s"\n' "$FALLBACK_SUPABASE_URL" >> .env.production
+            fi
+          fi
+
+          npm ci
+          NODE_OPTIONS='--max-old-space-size=4096' npm run build
+          test -f .next/standalone/server.js
+          printf '%s\n' "$EXPECTED_SHA" > .next/.release-commit
+          cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
+          cp -r public .next/standalone/ 2>/dev/null || true
+          mkdir -p .next/standalone/src
+          cp -r src/data .next/standalone/src/ 2>/dev/null || true
+          rm -rf .next/cache
+
+          tar -czf "$bundle_path" .next
+          scp "${ssh_opts[@]}" "$bundle_path" "${remote_target}:/tmp/lingopro-prebuilt-${EXPECTED_SHA}.tar.gz"
 
       - name: Deploy via SSH
         uses: appleboy/ssh-action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262 # v1.0.3
@@ -209,4 +285,4 @@ jobs:
             git -C "$BUILD_DIR" remote add origin https://github.com/FengProfessor/Vocab.git
             git -C "$BUILD_DIR" fetch --no-tags origin "$EXPECTED_SHA"
             git -C "$BUILD_DIR" checkout --detach --force "$EXPECTED_SHA"
-            bash "$BUILD_DIR/deploy/run-deploy.sh" "$EXPECTED_SHA" "$BUILD_DIR" "$LIVE_DIR"
+            PREBUILT_BUNDLE="/tmp/lingopro-prebuilt-${EXPECTED_SHA}.tar.gz" bash "$BUILD_DIR/deploy/run-deploy.sh" "$EXPECTED_SHA" "$BUILD_DIR" "$LIVE_DIR"

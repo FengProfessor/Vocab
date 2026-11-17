@@ -90,18 +90,39 @@ if [[ -n "${AUTH_SESSION_ENCRYPTION_KEY:-}" ]]; then
   echo '[Deploy] Auth session encryption configuration staged'
 fi
 
-echo '[Deploy] Installing dependencies in staging'
-npm ci
+if [[ -n "${PREBUILT_BUNDLE:-}" ]]; then
+  if [[ ! -f "$PREBUILT_BUNDLE" ]]; then
+    echo "[Deploy] Prebuilt bundle is missing: $PREBUILT_BUNDLE" >&2
+    exit 1
+  fi
+  echo '[Deploy] Unpacking CI-built standalone bundle in staging'
+  rm -rf node_modules .next
+  tar -xzf "$PREBUILT_BUNDLE"
+  rm -f "$PREBUILT_BUNDLE"
 
-echo '[Deploy] Building application in staging'
-export NODE_OPTIONS='--max-old-space-size=4096'
-npm run build
+  if [[ ! -f .next/standalone/server.js ]]; then
+    echo '[Deploy] Build failed: .next/standalone was not generated' >&2
+    exit 1
+  fi
+  if [[ ! -f .next/.release-commit ]] || [[ "$(cat .next/.release-commit)" != "$expected_sha" ]]; then
+    echo '[Deploy] Prebuilt bundle commit does not match expected SHA' >&2
+    exit 1
+  fi
+else
+  echo '[Deploy] Installing dependencies in staging'
+  npm ci
 
-if [[ ! -d .next/standalone ]]; then
-  echo '[Deploy] Build failed: .next/standalone was not generated' >&2
-  exit 1
+  echo '[Deploy] Building application in staging'
+  export NODE_OPTIONS="${NODE_OPTIONS:---max-old-space-size=2560}"
+  export RAYON_NUM_THREADS="${RAYON_NUM_THREADS:-2}"
+  npm run build
+
+  if [[ ! -d .next/standalone ]]; then
+    echo '[Deploy] Build failed: .next/standalone was not generated' >&2
+    exit 1
+  fi
+  printf '%s\n' "$expected_sha" > .next/.release-commit
 fi
-printf '%s\n' "$expected_sha" > .next/.release-commit
 
 echo '[Deploy] Copying static assets to the standalone bundle'
 cp -r .next/static .next/standalone/.next/ 2>/dev/null || true

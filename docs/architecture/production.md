@@ -6,7 +6,7 @@
 |---|---|
 | Public URL | `https://lingopro.online`; Cloudflare edge và cloudflared process active; ingress config chi tiết chưa audit |
 | Host/runtime | Ubuntu, systemd `lingopro.service`, Node/Next standalone; Phase3A canonical `36810782924` PASS tại main `52551271445322c3b07bcbb6b296d66cd97ec4ef`, independent staging HEAD/build/live marker match, MainPID1300582 stable/local-public health200 |
-| Directories | `$HOME/Vocab-build` checkout/build exact SHA; `$HOME/Vocab` live bundle/env; `.next/.release-commit` là runtime marker, live checkout HEAD không phải release identity |
+| Directories | `$HOME/Vocab-build` checkout exact SHA và giải nén prebuilt standalone `.next` (tránh build nặng trên host); `$HOME/Vocab` live bundle/env (giữ 2 `.next-previous.*` gần nhất); `.next/.release-commit` là runtime marker, live checkout HEAD không phải release identity |
 | Management | Tailscale + SSH; `100.104.5.79`; operator đã bật lại, read-only preflight restored, service/config/Redis PING PASS |
 | Database/auth | Supabase PostgreSQL + RLS/Auth; PR #20 cutover `44ad7c92` đã phát hành, opaque HttpOnly cookie/server vault + user-context RLS BFF; dedicated login/storage/logout smoke PASS |
 | Rate limit / session foundation | Upstash Redis REST; quota atomic Lua; encrypted opaque session vault Stage A; cutover giữ user JWT trên server và user-context RLS BFF |
@@ -25,7 +25,7 @@ flowchart TD
   Cron[GitHub scheduled cron] --> App
   Main[Reviewed main exact event SHA] --> Quality[Quality + browser smoke]
   Quality --> Migration[Migration history/checksum]
-  Migration --> Build[Ubuntu detached checkout/build]
+  Migration --> Build[GitHub runner build + Ubuntu SHA verify]
   Build --> Activation[Atomic activation + restart + PID/HTTP health]
   Activation --> App
   Backup[Scheduled backup runner] --> Supabase
@@ -38,4 +38,4 @@ Deploy chỉ `deploy-server.yml`: main → quality → migrations → exact-SHA 
 
 PC server, Vercel, PM2/Hetzner/Caddy/Docker Compose hướng dẫn/script cũ là **LEGACY / NON-CANONICAL**; user xác nhận không dùng Vercel. Không xóa legacy infra chỉ vì tồn tại trong repo. Host có cloudflared process active; ingress routing/config chưa audit, không suy ra chi tiết cấu hình từ process.
 
-Rollback mock safety tests đã PASS; không có live fault-injection rollback proof. Auth C02 dedicated live login/navigation/reload/storage/logout/replay PASS. `.next-previous.*` retention/cleanup và persisted lesson/mobile smoke còn pending. Không hủy production preflight gates để đi tiếp các phase độc lập.
+Rollback mock safety tests đã PASS; không có live fault-injection rollback proof. Auth C02 dedicated live login/navigation/reload/storage/logout/replay PASS. `activate-release.sh` giữ tối đa 2 `.next-previous.*` gần nhất; persisted lesson/mobile smoke còn pending. Không hủy production preflight gates để đi tiếp các phase độc lập.
