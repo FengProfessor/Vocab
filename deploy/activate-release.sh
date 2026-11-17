@@ -138,7 +138,7 @@ rollback_on_failure() {
 trap rollback_on_failure EXIT
 
 echo '[Deploy] Preparing candidate without touching the running release'
-cp -a "$staging_app_dir/.next" "$candidate_dir/.next"
+cp -al "$staging_app_dir/.next" "$candidate_dir/.next" 2>/dev/null || cp -a "$staging_app_dir/.next" "$candidate_dir/.next"
 
 echo "[Deploy] Stopping $service for release switch"
 activation_started=1

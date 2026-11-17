@@ -90,15 +90,31 @@ if [[ -n "${AUTH_SESSION_ENCRYPTION_KEY:-}" ]]; then
   echo '[Deploy] Auth session encryption configuration staged'
 fi
 
+live_app_dir="$live_dir"
+if [[ -d "$live_dir/web-app" ]]; then
+  live_app_dir="$live_dir/web-app"
+fi
+echo "[Deploy] Live app directory: $live_app_dir"
+
 if [[ -n "${PREBUILT_BUNDLE:-}" ]]; then
   if [[ ! -f "$PREBUILT_BUNDLE" ]]; then
     echo "[Deploy] Prebuilt bundle is missing: $PREBUILT_BUNDLE" >&2
     exit 1
   fi
+  echo '[Deploy] Pruning orphaned candidates and stale rollback backups before unpack'
+  rm -rf -- "$live_app_dir"/.next-candidate.* 2>/dev/null || true
+  mapfile -t pre_prune_rollbacks < <(find "$live_app_dir" -maxdepth 1 -mindepth 1 -type d -name '.next-previous.*' -printf '%T@ %p\n' 2>/dev/null | sort -rn | tail -n +2 | cut -d' ' -f2-)
+  for stale_dir in "${pre_prune_rollbacks[@]}"; do
+    if [[ -n "$stale_dir" ]]; then
+      rm -rf -- "$stale_dir" || true
+    fi
+  done
+
   echo '[Deploy] Unpacking CI-built standalone bundle in staging'
   rm -rf node_modules .next
-  tar -xzf "$PREBUILT_BUNDLE"
+  (ionice -c3 nice -n 19 tar -xzf "$PREBUILT_BUNDLE") 2>/dev/null || tar -xzf "$PREBUILT_BUNDLE"
   rm -f "$PREBUILT_BUNDLE"
+  sync || true
 
   if [[ ! -f .next/standalone/server.js ]]; then
     echo '[Deploy] Build failed: .next/standalone was not generated' >&2
@@ -125,16 +141,17 @@ else
 fi
 
 echo '[Deploy] Copying static assets to the standalone bundle'
-cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
-cp -r public .next/standalone/ 2>/dev/null || true
-mkdir -p .next/standalone/src
-cp -r src/data .next/standalone/src/ 2>/dev/null || true
-
-live_app_dir="$live_dir"
-if [[ -d "$live_dir/web-app" ]]; then
-  live_app_dir="$live_dir/web-app"
+if [[ -d .next/static ]]; then
+  cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
 fi
-echo "[Deploy] Live app directory: $live_app_dir"
+rm -rf .next/standalone/public .next/standalone/src/data
+if [[ -d public ]]; then
+  cp -al public .next/standalone/ 2>/dev/null || cp -r public .next/standalone/ 2>/dev/null || true
+fi
+if [[ -d src/data ]]; then
+  mkdir -p .next/standalone/src
+  cp -al src/data .next/standalone/src/ 2>/dev/null || cp -r src/data .next/standalone/src/ 2>/dev/null || true
+fi
 
 if ! bash "$build_dir/deploy/activate-release.sh" "$staging_app_dir" "$live_app_dir" "$expected_sha"; then
   echo '[Deploy] Deployment failed; see activation and rollback status above' >&2

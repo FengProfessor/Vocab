@@ -257,10 +257,7 @@ jobs:
           test -f .next/standalone/server.js
           printf '%s\n' "$EXPECTED_SHA" > .next/.release-commit
           cp -r .next/static .next/standalone/.next/ 2>/dev/null || true
-          cp -r public .next/standalone/ 2>/dev/null || true
-          mkdir -p .next/standalone/src
-          cp -r src/data .next/standalone/src/ 2>/dev/null || true
-          rm -rf .next/cache
+          find .next -mindepth 1 -maxdepth 1 ! -name standalone ! -name .release-commit -exec rm -rf -- {} +
 
           tar -czf "$bundle_path" .next
           scp "${ssh_opts[@]}" "$bundle_path" "${remote_target}:/tmp/lingopro-prebuilt-${EXPECTED_SHA}.tar.gz"
