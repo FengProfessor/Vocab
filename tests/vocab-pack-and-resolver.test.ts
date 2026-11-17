@@ -168,6 +168,80 @@ function runAllTests(): void {
       'strength',
       'strength IPA must not be self-referential',
     );
+
+    // pro3m stub row with empty meanings and fake self-referential IPA
+    const starJumpStubRow: GlobalDictRowInput = {
+      word: 'star jump',
+      image_url: 'https://images.pexels.com/photos/14310030/pexels-photo-14310030.jpeg',
+      image_source: 'pexels',
+      data: {
+        meaning: '',
+        pronunciations: [{ ipa: '/star jump/' }],
+        results: [{ meanings: [] }],
+        morphology: {
+          rootMeaning: 'cú nhảy bật dang 4 chi tạo hình ngôi sao',
+        },
+        collocations: [
+          {
+            phrase: 'perform warm up star jumps exercise',
+            meaning_vi: 'thực hiện bài tập nhảy dang tay chân hình ngôi sao để khởi động',
+          },
+        ],
+      },
+    };
+    const starJumpGdMap = new Map<string, GlobalDictRowInput>([['star jump', starJumpStubRow]]);
+    const starJumpHealed = resolveVocabPartialFromSources('star jump', starJumpGdMap);
+    assert.ok(starJumpHealed.translation, 'star jump stub must resolve Vietnamese translation');
+    assert.ok(
+      starJumpHealed.ipa && starJumpHealed.ipa.toLowerCase() !== 'star jump',
+      'star jump stub must replace fake /star jump/ IPA with curated IPA',
+    );
+    assert.equal(
+      starJumpHealed.image_url,
+      'https://images.pexels.com/photos/14310030/pexels-photo-14310030.jpeg',
+    );
+
+    // Uncurated pro3m stub should rescue genuine Vietnamese rootMeaning but ignore meta/English rootMeaning
+    const uncuratedStubRow: GlobalDictRowInput = {
+      word: 'bridge the generation gap',
+      data: {
+        meaning: '',
+        results: [{ meanings: [] }],
+        morphology: { rootMeaning: 'thu hẹp khoảng cách thế hệ' },
+        collocations: [
+          { phrase: 'activities to bridge the generation gap', meaning_vi: 'các hoạt động thu hẹp khoảng cách thế hệ' },
+        ],
+      },
+    };
+    const uncuratedRes = resolveVocabPartialFromSources(
+      'bridge the generation gap',
+      new Map([['bridge the generation gap', uncuratedStubRow]]),
+    );
+    assert.equal(uncuratedRes.translation, 'thu hẹp khoảng cách thế hệ');
+    assert.equal(uncuratedRes.example, 'activities to bridge the generation gap');
+
+    const metaMorphRow: GlobalDictRowInput = {
+      word: 'meta phrase sample',
+      data: {
+        results: [{ meanings: [] }],
+        morphology: { rootMeaning: 'cụm ngữ pháp/thành ngữ tạo thành từ các từ cốt lõi' },
+      },
+    };
+    const englishMorphRow: GlobalDictRowInput = {
+      word: 'english morph sample',
+      data: {
+        results: [{ meanings: [] }],
+        morphology: { rootMeaning: 'to push with force' },
+      },
+    };
+    assert.equal(
+      resolveVocabPartialFromSources('meta phrase sample', new Map([['meta phrase sample', metaMorphRow]])).translation,
+      undefined,
+    );
+    assert.equal(
+      resolveVocabPartialFromSources('english morph sample', new Map([['english morph sample', englishMorphRow]])).translation,
+      undefined,
+    );
   }
 
   // 3 & 4. 100/100 Foundation Verbs resolve cleanly + 10/10 story bold verbs match lemmas

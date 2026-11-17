@@ -27,6 +27,7 @@ const IPA_PHONETIC_MARKERS = /[ˈˌːˑəæɑɒɔɜɛɪʊʌɨʉɵɤɯʏøœɐɶ�
 const VALID_ASCII_SHORT_IPA_RE = /^[pbtdfvszhmnlrwjk]*e[pbtdfvszhmnlrwjk]*$/i;
 const FAKE_ASCII_DIGRAPH_RE = /(.)\1|th|sh|ch|ph|wh|ng|gh|qu|ck/i;
 const PLACEHOLDER_IPA_RE = /^(n\/a|unknown|placeholder|none|null|\.|\-|\?+|gibberish|not found|undefined|n|v|adj|adv)$/i;
+const VN_DIACRITIC_RE = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
 
 function isValidShortAsciiIpa(s: string): boolean {
   return (
@@ -812,6 +813,37 @@ export function resolveStaticVocabFallback(rawWord: string): Partial<ResolvedVoc
   return merged.translation || merged.ipa ? merged : null;
 }
 
+function extractMorphologyFallbackFromRow(
+  row: GlobalDictRowInput | null | undefined,
+): Partial<ResolvedVocabEntry> {
+  if (!row?.data || typeof row.data !== 'object') return {};
+  const d = row.data as {
+    morphology?: { rootMeaning?: unknown };
+    collocations?: Array<{ phrase?: unknown; meaning_vi?: unknown }>;
+  };
+  const out: Partial<ResolvedVocabEntry> = {};
+
+  const rm = typeof d.morphology?.rootMeaning === 'string' ? d.morphology.rootMeaning.trim() : '';
+  if (rm && VN_DIACRITIC_RE.test(rm) && !/^cụm ngữ pháp/i.test(rm)) {
+    const cleaned = cleanViDefinition(rm);
+    if (cleaned) out.translation = cleaned;
+  }
+
+  if (Array.isArray(d.collocations)) {
+    for (const col of d.collocations) {
+      const phrase = typeof col?.phrase === 'string' ? col.phrase.trim() : '';
+      const meaningVi = typeof col?.meaning_vi === 'string' ? col.meaning_vi.trim() : '';
+      if (phrase && meaningVi) {
+        out.example = phrase;
+        out.example_vi = meaningVi;
+        break;
+      }
+    }
+  }
+
+  return out;
+}
+
 export function resolveVocabPartialFromSources(
   rawWord: string,
   gdMap?: Map<string, GlobalDictRowInput>,
@@ -835,6 +867,18 @@ export function resolveVocabPartialFromSources(
     const fallback = resolveStaticVocabFallback(rawWord);
     if (fallback) {
       merged = mergePartial(merged, fallback);
+    }
+  }
+
+  if ((!merged.translation || !merged.example) && gdMap && gdMap.size > 0) {
+    for (const key of candidates) {
+      const row = gdMap.get(key);
+      if (!row) continue;
+      const morphFallback = extractMorphologyFallbackFromRow(row);
+      if (morphFallback.translation || morphFallback.example) {
+        merged = mergePartial(merged, morphFallback);
+        if (merged.translation && merged.example) break;
+      }
     }
   }
 

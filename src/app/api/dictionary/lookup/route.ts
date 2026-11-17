@@ -6,7 +6,14 @@ import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { getInMemWordList, fuzzySuggestFromRAM } from '@/lib/dict-trie-engine';
 import { getCollocationVocabEntry, getWordFamilyCluster } from '@/lib/toeic-collocation-index';
 import { getDerivationalStems } from '@/lib/dict-cache';
-import { getLookupCandidateKeys, resolveStaticVocabFallback } from '@/lib/vocab-entry-resolver';
+import {
+  cleanBareIpaString,
+  extractCleanBareIpa,
+  getLookupCandidateKeys,
+  resolveStaticVocabFallback,
+  resolveVocabPartialFromSources,
+  type GlobalDictRowInput,
+} from '@/lib/vocab-entry-resolver';
 import type { WordFamilyEntry, DictionaryMeaning, CoreSenseEntry } from '@/lib/supabase';
 
 type CachedPayload = {
@@ -615,8 +622,9 @@ export async function GET(req: Request) {
       });
     }
 
+    const headword = ((resolvedRow.word as string) || word).trim();
     const raw = (resolvedRow.data || {}) as Record<string, unknown>;
-    const cleaned = sanitizeSynAntPayload((resolvedRow.word as string) || word, raw);
+    const cleaned = sanitizeSynAntPayload(headword, raw);
 
     const { meanings, coreSenses } = buildOrderedMeanings(
       raw.core_senses,
@@ -629,6 +637,77 @@ export async function GET(req: Request) {
       },
     );
 
+    const gdMap = new Map<string, GlobalDictRowInput>([
+      [headword.toLowerCase(), resolvedRow as GlobalDictRowInput],
+    ]);
+    const extractedIpa = extractCleanBareIpa(raw, headword);
+    const needsFallback =
+      meanings.length === 0 ||
+      !extractedIpa ||
+      !(typeof cleaned.definition === 'string' && cleaned.definition.trim());
+    const fallback = needsFallback ? resolveVocabPartialFromSources(word, gdMap) : {};
+
+    if (meanings.length === 0 && fallback.translation) {
+      meanings.push({
+        pos: fallback.pos || '',
+        definition: fallback.translation,
+        example: fallback.example || undefined,
+        example_vi: fallback.example_vi || undefined,
+        isPrimary: true,
+        popularity: 1,
+      });
+    }
+
+    const validBareIpa = extractedIpa || fallback.ipa || '';
+    const formattedValidIpa = validBareIpa ? `/${validBareIpa.replace(/^\/+|\/+$/g, '')}/` : '';
+
+    const rawProns = Array.isArray(cleaned.pronunciations)
+      ? (cleaned.pronunciations as Array<Record<string, unknown>>)
+      : [];
+    const mappedProns: Array<Record<string, unknown>> = [];
+    for (const p of rawProns) {
+      const rawIpa = typeof p?.ipa === 'string' ? p.ipa : '';
+      const cleanedPiece = cleanBareIpaString(rawIpa, headword);
+      const nextIpa = cleanedPiece ? `/${cleanedPiece}/` : formattedValidIpa;
+      const hasAudio = Boolean(p?.audio_uk || p?.audio_us);
+      if (!nextIpa && !hasAudio) continue;
+      mappedProns.push({
+        ...p,
+        ipa: nextIpa,
+      });
+    }
+    const sanitizedProns =
+      mappedProns.length > 0
+        ? mappedProns
+        : formattedValidIpa
+          ? parsePronunciations(formattedValidIpa)
+          : [];
+
+    const resolvedPos =
+      (typeof cleaned.pos === 'string' && cleaned.pos.trim()) ||
+      meanings[0]?.pos ||
+      fallback.pos ||
+      '';
+    const resolvedDef =
+      (typeof cleaned.definition === 'string' && cleaned.definition.trim()) ||
+      meanings[0]?.definition ||
+      fallback.translation ||
+      '';
+    const resolvedMeaning =
+      (typeof cleaned.meaning === 'string' && cleaned.meaning.trim()) ||
+      resolvedDef;
+    const resolvedExample =
+      (typeof cleaned.example === 'string' && cleaned.example.trim()) ||
+      meanings[0]?.example ||
+      fallback.example ||
+      undefined;
+    const resolvedExampleVi =
+      (typeof cleaned.example_vi === 'string' && cleaned.example_vi.trim()) ||
+      (typeof cleaned.exampleVi === 'string' && cleaned.exampleVi.trim()) ||
+      meanings[0]?.example_vi ||
+      fallback.example_vi ||
+      undefined;
+
     const baseFamily = parseRawFamilyWords(raw.familyWords || raw.wordFamily || raw.word_family);
     const familyWords = await enrichFamilyWords(word, baseFamily, raw.morphology, supabase);
 
@@ -639,9 +718,17 @@ export async function GET(req: Request) {
       image_url: resolvedRow.image_url || null,
       image_source: resolvedRow.image_source || 'none',
       ...cleaned,
+      ipa: formattedValidIpa,
+      pos: resolvedPos,
+      definition: resolvedDef,
+      meaning: resolvedMeaning,
+      ...(resolvedExample ? { example: resolvedExample } : {}),
+      ...(resolvedExampleVi ? { example_vi: resolvedExampleVi, exampleVi: resolvedExampleVi } : {}),
+      pronunciations: sanitizedProns,
       core_senses: coreSenses.length > 0 ? coreSenses : raw.core_senses,
       results: [
         {
+          ...(sanitizedProns.length > 0 ? { pronunciations: sanitizedProns } : {}),
           meanings,
         },
       ],
