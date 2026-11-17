@@ -209,8 +209,17 @@ jobs:
 
           mkdir -p "$HOME/.ssh"
           chmod 700 "$HOME/.ssh"
-          printf '%s\n' "$SSH_PRIVATE_KEY" > "$ssh_key_file"
+          SSH_KEY_FILE="$ssh_key_file" node -e '
+            const fs = require("fs");
+            const raw = (process.env.SSH_PRIVATE_KEY || "").replace(/\r\n?/g, "\n").trim();
+            const m = raw.match(/(-----BEGIN [A-Z0-9 ]+-----)([\s\S]+?)(-----END [A-Z0-9 ]+-----)/);
+            const normalized = m
+              ? [m[1], ...((m[2].replace(/\s+/g, "").match(/.{1,64}/g)) || []), m[3]].join("\n") + "\n"
+              : raw + "\n";
+            fs.writeFileSync(process.env.SSH_KEY_FILE, normalized, { mode: 0o600 });
+          '
           chmod 600 "$ssh_key_file"
+          ssh-keygen -l -f "$ssh_key_file" >/dev/null
 
           ssh_opts=(-i "$ssh_key_file" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=30)
           remote_target="${SERVER_USER}@${SERVER_HOST}"
