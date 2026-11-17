@@ -13,7 +13,7 @@
  * - Tự động đồng bộ tiến độ Lộ trình (completeRoadmapStep) khi có ?roadmapStep=...
  */
 
-import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
+import { Suspense, useCallback, useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
@@ -30,6 +30,8 @@ import {
   Flame,
   Layers,
   Lightbulb,
+  Loader2,
+  Plus,
   RotateCcw,
   Shuffle,
   Snail,
@@ -46,6 +48,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import { Celebration } from '@/components/gamification/Celebration';
 import { playWordAudio } from '@/lib/audio';
+import { authFetch } from '@/lib/auth-fetch';
+import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
+import { matchFoundationVerb } from '@/lib/study';
 import {
   getFoundationVerbPacks,
   getFoundationVerbPack,
@@ -61,6 +66,8 @@ import {
   type VocabTopicMeta,
   type VocabStageItem,
 } from '@/lib/vocab-topics';
+
+const emptySubscribe = () => () => {};
 
 type PracticeTab = 'flashcard' | 'cloze' | 'story' | 'builder' | 'match';
 
@@ -199,6 +206,9 @@ function VocabStationContent() {
   const [cardIdx, setCardIdx] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [masteredWords, setMasteredWords] = useState<Set<string>>(new Set());
+  const hasMounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
+  const [savingWord, setSavingWord] = useState<string | null>(null);
+  const [savedWords, setSavedWords] = useState<Set<string>>(new Set());
 
   // Load mastered words from localStorage on mount
   useEffect(() => {
@@ -209,6 +219,71 @@ function VocabStationContent() {
       /* ignore */
     }
   }, []);
+
+  const isVerbSaved = useCallback(
+    (word: string) => {
+      const key = word.trim().toLowerCase();
+      return Boolean(key && (savedWords.has(key) || (hasMounted && isWordSavedLocally(key))));
+    },
+    [savedWords, hasMounted],
+  );
+
+  const handleSaveVerbToVault = useCallback(
+    async (item: {
+      lemma: string;
+      meaningVi?: string;
+      ipa?: string;
+      pos?: string;
+      example?: string;
+      exampleVi?: string;
+    }) => {
+      const cleanWord = item.lemma.trim();
+      const key = cleanWord.toLowerCase();
+      if (!cleanWord || savingWord === key) return;
+      if (isVerbSaved(cleanWord)) {
+        toast.info(`"${cleanWord}" đã có trong Sổ từ của bạn.`);
+        return;
+      }
+      setSavingWord(key);
+      try {
+        const res = await authFetch('/api/words', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            word: cleanWord,
+            translation: item.meaningVi || '',
+            ipa: item.ipa || '',
+            pos: item.pos || 'verb',
+            example: item.example || '',
+            exampleVi: item.exampleVi || '',
+            skipAI: true,
+          }),
+        });
+        const data = (await res.json()) as {
+          success?: boolean;
+          alreadyExists?: boolean;
+          error?: string;
+          message?: string;
+        };
+        if (!res.ok || !data.success) {
+          throw new Error(data.message || data.error || 'Không lưu được từ vào Sổ từ.');
+        }
+        saveWordLocally(cleanWord, item.meaningVi);
+        setSavedWords((prev) => new Set(prev).add(key));
+        window.dispatchEvent(new CustomEvent('lingo_word_saved', { detail: { word: cleanWord } }));
+        toast.success(
+          data.alreadyExists
+            ? `"${cleanWord}" đã có trong Sổ từ của bạn.`
+            : `Đã lưu "${cleanWord}" vào Sổ từ!`,
+        );
+      } catch (err: unknown) {
+        toast.error(err instanceof Error ? err.message : 'Lỗi khi lưu từ vào Sổ từ.');
+      } finally {
+        setSavingWord(null);
+      }
+    },
+    [isVerbSaved, savingWord],
+  );
 
   const addMasteredWord = useCallback((word: string) => {
     setMasteredWords((prev) => {
@@ -595,6 +670,28 @@ function VocabStationContent() {
               onClick={() => setFlipped(!flipped)}
               className="group relative min-h-[300px] cursor-pointer select-none rounded-3xl border-2 border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-amber-400 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-8"
             >
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  void handleSaveVerbToVault(currentVerb);
+                }}
+                disabled={savingWord === currentVerb.lemma.toLowerCase()}
+                className={`mb-3 ml-auto flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-bold transition ${
+                  isVerbSaved(currentVerb.lemma)
+                    ? 'border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300'
+                    : 'border-amber-300 bg-amber-50 text-amber-800 hover:bg-amber-100 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-300'
+                }`}
+              >
+                {savingWord === currentVerb.lemma.toLowerCase() ? (
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                ) : isVerbSaved(currentVerb.lemma) ? (
+                  <Check className="h-3.5 w-3.5" />
+                ) : (
+                  <Plus className="h-3.5 w-3.5" />
+                )}
+                {isVerbSaved(currentVerb.lemma) ? 'Đã lưu' : 'Lưu vào Sổ từ'}
+              </button>
               {!flipped ? (
                 // MẶT TRƯỚC: Từ vựng, IPA, Phát âm & Cấu trúc câu
                 <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -1004,11 +1101,7 @@ function VocabStationContent() {
                         const m = chunk.match(/^\*\*([^*]+)\*\*$/);
                         if (m) {
                           const word = m[1];
-                          const verbData = pack.verbs.find(
-                            (v) =>
-                              v.lemma.toLowerCase() === word.toLowerCase() ||
-                              word.toLowerCase().startsWith(v.lemma.toLowerCase().slice(0, 3))
-                          );
+                          const verbData = matchFoundationVerb(word, pack.verbs);
                           return (
                             <button
                               key={i}
@@ -1044,18 +1137,39 @@ function VocabStationContent() {
                     {/* Word Quick Tooltip */}
                     {activeWordTooltip && (
                       <div className="rounded-xl border border-amber-300 bg-amber-50/90 p-3 text-xs text-amber-900 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-200">
-                        <div className="flex items-center justify-between font-bold">
+                        <div className="flex items-center justify-between gap-2 font-bold">
                           <span>
                             {activeWordTooltip.lemma} {activeWordTooltip.ipa} —{' '}
                             {activeWordTooltip.meaningVi}
                           </span>
-                          <button
-                            type="button"
-                            onClick={() => setActiveWordTooltip(null)}
-                            className="text-slate-400 hover:text-slate-600"
-                          >
-                            <X className="h-3.5 w-3.5" />
-                          </button>
+                          <div className="flex items-center gap-2 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => void handleSaveVerbToVault(activeWordTooltip)}
+                              disabled={savingWord === activeWordTooltip.lemma.toLowerCase()}
+                              className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-bold transition ${
+                                isVerbSaved(activeWordTooltip.lemma)
+                                  ? 'border-emerald-300 bg-emerald-100 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300'
+                                  : 'border-amber-400 bg-white text-amber-900 hover:bg-amber-100 dark:border-amber-700 dark:bg-slate-900 dark:text-amber-200'
+                              }`}
+                            >
+                              {savingWord === activeWordTooltip.lemma.toLowerCase() ? (
+                                <Loader2 className="h-3 w-3 animate-spin" />
+                              ) : isVerbSaved(activeWordTooltip.lemma) ? (
+                                <Check className="h-3 w-3" />
+                              ) : (
+                                <Plus className="h-3 w-3" />
+                              )}
+                              {isVerbSaved(activeWordTooltip.lemma) ? 'Đã lưu' : 'Lưu vào Sổ từ'}
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => setActiveWordTooltip(null)}
+                              className="text-slate-400 hover:text-slate-600"
+                            >
+                              <X className="h-3.5 w-3.5" />
+                            </button>
+                          </div>
                         </div>
                         <p className="mt-1 font-mono text-[11px] text-amber-800 dark:text-amber-300">
                           {activeWordTooltip.pattern}

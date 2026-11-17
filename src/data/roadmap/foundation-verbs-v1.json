@@ -9,7 +9,7 @@
       "description": "10 động từ cốt lõi nhất để xác định danh tính, sở hữu, nhu cầu và nhận thức cơ bản.",
       "story": {
         "title": "Một ngày bắt đầu của tôi",
-        "passage": "I **am** a student. I **have** a dream to speak English. Every day, I **do** my homework carefully. I **want** to learn fast because I **need** it for work. I **like** practicing with friends. Now I **know** many words. I **think** English is fun. When I look outside, I **see** a bright day.",
+        "passage": "I **am** a student. I **have** a dream to speak English. Every day, I **do** my homework carefully. I **want** to learn fast because I **need** it for work. I **like** practicing with friends. Now I **know** many words. I **think** English is fun. When I **look** outside, I **see** a bright day.",
         "passageVi": "Tôi là một học sinh. Tôi có ước mơ nói tiếng Anh. Mỗi ngày, tôi làm bài tập cẩn thận. Tôi muốn học nhanh vì tôi cần nó cho công việc. Tôi thích luyện tập cùng bạn bè. Bây giờ tôi biết nhiều từ rồi. Tôi nghĩ tiếng Anh thật thú vị. Khi nhìn ra ngoài, tôi thấy một ngày tươi sáng.",
         "highlightWords": ["am", "have", "do", "want", "need", "like", "know", "think", "look", "see"],
         "cloze": {
@@ -1359,8 +1359,8 @@
       "description": "10 động từ về thương mại, tài chính, chi tiêu, lựa chọn và đồng thuận.",
       "story": {
         "title": "Chuyến đi siêu thị cuối tuần",
-        "passage": "On Saturday, I go to the supermarket to **buy** some groceries. The shop **sells** fresh fruits and vegetables. I **choose** some sweet apples and fresh milk. This coat **costs** twenty dollars. I **spend** about one hour looking around. At the cashier, I **pay** by cash. In the café nearby, I **order** a cup of coffee. My friend suggests watching a movie, and I happily **agree**. We **decide** to meet at the cinema at 7 PM.",
-        "passageVi": "Vào thứ Bảy, tôi đến siêu thị để mua một số đồ nhu yếu phẩm. Cửa hàng bán các loại trái cây và rau củ tươi sạch. Tôi chọn vài quả táo ngọt và sữa tươi. Chiếc áo khoác này có giá hai mươi đô la. Tôi dành khoảng một tiếng đồng hồ đi dạo quanh. Tại quầy thu ngân, tôi thanh toán bằng tiền mặt. Ở quán cà phê gần đó, tôi gọi một ly cà phê. Bạn tôi gợi ý đi xem phim và tôi vui vẻ đồng ý. Chúng tôi quyết định gặp nhau ở rạp chiếu phim lúc 7 giờ tối.",
+        "passage": "On Saturday, I go to the supermarket to **buy** some groceries. The shop **sells** fresh fruits and vegetables. I **choose** some sweet apples and fresh milk. This coat **costs** twenty dollars. I **spend** about one hour looking around. At the cashier, I **pay** by cash. In the café nearby, I **order** a cup of coffee. My friend suggests watching a movie; I **refuse** to stay home and happily **agree**. We **decide** to meet at the cinema at 7 PM.",
+        "passageVi": "Vào thứ Bảy, tôi đến siêu thị để mua một số đồ nhu yếu phẩm. Cửa hàng bán các loại trái cây và rau củ tươi sạch. Tôi chọn vài quả táo ngọt và sữa tươi. Chiếc áo khoác này có giá hai mươi đô la. Tôi dành khoảng một tiếng đồng hồ đi dạo quanh. Tại quầy thu ngân, tôi thanh toán bằng tiền mặt. Ở quán cà phê gần đó, tôi gọi một ly cà phê. Bạn tôi gợi ý đi xem phim; tôi từ chối ở nhà và vui vẻ đồng ý. Chúng tôi quyết định gặp nhau ở rạp chiếu phim lúc 7 giờ tối.",
         "highlightWords": ["buy", "sell", "choose", "cost", "spend", "pay", "order", "agree", "decide", "refuse"],
         "cloze": {
           "text": "I want to {{0}} a new shirt. The shop {{1}} nice clothes. I {{2}} a blue one. It {{3}} fifteen dollars. I {{4}} for it with my card. We {{5}} to go home after shopping.",
@@ -1584,8 +1584,8 @@
       "description": "10 động từ về trạng thái cảm xúc, tâm lý, trí nhớ và sự thấu hiểu.",
       "story": {
         "title": "Cảm xúc chân thật",
-        "passage": "I **love** spending time with my family. I **enjoy** reading books on quiet afternoons. Sometimes I **feel** a little tired, but I always **hope** for a brighter future. I **wish** to travel around the world one day. When studying, I try to **remember** all the vocabulary and never **forget** grammar rules. Now, I **understand** what the teacher says, and I strongly **believe** that with effort, anyone can master English.",
-        "passageVi": "Tôi rất yêu quý việc dành thời gian bên gia đình. Tôi thích thú đọc sách vào những buổi chiều yên tĩnh. Đôi khi tôi cảm thấy hơi mệt mỏi một chút, nhưng tôi luôn hy vọng vào một tương lai tươi sáng hơn. Tôi ước một ngày nào đó được đi du lịch vòng quanh thế giới. Khi học tập, tôi cố gắng ghi nhớ tất cả từ vựng và không bao giờ quên các quy tắc ngữ pháp. Giờ đây, tôi hiểu những gì thầy cô giảng và tôi tin tưởng mạnh mẽ rằng chỉ cần nỗ lực, bất kỳ ai cũng có thể làm chủ tiếng Anh.",
+        "passage": "I never **hate** quiet mornings, and I **love** spending time with my family. I **enjoy** reading books on quiet afternoons. Sometimes I **feel** a little tired, but I always **hope** for a brighter future. I **wish** to travel around the world one day. When studying, I try to **remember** all the vocabulary and never **forget** grammar rules. Now, I **understand** what the teacher says, and I strongly **believe** that with effort, anyone can master English.",
+        "passageVi": "Tôi không bao giờ ghét những buổi sáng yên bình, và tôi rất yêu quý việc dành thời gian bên gia đình. Tôi thích thú đọc sách vào những buổi chiều yên tĩnh. Đôi khi tôi cảm thấy hơi mệt mỏi một chút, nhưng tôi luôn hy vọng vào một tương lai tươi sáng hơn. Tôi ước một ngày nào đó được đi du lịch vòng quanh thế giới. Khi học tập, tôi cố gắng ghi nhớ tất cả từ vựng và không bao giờ quên các quy tắc ngữ pháp. Giờ đây, tôi hiểu những gì thầy cô giảng và tôi tin tưởng mạnh mẽ rằng chỉ cần nỗ lực, bất kỳ ai cũng có thể làm chủ tiếng Anh.",
         "highlightWords": ["love", "enjoy", "feel", "hope", "wish", "remember", "forget", "understand", "believe", "hate"],
         "cloze": {
           "text": "I {{0}} studying English. I {{1}} very happy when I learn new things. I {{2}} to speak fluently soon. I always try to {{3}} new words. Now I can {{4}} simple stories. I {{5}} in myself.",

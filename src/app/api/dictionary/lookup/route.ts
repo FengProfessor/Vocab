@@ -6,6 +6,7 @@ import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { getInMemWordList, fuzzySuggestFromRAM } from '@/lib/dict-trie-engine';
 import { getCollocationVocabEntry, getWordFamilyCluster } from '@/lib/toeic-collocation-index';
 import { getDerivationalStems } from '@/lib/dict-cache';
+import { getLookupCandidateKeys, resolveStaticVocabFallback } from '@/lib/vocab-entry-resolver';
 import type { WordFamilyEntry, DictionaryMeaning, CoreSenseEntry } from '@/lib/supabase';
 
 type CachedPayload = {
@@ -517,7 +518,85 @@ export async function GET(req: Request) {
 
     if (error) throw error;
 
-    if (!data || !data.data) {
+    let resolvedRow = data && data.data ? data : null;
+    if (!resolvedRow) {
+      const candidateKeys = getLookupCandidateKeys(word).filter((k) => k !== word);
+      if (candidateKeys.length > 0) {
+        const { data: altRows } = await supabase
+          .from('global_dictionary')
+          .select('word, data, tags, image_url, image_source')
+          .in('word', candidateKeys);
+        if (altRows && altRows.length > 0) {
+          const altMap = new Map(
+            altRows
+              .filter((r) => Boolean(r && r.data))
+              .map((r) => [(r.word as string).toLowerCase().trim(), r]),
+          );
+          for (const key of candidateKeys) {
+            const match = altMap.get(key);
+            if (match) {
+              resolvedRow = match;
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    if (!resolvedRow || !resolvedRow.data) {
+      const staticFallback = resolveStaticVocabFallback(word);
+      if (staticFallback?.translation) {
+        const pronunciations = parsePronunciations(staticFallback.ipa);
+        const familyWords = await enrichFamilyWords(word, [], undefined, supabase);
+        const body: Record<string, unknown> = {
+          success: true,
+          source: 'static_curriculum_fallback',
+          word,
+          cleanWord: word,
+          ipa: staticFallback.ipa || '',
+          pronunciations,
+          pos: staticFallback.pos || '',
+          definition: staticFallback.translation,
+          example: staticFallback.example || undefined,
+          example_vi: staticFallback.example_vi || undefined,
+          exampleVi: staticFallback.example_vi || undefined,
+          synonyms: staticFallback.synonyms || [],
+          antonyms: staticFallback.antonyms || [],
+          image_url: staticFallback.image_url || null,
+          image_source: staticFallback.image_source || 'none',
+          results: [
+            {
+              pronunciations,
+              meanings: [
+                {
+                  pos: staticFallback.pos || '',
+                  definition: staticFallback.translation,
+                  example: staticFallback.example || undefined,
+                  example_vi: staticFallback.example_vi || undefined,
+                  isPrimary: true,
+                  popularity: 1,
+                },
+              ],
+            },
+          ],
+          meanings: [
+            {
+              meaning: staticFallback.translation,
+              part_of_speech: staticFallback.pos || '',
+              example: staticFallback.example || '',
+              example_vi: staticFallback.example_vi || '',
+            },
+          ],
+          familyWords,
+          wordFamily: familyWords,
+          word_family: familyWords,
+        };
+        cacheSet(cacheKey, { status: 200, body }, CACHE_TTL_MS);
+        return NextResponse.json(body, {
+          headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT-STATIC-FALLBACK' },
+        });
+      }
+
       // Tìm kiếm gợi ý sửa lỗi gõ sai chính tả từ 40,860 từ trong RAM
       await getInMemWordList(250);
       const fuzzyMatches = fuzzySuggestFromRAM(word, 2, 4);
@@ -536,8 +615,8 @@ export async function GET(req: Request) {
       });
     }
 
-    const raw = (data.data || {}) as Record<string, unknown>;
-    const cleaned = sanitizeSynAntPayload(word, raw);
+    const raw = (resolvedRow.data || {}) as Record<string, unknown>;
+    const cleaned = sanitizeSynAntPayload((resolvedRow.word as string) || word, raw);
 
     const { meanings, coreSenses } = buildOrderedMeanings(
       raw.core_senses,
@@ -556,9 +635,9 @@ export async function GET(req: Request) {
     const body: Record<string, unknown> = {
       success: true,
       source: 'global_dictionary',
-      tags: data.tags || [],
-      image_url: data.image_url || null,
-      image_source: data.image_source || 'none',
+      tags: resolvedRow.tags || [],
+      image_url: resolvedRow.image_url || null,
+      image_source: resolvedRow.image_source || 'none',
       ...cleaned,
       core_senses: coreSenses.length > 0 ? coreSenses : raw.core_senses,
       results: [

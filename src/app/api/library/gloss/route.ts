@@ -2,13 +2,20 @@ import { sessionErrorResponse } from '@/lib/session-response';
 /**
  * POST /api/library/gloss
  * Body: { words: string[] }
- * Trả map lemma → { pos, definition, example, ipa } từ global_dictionary (batch).
+ * Trả map lemma → { pos, definition, example, ipa } từ global_dictionary + fallback tĩnh + peer words (batch).
  * Dùng cho PDF chủ đề / unit — đủ nghĩa + dạng từ + phiên âm, không gọi AI.
  */
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, getClientIp } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
+import {
+  cleanBareIpaString,
+  cleanViDefinition,
+  getLookupCandidateKeys,
+  resolveVocabPartialFromSources,
+  type GlobalDictRowInput,
+} from '@/lib/vocab-entry-resolver';
 
 export interface WordGloss {
   pos: string;
@@ -16,118 +23,6 @@ export interface WordGloss {
   example: string;
   /** IPA đã clean, không slash bọc ngoài (PDF tự thêm /…/) */
   ipa: string;
-}
-
-type Pron = { ipa?: string; text?: string; phonetic?: string; region?: string | null };
-
-type GdRow = {
-  word: string;
-  data: {
-    results?: {
-      meanings?: {
-        pos?: string;
-        definition?: string;
-        example?: string;
-      }[];
-      phonetic?: string;
-      pronunciations?: Pron[];
-    }[];
-    pronunciations?: Pron[];
-    phonetics?: Array<{ text?: string; ipa?: string }>;
-    openVocab?: { ipaUs?: string; ipaUk?: string; ipa?: string; phonetic?: string };
-    phonetic?: string;
-  } | null;
-};
-
-const IPA_PHONETIC_MARKERS = /[ˈˌːˑəæɑɒɔɜɛɪʊʌɨʉɵɤɯʏøœɐɶᵻᵿθðʃʒŋɹɾɟɡβɸçʝɣχʁħʕʋɰɬɮɺɥʍʔ]/;
-
-/** Lấy IPA trực tiếp — không phụ thuộc whitelist chặt (tránh mất phiên âm trên PDF). */
-function pickIpa(data: GdRow['data'], headword?: string): string {
-  if (!data) return '';
-
-  const clean = (raw: string | undefined | null): string => {
-    if (!raw || typeof raw !== 'string') return '';
-    let s = raw.trim();
-    if (!s || /^https?:/i.test(s) || s.includes('://') || s.includes('.com/')) return '';
-
-    // Decode URL-encoded IPA (e.g. %CB%88...)
-    if (/%[0-9A-Fa-f]{2}/.test(s)) {
-      try { s = decodeURIComponent(s); } catch {}
-    }
-
-    s = s.replace(/^\/+|\/+$/g, '').trim();
-    s = s.replace(/^(US|UK|AmE|BrE|GA|RP)\s*[:：]?\s*/i, '').trim();
-    s = s.replace(/^\/+|\/+$/g, '').trim();
-    if (!s || s.length > 100) return '';
-
-    if (/^(n\/a|unknown|placeholder|none|null|\.|\-|\?+|gibberish|not found|undefined)$/i.test(s)) {
-      return '';
-    }
-
-    // Reject fake word-as-IPA
-    if (headword) {
-      const normHead = headword.toLowerCase().replace(/[\/\-_]/g, ' ').replace(/\s+/g, ' ').trim();
-      const normIpa = s.toLowerCase().replace(/[\/\-_]/g, ' ').replace(/\s+/g, ' ').trim();
-      if (normHead === normIpa && !IPA_PHONETIC_MARKERS.test(s)) {
-        return '';
-      }
-    }
-    if (s.includes(' ') && !IPA_PHONETIC_MARKERS.test(s)) {
-      return '';
-    }
-    if (s.length >= 4 && !IPA_PHONETIC_MARKERS.test(s) && /^[a-zA-Z\s\-_]+$/.test(s)) {
-      return '';
-    }
-
-    return s;
-  };
-
-  const fromProns = (list: Pron[] | undefined): string => {
-    if (!Array.isArray(list)) return '';
-    for (const p of list) {
-      const ipa = clean(p.ipa || p.text || p.phonetic);
-      if (ipa) return ipa;
-    }
-    return '';
-  };
-
-  let ipa = fromProns(data.pronunciations);
-  if (ipa) return ipa;
-
-  ipa = clean(data.phonetic);
-  if (ipa) return ipa;
-
-  if (Array.isArray(data.phonetics)) {
-    for (const p of data.phonetics) {
-      ipa = clean(p?.text || p?.ipa);
-      if (ipa) return ipa;
-    }
-  }
-
-  const ov = data.openVocab;
-  if (ov) {
-    for (const key of ['ipaUs', 'ipa', 'ipaUk', 'phonetic'] as const) {
-      ipa = clean(ov[key]);
-      if (ipa) return ipa;
-    }
-  }
-
-  for (const res of data.results ?? []) {
-    ipa = clean(res.phonetic) || fromProns(res.pronunciations);
-    if (ipa) return ipa;
-  }
-
-  return '';
-}
-
-function pickGloss(row: GdRow): WordGloss {
-  const m = row.data?.results?.[0]?.meanings?.[0];
-  return {
-    pos: (m?.pos ?? '').trim(),
-    definition: (m?.definition ?? '').trim(),
-    example: (m?.example ?? '').trim(),
-    ipa: pickIpa(row.data, row.word),
-  };
 }
 
 export async function POST(req: Request) {
@@ -170,25 +65,89 @@ export async function POST(req: Request) {
     }
 
     const supabase = createServiceClient();
-    const glosses: Record<string, WordGloss> = {};
+    const allCandidateKeys = [...new Set(words.flatMap((w) => getLookupCandidateKeys(w)))];
+    const gdMap = new Map<string, GlobalDictRowInput>();
     const CHUNK = 200;
 
-    for (let i = 0; i < words.length; i += CHUNK) {
-      const slice = words.slice(i, i + CHUNK);
+    for (let i = 0; i < allCandidateKeys.length; i += CHUNK) {
+      const slice = allCandidateKeys.slice(i, i + CHUNK);
       const { data, error } = await supabase
         .from('global_dictionary')
         .select('word, data')
         .in('word', slice);
       if (error) throw error;
-      for (const row of (data ?? []) as GdRow[]) {
-        const key = String(row.word).toLowerCase();
-        glosses[key] = pickGloss(row);
+      for (const row of (data ?? []) as Array<{ word: string; data: unknown }>) {
+        gdMap.set(String(row.word).toLowerCase(), row);
       }
     }
 
-    // Lemma không có trong GD → slot rỗng (PDF vẫn in được)
+    const glosses: Record<string, WordGloss> = {};
     for (const w of words) {
-      if (!glosses[w]) glosses[w] = { pos: '', definition: '', example: '', ipa: '' };
+      const resolved = resolveVocabPartialFromSources(w, gdMap);
+      glosses[w] = {
+        pos: resolved.pos || '',
+        definition: resolved.translation || '',
+        example: resolved.example || '',
+        ipa: resolved.ipa || '',
+      };
+    }
+
+    // Fallback peer words cho từ vẫn còn thiếu nghĩa hoặc IPA (không gọi AI)
+    const stillMissing = words.filter((w) => !glosses[w].definition || !glosses[w].ipa);
+    if (stillMissing.length > 0) {
+      const peerKeys = [...new Set(stillMissing.flatMap((w) => getLookupCandidateKeys(w)))];
+      const peerMap = new Map<
+        string,
+        { definition: string; ipa: string; pos: string; example: string }
+      >();
+
+      for (let i = 0; i < peerKeys.length; i += CHUNK) {
+        const slice = peerKeys.slice(i, i + CHUNK);
+        const { data: peerRows } = await supabase
+          .from('words')
+          .select('word, translation, ipa, pos, example')
+          .in('word', slice)
+          .not('translation', 'is', null)
+          .neq('translation', '')
+          .not('translation', 'ilike', '%Analyzing%')
+          .not('translation', 'ilike', '%failed%')
+          .limit(400);
+
+        for (const r of (peerRows ?? []) as Array<{
+          word?: string | null;
+          translation?: string | null;
+          ipa?: string | null;
+          pos?: string | null;
+          example?: string | null;
+        }>) {
+          const key = r.word?.trim().toLowerCase();
+          if (!key) continue;
+          const def = cleanViDefinition(r.translation);
+          const ipa = cleanBareIpaString(r.ipa, key);
+          if (!def && !ipa) continue;
+          const prev = peerMap.get(key);
+          if (!prev || (!prev.definition && def) || (!prev.ipa && ipa)) {
+            peerMap.set(key, {
+              definition: prev?.definition || def,
+              ipa: prev?.ipa || ipa,
+              pos: prev?.pos || (r.pos?.trim() ?? ''),
+              example: prev?.example || (r.example?.trim() ?? ''),
+            });
+          }
+        }
+      }
+
+      for (const w of stillMissing) {
+        for (const key of getLookupCandidateKeys(w)) {
+          const peer = peerMap.get(key);
+          if (!peer) continue;
+          if (!glosses[w].definition && peer.definition) glosses[w].definition = peer.definition;
+          if (!glosses[w].ipa && peer.ipa) glosses[w].ipa = peer.ipa;
+          if (!glosses[w].pos && peer.pos) glosses[w].pos = peer.pos;
+          if (!glosses[w].example && peer.example) glosses[w].example = peer.example;
+          if (glosses[w].definition && glosses[w].ipa) break;
+        }
+      }
     }
 
     const withDef = Object.values(glosses).filter((g) => g.definition).length;

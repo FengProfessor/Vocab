@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
   Volume2,
@@ -10,14 +11,18 @@ import {
   Check,
   ChevronDown,
   Loader2,
+  Plus,
+  X,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { authFetch } from '@/lib/auth-fetch';
 import { playWordAudio, stopWordAudio } from '@/lib/audio';
+import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
 import {
   getFoundationVerbPacks,
+  type FoundationVerbItem,
   type FoundationVerbPack,
 } from '@/lib/roadmap';
 import {
@@ -27,6 +32,8 @@ import {
   type VocabStageTopic,
   type VocabStageItem,
 } from '@/lib/vocab-stages';
+
+const emptySubscribe = () => () => {};
 
 interface VocabRoadmapSectionProps {
   onSelectPack?: (packId: string) => void;
@@ -208,6 +215,68 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
 
   const router = useRouter();
   const [loadingPackId, setLoadingPackId] = useState<string | null>(null);
+  const hasMounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
+  const [savingVerb, setSavingVerb] = useState<string | null>(null);
+  const [savedVerbs, setSavedVerbs] = useState<Set<string>>(new Set());
+  const [selectedVerbByPack, setSelectedVerbByPack] = useState<Record<string, FoundationVerbItem | null>>({});
+
+  const isVerbSaved = useCallback(
+    (word: string) => {
+      const key = word.trim().toLowerCase();
+      return Boolean(key && (savedVerbs.has(key) || (hasMounted && isWordSavedLocally(key))));
+    },
+    [savedVerbs, hasMounted]
+  );
+
+  const handleSaveVerb = useCallback(
+    async (v: FoundationVerbItem) => {
+      const cleanWord = v.lemma.trim();
+      const key = cleanWord.toLowerCase();
+      if (!cleanWord || savingVerb === key) return;
+      if (isVerbSaved(cleanWord)) {
+        toast.info(`"${cleanWord}" đã có trong Sổ từ của bạn.`);
+        return;
+      }
+      setSavingVerb(key);
+      try {
+        const res = await authFetch('/api/words', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            word: cleanWord,
+            translation: v.meaningVi,
+            ipa: v.ipa,
+            pos: 'verb',
+            example: v.example,
+            exampleVi: v.exampleVi,
+            skipAI: true,
+          }),
+        });
+        const data = (await res.json()) as {
+          success?: boolean;
+          alreadyExists?: boolean;
+          error?: string;
+          message?: string;
+        };
+        if (!res.ok || !data.success) {
+          throw new Error(data.message || data.error || 'Không lưu được từ.');
+        }
+        saveWordLocally(cleanWord, v.meaningVi);
+        setSavedVerbs((prev) => new Set(prev).add(key));
+        window.dispatchEvent(new CustomEvent('lingo_word_saved', { detail: { word: cleanWord } }));
+        toast.success(
+          data.alreadyExists
+            ? `"${cleanWord}" đã có trong Sổ từ của bạn.`
+            : `Đã lưu "${cleanWord}" vào Sổ từ!`
+        );
+      } catch (err: unknown) {
+        toast.error(err instanceof Error ? err.message : 'Lỗi khi lưu từ vào Sổ từ.');
+      } finally {
+        setSavingVerb(null);
+      }
+    },
+    [isVerbSaved, savingVerb]
+  );
 
   const handleStartPack = async (packId: string) => {
     if (loadingPackId) return;
@@ -314,6 +383,16 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
     });
     return groups;
   }, [verbPacks]);
+
+  const nextVerbPack = useMemo(
+    () =>
+      verbPacks.find(
+        (p) =>
+          !completedPacks.has(p.id) &&
+          !p.verbs.every((v) => masteredWords.has(v.lemma.toLowerCase()))
+      ) || verbPacks[0],
+    [verbPacks, completedPacks, masteredWords]
+  );
 
   // Bedrock verbs stats for Stage 1
   const bedrockLemmas = useMemo(
@@ -540,25 +619,37 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   100 động từ chia làm 5 tầng (10 gói). Luyện tập nhanh theo từng gói hoặc làm chủ toàn bộ.
                 </p>
-                <button
-                  type="button"
-                  disabled={loadingPackId !== null}
-                  onClick={() => {
-                    onSelectPack?.('starter-verb-01');
-                    handleStartPack('starter-verb-01');
-                  }}
-                  className={cn(
-                    buttonVariants({ variant: 'outline', size: 'sm' }),
-                    'min-h-[44px] rounded text-xs font-semibold border-amber-400/80 text-amber-900 dark:border-amber-800 dark:text-amber-200 hover:bg-amber-100/60 dark:hover:bg-amber-950/40 shrink-0 shadow-2xs touch-manipulation'
-                  )}
-                >
-                  {loadingPackId === 'starter-verb-01' ? (
-                    <Loader2 className="h-3.5 w-3.5 animate-spin mr-1 text-amber-600" />
-                  ) : (
-                    <Play className="h-3.5 w-3.5 fill-current mr-1 text-amber-600" />
-                  )}
-                  Học Flashcard 100 Động Từ →
-                </button>
+                <div className="flex flex-wrap items-center gap-1.5 shrink-0">
+                  <button
+                    type="button"
+                    disabled={loadingPackId !== null}
+                    onClick={() => {
+                      const targetId = nextVerbPack?.id || 'starter-verb-01';
+                      onSelectPack?.(targetId);
+                      handleStartPack(targetId);
+                    }}
+                    className={cn(
+                      buttonVariants({ variant: 'outline', size: 'sm' }),
+                      'min-h-[44px] rounded text-xs font-semibold border-amber-400/80 text-amber-900 dark:border-amber-800 dark:text-amber-200 hover:bg-amber-100/60 dark:hover:bg-amber-950/40 shrink-0 shadow-2xs touch-manipulation'
+                    )}
+                  >
+                    {loadingPackId === (nextVerbPack?.id || 'starter-verb-01') ? (
+                      <Loader2 className="h-3.5 w-3.5 animate-spin mr-1 text-amber-600" />
+                    ) : (
+                      <Play className="h-3.5 w-3.5 fill-current mr-1 text-amber-600" />
+                    )}
+                    Học Flashcard 100 Động Từ →
+                  </button>
+                  <Link
+                    href={`/practice/vocab-station?pack=${encodeURIComponent(nextVerbPack?.id || 'starter-verb-01')}`}
+                    className={cn(
+                      buttonVariants({ variant: 'outline', size: 'sm' }),
+                      'min-h-[44px] rounded text-xs font-semibold border-amber-300/80 bg-amber-50/70 text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-200 hover:bg-amber-100/80 shrink-0 shadow-2xs touch-manipulation'
+                    )}
+                  >
+                    Luyện 5 chế độ
+                  </Link>
+                </div>
               </div>
 
               {/* 5 Tiers - Minimalist High Density Layout */}
@@ -631,17 +722,24 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                                   {packItem.verbs.map((v) => {
                                     const isPlaying = playingWord === v.lemma;
                                     const isVerbLearned = masteredWords.has(v.lemma.toLowerCase());
+                                    const isSelected = selectedVerbByPack[packItem.id]?.lemma === v.lemma;
                                     return (
                                       <button
                                         key={v.lemma}
                                         type="button"
-                                        onClick={(e) => handlePlayAudio(e, v.lemma)}
+                                        onClick={(e) => {
+                                          void handlePlayAudio(e, v.lemma);
+                                          setSelectedVerbByPack((prev) => ({
+                                            ...prev,
+                                            [packItem.id]: prev[packItem.id]?.lemma === v.lemma ? null : v,
+                                          }));
+                                        }}
                                         title={`${v.meaningVi} — ${v.pattern}`}
-                                        aria-label={`Phát âm từ ${v.lemma}`}
+                                        aria-label={`Phát âm và xem nghĩa từ ${v.lemma}`}
                                         aria-busy={isPlaying}
                                         className={cn(
                                           'group/chip inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[11px] font-medium transition-all min-h-[28px] touch-manipulation focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-500',
-                                          isPlaying
+                                          isSelected || isPlaying
                                             ? 'border-amber-400 bg-amber-100/80 text-amber-950 dark:border-amber-700 dark:bg-amber-950/60 dark:text-amber-200'
                                             : isVerbLearned
                                             ? 'border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-200'
@@ -664,28 +762,95 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                                     );
                                   })}
                                 </div>
+
+                                {/* Inline Verb Preview Panel */}
+                                {selectedVerbByPack[packItem.id] && (() => {
+                                  const preview = selectedVerbByPack[packItem.id]!;
+                                  const saved = isVerbSaved(preview.lemma);
+                                  const saving = savingVerb === preview.lemma.toLowerCase();
+                                  return (
+                                    <div className="mt-2 rounded border border-amber-300/70 bg-amber-50/70 p-2 text-[11px] dark:border-amber-800/70 dark:bg-amber-950/30">
+                                      <div className="flex items-start justify-between gap-2">
+                                        <div className="min-w-0">
+                                          <span className="font-bold text-amber-950 dark:text-amber-200">
+                                            {preview.lemma} {preview.ipa} — {preview.meaningVi}
+                                          </span>
+                                          <p className="mt-0.5 font-mono text-[10px] text-amber-800/90 dark:text-amber-300/90">
+                                            {preview.pattern}
+                                          </p>
+                                        </div>
+                                        <div className="flex items-center gap-1 shrink-0">
+                                          <button
+                                            type="button"
+                                            disabled={saving}
+                                            onClick={() => void handleSaveVerb(preview)}
+                                            className={cn(
+                                              'inline-flex items-center gap-1 rounded border px-1.5 py-0.5 text-[10px] font-semibold transition',
+                                              saved
+                                                ? 'border-emerald-300 bg-emerald-100 text-emerald-800 dark:border-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300'
+                                                : 'border-amber-400 bg-white text-amber-900 hover:bg-amber-100 dark:border-amber-700 dark:bg-slate-900 dark:text-amber-200'
+                                            )}
+                                          >
+                                            {saving ? (
+                                              <Loader2 className="h-2.5 w-2.5 animate-spin" />
+                                            ) : saved ? (
+                                              <Check className="h-2.5 w-2.5" />
+                                            ) : (
+                                              <Plus className="h-2.5 w-2.5" />
+                                            )}
+                                            {saved ? 'Đã lưu' : 'Lưu từ'}
+                                          </button>
+                                          <button
+                                            type="button"
+                                            aria-label="Đóng xem nhanh"
+                                            onClick={() =>
+                                              setSelectedVerbByPack((prev) => ({
+                                                ...prev,
+                                                [packItem.id]: null,
+                                              }))
+                                            }
+                                            className="rounded p-0.5 text-muted-foreground hover:text-foreground"
+                                          >
+                                            <X className="h-3 w-3" />
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  );
+                                })()}
                               </div>
 
                               <div className="pt-1.5 border-t border-border/50">
-                                <button
-                                  type="button"
-                                  disabled={loadingPackId !== null}
-                                  onClick={() => {
-                                    onSelectPack?.(packItem.id);
-                                    handleStartPack(packItem.id);
-                                  }}
-                                  className={cn(
-                                    buttonVariants({ variant: 'outline', size: 'sm' }),
-                                    'w-full min-h-[44px] text-xs font-medium rounded flex items-center justify-center gap-1.5 border border-border/80 hover:bg-accent shadow-2xs touch-manipulation'
-                                  )}
-                                >
-                                  {loadingPackId === packItem.id ? (
-                                    <Loader2 className="h-3.5 w-3.5 animate-spin text-amber-600" />
-                                  ) : (
-                                    <Play className="h-3.5 w-3.5 fill-current text-amber-600" />
-                                  )}
-                                  Học Flashcard Gói Này
-                                </button>
+                                <div className="flex items-center gap-1.5">
+                                  <button
+                                    type="button"
+                                    disabled={loadingPackId !== null}
+                                    onClick={() => {
+                                      onSelectPack?.(packItem.id);
+                                      handleStartPack(packItem.id);
+                                    }}
+                                    className={cn(
+                                      buttonVariants({ variant: 'outline', size: 'sm' }),
+                                      'flex-1 min-h-[44px] text-xs font-medium rounded flex items-center justify-center gap-1.5 border border-border/80 hover:bg-accent shadow-2xs touch-manipulation'
+                                    )}
+                                  >
+                                    {loadingPackId === packItem.id ? (
+                                      <Loader2 className="h-3.5 w-3.5 animate-spin text-amber-600" />
+                                    ) : (
+                                      <Play className="h-3.5 w-3.5 fill-current text-amber-600" />
+                                    )}
+                                    Học Flashcard Gói Này
+                                  </button>
+                                  <Link
+                                    href={`/practice/vocab-station?pack=${encodeURIComponent(packItem.id)}`}
+                                    className={cn(
+                                      buttonVariants({ variant: 'outline', size: 'sm' }),
+                                      'min-h-[44px] px-2.5 text-xs font-medium rounded border border-amber-300/80 text-amber-900 hover:bg-amber-50 dark:border-amber-800 dark:text-amber-200 dark:hover:bg-amber-950/30 shrink-0 shadow-2xs touch-manipulation'
+                                    )}
+                                  >
+                                    5 chế độ
+                                  </Link>
+                                </div>
                               </div>
                             </div>
                           );

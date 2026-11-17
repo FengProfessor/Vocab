@@ -5,12 +5,16 @@ import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { CATALOG_VERSION, MICRO_PACK_SIZE, getCatalogTree, resolvePack } from '@/lib/vocab-catalog';
 import { getStarterPack } from '@/lib/roadmap';
 import { getVocabTopic } from '@/lib/vocab-stages';
+import {
+  getLookupCandidateKeys,
+  isPendingOrInvalidTranslation,
+  resolveVocabPartialFromSources,
+  type GlobalDictRowInput,
+} from '@/lib/vocab-entry-resolver';
+import { invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
+import { parseIpa } from '@/lib/study';
 import pro3mData from '@/data/vocab/pro3m.json';
 import pro3mPlusData from '@/data/vocab/pro3m-plus.json';
-
-// Shape JSONB của global_dictionary.data
-type GdMeaning = { pos?: string; definition?: string; example?: string; synonyms?: string[]; antonyms?: string[] };
-type GdData = { pronunciations?: { ipa?: string }[]; results?: { meanings?: GdMeaning[] }[] };
 
 const MAX_PACKAGE_IMPORT = 20;
 
@@ -48,57 +52,88 @@ async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createSe
 
 interface ImportArgs { userId: string; packId: string; words: string[]; topicId: string; topicTitle: string; packIndex: number; catalogVersion: string }
 
-/** Import 1 pack: resolve/insert words từ global_dictionary, ghi membership + progress. Idempotent. */
+/** Import 1 pack: resolve/insert words từ global_dictionary + static fallbacks, ghi membership + progress. Idempotent. */
 async function importPack(supabase: ReturnType<typeof createServiceClient>, { userId, packId, words, topicId, topicTitle, packIndex, catalogVersion }: ImportArgs) {
-  if (words.length === 0) return { error: { status: 404, message: 'Gói từ này không tồn tại hoặc đang trống.' } };
-  if (words.length > MAX_PACKAGE_IMPORT) return { error: { status: 400, message: `Mỗi lượt chỉ được thêm tối đa ${MAX_PACKAGE_IMPORT} từ.` } };
+  const normalizedWords = [...new Set(words.map((w) => w.trim().toLowerCase()).filter(Boolean))];
+  if (normalizedWords.length === 0) return { error: { status: 404, message: 'Gói từ này không tồn tại hoặc đang trống.' } };
+  if (normalizedWords.length > MAX_PACKAGE_IMPORT) return { error: { status: 400, message: `Mỗi lượt chỉ được thêm tối đa ${MAX_PACKAGE_IMPORT} từ.` } };
 
   const classroomId = await getOrCreatePersonalClassroom(supabase, userId);
 
-  const { data: existingRows, error: fetchErr } = await supabase.from('words').select('id, word, image_url').eq('classroom_id', classroomId).in('word', words);
+  const queryWordKeys = [...new Set([...normalizedWords, ...words.map((w) => w.trim()).filter(Boolean)])];
+  const { data: existingRows, error: fetchErr } = await supabase
+    .from('words')
+    .select('id, word, translation, ipa, pos, example, example_vi, image_url')
+    .eq('classroom_id', classroomId)
+    .in('word', queryWordKeys);
   if (fetchErr) throw fetchErr;
   const existingSet = new Set(existingRows?.map((r) => r.word.toLowerCase()) || []);
-  const wordsToInsert = words.filter((w) => !existingSet.has(w));
+  const wordsToInsert = normalizedWords.filter((w) => !existingSet.has(w));
 
-  // Tự động bù đắp image_url cho các từ đã import từ trước nhưng bị thiếu ảnh
-  const existingMissingImg = (existingRows || []).filter((r) => !r.image_url).map((r) => r.word.toLowerCase());
-  const wordsToFetchGd = [...new Set([...wordsToInsert, ...existingMissingImg])];
+  // Mở rộng candidate keys cho cả từ mới lẫn từ cũ thiếu nghĩa/IPA/ảnh
+  const wordsToFetchGd = [...new Set(normalizedWords.flatMap((w) => getLookupCandidateKeys(w)))];
 
-  const { data: gdEntries, error: gdErr } = wordsToFetchGd.length > 0
-    ? await supabase.from('global_dictionary').select('word, data, image_url, image_source, image_confidence').in('word', wordsToFetchGd)
-    : { data: [], error: null };
-  if (gdErr) throw gdErr;
-  const gdMap = new Map<string, NonNullable<typeof gdEntries>[number]>();
-  for (const entry of gdEntries ?? []) gdMap.set(entry.word.toLowerCase(), entry);
-
-  // Cập nhật ảnh cho từ cũ bị thiếu ảnh nếu global_dictionary có ảnh
-  if (existingMissingImg.length > 0) {
-    for (const oldWord of existingMissingImg) {
-      const gdEntry = gdMap.get(oldWord);
-      if (gdEntry?.image_url) {
-        await supabase
-          .from('words')
-          .update({
-            image_url: gdEntry.image_url,
-            image_source: gdEntry.image_source || 'global_dict',
-            image_confidence: gdEntry.image_confidence ?? null,
-          })
-          .eq('classroom_id', classroomId)
-          .eq('word', oldWord);
-      }
+  const gdMap = new Map<string, GlobalDictRowInput>();
+  for (let i = 0; i < wordsToFetchGd.length; i += 200) {
+    const slice = wordsToFetchGd.slice(i, i + 200);
+    const { data: gdEntries, error: gdErr } = await supabase
+      .from('global_dictionary')
+      .select('word, data, image_url, image_source, image_confidence')
+      .in('word', slice);
+    if (gdErr) throw gdErr;
+    for (const entry of gdEntries ?? []) {
+      gdMap.set(entry.word.toLowerCase(), entry);
     }
   }
 
+  // Tự động chữa lành các từ đã lưu trước đó bị kẹt '⏳ Analyzing...' / 'failed' hoặc thiếu IPA/ví dụ/ảnh
+  const healUpdates: PromiseLike<unknown>[] = [];
+  for (const existing of existingRows ?? []) {
+    const needsTrans = isPendingOrInvalidTranslation(existing.translation);
+    const needsIpa = !existing.ipa?.trim();
+    const needsPos = !existing.pos?.trim();
+    const needsExample = !existing.example?.trim();
+    const needsExampleVi = !existing.example_vi?.trim();
+    const needsImg = !existing.image_url;
+
+    if (needsTrans || needsIpa || needsPos || needsExample || needsExampleVi || needsImg) {
+      const resolved = resolveVocabPartialFromSources(existing.word, gdMap);
+      const updates: Record<string, unknown> = {};
+      if (needsTrans && resolved.translation) updates.translation = resolved.translation;
+      if (needsIpa && resolved.ipa) updates.ipa = parseIpa(resolved.ipa) || resolved.ipa;
+      if (needsPos && resolved.pos) updates.pos = resolved.pos;
+      if (needsExample && resolved.example) updates.example = resolved.example;
+      if (needsExampleVi && resolved.example_vi) updates.example_vi = resolved.example_vi;
+      if (needsImg && resolved.image_url) {
+        updates.image_url = resolved.image_url;
+        updates.image_source = resolved.image_source || 'global_dict';
+        updates.image_confidence = resolved.image_confidence ?? null;
+      }
+      if (Object.keys(updates).length > 0) {
+        healUpdates.push(supabase.from('words').update(updates).eq('id', existing.id));
+      }
+    }
+  }
+  if (healUpdates.length > 0) {
+    await Promise.all(healUpdates);
+  }
+
   const rows = wordsToInsert.map((word) => {
-    const gdEntry = gdMap.get(word);
-    const gdData = (gdEntry?.data ?? {}) as GdData;
-    const m = gdData.results?.[0]?.meanings?.[0] ?? {};
+    const resolved = resolveVocabPartialFromSources(word, gdMap);
     return {
-      classroom_id: classroomId, added_by: userId, word,
-      translation: m.definition || '⏳ Analyzing...', ipa: gdData.pronunciations?.[0]?.ipa || '',
-      pos: m.pos || '', example: m.example || '',
-      image_url: gdEntry?.image_url || null, image_source: gdEntry?.image_source || 'none',
-      image_confidence: gdEntry?.image_confidence ?? null, synonyms: m.synonyms || [], antonyms: m.antonyms || [],
+      classroom_id: classroomId,
+      added_by: userId,
+      word,
+      translation: resolved.translation || '⏳ Analyzing...',
+      ipa: resolved.ipa ? (parseIpa(resolved.ipa) || resolved.ipa) : '',
+      pos: resolved.pos || '',
+      example: resolved.example || '',
+      example_vi: resolved.example_vi || '',
+      image_url: resolved.image_url || null,
+      image_source: resolved.image_url ? (resolved.image_source || 'global_dict') : 'none',
+      image_confidence: resolved.image_confidence ?? null,
+      synonyms: resolved.synonyms || [],
+      antonyms: resolved.antonyms || [],
     };
   });
 
@@ -109,8 +144,8 @@ async function importPack(supabase: ReturnType<typeof createServiceClient>, { us
 
   const wordIdMap = new Map<string, string>();
   for (const row of [...(existingRows ?? []), ...(insertedRows ?? [])]) wordIdMap.set(row.word.toLowerCase(), row.id);
-  const orderedWordIds = words.map((w) => wordIdMap.get(w)).filter((id): id is string => Boolean(id));
-  if (orderedWordIds.length !== words.length) throw new Error('Could not resolve every word ID for this pack');
+  const orderedWordIds = normalizedWords.map((w) => wordIdMap.get(w)).filter((id): id is string => Boolean(id));
+  if (orderedWordIds.length !== normalizedWords.length) throw new Error('Could not resolve every word ID for this pack');
 
   // Pack + membership + progress trong MỘT transaction (RPC) — tránh trạng thái nhập dở.
   const { error: rpcError } = await supabase.rpc('import_vocab_pack', {
@@ -118,6 +153,8 @@ async function importPack(supabase: ReturnType<typeof createServiceClient>, { us
     p_topic_id: topicId, p_topic_title: topicTitle, p_pack_index: packIndex, p_word_ids: orderedWordIds,
   });
   if (rpcError) throw rpcError;
+
+  invalidateServerWordSummaryCache(userId);
 
   return { ok: { imported: rows.length, classroomId, packId, wordIds: orderedWordIds } };
 }

@@ -19,6 +19,13 @@ import { cacheGet, cacheSet, invalidateServerWordSummaryCache } from '@/lib/ttl-
 import { parseIpa } from '@/lib/study';
 import { extractVietnameseSentenceTranslation } from '@/lib/review-modes';
 import { isWordValidForReview, deduplicateReviewWords } from '@/lib/review-queue';
+import {
+  getLookupCandidateKeys,
+  isPendingOrInvalidTranslation,
+  resolveStaticVocabFallback,
+  resolveVocabPartialFromSources,
+  type GlobalDictRowInput,
+} from '@/lib/vocab-entry-resolver';
 
 /**
  * Kiểm tra user có quyền trên word (qua classroom): user là owner classroom,
@@ -395,16 +402,6 @@ async function fetchWordSummaryCounts(
   return promise;
 }
 
-// Shape JSONB của global_dictionary.data (Vietnamese definitions + IPA)
-type GdMeaning = {
-  pos?: string;
-  definition?: string;
-  example?: string;
-  example_vi?: string;
-  collocations?: string[];
-};
-type GdData = { pronunciations?: { ipa?: string }[]; results?: { meanings?: GdMeaning[] }[]; synonyms?: string[]; antonyms?: string[] };
-
 type EnrichResult = {
   word: string; translation: string; ipa: string; pos: string;
   example: string; example_vi: string; synonyms: string[]; antonyms: string[];
@@ -429,24 +426,26 @@ async function enrichWord(wordId: string, originalInput: string, userId: string,
 
     // ── CASCADE (chỉ khi user không tự chọn nghĩa riêng) ──
     if (!hasUserTranslation) {
-      // Tier 1: global_dictionary
-      const { data: gd } = await supabase
+      // Tier 1: global_dictionary (đa schema + chuẩn hóa cụm từ) + fallback tĩnh
+      const { data: gdRows } = await supabase
         .from('global_dictionary')
-        .select('data')
-        .eq('word', lower)
-        .maybeSingle();
-      const gdData = (gd?.data ?? null) as GdData | null;
-      const gdMeaning = gdData?.results?.[0]?.meanings?.[0];
-      if (gdMeaning?.definition) {
+        .select('word, data, image_url, image_source, image_confidence')
+        .in('word', getLookupCandidateKeys(lower));
+      const gdMap = new Map<string, GlobalDictRowInput>();
+      for (const row of gdRows ?? []) {
+        if (row.word) gdMap.set(String(row.word).toLowerCase(), row);
+      }
+      const resolvedTier1 = resolveVocabPartialFromSources(lower, gdMap);
+      if (resolvedTier1.translation) {
         updateData = {
           word: lower,
-          translation: gdMeaning.definition,
-          ipa: parseIpa(gdData?.pronunciations?.[0]?.ipa) || '',
-          pos: gdMeaning.pos || '',
-          example: gdMeaning.example || '',
-          example_vi: gdMeaning.example_vi || '',
-          synonyms: gdData?.synonyms || [],
-          antonyms: gdData?.antonyms || [],
+          translation: resolvedTier1.translation,
+          ipa: resolvedTier1.ipa ? (parseIpa(resolvedTier1.ipa) || resolvedTier1.ipa) : '',
+          pos: resolvedTier1.pos || '',
+          example: resolvedTier1.example || '',
+          example_vi: resolvedTier1.example_vi || '',
+          synonyms: resolvedTier1.synonyms || [],
+          antonyms: resolvedTier1.antonyms || [],
         };
         source = 'global_dict';
       } else {
@@ -686,10 +685,21 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     // ── Pre-checks in Parallel: Duplicate Check + Plan Resolution + Global Dict Lookup ──
     const lower = word.toLowerCase().trim();
+    const lookupKeys = getLookupCandidateKeys(lower);
     let initialTranslation = body.translation || '⏳ Analyzing...';
     let initialIpa = body.ipa || '';
     let initialPos = body.pos || '';
-    const needsGdLookup = initialTranslation === '⏳ Analyzing...';
+    let initialExample = typeof body.example === 'string' ? body.example.trim() : '';
+    let initialExampleVi = typeof body.exampleVi === 'string'
+      ? body.exampleVi.trim()
+      : typeof body.example_vi === 'string'
+        ? body.example_vi.trim()
+        : '';
+    let initialImageUrl: string | null = typeof body.imageUrl === 'string' && body.imageUrl.trim()
+      ? body.imageUrl.trim()
+      : null;
+    let initialImageSource: string | null = null;
+    const needsGdLookup = isPendingOrInvalidTranslation(initialTranslation) || !initialIpa || !initialExample;
 
     const [existingWordsRes, planInfo, gdRes] = await Promise.all([
       supabase
@@ -698,13 +708,12 @@ export async function POST(req: Request): Promise<NextResponse> {
         .eq('classroom_id', classroomId)
         .ilike('word', word.trim()),
       resolveUserPlanInfo(supabase, userId),
-      needsGdLookup
+      needsGdLookup && lookupKeys.length > 0
         ? supabase
             .from('global_dictionary')
-            .select('data')
-            .eq('word', lower)
-            .maybeSingle()
-        : Promise.resolve({ data: null }),
+            .select('word, data, image_url, image_source, image_confidence')
+            .in('word', lookupKeys)
+        : Promise.resolve({ data: [] as GlobalDictRowInput[] }),
     ]);
 
     const existingList = (existingWordsRes.data || []) as Array<{ id: string; word: string; translation?: string | null }>;
@@ -758,12 +767,29 @@ export async function POST(req: Request): Promise<NextResponse> {
     const dictData: DictionaryData | null = null;
 
     if (needsGdLookup) {
-      const gdData = (gdRes.data?.data ?? null) as GdData | null;
-      const gdMeaning = gdData?.results?.[0]?.meanings?.[0];
-      if (gdMeaning?.definition) {
-        initialTranslation = gdMeaning.definition;
-        initialIpa = parseIpa(gdData?.pronunciations?.[0]?.ipa) || '';
-        initialPos = gdMeaning.pos || '';
+      const gdMap = new Map<string, GlobalDictRowInput>();
+      for (const row of (gdRes.data || []) as GlobalDictRowInput[]) {
+        if (row.word) gdMap.set(row.word.toLowerCase().trim(), row);
+      }
+      const resolved = resolveVocabPartialFromSources(lower, gdMap);
+      if (isPendingOrInvalidTranslation(initialTranslation) && resolved.translation) {
+        initialTranslation = resolved.translation;
+      }
+      if (!initialIpa && resolved.ipa) {
+        initialIpa = parseIpa(resolved.ipa) || resolved.ipa;
+      }
+      if (!initialPos && resolved.pos) {
+        initialPos = resolved.pos;
+      }
+      if (!initialExample && resolved.example) {
+        initialExample = resolved.example;
+      }
+      if (!initialExampleVi && resolved.example_vi) {
+        initialExampleVi = resolved.example_vi;
+      }
+      if (!initialImageUrl && resolved.image_url) {
+        initialImageUrl = resolved.image_url;
+        initialImageSource = resolved.image_source || null;
       }
     }
 
@@ -777,6 +803,10 @@ export async function POST(req: Request): Promise<NextResponse> {
         translation: initialTranslation,
         ipa: initialIpa,
         pos: initialPos,
+        ...(initialExample ? { example: initialExample } : {}),
+        ...(initialExampleVi ? { example_vi: initialExampleVi } : {}),
+        ...(initialImageUrl ? { image_url: initialImageUrl } : {}),
+        ...(initialImageSource ? { image_source: initialImageSource } : {}),
         dictionary_data: dictData,
         source_url: body.sourceUrl || null,
       })
@@ -1210,7 +1240,27 @@ export async function GET(req: Request): Promise<NextResponse> {
 
       const wordsMap = new Map((wordsData || []).map((w) => [w.id, w as Word]));
       const enriched = candidateIds
-        .map((id) => wordsMap.get(id))
+        .map((id) => {
+          const row = wordsMap.get(id);
+          if (!row || !row.word) return null;
+          if (isPendingOrInvalidTranslation(row.translation) || !row.ipa || !row.example) {
+            const fallback = resolveStaticVocabFallback(row.word);
+            if (fallback) {
+              return {
+                ...row,
+                translation: isPendingOrInvalidTranslation(row.translation) && fallback.translation
+                  ? fallback.translation
+                  : row.translation,
+                ipa: row.ipa || fallback.ipa || '',
+                pos: row.pos || fallback.pos || '',
+                example: row.example || fallback.example || '',
+                example_vi: row.example_vi || fallback.example_vi || null,
+                image_url: row.image_url || fallback.image_url || null,
+              } as Word;
+            }
+          }
+          return row;
+        })
         .filter((w): w is Word => Boolean(w && w.word && w.translation &&
           !w.translation.includes('failed') &&
           !w.translation.includes('Analyzing') &&
@@ -1278,8 +1328,26 @@ export async function GET(req: Request): Promise<NextResponse> {
     if (wordsResult.error) throw wordsResult.error;
 
     const now = new Date().getTime();
-    const enriched = ((wordsResult.data || []) as WordWithSrsList[]).map((w) => {
+    let enriched = ((wordsResult.data || []) as WordWithSrsList[]).map((w) => {
       const { srs_progress, ...wordFields } = w;
+      const needsStaticHeal =
+        Boolean(wordFields.word) &&
+        (isPendingOrInvalidTranslation(wordFields.translation) || !wordFields.ipa || !wordFields.example);
+      const fallback = needsStaticHeal ? resolveStaticVocabFallback(wordFields.word) : null;
+      const resolvedFields = fallback
+        ? {
+            ...wordFields,
+            translation: isPendingOrInvalidTranslation(wordFields.translation) && fallback.translation
+              ? fallback.translation
+              : wordFields.translation,
+            ipa: wordFields.ipa || fallback.ipa || '',
+            pos: wordFields.pos || fallback.pos || '',
+            example: wordFields.example || fallback.example || '',
+            example_vi: wordFields.example_vi || fallback.example_vi || null,
+            image_url: wordFields.image_url || fallback.image_url || null,
+          }
+        : wordFields;
+
       const srs = (srs_progress || []).find((s) => s.user_id === userId) || null;
       const nextReviewDate = srs?.next_review_date ? new Date(srs.next_review_date).getTime() : now;
 
@@ -1295,7 +1363,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       const isDue = isNew || nextReviewDate <= now;
 
       return {
-        ...wordFields,
+        ...resolvedFields,
         srs,
         isDue,
         reviewCount,
@@ -1304,6 +1372,13 @@ export async function GET(req: Request): Promise<NextResponse> {
         status: isNew ? 'new' : srsLevel >= 5 ? 'mastered' : 'learning',
       };
     });
+
+    if (requestedIds && requestedIds.length > 0) {
+      const orderMap = new Map(requestedIds.map((id, idx) => [id, idx]));
+      enriched = [...enriched].sort(
+        (a, b) => (orderMap.get(a.id) ?? Number.MAX_SAFE_INTEGER) - (orderMap.get(b.id) ?? Number.MAX_SAFE_INTEGER),
+      );
+    }
 
     const total = summaryCounts?.total ?? countResult.count ?? (noCount ? null : 0);
     return new NextResponse(JSON.stringify({

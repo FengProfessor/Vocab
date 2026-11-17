@@ -4,9 +4,17 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { getRouter } from '@/lib/ai-router';
 import { getAuthUser, unauthorized, checkRateLimitAsync, tooManyRequests, safeErrorResponse } from '@/lib/api-security';
 import { parseIpa } from '@/lib/study';
+import {
+  cleanViDefinition,
+  getLookupCandidateKeys,
+  isPendingOrInvalidTranslation,
+  resolveVocabPartialFromSources,
+  type GlobalDictRowInput,
+} from '@/lib/vocab-entry-resolver';
 
 /** Trần số từ gọi AI trong 1 request khi client không chỉ định wordIds (chống đốt quota). */
 const MAX_AI_WORDS_PER_REQUEST = 60;
+const VN_CHARS_RE = /[àáảãạăằắẳẵặâầấẩẫậèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i;
 
 // Enrich nhiều từ trong 1 request → có thể lâu. Hobby mặc định 10s sẽ kill sớm.
 export const maxDuration = 60;
@@ -25,16 +33,6 @@ type AIEnrichedWord = {
   example?: string;
   example_vi?: string;
 };
-
-// Shape JSONB of global_dictionary.data
-type GdMeaning = {
-  pos?: string;
-  definition?: string;
-  example?: string;
-  example_vi?: string;
-  collocations?: string[];
-};
-type GdData = { pronunciations?: { ipa?: string }[]; results?: { meanings?: GdMeaning[] }[] };
 
 type PeerWord = {
   word: string;
@@ -84,9 +82,9 @@ export async function POST(req: Request): Promise<NextResponse> {
       return NextResponse.json({ success: false, error: 'Not a member of this classroom' }, { status: 403 });
     }
 
-    // Throttle per-user: route đốt quota AI hàng loạt (sibling refresh-image cũng RL)
-    const rl = await checkRateLimitAsync(`refresh:${auth.userId}`, 3, 60_000);
-    if (!rl.allowed) return tooManyRequests();
+    // Request guard rộng cho cache hit (20 req/phút); AI guard siết riêng bên dưới khi thực sự gọi LLM
+    const reqRl = await checkRateLimitAsync(`refresh-req:${auth.userId}`, 20, 60_000);
+    if (!reqRl.allowed) return tooManyRequests();
 
     console.log(`[Refresh] Refreshing classroom: ${classroomId}`);
 
@@ -101,10 +99,9 @@ export async function POST(req: Request): Promise<NextResponse> {
     if (error) throw error;
 
     // Filter in-memory using any string that looks like it needs analysis
-    const filtered = ((pendingWords || []) as PendingWordRow[]).filter((w) => {
-      const t = w.translation || '';
-      return t === '' || t.includes('Analyzing') || t.includes('failed') || t.includes('⏳');
-    });
+    const filtered = ((pendingWords || []) as PendingWordRow[]).filter((w) =>
+      isPendingOrInvalidTranslation(w.translation),
+    );
 
     console.log(`[Refresh] Words in class: ${pendingWords?.length || 0}. Pending: ${filtered.length}`);
     if (filtered.length === 0) {
@@ -116,74 +113,77 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     // ── CASCADE CACHE CHECK ──
     if (filtered.length > 0) {
-      const wordsToQuery = filtered.map((w) => w.word.trim().toLowerCase());
+      const wordsToQuery = [...new Set(filtered.flatMap((w) => getLookupCandidateKeys(w.word)))];
 
-      // Tier 1: global_dictionary
-      const { data: gdEntries } = await supabase
-        .from('global_dictionary')
-        .select('word, data, image_url, image_source, image_confidence')
-        .in('word', wordsToQuery);
-
-      const gdMap = new Map<string, { data: GdData; image_url?: string | null; image_source?: string | null; image_confidence?: number | null }>();
-      if (gdEntries) {
-        for (const entry of gdEntries) {
+      // Tier 1: global_dictionary (chunked by 200)
+      const gdMap = new Map<string, GlobalDictRowInput>();
+      for (let i = 0; i < wordsToQuery.length; i += 200) {
+        const slice = wordsToQuery.slice(i, i + 200);
+        const { data: gdEntries } = await supabase
+          .from('global_dictionary')
+          .select('word, data, image_url, image_source, image_confidence')
+          .in('word', slice);
+        for (const entry of gdEntries ?? []) {
           if (entry.word && entry.data) {
-            gdMap.set(entry.word.toLowerCase().trim(), {
-              data: entry.data as GdData,
-              image_url: entry.image_url,
-              image_source: entry.image_source,
-              image_confidence: entry.image_confidence,
-            });
+            gdMap.set(entry.word.toLowerCase().trim(), entry);
+          }
+        }
+      }
+
+      // Resolve Tier 1 + Static fallbacks first; collect remaining for Tier 2 peer lookup
+      const tier1Resolved = new Map<string, ReturnType<typeof resolveVocabPartialFromSources>>();
+      const unresolvedWordsSet = new Set<string>();
+      for (const w of filtered) {
+        const resolved = resolveVocabPartialFromSources(w.word, gdMap);
+        if (resolved.translation) {
+          tier1Resolved.set(w.id, resolved);
+        } else {
+          for (const cand of getLookupCandidateKeys(w.word)) {
+            unresolvedWordsSet.add(cand);
           }
         }
       }
 
       // Tier 2: peer words (matching other users' completed words)
-      const unresolvedWords = filtered
-        .filter((w) => !gdMap.has(w.word.trim().toLowerCase()))
-        .map((w) => w.word.trim().toLowerCase());
-
+      const unresolvedWords = [...unresolvedWordsSet];
       const peerMap = new Map<string, PeerWord>();
       if (unresolvedWords.length > 0) {
-        const { data: peerEntries } = await supabase
-          .from('words')
-          .select('word, translation, ipa, pos, example, example_vi, synonyms, antonyms')
-          .in('word', unresolvedWords)
-          .neq('ipa', '')
-          .not('translation', 'ilike', '%Analyzing%')
-          .not('translation', 'ilike', '%failed%');
+        for (let i = 0; i < unresolvedWords.length; i += 200) {
+          const { data: peerEntries } = await supabase
+            .from('words')
+            .select('word, translation, ipa, pos, example, example_vi, synonyms, antonyms')
+            .in('word', unresolvedWords.slice(i, i + 200))
+            .neq('ipa', '')
+            .not('translation', 'ilike', '%Analyzing%')
+            .not('translation', 'ilike', '%failed%');
 
-        if (peerEntries) {
-          for (const entry of peerEntries as PeerWord[]) {
-            if (entry.word) {
-              peerMap.set(entry.word.toLowerCase().trim(), entry);
+          if (peerEntries) {
+            for (const entry of peerEntries as PeerWord[]) {
+              if (entry.word && !isPendingOrInvalidTranslation(entry.translation)) {
+                peerMap.set(entry.word.toLowerCase().trim(), entry);
+              }
             }
           }
         }
       }
 
-      // Resolve from cache first
+      // Apply Tier 1 / Static / Tier 2 updates
       for (const w of filtered) {
-        const lower = w.word.trim().toLowerCase();
-
-        // Try Tier 1
-        const gdEntry = gdMap.get(lower);
-        const gdData = gdEntry?.data;
-        const gdMeaning = gdData?.results?.[0]?.meanings?.[0];
-        if (gdMeaning?.definition) {
+        const resolved = tier1Resolved.get(w.id);
+        if (resolved?.translation) {
           const updates: Record<string, unknown> = {
-            translation: gdMeaning.definition,
-            ipa: parseIpa(gdData?.pronunciations?.[0]?.ipa) || '',
-            pos: gdMeaning.pos || '',
-            example: gdMeaning.example || '',
-            example_vi: gdMeaning.example_vi || '',
-            synonyms: [],
-            antonyms: [],
+            translation: resolved.translation,
+            ipa: resolved.ipa ? (parseIpa(resolved.ipa) || resolved.ipa) : '',
+            pos: resolved.pos || '',
+            example: resolved.example || '',
+            example_vi: resolved.example_vi || '',
+            synonyms: resolved.synonyms || [],
+            antonyms: resolved.antonyms || [],
           };
-          if (gdEntry?.image_url) {
-            updates.image_url = gdEntry.image_url;
-            updates.image_source = gdEntry.image_source || 'global_dict';
-            updates.image_confidence = gdEntry.image_confidence ?? null;
+          if (resolved.image_url) {
+            updates.image_url = resolved.image_url;
+            updates.image_source = resolved.image_source || 'global_dict';
+            updates.image_confidence = resolved.image_confidence ?? null;
           }
           const { error: updateErr } = await supabase
             .from('words')
@@ -191,19 +191,23 @@ export async function POST(req: Request): Promise<NextResponse> {
             .eq('id', w.id);
 
           if (!updateErr) {
-            console.log(`✓ Cache Cascade Hit (Tier 1: global_dict) for "${w.word}"`);
+            console.log(`✓ Cache Cascade Hit (Tier 1/Static) for "${w.word}"`);
             refreshed++;
             continue;
           }
         }
 
-        // Try Tier 2
-        const peer = peerMap.get(lower);
+        // Try Tier 2 across candidate keys
+        let peer: PeerWord | undefined;
+        for (const cand of getLookupCandidateKeys(w.word)) {
+          peer = peerMap.get(cand);
+          if (peer?.translation) break;
+        }
         if (peer?.translation) {
           const { error: updateErr } = await supabase
             .from('words')
             .update({
-              translation: peer.translation,
+              translation: cleanViDefinition(peer.translation) || peer.translation,
               ipa: peer.ipa || '',
               pos: peer.pos || '',
               example: peer.example || '',
@@ -235,6 +239,9 @@ export async function POST(req: Request): Promise<NextResponse> {
     console.log(`Words pending in classroom: ${filtered.length}. Resolved via Cache: ${refreshed}. Remaining for AI: ${stillPending.length}${aiSkipped ? ` (${aiSkipped} hoãn lại)` : ''}`);
 
     if (stillPending.length > 0) {
+      const aiRl = await checkRateLimitAsync(`refresh:${auth.userId}`, 6, 60_000);
+      if (!aiRl.allowed) return tooManyRequests();
+
       // Process in chunks of 20 to speed up and avoid Gemini rate limits (Batch Processing)
       const CHUNK_SIZE = 20;
       const pendingChunks: PendingWordRow[][] = [];
@@ -271,19 +278,23 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
           for (const item of parsedArray) {
             if (!item.original && !item.english) continue;
 
-            // Case-insensitive matching to find the record in our current chunk
-            const originalRecord = chunk.find((w) =>
-              w.word.toLowerCase().trim() === (item.original || item.english || '').toLowerCase().trim()
-            );
+            const lookupStr = (item.original || item.english || '').toLowerCase().trim();
+            const originalRecord = chunk.find((w) => {
+              const lower = w.word.toLowerCase().trim();
+              return lower === lookupStr || getLookupCandidateKeys(lower).includes(lookupStr);
+            });
 
             if (originalRecord) {
-              const englishWord = (item.english || originalRecord.word).toLowerCase().trim();
-              const vietnameseMeaning = item.vietnamese || originalRecord.word;
+              const hasViInput = VN_CHARS_RE.test(originalRecord.word);
+              const englishWord = hasViInput
+                ? (item.english || originalRecord.word).toLowerCase().trim()
+                : originalRecord.word;
+              const vietnameseMeaning = cleanViDefinition(item.vietnamese) || item.vietnamese || originalRecord.word;
 
               const { error: updateError } = await supabase.from('words').update({
-                word: englishWord,           // ALWAYS English
-                translation: vietnameseMeaning, // ALWAYS Vietnamese
-                ipa: item.ipa || '',
+                word: englishWord,
+                translation: vietnameseMeaning,
+                ipa: item.ipa ? (parseIpa(item.ipa) || item.ipa) : '',
                 pos: item.pos || '',
                 example: item.example || '',
                 example_vi: item.example_vi || '',
@@ -294,6 +305,30 @@ The response MUST be a valid JSON array starting with '[' and ending with ']'. N
               } else {
                 console.log(`✓ Batch Refreshed: "${originalRecord.word}" → EN: "${englishWord}" / VI: "${vietnameseMeaning}"`);
                 refreshed++;
+
+                // Fire-and-forget cache write back into global_dictionary
+                const cacheWord = englishWord.toLowerCase().trim();
+                if (cacheWord && !isPendingOrInvalidTranslation(vietnameseMeaning)) {
+                  void supabase.from('global_dictionary').upsert({
+                    word: cacheWord,
+                    data: {
+                      word: cacheWord,
+                      pronunciations: item.ipa ? [{ ipa: item.ipa }] : [],
+                      results: [{
+                        meanings: [{
+                          pos: item.pos || '',
+                          definition: vietnameseMeaning,
+                          example: item.example || '',
+                          example_vi: item.example_vi || '',
+                          collocations: [],
+                        }],
+                      }],
+                    },
+                    tags: ['ai-generated', 'batch-refresh'],
+                  }, { onConflict: 'word', ignoreDuplicates: true }).then(({ error: cacheErr }) => {
+                    if (cacheErr) console.error('[Refresh] global_dictionary cache write failed:', cacheErr.message);
+                  });
+                }
               }
             }
           }

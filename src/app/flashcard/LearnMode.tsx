@@ -14,6 +14,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { StudyGuideModal, STUDY_GUIDE_KEY } from '@/components/StudyGuideModal';
 import { speak, judgeAnswer, verdictToQuality, parseIpa, canAutoFocus, type Verdict } from '@/lib/study';
+import { isWordValidForReview } from '@/lib/review-queue';
 import { stopWordAudio } from '@/lib/audio';
 import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
@@ -38,7 +39,7 @@ interface WordItem {
   srs: SRSProgress | null;
 }
 
-const NEW_BATCH = 8;       // số từ mới mỗi phiên học
+const NEW_BATCH = 15;      // số từ mới mỗi phiên học
 const NEXT_DELAY_MS = 1400;  // chỉ auto-next khi đúng; sai/gần đúng chờ user bấm Tiếp
 /** Chống double-tap/nảy phím khi bấm Enter/Space sau khi có kết quả */
 const FEEDBACK_LOCK_MS = 100;
@@ -89,13 +90,22 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   const roadmapStepParam = searchParams.get('roadmapStep');
   const forceReplay = searchParams.get('replay') === '1';
 
-  // ── Load từ mới (chưa học) đã enrich ──
-  // Từ lộ trình (?ids=...&roadmapStep=...): nếu đã học hết → ghi step (trừ replay=1).
+  // ── Load từ mới (chưa học) hoặc trọn gói (?ids=...) đã enrich ──
+  // Từ lộ trình (?ids=...&roadmapStep=...): khi mở gói (?ids=...), hiển thị 100% số từ hợp lệ trong gói.
   useEffect(() => {
     (async () => {
       let hasCached = false;
       const isPersonalScope = !initialClassroomId || initialClassroomId === '__personal__';
-      const batchLimit = idsParam === null ? NEW_BATCH : 20;
+      const requestedIdsCount = idsParam ? idsParam.split(',').filter(Boolean).length : 0;
+      const packFetchLimit = idsParam === null ? 20 : Math.min(100, Math.max(20, requestedIdsCount));
+      const batchLimit = idsParam === null ? NEW_BATCH : packFetchLimit;
+      const isVocabTrackStep = Boolean(
+        roadmapStepParam &&
+          (roadmapStepParam.startsWith('starter-verb-') ||
+            roadmapStepParam.startsWith('s1-') ||
+            roadmapStepParam.startsWith('s2-') ||
+            roadmapStepParam.startsWith('s3-')),
+      );
       const hydrateFromIndexedDB = async (uid: string) => {
         if (idsParam !== null || !isPersonalScope) return;
         try {
@@ -157,7 +167,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
         const loadWords = async (filter: 'new' | null): Promise<{ words: WordItem[]; classroomId?: string }> => {
           const query = new URLSearchParams({
-            limit: idsParam === null ? '16' : '20',
+            limit: String(packFetchLimit),
           });
           if (filter) query.set('filter', filter);
           if (initialClassroomId) query.set('classroomId', initialClassroomId);
@@ -168,64 +178,84 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
           return { words: data.data, classroomId: data.classroomId };
         };
 
-        let result = await loadWords('new');
+        let result: { words: WordItem[]; classroomId?: string };
 
-        // Đồng bộ lại IndexedDB cho personal scope (kể cả khi server trả [] để xoá sạch từ đã học trên thiết bị khác)
-        if (idsParam === null && isPersonalScope) {
-          const freshNewWords = result.words;
-          void import('@/lib/offline/db')
-            .then((dbMod) => {
-              const now = Date.now();
-              return dbMod.replaceStudyWordsByQueue(
-                session.user.id,
-                'new',
-                freshNewWords.map((w) => ({
-                  id: w.id,
-                  userId: session.user.id,
-                  word: w.word,
-                  translation: w.translation || '',
-                  ipa: w.ipa || '',
-                  pos: w.pos || '',
-                  example: w.example || '',
-                  example_vi: w.example_vi ?? null,
-                  image_url: w.image_url ?? null,
-                  synonyms: [],
-                  antonyms: [],
-                  srsLevel: w.srsLevel ?? 1,
-                  reviewCount: w.reviewCount ?? 0,
-                  isDue: false,
-                  srs: null,
-                  queueType: 'new' as const,
-                  audioCached: false,
-                  cachedAt: now,
-                })),
-              );
-            })
-            .catch(() => {});
-        }
+        if (idsParam !== null) {
+          // Mở trực tiếp một gói (?ids=...): luôn giữ trọn vẹn 100% số từ hợp lệ trong gói
+          // (bao gồm cả từ user đã từng lưu/ôn trước đó) để không bị hụt từ (vd: 14 -> 8).
+          const fullPack = await loadWords(null);
+          const validPackWords = fullPack.words.filter((w) => isWordValidForReview(w));
+          if (
+            roadmapStepParam &&
+            !isVocabTrackStep &&
+            !forceReplay &&
+            validPackWords.length > 0 &&
+            validPackWords.every((w) => (w.reviewCount ?? 0) > 0)
+          ) {
+            const done = await completeRoadmapStep(roadmapStepParam);
+            if (done) {
+              toast.success(`+${done.xpAwarded} XP — gói này bạn đã học trong kho, sang bước kế tiếp nhé!`);
+              router.push('/journey');
+              return;
+            }
+            const err = getLastRoadmapStepError();
+            if (err) toast.error(err);
+          }
+          result = { ...fullPack, words: validPackWords };
+        } else {
+          result = await loadWords('new');
 
-        // Lộ trình + đã học hết từ mới + không replay → ghi step, không ép học lại.
-        if (result.words.length === 0 && roadmapStepParam && !forceReplay) {
-          const done = await completeRoadmapStep(roadmapStepParam);
-          if (done) {
-            toast.success(`+${done.xpAwarded} XP — gói này bạn đã học trong kho, sang bước kế tiếp nhé!`);
-            router.push('/journey');
-            return;
+          // Đồng bộ lại IndexedDB cho personal scope (kể cả khi server trả [] để xoá sạch từ đã học trên thiết bị khác)
+          if (isPersonalScope) {
+            const freshNewWords = result.words;
+            void import('@/lib/offline/db')
+              .then((dbMod) => {
+                const now = Date.now();
+                return dbMod.replaceStudyWordsByQueue(
+                  session.user.id,
+                  'new',
+                  freshNewWords.map((w) => ({
+                    id: w.id,
+                    userId: session.user.id,
+                    word: w.word,
+                    translation: w.translation || '',
+                    ipa: w.ipa || '',
+                    pos: w.pos || '',
+                    example: w.example || '',
+                    example_vi: w.example_vi ?? null,
+                    image_url: w.image_url ?? null,
+                    synonyms: [],
+                    antonyms: [],
+                    srsLevel: w.srsLevel ?? 1,
+                    reviewCount: w.reviewCount ?? 0,
+                    isDue: false,
+                    srs: null,
+                    queueType: 'new' as const,
+                    audioCached: false,
+                    cachedAt: now,
+                  })),
+                );
+              })
+              .catch(() => {});
           }
-          const err = getLastRoadmapStepError();
-          if (err) toast.error(err);
-          if (idsParam !== null) {
-            result = await loadWords(null);
-          }
-        } else if (result.words.length === 0 && idsParam !== null) {
-          // replay hoặc ngoài lộ trình: load full ids để ôn lại
-          result = await loadWords(null);
-        } else if (result.words.length === 0) {
-          // Tự do vào học từ mới nhưng đã học hết từ mới -> nạp từ đã lưu để củng cố
-          const allSaved = await loadWords(null);
-          if (allSaved.words.length > 0) {
-            result = allSaved;
-            toast.info('Bạn đã học hết từ mới! Đang mở chế độ củng cố các từ đã lưu.');
+
+          // Lộ trình + đã học hết từ mới + không replay → ghi step, không ép học lại.
+          if (result.words.length === 0 && roadmapStepParam && !forceReplay) {
+            const done = await completeRoadmapStep(roadmapStepParam);
+            if (done) {
+              toast.success(`+${done.xpAwarded} XP — gói này bạn đã học trong kho, sang bước kế tiếp nhé!`);
+              router.push('/journey');
+              return;
+            }
+            const err = getLastRoadmapStepError();
+            if (err) toast.error(err);
+          } else if (result.words.length === 0) {
+            // Tự do vào học từ mới nhưng đã học hết từ mới -> nạp từ đã lưu để củng cố
+            const allSaved = await loadWords(null);
+            if (allSaved.words.length > 0) {
+              result = allSaved;
+              toast.info('Bạn đã học hết từ mới! Đang mở chế độ củng cố các từ đã lưu.');
+            }
           }
         }
 
@@ -602,7 +632,11 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
           <Sparkles className="h-4 w-4" /> Phiên học mới
         </div>
         <div className="space-y-2">
-          <h1 className="text-3xl font-black text-slate-900 sm:text-4xl">Học {batch.length} từ mới</h1>
+          <h1 className="text-3xl font-black text-slate-900 sm:text-4xl">
+            {idsParam !== null && batch.some((w) => (w.reviewCount ?? 0) > 0)
+              ? `Học trọn gói ${batch.length} từ`
+              : `Học ${batch.length} từ mới`}
+          </h1>
           <p className="max-w-sm font-medium text-slate-500">
             Xem từ, nghĩa và nghe phát âm trước. Sau đó điền lại để kiểm tra trí nhớ ngay.
           </p>

@@ -308,14 +308,82 @@ export function levenshtein(a: string, b: string): number {
   return prev[n];
 }
 
-/** So khớp đáp án: sai số tỷ lệ theo độ dài, tránh từ ngắn sai gần hết vẫn được tính Hard. */
+function normalizeAnswerText(raw: string): string {
+  return raw.trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+function buildAcceptableAnswers(answer: string): string[] {
+  const base = normalizeAnswerText(answer);
+  if (!base) return [];
+
+  const variants: string[] = [];
+  const seen = new Set<string>();
+  const add = (value: string) => {
+    const norm = normalizeAnswerText(value);
+    if (norm && !seen.has(norm)) {
+      seen.add(norm);
+      variants.push(norm);
+    }
+  };
+
+  add(base);
+
+  if (base.includes('(') && base.includes(')')) {
+    add(base.replace(/\(([^)/]+)\)/g, '$1'));
+    const stripped = normalizeAnswerText(base.replace(/\s*\([^)]*\)/g, ''));
+    if (stripped.length >= 2) add(stripped);
+    const parenSlashMatch = base.match(/^(.*?)\(([^()]*\/[^()]*)\)(.*)$/);
+    if (parenSlashMatch) {
+      const [, prefix, inner, suffix] = parenSlashMatch;
+      for (const part of inner.split('/')) {
+        if (part.trim()) add(`${prefix} ${part.trim()} ${suffix}`);
+      }
+    }
+  }
+
+  for (const item of [...variants]) {
+    if (!item.includes('/')) continue;
+    const slashTokenMatch = item.match(/(^|\s)([^\s/]+\/[^\s/]+(?:\s*\/\s*[^\s/]+)*)(\s|$)/);
+    if (slashTokenMatch) {
+      const fullToken = slashTokenMatch[2];
+      for (const part of fullToken.split('/')) {
+        if (part.trim()) add(item.replace(fullToken, part.trim()));
+      }
+    } else {
+      for (const part of item.split('/')) {
+        if (part.trim().length >= 2) add(part);
+      }
+    }
+  }
+
+  for (const item of [...variants]) {
+    if (item.includes('-')) add(item.replace(/-/g, ' '));
+  }
+
+  return variants;
+}
+
+/** So khớp đáp án: sai số tỷ lệ theo độ dài, hỗ trợ ngoặc/gạch chéo/gạch nối. */
 export function judgeAnswer(guess: string, answer: string): Verdict {
-  const g = guess.trim().toLowerCase();
-  const a = answer.trim().toLowerCase();
-  if (!g) return 'wrong';
-  if (g === a) return 'correct';
-  const maxDistance = a.length >= 8 ? 2 : a.length >= 4 ? 1 : 0;
-  if (maxDistance > 0 && levenshtein(g, a) <= maxDistance) return 'close';
+  const g = normalizeAnswerText(guess);
+  const gNoHyphen = normalizeAnswerText(g.replace(/-/g, ' '));
+  const variants = buildAcceptableAnswers(answer);
+  if (!g || variants.length === 0) return 'wrong';
+
+  for (const variant of variants) {
+    const vNoHyphen = normalizeAnswerText(variant.replace(/-/g, ' '));
+    if (g === variant || gNoHyphen === vNoHyphen) {
+      return 'correct';
+    }
+  }
+
+  for (const variant of variants) {
+    const maxDistance = variant.length >= 8 ? 2 : variant.length >= 4 ? 1 : 0;
+    if (maxDistance > 0 && levenshtein(g, variant) <= maxDistance) {
+      return 'close';
+    }
+  }
+
   return 'wrong';
 }
 
@@ -327,6 +395,17 @@ export function verdictToQuality(v: Verdict): 0 | 3 | 4 {
 }
 
 const IPA_PHONETIC_MARKERS = /[ˈˌːˑəæɑɒɔɜɛɪʊʌɨʉɵɤɯʏøœɐɶᵻᵿθðʃʒŋɹɾɟɡβɸçʝɣχʁħʕʋɰɬɮɺɥʍʔ]/;
+const VALID_ASCII_SHORT_IPA_RE = /^[pbtdfvszhmnlrwjk]*e[pbtdfvszhmnlrwjk]*$/i;
+const FAKE_ASCII_DIGRAPH_RE = /(.)\1|th|sh|ch|ph|wh|ng|gh|qu|ck/i;
+
+function isValidShortAsciiIpa(s: string): boolean {
+  return (
+    s.length >= 2 &&
+    s.length <= 6 &&
+    VALID_ASCII_SHORT_IPA_RE.test(s) &&
+    !FAKE_ASCII_DIGRAPH_RE.test(s)
+  );
+}
 
 /** IPA có thể là chuỗi thuần hoặc JSON {uk,us}. Trả về chuỗi IPA chuẩn bọc trong /.../. */
 export function parseIpa(raw?: string): string {
@@ -358,9 +437,152 @@ export function parseIpa(raw?: string): string {
   if (bare.includes(' ') && !IPA_PHONETIC_MARKERS.test(bare)) {
     return '';
   }
-  if (bare.length >= 4 && !IPA_PHONETIC_MARKERS.test(bare) && /^[a-zA-Z\s\-_]+$/.test(bare)) {
+  if (
+    bare.length >= 4 &&
+    !IPA_PHONETIC_MARKERS.test(bare) &&
+    /^[a-zA-Z\s\-_]+$/.test(bare) &&
+    !isValidShortAsciiIpa(bare)
+  ) {
     return '';
   }
 
   return `/${bare}/`;
+}
+
+const IRREGULAR_VERB_LEMMAS: Record<string, string> = {
+  am: 'be',
+  is: 'be',
+  are: 'be',
+  was: 'be',
+  were: 'be',
+  been: 'be',
+  being: 'be',
+  has: 'have',
+  had: 'have',
+  having: 'have',
+  does: 'do',
+  did: 'do',
+  done: 'do',
+  doing: 'do',
+  goes: 'go',
+  went: 'go',
+  gone: 'go',
+  going: 'go',
+  comes: 'come',
+  came: 'come',
+  coming: 'come',
+  saw: 'see',
+  seen: 'see',
+  seeing: 'see',
+  knew: 'know',
+  known: 'know',
+  knowing: 'know',
+  thought: 'think',
+  ran: 'run',
+  running: 'run',
+  sat: 'sit',
+  sitting: 'sit',
+  stood: 'stand',
+  standing: 'stand',
+  'woke up': 'wake up',
+  'woken up': 'wake up',
+  woke: 'wake up',
+  woken: 'wake up',
+  ate: 'eat',
+  eaten: 'eat',
+  drank: 'drink',
+  drunk: 'drink',
+  wore: 'wear',
+  worn: 'wear',
+  slept: 'sleep',
+  said: 'say',
+  says: 'say',
+  told: 'tell',
+  spoke: 'speak',
+  spoken: 'speak',
+  heard: 'hear',
+  wrote: 'write',
+  written: 'write',
+  gave: 'give',
+  given: 'give',
+  took: 'take',
+  taken: 'take',
+  made: 'make',
+  brought: 'bring',
+  sent: 'send',
+  shown: 'show',
+  showed: 'show',
+  met: 'meet',
+  taught: 'teach',
+  found: 'find',
+  bought: 'buy',
+  sold: 'sell',
+  paid: 'pay',
+  spent: 'spend',
+  chose: 'choose',
+  chosen: 'choose',
+  felt: 'feel',
+  forgot: 'forget',
+  forgotten: 'forget',
+  understood: 'understand',
+  held: 'hold',
+  caught: 'catch',
+  lost: 'lose',
+  won: 'win',
+  grew: 'grow',
+  grown: 'grow',
+  kept: 'keep',
+  became: 'become',
+  become: 'become',
+  left: 'leave',
+};
+
+/**
+ * Khớp biến thể chia động từ / thì (vd: "am", "cooks", "takes", "went") về đúng entry gốc trong gói.
+ */
+export function matchFoundationVerb<T extends { lemma: string }>(
+  rawWord: string,
+  verbs: T[],
+): T | undefined {
+  const clean = rawWord.trim().toLowerCase();
+  if (!clean) return undefined;
+
+  const byLemma = new Map(verbs.map((v) => [v.lemma.toLowerCase(), v]));
+  const direct = byLemma.get(clean);
+  if (direct) return direct;
+
+  const irregularLemma = IRREGULAR_VERB_LEMMAS[clean];
+  if (irregularLemma && byLemma.has(irregularLemma)) {
+    return byLemma.get(irregularLemma);
+  }
+
+  const candidates: string[] = [];
+  if (clean.endsWith('ies') && clean.length > 3) {
+    candidates.push(`${clean.slice(0, -3)}y`);
+  }
+  if (clean.endsWith('ied') && clean.length > 3) {
+    candidates.push(`${clean.slice(0, -3)}y`);
+  }
+  if (clean.endsWith('es') && clean.length > 2) {
+    candidates.push(clean.slice(0, -2), clean.slice(0, -1));
+  }
+  if (clean.endsWith('s') && clean.length > 1) {
+    candidates.push(clean.slice(0, -1));
+  }
+  if (clean.endsWith('ed') && clean.length > 2) {
+    candidates.push(clean.slice(0, -2), clean.slice(0, -1));
+    if (clean.length > 3) candidates.push(clean.slice(0, -3));
+  }
+  if (clean.endsWith('ing') && clean.length > 3) {
+    const stem = clean.slice(0, -3);
+    candidates.push(stem, `${stem}e`);
+    if (stem.length > 1) candidates.push(stem.slice(0, -1));
+  }
+
+  for (const candidate of candidates) {
+    const matched = byLemma.get(candidate);
+    if (matched) return matched;
+  }
+
+  return undefined;
 }
