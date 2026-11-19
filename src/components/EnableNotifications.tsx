@@ -68,13 +68,18 @@ export function EnableNotifications() {
   }, [show]);
 
   useEffect(() => {
-    const evaluate = async (): Promise<void> => {
-      if (typeof window === 'undefined' || !('Notification' in window)) return;
+    let cancelled = false;
+    let retryTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const evaluate = async (allowRetry: boolean): Promise<void> => {
+      if (cancelled || typeof window === 'undefined' || !('Notification' in window)) return;
 
       if (Notification.permission === 'default') {
         if (isEnablePromptDismissed()) return;
-        setMode('enable');
-        setShow(true);
+        if (!cancelled) {
+          setMode('enable');
+          setShow(true);
+        }
         return;
       }
 
@@ -83,14 +88,24 @@ export function EnableNotifications() {
       if (isReconnectDismissedThisSession()) return;
 
       if (!isPushDeviceRegistered()) {
-        setMode('reconnect');
-        setShow(true);
+        if (!cancelled) {
+          setMode('reconnect');
+          setShow(true);
+        }
         return;
       }
 
       try {
         const { data: { session } } = await supabase.auth.getSession();
-        if (!session) return;
+        if (cancelled) return;
+        if (!session) {
+          if (allowRetry) {
+            retryTimer = setTimeout(() => {
+              void evaluate(false);
+            }, 2500);
+          }
+          return;
+        }
         const res = await fetch('/api/push/fcm-register', {
           headers: { 'X-LingoPro-Request': '1' },
         });
@@ -100,6 +115,7 @@ export function EnableNotifications() {
           staleDays?: number;
           forceGen?: number;
         };
+        if (cancelled) return;
         const forced = applyForceGenIfNeeded(data?.forceGen);
         const stale = typeof data?.staleDays === 'number' && data.staleDays >= STALE_DAYS;
         if (data?.success && (forced || data.count === 0 || stale || !isPushDeviceRegistered())) {
@@ -111,9 +127,11 @@ export function EnableNotifications() {
       }
     };
 
-    void evaluate();
-    const retry = setTimeout(() => { void evaluate(); }, 2500);
-    return () => clearTimeout(retry);
+    void evaluate(true);
+    return () => {
+      cancelled = true;
+      if (retryTimer) clearTimeout(retryTimer);
+    };
   }, []);
 
   const enable = async () => {

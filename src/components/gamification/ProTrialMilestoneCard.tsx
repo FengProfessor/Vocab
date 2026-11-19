@@ -1,11 +1,13 @@
 'use client';
 
-import { useCallback, useEffect, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { Crown, Flame, BookOpen, Loader2, Check, Gift, Lock } from 'lucide-react';
 import { toast } from 'sonner';
 import { supabase } from '@/lib/supabase';
+import { getEffectivePlan } from '@/lib/entitlement';
+import { useStudentContext } from '@/components/student/StudentProvider';
 import type { ProMilestoneSnapshot } from '@/lib/pro-trial-milestone';
 import {
   isUnderProMilestone,
@@ -73,26 +75,47 @@ export function ProTrialMilestoneCard({
   hintStreak,
   hintWords,
 }: Props) {
-  const initialCached = readLastProMilestoneCache<ProMilestoneSnapshot>(readLastProfileCache()?.id);
+  const studentCtx = useStudentContext();
+  const ctxProfile = studentCtx?.profile ?? null;
+  const isKnownNonFree = Boolean(
+    ctxProfile && getEffectivePlan(ctxProfile.plan, ctxProfile.plan_expires_at) !== 'free',
+  );
+  const cachedProfile = readLastProfileCache();
+  const cachedPlanIsFree =
+    !cachedProfile || getEffectivePlan(cachedProfile.plan, cachedProfile.plan_expires_at) === 'free';
+  const initialCached = cachedPlanIsFree
+    ? readLastProMilestoneCache<ProMilestoneSnapshot>(cachedProfile?.id)
+    : null;
   const [state, setState] = useState<LoadState>(() => (initialCached ? 'ready' : 'idle'));
   const [snap, setSnap] = useState<ProMilestoneSnapshot | null>(() => initialCached);
+  const hasSnapRef = useRef<boolean>(Boolean(initialCached));
+  const hintWordsRef = useRef<number | undefined>(hintWords);
+  const hintStreakRef = useRef<number | undefined>(hintStreak);
   const [claiming, setClaiming] = useState(false);
   const [funnelActive, setFunnelActive] = useState<boolean>(() =>
     Boolean(readFunnelActive() || initialCached?.enrolled),
   );
   const [claimPopup, setClaimPopup] = useState<MilestonePopupPayload | null>(null);
 
+  useEffect(() => {
+    hintWordsRef.current = hintWords;
+    hintStreakRef.current = hintStreak;
+  }, [hintWords, hintStreak]);
+
   const load = useCallback(async () => {
-    if (!enabled) return;
+    if (!enabled || isKnownNonFree) return;
 
     // Nick dashboard đã chắc vượt mốc + không funnel → ẩn im lặng
     const funnel = readFunnelActive();
+    const curHintWords = hintWordsRef.current;
+    const curHintStreak = hintStreakRef.current;
     if (
-      typeof hintWords === 'number' &&
-      typeof hintStreak === 'number' &&
-      !isUnderProMilestone(hintWords, hintStreak) &&
+      typeof curHintWords === 'number' &&
+      typeof curHintStreak === 'number' &&
+      !isUnderProMilestone(curHintWords, curHintStreak) &&
       !funnel
     ) {
+      hasSnapRef.current = false;
       setSnap(null);
       setFunnelActive(false);
       setState('ready');
@@ -105,7 +128,8 @@ export function ProTrialMilestoneCard({
         data: { session },
       } = await supabase.auth.getSession();
       if (!session) {
-        if (!snap) {
+        if (!hasSnapRef.current) {
+          hasSnapRef.current = false;
           setSnap(null);
           setState('error');
         }
@@ -124,6 +148,7 @@ export function ProTrialMilestoneCard({
       if (!res.ok || !data.milestone) throw new Error(data.error || 'Load failed');
 
       const m = data.milestone;
+      hasSnapRef.current = true;
       setSnap(m);
       writeProMilestoneCache(session.user.id, m);
 
@@ -145,12 +170,13 @@ export function ProTrialMilestoneCard({
       setState('ready');
     } catch (err) {
       console.warn('[ProMilestone] load failed:', err);
-      if (!snap) {
+      if (!hasSnapRef.current) {
+        hasSnapRef.current = false;
         setSnap(null);
         setState('error');
       }
     }
-  }, [enabled, hintWords, hintStreak, snap]);
+  }, [enabled, isKnownNonFree]);
 
   useEffect(() => {
     void load();
@@ -165,7 +191,7 @@ export function ProTrialMilestoneCard({
   }, [snap?.enrolled]);
 
   useEffect(() => {
-    if (!enabled) return;
+    if (!enabled || isKnownNonFree) return;
     const onRefresh = () => {
       void load();
     };
@@ -175,7 +201,7 @@ export function ProTrialMilestoneCard({
       window.removeEventListener('focus', onRefresh);
       window.removeEventListener('lingopro-plan-changed', onRefresh);
     };
-  }, [enabled, load]);
+  }, [enabled, isKnownNonFree, load]);
 
   const handleClaim = async () => {
     if (!snap?.eligible || claiming) return;
@@ -201,7 +227,10 @@ export function ProTrialMilestoneCard({
       };
       if (!res.ok) throw new Error(data.error || 'Không nhận được quà');
 
-      if (data.milestone) setSnap(data.milestone);
+      if (data.milestone) {
+        hasSnapRef.current = true;
+        setSnap(data.milestone);
+      }
       clearFunnelActive();
       setFunnelActive(false);
       setClaimPopup({ kind: 'pro', intensity: 'epic' });
@@ -226,7 +255,7 @@ export function ProTrialMilestoneCard({
   );
 
   // ── Anti-flash: tuyệt đối không paint card trước ready + snap ──
-  if (!enabled) return claimPopupEl;
+  if (!enabled || isKnownNonFree) return claimPopupEl;
   if (state !== 'ready' || !snap) return claimPopupEl;
 
   const {

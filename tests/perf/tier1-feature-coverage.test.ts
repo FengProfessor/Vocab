@@ -329,8 +329,8 @@ export async function runTier1Tests(runner: TestRunner): Promise<void> {
   // Feature 6: Deduplicate Campaign Modals
   // ──────────────────────────────────────────────────────────────────────────
 
-  await runner.it('T1.6.1: UpgradeGiftModal is defined in src/components/campaign/UpgradeGiftModal.tsx', () => {
-    expect(inspector.fileExists('src/components/campaign/UpgradeGiftModal.tsx')).toBe(true);
+  await runner.it('T1.6.1: UpgradeGiftModal is removed from src/components/campaign/UpgradeGiftModal.tsx', () => {
+    expect(inspector.fileExists('src/components/campaign/UpgradeGiftModal.tsx')).toBe(false);
   });
 
   await runner.it('T1.6.2: Modal dismiss key follows lingo_upgrade_gift_dismissed convention', () => {
@@ -345,9 +345,9 @@ export async function runTier1Tests(runner: TestRunner): Promise<void> {
     expect(isDismissed).toBe(true);
   });
 
-  await runner.it('T1.6.4: Modal deduplication ensures at most one modal in DOM hierarchy', () => {
+  await runner.it('T1.6.4: Modal deduplication ensures UpgradeGiftModal is absent from StudentShell', () => {
     const occurrencesInShell = inspector.countOccurrences('src/components/student/StudentShell.tsx', 'UpgradeGiftModal');
-    expect(occurrencesInShell).toBeGreaterThanOrEqual(1);
+    expect(occurrencesInShell).toBe(0);
   });
 
   await runner.it('T1.6.5: Trial milestone card handles coupon activation smoothly', () => {

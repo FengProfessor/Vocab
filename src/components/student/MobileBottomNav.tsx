@@ -5,9 +5,6 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 
 export type MobileBottomNavProps = {
-  classroomId?: string | null;
-  reviewDueCount?: number;
-  newCount?: number;
   className?: string;
 };
 

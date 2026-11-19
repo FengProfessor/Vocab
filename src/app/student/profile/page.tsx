@@ -132,7 +132,7 @@ export default function ProfilePage() {
   const [tokenCopied, setTokenCopied] = useState(false);
 
   const [fullName, setFullName] = useState(() => initialProfile?.full_name ?? '');
-  const [dailyGoal, setDailyGoal] = useState(() => initialProfile?.daily_goal ?? 30);
+  const [dailyGoal, setDailyGoal] = useState(() => initialProfile?.daily_goal ?? 10);
   const [notificationHour, setNotificationHour] = useState(() => initialProfile?.notification_hour ?? 8);
   const [province, setProvince] = useState(() => initialProfile?.province ?? '');
 
@@ -187,7 +187,7 @@ export default function ProfilePage() {
           const nextProfile = prof as StudentProfile;
           setProfile(nextProfile);
           setFullName(nextProfile.full_name ?? '');
-          setDailyGoal(nextProfile.daily_goal ?? 30);
+          setDailyGoal(nextProfile.daily_goal ?? 10);
           setNotificationHour(nextProfile.notification_hour ?? 8);
           setProvince(nextProfile.province ?? '');
           writeDashboardProfileCache(session.user.id, nextProfile);
@@ -248,6 +248,7 @@ export default function ProfilePage() {
         });
       }
 
+      await studentCtx?.refreshProfile();
       toast.success('Đã lưu.');
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Lỗi không xác định';
@@ -577,7 +578,7 @@ export default function ProfilePage() {
                 Mục tiêu ngày
               </Label>
               <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-black text-primary">
-                {dailyGoal} phút
+                {dailyGoal} từ/ngày
               </span>
             </div>
             <input

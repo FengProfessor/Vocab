@@ -12,8 +12,7 @@ import {
   Loader2, Plus, ArrowRight,
   X, Clock, UserPlus, Search, ChevronDown, Sparkles,
   BookOpen, RotateCw,
-  Headphones, Mic, PenTool, FileText, Code2, SlidersHorizontal,
-  Users, Flame, ChevronRight,
+  Headphones, Mic, FileText, Code2, SlidersHorizontal,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
@@ -48,10 +47,9 @@ import {
   writeDashboardProfileCache,
   writeDashboardWordsCache,
   writeDashboardSecondaryCache,
-  readLastDailyReadingCache,
-  writeDailyReadingCache,
   clearDashboardSnapshotCache,
 } from '@/lib/dashboard-snapshot-cache';
+import { getEffectivePlan } from '@/lib/entitlement';
 import { SRS_LEVEL_LABELS, SRS_LEVEL_STABILITY_HINT } from '@/lib/srs';
 import { STAMPEDE_MODE } from '@/lib/stampede';
 import { parseIpa } from '@/lib/study';
@@ -89,37 +87,7 @@ function useIsDesktop(breakpoint = 768): boolean {
   );
 }
 
-interface DailyReadingStatus {
-  hasNew: boolean;
-  title: string;
-  wordCount: number;
-  completedCount: number;
-  totalCount: number;
-}
-
-/** Compact notification card: "You have a daily reading exercise!" */
-function DailyReadingCard({ status }: { status: DailyReadingStatus }) {
-  if (!status.hasNew) return null;
-
-  return (
-    <Link
-      href="/practice/reading-library"
-      className="flex items-center gap-3 rounded-xl border border-indigo-200 bg-gradient-to-r from-indigo-50 to-white px-3 py-2.5 shadow-sm transition-all hover:border-indigo-300 hover:shadow-md active:scale-[0.99]"
-    >
-      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-lg text-white shadow-sm">
-        🌅
-      </span>
-      <div className="min-w-0 flex-1">
-        <p className="text-xs font-black text-indigo-900">Bài luyện đọc mới!</p>
-        <p className="mt-0.5 truncate text-[11px] text-indigo-700/80">
-          &ldquo;{status.title}&rdquo; · {status.wordCount} từ · Đọc + quiz + điền từ
-        </p>
-      </div>
-      <ArrowRight className="h-4 w-4 shrink-0 text-indigo-400" />
-    </Link>
-  );
-}
-
+const READING_TOTAL_ARTICLES = 619;
 
 interface ActiveVocabPack {
   pack_id: string;
@@ -154,8 +122,12 @@ export default function StudentDashboard() {
   const [classroomId, setClassroomId] = useState<string | null>(studentCtx?.wordSummary.classroomId ?? null);
   const [currentClassScope, setCurrentClassScope] = useState<string>('__personal__');
   const currentClassScopeRef = useRef<string>('__personal__');
+  const desktopDataLoadedRef = useRef<boolean>(false);
+  const prevIsDesktopRef = useRef<boolean>(
+    typeof window !== 'undefined' ? window.matchMedia('(min-width: 768px)').matches : isDesktop,
+  );
+  const vocabPacksLoadedRef = useRef<boolean>(false);
   const [enrolledClassrooms, setEnrolledClassrooms] = useState<EnrolledClassroom[]>([]);
-  const [, setIsLoading] = useState(false);
   const [dailyActivity, setDailyActivity] = useState<{ date: string; count: number }[]>(
     () => initialSecondary?.dailyActivity ?? [],
   );
@@ -166,36 +138,26 @@ export default function StudentDashboard() {
   const [vocabPacks, setVocabPacks] = useState<ActiveVocabPack[]>(
     () => (initialSecondary?.vocabPacks as ActiveVocabPack[] | undefined) ?? [],
   );
-  const [selectedWord, setSelectedWord] = useState<Word | null>(null);
   const [selectedWordId, setSelectedWordId] = useState<string | null>(null);
-  const [dailyReadingStatus, setDailyReadingStatus] = useState<DailyReadingStatus>(() => {
-    if (initialSecondary?.dailyReadingStatus) {
-      return initialSecondary.dailyReadingStatus;
-    }
-    const dr = readLastDailyReadingCache();
-    if (dr && Array.isArray(dr.exercises)) {
-      const exs = dr.exercises as Array<{
-        title?: string;
-        sourceWords?: unknown[];
-        completion?: { completedAt?: string } | null;
-      }>;
-      const totalCount = exs.length;
-      const completedCount = exs.filter((e) => Boolean(e.completion?.completedAt)).length;
-      const unfinished = exs.find((e) => !e.completion?.completedAt);
+  const [readingProgress, setReadingProgress] = useState<{
+    completedCount: number;
+    inProgressCount: number;
+    totalReadCount: number;
+    totalArticles: number;
+  }>(() => {
+    if (initialSecondary?.readingProgress) {
       return {
-        hasNew: Boolean(dr.hasNew && unfinished),
-        title: unfinished?.title || 'Bài đọc hàng ngày',
-        wordCount: unfinished?.sourceWords?.length || 0,
-        completedCount,
-        totalCount,
+        completedCount: initialSecondary.readingProgress.completedCount ?? 0,
+        inProgressCount: initialSecondary.readingProgress.inProgressCount ?? 0,
+        totalReadCount: initialSecondary.readingProgress.totalReadCount ?? 0,
+        totalArticles: initialSecondary.readingProgress.totalArticles ?? READING_TOTAL_ARTICLES,
       };
     }
     return {
-      hasNew: false,
-      title: '',
-      wordCount: 0,
       completedCount: 0,
-      totalCount: 0,
+      inProgressCount: 0,
+      totalReadCount: 0,
+      totalArticles: READING_TOTAL_ARTICLES,
     };
   });
   const [listeningStats, setListeningStats] = useState<{
@@ -239,6 +201,10 @@ export default function StudentDashboard() {
   useEffect(() => {
     totalWordsRef.current = totalWords;
   }, [totalWords]);
+  const wordsLengthRef = useRef<number>(words.length);
+  useEffect(() => {
+    wordsLengthRef.current = words.length;
+  }, [words.length]);
   /** Sẵn sàng hiển thị số đếm ngay từ Frame 0 nếu đã có cache */
   const [countsReady, setCountsReady] = useState(() => {
     const cached = (studentCtx?.wordSummary?.total ?? 0) > 0 ? studentCtx!.wordSummary : readLastWordSummaryCache();
@@ -246,6 +212,7 @@ export default function StudentDashboard() {
   });
   /** word list load sau shell — nếu có cached words thì render ngay không skeleton */
   const [wordsLoading, setWordsLoading] = useState(() => !initialWords || initialWords.length === 0);
+  const [desktopWordsLoaded, setDesktopWordsLoaded] = useState(false);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [wordsOffset, setWordsOffset] = useState(() => initialWords?.length ?? 0);
   const WORDS_PAGE_SIZE = 20;
@@ -286,15 +253,16 @@ export default function StudentDashboard() {
     });
   });
 
-  // Sync profile when studentCtx resolves
+  // Sync profile when studentCtx resolves or refreshes
   useEffect(() => {
-    if (studentCtx?.profile && !profile) {
+    if (studentCtx?.profile) {
       setProfile(studentCtx.profile);
     }
-  }, [studentCtx?.profile, profile]);
+  }, [studentCtx?.profile]);
 
-  // Sync wordSummary counts when studentCtx updates
+  // Sync wordSummary counts when studentCtx updates (personal scope only)
   useEffect(() => {
+    if (currentClassScope !== '__personal__' || currentClassScopeRef.current !== '__personal__') return;
     if (studentCtx?.wordSummary) {
       const ws = studentCtx.wordSummary;
       if (ws.total > 0 || ws.reviewDueCount > 0 || ws.newCount > 0 || ws.dueCount > 0) {
@@ -307,7 +275,7 @@ export default function StudentDashboard() {
         setCountsReady(true);
       }
     }
-  }, [studentCtx?.wordSummary]);
+  }, [studentCtx?.wordSummary, currentClassScope]);
 
   // Popup chúc mừng mốc (level / badge / streak)
   const [milestonePopup, setMilestonePopup] = useState<MilestonePopupPayload | null>(null);
@@ -331,26 +299,24 @@ export default function StudentDashboard() {
   };
 
   useEffect(() => {
+    const classParam =
+      typeof window !== 'undefined'
+        ? new URLSearchParams(window.location.search).get('class')
+        : null;
+    const initialScope = classParam || '__personal__';
+    if (classParam) {
+      currentClassScopeRef.current = initialScope;
+      queueMicrotask(() => setCurrentClassScope(initialScope));
+    }
+
     const checkAuth = async () => {
       console.log('[Student] Auth check started');
       const { data: { session }, error } = await supabase.auth.getSession();
       if (error) {
-        setIsLoading(false);
         return;
       }
 
       if (session?.user) {
-        let initialScope = '__personal__';
-        if (typeof window !== 'undefined') {
-          const p = new URLSearchParams(window.location.search);
-          const classParam = p.get('class');
-          if (classParam) {
-            initialScope = classParam;
-            currentClassScopeRef.current = classParam;
-            setCurrentClassScope(classParam);
-          }
-        }
-
         // Stale-while-revalidate: paint counts từ cache ngay (chỉ cho personal scope)
         if (initialScope === '__personal__') {
           const cached = (studentCtx?.wordSummary.total ?? 0) > 0
@@ -370,12 +336,13 @@ export default function StudentDashboard() {
 
         if (!loadStartedRef.current) {
           loadStartedRef.current = true;
-          void fetchClassrooms();
+          if (initialScope !== '__personal__') {
+            void fetchClassrooms();
+          }
           loadData(session.user.id, initialScope);
         }
       } else {
         clearDashboardSnapshotCache();
-        setIsLoading(false);
         const redirectPath = typeof window !== 'undefined'
           ? `${window.location.pathname}${window.location.search}`
           : '/student';
@@ -389,7 +356,9 @@ export default function StudentDashboard() {
         // Chỉ reload khi chưa load (tránh double với getSession)
         if (!loadStartedRef.current) {
           loadStartedRef.current = true;
-          void fetchClassrooms();
+          if (currentClassScopeRef.current !== '__personal__') {
+            void fetchClassrooms();
+          }
           loadData(session.user.id, currentClassScopeRef.current);
         }
       } else if (event === 'SIGNED_OUT') {
@@ -413,6 +382,7 @@ export default function StudentDashboard() {
     },
     targetScope?: string,
   ) => {
+    if (targetScope !== undefined && targetScope !== currentClassScopeRef.current) return;
     const hasTotal = typeof data.total === 'number';
     const hasNew = typeof data.newCount === 'number';
     const hasReview = typeof data.reviewDueCount === 'number';
@@ -504,7 +474,6 @@ export default function StudentDashboard() {
         let todayCompleted = 0;
         let todayInProgress = 0;
         let totalCompleted = 0;
-        let maxInProgress = 0;
 
         for (const item of allProgress) {
           const itemDateKey = item.completedAt
@@ -551,52 +520,43 @@ export default function StudentDashboard() {
     );
   }, [dailyActivity, gamification.current_streak, gamification.last_active_date]);
 
-  /** Levels L1–L6 + daily reading + packs — idle, không chặn first paint. */
+  /** Levels L1–L6 + reading progress + packs — idle, không chặn first paint. */
   const loadSecondaryDashboard = (userId: string, targetScope?: string) => {
     const scope = targetScope !== undefined ? targetScope : currentClassScope;
     const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
+    const isDesktopViewport =
+      typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches;
 
     loadActivityStats(userId);
 
-    void authFetch('/api/practice/daily-reading')
+    void authFetch('/api/reading/progress')
       .then((r) => r.json())
-      .then((json) => {
-        if (!json?.success || !Array.isArray(json.exercises)) return;
-        const exercises: Array<{
-          title?: string;
-          sourceWords?: unknown[];
-          completion?: { completedAt?: string } | null;
-        }> = json.exercises;
-        const totalCount = exercises.length;
-        const completedCount = exercises.filter((e) => Boolean(e.completion?.completedAt)).length;
-        const unfinished = exercises.find((e) => !e.completion?.completedAt);
-        const nextStatus: DailyReadingStatus = {
-          hasNew: Boolean(json.hasNew && unfinished),
-          title: unfinished?.title || 'Bài đọc hàng ngày',
-          wordCount: unfinished?.sourceWords?.length || 0,
+      .then((json: { authenticated?: boolean; items?: Array<{ status?: string }> }) => {
+        if (!json?.authenticated || !Array.isArray(json.items)) return;
+        const completedCount = json.items.filter((i) => i.status === 'completed').length;
+        const inProgressCount = json.items.filter((i) => i.status === 'in_progress').length;
+        const nextProgress = {
           completedCount,
-          totalCount,
+          inProgressCount,
+          totalReadCount: completedCount + inProgressCount,
+          totalArticles: READING_TOTAL_ARTICLES,
         };
-        setDailyReadingStatus(nextStatus);
-        writeDashboardSecondaryCache(userId, { dailyReadingStatus: nextStatus });
-        writeDailyReadingCache(userId, {
-          exercises: json.exercises,
-          canGenerateToday: json.canGenerateToday,
-          hasNew: json.hasNew,
-          hasUncompleted: json.hasUncompleted,
-          uncompletedExerciseId: json.uncompletedExerciseId,
-        });
+        setReadingProgress(nextProgress);
+        writeDashboardSecondaryCache(userId, { readingProgress: nextProgress });
       })
       .catch(() => {});
 
-    void authFetch('/api/vocab/packs', {})
-      .then((response) => response.json())
-      .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
-        if (!packData.success || !packData.packs) return;
-        setVocabPacks(packData.packs);
-        writeDashboardSecondaryCache(userId, { vocabPacks: packData.packs });
-      })
-      .catch(() => {});
+    if (isDesktopViewport && !vocabPacksLoadedRef.current) {
+      vocabPacksLoadedRef.current = true;
+      void authFetch('/api/vocab/packs', {})
+        .then((response) => response.json())
+        .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
+          if (!packData.success || !packData.packs) return;
+          setVocabPacks(packData.packs);
+          writeDashboardSecondaryCache(userId, { vocabPacks: packData.packs });
+        })
+        .catch(() => {});
+    }
 
     // Chỉ gọi fallback ?summary=1&levels=1 nếu user có từ (>0) nhưng sau summary=1 ban đầu levelCounts vẫn toàn số 0
     const loadLevelsFallback = () => {
@@ -618,12 +578,18 @@ export default function StudentDashboard() {
   const loadData = async (userId: string, targetScope?: string) => {
     const scope = targetScope !== undefined ? targetScope : currentClassScopeRef.current;
     const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
+    const isDesktopViewport =
+      typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches;
+    desktopDataLoadedRef.current = isDesktopViewport;
+    if (!isDesktopViewport) {
+      setDesktopWordsLoaded(false);
+    }
     try {
       if (STAMPEDE_MODE) {
         /**
          * CHẾ ĐỘ LỚP ĐÔNG (NEXT_PUBLIC_STAMPEDE_MODE=1, mặc định):
-         * Critical path: profile + words kèm counts (shell nhanh).
-         * Secondary (heatmap / đếm từ / levels / packs / daily reading): fire-and-forget sau shell.
+         * Critical path: profile + words (desktop only) kèm counts (shell nhanh).
+         * Secondary (heatmap / đếm từ / levels / packs / reading progress): fire-and-forget sau shell.
          */
         const profPromise: Promise<{ data: Profile | null; error: { message?: string } | null }> = (studentCtx?.profile || profile)
           ? Promise.resolve({ data: studentCtx?.profile || profile, error: null })
@@ -634,7 +600,7 @@ export default function StudentDashboard() {
             if (sum) applySummaryCounts(userId, sum, scope);
           });
         } else {
-          void authFetch(`/api/words?summary=1${scopeParam}`, {})
+          void authFetch(`/api/words?summary=1&levels=1${scopeParam}`, {})
             .then((r) => r.json())
             .then((sum) => {
               if (sum?.success) applySummaryCounts(userId, sum, scope);
@@ -644,18 +610,23 @@ export default function StudentDashboard() {
 
         const [profRes, wordsJson] = await Promise.all([
           profPromise,
-          authFetch(
-            `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&noCount=1${scopeParam}`,
-            {},
-          )
-            .then((r) => r.json())
-            .catch(() => null),
+          isDesktopViewport
+            ? authFetch(
+                `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&noCount=1${scopeParam}`,
+                {},
+              )
+                .then((r) => r.json())
+                .catch(() => null)
+            : Promise.resolve(null),
         ]);
 
         const profileErr = (profRes as { error?: { message?: string } | null })?.error;
         if (profileErr) {
           console.error('[Student] Load profile failed:', profileErr.message || profileErr);
-          setWordsLoading(false);
+          if (scope === currentClassScopeRef.current) {
+            if (isDesktopViewport) setDesktopWordsLoaded(true);
+            setWordsLoading(false);
+          }
           return;
         }
         if (profRes.data) {
@@ -664,17 +635,22 @@ export default function StudentDashboard() {
           writeDashboardProfileCache(userId, freshProfile);
         }
 
-        if (wordsJson?.success) {
-          const freshWords = wordsJson.data || [];
-          setWords(freshWords);
-          if (!scope || scope === '__personal__') {
-            writeDashboardWordsCache(userId, freshWords);
+        if (scope === currentClassScopeRef.current) {
+          if (wordsJson?.success) {
+            const freshWords = wordsJson.data || [];
+            setWords(freshWords);
+            if (!scope || scope === '__personal__') {
+              writeDashboardWordsCache(userId, freshWords);
+            }
+            setClassroomId(wordsJson.classroomId ?? null);
+            setWordsOffset(WORDS_PAGE_SIZE);
+            applySummaryCounts(userId, wordsJson, scope);
           }
-          setClassroomId(wordsJson.classroomId ?? null);
-          setWordsOffset(WORDS_PAGE_SIZE);
-          applySummaryCounts(userId, wordsJson, scope);
+          if (isDesktopViewport) {
+            setDesktopWordsLoaded(true);
+          }
+          setWordsLoading(false);
         }
-        setWordsLoading(false);
 
         // Sau shell: heatmap + đếm từ hôm nay + chart L1–L6 (không chặn paint)
         loadSecondaryDashboard(userId, scope);
@@ -682,7 +658,7 @@ export default function StudentDashboard() {
       }
 
       // ── Full mode (STAMPEDE=0): progressive load, đủ packs/grammar/heatmap ──
-      const summaryP = authFetch(`/api/words?summary=1${scopeParam}`, {})
+      const summaryP = authFetch(`/api/words?summary=1&levels=1${scopeParam}`, {})
         .then((r) => r.json())
         .then((sum) => {
           if (sum?.success) applySummaryCounts(userId, sum, scope);
@@ -697,7 +673,10 @@ export default function StudentDashboard() {
 
       if (profRes.error) {
         console.error('[Student] Load profile failed:', profRes.error.message);
-        setWordsLoading(false);
+        if (scope === currentClassScopeRef.current) {
+          if (isDesktopViewport) setDesktopWordsLoaded(true);
+          setWordsLoading(false);
+        }
         return;
       }
       if (profRes.data) {
@@ -705,40 +684,49 @@ export default function StudentDashboard() {
         setProfile(freshProfile);
         writeDashboardProfileCache(userId, freshProfile);
       }
-      setIsLoading(false);
-      setWordsLoading(true);
+      if (scope === currentClassScopeRef.current) {
+        setWordsLoading(isDesktopViewport);
+      }
 
       loadSecondaryDashboard(userId, scope);
 
-      try {
-        const wordsJson = await authFetch(
-          `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0${scopeParam}`,
-          {},
-        ).then((r) => r.json()).catch(() => null);
+      if (isDesktopViewport) {
+        try {
+          const wordsJson = await authFetch(
+            `/api/words?limit=${WORDS_PAGE_SIZE}&offset=0${scopeParam}`,
+            {},
+          ).then((r) => r.json()).catch(() => null);
 
-        if (wordsJson?.success) {
-          const freshWords = wordsJson.data || [];
-          setWords(freshWords);
-          if (!scope || scope === '__personal__') {
-            writeDashboardWordsCache(userId, freshWords);
+          if (scope === currentClassScopeRef.current && wordsJson?.success) {
+            const freshWords = wordsJson.data || [];
+            setWords(freshWords);
+            if (!scope || scope === '__personal__') {
+              writeDashboardWordsCache(userId, freshWords);
+            }
+            setClassroomId(wordsJson.classroomId ?? null);
+            setWordsOffset(WORDS_PAGE_SIZE);
+            if (typeof wordsJson.newCount === 'number' || typeof wordsJson.reviewDueCount === 'number') {
+              applySummaryCounts(userId, wordsJson, scope);
+            } else if (typeof wordsJson.total === 'number') {
+              setTotalWords(wordsJson.total);
+            }
           }
-          setClassroomId(wordsJson.classroomId ?? null);
-          setWordsOffset(WORDS_PAGE_SIZE);
-          if (typeof wordsJson.newCount === 'number' || typeof wordsJson.reviewDueCount === 'number') {
-            applySummaryCounts(userId, wordsJson, scope);
-          } else if (typeof wordsJson.total === 'number') {
-            setTotalWords(wordsJson.total);
+        } finally {
+          if (scope === currentClassScopeRef.current) {
+            setDesktopWordsLoaded(true);
+            setWordsLoading(false);
           }
         }
-      } finally {
+      } else if (scope === currentClassScopeRef.current) {
         setWordsLoading(false);
       }
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Unknown error';
       console.error('Load Dashboard error:', msg);
-      setWordsLoading(false);
-    } finally {
-      setIsLoading(false);
+      if (scope === currentClassScopeRef.current) {
+        if (isDesktopViewport) setDesktopWordsLoaded(true);
+        setWordsLoading(false);
+      }
     }
   };
 
@@ -754,7 +742,7 @@ export default function StudentDashboard() {
         {},
       );
       const data = await res.json();
-      if (data.success && data.data?.length > 0) {
+      if (scope === currentClassScopeRef.current && data.success && data.data?.length > 0) {
         setWords((prev) => [...prev, ...data.data]);
         setWordsOffset((prev) => prev + WORDS_PAGE_SIZE);
         setTotalWords(data.total || totalWords);
@@ -796,6 +784,7 @@ export default function StudentDashboard() {
     setWords([]);
     setWordsOffset(0);
     setWordsLoading(true);
+    setDesktopWordsLoaded(false);
     setCountsReady(false);
     const resetLevels = [0, 0, 0, 0, 0, 0];
     levelCountsRef.current = resetLevels;
@@ -816,9 +805,66 @@ export default function StudentDashboard() {
     }
   };
 
+  // === Resize mobile -> desktop: tải danh sách từ & gói từ một lần khi mở rộng ===
+  useEffect(() => {
+    const wasMobile = !prevIsDesktopRef.current;
+    if (!isDesktop) {
+      prevIsDesktopRef.current = false;
+      return;
+    }
+    if (!wasMobile || !loadStartedRef.current || desktopDataLoadedRef.current || !profile?.id) {
+      if (loadStartedRef.current && profile?.id) {
+        prevIsDesktopRef.current = true;
+      }
+      return;
+    }
+    prevIsDesktopRef.current = true;
+    desktopDataLoadedRef.current = true;
+    const uid = profile.id;
+    const scope = currentClassScopeRef.current;
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
+    if (!wordsLengthRef.current) {
+      setWordsLoading(true);
+    }
+    void authFetch(`/api/words?limit=${WORDS_PAGE_SIZE}&offset=0&noCount=1${scopeParam}`, {})
+      .then((r) => r.json())
+      .then((wordsJson) => {
+        if (scope === currentClassScopeRef.current && wordsJson?.success) {
+          const freshWords = wordsJson.data || [];
+          setWords(freshWords);
+          if (!scope || scope === '__personal__') {
+            writeDashboardWordsCache(uid, freshWords);
+          }
+          setWordsOffset(WORDS_PAGE_SIZE);
+        }
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (scope === currentClassScopeRef.current) {
+          setDesktopWordsLoaded(true);
+          setWordsLoading(false);
+        }
+      });
+
+    if (!vocabPacksLoadedRef.current) {
+      vocabPacksLoadedRef.current = true;
+      void authFetch('/api/vocab/packs', {})
+        .then((response) => response.json())
+        .then((packData: { success?: boolean; packs?: ActiveVocabPack[] }) => {
+          if (!packData.success || !packData.packs) return;
+          setVocabPacks(packData.packs);
+          writeDashboardSecondaryCache(uid, { vocabPacks: packData.packs });
+        })
+        .catch(() => {});
+    }
+  }, [isDesktop, profile?.id]);
+
   // === Countdown: chỉ setState khi chuỗi đổi; Ready → refreshSummary (không full loadData) ===
   useEffect(() => {
-    if (words.length === 0) return;
+    if (!isDesktop || words.length === 0) {
+      setCountdown('');
+      return;
+    }
 
     const sortedWords = [...words]
       .filter((w) => w.srs?.next_review_date)
@@ -858,7 +904,7 @@ export default function StudentDashboard() {
     const ms = targetDate.getTime() - Date.now() < 120_000 ? 1000 : 5000;
     const id = setInterval(tick, ms);
     return () => clearInterval(id);
-  }, [words, profile?.id]);
+  }, [isDesktop, words, profile?.id]);
 
   // Stampede: tắt poll 60s. Full mode: refresh summary khi tab visible.
   useEffect(() => {
@@ -878,6 +924,7 @@ export default function StudentDashboard() {
   }, [searchQuery]);
 
   const filteredWords = useMemo(() => {
+    if (!isDesktop) return [];
     let result = [...words];
     const q = debouncedQuery.trim().toLowerCase();
     if (q) {
@@ -900,7 +947,7 @@ export default function StudentDashboard() {
     else result.sort((a, b) => new Date(b.created_at ?? 0).getTime() - new Date(a.created_at ?? 0).getTime());
 
     return result;
-  }, [words, debouncedQuery, statusFilter, sortBy]);
+  }, [isDesktop, words, debouncedQuery, statusFilter, sortBy]);
 
   const masteredCount = useMemo(
     () => (
@@ -980,25 +1027,6 @@ export default function StudentDashboard() {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional: so sánh snapshot cũ vs mới
   }, [gamification.total_xp, gamificationLoading, studyStreak, masteredCount, profile?.id]);
-
-  const handleUpdateMeaning = async (wordId: string, translation: string, pos: string, ipa?: string) => {
-    try {
-      const res = await authFetch('/api/words', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ wordId, translation, pos, ipa }),
-      });
-      if (res.ok) {
-        toast.success('✅ Meaning updated!');
-        setSelectedWord(null);
-        if (profile?.id) void loadData(profile.id, currentClassScopeRef.current);
-      } else {
-        throw new Error('Update failed');
-      }
-    } catch {
-      toast.error('❌ Failed to update meaning');
-    }
-  };
 
   const handleJoinClassroom = async () => {
     if (!joinCode.trim() || isJoining) return;
@@ -1092,18 +1120,23 @@ export default function StudentDashboard() {
       ? `/review/session?mode=${mode}&class=${encodeURIComponent(currentClassScope)}`
       : `/review/session?mode=${mode}`;
 
+  const dailyWordGoal = profile?.daily_goal ?? 10;
+  const showWordsSkeleton = wordsLoading || (isDesktop && !desktopWordsLoaded && words.length === 0);
+  const isFreePlan = Boolean(
+    profile && getEffectivePlan(profile.plan, profile.plan_expires_at) === 'free',
+  );
   const todayReviewsComputed = todayReviewWords || Math.max(0, todayWords - todayNewWords);
   const reviewProgressPct = Math.min(
     100,
     Math.round(
       (todayReviewsComputed /
-        Math.max(todayReviewsComputed + reviewDueCount, gamification.daily_goal || 20, 1)) *
+        Math.max(todayReviewsComputed + reviewDueCount, 20, 1)) *
         100
     )
   );
   const newWordsProgressPct = Math.min(
     100,
-    Math.round((todayNewWords / Math.max(gamification.daily_goal || 10, 1)) * 100)
+    Math.round((todayNewWords / Math.max(dailyWordGoal, 1)) * 100)
   );
   const listeningProgressPct = Math.max(
     0,
@@ -1114,12 +1147,13 @@ export default function StudentDashboard() {
         : listeningStats.inProgressPercent
     )
   );
+  const rawReadingPct =
+    readingProgress.totalArticles > 0
+      ? Math.round((readingProgress.completedCount / readingProgress.totalArticles) * 100)
+      : 0;
   const readingProgressPct =
-    dailyReadingStatus.totalCount > 0
-      ? Math.min(
-          100,
-          Math.round((dailyReadingStatus.completedCount / dailyReadingStatus.totalCount) * 100)
-        )
+    readingProgress.completedCount > 0 || readingProgress.inProgressCount > 0
+      ? Math.max(2, Math.min(100, rawReadingPct))
       : 0;
 
   return (
@@ -1130,8 +1164,8 @@ export default function StudentDashboard() {
         hideMobileHeader
         profile={profile}
         gamification={gamification}
+        displayStreak={studyStreak}
         reviewDueCount={reviewDueCount}
-        newCount={newCount}
         classroomId={classroomId}
         onJoinClass={() => {
           setJoinError(null);
@@ -1163,6 +1197,9 @@ export default function StudentDashboard() {
               </div>
 
               <div className="flex shrink-0 items-center gap-1.5">
+                <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[11px] font-extrabold tabular-nums text-indigo-700">
+                  🎯 {todayNewWords}/{dailyWordGoal} từ/ngày
+                </span>
                 <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-extrabold tabular-nums text-slate-600">
                   {countsReady ? totalWords : '…'} từ tích lũy
                 </span>
@@ -1179,7 +1216,6 @@ export default function StudentDashboard() {
             </div>
 
             <EnableNotifications />
-            <DailyReadingCard status={dailyReadingStatus} />
             <ChallengeWidget />
 
             {/* ── CTA CHÍNH TRÊN MÁY TÍNH: 2 THẺ COMPACT (Học Từ Mới & Ôn Tập FSRS) ── */}
@@ -1357,12 +1393,12 @@ export default function StudentDashboard() {
                     <span>Luyện thi chuẩn hóa</span>
                   </span>
                   <span className="rounded-full bg-indigo-50 px-2 py-0.2 text-[9.5px] font-extrabold text-indigo-700">
-                    4 Kỳ thi
+                    3 Kỳ thi
                   </span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-4 gap-2.5">
+              <div className="grid grid-cols-3 gap-2.5">
                 {/* 1. TOEIC */}
                 <button
                   type="button"
@@ -1415,29 +1451,10 @@ export default function StudentDashboard() {
                     <div className="truncate text-[10px] font-medium text-slate-500">Năng lực Ngoại ngữ</div>
                   </div>
                 </Link>
-
-                {/* 4. IELTS */}
-                <button
-                  type="button"
-                  aria-label="IELTS (Đang cập nhật)"
-                  onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
-                  className="group relative flex min-h-[64px] items-center gap-2.5 rounded-xl border border-slate-200/90 bg-white p-2 px-3 shadow-2xs hover:border-amber-300 active:scale-[0.98] transition-all cursor-pointer text-left"
-                >
-                  <span className="absolute -top-1.5 right-2 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white whitespace-nowrap">
-                    Sắp có
-                  </span>
-                  <div className="flex h-9 w-11 shrink-0 items-center justify-center rounded-lg bg-slate-50 p-1 border border-slate-100">
-                    <Image src="/images/exams/ielts.png" alt="IELTS" width={52} height={26} className="max-h-full max-w-full object-contain" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-slate-800">IELTS</div>
-                    <div className="truncate text-[10px] font-medium text-slate-500">Academic & GT</div>
-                  </div>
-                </button>
               </div>
             </div>
 
-            {/* ── KỸ NĂNG THỰC HÀNH (5 THẺ RỘNG CHUẨN DESKTOP) ── */}
+            {/* ── KỸ NĂNG THỰC HÀNH (4 THẺ RỘNG CHUẨN DESKTOP) ── */}
             <div className="space-y-1.5">
               <div className="flex items-center justify-between px-0.5">
                 <div className="flex items-center gap-2">
@@ -1446,12 +1463,12 @@ export default function StudentDashboard() {
                     <span>Kỹ năng thực hành</span>
                   </span>
                   <span className="rounded-full bg-sky-50 px-2 py-0.2 text-[9.5px] font-extrabold text-sky-700">
-                    5 Kỹ năng
+                    4 Kỹ năng
                   </span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-5 gap-2.5">
+              <div className="grid grid-cols-4 gap-2.5">
                 {/* 1. Grammar */}
                 <Link
                   href="/grammar"
@@ -1476,9 +1493,9 @@ export default function StudentDashboard() {
                   className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-amber-50/70 border border-amber-200/80 p-2 px-2.5 text-amber-700 shadow-2xs transition-all hover:border-amber-300 hover:bg-amber-50 hover:shadow-xs active:scale-[0.98] cursor-pointer text-left"
                 >
                   <span className="absolute -top-1.5 right-1.5 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight tabular-nums">
-                    {dailyReadingStatus.totalCount > 0
-                      ? `${dailyReadingStatus.completedCount}/${dailyReadingStatus.totalCount}`
-                      : '3 Chế độ'}
+                    {readingProgress.completedCount > 0
+                      ? `${readingProgress.completedCount}/${readingProgress.totalArticles}`
+                      : '2 Chế độ'}
                   </span>
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-amber-600 shadow-2xs">
                     <FileText className="w-3.5 h-3.5" strokeWidth={2.3} />
@@ -1528,30 +1545,11 @@ export default function StudentDashboard() {
                     <div className="truncate text-[10px] font-semibold text-rose-700/80">Phản xạ nói AI</div>
                   </div>
                 </Link>
-
-                {/* 5. Writing */}
-                <button
-                  type="button"
-                  aria-label="Writing (Sắp có)"
-                  onClick={() => toast.info('Tính năng Luyện Writing sắp ra mắt')}
-                  className="group relative flex min-h-[64px] items-center gap-2 rounded-xl bg-slate-100/80 border border-slate-200 p-2 px-2.5 text-slate-600 shadow-2xs transition-all hover:border-slate-300 active:scale-[0.98] cursor-pointer text-left"
-                >
-                  <span className="absolute -top-1.5 right-1.5 rounded-full bg-slate-500 text-white px-1.5 py-0.2 text-[8px] font-black shadow-2xs ring-1 ring-white leading-tight">
-                    Sắp có
-                  </span>
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-slate-500 shadow-2xs">
-                    <PenTool className="w-3.5 h-3.5 opacity-80" strokeWidth={2.3} />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs font-black text-slate-700">Writing</div>
-                    <div className="truncate text-[10px] font-semibold text-slate-500">Luyện viết học thuật</div>
-                  </div>
-                </button>
               </div>
             </div>
 
             {/* ── KHU VỰC LỊCH THÁNG (col-span-5) & TIẾN ĐỘ NGÀY (col-span-7) CÂN ĐỐI CHIỀU CAO ── */}
-            <div className="grid grid-cols-12 gap-2.5 items-stretch">
+            <div className="grid grid-cols-12 gap-2.5 items-stretch" data-onboarding="progress">
               <div className="col-span-12 lg:col-span-5 min-w-0">
                 <StreakCounter
                   streak={studyStreak}
@@ -1569,9 +1567,14 @@ export default function StudentDashboard() {
                   <span className="flex items-center gap-1.5 text-[11.5px] font-black text-slate-800">
                     🎯 <span>Tiến độ ngày hôm nay</span>
                   </span>
-                  <span className="rounded-full bg-amber-50 px-2 py-0.2 text-[10px] font-extrabold text-amber-700 tabular-nums">
-                    ⭐ {gamification.today_xp} / {gamification.daily_goal || 30} XP
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="rounded-full bg-indigo-50 px-2 py-0.2 text-[10px] font-extrabold text-indigo-700 tabular-nums">
+                      {todayNewWords} / {dailyWordGoal} từ
+                    </span>
+                    <span className="rounded-full bg-amber-50 px-2 py-0.2 text-[10px] font-extrabold text-amber-700 tabular-nums">
+                      ⭐ {gamification.today_xp} XP
+                    </span>
+                  </div>
                 </div>
 
                 {/* 1. Ôn tập */}
@@ -1613,7 +1616,7 @@ export default function StudentDashboard() {
                       <span>Nạp từ mới</span>
                     </span>
                     <span className="font-black text-indigo-700 tabular-nums">
-                      {todayNewWords} / {gamification.daily_goal || 10} từ
+                      {todayNewWords} / {dailyWordGoal} từ
                     </span>
                   </div>
                   <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
@@ -1667,8 +1670,10 @@ export default function StudentDashboard() {
                       <span>Luyện đọc (Reading)</span>
                     </span>
                     <span className="font-black text-amber-700 tabular-nums">
-                      {dailyReadingStatus.totalCount > 0
-                        ? `${dailyReadingStatus.completedCount}/${dailyReadingStatus.totalCount} bài đọc`
+                      {readingProgress.completedCount > 0
+                        ? `${readingProgress.completedCount}/${readingProgress.totalArticles} bài đọc`
+                        : readingProgress.inProgressCount > 0
+                        ? `${readingProgress.inProgressCount} đang đọc`
                         : 'Chưa đọc'}
                     </span>
                   </div>
@@ -1685,14 +1690,14 @@ export default function StudentDashboard() {
             {/* Nhiệm vụ nhận quà Pro */}
             {profile?.id && (
               <ProTrialMilestoneCard
-                enabled
+                enabled={isFreePlan}
                 hintStreak={studyStreak}
                 hintWords={countsReady ? totalWords : undefined}
                 onClaimed={() => {
                   void refreshGamification();
                   void supabase
                     .from('profiles')
-                    .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
+                    .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, daily_goal, created_at')
                     .eq('id', profile.id)
                     .maybeSingle()
                     .then(({ data }) => {
@@ -1701,71 +1706,6 @@ export default function StudentDashboard() {
                 }}
               />
             )}
-
-            {/* HỘP THƯỞNG PRO VIP TRÊN DESKTOP: 2 CỘT NGANG (Chuỗi học 7 ngày + Mời bạn cùng tiến) */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 via-indigo-500/5 to-purple-500/10 p-4 border border-amber-200/70 shadow-2xs space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 font-black text-sm text-slate-800">
-                  <span className="text-amber-500">🎁</span>
-                  <span>Săn ngày PRO miễn phí</span>
-                </div>
-                <span className="text-[10.5px] font-black bg-gradient-to-r from-amber-500 to-orange-500 text-white px-2.5 py-0.5 rounded-full shadow-3xs">
-                  +3 ngày PRO / mốc
-                </span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                {/* 1. Học chăm chỉ (Streak 7 ngày) */}
-                <div className="flex items-center justify-between gap-3 bg-white/95 rounded-xl p-3 border border-slate-100 shadow-3xs">
-                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                    <div className="w-9 h-9 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center shrink-0 text-amber-500">
-                      <Flame className="w-4 h-4 fill-amber-500 stroke-none" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="font-extrabold text-slate-700 truncate">Chuỗi học 7 ngày</span>
-                        <span className="font-black text-amber-600 tabular-nums">
-                          {Math.min(studyStreak, 7)}/7 ngày
-                        </span>
-                      </div>
-                      <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden mt-1.5">
-                        <div
-                          className="bg-gradient-to-r from-amber-400 to-orange-500 h-full rounded-full transition-all duration-500"
-                          style={{ width: `${Math.min(100, Math.round((studyStreak / 7) * 100))}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-lg shrink-0">
-                    +3 ngày PRO
-                  </span>
-                </div>
-
-                {/* 2. Mời bạn cùng tiến */}
-                <div className="flex items-center justify-between gap-3 bg-white/95 rounded-xl p-3 border border-slate-100 shadow-3xs">
-                  <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                    <div className="w-9 h-9 rounded-xl bg-indigo-50 border border-indigo-200/80 flex items-center justify-center shrink-0 text-indigo-600">
-                      <Users className="w-4 h-4 stroke-indigo-600" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-xs font-extrabold text-slate-800 leading-tight">
-                        Mời bạn học cùng
-                      </div>
-                      <div className="text-[10.5px] font-medium text-slate-400 truncate mt-0.5">
-                        Cả hai đều nhận +3 ngày PRO miễn phí
-                      </div>
-                    </div>
-                  </div>
-                  <Link
-                    href="/student/referral"
-                    className="text-[11px] font-black text-white bg-gradient-to-r from-indigo-600 to-violet-600 px-3 py-1.5 rounded-lg shrink-0 shadow-3xs active:scale-95 transition-all hover:brightness-110 flex items-center gap-1"
-                  >
-                    <span>Mời bạn</span>
-                    <ChevronRight className="w-3.5 h-3.5" strokeWidth={2.5} />
-                  </Link>
-                </div>
-              </div>
-            </div>
 
             {/* ── KHO TỪ VỰNG ĐẦY ĐỦ TRÊN MÁY TÍNH (Gói từ + Danh sách từ + Search/Filter) ── */}
             <section
@@ -2024,7 +1964,7 @@ export default function StudentDashboard() {
                 </div>
               </div>
 
-              {wordsLoading ? (
+              {showWordsSkeleton ? (
                 <WordCardSkeleton count={4} />
               ) : words.length === 0 ? (
                 <div className="flex flex-col items-center justify-center gap-2 py-6 text-center">
@@ -2165,9 +2105,6 @@ export default function StudentDashboard() {
             {/* Desktop banner; mobile = fixed popup trong component */}
             <EnableNotifications />
 
-            {/* Daily reading notification */}
-            <DailyReadingCard status={dailyReadingStatus} />
-
             {/* Challenge campaign widget */}
             <ChallengeWidget />
 
@@ -2233,11 +2170,17 @@ export default function StudentDashboard() {
               </div>
 
               {/* CỘT BÊN PHẢI: Nhiều thanh tiến độ chiếm từ trên xuống dưới */}
-              <div className="flex flex-col justify-between rounded-xl border border-slate-200/90 bg-white p-2.5 shadow-2xs min-w-0">
+              <div
+                className="flex flex-col justify-between rounded-xl border border-slate-200/90 bg-white p-2.5 shadow-2xs min-w-0"
+                data-onboarding="progress"
+              >
                 {/* Header nhỏ */}
                 <div className="flex items-center justify-between pb-1 border-b border-slate-100">
                   <span className="text-[11px] font-black text-slate-800 flex items-center gap-1">
                     🎯 <span>Tiến độ ngày</span>
+                  </span>
+                  <span className="rounded-full bg-indigo-50 px-1.5 py-0.2 text-[8.5px] font-extrabold text-indigo-700 tabular-nums">
+                    {todayNewWords}/{dailyWordGoal} từ
                   </span>
                 </div>
 
@@ -2282,7 +2225,7 @@ export default function StudentDashboard() {
                       <span>Từ mới</span>
                     </span>
                     <span className="font-black text-indigo-700 tabular-nums">
-                      {todayNewWords} / {gamification.daily_goal || 10} từ
+                      {todayNewWords} / {dailyWordGoal} từ
                     </span>
                   </div>
                   <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
@@ -2336,8 +2279,10 @@ export default function StudentDashboard() {
                       <span>Reading</span>
                     </span>
                     <span className="font-black text-amber-700 tabular-nums">
-                      {dailyReadingStatus.totalCount > 0
-                        ? `${dailyReadingStatus.completedCount}/${dailyReadingStatus.totalCount} bài đọc`
+                      {readingProgress.completedCount > 0
+                        ? `${readingProgress.completedCount}/${readingProgress.totalArticles} bài đọc`
+                        : readingProgress.inProgressCount > 0
+                        ? `${readingProgress.inProgressCount} đang đọc`
                         : 'Chưa đọc'}
                     </span>
                   </div>
@@ -2354,14 +2299,14 @@ export default function StudentDashboard() {
             {/* Nhiệm vụ nhận quà Pro — luôn hiện trên dashboard free */}
             {profile?.id && (
               <ProTrialMilestoneCard
-                enabled
+                enabled={isFreePlan}
                 hintStreak={studyStreak}
                 hintWords={countsReady ? totalWords : undefined}
                 onClaimed={() => {
                   void refreshGamification();
                   void supabase
                     .from('profiles')
-                    .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
+                    .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, daily_goal, created_at')
                     .eq('id', profile.id)
                     .maybeSingle()
                     .then(({ data }) => {
@@ -2481,7 +2426,7 @@ export default function StudentDashboard() {
             </section>
 
             {/* ═══════════════════════════════════════════════════════════ */}
-            {/* MỤC KỸ NĂNG: TIÊU ĐỀ + 5 NÚT 1CM                           */}
+            {/* MỤC KỸ NĂNG: TIÊU ĐỀ + 4 NÚT 1CM                           */}
             {/* ═══════════════════════════════════════════════════════════ */}
             <div className="space-y-1.5 pt-0.5">
               <div className="flex items-center justify-between px-0.5">
@@ -2490,7 +2435,7 @@ export default function StudentDashboard() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-5 gap-1.5">
+              <div className="grid grid-cols-4 gap-1.5">
                 {/* 1. Grammar */}
                 <Link
                   href="/grammar"
@@ -2532,25 +2477,11 @@ export default function StudentDashboard() {
                   <Mic className="w-4 h-4" strokeWidth={2.4} />
                   <span className="mt-0.5 text-[8.5px] font-black leading-none text-rose-800">Speaking</span>
                 </Link>
-
-                {/* 5. Writing */}
-                <button
-                  type="button"
-                  aria-label="Writing (Sắp có)"
-                  className="group relative flex flex-col items-center justify-center h-[46px] rounded-xl bg-slate-100/80 border border-slate-200 text-slate-500 shadow-3xs cursor-pointer active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
-                  onClick={() => toast.info('Tính năng Luyện Writing sắp ra mắt')}
-                >
-                  <span className="absolute -top-1.5 -right-0.5 rounded-full bg-slate-500 text-white px-1 py-0 text-[6.5px] font-black shadow ring-1 ring-white leading-tight">
-                    Sắp có
-                  </span>
-                  <PenTool className="w-4 h-4 opacity-80" strokeWidth={2.4} />
-                  <span className="mt-0.5 text-[8.5px] font-black leading-none text-slate-600">Writing</span>
-                </button>
               </div>
             </div>
 
             {/* ═══════════════════════════════════════════════════════════ */}
-            {/* MỤC LUYỆN THI: TIÊU ĐỀ + 4 LOGO THẬT                       */}
+            {/* MỤC LUYỆN THI: TIÊU ĐỀ + 3 LOGO THẬT                       */}
             {/* ═══════════════════════════════════════════════════════════ */}
             <div className="space-y-1.5 pt-0.5">
               <div className="flex items-center justify-between px-0.5">
@@ -2559,7 +2490,7 @@ export default function StudentDashboard() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-4 gap-2">
+              <div className="grid grid-cols-3 gap-2">
                 {/* 1. TOEIC (Popup: Vào luyện thi + Học TOEIC) */}
                 <button
                   type="button"
@@ -2585,88 +2516,6 @@ export default function StudentDashboard() {
                 >
                   <Image src="/images/exams/vnu-test.png" alt="VNU Test" width={64} height={32} className="max-h-full max-w-full object-contain" />
                 </Link>
-
-                {/* 4. IELTS (Đang cập nhật) */}
-                <button
-                  type="button"
-                  aria-label="IELTS (Đang cập nhật)"
-                  onClick={() => toast.info('Chương trình Luyện thi IELTS đang được cập nhật')}
-                  className="group relative flex items-center justify-center h-[52px] rounded-xl border border-slate-200/80 bg-white p-2 shadow-3xs active:scale-95 transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
-                >
-                  <span className="absolute -top-1.5 -right-1 rounded-full bg-amber-500 text-white px-1.5 py-0.2 text-[6.5px] font-black shadow ring-1 ring-white whitespace-nowrap">
-                    Đang cập nhật
-                  </span>
-                  <Image src="/images/exams/ielts.png" alt="IELTS" width={64} height={32} className="max-h-full max-w-full object-contain" />
-                </button>
-              </div>
-            </div>
-
-            {/* ═══════════════════════════════════════════════════════════ */}
-            {/* HỘP THƯỞNG PRO VIP: HỌC CHĂM + MỜI BẠN                     */}
-            {/* ═══════════════════════════════════════════════════════════ */}
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-amber-500/10 via-indigo-500/5 to-purple-500/10 p-2.5 border border-amber-200/70 shadow-2xs space-y-2">
-              {/* Header */}
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5 font-black text-xs text-slate-800">
-                  <span className="text-amber-500">🎁</span>
-                  <span>Săn ngày PRO miễn phí</span>
-                </div>
-                <span className="text-[9px] font-black bg-gradient-to-r from-amber-500 to-orange-500 text-white px-2 py-0.5 rounded-full shadow-3xs">
-                  +3 ngày PRO / mốc
-                </span>
-              </div>
-
-              {/* 2 Nhiệm vụ săn PRO */}
-              <div className="space-y-1.5">
-                {/* 1. Học chăm chỉ (Streak 7 ngày) */}
-                <div className="flex items-center justify-between gap-2 bg-white/95 rounded-xl p-2 border border-slate-100 shadow-3xs">
-                  <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <div className="w-7 h-7 rounded-lg bg-amber-50 border border-amber-200/80 flex items-center justify-center shrink-0 text-amber-500">
-                      <Flame className="w-4 h-4 fill-amber-500 stroke-none" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-center justify-between text-[9.5px]">
-                        <span className="font-extrabold text-slate-700 truncate">Chuỗi học 7 ngày</span>
-                        <span className="font-black text-amber-600 tabular-nums">
-                          {Math.min(studyStreak, 7)}/7 ngày
-                        </span>
-                      </div>
-                      <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-1">
-                        <div
-                          className="bg-gradient-to-r from-amber-400 to-orange-500 h-full rounded-full transition-all duration-500"
-                          style={{ width: `${Math.min(100, Math.round((studyStreak / 7) * 100))}%` }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <span className="text-[8.5px] font-extrabold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-1 rounded-lg shrink-0">
-                    +3 ngày PRO
-                  </span>
-                </div>
-
-                {/* 2. Mời bạn cùng tiến */}
-                <div className="flex items-center justify-between gap-2 bg-white/95 rounded-xl p-2 border border-slate-100 shadow-3xs">
-                  <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200/80 flex items-center justify-center shrink-0 text-indigo-600">
-                      <Users className="w-4 h-4 stroke-indigo-600" />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="text-[9.5px] font-extrabold text-slate-800 leading-tight">
-                        Mời bạn học cùng
-                      </div>
-                      <div className="text-[8px] font-medium text-slate-400 truncate mt-0.5">
-                        Cả hai đều nhận +3 ngày PRO miễn phí
-                      </div>
-                    </div>
-                  </div>
-                  <Link
-                    href="/student/referral"
-                    className="text-[8.5px] font-black text-white bg-gradient-to-r from-indigo-600 to-violet-600 px-2.5 py-1 rounded-lg shrink-0 shadow-3xs active:scale-95 transition-all hover:brightness-110 flex items-center gap-0.5"
-                  >
-                    <span>Mời bạn</span>
-                    <ChevronRight className="w-2.5 h-2.5" strokeWidth={2.5} />
-                  </Link>
-                </div>
               </div>
             </div>
 
@@ -2692,73 +2541,6 @@ export default function StudentDashboard() {
             setTotalWords((prev) => Math.max(0, prev - 1));
           }}
         />
-
-        {/* ═══ MEANING SELECTOR MODAL ═══ */}
-        {selectedWord && (
-          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={() => setSelectedWord(null)} />
-            <div className="relative w-full max-w-xl bg-background rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200">
-              <div className="p-6 border-b flex items-center justify-between bg-primary/5">
-                <div>
-                  <h3 className="text-2xl font-black text-primary uppercase tracking-tight">{selectedWord.word}</h3>
-                  <p className="text-xs font-bold text-muted-foreground">Select the correct meaning to study</p>
-                </div>
-                <button
-                  onClick={() => setSelectedWord(null)}
-                  className="p-2 hover:bg-black/5 rounded-full transition-colors"
-                >
-                  <X className="h-6 w-6" />
-                </button>
-              </div>
-
-              <div className="p-6 max-h-[60vh] overflow-y-auto space-y-4">
-                {(selectedWord.dictionary_data as unknown as Array<{
-                  pos?: string;
-                  pronunciations?: { ipa?: string }[];
-                  definitions: Array<{ definition: string; pos?: string; example?: string }>;
-                }> | null | undefined)?.map((entry, eIdx) => (
-                  <div key={eIdx} className="space-y-3">
-                    {entry.definitions.map((def, dIdx) => (
-                      <button
-                        key={`${eIdx}-${dIdx}`}
-                        onClick={() => handleUpdateMeaning(selectedWord.id, def.definition, def.pos || '', entry.pronunciations?.[0]?.ipa)}
-                        className="w-full text-left p-4 rounded-2xl border-2 border-transparent hover:border-primary hover:bg-primary/5 transition-all group"
-                      >
-                        <div className="flex items-center gap-2 mb-1">
-                          <Badge variant="outline" className="text-[10px] font-black uppercase text-primary border-primary/20">
-                            {def.pos || entry.pos || 'Word'}
-                          </Badge>
-                          {entry.pronunciations?.[0]?.ipa && (
-                            <span className="text-xs font-bold text-muted-foreground font-mono">
-                              {parseIpa(entry.pronunciations[0].ipa)}
-                            </span>
-                          )}
-                        </div>
-                        <p className="font-bold text-slate-800 mb-2 leading-relaxed">
-                          {def.definition}
-                        </p>
-                        {def.example && (
-                          <p className="text-xs font-medium text-slate-500 italic">
-                            &quot;{def.example}&quot;
-                          </p>
-                        )}
-                      </button>
-                    ))}
-                  </div>
-                ))}
-              </div>
-
-              <div className="p-6 bg-slate-50 border-t flex justify-end">
-                <button
-                  onClick={() => setSelectedWord(null)}
-                  className="px-6 py-2 font-black text-slate-500 hover:text-slate-700"
-                >
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* ═══ JOIN CLASSROOM MODAL ═══ */}
         {isJoinModalOpen && (

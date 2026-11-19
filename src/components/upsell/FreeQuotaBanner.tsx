@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Crown, X } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
+import { getEffectivePlan } from '@/lib/entitlement';
+import { useStudentContext } from '@/components/student/StudentProvider';
 import { FREE_WORD_MONTHLY_LIMIT, requestUpsell } from '@/lib/upsell';
 
 type Quota = {
@@ -20,11 +22,18 @@ type Quota = {
 
 const SESSION_HIDE_KEY = 'lp:free_quota_banner_hide';
 
-export function FreeQuotaBanner() {
+export function FreeQuotaBanner({ enabled = true }: { enabled?: boolean }) {
+  const studentCtx = useStudentContext();
+  const ctxProfile = studentCtx?.profile ?? null;
+  const isKnownNonFree = Boolean(
+    ctxProfile && getEffectivePlan(ctxProfile.plan, ctxProfile.plan_expires_at) !== 'free',
+  );
   const [quota, setQuota] = useState<Quota | null>(null);
   const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
+    if (!enabled || isKnownNonFree) return;
+
     try {
       if (sessionStorage.getItem(SESSION_HIDE_KEY) === '1') setHidden(true);
     } catch {
@@ -93,9 +102,9 @@ export function FreeQuotaBanner() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [enabled, isKnownNonFree]);
 
-  if (hidden || !quota) return null;
+  if (!enabled || isKnownNonFree || hidden || !quota) return null;
 
   const over = quota.used >= quota.limit || quota.remaining <= 0;
   const pct = Math.min(100, Math.round((quota.used / Math.max(1, quota.limit)) * 100));

@@ -34,12 +34,9 @@ const CohortProPromoBanner = dynamic(
   () => import('@/components/upsell/CohortProPromoBanner').then((m) => m.CohortProPromoBanner),
   { ssr: false },
 );
-const UpgradeGiftModal = dynamic(
-  () => import('@/components/campaign/UpgradeGiftModal').then((m) => m.UpgradeGiftModal),
-  { ssr: false },
-);
 
 import { useGamification } from '@/hooks/useGamification';
+import { getEffectivePlan } from '@/lib/entitlement';
 import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
 import {
@@ -121,8 +118,8 @@ interface StudentShellProps {
   /** Optional overrides from parent context or props */
   profile?: ShellProfile | null;
   gamification?: UserGamification;
+  displayStreak?: number;
   reviewDueCount?: number;
-  newCount?: number;
   classroomId?: string | null;
 }
 
@@ -137,8 +134,8 @@ export function StudentShell({
   requireAuth = true,
   profile: propProfile,
   gamification: propGamification,
+  displayStreak: propDisplayStreak,
   reviewDueCount: propReviewDueCount,
-  newCount: propNewCount,
   classroomId: propClassroomId,
 }: StudentShellProps) {
   const pathname = usePathname();
@@ -167,11 +164,6 @@ export function StudentShell({
     if (context?.wordSummary) return context.wordSummary.reviewDueCount;
     const cached = readLastWordSummaryCache();
     return cached?.reviewDueCount ?? 0;
-  });
-  const [newCount, setNewCount] = useState<number>(() => {
-    if (context?.wordSummary) return context.wordSummary.newCount;
-    const cached = readLastWordSummaryCache();
-    return cached?.newCount ?? 0;
   });
   const [grammarDue, setGrammarDue] = useState<number>(() => readGrammarDueCache()?.dueCount ?? 0);
   const [isBootstrapping, setIsBootstrapping] = useState<boolean>(() => {
@@ -209,15 +201,14 @@ export function StudentShell({
     propClassroomId ?? context?.wordSummary.classroomId ?? classroomId;
   const effectiveReviewDueCount =
     propReviewDueCount ?? context?.wordSummary.reviewDueCount ?? reviewDueCount;
-  const effectiveNewCount =
-    propNewCount ?? context?.wordSummary.newCount ?? newCount;
+  const resolvedStreak =
+    typeof propDisplayStreak === 'number' ? propDisplayStreak : effectiveGamification.current_streak;
   const effectiveImmersive = immersive || embedMode;
   const hasContext = Boolean(context);
   const contextSessionUserId = context?.session?.user?.id ?? null;
   const isFreePlan = Boolean(
-    effectiveProfile
-      ? !effectiveProfile.plan || effectiveProfile.plan === 'free'
-      : !isBootstrapping,
+    effectiveProfile &&
+      getEffectivePlan(effectiveProfile.plan, effectiveProfile.plan_expires_at) === 'free',
   );
 
   useEffect(() => {
@@ -313,7 +304,6 @@ export function StudentShell({
         const cached = readWordSummaryCache(session.user.id);
         if (cached && !isCancelled) {
           setReviewDueCount(cached.reviewDueCount);
-          setNewCount(cached.newCount ?? 0);
           if (cached.classroomId) setClassroomId(cached.classroomId);
         }
         const cachedGrammar = readGrammarDueCache(session.user.id);
@@ -357,7 +347,6 @@ export function StudentShell({
           const nextNew = Number(wordsResponse.newCount ?? 0);
           setClassroomId(wordsResponse.classroomId ?? null);
           setReviewDueCount(nextReview);
-          setNewCount(nextNew);
           writeWordSummaryCache(session.user.id, {
             total: Number(wordsResponse.total ?? 0),
             newCount: nextNew,
@@ -435,9 +424,17 @@ export function StudentShell({
       } catch {}
     };
 
-    if ('requestIdleCallback' in window) {
-      const id = (window as any).requestIdleCallback(runRouteWarmup, { timeout: 3500 });
-      return () => (window as any).cancelIdleCallback?.(id);
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (typeof win.requestIdleCallback === 'function') {
+      const id = win.requestIdleCallback(runRouteWarmup, { timeout: 3500 });
+      return () => {
+        if (typeof win.cancelIdleCallback === 'function') {
+          win.cancelIdleCallback(id);
+        }
+      };
     } else {
       const timer = setTimeout(runRouteWarmup, 1500);
       return () => clearTimeout(timer);
@@ -682,7 +679,6 @@ export function StudentShell({
 
   return (
     <>
-      <UpgradeGiftModal />
       <div
         className={cn(
           'flex min-h-dvh w-full font-sans',
@@ -744,7 +740,7 @@ export function StudentShell({
               <div className="flex flex-1 items-center gap-1.5 rounded-md border border-[#fde2c0] bg-[#fff5e9] px-3 py-1.5 dark:border-amber-900/40 dark:bg-amber-950/25">
                 <span className="text-sm leading-none">🔥</span>
                 <span className="tabular-nums text-xs font-black text-[#ea7a23]">
-                  {effectiveGamification.current_streak} ngày
+                  {resolvedStreak} ngày
                 </span>
               </div>
               <div className="flex flex-1 items-center gap-1.5 rounded-md border border-[#fbeaa6] bg-[#fffbe8] px-3 py-1.5 dark:border-yellow-900/40 dark:bg-yellow-950/25">
@@ -1030,7 +1026,7 @@ export function StudentShell({
           <CohortProPromoBanner variant="dashboard" />
         ) : null}
         {/* Free ≥150: banner dính + ép modal — lead upsell chắc thấy */}
-        {showChrome && !effectiveImmersive ? <FreeQuotaBanner /> : null}
+        {showChrome && !effectiveImmersive && isFreePlan ? <FreeQuotaBanner /> : null}
 
         {showChrome && (
         <header
@@ -1095,7 +1091,7 @@ export function StudentShell({
               <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
                 <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
                 <span className="tabular-nums text-[12px] font-black text-[#ea7a23] sm:text-[13px]">
-                  {effectiveGamification.current_streak}
+                  {resolvedStreak}
                 </span>
               </div>
               <div className="hidden items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1 md:flex">
@@ -1110,7 +1106,7 @@ export function StudentShell({
               <NotificationBell
                 dueCount={effectiveReviewDueCount}
                 grammarDueCount={grammarDue}
-                streak={effectiveGamification.current_streak}
+                streak={resolvedStreak}
                 dailyGoalXp={effectiveGamification.today_xp}
                 dailyGoal={effectiveGamification.daily_goal}
                 classroomId={effectiveClassroomId}
@@ -1206,13 +1202,7 @@ export function StudentShell({
         </div>
       </main>
 
-      {showBottomNav && (
-        <MobileBottomNav
-          classroomId={effectiveClassroomId}
-          reviewDueCount={effectiveReviewDueCount}
-          newCount={effectiveNewCount}
-        />
-      )}
+      {showBottomNav && <MobileBottomNav />}
     </div>
     </>
   );
