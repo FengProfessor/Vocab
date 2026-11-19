@@ -18,7 +18,6 @@ import { checkWordSaveQuota, resolveUserPlanInfo, recordWordSaved } from '@/lib/
 import { cacheGet, cacheSet, invalidateClassroomWordSummaryCaches, invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 import { aggregateWordSummaries, mergeAndDedupeNewWords } from '@/lib/unified-student-words';
 import { parseIpa } from '@/lib/study';
-import { extractVietnameseSentenceTranslation } from '@/lib/review-modes';
 import { isWordValidForReview, deduplicateReviewWords } from '@/lib/review-queue';
 import {
   getLookupCandidateKeys,
@@ -57,6 +56,14 @@ type WordWithSrsList = Word & {
   src?: string | null;
 };
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const WORDS_LIST_SELECT =
+  'id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at, fw:dictionary_data->familyWords, tn:dictionary_data->>teacherNote, sec:dictionary_data->>section, src:dictionary_data->>source, srs_progress(user_id, stability, review_count, next_review_date, ease_factor, interval_days, difficulty, last_reviewed_at)';
+
+function buildWordSearchOrFilter(rawQ: string): string {
+  const likeEscaped = rawQ.replace(/[%_\\]/g, '\\$&');
+  const pgQuoted = likeEscaped.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  return `word.ilike."%${pgQuoted}%",translation.ilike."%${pgQuoted}%"`;
+}
 
 function normalizeWordFamilyMeta(raw: unknown): WordFamilyEntry[] | undefined {
   if (!Array.isArray(raw) || raw.length === 0) return undefined;
@@ -1019,8 +1026,37 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (listDenied) return listDenied;
     }
     // Cap page size — cào full kho bằng limit=500 bị chặn
-    const limit = Math.min(50, Math.max(1, parseInt(searchParams.get('limit') || '20', 10)));
-    const offset = Math.max(0, parseInt(searchParams.get('offset') || '0', 10));
+    const parsedLimit = Number.parseInt(searchParams.get('limit') || '20', 10);
+    const parsedOffset = Number.parseInt(searchParams.get('offset') || '0', 10);
+    const limit = Number.isFinite(parsedLimit) ? Math.min(50, Math.max(1, parsedLimit)) : 20;
+    const offset = Number.isFinite(parsedOffset) ? Math.max(0, parsedOffset) : 0;
+
+    // Optional server-side filters & sorting for paginated list (Word Vault & teacher approval queue)
+    const q = (searchParams.get('q') || '').trim().slice(0, 100);
+    const rawStatus = (searchParams.get('status') || '').trim().toLowerCase();
+    const dbStatusFilter =
+      rawStatus === 'pending' || rawStatus === 'approved' || rawStatus === 'rejected'
+        ? rawStatus
+        : null;
+    const srsStatusFilter =
+      rawStatus === 'new' ||
+      rawStatus === 'due' ||
+      rawStatus === 'learned' ||
+      rawStatus === 'mastered'
+        ? rawStatus
+        : null;
+    const rawLevel = Number.parseInt(searchParams.get('level') || '', 10);
+    const levelFilter =
+      Number.isFinite(rawLevel) && rawLevel >= 1 && rawLevel <= 6 ? rawLevel : null;
+    const rawSort = (searchParams.get('sort') || '').trim().toLowerCase();
+    const sortParam =
+      rawSort === 'newest' ||
+      rawSort === 'oldest' ||
+      rawSort === 'az' ||
+      rawSort === 'hardest'
+        ? rawSort
+        : null;
+    const effectiveSort = sortParam ?? 'newest';
     const idsParam = searchParams.get('ids');
     const parsedIds = idsParam === null
       ? null
@@ -1589,49 +1625,330 @@ export async function GET(req: Request): Promise<NextResponse> {
       });
     }
 
-    let countQuery = supabase
-      .from('words')
-      .select('id', { count: 'exact', head: true });
-    // Payload nhẹ: bỏ dictionary_data / image meta — dashboard + ôn không cần.
-    // Lọc srs_progress theo đúng user_id ngay tại DB để tránh nhân bản N_words * 300_students trong lớp học.
-    let wordsQuery = supabase
-      .from('words')
-      .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at, fw:dictionary_data->familyWords, tn:dictionary_data->>teacherNote, sec:dictionary_data->>section, src:dictionary_data->>source, srs_progress(user_id, stability, review_count, next_review_date, ease_factor, interval_days, difficulty, last_reviewed_at)')
-      .eq('srs_progress.user_id', userId);
+    const hasListFilters = Boolean(
+      q || dbStatusFilter || srsStatusFilter || levelFilter || requestedIds,
+    );
+    const needsSrsScan = Boolean(
+      srsStatusFilter || levelFilter || effectiveSort === 'hardest',
+    );
+    const searchOr = q ? buildWordSearchOrFilter(q) : null;
 
-    if (targetClassroomIds.length === 1) {
-      countQuery = countQuery.eq('classroom_id', targetClassroomIds[0]);
-      wordsQuery = wordsQuery.eq('classroom_id', targetClassroomIds[0]);
-    } else {
-      countQuery = countQuery.in('classroom_id', targetClassroomIds);
-      wordsQuery = wordsQuery.in('classroom_id', targetClassroomIds);
+    const summaryCountsPromise = includeCounts
+      ? fetchWordSummaryCounts(
+          supabase,
+          userId,
+          hasExplicitScope ? classroomId : null,
+          includeLevels,
+          targetClassroomIds,
+        )
+      : Promise.resolve(null);
+
+    let rawWordRows: WordWithSrsList[] = [];
+    let countResultCount: number | null = null;
+    let filteredTotal = 0;
+
+    if (!needsSrsScan) {
+      // Path A: Fast DB-only ranged query (handles q, DB approval status, oldest/az/newest)
+      let countQuery = supabase
+        .from('words')
+        .select('id', { count: 'exact', head: true });
+      // Payload nhẹ: bỏ dictionary_data / image meta — dashboard + ôn không cần.
+      // Lọc srs_progress theo đúng user_id ngay tại DB để tránh nhân bản N_words * 300_students trong lớp học.
+      let wordsQuery = supabase
+        .from('words')
+        .select(WORDS_LIST_SELECT)
+        .eq('srs_progress.user_id', userId);
+
+      if (targetClassroomIds.length === 1) {
+        countQuery = countQuery.eq('classroom_id', targetClassroomIds[0]);
+        wordsQuery = wordsQuery.eq('classroom_id', targetClassroomIds[0]);
+      } else {
+        countQuery = countQuery.in('classroom_id', targetClassroomIds);
+        wordsQuery = wordsQuery.in('classroom_id', targetClassroomIds);
+      }
+
+      if (requestedIds) {
+        countQuery = countQuery.in('id', requestedIds);
+        wordsQuery = wordsQuery.in('id', requestedIds);
+      }
+      if (dbStatusFilter) {
+        countQuery = countQuery.eq('status', dbStatusFilter);
+        wordsQuery = wordsQuery.eq('status', dbStatusFilter);
+      }
+      if (searchOr) {
+        countQuery = countQuery.or(searchOr);
+        wordsQuery = wordsQuery.or(searchOr);
+      }
+
+      if (effectiveSort === 'oldest') {
+        wordsQuery = wordsQuery
+          .order('created_at', { ascending: true })
+          .order('id', { ascending: true });
+      } else if (effectiveSort === 'az') {
+        wordsQuery = wordsQuery
+          .order('word', { ascending: true })
+          .order('created_at', { ascending: false });
+      } else {
+        wordsQuery = wordsQuery
+          .order('created_at', { ascending: false })
+          .order('id', { ascending: false });
+      }
+
+      const skipCountQuery = noCount || (includeCounts && !hasListFilters);
+      const [countResult, wordsResult, summaryCounts] = await Promise.all([
+        skipCountQuery ? Promise.resolve({ count: null as number | null }) : countQuery,
+        wordsQuery.range(offset, offset + limit - 1),
+        summaryCountsPromise,
+      ]);
+
+      if (wordsResult.error) throw wordsResult.error;
+      rawWordRows = (wordsResult.data || []) as WordWithSrsList[];
+      countResultCount = countResult.count ?? null;
+
+      // Preserve summaryCounts variable cleanly below via resolvedSummaryCounts
+      const resolvedSummaryCounts = summaryCounts;
+      const now = Date.now();
+      let enriched = rawWordRows.map((w) => {
+        const { srs_progress, fw, tn, sec, src, ...wordFields } = w;
+        const needsStaticHeal =
+          Boolean(wordFields.word) &&
+          (isPendingOrInvalidTranslation(wordFields.translation) || !wordFields.ipa || !wordFields.example);
+        const fallback = needsStaticHeal ? resolveStaticVocabFallback(wordFields.word) : null;
+        const resolvedFields = fallback
+          ? {
+              ...wordFields,
+              translation: isPendingOrInvalidTranslation(wordFields.translation) && fallback.translation
+                ? fallback.translation
+                : wordFields.translation,
+              ipa: wordFields.ipa || fallback.ipa || '',
+              pos: wordFields.pos || fallback.pos || '',
+              example: wordFields.example || fallback.example || '',
+              example_vi: wordFields.example_vi || fallback.example_vi || null,
+              image_url: wordFields.image_url || fallback.image_url || null,
+            }
+          : wordFields;
+
+        const srs = (srs_progress || []).find((s) => s.user_id === userId) || null;
+        const nextReviewDate = srs?.next_review_date ? new Date(srs.next_review_date).getTime() : now;
+
+        // FSRS calculation: Map stability to a virtual Level 1-6 (Level 0 for new/unstudied words)
+        const reviewCount = srs?.review_count || 0;
+        const isNew = !srs || reviewCount === 0;
+        const stability = srs?.stability || 0;
+        const srsLevel = isNew
+          ? 0
+          : stability > 0
+            ? stabilityToLevel(stability)
+            : reviewCountToLevel(reviewCount);
+        const isDue = isNew || nextReviewDate <= now;
+        const familyWords = normalizeWordFamilyMeta(fw);
+        const teacherNote = tn?.trim() || undefined;
+        const section = sec?.trim() || undefined;
+        const source = src?.trim() || undefined;
+
+        return {
+          ...resolvedFields,
+          ...(familyWords ? { familyWords } : {}),
+          ...(teacherNote ? { teacherNote } : {}),
+          ...(section ? { section } : {}),
+          ...(source ? { source } : {}),
+          srs,
+          isDue,
+          reviewCount,
+          srsLevel,
+          mastery: isNew ? 0 : Math.min(100, srsLevel * 20),
+          status: isNew ? 'new' : srsLevel >= 5 ? 'mastered' : 'learning',
+        };
+      });
+
+      if (requestedIds && requestedIds.length > 0 && !sortParam) {
+        const orderMap = new Map(requestedIds.map((id, idx) => [id, idx]));
+        enriched = [...enriched].sort(
+          (a, b) => (orderMap.get(a.id) ?? Number.MAX_SAFE_INTEGER) - (orderMap.get(b.id) ?? Number.MAX_SAFE_INTEGER),
+        );
+      }
+
+      const total = hasListFilters
+        ? (noCount ? null : (countResultCount ?? 0))
+        : (resolvedSummaryCounts?.total ?? countResultCount ?? (noCount ? null : 0));
+
+      return new NextResponse(JSON.stringify({
+        success: true,
+        data: enriched,
+        classroomId: responseClassroomId,
+        total,
+        ...(resolvedSummaryCounts
+          ? {
+              newCount: resolvedSummaryCounts.newCount,
+              reviewDueCount: resolvedSummaryCounts.reviewDueCount,
+              dueCount: resolvedSummaryCounts.dueCount,
+            }
+          : {}),
+        limit,
+        offset,
+        hasMore: total != null ? offset + enriched.length < total : enriched.length >= limit,
+      }), {
+        headers: { 'Cache-Control': 'private, no-store' },
+      });
     }
 
-    if (requestedIds) {
-      countQuery = countQuery.in('id', requestedIds);
-      wordsQuery = wordsQuery.in('id', requestedIds);
-    }
+    // Path B: SRS-aware two-phase query for status=new|due|learned|mastered, level=1..6, or sort=hardest
+    const SCAN_CHUNK = 1000;
+    type CandidateWordRow = { id: string; word: string; created_at: string };
+    const candidateWords: CandidateWordRow[] = [];
 
-    const [countResult, wordsResult, summaryCounts] = await Promise.all([
-      (includeCounts || noCount) ? Promise.resolve({ count: null as number | null }) : countQuery,
-      wordsQuery
+    for (let from = 0; ; from += SCAN_CHUNK) {
+      let candQuery = supabase
+        .from('words')
+        .select('id, word, created_at')
         .order('created_at', { ascending: false })
-        .range(offset, offset + limit - 1),
-      includeCounts
-        ? fetchWordSummaryCounts(
-            supabase,
-            userId,
-            hasExplicitScope ? classroomId : null,
-            includeLevels,
-            targetClassroomIds,
-          )
-        : Promise.resolve(null),
+        .order('id', { ascending: false })
+        .range(from, from + SCAN_CHUNK - 1);
+
+      if (targetClassroomIds.length === 1) {
+        candQuery = candQuery.eq('classroom_id', targetClassroomIds[0]);
+      } else {
+        candQuery = candQuery.in('classroom_id', targetClassroomIds);
+      }
+      if (requestedIds) {
+        candQuery = candQuery.in('id', requestedIds);
+      }
+      if (dbStatusFilter) {
+        candQuery = candQuery.eq('status', dbStatusFilter);
+      }
+      if (searchOr) {
+        candQuery = candQuery.or(searchOr);
+      }
+
+      const { data: chunkRows, error: candErr } = await candQuery;
+      if (candErr) throw candErr;
+      const rows = (chunkRows || []) as CandidateWordRow[];
+      candidateWords.push(...rows);
+      if (rows.length < SCAN_CHUNK) break;
+    }
+
+    type LightSrsRow = {
+      word_id: string;
+      stability?: number | null;
+      review_count?: number | null;
+      next_review_date?: string | null;
+      difficulty?: number | null;
+    };
+    const srsByWord = new Map<string, LightSrsRow>();
+
+    if (candidateWords.length > 0) {
+      if (candidateWords.length <= 200) {
+        const { data: srsRows, error: srsErr } = await supabase
+          .from('srs_progress')
+          .select('word_id, stability, review_count, next_review_date, difficulty')
+          .eq('user_id', userId)
+          .in('word_id', candidateWords.map((w) => w.id));
+        if (srsErr) throw srsErr;
+        for (const row of (srsRows || []) as LightSrsRow[]) {
+          if (row.word_id) srsByWord.set(row.word_id, row);
+        }
+      } else {
+        for (let from = 0; ; from += SCAN_CHUNK) {
+          const { data: srsRows, error: srsErr } = await supabase
+            .from('srs_progress')
+            .select('word_id, stability, review_count, next_review_date, difficulty')
+            .eq('user_id', userId)
+            .order('word_id', { ascending: true })
+            .range(from, from + SCAN_CHUNK - 1);
+          if (srsErr) throw srsErr;
+          const rows = (srsRows || []) as LightSrsRow[];
+          for (const row of rows) {
+            if (row.word_id) srsByWord.set(row.word_id, row);
+          }
+          if (rows.length < SCAN_CHUNK) break;
+        }
+      }
+    }
+
+    const scanNow = Date.now();
+    type MatchedWordCandidate = {
+      id: string;
+      word: string;
+      createdAtMs: number;
+      difficulty: number;
+    };
+    const matchedCandidates: MatchedWordCandidate[] = [];
+
+    for (const cw of candidateWords) {
+      const srs = srsByWord.get(cw.id) || null;
+      const reviewCount = srs?.review_count || 0;
+      const isNew = !srs || reviewCount === 0;
+      const stability = srs?.stability || 0;
+      const srsLevel = isNew
+        ? 0
+        : stability > 0
+          ? stabilityToLevel(stability)
+          : reviewCountToLevel(reviewCount);
+      const nextReviewMs = srs?.next_review_date ? new Date(srs.next_review_date).getTime() : scanNow;
+      const isDue = isNew || nextReviewMs <= scanNow;
+
+      if (srsStatusFilter === 'new' && !isNew) continue;
+      if (srsStatusFilter === 'due' && !(reviewCount > 0 && isDue)) continue;
+      if (srsStatusFilter === 'learned' && !(reviewCount > 0 && !isDue && srsLevel < 5)) continue;
+      if (srsStatusFilter === 'mastered' && !(srsLevel >= 5)) continue;
+
+      if (levelFilter !== null) {
+        // L1 summary bucket includes both unstudied words (srsLevel === 0) and stability < 2 (srsLevel === 1)
+        if (levelFilter === 1) {
+          if (srsLevel > 1) continue;
+        } else if (srsLevel !== levelFilter) {
+          continue;
+        }
+      }
+
+      const parsedCreated = Date.parse(cw.created_at);
+      matchedCandidates.push({
+        id: cw.id,
+        word: cw.word,
+        createdAtMs: Number.isFinite(parsedCreated) ? parsedCreated : 0,
+        difficulty: Number(srs?.difficulty ?? 0),
+      });
+    }
+
+    if (requestedIds && requestedIds.length > 0 && !sortParam) {
+      const orderMap = new Map(requestedIds.map((id, idx) => [id, idx]));
+      matchedCandidates.sort(
+        (a, b) => (orderMap.get(a.id) ?? Number.MAX_SAFE_INTEGER) - (orderMap.get(b.id) ?? Number.MAX_SAFE_INTEGER),
+      );
+    } else if (effectiveSort === 'oldest') {
+      matchedCandidates.sort((a, b) => a.createdAtMs - b.createdAtMs || a.id.localeCompare(b.id));
+    } else if (effectiveSort === 'az') {
+      matchedCandidates.sort((a, b) => a.word.localeCompare(b.word) || b.createdAtMs - a.createdAtMs);
+    } else if (effectiveSort === 'hardest') {
+      matchedCandidates.sort((a, b) => b.difficulty - a.difficulty || b.createdAtMs - a.createdAtMs);
+    } else {
+      matchedCandidates.sort((a, b) => b.createdAtMs - a.createdAtMs || b.id.localeCompare(a.id));
+    }
+
+    filteredTotal = matchedCandidates.length;
+    const pageIds = matchedCandidates.slice(offset, offset + limit).map((m) => m.id);
+
+    const [pageWordsResult, resolvedSummaryCounts] = await Promise.all([
+      pageIds.length > 0
+        ? supabase
+            .from('words')
+            .select(WORDS_LIST_SELECT)
+            .in('id', pageIds)
+            .eq('srs_progress.user_id', userId)
+        : Promise.resolve({ data: [] as WordWithSrsList[], error: null }),
+      summaryCountsPromise,
     ]);
 
-    if (wordsResult.error) throw wordsResult.error;
+    if (pageWordsResult.error) throw pageWordsResult.error;
+    const pageRowById = new Map(
+      ((pageWordsResult.data || []) as WordWithSrsList[]).map((row) => [row.id, row]),
+    );
+    rawWordRows = pageIds
+      .map((id) => pageRowById.get(id))
+      .filter((row): row is WordWithSrsList => Boolean(row));
 
-    const now = new Date().getTime();
-    let enriched = ((wordsResult.data || []) as WordWithSrsList[]).map((w) => {
+    const now = Date.now();
+    const enriched = rawWordRows.map((w) => {
       const { srs_progress, fw, tn, sec, src, ...wordFields } = w;
       const needsStaticHeal =
         Boolean(wordFields.word) &&
@@ -1684,29 +2001,22 @@ export async function GET(req: Request): Promise<NextResponse> {
       };
     });
 
-    if (requestedIds && requestedIds.length > 0) {
-      const orderMap = new Map(requestedIds.map((id, idx) => [id, idx]));
-      enriched = [...enriched].sort(
-        (a, b) => (orderMap.get(a.id) ?? Number.MAX_SAFE_INTEGER) - (orderMap.get(b.id) ?? Number.MAX_SAFE_INTEGER),
-      );
-    }
-
-    const total = summaryCounts?.total ?? countResult.count ?? (noCount ? null : 0);
+    const total = noCount && !includeCounts ? null : filteredTotal;
     return new NextResponse(JSON.stringify({
       success: true,
       data: enriched,
       classroomId: responseClassroomId,
       total,
-      ...(summaryCounts
+      ...(resolvedSummaryCounts
         ? {
-            newCount: summaryCounts.newCount,
-            reviewDueCount: summaryCounts.reviewDueCount,
-            dueCount: summaryCounts.dueCount,
+            newCount: resolvedSummaryCounts.newCount,
+            reviewDueCount: resolvedSummaryCounts.reviewDueCount,
+            dueCount: resolvedSummaryCounts.dueCount,
           }
         : {}),
       limit,
       offset,
-      hasMore: total != null ? offset + limit < total : enriched.length >= limit,
+      hasMore: total != null ? offset + enriched.length < total : enriched.length >= limit,
     }), {
       // Private browser cache 15s — bớt spam khi user reload/đổi tab
       headers: { 'Cache-Control': 'private, no-store' },
