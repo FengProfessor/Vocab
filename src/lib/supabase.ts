@@ -238,6 +238,9 @@ export interface DictionaryData {
   example?: string;
   example_vi?: string;
   toeic_tip?: string;
+  teacherNote?: string;
+  section?: string;
+  source?: string;
 }
 
 export interface GlobalDictionaryEntry {

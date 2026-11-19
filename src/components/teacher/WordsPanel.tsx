@@ -1,53 +1,95 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { authFetch } from '@/lib/auth-fetch';
-import type { Word } from '@/lib/supabase';
+import type { Word, WordFamilyEntry } from '@/lib/supabase';
 import {
-  Plus, Loader2, Trash2, Sparkles, BookOpen, Volume2, Download,
-  Pencil, X, Check, Layers
+  Plus,
+  Loader2,
+  Trash2,
+  Sparkles,
+  BookOpen,
+  BookMarked,
+  Volume2,
+  Download,
+  Pencil,
+  X,
+  Check,
+  FileSpreadsheet,
+  ClipboardPaste,
+  Search,
+  Users,
+  StickyNote,
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Skeleton } from '@/components/ui/skeleton';
 import { speak as speakEn, parseIpa } from '@/lib/study';
+import {
+  formatFamilyWordsForEditor,
+  parseFamilyWordsFromEditor,
+} from '@/lib/teacher-vocab-import';
+import VocabImportPanel from '@/components/teacher/VocabImportPanel';
 
-type StatusFilter = 'all' | 'pending' | 'approved' | 'rejected';
-type AddMode = 'single' | 'bulk';
+type AddMode = 'presets' | 'file' | 'paste' | 'single';
+
+interface TeacherWord extends Word {
+  familyWords?: WordFamilyEntry[];
+  teacherNote?: string;
+  section?: string;
+  source?: string;
+  isLoading?: boolean;
+}
 
 interface WordsPanelProps {
   classroomId: string;
   userId: string | null;
 }
 
+function escapeCsvCell(val: string): string {
+  const s = val ?? '';
+  if (/[",\r\n]/.test(s)) {
+    return `"${s.replace(/"/g, '""')}"`;
+  }
+  return s;
+}
+
 /**
  * Vocabulary management panel — embedded in the unified teacher dashboard.
- * Supports single word add, bulk add (line-by-line), and word editing.
+ * Supports Word/Excel/CSV upload, pasted table import, single word AI add, and full editing.
  */
 export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
-  const [words, setWords] = useState<Word[]>([]);
+  const [words, setWords] = useState<TeacherWord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
-  const [addMode, setAddMode] = useState<AddMode>('single');
+  const [addMode, setAddMode] = useState<AddMode>('presets');
   const [newWord, setNewWord] = useState('');
-  const [bulkText, setBulkText] = useState('');
-  const [bulkProgress, setBulkProgress] = useState<{ current: number; total: number; word: string } | null>(null);
-  const [statusFilter, setStatusFilter] = useState<StatusFilter>('all');
+
+  // Filters
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sectionFilter, setSectionFilter] = useState<string>('all');
+  const [onlyWithFamily, setOnlyWithFamily] = useState(false);
 
   // Edit Modal State
-  const [editingWord, setEditingWord] = useState<Word | null>(null);
+  const [editingWord, setEditingWord] = useState<TeacherWord | null>(null);
   const [editTranslation, setEditTranslation] = useState('');
   const [editPos, setEditPos] = useState('');
   const [editIpa, setEditIpa] = useState('');
   const [editExample, setEditExample] = useState('');
   const [editExampleVi, setEditExampleVi] = useState('');
+  const [editFamilyText, setEditFamilyText] = useState('');
+  const [editTeacherNote, setEditTeacherNote] = useState('');
   const [isUpdating, setIsUpdating] = useState(false);
 
   const loadWords = useCallback(async () => {
     setIsLoading(true);
     try {
-      const res = await authFetch(`/api/words?classroomId=${classroomId}`);
-      const data = await res.json();
-      if (data.success) setWords(data.data || []);
+      const res = await authFetch(`/api/teacher/words?classroomId=${encodeURIComponent(classroomId)}`);
+      const data = (await res.json()) as { success?: boolean; data?: TeacherWord[]; error?: string };
+      if (data.success) {
+        setWords(data.data || []);
+      } else if (data.error) {
+        toast.error(data.error);
+      }
     } catch {
       toast.error('Không tải được danh sách từ');
     } finally {
@@ -56,7 +98,7 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
   }, [classroomId]);
 
   useEffect(() => {
-    loadWords();
+    void loadWords();
   }, [loadWords]);
 
   const handleAddWord = async (e: React.FormEvent) => {
@@ -66,7 +108,7 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
 
     const targetWord = newWord.trim();
     const loadingId = Date.now();
-    const optimistic: Word & { isLoading?: boolean } = {
+    const optimistic: TeacherWord = {
       id: `loading-${loadingId}`,
       classroom_id: classroomId,
       word: targetWord,
@@ -77,7 +119,7 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
       created_at: new Date().toISOString(),
       isLoading: true,
     };
-    setWords(prev => [optimistic, ...prev]);
+    setWords((prev) => [optimistic, ...prev]);
     setNewWord('');
 
     try {
@@ -100,109 +142,52 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
       if (!res.ok || !data.success) throw new Error(data.error || 'Failed');
 
       if (data.alreadyExists) {
-        setWords(prev => prev.filter(w => w.id !== optimistic.id));
+        setWords((prev) => prev.filter((w) => w.id !== optimistic.id));
         toast.info(data.message || `"${optimistic.word}" đã có trong lớp`);
       } else {
-        setWords(prev => prev.map(w => w.id === optimistic.id
-          ? { ...w, id: data.wordId as string, isLoading: false }
-          : w));
+        setWords((prev) =>
+          prev.map((w) =>
+            w.id === optimistic.id ? { ...w, id: data.wordId as string, isLoading: false } : w,
+          ),
+        );
         toast.success(`Đã thêm "${optimistic.word}" — AI đang tự động điền nghĩa ✨`);
-        setTimeout(() => { void loadWords(); }, 3000);
-        setTimeout(() => { void loadWords(); }, 8000);
+        setTimeout(() => {
+          void loadWords();
+        }, 3000);
+        setTimeout(() => {
+          void loadWords();
+        }, 8000);
       }
     } catch (err: unknown) {
-      setWords(prev => prev.filter(w => w.id !== optimistic.id));
+      setWords((prev) => prev.filter((w) => w.id !== optimistic.id));
       const msg = err instanceof Error ? err.message : 'Không thêm được từ';
       toast.error(msg);
     }
     setIsSaving(false);
   };
 
-function parseBulkWords(text: string): string[] {
-  const tokens = text
-    .split(/[\n,;]+/)
-    .map(w => w.trim())
-    .filter(w => w.length > 0 && w.length <= 100 && w.split(/\s+/).length <= 4);
-  return [...new Set(tokens.map(t => t.toLowerCase()))];
-}
-
-  const handleBulkAdd = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const uniqueWords = parseBulkWords(bulkText);
-
-    if (uniqueWords.length === 0) {
-      toast.error('Vui lòng dán ít nhất 1 từ vựng hợp lệ');
-      return;
-    }
-
-    setIsSaving(true);
-    let addedCount = 0;
-    let existCount = 0;
-    let failCount = 0;
-
-    for (let i = 0; i < uniqueWords.length; i++) {
-      const word = uniqueWords[i];
-      setBulkProgress({ current: i + 1, total: uniqueWords.length, word });
-      try {
-        const res = await authFetch('/api/words', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ word, classroomId, skipAI: true }),
-        });
-        const data = await res.json();
-        if (data.success) {
-          if (data.alreadyExists) {
-            existCount++;
-          } else {
-            addedCount++;
-          }
-        } else {
-          failCount++;
-        }
-      } catch {
-        failCount++;
-      }
-    }
-
-    // Kích hoạt AI enrichment nền cho cả lớp học mà không bị nghẽn rate-limit
-    if (addedCount > 0) {
-      try {
-        await authFetch('/api/words/refresh', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ classroomId }),
-        });
-      } catch {
-        // non-fatal
-      }
-    }
-
-    setBulkProgress(null);
-    setIsSaving(false);
-    setBulkText('');
-    toast.success(`Đã thêm ${addedCount} từ mới thành công!${existCount > 0 ? ` (${existCount} từ đã có trước)` : ''}${failCount > 0 ? ` (${failCount} lỗi)` : ''}`);
-    void loadWords();
-    setTimeout(() => { void loadWords(); }, 4000);
-    setTimeout(() => { void loadWords(); }, 9000);
-  };
-
-  const openEditModal = (w: Word) => {
+  const openEditModal = (w: TeacherWord) => {
     setEditingWord(w);
     setEditTranslation(w.translation || '');
     setEditPos(w.pos || '');
     setEditIpa(w.ipa || '');
     setEditExample(w.example || '');
     setEditExampleVi(w.example_vi || '');
+    setEditFamilyText(formatFamilyWordsForEditor(w.familyWords));
+    setEditTeacherNote(w.teacherNote || '');
   };
 
   const handleSaveEdit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingWord) return;
 
+    const parsedFamily = parseFamilyWordsFromEditor(editFamilyText);
+    const trimmedNote = editTeacherNote.trim();
+
     setIsUpdating(true);
     try {
-      const res = await authFetch('/api/words', {
-        method: 'PUT',
+      const res = await authFetch('/api/teacher/words', {
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           wordId: editingWord.id,
@@ -211,6 +196,8 @@ function parseBulkWords(text: string): string[] {
           ipa: editIpa.trim(),
           example: editExample.trim(),
           example_vi: editExampleVi.trim(),
+          familyWords: parsedFamily,
+          teacherNote: trimmedNote,
         }),
       });
 
@@ -219,16 +206,24 @@ function parseBulkWords(text: string): string[] {
         throw new Error(data.error || 'Cập nhật thất bại');
       }
 
-      setWords(prev => prev.map(w => w.id === editingWord.id ? {
-        ...w,
-        translation: editTranslation.trim(),
-        pos: editPos.trim(),
-        ipa: editIpa.trim(),
-        example: editExample.trim(),
-        example_vi: editExampleVi.trim(),
-      } : w));
+      setWords((prev) =>
+        prev.map((w) =>
+          w.id === editingWord.id
+            ? {
+                ...w,
+                translation: editTranslation.trim(),
+                pos: editPos.trim(),
+                ipa: editIpa.trim(),
+                example: editExample.trim(),
+                example_vi: editExampleVi.trim(),
+                familyWords: parsedFamily,
+                teacherNote: trimmedNote,
+              }
+            : w,
+        ),
+      );
 
-      toast.success(`Đã cập nhật nghĩa & ví dụ cho "${editingWord.word}"!`);
+      toast.success(`Đã cập nhật "${editingWord.word}"!`);
       setEditingWord(null);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Không thể lưu thay đổi';
@@ -241,7 +236,7 @@ function parseBulkWords(text: string): string[] {
   const handleDelete = async (wordId: string, word: string) => {
     if (!confirm(`Xóa "${word}"? Toàn bộ tiến độ SRS của học sinh cho từ này cũng sẽ bị xóa.`)) return;
     const prev = words;
-    setWords(words.filter(w => w.id !== wordId));
+    setWords(words.filter((w) => w.id !== wordId));
     try {
       const res = await authFetch('/api/words', {
         method: 'DELETE',
@@ -262,17 +257,31 @@ function parseBulkWords(text: string): string[] {
 
   const exportToCSV = () => {
     if (words.length === 0) return;
-    const headers = ['word', 'translation', 'pos', 'ipa', 'example', 'example_vi', 'status'];
-    const rows = words.map(w => [
+    const headers = [
+      'word',
+      'translation',
+      'pos',
+      'ipa',
+      'example',
+      'example_vi',
+      'family_words',
+      'teacher_note',
+      'section',
+    ];
+    const rows = words.map((w) => [
       w.word,
       w.translation ?? '',
       w.pos ?? '',
       w.ipa ?? '',
-      (w.example ?? '').replace(/,/g, ';'),
-      (w.example_vi ?? '').replace(/,/g, ';'),
-      w.status ?? 'approved',
+      w.example ?? '',
+      w.example_vi ?? '',
+      formatFamilyWordsForEditor(w.familyWords).replace(/\n/g, ' | '),
+      w.teacherNote ?? '',
+      w.section ?? '',
     ]);
-    const csv = [headers, ...rows].map(r => r.join(',')).join('\n');
+    const csv = [headers, ...rows]
+      .map((r) => r.map((cell) => escapeCsvCell(cell)).join(','))
+      .join('\n');
     const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -283,17 +292,47 @@ function parseBulkWords(text: string): string[] {
     toast.success(`Xuất ${words.length} từ thành công`);
   };
 
-  const filteredWords = words.filter(w => {
-    if (statusFilter === 'all') return true;
-    if (statusFilter === 'pending') return !w.status || w.status === 'pending';
-    return w.status === statusFilter;
-  });
+  const availableSections = useMemo(() => {
+    const list: string[] = [];
+    const seen = new Set<string>();
+    for (const w of words) {
+      if (w.section && !seen.has(w.section)) {
+        seen.add(w.section);
+        list.push(w.section);
+      }
+    }
+    return list;
+  }, [words]);
 
-  const parsedBulkCount = parseBulkWords(bulkText).length;
+  const activeSectionFilter =
+    sectionFilter !== 'all' && availableSections.includes(sectionFilter)
+      ? sectionFilter
+      : 'all';
+
+  const filteredWords = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    return words.filter((w) => {
+      if (activeSectionFilter !== 'all' && (w.section || '') !== activeSectionFilter) return false;
+      if (onlyWithFamily && (!w.familyWords || w.familyWords.length === 0)) return false;
+      if (!q) return true;
+      const inWord = w.word.toLowerCase().includes(q);
+      const inTrans = (w.translation || '').toLowerCase().includes(q);
+      const inNote = (w.teacherNote || '').toLowerCase().includes(q);
+      const inFam = (w.familyWords || []).some(
+        (fw) => fw.word.toLowerCase().includes(q) || (fw.meaning || '').toLowerCase().includes(q),
+      );
+      return inWord || inTrans || inNote || inFam;
+    });
+  }, [words, searchQuery, activeSectionFilter, onlyWithFamily]);
+
+  const existingWordKeys = useMemo(
+    () => words.map((w) => w.word.trim().toLowerCase()).filter(Boolean),
+    [words],
+  );
 
   return (
     <div className="space-y-6">
-      {/* Add word form — Single vs Bulk Toggle */}
+      {/* Add / Import words card */}
       <div className="bg-background border rounded-2xl p-5 shadow-sm">
         <div className="flex items-center justify-between gap-4 mb-4 flex-wrap">
           <div className="flex items-center gap-2.5">
@@ -301,34 +340,61 @@ function parseBulkWords(text: string): string[] {
               <Sparkles className="h-5 w-5" />
             </div>
             <div>
-              <h2 className="font-bold text-base">Thêm từ vựng vào lớp</h2>
-              <p className="text-xs text-muted-foreground">Gemini AI tự động tra IPA, từ loại, định nghĩa và câu ví dụ song ngữ</p>
+              <h2 className="font-bold text-base">Giao từ vựng cho lớp</h2>
+              <p className="text-xs text-muted-foreground">
+                Chọn gói bài học lớp 11, tải file Word/Excel, dán bảng hoặc thêm từng từ — giữ nguyên 100% nghĩa giáo viên soạn
+              </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-1 bg-muted/60 p-1 rounded-xl text-xs font-semibold">
+          <div className="flex items-center gap-1 bg-muted/60 p-1 rounded-xl text-xs font-semibold flex-wrap">
+            <button
+              type="button"
+              onClick={() => setAddMode('presets')}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                addMode === 'presets'
+                  ? 'bg-background text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <BookMarked className="h-3.5 w-3.5" />
+              Gói có sẵn (Lớp 11)
+            </button>
+            <button
+              type="button"
+              onClick={() => setAddMode('file')}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                addMode === 'file'
+                  ? 'bg-background text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <FileSpreadsheet className="h-3.5 w-3.5" />
+              Nhập file Word/Excel
+            </button>
+            <button
+              type="button"
+              onClick={() => setAddMode('paste')}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
+                addMode === 'paste'
+                  ? 'bg-background text-foreground shadow-sm'
+                  : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <ClipboardPaste className="h-3.5 w-3.5" />
+              Dán bảng / Hàng loạt
+            </button>
             <button
               type="button"
               onClick={() => setAddMode('single')}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
                 addMode === 'single'
                   ? 'bg-background text-foreground shadow-sm'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
+              <Plus className="h-3.5 w-3.5" />
               Thêm từng từ
-            </button>
-            <button
-              type="button"
-              onClick={() => setAddMode('bulk')}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                addMode === 'bulk'
-                  ? 'bg-background text-foreground shadow-sm'
-                  : 'text-muted-foreground hover:text-foreground'
-              }`}
-            >
-              <Layers className="h-3.5 w-3.5" />
-              Thêm hàng loạt (Bulk)
             </button>
           </div>
         </div>
@@ -338,7 +404,7 @@ function parseBulkWords(text: string): string[] {
             <input
               type="text"
               value={newWord}
-              onChange={e => setNewWord(e.target.value)}
+              onChange={(e) => setNewWord(e.target.value)}
               placeholder="Nhập từ tiếng Anh (vd: ephemeral, resilient, comprehensive)..."
               className="flex-1 border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
               disabled={isSaving}
@@ -353,85 +419,30 @@ function parseBulkWords(text: string): string[] {
             </button>
           </form>
         ) : (
-          <form onSubmit={handleBulkAdd} className="space-y-3">
-            <textarea
-              value={bulkText}
-              onChange={e => setBulkText(e.target.value)}
-              placeholder={'Dán danh sách từ vựng, mỗi từ một dòng (hoặc ngăn cách bởi dấu phẩy):\napple\nsustainability\nartificial intelligence\nmeticulous'}
-              rows={4}
-              className="w-full border rounded-xl p-3.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono leading-relaxed"
-              disabled={isSaving}
-            />
-
-            <div className="flex items-center justify-between gap-3 flex-wrap">
-              <div className="text-xs text-muted-foreground font-medium flex items-center gap-2">
-                {bulkProgress ? (
-                  <span className="text-primary font-bold flex items-center gap-1.5">
-                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                    Đang thêm ({bulkProgress.current}/{bulkProgress.total}): {bulkProgress.word}...
-                  </span>
-                ) : (
-                  <span>
-                    Đã phát hiện: <strong className="text-foreground">{parsedBulkCount}</strong> từ
-                  </span>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSaving || parsedBulkCount === 0}
-                className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-xl hover:bg-primary/90 transition-all disabled:opacity-50 text-sm active:scale-[0.98]"
-              >
-                {isSaving ? (
-                  <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    Đang thêm...
-                  </>
-                ) : (
-                  <>
-                    <Plus className="h-4 w-4" />
-                    Thêm {parsedBulkCount > 0 ? `${parsedBulkCount} từ` : 'hàng loạt'}
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
+          <VocabImportPanel
+            classroomId={classroomId}
+            mode={addMode}
+            existingWordKeys={existingWordKeys}
+            onImported={() => {
+              void loadWords();
+            }}
+          />
         )}
       </div>
 
       {/* Words list */}
       <div className="bg-background border rounded-2xl shadow-sm overflow-hidden">
-        <div className="px-5 py-4 border-b flex items-center justify-between gap-4 flex-wrap">
-          <div className="flex items-center gap-3">
-            <h2 className="font-bold">Từ vựng của lớp</h2>
-            <span className="text-xs text-muted-foreground">{words.length} từ</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1 bg-muted/50 rounded-xl p-1 text-xs font-semibold">
-              {([
-                { key: 'all', label: 'Tất cả' },
-                { key: 'pending', label: 'Chờ duyệt' },
-                { key: 'approved', label: 'Đã duyệt' },
-                { key: 'rejected', label: 'Từ chối' },
-              ] as { key: StatusFilter; label: string }[]).map(f => (
-                <button
-                  key={f.key}
-                  onClick={() => setStatusFilter(f.key)}
-                  className={`px-3 py-1.5 rounded-lg transition-colors ${
-                    statusFilter === f.key
-                      ? 'bg-background text-foreground shadow-sm'
-                      : 'text-muted-foreground hover:text-foreground'
-                  }`}
-                >
-                  {f.label}
-                  {f.key !== 'all' && (
-                    <span className="ml-1 opacity-60">
-                      ({words.filter(w => f.key === 'pending' ? (!w.status || w.status === 'pending') : w.status === f.key).length})
-                    </span>
-                  )}
-                </button>
-              ))}
+        <div className="px-5 py-4 border-b space-y-3">
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <div className="flex items-center gap-3">
+              <h2 className="font-bold">Từ vựng của lớp</h2>
+              <span className="text-xs text-muted-foreground">
+                {filteredWords.length === words.length
+                  ? `${words.length} từ`
+                  : `${filteredWords.length}/${words.length} từ`}
+              </span>
             </div>
+
             {words.length > 0 && (
               <button
                 onClick={exportToCSV}
@@ -442,6 +453,49 @@ function parseBulkWords(text: string): string[] {
               </button>
             )}
           </div>
+
+          {words.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="relative flex-1 min-w-[200px]">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+                <input
+                  type="search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Tìm từ, nghĩa, họ từ hoặc ghi chú..."
+                  className="w-full rounded-xl border bg-muted/20 pl-8 pr-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-primary/30"
+                />
+              </div>
+
+              {availableSections.length > 0 && (
+                <select
+                  value={activeSectionFilter}
+                  onChange={(e) => setSectionFilter(e.target.value)}
+                  className="max-w-[240px] rounded-xl border bg-muted/20 px-3 py-1.5 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-primary/30"
+                >
+                  <option value="all">Tất cả phần ({words.length})</option>
+                  {availableSections.map((sec) => (
+                    <option key={sec} value={sec}>
+                      {sec}
+                    </option>
+                  ))}
+                </select>
+              )}
+
+              <button
+                type="button"
+                onClick={() => setOnlyWithFamily((v) => !v)}
+                className={`inline-flex items-center gap-1.5 rounded-xl border px-3 py-1.5 text-xs font-semibold transition-colors ${
+                  onlyWithFamily
+                    ? 'border-sky-300 bg-sky-50 text-sky-700'
+                    : 'bg-background text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <Users className="h-3.5 w-3.5" />
+                Có họ từ
+              </button>
+            </div>
+          )}
         </div>
 
         {isLoading ? (
@@ -456,7 +510,9 @@ function parseBulkWords(text: string): string[] {
             {words.length === 0 ? (
               <>
                 <p className="font-semibold text-foreground">Chưa có từ nào trong lớp</p>
-                <p className="text-sm mt-1">Thêm từ đầu tiên ở trên — AI sẽ tự động phân tích và sinh ví dụ.</p>
+                <p className="text-sm mt-1">
+                  Tải file Word/Excel, dán bảng từ vựng hoặc thêm từng từ ở trên.
+                </p>
               </>
             ) : (
               <>
@@ -468,7 +524,10 @@ function parseBulkWords(text: string): string[] {
         ) : (
           <div className="divide-y">
             {filteredWords.map((w) => (
-              <div key={w.id} className="flex items-start gap-3 sm:gap-4 px-4 sm:px-5 py-3.5 sm:py-4 hover:bg-muted/30 transition-colors group">
+              <div
+                key={w.id}
+                className="flex items-start gap-3 sm:gap-4 px-4 sm:px-5 py-3.5 sm:py-4 hover:bg-muted/30 transition-colors group"
+              >
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-1">
                     <p className="font-bold text-sm sm:text-base text-foreground">{w.word}</p>
@@ -477,9 +536,22 @@ function parseBulkWords(text: string): string[] {
                         {w.pos}
                       </span>
                     )}
-                    {w.ipa && <span className="text-xs text-muted-foreground font-mono">{parseIpa(w.ipa)}</span>}
+                    {w.ipa && (
+                      <span className="text-xs text-muted-foreground font-mono">
+                        {parseIpa(w.ipa) || w.ipa}
+                      </span>
+                    )}
+                    {w.section && (
+                      <span className="text-[10px] font-medium bg-muted text-muted-foreground px-2 py-0.5 rounded-md max-w-[260px] truncate">
+                        {w.section}
+                      </span>
+                    )}
                   </div>
-                  <p className="text-sm font-semibold text-foreground/90">{w.translation}</p>
+
+                  <p className="text-sm font-semibold text-foreground/90 whitespace-pre-line">
+                    {w.translation}
+                  </p>
+
                   {w.example && (
                     <div className="mt-1.5 border-l-2 border-primary/30 pl-2.5">
                       <p className="text-xs text-muted-foreground italic leading-relaxed">
@@ -492,9 +564,34 @@ function parseBulkWords(text: string): string[] {
                       )}
                     </div>
                   )}
+
+                  {w.familyWords && w.familyWords.length > 0 && (
+                    <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                      <span className="text-[10px] font-bold uppercase text-sky-700 inline-flex items-center gap-1 mr-0.5">
+                        <Users className="h-3 w-3" /> Họ từ tham khảo:
+                      </span>
+                      {w.familyWords.map((fw, idx) => (
+                        <span
+                          key={`${fw.word}-${idx}`}
+                          className="text-[11px] bg-sky-50 text-sky-800 border border-sky-200 px-2 py-0.5 rounded-md"
+                        >
+                          <strong className="font-semibold">{fw.word}</strong>
+                          {fw.pos && <span className="ml-1 italic opacity-80">({fw.pos})</span>}
+                          {fw.meaning && <span className="opacity-90">: {fw.meaning}</span>}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {w.teacherNote && (
+                    <div className="mt-1.5 flex items-start gap-1.5 text-xs text-indigo-700 bg-indigo-50/70 border border-indigo-200/70 rounded-lg px-2.5 py-1.5">
+                      <StickyNote className="h-3.5 w-3.5 shrink-0 mt-0.5" />
+                      <span className="whitespace-pre-line">{w.teacherNote}</span>
+                    </div>
+                  )}
                 </div>
 
-                {/* Actions: Always visible on touch, hover on desktop */}
+                {/* Actions */}
                 <div className="flex items-center gap-1 shrink-0">
                   <button
                     onClick={() => speak(w.word)}
@@ -506,7 +603,7 @@ function parseBulkWords(text: string): string[] {
                   <button
                     onClick={() => openEditModal(w)}
                     className="p-2 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted transition-colors opacity-80 sm:opacity-0 sm:group-hover:opacity-100 touch-manipulation"
-                    title="Sửa định nghĩa & ví dụ"
+                    title="Sửa định nghĩa, họ từ & ghi chú"
                   >
                     <Pencil className="h-4 w-4" />
                   </button>
@@ -541,7 +638,9 @@ function parseBulkWords(text: string): string[] {
               </div>
               <div>
                 <h3 className="font-bold text-lg">Chỉnh sửa từ vựng</h3>
-                <p className="text-xs text-muted-foreground font-mono">Từ gốc: &ldquo;{editingWord.word}&rdquo;</p>
+                <p className="text-xs text-muted-foreground font-mono">
+                  Từ gốc: &ldquo;{editingWord.word}&rdquo;
+                </p>
               </div>
             </div>
 
@@ -554,7 +653,7 @@ function parseBulkWords(text: string): string[] {
                   type="text"
                   required
                   value={editTranslation}
-                  onChange={e => setEditTranslation(e.target.value)}
+                  onChange={(e) => setEditTranslation(e.target.value)}
                   className="w-full border rounded-xl px-4 py-2.5 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
                   disabled={isUpdating}
                 />
@@ -569,7 +668,7 @@ function parseBulkWords(text: string): string[] {
                     type="text"
                     placeholder="noun, verb, adj..."
                     value={editPos}
-                    onChange={e => setEditPos(e.target.value)}
+                    onChange={(e) => setEditPos(e.target.value)}
                     className="w-full border rounded-xl px-4 py-2 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30"
                     disabled={isUpdating}
                   />
@@ -582,11 +681,39 @@ function parseBulkWords(text: string): string[] {
                     type="text"
                     placeholder="/.../"
                     value={editIpa}
-                    onChange={e => setEditIpa(e.target.value)}
+                    onChange={(e) => setEditIpa(e.target.value)}
                     className="w-full border rounded-xl px-4 py-2 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 font-mono"
                     disabled={isUpdating}
                   />
                 </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1">
+                  Họ từ tham khảo (mỗi dòng: word (pos): nghĩa)
+                </label>
+                <textarea
+                  rows={3}
+                  value={editFamilyText}
+                  onChange={(e) => setEditFamilyText(e.target.value)}
+                  placeholder={'Antibacterial (adj): kháng khuẩn\nBalanced (adj): cân đối, cân bằng'}
+                  className="w-full border rounded-xl p-3 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 leading-relaxed"
+                  disabled={isUpdating}
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-muted-foreground uppercase tracking-wider mb-1">
+                  Ghi chú / Cấu trúc (chỉ tham khảo)
+                </label>
+                <textarea
+                  rows={2}
+                  value={editTeacherNote}
+                  onChange={(e) => setEditTeacherNote(e.target.value)}
+                  placeholder="Cấu trúc, đồng nghĩa hoặc ghi chú cho học sinh..."
+                  className="w-full border rounded-xl p-3 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 leading-relaxed"
+                  disabled={isUpdating}
+                />
               </div>
 
               <div>
@@ -596,7 +723,7 @@ function parseBulkWords(text: string): string[] {
                 <textarea
                   rows={2}
                   value={editExample}
-                  onChange={e => setEditExample(e.target.value)}
+                  onChange={(e) => setEditExample(e.target.value)}
                   placeholder="Ví dụ minh họa ngữ cảnh sử dụng từ..."
                   className="w-full border rounded-xl p-3 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 leading-relaxed"
                   disabled={isUpdating}
@@ -610,7 +737,7 @@ function parseBulkWords(text: string): string[] {
                 <textarea
                   rows={2}
                   value={editExampleVi}
-                  onChange={e => setEditExampleVi(e.target.value)}
+                  onChange={(e) => setEditExampleVi(e.target.value)}
                   placeholder="Bản dịch tiếng Việt của câu ví dụ..."
                   className="w-full border rounded-xl p-3 text-base sm:text-sm bg-muted/20 focus:outline-none focus:ring-2 focus:ring-primary/30 leading-relaxed"
                   disabled={isUpdating}

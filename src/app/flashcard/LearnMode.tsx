@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { supabase, type SRSProgress } from '@/lib/supabase';
+import { supabase, type SRSProgress, type WordFamilyEntry } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -33,6 +33,9 @@ interface WordItem {
   example: string;
   example_vi?: string | null;
   image_url?: string;
+  familyWords?: WordFamilyEntry[];
+  teacherNote?: string;
+  section?: string;
   reviewCount: number;
   srsLevel: number;
   isDue: boolean;
@@ -62,6 +65,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
   // Introduce
   const [introIndex, setIntroIndex] = useState(0);
+  const [expandedFamilyWordId, setExpandedFamilyWordId] = useState<string | null>(null);
 
   // Recall
   const [recallIndex, setRecallIndex] = useState(0);
@@ -740,6 +744,44 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                     enClassName="text-xs font-medium italic leading-snug text-slate-500 sm:text-sm"
                     viClassName="mt-1 text-[11px] font-medium leading-snug text-slate-400 sm:text-xs not-italic"
                   />
+                )}
+                {((w.familyWords && w.familyWords.length > 0) || w.teacherNote) && (
+                  <div className="mt-1.5 w-full rounded-xl border border-sky-200/80 bg-sky-50/70 p-2 text-left">
+                    <div className="mb-1 flex items-center justify-between gap-1.5">
+                      <span className="text-[9px] font-black uppercase tracking-wider text-sky-700">
+                        Họ từ tham khảo · không kiểm tra
+                      </span>
+                      {w.familyWords && w.familyWords.length > 3 && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedFamilyWordId((prev) => (prev === w.id ? null : w.id))
+                          }
+                          className="text-[10px] font-bold text-sky-700 hover:underline"
+                        >
+                          {expandedFamilyWordId === w.id
+                            ? 'Thu gọn'
+                            : `+${w.familyWords.length - 3} xem thêm`}
+                        </button>
+                      )}
+                    </div>
+                    {w.familyWords && w.familyWords.length > 0 && (
+                      <div className="space-y-0.5 text-[11px] leading-snug text-slate-700">
+                        {(expandedFamilyWordId === w.id ? w.familyWords : w.familyWords.slice(0, 3)).map((fw, idx) => (
+                          <div key={idx}>
+                            <strong className="font-bold text-sky-900">{fw.word}</strong>
+                            {fw.pos && <span className="ml-1 italic text-slate-500">({fw.pos})</span>}
+                            {fw.meaning && <span className="text-slate-600">: {fw.meaning}</span>}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {w.teacherNote && (
+                      <p className="mt-1 border-t border-sky-200/70 pt-1 text-[11px] font-medium leading-snug text-slate-600 whitespace-pre-line">
+                        {w.teacherNote}
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
             </CardContent>

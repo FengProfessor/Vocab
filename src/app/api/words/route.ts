@@ -1,6 +1,6 @@
 import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
-import { type DictionaryData, type SRSProgress, type Word } from '@/lib/supabase';
+import { type DictionaryData, type SRSProgress, type Word, type WordFamilyEntry } from '@/lib/supabase';
 import { createServiceClient } from '@/lib/supabase-server';
 import { enrichWord as performAIEnrichment } from '@/lib/ai-enrich';
 import { resolveWordImage } from '@/lib/image-pipeline';
@@ -48,8 +48,89 @@ async function userOwnsWord(
 }
 
 type SRSProgressWithStability = SRSProgress & { stability?: number };
-type WordWithSrsList = Word & { srs_progress?: SRSProgressWithStability[] };
+type WordWithSrsList = Word & {
+  srs_progress?: SRSProgressWithStability[];
+  fw?: unknown;
+  tn?: string | null;
+  sec?: string | null;
+  src?: string | null;
+};
 const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function normalizeWordFamilyMeta(raw: unknown): WordFamilyEntry[] | undefined {
+  if (!Array.isArray(raw) || raw.length === 0) return undefined;
+  const out: WordFamilyEntry[] = [];
+  for (const item of raw) {
+    if (typeof item === 'string') {
+      const m = item.trim().match(/^(.+?)\s*\(([^)]+)\)(?:\s*[:\-–]\s*(.+))?$/);
+      if (m) {
+        out.push({
+          word: m[1].trim(),
+          pos: m[2].trim(),
+          ...(m[3]?.trim() ? { meaning: m[3].trim() } : {}),
+        });
+      } else if (item.trim()) {
+        out.push({ word: item.trim() });
+      }
+    } else if (item && typeof item === 'object' && typeof (item as WordFamilyEntry).word === 'string') {
+      const e = item as WordFamilyEntry;
+      if (e.word.trim()) out.push(e);
+    }
+  }
+  return out.length > 0 ? out : undefined;
+}
+
+async function attachReferenceMeta<T extends { id: string }>(
+  supabase: ReturnType<typeof createServiceClient>,
+  items: T[],
+): Promise<Array<T & {
+  familyWords?: WordFamilyEntry[];
+  teacherNote?: string;
+  section?: string;
+  source?: string;
+}>> {
+  if (items.length === 0) return items;
+  const ids = items.map((i) => i.id).slice(0, 100);
+  const { data: metaRows, error } = await supabase
+    .from('words')
+    .select('id, fw:dictionary_data->familyWords, tn:dictionary_data->>teacherNote, sec:dictionary_data->>section, src:dictionary_data->>source')
+    .in('id', ids);
+
+  if (error || !metaRows || metaRows.length === 0) return items;
+
+  const metaById = new Map<string, {
+    familyWords?: WordFamilyEntry[];
+    teacherNote?: string;
+    section?: string;
+    source?: string;
+  }>();
+
+  for (const row of metaRows as Array<{
+    id: string;
+    fw: unknown;
+    tn: string | null;
+    sec: string | null;
+    src: string | null;
+  }>) {
+    const fw = normalizeWordFamilyMeta(row.fw);
+    const tn = row.tn?.trim() || undefined;
+    const sec = row.sec?.trim() || undefined;
+    const src = row.src?.trim() || undefined;
+    if (fw || tn || sec || src) {
+      metaById.set(row.id, {
+        ...(fw ? { familyWords: fw } : {}),
+        ...(tn ? { teacherNote: tn } : {}),
+        ...(sec ? { section: sec } : {}),
+        ...(src ? { source: src } : {}),
+      });
+    }
+  }
+
+  return items.map((item) => {
+    const meta = metaById.get(item.id);
+    return meta ? { ...item, ...meta } : item;
+  });
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helper: Lấy hoặc tạo "personal classroom" của user
@@ -1025,7 +1106,7 @@ export async function GET(req: Request): Promise<NextResponse> {
           // w.word.trim().toLowerCase()
           // Keeping the record with higher review count, earlier review date, or richer content (example).
           const deduped = deduplicateReviewWords(mappedCandidates);
-          const enriched = deduped.slice(0, reviewCap);
+          const enriched = await attachReferenceMeta(supabase, deduped.slice(0, reviewCap));
 
           return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
             headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
@@ -1128,7 +1209,7 @@ export async function GET(req: Request): Promise<NextResponse> {
         .sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
 
       const deduped = deduplicateReviewWords(enrichedCandidates);
-      const enriched = deduped.slice(0, reviewCap);
+      const enriched = await attachReferenceMeta(supabase, deduped.slice(0, reviewCap));
 
       return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
         headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
@@ -1153,7 +1234,7 @@ export async function GET(req: Request): Promise<NextResponse> {
             });
           }
 
-          const enriched = (rpcWords as Array<{
+          const enrichedBase = (rpcWords as Array<{
             id: string;
             word: string;
             translation: string;
@@ -1191,6 +1272,8 @@ export async function GET(req: Request): Promise<NextResponse> {
               mastery: 0,
               status: 'learning',
             }));
+
+          const enriched = await attachReferenceMeta(supabase, enrichedBase);
 
           return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
             headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
@@ -1239,7 +1322,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (wErr) throw wErr;
 
       const wordsMap = new Map((wordsData || []).map((w) => [w.id, w as Word]));
-      const enriched = candidateIds
+      const enrichedBase = candidateIds
         .map((id) => {
           const row = wordsMap.get(id);
           if (!row || !row.word) return null;
@@ -1275,6 +1358,8 @@ export async function GET(req: Request): Promise<NextResponse> {
           status: 'learning',
         }));
 
+      const enriched = await attachReferenceMeta(supabase, enrichedBase);
+
       return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
         headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
       });
@@ -1307,7 +1392,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     // Lọc srs_progress theo đúng user_id ngay tại DB để tránh nhân bản N_words * 300_students trong lớp học.
     let wordsQuery = supabase
       .from('words')
-      .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at, srs_progress(user_id, stability, review_count, next_review_date, ease_factor, interval_days, difficulty, last_reviewed_at)')
+      .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at, fw:dictionary_data->familyWords, tn:dictionary_data->>teacherNote, sec:dictionary_data->>section, src:dictionary_data->>source, srs_progress(user_id, stability, review_count, next_review_date, ease_factor, interval_days, difficulty, last_reviewed_at)')
       .eq('classroom_id', classroomId)
       .eq('srs_progress.user_id', userId);
     if (requestedIds) {
@@ -1329,7 +1414,7 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const now = new Date().getTime();
     let enriched = ((wordsResult.data || []) as WordWithSrsList[]).map((w) => {
-      const { srs_progress, ...wordFields } = w;
+      const { srs_progress, fw, tn, sec, src, ...wordFields } = w;
       const needsStaticHeal =
         Boolean(wordFields.word) &&
         (isPendingOrInvalidTranslation(wordFields.translation) || !wordFields.ipa || !wordFields.example);
@@ -1361,9 +1446,17 @@ export async function GET(req: Request): Promise<NextResponse> {
           ? stabilityToLevel(stability)
           : reviewCountToLevel(reviewCount);
       const isDue = isNew || nextReviewDate <= now;
+      const familyWords = normalizeWordFamilyMeta(fw);
+      const teacherNote = tn?.trim() || undefined;
+      const section = sec?.trim() || undefined;
+      const source = src?.trim() || undefined;
 
       return {
         ...resolvedFields,
+        ...(familyWords ? { familyWords } : {}),
+        ...(teacherNote ? { teacherNote } : {}),
+        ...(section ? { section } : {}),
+        ...(source ? { source } : {}),
         srs,
         isDue,
         reviewCount,

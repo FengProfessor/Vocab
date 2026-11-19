@@ -4,7 +4,7 @@ import { authFetch } from '@/lib/auth-fetch';
 
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { supabase, type SRSProgress } from '@/lib/supabase';
+import { supabase, type SRSProgress, type WordFamilyEntry } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -39,6 +39,8 @@ interface WordItem {
   image_url?: string;
   synonyms?: string[];
   antonyms?: string[];
+  familyWords?: WordFamilyEntry[];
+  teacherNote?: string;
   isDue: boolean;
   reviewCount: number;
   srsLevel: number;
@@ -941,6 +943,35 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                       wordClassName="hover:bg-white/20 hover:text-white underline decoration-white/40 hover:decoration-white underline-offset-3"
                       audioBtnClassName="border-white/20 bg-white/15 text-white hover:bg-white/30 hover:text-white"
                     />
+                  </div>
+                )}
+
+                {((current.familyWords && current.familyWords.length > 0) || current.teacherNote) && (
+                  <div className="w-full max-w-sm shrink rounded-2xl border border-white/15 bg-white/10 p-2.5 text-left backdrop-blur-sm">
+                    <p className="mb-1 text-[9px] font-black uppercase tracking-wider text-indigo-100">
+                      Họ từ tham khảo (không kiểm tra)
+                    </p>
+                    {current.familyWords && current.familyWords.length > 0 && (
+                      <div className="space-y-0.5 text-[11px] leading-snug text-white/95">
+                        {current.familyWords.slice(0, 4).map((fw, idx) => (
+                          <div key={idx}>
+                            <strong className="font-bold">{fw.word}</strong>
+                            {fw.pos && <span className="ml-1 italic text-indigo-200">({fw.pos})</span>}
+                            {fw.meaning && <span className="text-white/85">: {fw.meaning}</span>}
+                          </div>
+                        ))}
+                        {current.familyWords.length > 4 && (
+                          <p className="text-[10px] text-indigo-200">
+                            +{current.familyWords.length - 4} họ từ khác trong Chi tiết từ
+                          </p>
+                        )}
+                      </div>
+                    )}
+                    {current.teacherNote && (
+                      <p className="mt-1 border-t border-white/15 pt-1 text-[11px] font-medium leading-snug text-indigo-100 whitespace-pre-line">
+                        {current.teacherNote}
+                      </p>
+                    )}
                   </div>
                 )}
 

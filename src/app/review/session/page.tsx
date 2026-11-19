@@ -11,7 +11,7 @@ import {
   ArrowRight, ChevronLeft, Loader2, Snail, Volume2,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import { supabase } from '@/lib/supabase';
+import { supabase, type WordFamilyEntry } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -44,6 +44,8 @@ interface WordItem extends ReviewWordLike {
   ipa?: string;
   pos?: string;
   image_url?: string;
+  familyWords?: WordFamilyEntry[];
+  teacherNote?: string;
   srsLevel: number;
   reviewCount: number;
   isDue: boolean;
@@ -1137,6 +1139,35 @@ function SessionContent() {
                       enClassName="text-xs font-medium italic text-slate-700 dark:text-slate-300 leading-snug sm:text-sm"
                       viClassName="mt-1 text-xs font-medium text-slate-600 dark:text-slate-400 not-italic leading-snug"
                     />
+                  </div>
+                )}
+
+                {((current?.familyWords && current.familyWords.length > 0) || current?.teacherNote) && (
+                  <div className="mt-1.5 w-full rounded-xl border border-sky-200/80 bg-white/80 p-2 text-left">
+                    <p className="mb-1 text-[9px] font-black uppercase tracking-wider text-sky-700">
+                      Họ từ tham khảo (không kiểm tra)
+                    </p>
+                    {current.familyWords && current.familyWords.length > 0 && (
+                      <div className="space-y-0.5 text-[11px] leading-snug text-slate-700">
+                        {current.familyWords.slice(0, 3).map((fw, idx) => (
+                          <div key={idx}>
+                            <strong className="font-bold text-sky-900">{fw.word}</strong>
+                            {fw.pos && <span className="ml-1 italic text-slate-500">({fw.pos})</span>}
+                            {fw.meaning && <span className="text-slate-600">: {fw.meaning}</span>}
+                          </div>
+                        ))}
+                        {current.familyWords.length > 3 && (
+                          <p className="text-[10px] text-sky-700">
+                            +{current.familyWords.length - 3} họ từ khác
+                          </p>
+                        )}
+                      </div>
+                    )}
+                    {current.teacherNote && (
+                      <p className="mt-1 border-t border-sky-200/70 pt-1 text-[11px] font-medium leading-snug text-slate-600 whitespace-pre-line">
+                        {current.teacherNote}
+                      </p>
+                    )}
                   </div>
                 )}
               </div>

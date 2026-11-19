@@ -119,7 +119,14 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
         setWord(loadedWord);
 
         // Auto-hydrate word family / meanings if missing in user's saved word
-        if (!loadedWord.dictionary_data?.familyWords?.length && !loadedWord.dictionary_data?.wordFamily?.length && loadedWord.word) {
+        // Không ghi đè hoặc chèn nghĩa từ điển chung lên từ do giáo viên soạn
+        const isTeacherImported = loadedWord.dictionary_data?.source === 'teacher_import';
+        if (
+          !isTeacherImported &&
+          !loadedWord.dictionary_data?.familyWords?.length &&
+          !loadedWord.dictionary_data?.wordFamily?.length &&
+          loadedWord.word
+        ) {
           fetch(`/api/dictionary/lookup?word=${encodeURIComponent(loadedWord.word)}`)
             .then((res) => (res.ok ? res.json() : null))
             .then((extra) => {
@@ -394,6 +401,11 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                     {parseIpa(word.ipa)}
                   </span>
                 )}
+                {dictData?.section && (
+                  <Badge variant="secondary" className="text-[10px] font-bold max-w-full truncate">
+                    {dictData.section}
+                  </Badge>
+                )}
               </div>
             </div>
 
@@ -422,6 +434,17 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                     enClassName="text-sm italic text-slate-600 dark:text-slate-300 leading-relaxed"
                     viClassName="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed not-italic"
                   />
+                </div>
+              )}
+
+              {dictData?.teacherNote && (
+                <div className="rounded-xl p-3 bg-indigo-50/80 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-800/60 space-y-1">
+                  <h4 className="text-[10px] font-black uppercase text-indigo-700 dark:text-indigo-300 tracking-wider">
+                    Ghi chú / Cấu trúc (Giáo viên)
+                  </h4>
+                  <p className="text-xs font-medium text-slate-700 dark:text-slate-300 whitespace-pre-line leading-relaxed">
+                    {dictData.teacherNote}
+                  </p>
                 </div>
               )}
 
@@ -683,8 +706,16 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
             {/* Word Family */}
             {familyWords.length > 0 && (
               <div className="px-6 pb-4 space-y-1.5">
-                <h4 className="text-[10px] font-black uppercase text-sky-600 dark:text-sky-400 flex items-center gap-1">
-                  <Users className="h-3 w-3" /> Họ từ vựng ({familyWords.length})
+                <h4 className="text-[10px] font-black uppercase text-sky-600 dark:text-sky-400 flex items-center gap-1 flex-wrap">
+                  <Users className="h-3 w-3" />{' '}
+                  {dictData?.source === 'teacher_import'
+                    ? `Họ từ tham khảo (${familyWords.length})`
+                    : `Họ từ vựng (${familyWords.length})`}
+                  {dictData?.source === 'teacher_import' && (
+                    <span className="font-semibold normal-case text-sky-600/80 dark:text-sky-400/80">
+                      (không bắt buộc học)
+                    </span>
+                  )}
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {familyWords.map((fw, i) => (
