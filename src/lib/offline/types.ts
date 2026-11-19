@@ -1,3 +1,5 @@
+import type { WordFamilyEntry } from '@/lib/supabase';
+
 export interface StoredSRS {
   stability: number;
   difficulty: number;
@@ -22,6 +24,10 @@ export interface OfflineStudyWord {
   synonyms: string[];
   antonyms: string[];
   image_url: string | null;
+  familyWords?: WordFamilyEntry[];
+  teacherNote?: string;
+  section?: string;
+  source?: string;
   srs: StoredSRS | null;
   reviewCount: number;
   srsLevel: number;

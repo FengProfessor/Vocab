@@ -428,7 +428,7 @@ export default function StudentDashboard() {
         setLevelCounts(next);
       }
     }
-    if (data.classroomId) setClassroomId(data.classroomId);
+    if (data.classroomId !== undefined) setClassroomId(data.classroomId ?? null);
     setCountsReady(true);
 
     const scope = targetScope !== undefined ? targetScope : currentClassScopeRef.current;
@@ -554,7 +554,7 @@ export default function StudentDashboard() {
   /** Levels L1–L6 + daily reading + packs — idle, không chặn first paint. */
   const loadSecondaryDashboard = (userId: string, targetScope?: string) => {
     const scope = targetScope !== undefined ? targetScope : currentClassScope;
-    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
 
     loadActivityStats(userId);
 
@@ -617,7 +617,7 @@ export default function StudentDashboard() {
 
   const loadData = async (userId: string, targetScope?: string) => {
     const scope = targetScope !== undefined ? targetScope : currentClassScopeRef.current;
-    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
     try {
       if (STAMPEDE_MODE) {
         /**
@@ -747,7 +747,7 @@ export default function StudentDashboard() {
     if (!profile?.id || isLoadingMore) return;
     setIsLoadingMore(true);
     const scope = currentClassScopeRef.current;
-    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
+    const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
     try {
       const res = await authFetch(
         `/api/words?limit=${WORDS_PAGE_SIZE}&offset=${wordsOffset}${scopeParam}`,
@@ -771,7 +771,7 @@ export default function StudentDashboard() {
   const refreshSummary = async (userId: string) => {
     try {
       const scope = currentClassScopeRef.current;
-      const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '&classroomId=__personal__';
+      const scopeParam = (scope && scope !== '__personal__') ? `&classroomId=${encodeURIComponent(scope)}` : '';
       const res = await authFetch(`/api/words?summary=1${scopeParam}`, {});
       const data = await res.json();
       if (data.success) {
@@ -1972,7 +1972,7 @@ export default function StudentDashboard() {
               {/* Search + filter danh sách từ */}
               <div className="space-y-2.5 border-t border-slate-100 pt-3">
                 <div className="text-[11px] font-extrabold uppercase tracking-wide text-slate-400">
-                  Danh sách từ cá nhân
+                  Danh sách từ vựng
                 </div>
                 <div className="flex gap-2">
                   <div className="relative min-w-0 flex-1">
@@ -2068,6 +2068,11 @@ export default function StudentDashboard() {
                               <span className="shrink-0 text-[10px] font-bold uppercase text-muted-foreground">
                                 {word.pos || ''}
                               </span>
+                              {(word as Word & { source?: string }).source === 'teacher_import' && (
+                                <span className="shrink-0 rounded bg-indigo-100 px-1.5 py-0.5 text-[9px] font-black text-indigo-700">
+                                  GV
+                                </span>
+                              )}
                             </div>
                             {word.ipa && (
                               <div className="truncate text-[11px] font-semibold text-muted-foreground font-mono">

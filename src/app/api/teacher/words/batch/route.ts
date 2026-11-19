@@ -11,7 +11,7 @@ import {
 } from '@/lib/api-security';
 import { parseIpa } from '@/lib/study';
 import type { DictionaryData, WordFamilyEntry } from '@/lib/supabase';
-import { invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
+import { invalidateClassroomWordSummaryCaches } from '@/lib/ttl-cache';
 import {
   getLookupCandidateKeys,
   isPendingOrInvalidTranslation,
@@ -392,7 +392,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       }
     }
 
-    invalidateServerWordSummaryCache(auth.userId);
+    await invalidateClassroomWordSummaryCaches(supabase, classroomId, auth.userId);
 
     return NextResponse.json({
       success: true,

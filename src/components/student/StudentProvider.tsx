@@ -200,7 +200,7 @@ export function fetchWordSummaryOnce(userId: string): Promise<WordSummaryData | 
   const version = authStateVersion();
   const promise = (async () => {
     try {
-      const res = await authFetch('/api/words?summary=1&classroomId=__personal__', {});
+      const res = await authFetch('/api/words?summary=1', {});
       const json = await res.json();
       if (version !== authStateVersion()) return null;
       if (json?.success) {

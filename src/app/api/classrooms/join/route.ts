@@ -2,6 +2,7 @@ import { sessionErrorResponse } from '@/lib/session-response';
 import { getWebUser } from '@/lib/server-auth-session';
 import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
+import { invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 
 export async function POST(req: NextRequest) {
   try {
@@ -51,6 +52,8 @@ export async function POST(req: NextRequest) {
       console.error('[Join] Enroll error:', enrollError.message);
       return NextResponse.json({ success: false, error: 'Failed to join classroom' }, { status: 500 });
     }
+
+    invalidateServerWordSummaryCache(user.id);
 
     const { count: enrollmentCount, error: countError } = await supabase
       .from('enrollments')

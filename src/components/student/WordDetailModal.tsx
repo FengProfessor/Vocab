@@ -81,6 +81,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
   const router = useRouter();
   const [word, setWord] = useState<WordDetail | null>(null);
   const [srs, setSrs] = useState<SRSProgressFull | null>(null);
+  const [currentUserId, setCurrentUserId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
@@ -92,6 +93,7 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
     if (!wordId) {
       setWord(null);
       setSrs(null);
+      setCurrentUserId(null);
       setImageFailed(false);
       return;
     }
@@ -148,7 +150,8 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
             .catch(() => {});
         }
 
-        const uid = sessionRes.data.session?.user.id;
+        const uid = sessionRes.data.session?.user.id ?? null;
+        if (!cancelled) setCurrentUserId(uid);
         if (uid) {
           const { data: srsData } = await supabase
             .from('srs_progress')
@@ -400,6 +403,11 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                   <span className="text-sm font-semibold text-muted-foreground font-mono">
                     {parseIpa(word.ipa)}
                   </span>
+                )}
+                {dictData?.source === 'teacher_import' && (
+                  <Badge variant="secondary" className="bg-indigo-100 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300 text-[10px] font-bold">
+                    Giáo viên giao
+                  </Badge>
                 )}
                 {dictData?.section && (
                   <Badge variant="secondary" className="text-[10px] font-bold max-w-full truncate">
@@ -747,18 +755,20 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                 <BookOpen className="h-4 w-4" />
                 Ôn ngay
               </button>
-              <button
-                onClick={handleDelete}
-                disabled={isDeleting}
-                className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-rose-50 text-rose-600 font-bold hover:bg-rose-100 transition-colors disabled:opacity-50"
-              >
-                {isDeleting ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <Trash2 className="h-4 w-4" />
-                )}
-                Xóa
-              </button>
+              {Boolean(currentUserId && word && word.added_by === currentUserId) && (
+                <button
+                  onClick={handleDelete}
+                  disabled={isDeleting}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-rose-50 text-rose-600 font-bold hover:bg-rose-100 transition-colors disabled:opacity-50"
+                >
+                  {isDeleting ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <Trash2 className="h-4 w-4" />
+                  )}
+                  Xóa
+                </button>
+              )}
             </div>
           </>
         )}

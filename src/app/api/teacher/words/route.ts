@@ -9,6 +9,7 @@ import {
 } from '@/lib/api-security';
 import type { DictionaryData, WordFamilyEntry } from '@/lib/supabase';
 import { PRIVATE_SESSION_HEADERS } from '@/lib/session-response';
+import { invalidateClassroomWordSummaryCaches } from '@/lib/ttl-cache';
 
 const PAGE_SIZE = 500;
 const MAX_WORDS = 2000;
@@ -165,7 +166,7 @@ export async function PATCH(req: Request): Promise<NextResponse> {
     const supabase = createServiceClient();
     const { data: existing, error: fetchErr } = await supabase
       .from('words')
-      .select('id, dictionary_data, classroom:classrooms(teacher_id)')
+      .select('id, classroom_id, dictionary_data, classroom:classrooms(teacher_id)')
       .eq('id', body.wordId)
       .maybeSingle();
 
@@ -261,6 +262,12 @@ export async function PATCH(req: Request): Promise<NextResponse> {
       .eq('id', body.wordId);
 
     if (updateErr) throw updateErr;
+
+    await invalidateClassroomWordSummaryCaches(
+      supabase,
+      (existing as { classroom_id?: string | null }).classroom_id,
+      auth.userId,
+    );
 
     return NextResponse.json({
       success: true,

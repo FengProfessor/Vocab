@@ -4,6 +4,8 @@
  * Không thay Redis; instance warm = hit; cold = miss (vẫn đúng).
  */
 
+import type { SupabaseClient } from '@supabase/supabase-js';
+
 interface Entry<T> {
   value: T;
   exp: number;
@@ -82,4 +84,35 @@ export function cacheDeletePrefix(prefix: string): void {
 export function invalidateServerWordSummaryCache(userId: string): void {
   cacheDeletePrefix(`wsum:${userId}:`);
   cacheDelete(`user-learning-words:${userId}`);
+}
+
+/**
+ * Xóa cache word summary của giáo viên/người thao tác và toàn bộ học sinh đang enrolled
+ * trong lớp khi kho từ của lớp có thay đổi.
+ */
+export async function invalidateClassroomWordSummaryCaches(
+  supabase: Pick<SupabaseClient, 'from'>,
+  classroomId: string | null | undefined,
+  actorUserId?: string | null,
+): Promise<void> {
+  if (actorUserId) {
+    invalidateServerWordSummaryCache(actorUserId);
+  }
+  if (!classroomId) return;
+
+  try {
+    const { data } = await supabase
+      .from('enrollments')
+      .select('student_id')
+      .eq('classroom_id', classroomId);
+
+    for (const row of (data as Array<{ student_id?: string | null }> | null) ?? []) {
+      const studentId = row?.student_id?.trim();
+      if (studentId && studentId !== actorUserId) {
+        invalidateServerWordSummaryCache(studentId);
+      }
+    }
+  } catch {
+    // Non-critical cache invalidation must not break write routes
+  }
 }

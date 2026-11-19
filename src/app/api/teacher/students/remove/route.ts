@@ -2,6 +2,7 @@ import { sessionErrorResponse } from '@/lib/session-response';
 import { NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase-server';
 import { getAuthUser, unauthorized, forbidden, isValidString, safeErrorResponse } from '@/lib/api-security';
+import { invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 
 export async function POST(req: Request): Promise<NextResponse> {
   try {
@@ -41,6 +42,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       .eq('student_id', studentId);
 
     if (deleteErr) throw deleteErr;
+
+    invalidateServerWordSummaryCache(studentId);
 
     return NextResponse.json({
       success: true,

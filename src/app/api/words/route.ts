@@ -15,7 +15,8 @@ import { rateLimitUnavailableResponse,
 } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { checkWordSaveQuota, resolveUserPlanInfo, recordWordSaved } from '@/lib/entitlement-server';
-import { cacheGet, cacheSet, invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
+import { cacheGet, cacheSet, invalidateClassroomWordSummaryCaches, invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
+import { aggregateWordSummaries, mergeAndDedupeNewWords } from '@/lib/unified-student-words';
 import { parseIpa } from '@/lib/study';
 import { extractVietnameseSentenceTranslation } from '@/lib/review-modes';
 import { isWordValidForReview, deduplicateReviewWords } from '@/lib/review-queue';
@@ -80,49 +81,65 @@ function normalizeWordFamilyMeta(raw: unknown): WordFamilyEntry[] | undefined {
   return out.length > 0 ? out : undefined;
 }
 
-async function attachReferenceMeta<T extends { id: string }>(
-  supabase: ReturnType<typeof createServiceClient>,
-  items: T[],
-): Promise<Array<T & {
+type ReferenceMeta = {
   familyWords?: WordFamilyEntry[];
   teacherNote?: string;
   section?: string;
   source?: string;
-}>> {
+  created_at?: string;
+};
+
+async function attachReferenceMeta<T extends { id: string }>(
+  supabase: ReturnType<typeof createServiceClient>,
+  items: T[],
+  opts?: { includeCreatedAt?: boolean },
+): Promise<Array<T & ReferenceMeta>> {
   if (items.length === 0) return items;
-  const ids = items.map((i) => i.id).slice(0, 100);
-  const { data: metaRows, error } = await supabase
-    .from('words')
-    .select('id, fw:dictionary_data->familyWords, tn:dictionary_data->>teacherNote, sec:dictionary_data->>section, src:dictionary_data->>source')
-    .in('id', ids);
+  const includeCreatedAt = Boolean(opts?.includeCreatedAt);
+  const selectCols = includeCreatedAt
+    ? 'id, created_at, fw:dictionary_data->familyWords, tn:dictionary_data->>teacherNote, sec:dictionary_data->>section, src:dictionary_data->>source'
+    : 'id, fw:dictionary_data->familyWords, tn:dictionary_data->>teacherNote, sec:dictionary_data->>section, src:dictionary_data->>source';
 
-  if (error || !metaRows || metaRows.length === 0) return items;
+  const uniqueIds = Array.from(new Set(items.map((i) => i.id).filter(Boolean)));
+  const CHUNK_SIZE = 200;
+  const idChunks: string[][] = [];
+  for (let i = 0; i < uniqueIds.length; i += CHUNK_SIZE) {
+    idChunks.push(uniqueIds.slice(i, i + CHUNK_SIZE));
+  }
 
-  const metaById = new Map<string, {
-    familyWords?: WordFamilyEntry[];
-    teacherNote?: string;
-    section?: string;
-    source?: string;
-  }>();
+  const chunkResults = await Promise.all(
+    idChunks.map((chunk) => supabase.from('words').select(selectCols).in('id', chunk)),
+  );
 
-  for (const row of metaRows as Array<{
-    id: string;
-    fw: unknown;
-    tn: string | null;
-    sec: string | null;
-    src: string | null;
-  }>) {
-    const fw = normalizeWordFamilyMeta(row.fw);
-    const tn = row.tn?.trim() || undefined;
-    const sec = row.sec?.trim() || undefined;
-    const src = row.src?.trim() || undefined;
-    if (fw || tn || sec || src) {
-      metaById.set(row.id, {
-        ...(fw ? { familyWords: fw } : {}),
-        ...(tn ? { teacherNote: tn } : {}),
-        ...(sec ? { section: sec } : {}),
-        ...(src ? { source: src } : {}),
-      });
+  const metaById = new Map<string, ReferenceMeta>();
+
+  for (const res of chunkResults) {
+    if (res.error || !res.data) continue;
+    for (const row of res.data as unknown as Array<{
+      id: string;
+      created_at?: string | null;
+      fw: unknown;
+      tn: string | null;
+      sec: string | null;
+      src: string | null;
+    }>) {
+      const fw = normalizeWordFamilyMeta(row.fw);
+      const tn = row.tn?.trim() || undefined;
+      const sec = row.sec?.trim() || undefined;
+      const src = row.src?.trim() || undefined;
+      const createdAt =
+        includeCreatedAt && typeof row.created_at === 'string' && row.created_at
+          ? row.created_at
+          : undefined;
+      if (fw || tn || sec || src || createdAt) {
+        metaById.set(row.id, {
+          ...(fw ? { familyWords: fw } : {}),
+          ...(tn ? { teacherNote: tn } : {}),
+          ...(sec ? { section: sec } : {}),
+          ...(src ? { source: src } : {}),
+          ...(createdAt ? { created_at: createdAt } : {}),
+        });
+      }
     }
   }
 
@@ -171,20 +188,36 @@ async function getOrCreatePersonalClassroom(supabase: ReturnType<typeof createSe
 }
 
 /**
- * Helper: Lấy danh sách ID các lớp học mà user sở hữu (teacher) hoặc tham gia (enrolled).
+ * Helper: Lấy danh sách ID các lớp học học sinh được phép học mặc định:
+ * chỉ gồm `__personal__` của user và các lớp user đã tham gia (enrollments),
+ * KHÔNG bao gồm các lớp user đứng tên dạy (tránh trộn từ giảng dạy vào kho học cá nhân của GV).
  */
-async function getUserClassroomIds(
+async function getUserClassroomScope(
   supabase: ReturnType<typeof createServiceClient>,
   userId: string,
-): Promise<string[]> {
+): Promise<{ classroomIds: string[]; personalClassroomId: string | null }> {
   const [{ data: personalClass }, { data: enrolledClasses }] = await Promise.all([
     supabase.from('classrooms').select('id').eq('teacher_id', userId).eq('name', '__personal__').maybeSingle(),
     supabase.from('enrollments').select('classroom_id').eq('student_id', userId),
   ]);
+  const personalClassroomId = (personalClass?.id as string | undefined) ?? null;
   const cids = new Set<string>();
-  if (personalClass?.id) cids.add(personalClass.id as string);
-  (enrolledClasses || []).forEach((e) => { if (e.classroom_id) cids.add(e.classroom_id as string); });
-  return Array.from(cids);
+  if (personalClassroomId) cids.add(personalClassroomId);
+  (enrolledClasses || []).forEach((e) => {
+    if (e.classroom_id) cids.add(e.classroom_id as string);
+  });
+  return {
+    classroomIds: Array.from(cids),
+    personalClassroomId,
+  };
+}
+
+async function getUserClassroomIds(
+  supabase: ReturnType<typeof createServiceClient>,
+  userId: string,
+): Promise<string[]> {
+  const scope = await getUserClassroomScope(supabase, userId);
+  return scope.classroomIds;
 }
 
 
@@ -321,11 +354,12 @@ function purgeLocalWordSummaryCache(userId: string): void {
 async function fetchWordSummaryCounts(
   supabase: ReturnType<typeof createServiceClient>,
   userId: string,
-  classroomId: string | null,
+  explicitClassroomId: string | null,
   includeLevels = false,
+  preResolvedClassroomIds?: string[],
 ): Promise<WordSummaryCounts> {
   // 30s cache — 100 HS refresh cùng lúc chỉ 1 RPC/instance
-  const cacheKey = `wsum:${userId}:${classroomId || 'all'}:${includeLevels ? 1 : 0}`;
+  const cacheKey = `wsum:${userId}:${explicitClassroomId || 'all'}:${includeLevels ? 1 : 0}`;
   const cached = cacheGet<WordSummaryCounts>(cacheKey);
   if (cached) return cached;
 
@@ -334,39 +368,9 @@ async function fetchWordSummaryCounts(
 
   const promise = (async () => {
     try {
-      // Ưu tiên RPC (migration 20260919_optimize_word_summary_rpc / 20260927_cross_classroom_due_words_and_tz)
-      const { data: rpcRows, error: rpcErr } = await supabase.rpc('get_word_summary', {
-        p_user_id: userId,
-        p_classroom_id: classroomId || null,
-      });
-      if (!rpcErr && rpcRows) {
-        const row = Array.isArray(rpcRows) ? rpcRows[0] : rpcRows;
-        if (row) {
-          const total = Number(row.total ?? 0);
-          const rawLevels = row.level_counts;
-          const parsedLevels: number[] = Array.isArray(rawLevels)
-            ? rawLevels.map((n: unknown) => Number(n) || 0)
-            : [0, 0, 0, 0, 0, 0];
-
-          const result: WordSummaryCounts = {
-            total,
-            newCount: Number(row.new_count ?? 0),
-            reviewDueCount: Number(row.review_due_count ?? 0),
-            dueCount: Number(row.due_count ?? 0),
-            levelCounts: parsedLevels,
-          };
-          cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
-          return result;
-        }
-      }
-
-      // Fallback query (nếu RPC chưa sẵn sàng hoặc lỗi)
-      let targetClassroomIds: string[] | null = null;
-      if (classroomId) {
-        targetClassroomIds = [classroomId];
-      } else {
-        targetClassroomIds = await getUserClassroomIds(supabase, userId);
-      }
+      const targetClassroomIds = explicitClassroomId
+        ? [explicitClassroomId]
+        : (preResolvedClassroomIds ?? await getUserClassroomIds(supabase, userId));
 
       if (targetClassroomIds.length === 0) {
         const emptyResult: WordSummaryCounts = {
@@ -380,13 +384,57 @@ async function fetchWordSummaryCounts(
         return emptyResult;
       }
 
+      // Tuyệt đối không truyền p_classroom_id = null xuống RPC vì SQL RPC cũ quét cả lớp GV đang dạy.
+      const rpcResults = await Promise.all(
+        targetClassroomIds.map((cid) =>
+          supabase.rpc('get_word_summary', {
+            p_user_id: userId,
+            p_classroom_id: cid,
+          }),
+        ),
+      );
+
+      const allRpcsOk = rpcResults.every((res) => !res.error && Boolean(res.data));
+      if (allRpcsOk) {
+        const parsedSummaries: WordSummaryCounts[] = [];
+        let missingRow = false;
+        for (const res of rpcResults) {
+          const row = Array.isArray(res.data) ? res.data[0] : res.data;
+          if (!row) {
+            missingRow = true;
+            break;
+          }
+          const rawLevels = row.level_counts;
+          const parsedLevels: number[] = Array.isArray(rawLevels)
+            ? rawLevels.map((n: unknown) => Number(n) || 0)
+            : [0, 0, 0, 0, 0, 0];
+          parsedSummaries.push({
+            total: Number(row.total ?? 0),
+            newCount: Number(row.new_count ?? 0),
+            reviewDueCount: Number(row.review_due_count ?? 0),
+            dueCount: Number(row.due_count ?? 0),
+            levelCounts: parsedLevels,
+          });
+        }
+        if (!missingRow) {
+          const result =
+            parsedSummaries.length === 1
+              ? parsedSummaries[0]
+              : aggregateWordSummaries(parsedSummaries);
+          cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
+          return result;
+        }
+      }
+
+      // Fallback query (nếu RPC chưa sẵn sàng hoặc lỗi)
       const now = new Date().toISOString();
+      const singleCid = targetClassroomIds.length === 1 ? targetClassroomIds[0] : null;
 
       let totalQuery = supabase
         .from('words')
         .select('id', { count: 'exact', head: true });
-      if (classroomId) {
-        totalQuery = totalQuery.eq('classroom_id', classroomId);
+      if (singleCid) {
+        totalQuery = totalQuery.eq('classroom_id', singleCid);
       } else {
         totalQuery = totalQuery.in('classroom_id', targetClassroomIds);
       }
@@ -401,8 +449,8 @@ async function fetchWordSummaryCounts(
         .not('words.translation', 'ilike', '%failed%')
         .not('words.translation', 'ilike', '%Analyzing%')
         .not('words.translation', 'like', '%⏳%');
-      if (classroomId) {
-        srsDueQuery = srsDueQuery.eq('words.classroom_id', classroomId);
+      if (singleCid) {
+        srsDueQuery = srsDueQuery.eq('words.classroom_id', singleCid);
       } else {
         srsDueQuery = srsDueQuery.in('words.classroom_id', targetClassroomIds);
       }
@@ -411,8 +459,8 @@ async function fetchWordSummaryCounts(
         .from('srs_progress')
         .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
         .eq('user_id', userId);
-      if (classroomId) {
-        wordsWithSrsQuery = wordsWithSrsQuery.eq('words.classroom_id', classroomId);
+      if (singleCid) {
+        wordsWithSrsQuery = wordsWithSrsQuery.eq('words.classroom_id', singleCid);
       } else {
         wordsWithSrsQuery = wordsWithSrsQuery.in('words.classroom_id', targetClassroomIds);
       }
@@ -422,8 +470,8 @@ async function fetchWordSummaryCounts(
         .select('id, words!inner(classroom_id)', { count: 'exact', head: true })
         .eq('user_id', userId)
         .gt('review_count', 0);
-      if (classroomId) {
-        learnedQuery = learnedQuery.eq('words.classroom_id', classroomId);
+      if (singleCid) {
+        learnedQuery = learnedQuery.eq('words.classroom_id', singleCid);
       } else {
         learnedQuery = learnedQuery.in('words.classroom_id', targetClassroomIds);
       }
@@ -439,8 +487,8 @@ async function fetchWordSummaryCounts(
         .not('words.translation', 'ilike', '%failed%')
         .not('words.translation', 'ilike', '%Analyzing%')
         .not('words.translation', 'like', '%⏳%');
-      if (classroomId) {
-        reviewDueQuery = reviewDueQuery.eq('words.classroom_id', classroomId);
+      if (singleCid) {
+        reviewDueQuery = reviewDueQuery.eq('words.classroom_id', singleCid);
       } else {
         reviewDueQuery = reviewDueQuery.in('words.classroom_id', targetClassroomIds);
       }
@@ -469,7 +517,7 @@ async function fetchWordSummaryCounts(
         newCount: Math.max(0, totalN - learnedN),
         reviewDueCount: reviewDueCount || 0,
         levelCounts: includeLevels
-          ? await fetchLevelCounts(supabase, userId, classroomId, totalN)
+          ? await fetchLevelCounts(supabase, userId, singleCid ?? explicitClassroomId, totalN)
           : [0, 0, 0, 0, 0, 0],
       };
       cacheSet(cacheKey, result, includeLevels ? 60_000 : 30_000);
@@ -754,6 +802,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     const supabase = createServiceClient();
 
     // Tự động dùng personal classroom nếu không truyền classroomId
+    const isExplicitClassroomPost = Boolean(classroomId);
     if (!classroomId) {
       classroomId = await getOrCreatePersonalClassroom(supabase, userId);
     } else {
@@ -914,6 +963,9 @@ export async function POST(req: Request): Promise<NextResponse> {
 
     recordWordSaved(userId);
     purgeLocalWordSummaryCache(userId);
+    if (isExplicitClassroomPost) {
+      await invalidateClassroomWordSummaryCaches(supabase, classroomId, userId);
+    }
 
     return NextResponse.json({
       success: true,
@@ -981,9 +1033,16 @@ export async function GET(req: Request): Promise<NextResponse> {
 
     const supabase = createServiceClient();
 
+    const hasExplicitScope = Boolean(classroomId);
+    let targetClassroomIds: string[] = [];
+    let personalClassroomId: string | null = null;
+
     // Nếu truyền classroomId là '__personal__', tự động resolve sang UUID personal classroom
     if (classroomId === '__personal__') {
-      classroomId = await getOrCreatePersonalClassroom(supabase, userId);
+      const personalId = await getOrCreatePersonalClassroom(supabase, userId);
+      classroomId = personalId;
+      personalClassroomId = personalId;
+      targetClassroomIds = [personalId];
     } else if (classroomId) {
       const { data: cls } = await supabase
         .from('classrooms')
@@ -1000,34 +1059,45 @@ export async function GET(req: Request): Promise<NextResponse> {
             .eq('student_id', userId)
             .maybeSingle();
       if (!isTeacher && !enrolled) return unauthorized();
-    } else if (!summary && filter !== 'review') {
-      // Tự động dùng personal classroom của chính user khi browse từ / new words thông thường
-      classroomId = await getOrCreatePersonalClassroom(supabase, userId);
+      targetClassroomIds = [classroomId];
+    } else {
+      // Mặc định thống nhất: kho cá nhân + các lớp học sinh đang tham gia (không bao gồm lớp GV đang dạy)
+      const scope = await getUserClassroomScope(supabase, userId);
+      targetClassroomIds = scope.classroomIds;
+      personalClassroomId = scope.personalClassroomId;
     }
+
+    const responseClassroomId = hasExplicitScope ? classroomId : null;
 
     // ── Chế độ REVIEW: chỉ từ ĐÃ học & ĐẾN HẠN. Từ mới thuộc filter=new/LearnMode. ──
     if (filter === 'review') {
       const reviewCap = Math.min(limit, 100);
 
-      // Fast-path: RPC get_due_words_list (1 query duy nhất ~200ms thay vì 3-4 roundtrips mạng)
+      if (targetClassroomIds.length === 0) {
+        return new NextResponse(
+          JSON.stringify({ success: true, data: [], classroomId: responseClassroomId, total: 0 }),
+          { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+        );
+      }
+
+      // Fast-path: RPC get_due_words_list theo từng classroomId trong scope (không truyền null)
       if (!requestedIds) {
         // Nạp dư một lượng vừa phải (tối đa 100 theo constraint DB) để sau khi deduplicate
         // giữa các classroom, hàng đợi không bị thiếu từ so với reviewCap mong muốn.
         const rpcFetchLimit = Math.min(100, reviewCap + 25);
-        const { data: rpcWords, error: rpcErr } = await supabase.rpc('get_due_words_list', {
-          p_user_id: userId,
-          p_classroom_id: classroomId || null,
-          p_limit: rpcFetchLimit,
-        });
+        const rpcResults = await Promise.all(
+          targetClassroomIds.map((cid) =>
+            supabase.rpc('get_due_words_list', {
+              p_user_id: userId,
+              p_classroom_id: cid,
+              p_limit: rpcFetchLimit,
+            }),
+          ),
+        );
 
-        if (!rpcErr && Array.isArray(rpcWords)) {
-          if (rpcWords.length === 0) {
-            return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
-              headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-            });
-          }
-
-          const rawWords = (rpcWords as Array<{
+        const allDueRpcsOk = rpcResults.every((res) => !res.error && Array.isArray(res.data));
+        if (allDueRpcsOk) {
+          type RpcDueRow = {
             id: string;
             word: string;
             translation: string;
@@ -1040,12 +1110,33 @@ export async function GET(req: Request): Promise<NextResponse> {
             image_url?: string | null;
             review_count?: number | null;
             classroom_id?: string | null;
-          }>).filter(isWordValidForReview);
+          };
+
+          const combinedRpcWords: RpcDueRow[] = [];
+          rpcResults.forEach((res, idx) => {
+            const cid = targetClassroomIds[idx];
+            for (const row of (res.data || []) as RpcDueRow[]) {
+              combinedRpcWords.push({
+                ...row,
+                classroom_id: row.classroom_id || cid,
+              });
+            }
+          });
+
+          if (combinedRpcWords.length === 0) {
+            return new NextResponse(
+              JSON.stringify({ success: true, data: [], classroomId: responseClassroomId, total: 0 }),
+              { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+            );
+          }
+
+          const rawWords = combinedRpcWords.filter(isWordValidForReview);
 
           if (rawWords.length === 0) {
-            return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
-              headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-            });
+            return new NextResponse(
+              JSON.stringify({ success: true, data: [], classroomId: responseClassroomId, total: 0 }),
+              { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+            );
           }
 
           // Lấy thông tin stability & next_review_date từ srs_progress để tính srsLevel và phục vụ deduplication
@@ -1102,32 +1193,28 @@ export async function GET(req: Request): Promise<NextResponse> {
             };
           });
 
+          mappedCandidates.sort((a, b) => {
+            const ta = a.next_review_date ? Date.parse(a.next_review_date) : Number.MAX_SAFE_INTEGER;
+            const tb = b.next_review_date ? Date.parse(b.next_review_date) : Number.MAX_SAFE_INTEGER;
+            const safeA = Number.isFinite(ta) ? ta : Number.MAX_SAFE_INTEGER;
+            const safeB = Number.isFinite(tb) ? tb : Number.MAX_SAFE_INTEGER;
+            return safeA - safeB;
+          });
+
           // Deduplicate cross-classroom words by normalized word:
           // w.word.trim().toLowerCase()
           // Keeping the record with higher review count, earlier review date, or richer content (example).
           const deduped = deduplicateReviewWords(mappedCandidates);
           const enriched = await attachReferenceMeta(supabase, deduped.slice(0, reviewCap));
 
-          return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
-            headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-          });
+          return new NextResponse(
+            JSON.stringify({ success: true, data: enriched, classroomId: responseClassroomId, total: enriched.length }),
+            { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+          );
         }
       }
 
       // Fallback query (khi có requestedIds hoặc RPC chưa migrate/lỗi)
-      let targetClassroomIds: string[] | null = null;
-      if (classroomId) {
-        targetClassroomIds = [classroomId];
-      } else {
-        targetClassroomIds = await getUserClassroomIds(supabase, userId);
-      }
-
-      if (targetClassroomIds.length === 0) {
-        return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
-          headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-        });
-      }
-
       const nowIso = new Date().toISOString();
       let dueSrsQuery = supabase
         .from('srs_progress')
@@ -1141,8 +1228,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (requestedIds) {
         dueSrsQuery = dueSrsQuery.in('word_id', requestedIds);
       }
-      if (classroomId) {
-        dueSrsQuery = dueSrsQuery.eq('words.classroom_id', classroomId);
+      if (targetClassroomIds.length === 1) {
+        dueSrsQuery = dueSrsQuery.eq('words.classroom_id', targetClassroomIds[0]);
       } else {
         dueSrsQuery = dueSrsQuery.in('words.classroom_id', targetClassroomIds);
       }
@@ -1161,9 +1248,10 @@ export async function GET(req: Request): Promise<NextResponse> {
 
       const allIds = dueIds;
       if (allIds.length === 0) {
-        return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
-          headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-        });
+        return new NextResponse(
+          JSON.stringify({ success: true, data: [], classroomId: responseClassroomId, total: 0 }),
+          { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+        );
       }
 
       // Lấy từ due + mới (id list) — không join srs_progress(*) (payload nhẹ)
@@ -1172,9 +1260,9 @@ export async function GET(req: Request): Promise<NextResponse> {
         .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at')
         .in('id', allIds);
       if (requestedIds) {
-        if (classroomId) {
-          dueWordsQuery = dueWordsQuery.eq('classroom_id', classroomId);
-        } else if (targetClassroomIds) {
+        if (targetClassroomIds.length === 1) {
+          dueWordsQuery = dueWordsQuery.eq('classroom_id', targetClassroomIds[0]);
+        } else {
           dueWordsQuery = dueWordsQuery.in('classroom_id', targetClassroomIds);
         }
       }
@@ -1211,73 +1299,151 @@ export async function GET(req: Request): Promise<NextResponse> {
       const deduped = deduplicateReviewWords(enrichedCandidates);
       const enriched = await attachReferenceMeta(supabase, deduped.slice(0, reviewCap));
 
-      return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
-        headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-      });
+      return new NextResponse(
+        JSON.stringify({ success: true, data: enriched, classroomId: responseClassroomId, total: enriched.length }),
+        { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+      );
     }
 
     // ── Chế độ NEW: trả từ CHƯA học (không có SRS hoặc review_count=0) trên TOÀN BỘ words ──
     // LearnMode dùng — không kẹt pagination 300 từ mới nhất, không bỏ sót từ cũ chưa học.
     if (filter === 'new') {
+      if (targetClassroomIds.length === 0) {
+        return new NextResponse(
+          JSON.stringify({ success: true, data: [], classroomId: responseClassroomId, total: 0 }),
+          { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+        );
+      }
+
       // Fast-path: RPC get_new_words_list (indexed query via LEFT JOIN, ~15ms)
       if (!requestedIds) {
-        const { data: rpcWords, error: rpcErr } = await supabase.rpc('get_new_words_list', {
-          p_user_id: userId,
-          p_classroom_id: classroomId!,
-          p_limit: limit,
-        });
+        type RpcNewRow = {
+          id: string;
+          word: string;
+          translation: string;
+          ipa?: string | null;
+          pos?: string | null;
+          example?: string | null;
+          example_vi?: string | null;
+          synonyms?: string[] | null;
+          antonyms?: string[] | null;
+          image_url?: string | null;
+          review_count?: number | null;
+        };
 
-        if (!rpcErr && Array.isArray(rpcWords)) {
-          if (rpcWords.length === 0) {
-            return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
-              headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-            });
-          }
-
-          const enrichedBase = (rpcWords as Array<{
-            id: string;
-            word: string;
-            translation: string;
-            ipa?: string | null;
-            pos?: string | null;
-            example?: string | null;
-            example_vi?: string | null;
-            synonyms?: string[] | null;
-            antonyms?: string[] | null;
-            image_url?: string | null;
-            review_count?: number | null;
-          }>)
-            .filter((w) =>
-              w.word && w.translation &&
-              w.translation.trim() !== '' &&
-              !w.translation.includes('failed') &&
-              !w.translation.includes('Analyzing') &&
-              !w.translation.includes('⏳'))
-            .map((w) => ({
-              id: w.id,
-              word: w.word,
-              translation: w.translation,
-              ipa: w.ipa || '',
-              pos: w.pos || '',
-              example: w.example || '',
-              example_vi: w.example_vi || null,
-              image_url: w.image_url || null,
-              synonyms: w.synonyms || [],
-              antonyms: w.antonyms || [],
-              classroom_id: classroomId,
-              srs: null,
-              isDue: true,
-              reviewCount: 0,
-              srsLevel: 0,
-              mastery: 0,
-              status: 'learning',
-            }));
-
-          const enriched = await attachReferenceMeta(supabase, enrichedBase);
-
-          return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
-            headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
+        if (targetClassroomIds.length === 1) {
+          const singleCid = targetClassroomIds[0];
+          const { data: rpcWords, error: rpcErr } = await supabase.rpc('get_new_words_list', {
+            p_user_id: userId,
+            p_classroom_id: singleCid,
+            p_limit: limit,
           });
+
+          if (!rpcErr && Array.isArray(rpcWords)) {
+            if (rpcWords.length === 0) {
+              return new NextResponse(
+                JSON.stringify({ success: true, data: [], classroomId: responseClassroomId, total: 0 }),
+                { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+              );
+            }
+
+            const enrichedBase = (rpcWords as RpcNewRow[])
+              .filter(
+                (w) =>
+                  w.word &&
+                  w.translation &&
+                  w.translation.trim() !== '' &&
+                  !w.translation.includes('failed') &&
+                  !w.translation.includes('Analyzing') &&
+                  !w.translation.includes('⏳'),
+              )
+              .map((w) => ({
+                id: w.id,
+                word: w.word,
+                translation: w.translation,
+                ipa: w.ipa || '',
+                pos: w.pos || '',
+                example: w.example || '',
+                example_vi: w.example_vi || null,
+                image_url: w.image_url || null,
+                synonyms: w.synonyms || [],
+                antonyms: w.antonyms || [],
+                classroom_id: singleCid,
+                srs: null,
+                isDue: true,
+                reviewCount: 0,
+                srsLevel: 0,
+                mastery: 0,
+                status: 'learning',
+              }));
+
+            const enriched = await attachReferenceMeta(supabase, enrichedBase);
+
+            return new NextResponse(
+              JSON.stringify({ success: true, data: enriched, classroomId: responseClassroomId, total: enriched.length }),
+              { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+            );
+          }
+        } else {
+          const newRpcResults = await Promise.all(
+            targetClassroomIds.map((cid) =>
+              supabase.rpc('get_new_words_list', {
+                p_user_id: userId,
+                p_classroom_id: cid,
+                p_limit: limit,
+              }),
+            ),
+          );
+          const allNewRpcsOk = newRpcResults.every((res) => !res.error && Array.isArray(res.data));
+          if (allNewRpcsOk) {
+            const combinedBase = newRpcResults.flatMap((res, idx) => {
+              const cid = targetClassroomIds[idx];
+              return ((res.data || []) as RpcNewRow[])
+                .filter(
+                  (w) =>
+                    w.word &&
+                    w.translation &&
+                    w.translation.trim() !== '' &&
+                    !w.translation.includes('failed') &&
+                    !w.translation.includes('Analyzing') &&
+                    !w.translation.includes('⏳'),
+                )
+                .map((w) => ({
+                  id: w.id,
+                  word: w.word,
+                  translation: w.translation,
+                  ipa: w.ipa || '',
+                  pos: w.pos || '',
+                  example: w.example || '',
+                  example_vi: w.example_vi || null,
+                  image_url: w.image_url || null,
+                  synonyms: w.synonyms || [],
+                  antonyms: w.antonyms || [],
+                  classroom_id: cid,
+                  srs: null,
+                  isDue: true,
+                  reviewCount: 0,
+                  srsLevel: 0,
+                  mastery: 0,
+                  status: 'learning',
+                }));
+            });
+
+            if (combinedBase.length === 0) {
+              return new NextResponse(
+                JSON.stringify({ success: true, data: [], classroomId: responseClassroomId, total: 0 }),
+                { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+              );
+            }
+
+            const withMeta = await attachReferenceMeta(supabase, combinedBase, { includeCreatedAt: true });
+            const merged = mergeAndDedupeNewWords(withMeta, personalClassroomId, limit);
+
+            return new NextResponse(
+              JSON.stringify({ success: true, data: merged, classroomId: responseClassroomId, total: merged.length }),
+              { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+            );
+          }
         }
       }
 
@@ -1296,22 +1462,35 @@ export async function GET(req: Request): Promise<NextResponse> {
       if (requestedIds) {
         candidateIds = requestedIds.filter((id) => !learnedIds.has(id)).slice(0, limit);
       } else {
-        const { data: idRows, error: idErr } = await supabase
+        let idQuery = supabase
           .from('words')
-          .select('id')
-          .eq('classroom_id', classroomId)
+          .select('id, word, classroom_id, created_at')
           .order('created_at', { ascending: false });
+        idQuery =
+          targetClassroomIds.length === 1
+            ? idQuery.eq('classroom_id', targetClassroomIds[0])
+            : idQuery.in('classroom_id', targetClassroomIds);
+
+        const { data: idRows, error: idErr } = await idQuery;
         if (idErr) throw idErr;
-        candidateIds = (idRows || [])
-          .map((r) => r.id as string)
-          .filter((id) => !learnedIds.has(id))
-          .slice(0, limit);
+        const unlearnedRows = ((idRows || []) as Array<{
+          id: string;
+          word: string;
+          classroom_id?: string | null;
+          created_at?: string | null;
+        }>).filter((r) => !learnedIds.has(r.id));
+
+        candidateIds =
+          targetClassroomIds.length > 1
+            ? mergeAndDedupeNewWords(unlearnedRows, personalClassroomId, limit).map((r) => r.id)
+            : unlearnedRows.slice(0, limit).map((r) => r.id);
       }
 
       if (candidateIds.length === 0) {
-        return new NextResponse(JSON.stringify({ success: true, data: [], classroomId, total: 0 }), {
-          headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-        });
+        return new NextResponse(
+          JSON.stringify({ success: true, data: [], classroomId: responseClassroomId, total: 0 }),
+          { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+        );
       }
 
       // 3. Chỉ fetch full chi tiết cho đúng các candidateIds cần học (tối đa limit từ)
@@ -1360,17 +1539,24 @@ export async function GET(req: Request): Promise<NextResponse> {
 
       const enriched = await attachReferenceMeta(supabase, enrichedBase);
 
-      return new NextResponse(JSON.stringify({ success: true, data: enriched, classroomId, total: enriched.length }), {
-        headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' },
-      });
+      return new NextResponse(
+        JSON.stringify({ success: true, data: enriched, classroomId: responseClassroomId, total: enriched.length }),
+        { headers: { 'Cache-Control': 'no-store, must-revalidate, max-age=0' } },
+      );
     }
 
     // Chế độ summary: đếm total/due — levels chỉ khi ?levels=1
     if (summary) {
-      const counts = await fetchWordSummaryCounts(supabase, userId, classroomId, includeLevels);
+      const counts = await fetchWordSummaryCounts(
+        supabase,
+        userId,
+        hasExplicitScope ? classroomId : null,
+        includeLevels,
+        targetClassroomIds,
+      );
       return new NextResponse(JSON.stringify({
         success: true,
-        classroomId,
+        classroomId: responseClassroomId,
         totalWords: counts.total,
         ...counts,
       }), {
@@ -1379,22 +1565,48 @@ export async function GET(req: Request): Promise<NextResponse> {
     }
 
     // List words + total count. Counts full (new/reviewDue): ?includeCounts=1 (tránh đếm đôi với summary=1)
-    if (!classroomId) {
-      classroomId = await getOrCreatePersonalClassroom(supabase, userId);
-    }
     const includeCounts = searchParams.get('includeCounts') === '1';
     const noCount = searchParams.get('noCount') === '1';
+
+    if (targetClassroomIds.length === 0) {
+      return new NextResponse(JSON.stringify({
+        success: true,
+        data: [],
+        classroomId: responseClassroomId,
+        total: 0,
+        ...(includeCounts
+          ? {
+              newCount: 0,
+              reviewDueCount: 0,
+              dueCount: 0,
+            }
+          : {}),
+        limit,
+        offset,
+        hasMore: false,
+      }), {
+        headers: { 'Cache-Control': 'private, no-store' },
+      });
+    }
+
     let countQuery = supabase
       .from('words')
-      .select('id', { count: 'exact', head: true })
-      .eq('classroom_id', classroomId);
+      .select('id', { count: 'exact', head: true });
     // Payload nhẹ: bỏ dictionary_data / image meta — dashboard + ôn không cần.
     // Lọc srs_progress theo đúng user_id ngay tại DB để tránh nhân bản N_words * 300_students trong lớp học.
     let wordsQuery = supabase
       .from('words')
       .select('id, word, translation, ipa, pos, example, example_vi, image_url, synonyms, antonyms, classroom_id, created_at, fw:dictionary_data->familyWords, tn:dictionary_data->>teacherNote, sec:dictionary_data->>section, src:dictionary_data->>source, srs_progress(user_id, stability, review_count, next_review_date, ease_factor, interval_days, difficulty, last_reviewed_at)')
-      .eq('classroom_id', classroomId)
       .eq('srs_progress.user_id', userId);
+
+    if (targetClassroomIds.length === 1) {
+      countQuery = countQuery.eq('classroom_id', targetClassroomIds[0]);
+      wordsQuery = wordsQuery.eq('classroom_id', targetClassroomIds[0]);
+    } else {
+      countQuery = countQuery.in('classroom_id', targetClassroomIds);
+      wordsQuery = wordsQuery.in('classroom_id', targetClassroomIds);
+    }
+
     if (requestedIds) {
       countQuery = countQuery.in('id', requestedIds);
       wordsQuery = wordsQuery.in('id', requestedIds);
@@ -1406,7 +1618,13 @@ export async function GET(req: Request): Promise<NextResponse> {
         .order('created_at', { ascending: false })
         .range(offset, offset + limit - 1),
       includeCounts
-        ? fetchWordSummaryCounts(supabase, userId, classroomId, includeLevels)
+        ? fetchWordSummaryCounts(
+            supabase,
+            userId,
+            hasExplicitScope ? classroomId : null,
+            includeLevels,
+            targetClassroomIds,
+          )
         : Promise.resolve(null),
     ]);
 
@@ -1477,7 +1695,7 @@ export async function GET(req: Request): Promise<NextResponse> {
     return new NextResponse(JSON.stringify({
       success: true,
       data: enriched,
-      classroomId,
+      classroomId: responseClassroomId,
       total,
       ...(summaryCounts
         ? {
@@ -1578,9 +1796,17 @@ export async function DELETE(req: Request): Promise<NextResponse> {
     const supabase = createServiceClient();
     if (!(await userOwnsWord(supabase, wordId, auth.userId))) return unauthorized();
 
-    const { error } = await supabase.from('words').delete().eq('id', wordId);
+    const { data: deletedWord, error } = await supabase
+      .from('words')
+      .delete()
+      .eq('id', wordId)
+      .select('classroom_id')
+      .maybeSingle();
     if (error) throw error;
     purgeLocalWordSummaryCache(auth.userId);
+    if (deletedWord?.classroom_id) {
+      await invalidateClassroomWordSummaryCaches(supabase, deletedWord.classroom_id as string, auth.userId);
+    }
     return NextResponse.json({ success: true });
   } catch (error: unknown) {
     const sessionFailure = sessionErrorResponse(error);
