@@ -23,26 +23,27 @@ type Props = {
   /** false = luôn hiện khi promo (trang upgrade). true = cho ẩn session */
   dismissible?: boolean;
   className?: string;
+  onDismiss?: () => void;
 };
 
 export function CohortProPromoBanner({
   variant = 'dashboard',
   dismissible = variant === 'dashboard',
   className = '',
+  onDismiss,
 }: Props) {
   const [active, setActive] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(() => {
+    if (!dismissible || typeof window === 'undefined') return false;
+    try {
+      return sessionStorage.getItem(SESSION_HIDE_KEY) === '1';
+    } catch {
+      return false;
+    }
+  });
   const [cd, setCd] = useState(() => formatCountdown(getCohortProPromoMsLeft()));
 
   useEffect(() => {
-    if (dismissible) {
-      try {
-        if (sessionStorage.getItem(SESSION_HIDE_KEY) === '1') setHidden(true);
-      } catch {
-        /* ignore */
-      }
-    }
-
     const tick = () => {
       const on = isCohortProPromoActive();
       setActive(on);
@@ -51,7 +52,7 @@ export function CohortProPromoBanner({
     tick();
     const id = window.setInterval(tick, 1000);
     return () => window.clearInterval(id);
-  }, [dismissible]);
+  }, []);
 
   if (!active || hidden) return null;
 
@@ -109,6 +110,7 @@ export function CohortProPromoBanner({
               } catch {
                 /* ignore */
               }
+              onDismiss?.();
             }}
             className="shrink-0 rounded-lg p-1.5 text-emerald-900/40 hover:bg-emerald-900/5 hover:text-emerald-900/70"
           >

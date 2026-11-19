@@ -31,15 +31,18 @@ export function Celebration({ trigger, triggerKey, intensity = 'light' }: Props)
 
     let cancelled = false;
     // Lazy-load canvas-confetti chỉ khi thật sự bắn → khỏi initial bundle các trang học.
+    // useWorker: false để tuân thủ CSP worker-src 'self' (không tạo blob: Worker).
     void import('canvas-confetti').then(({ default: confetti }) => {
       if (cancelled) return;
+      const shoot = confetti.create(undefined, { resize: true, useWorker: false });
       if (intensity === 'epic') {
         // 5 burst dạng pháo hoa
-        confetti({ particleCount: 180, spread: 100, origin: { y: 0.5 } });
+        void shoot({ particleCount: 180, spread: 100, origin: { y: 0.5 } });
         const colors = ['#fbbf24', '#f59e0b', '#10b981', '#6366f1', '#ec4899'];
         const fire = (delay: number, x: number, angle: number) => {
           setTimeout(() => {
-            confetti({
+            if (cancelled) return;
+            void shoot({
               particleCount: 100,
               angle,
               spread: 70,
@@ -54,17 +57,25 @@ export function Celebration({ trigger, triggerKey, intensity = 'light' }: Props)
         fire(700, 0.5, 90);
         fire(1000, 0.2, 75);
       } else if (intensity === 'strong') {
-        confetti({ particleCount: 160, spread: 90, origin: { y: 0.55 } });
+        void shoot({ particleCount: 160, spread: 90, origin: { y: 0.55 } });
         setTimeout(
-          () => confetti({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 } }),
+          () => {
+            if (!cancelled) {
+              void shoot({ particleCount: 80, angle: 60, spread: 55, origin: { x: 0, y: 0.6 } });
+            }
+          },
           200,
         );
         setTimeout(
-          () => confetti({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 } }),
+          () => {
+            if (!cancelled) {
+              void shoot({ particleCount: 80, angle: 120, spread: 55, origin: { x: 1, y: 0.6 } });
+            }
+          },
           400,
         );
       } else {
-        confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+        void shoot({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
       }
     });
     return () => {

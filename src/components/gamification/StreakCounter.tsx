@@ -1,5 +1,9 @@
 'use client';
 
+import { useSyncExternalStore } from 'react';
+
+const emptySubscribe = () => () => {};
+
 interface Props {
   streak: number;
   lastActiveDate?: string | null;
@@ -75,6 +79,7 @@ export function StreakCounter({
   dailyCounts,
   className = '',
 }: Props) {
+  const isHydrated = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const isActive = streak > 0;
 
   if (variant === 'compact') {
@@ -89,10 +94,10 @@ export function StreakCounter({
   }
 
   if (variant === 'calendar') {
-    const now = new Date();
+    const now = isHydrated ? new Date() : new Date(2026, 0, 1);
     const year = now.getFullYear();
     const month = now.getMonth();
-    const todayDate = now.getDate();
+    const todayDate = isHydrated ? now.getDate() : 1;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const lead = new Date(year, month, 1).getDay();
     const weekdays = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];

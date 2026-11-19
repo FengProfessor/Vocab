@@ -220,6 +220,19 @@ export function writeDashboardWordsCache(userId: string, words: Word[]): void {
   }
 }
 
+export interface CachedEnrolledClassroom {
+  id: string;
+  name: string;
+  description: string | null;
+  invite_code: string | null;
+  joined_at: string | null;
+  teacher: {
+    id: string;
+    name: string;
+    email: string;
+  };
+}
+
 export interface DashboardSecondarySnapshot {
   dailyActivity?: Array<{ date: string; count: number; day?: string; words?: number; xp?: number; isToday?: boolean }>;
   todayWords?: number;
@@ -227,6 +240,7 @@ export interface DashboardSecondarySnapshot {
   todayReviewWords?: number;
   studyStreak?: number;
   vocabPacks?: unknown[];
+  classrooms?: CachedEnrolledClassroom[];
   readingProgress?: {
     completedCount: number;
     inProgressCount: number;

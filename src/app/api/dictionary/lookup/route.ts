@@ -6,6 +6,7 @@ import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { getInMemWordList, fuzzySuggestFromRAM } from '@/lib/dict-trie-engine';
 import { getCollocationVocabEntry, getWordFamilyCluster } from '@/lib/toeic-collocation-index';
 import { getDerivationalStems } from '@/lib/dict-cache';
+import { resolveProxyMediaUrl } from '@/lib/toeic-media-proxy';
 import {
   cleanBareIpaString,
   extractCleanBareIpa,
@@ -43,6 +44,13 @@ const ROLE_CONVERSE: Record<string, string[]> = {
   win: ['lose'],
   lose: ['win'],
 };
+
+function resolveNullableMediaUrl(raw: unknown): string | null {
+  if (typeof raw !== 'string') return null;
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  return resolveProxyMediaUrl(trimmed);
+}
 
 function asStringList(v: unknown): string[] {
   if (!Array.isArray(v)) return [];
@@ -242,8 +250,8 @@ function buildOrderedMeanings(
 async function enrichFamilyWords(
   word: string,
   baseFamily: WordFamilyEntry[],
-  morphology?: any,
-  supabase?: any,
+  morphology?: unknown,
+  supabase?: ReturnType<typeof createServiceClient> | null,
 ): Promise<WordFamilyEntry[]> {
   const map = new Map<string, WordFamilyEntry>();
   const headLower = word.trim().toLowerCase();
@@ -268,7 +276,11 @@ async function enrichFamilyWords(
   }
 
   // 2. Try morphology root word
-  const root = morphology?.rootWord?.trim()?.toLowerCase();
+  const morph =
+    morphology && typeof morphology === 'object'
+      ? (morphology as { rootWord?: unknown; rootMeaning?: unknown })
+      : null;
+  const root = typeof morph?.rootWord === 'string' ? morph.rootWord.trim().toLowerCase() : undefined;
   if (root && root !== headLower && root.length >= 3) {
     const rootCluster = getWordFamilyCluster(root);
     if (rootCluster) {
@@ -306,7 +318,11 @@ async function enrichFamilyWords(
       }
     }
     if (!map.has(root)) {
-      map.set(root, { word: root, pos: 'gốc từ', meaning: morphology?.rootMeaning || undefined });
+      const rootMeaning =
+        typeof morph?.rootMeaning === 'string' && morph.rootMeaning.trim()
+          ? morph.rootMeaning
+          : undefined;
+      map.set(root, { word: root, pos: 'gốc từ', meaning: rootMeaning });
     }
   }
 
@@ -398,7 +414,7 @@ export async function GET(req: Request) {
     let extraImageUrl: string | null = null;
     let extraImageSource = 'none';
 
-    let supabaseClient: any = null;
+    let supabaseClient: ReturnType<typeof createServiceClient> | null = null;
     try {
       supabaseClient = createServiceClient();
     } catch {
@@ -462,6 +478,14 @@ export async function GET(req: Request) {
       ? extraProns
       : parsePronunciations(toeicEntry.ipa);
 
+    const resolvedToeicImageUrl = resolveNullableMediaUrl(extraImageUrl || toeicEntry.imageUrl);
+    const resolvedToeicAudioUs = resolveNullableMediaUrl(toeicEntry.audioUs || extraData?.audio_us);
+    const resolvedToeicAudioUk = resolveNullableMediaUrl(toeicEntry.audioUk || extraData?.audio_uk);
+    const resolvedToeicPhrases = (toeicEntry.phrases || []).map((p) => ({
+      ...p,
+      ...(p.imageUrl ? { imageUrl: resolveProxyMediaUrl(p.imageUrl) } : {}),
+    }));
+
     const body: Record<string, unknown> = {
       success: true,
       source: 'toeic_collocation_index',
@@ -480,14 +504,14 @@ export async function GET(req: Request) {
       familyWords,
       synonyms: toeicEntry.synonyms?.length ? toeicEntry.synonyms : asStringList(extraData?.synonyms),
       antonyms: toeicEntry.antonyms?.length ? toeicEntry.antonyms : asStringList(extraData?.antonyms),
-      image_url: extraImageUrl || toeicEntry.imageUrl || null,
-      imageUrl: extraImageUrl || toeicEntry.imageUrl || null,
+      image_url: resolvedToeicImageUrl,
+      imageUrl: resolvedToeicImageUrl,
       image_source: extraImageSource,
-      audio_us: toeicEntry.audioUs || extraData?.audio_us || null,
-      audioUs: toeicEntry.audioUs || extraData?.audio_us || null,
-      audio_uk: toeicEntry.audioUk || extraData?.audio_uk || null,
-      audioUk: toeicEntry.audioUk || extraData?.audio_uk || null,
-      phrases: toeicEntry.phrases || [],
+      audio_us: resolvedToeicAudioUs,
+      audioUs: resolvedToeicAudioUs,
+      audio_uk: resolvedToeicAudioUk,
+      audioUk: resolvedToeicAudioUk,
+      phrases: resolvedToeicPhrases,
       collocations,
       pronunciations,
       core_senses: coreSenses.length > 0 ? coreSenses : undefined,
@@ -711,13 +735,24 @@ export async function GET(req: Request) {
     const baseFamily = parseRawFamilyWords(raw.familyWords || raw.wordFamily || raw.word_family);
     const familyWords = await enrichFamilyWords(word, baseFamily, raw.morphology, supabase);
 
+    const resolvedGlobalImageUrl = resolveNullableMediaUrl(
+      resolvedRow.image_url || cleaned.image_url || cleaned.imageUrl,
+    );
+    const resolvedGlobalAudioUs = resolveNullableMediaUrl(
+      cleaned.audio_us || cleaned.audioUs || cleaned.audio_url || cleaned.audioUrl,
+    );
+    const resolvedGlobalAudioUk = resolveNullableMediaUrl(cleaned.audio_uk || cleaned.audioUk);
+
     const body: Record<string, unknown> = {
       success: true,
       source: 'global_dictionary',
       tags: resolvedRow.tags || [],
-      image_url: resolvedRow.image_url || null,
-      image_source: resolvedRow.image_source || 'none',
       ...cleaned,
+      image_url: resolvedGlobalImageUrl,
+      ...(resolvedGlobalImageUrl ? { imageUrl: resolvedGlobalImageUrl } : {}),
+      ...(resolvedGlobalAudioUs ? { audio_us: resolvedGlobalAudioUs, audioUs: resolvedGlobalAudioUs } : {}),
+      ...(resolvedGlobalAudioUk ? { audio_uk: resolvedGlobalAudioUk, audioUk: resolvedGlobalAudioUk } : {}),
+      image_source: resolvedRow.image_source || 'none',
       ipa: formattedValidIpa,
       pos: resolvedPos,
       definition: resolvedDef,

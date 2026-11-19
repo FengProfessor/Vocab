@@ -2,21 +2,20 @@
 import { authFetch } from '@/lib/auth-fetch';
 
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
+
+const emptySubscribe = () => () => {};
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   ArrowDownToLine,
-  Brain,
   ChevronDown,
   Crown,
   GraduationCap,
-  Loader2,
   LogOut,
   Menu,
   Search,
-  Sparkles,
   User,
   UserPlus,
   Users,
@@ -37,7 +36,7 @@ const CohortProPromoBanner = dynamic(
 
 import { useGamification } from '@/hooks/useGamification';
 import { getEffectivePlan } from '@/lib/entitlement';
-import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
+import { supabase, type UserGamification } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
 import {
   readWordSummaryCache,
@@ -121,6 +120,8 @@ interface StudentShellProps {
   displayStreak?: number;
   reviewDueCount?: number;
   classroomId?: string | null;
+  /** Khi true (vd /student dùng PriorityBannerSlot), ẩn banner promo/quota khỏi chrome chung */
+  suppressGlobalBanners?: boolean;
 }
 
 export function StudentShell({
@@ -137,6 +138,7 @@ export function StudentShell({
   displayStreak: propDisplayStreak,
   reviewDueCount: propReviewDueCount,
   classroomId: propClassroomId,
+  suppressGlobalBanners = false,
 }: StudentShellProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -180,29 +182,37 @@ export function StudentShell({
     context ? null : (internalProfile?.id ?? null),
   );
 
+  const isHydrated = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const cachedGamification = useMemo(() => {
-    if (propGamification || (context?.gamification && context.gamification.total_xp > 0)) {
+    if (!isHydrated || propGamification || (context?.gamification && context.gamification.total_xp > 0)) {
       return null;
     }
     return readLastGamificationCache();
-  }, [propGamification, context?.gamification]);
+  }, [isHydrated, propGamification, context?.gamification]);
 
-  // Effective values derived from Props -> Context -> Internal State
-  const effectiveProfile = propProfile ?? context?.profile ?? internalProfile;
-  const effectiveGamification =
-    propGamification ??
-    (context?.gamification && (context.gamification.total_xp > 0 || !cachedGamification)
-      ? context.gamification
-      : (cachedGamification ?? fallbackGamification ?? DEFAULT_GAMIFICATION));
-  const effectiveIsTeacher = context
-    ? context.isTeacherUser
-    : (effectiveProfile?.role === 'teacher' || isTeacherUser);
-  const effectiveClassroomId =
-    propClassroomId ?? context?.wordSummary.classroomId ?? classroomId;
-  const effectiveReviewDueCount =
-    propReviewDueCount ?? context?.wordSummary.reviewDueCount ?? reviewDueCount;
-  const resolvedStreak =
-    typeof propDisplayStreak === 'number' ? propDisplayStreak : effectiveGamification.current_streak;
+  // Effective values derived from Props -> Context -> Internal State (hydration-safe)
+  const effectiveProfile = isHydrated ? (propProfile ?? context?.profile ?? internalProfile) : (propProfile ?? null);
+  const effectiveGamification = isHydrated
+    ? (propGamification ??
+      (context?.gamification && (context.gamification.total_xp > 0 || !cachedGamification)
+        ? context.gamification
+        : (cachedGamification ?? fallbackGamification ?? DEFAULT_GAMIFICATION)))
+    : (propGamification ?? DEFAULT_GAMIFICATION);
+  const effectiveIsTeacher = isHydrated
+    ? (context ? context.isTeacherUser : (effectiveProfile?.role === 'teacher' || isTeacherUser))
+    : false;
+  const effectiveClassroomId = isHydrated
+    ? (propClassroomId ?? context?.wordSummary.classroomId ?? classroomId)
+    : (propClassroomId ?? null);
+  const effectiveReviewDueCount = isHydrated
+    ? (propReviewDueCount ?? context?.wordSummary.reviewDueCount ?? reviewDueCount)
+    : (propReviewDueCount ?? 0);
+  const resolvedStreak = isHydrated
+    ? (typeof propDisplayStreak === 'number' ? propDisplayStreak : effectiveGamification.current_streak)
+    : 0;
+  const effectiveBootstrapping = isHydrated ? isBootstrapping : !effectiveProfile;
+  const effectiveGrammarDue = isHydrated ? grammarDue : 0;
+  const effectiveProfileEmail = isHydrated ? profileEmail : '';
   const effectiveImmersive = immersive || embedMode;
   const hasContext = Boolean(context);
   const contextSessionUserId = context?.session?.user?.id ?? null;
@@ -211,20 +221,29 @@ export function StudentShell({
       getEffectivePlan(effectiveProfile.plan, effectiveProfile.plan_expires_at) === 'free',
   );
 
+  const contextRef = useRef(context);
+  const effectiveProfileRef = useRef(effectiveProfile);
   useEffect(() => {
-    try {
-      const q = new URLSearchParams(window.location.search);
-      setEmbedMode(
-        q.get('embed') === '1' ||
-          q.get('embed') === 'true' ||
-          q.get('from') === 'hub' ||
-          q.get('from') === 'lingotown-embed',
-      );
-    } catch {
-      setEmbedMode(false);
-    }
-    setIsMenuOpen(false);
-    setIsProfileOpen(false);
+    contextRef.current = context;
+    effectiveProfileRef.current = effectiveProfile;
+  });
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      try {
+        const q = new URLSearchParams(window.location.search);
+        setEmbedMode(
+          q.get('embed') === '1' ||
+            q.get('embed') === 'true' ||
+            q.get('from') === 'hub' ||
+            q.get('from') === 'lingotown-embed',
+        );
+      } catch {
+        setEmbedMode(false);
+      }
+      setIsMenuOpen(false);
+      setIsProfileOpen(false);
+    });
 
     try {
       const saved = sessionStorage.getItem('lingopro_sidebar_scroll');
@@ -244,13 +263,14 @@ export function StudentShell({
 
     const loadShellData = async () => {
       try {
-        if (effectiveProfile) {
+        if (effectiveProfileRef.current) {
           setIsBootstrapping(false);
         }
-        if (context) {
-          const result = context.session ? null : await supabase.auth.getSession();
+        const currentCtx = contextRef.current;
+        if (currentCtx) {
+          const result = currentCtx.session ? null : await supabase.auth.getSession();
           if (result?.error) return;
-          const session = context.session ?? result?.data.session;
+          const session = currentCtx.session ?? result?.data.session;
           if (isCancelled) return;
           if (!session?.user) {
             clearDashboardSnapshotCache();
@@ -581,9 +601,9 @@ export function StudentShell({
         classroomId: effectiveClassroomId,
         hasClass: Boolean(effectiveClassroomId),
         reviewDueCount: effectiveReviewDueCount,
-        grammarDueCount: grammarDue,
+        grammarDueCount: effectiveGrammarDue,
       }),
-    [effectiveClassroomId, effectiveReviewDueCount, grammarDue],
+    [effectiveClassroomId, effectiveReviewDueCount, effectiveGrammarDue],
   );
 
   const mobileDrawerSections = useMemo<StudentNavSection[]>(
@@ -673,9 +693,7 @@ export function StudentShell({
   const currentLevel = xpToLevel(effectiveGamification.total_xp);
   const showBottomNav = !hideMobileNav && !effectiveImmersive;
   const showChrome = !effectiveImmersive;
-  const isTeacherActive = pathname.startsWith('/teacher');
   const isUpgradeActive = pathname.startsWith('/upgrade');
-  const isGroupActive = pathname.startsWith('/group');
 
   return (
     <>
@@ -823,7 +841,7 @@ export function StudentShell({
                   </div>
                   <div className="min-w-0 truncate text-left">
                     <div className="font-semibold text-slate-800 dark:text-slate-200 leading-tight truncate text-xs group-hover:text-slate-900 dark:group-hover:text-white">
-                      {effectiveProfile?.full_name || profileEmail || 'Học viên'}
+                      {effectiveProfile?.full_name || effectiveProfileEmail || 'Học viên'}
                     </div>
                     <div className="text-[10px] text-slate-400 dark:text-slate-500 truncate">
                       Lv.{currentLevel} · {effectiveGamification.total_xp} XP
@@ -962,7 +980,7 @@ export function StudentShell({
               </div>
               <div className="min-w-0 truncate text-left">
                 <div className="font-semibold text-slate-800 dark:text-slate-200 leading-tight truncate text-xs group-hover:text-slate-900 dark:group-hover:text-white">
-                  {effectiveProfile?.full_name || profileEmail || 'Học viên'}
+                  {effectiveProfile?.full_name || effectiveProfileEmail || 'Học viên'}
                 </div>
                 <div className="text-[10px] text-slate-400 dark:text-slate-500 truncate">
                   Lv.{currentLevel} · {effectiveGamification.total_xp} XP
@@ -1022,11 +1040,13 @@ export function StudentShell({
         )}
       >
         {/* Flash sale Pro (kết thúc khóa) — chỉ hiện cho user free, trên banner quota */}
-        {showChrome && !effectiveImmersive && isFreePlan ? (
+        {showChrome && !effectiveImmersive && isFreePlan && !suppressGlobalBanners ? (
           <CohortProPromoBanner variant="dashboard" />
         ) : null}
         {/* Free ≥150: banner dính + ép modal — lead upsell chắc thấy */}
-        {showChrome && !effectiveImmersive && isFreePlan ? <FreeQuotaBanner /> : null}
+        {showChrome && !effectiveImmersive && isFreePlan && !suppressGlobalBanners ? (
+          <FreeQuotaBanner />
+        ) : null}
 
         {showChrome && (
         <header
@@ -1053,7 +1073,7 @@ export function StudentShell({
             </h1>
           </div>
 
-          {isBootstrapping && !effectiveProfile ? (
+          {effectiveBootstrapping && !effectiveProfile ? (
             <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
               <div className="h-7 w-14 sm:w-16 rounded-full bg-[#fff5e9] border border-[#fde2c0] animate-pulse" />
               <div className="hidden md:block h-7 w-20 rounded-full bg-[#fffbe8] border border-[#fbeaa6] animate-pulse" />
@@ -1105,7 +1125,7 @@ export function StudentShell({
               </div>
               <NotificationBell
                 dueCount={effectiveReviewDueCount}
-                grammarDueCount={grammarDue}
+                grammarDueCount={effectiveGrammarDue}
                 streak={resolvedStreak}
                 dailyGoalXp={effectiveGamification.today_xp}
                 dailyGoal={effectiveGamification.daily_goal}

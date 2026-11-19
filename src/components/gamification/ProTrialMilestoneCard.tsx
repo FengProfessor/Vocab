@@ -105,22 +105,7 @@ export function ProTrialMilestoneCard({
   const load = useCallback(async () => {
     if (!enabled || isKnownNonFree) return;
 
-    // Nick dashboard đã chắc vượt mốc + không funnel → ẩn im lặng
     const funnel = readFunnelActive();
-    const curHintWords = hintWordsRef.current;
-    const curHintStreak = hintStreakRef.current;
-    if (
-      typeof curHintWords === 'number' &&
-      typeof curHintStreak === 'number' &&
-      !isUnderProMilestone(curHintWords, curHintStreak) &&
-      !funnel
-    ) {
-      hasSnapRef.current = false;
-      setSnap(null);
-      setFunnelActive(false);
-      setState('ready');
-      return;
-    }
 
     setState((prev) => (prev === 'ready' ? 'ready' : 'loading'));
     try {
@@ -179,14 +164,15 @@ export function ProTrialMilestoneCard({
   }, [enabled, isKnownNonFree]);
 
   useEffect(() => {
-    void load();
+    queueMicrotask(() => {
+      void load();
+    });
   }, [load]);
 
   // Sync LS với server enroll
   useEffect(() => {
     if (snap?.enrolled) {
       markFunnelActive();
-      setFunnelActive(true);
     }
   }, [snap?.enrolled]);
 
