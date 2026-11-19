@@ -72,8 +72,6 @@ export function ProTrialMilestoneCard({
   enabled = true,
   className = '',
   onClaimed,
-  hintStreak,
-  hintWords,
 }: Props) {
   const studentCtx = useStudentContext();
   const ctxProfile = studentCtx?.profile ?? null;
@@ -89,18 +87,11 @@ export function ProTrialMilestoneCard({
   const [state, setState] = useState<LoadState>(() => (initialCached ? 'ready' : 'idle'));
   const [snap, setSnap] = useState<ProMilestoneSnapshot | null>(() => initialCached);
   const hasSnapRef = useRef<boolean>(Boolean(initialCached));
-  const hintWordsRef = useRef<number | undefined>(hintWords);
-  const hintStreakRef = useRef<number | undefined>(hintStreak);
   const [claiming, setClaiming] = useState(false);
   const [funnelActive, setFunnelActive] = useState<boolean>(() =>
     Boolean(readFunnelActive() || initialCached?.enrolled),
   );
   const [claimPopup, setClaimPopup] = useState<MilestonePopupPayload | null>(null);
-
-  useEffect(() => {
-    hintWordsRef.current = hintWords;
-    hintStreakRef.current = hintStreak;
-  }, [hintWords, hintStreak]);
 
   const load = useCallback(async () => {
     if (!enabled || isKnownNonFree) return;
@@ -164,9 +155,15 @@ export function ProTrialMilestoneCard({
   }, [enabled, isKnownNonFree]);
 
   useEffect(() => {
+    let cancelled = false;
     queueMicrotask(() => {
-      void load();
+      if (!cancelled) {
+        void load();
+      }
     });
+    return () => {
+      cancelled = true;
+    };
   }, [load]);
 
   // Sync LS với server enroll

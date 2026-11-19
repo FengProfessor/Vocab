@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
@@ -167,7 +167,10 @@ function resolveInitialStats(userId?: string | null): StatsData | null {
   };
 }
 
+const emptySubscribe = () => () => {};
+
 export default function ProfilePage() {
+  const isHydrated = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const studentCtx = useStudentContext();
   const initialProfile = (studentCtx?.profile ?? readLastProfileCache()) as StudentProfile | null;
   const [profile, setProfile] = useState<StudentProfile | null>(() => initialProfile);
@@ -415,7 +418,8 @@ export default function ProfilePage() {
     }
   };
 
-  if (isLoading) {
+  const effectiveIsLoading = !isHydrated || isLoading;
+  if (effectiveIsLoading) {
     return (
       <div className="flex min-h-dvh items-center justify-center bg-muted/40">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />

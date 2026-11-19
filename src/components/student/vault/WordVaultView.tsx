@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -37,6 +37,8 @@ const WordDetailModal = dynamic(
   () => import('@/components/student/WordDetailModal').then((m) => m.WordDetailModal),
   { ssr: false },
 );
+
+const emptySubscribe = () => () => {};
 
 const WORDS_PAGE_SIZE = 20;
 const SEARCH_DEBOUNCE_MS = 250;
@@ -149,6 +151,7 @@ function buildInitialSummary(contextSummary?: WordSummaryData): {
 }
 
 export function WordVaultView() {
+  const isHydrated = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const router = useRouter();
   const studentCtx = useStudentContext();
 
@@ -198,11 +201,13 @@ export function WordVaultView() {
     ctxSummaryReady &&
     Boolean(ctxSummary);
 
-  const summary: WordSummaryData = useContextPersonalSummary
-    ? normalizeSummary(ctxSummary!)
-    : summaryState.summary;
+  const summary: WordSummaryData = isHydrated
+    ? (useContextPersonalSummary ? normalizeSummary(ctxSummary!) : summaryState.summary)
+    : EMPTY_SUMMARY;
 
-  const countsReady = useContextPersonalSummary ? true : summaryState.ready;
+  const countsReady = isHydrated
+    ? (useContextPersonalSummary ? true : summaryState.ready)
+    : false;
 
   // Sync ?class= on mount & check auth
   useEffect(() => {
