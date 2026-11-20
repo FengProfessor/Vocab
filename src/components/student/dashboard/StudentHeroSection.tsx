@@ -26,40 +26,40 @@ export function StudentHeroSection({
   onOpenActionModal,
 }: StudentHeroSectionProps) {
   return (
-    <section className="space-y-2.5">
+    <section className="space-y-2 md:space-y-2.5">
       {/* 2 Primary Action Cards: Học Từ Mới & Ôn Tập FSRS */}
-      <div className="grid grid-cols-1 items-stretch gap-2.5 md:grid-cols-2">
+      <div className="grid grid-cols-2 items-stretch gap-2 md:gap-2.5">
         {/* Card 1: Học Từ Mới */}
-        <div className="group relative flex flex-col justify-between rounded-xl border border-indigo-300/70 bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 p-2.5 px-3 text-white shadow-sm shadow-indigo-500/10 transition-all hover:shadow-md hover:shadow-indigo-500/20">
+        <div className="group relative flex flex-col justify-between rounded-xl border border-indigo-300/70 bg-gradient-to-br from-indigo-500 via-indigo-600 to-indigo-700 p-2 px-2.5 text-white shadow-sm shadow-indigo-500/10 transition-all hover:shadow-md hover:shadow-indigo-500/20 md:p-2.5 md:px-3">
           <div className="flex items-center justify-between gap-2.5">
             {learnHeaderLink}
             <Link
               href={learnHref}
               aria-label="Bắt đầu học từ mới"
-              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white font-bold text-indigo-700 shadow-xs transition-transform group-hover:translate-x-0.5"
+              className="hidden h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white font-bold text-indigo-700 shadow-xs transition-transform group-hover:translate-x-0.5 md:flex"
             >
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 
-          <div className="mt-2 flex flex-wrap items-center gap-1 border-t border-white/15 pt-1.5">
+          <div className="mt-1.5 flex items-center justify-end border-t border-white/15 pt-1 md:mt-2 md:flex-wrap md:justify-start md:gap-1 md:pt-1.5">
             <Link
               href={learnHref}
-              className="inline-flex h-6 items-center gap-1 rounded bg-white/20 px-2 text-[10.5px] font-bold text-white backdrop-blur-sm transition hover:bg-white/30"
+              className="hidden h-6 items-center gap-1 rounded bg-white/20 px-2 text-[10.5px] font-bold text-white backdrop-blur-sm transition hover:bg-white/30 md:inline-flex"
             >
               <span>🃏</span>
               <span>Flashcard</span>
             </Link>
             <Link
               href="/import"
-              className="inline-flex h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-indigo-50 backdrop-blur-sm transition hover:bg-white/25"
+              className="hidden h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-indigo-50 backdrop-blur-sm transition hover:bg-white/25 md:inline-flex"
             >
               <span>📥</span>
               <span>Tự nạp</span>
             </Link>
             <Link
               href="/library"
-              className="inline-flex h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-indigo-50 backdrop-blur-sm transition hover:bg-white/25"
+              className="hidden h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-indigo-50 backdrop-blur-sm transition hover:bg-white/25 md:inline-flex"
             >
               <span>📚</span>
               <span>Thư viện</span>
@@ -67,7 +67,7 @@ export function StudentHeroSection({
             <button
               type="button"
               onClick={() => onOpenActionModal('learn')}
-              className="ml-auto inline-flex h-6 cursor-pointer items-center gap-1 rounded bg-white/15 px-2 text-[10px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25"
+              className="inline-flex h-5.5 w-full cursor-pointer items-center justify-center gap-1 rounded bg-white/15 px-2 text-[10px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25 md:ml-auto md:h-6 md:w-auto"
               title="Mở bảng chọn phương thức nạp từ"
             >
               <SlidersHorizontal className="h-2.5 w-2.5" />
@@ -77,43 +77,43 @@ export function StudentHeroSection({
         </div>
 
         {/* Card 2: Ôn Tập FSRS */}
-        <div className="group relative flex flex-col justify-between rounded-xl border border-emerald-300/70 bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700 p-2.5 px-3 text-white shadow-sm shadow-emerald-500/10 transition-all hover:shadow-md hover:shadow-emerald-500/20">
+        <div className="group relative flex flex-col justify-between rounded-xl border border-emerald-300/70 bg-gradient-to-br from-emerald-500 via-emerald-600 to-teal-700 p-2 px-2.5 text-white shadow-sm shadow-emerald-500/10 transition-all hover:shadow-md hover:shadow-emerald-500/20 md:p-2.5 md:px-3">
           <div className="flex items-center justify-between gap-2.5">
             {reviewHeaderLink}
             <Link
               href={reviewHref}
               aria-label="Bắt đầu ôn tập FSRS"
-              className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white font-bold text-emerald-700 shadow-xs transition-transform group-hover:translate-x-0.5"
+              className="hidden h-6 w-6 shrink-0 items-center justify-center rounded-md bg-white font-bold text-emerald-700 shadow-xs transition-transform group-hover:translate-x-0.5 md:flex"
             >
               <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
 
-          <div className="mt-2 flex flex-wrap items-center gap-1 border-t border-white/15 pt-1.5">
+          <div className="mt-1.5 flex items-center justify-end border-t border-white/15 pt-1 md:mt-2 md:flex-wrap md:justify-start md:gap-1 md:pt-1.5">
             <Link
               href={reviewSessionHref('mixed')}
-              className="inline-flex h-6 items-center gap-1 rounded bg-white/20 px-2 text-[10.5px] font-bold text-white backdrop-blur-sm transition hover:bg-white/30"
+              className="hidden h-6 items-center gap-1 rounded bg-white/20 px-2 text-[10.5px] font-bold text-white backdrop-blur-sm transition hover:bg-white/30 md:inline-flex"
             >
               <span>⚡</span>
               <span>Hỗn hợp</span>
             </Link>
             <Link
               href={reviewSessionHref('type')}
-              className="inline-flex h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
+              className="hidden h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25 md:inline-flex"
             >
               <span>⌨️</span>
               <span>Gõ</span>
             </Link>
             <Link
               href={reviewSessionHref('cloze')}
-              className="inline-flex h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
+              className="hidden h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25 md:inline-flex"
             >
               <span>🧩</span>
               <span>Điền</span>
             </Link>
             <Link
               href={reviewSessionHref('mcq')}
-              className="inline-flex h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25"
+              className="hidden h-6 items-center gap-1 rounded bg-white/15 px-2 text-[10.5px] font-medium text-emerald-50 backdrop-blur-sm transition hover:bg-white/25 md:inline-flex"
             >
               <span>🎯</span>
               <span>Trắc nghiệm</span>
@@ -121,7 +121,7 @@ export function StudentHeroSection({
             <button
               type="button"
               onClick={() => onOpenActionModal('review')}
-              className="ml-auto inline-flex h-6 cursor-pointer items-center gap-1 rounded bg-white/15 px-2 text-[10px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25"
+              className="inline-flex h-5.5 w-full cursor-pointer items-center justify-center gap-1 rounded bg-white/15 px-2 text-[10px] font-extrabold text-white backdrop-blur-sm transition hover:bg-white/25 md:ml-auto md:h-6 md:w-auto"
               title="Xem tất cả 5 chế độ ôn tập FSRS"
             >
               <SlidersHorizontal className="h-2.5 w-2.5" />
@@ -133,7 +133,7 @@ export function StudentHeroSection({
 
       {/* Strip "Tiếp tục học" (1–3 in_progress packs for BOTH Mobile & Desktop) */}
       {inProgressPacks.length > 0 && (
-        <div className="space-y-1.5 rounded-xl border border-indigo-100 bg-indigo-50/40 p-2.5">
+        <div className="space-y-1.5 rounded-xl border border-indigo-100 bg-indigo-50/40 p-2 md:p-2.5">
           <div className="flex items-center justify-between px-0.5">
             <span className="flex items-center gap-1.5 text-[11px] font-black uppercase tracking-wider text-indigo-800">
               <Play className="h-3 w-3 fill-indigo-600 text-indigo-600" />
@@ -146,7 +146,7 @@ export function StudentHeroSection({
               Thư viện →
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+          <div className="flex gap-2 overflow-x-auto pb-0.5 scrollbar-none sm:grid sm:grid-cols-3 sm:overflow-visible sm:pb-0">
             {inProgressPacks.slice(0, 3).map((pack) => {
               const pct =
                 pack.word_count > 0
@@ -162,7 +162,7 @@ export function StudentHeroSection({
                 <Link
                   key={pack.pack_id}
                   href={href}
-                  className="flex min-w-0 flex-col justify-between rounded-xl border border-indigo-200/80 bg-white px-3 py-2 shadow-2xs transition-all hover:border-indigo-300 hover:shadow-xs active:scale-[0.99]"
+                  className="flex min-w-[205px] flex-1 shrink-0 flex-col justify-between rounded-xl border border-indigo-200/80 bg-white px-2.5 py-1.5 shadow-2xs transition-all hover:border-indigo-300 hover:shadow-xs active:scale-[0.99] sm:min-w-0 sm:px-3 sm:py-2"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="truncate text-xs font-extrabold text-slate-800">

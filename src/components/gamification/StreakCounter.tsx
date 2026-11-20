@@ -118,46 +118,46 @@ export function StreakCounter({
 
     return (
       <div
-        className={`flex h-full min-w-0 flex-col justify-center gap-1 rounded-xl border border-[#e9e9f0] bg-white px-2 py-1.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] md:flex-row md:items-stretch md:gap-2.5 md:p-2.5 md:px-3 ${className}`}
+        className={`flex h-full min-w-0 flex-row items-stretch gap-2 rounded-xl border border-[#e9e9f0] bg-white p-2 px-2.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] md:gap-2.5 md:p-2.5 md:px-3 ${className}`}
       >
-        {/* Streak summary: top compact row on mobile, left column on desktop */}
-        <div className="flex shrink-0 items-center gap-1 md:w-[68px] md:flex-col md:items-stretch md:justify-between md:border-r md:border-slate-100 md:pr-2">
-          <div className="flex items-center gap-1 md:flex-col md:items-start">
-            <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-orange-400 to-orange-500 text-[10px] md:h-6.5 md:w-6.5 md:rounded-lg md:text-xs">
+        {/* Streak summary column */}
+        <div className="flex w-[58px] shrink-0 flex-col justify-between border-r border-slate-100 pr-2 md:w-[68px]">
+          <div className="flex flex-col items-start gap-1">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-orange-400 to-orange-500 text-[11px] md:h-6.5 md:w-6.5 md:text-xs">
               🔥
             </div>
             <div className="min-w-0">
               <div className="flex items-baseline gap-0.5">
-                <span className="text-[13px] font-black leading-none text-orange-600 tabular-nums md:text-[18px]">
+                <span className="text-[16px] font-black leading-none text-orange-600 tabular-nums md:text-[18px]">
                   {streak}
                 </span>
-                <span className="text-[8px] font-bold text-orange-400 md:text-[9.5px]">liên tiếp</span>
+                <span className="text-[8.5px] font-bold text-orange-400 md:text-[9.5px]">liên tiếp</span>
               </div>
             </div>
           </div>
-          <div className="hidden text-[9.5px] font-bold text-[#aab0bd] md:block">{MONTH_LABELS[month]}</div>
+          <div className="text-[9px] font-bold text-[#aab0bd] md:text-[9.5px]">{MONTH_LABELS[month]}</div>
         </div>
 
         {/* Heatmap tháng */}
-        <div className="flex min-w-0 flex-1 flex-col justify-center md:justify-between">
-          <div className="mb-0.5 hidden items-center justify-between md:flex">
-            <span className="text-[10.5px] font-extrabold text-[#0f172a]">Bảng hoạt động</span>
-            <span className="text-[9.5px] font-bold text-[#aab0bd]" title="Số ngày có học trong tháng — khác streak liên tiếp">
-              {activeDays} ngày có học · {totalReviews} lượt
+        <div className="flex min-w-0 flex-1 flex-col justify-between">
+          <div className="mb-0.5 flex items-center justify-between gap-1">
+            <span className="text-[10px] font-extrabold text-[#0f172a] md:text-[10.5px]">Bảng hoạt động</span>
+            <span className="text-[9px] font-bold text-[#aab0bd] md:text-[9.5px]" title="Số ngày có học trong tháng — khác streak liên tiếp">
+              {activeDays} ngày<span className="hidden md:inline"> có học</span> · {totalReviews} lượt
             </span>
           </div>
 
-          <div className="mb-0.5 hidden grid-cols-7 gap-[3px] md:grid">
+          <div className="mb-0.5 grid grid-cols-7 gap-[2.5px] md:gap-[3px]">
             {weekdays.map((wd) => (
-              <div key={wd} className="text-center text-[7.5px] font-extrabold uppercase text-[#b3b8c4]">
+              <div key={wd} className="text-center text-[7px] font-extrabold uppercase text-[#b3b8c4] md:text-[7.5px]">
                 {wd}
               </div>
             ))}
           </div>
 
-          <div className="grid w-fit grid-cols-7 gap-[2px] md:w-full md:gap-[3px]">
+          <div className="grid w-full grid-cols-7 gap-[2.5px] md:gap-[3px]">
             {Array.from({ length: lead }).map((_, i) => (
-              <div key={`lead-${i}`} className="h-[10px] w-[10px] md:h-[19px] md:w-auto" />
+              <div key={`lead-${i}`} className="h-[17px] md:h-[19px]" />
             ))}
             {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
               const isToday = d === todayDate;
@@ -167,10 +167,10 @@ export function StreakCounter({
                 return (
                   <div
                     key={`d-${d}`}
-                    className="flex h-[10px] w-[10px] shrink-0 items-center justify-center rounded-[2px] border border-black/[0.04] bg-[#f1f5f9] opacity-55 md:h-[19px] md:w-auto md:rounded-[4px] md:border-[#eef0f3] md:bg-[#f8f9fb] md:text-[8.5px] md:font-extrabold md:tabular-nums md:text-[#c8cdd6] md:opacity-100"
+                    className="flex h-[17px] w-full items-center justify-center rounded-[3px] border border-[#eef0f3] bg-[#f8f9fb] text-[8px] font-extrabold tabular-nums text-[#c8cdd6] md:h-[19px] md:rounded-[4px] md:text-[8.5px]"
                     title={`${d} · sắp tới`}
                   >
-                    <span className="hidden md:inline">{d}</span>
+                    {d}
                   </div>
                 );
               }
@@ -182,10 +182,10 @@ export function StreakCounter({
               return (
                 <div
                   key={`d-${d}`}
-                  className={`flex h-[10px] w-[10px] shrink-0 items-center justify-center rounded-[2px] border text-[8.5px] font-extrabold tabular-nums md:h-[19px] md:w-auto md:rounded-[4px] ${lvlClass} ${todayClass}`}
+                  className={`flex h-[17px] w-full items-center justify-center rounded-[3px] border text-[8px] font-extrabold tabular-nums md:h-[19px] md:rounded-[4px] md:text-[8.5px] ${lvlClass} ${todayClass}`}
                   title={`${d}${mins ? ` · ${mins} từ` : ' · nghỉ'}`}
                 >
-                  <span className="hidden md:inline">{d}</span>
+                  {d}
                 </div>
               );
             })}

@@ -73,21 +73,21 @@ export default function StudentDashboard() {
     <Link
       href={learnHref}
       data-onboarding="learn"
-      className="flex min-w-0 flex-1 items-center gap-2.5"
+      className="flex min-w-0 flex-1 items-center gap-2 md:gap-2.5"
     >
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-base shadow-inner backdrop-blur-sm">
+      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/20 text-sm shadow-inner backdrop-blur-sm md:h-8 md:w-8 md:text-base">
         📖
       </div>
       <div className="min-w-0">
-        <div className="flex items-center gap-2">
-          <span className="text-xs font-black uppercase tracking-wider text-white">
+        <div className="flex flex-col items-start gap-0.5 md:flex-row md:flex-wrap md:items-center md:gap-2">
+          <span className="truncate text-[11px] font-black uppercase tracking-wide text-white md:text-xs md:tracking-wider">
             Học Từ Mới
           </span>
-          <span className="rounded-full bg-white/20 px-1.5 py-0.5 text-[9.5px] font-extrabold tabular-nums text-white backdrop-blur-sm">
+          <span className="rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-extrabold leading-none tabular-nums text-white backdrop-blur-sm md:text-[9.5px]">
             {countsReady ? (newCount > 0 ? `${newCount} từ mới` : 'Tất cả') : '...'}
           </span>
         </div>
-        <p className="mt-0.5 truncate text-[10.5px] font-medium text-indigo-100">
+        <p className="mt-0.5 hidden truncate text-[10.5px] font-medium text-indigo-100 md:block">
           {newCount > 0
             ? 'Thẻ lật thông minh nạp từ nhanh'
             : 'Học flashcard từ vựng đã lưu'}
@@ -100,18 +100,18 @@ export default function StudentDashboard() {
     <Link
       href={reviewHref}
       data-onboarding="review"
-      className="flex min-w-0 flex-1 items-center gap-2.5"
+      className="flex min-w-0 flex-1 items-center gap-2 md:gap-2.5"
     >
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/20 text-base shadow-inner backdrop-blur-sm">
+      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/20 text-sm shadow-inner backdrop-blur-sm md:h-8 md:w-8 md:text-base">
         🔄
       </div>
       <div className="min-w-0">
-        <div className="flex flex-wrap items-center gap-1.5">
-          <span className="text-xs font-black uppercase tracking-wider text-white">
+        <div className="flex flex-col items-start gap-0.5 md:flex-row md:flex-wrap md:items-center md:gap-1.5">
+          <span className="truncate text-[11px] font-black uppercase tracking-wide text-white md:text-xs md:tracking-wider">
             Ôn Tập FSRS
           </span>
           <span
-            className={`rounded-full px-1.5 py-0.5 text-[9.5px] font-extrabold tabular-nums backdrop-blur-sm ${
+            className={`rounded-full px-1.5 py-0.5 text-[9px] font-extrabold leading-none tabular-nums backdrop-blur-sm md:text-[9.5px] ${
               reviewDueCount > 0
                 ? 'animate-pulse bg-amber-400 text-amber-950'
                 : 'bg-white/20 text-white'
@@ -120,7 +120,7 @@ export default function StudentDashboard() {
             {countsReady ? (reviewDueCount > 0 ? `${reviewDueCount} cần ôn` : 'Đã sẵn sàng') : '...'}
           </span>
         </div>
-        <p className="mt-0.5 truncate text-[10.5px] font-medium text-emerald-100">
+        <p className="mt-0.5 hidden truncate text-[10.5px] font-medium text-emerald-100 md:block">
           {reviewDueCount > 0
             ? 'Đến hạn ôn trước khi quên theo FSRS'
             : 'Ôn luyện tự do củng cố trí nhớ dài hạn'}
@@ -146,7 +146,7 @@ export default function StudentDashboard() {
         setIsJoinModalOpen(true);
       }}
     >
-      <div className="mx-auto flex w-full max-w-[1040px] flex-col gap-3 px-3.5 py-2.5 sm:px-6 md:py-3">
+      <div className="mx-auto flex w-full max-w-[1040px] flex-col gap-2 px-3 py-2 md:gap-3 md:px-6 md:py-3">
         {/* Block 1: Compact Header + Exclusive Priority Banner Slot */}
         <DashboardHeader
           greeting={greeting}

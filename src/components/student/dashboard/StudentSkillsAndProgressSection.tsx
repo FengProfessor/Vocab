@@ -77,10 +77,10 @@ export function StudentSkillsAndProgressSection({
       : 0;
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-2 md:space-y-3">
       {/* ── BLOCK 3: NHỊP HỌC & TIẾN ĐỘ NGÀY ── */}
       <div
-        className="grid grid-cols-1 items-stretch gap-2.5 lg:grid-cols-12"
+        className="grid grid-cols-1 items-stretch gap-2 lg:grid-cols-12 md:gap-2.5"
         data-onboarding="progress"
       >
         <div className="min-w-0 lg:col-span-5">
@@ -95,16 +95,17 @@ export function StudentSkillsAndProgressSection({
           />
         </div>
 
-        <div className="flex h-full min-w-0 flex-col justify-between gap-2 rounded-xl border border-[#e9e9f0] bg-white p-3 shadow-[0_1px_2px_rgba(16,24,40,.04)] lg:col-span-7">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-1.5">
-            <span className="flex items-center gap-1.5 text-xs font-black text-slate-800">
-              🎯 <span>Tiến độ ngày hôm nay</span>
+        <div className="flex h-full min-w-0 flex-col justify-between gap-1.5 rounded-xl border border-[#e9e9f0] bg-white p-2.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] md:gap-2 md:p-3 lg:col-span-7">
+          <div className="flex items-center justify-between gap-1.5 border-b border-slate-100 pb-1 md:pb-1.5">
+            <span className="flex min-w-0 items-center gap-1.5 text-[11px] font-black text-slate-800 sm:text-xs">
+              <span>🎯</span>
+              <span className="truncate">Tiến độ ngày hôm nay</span>
             </span>
-            <div className="flex items-center gap-1.5">
-              <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[10.5px] font-extrabold tabular-nums text-indigo-700">
+            <div className="flex shrink-0 items-center gap-1.5">
+              <span className="whitespace-nowrap rounded-full bg-indigo-50 px-2 py-0.5 text-[10px] font-extrabold tabular-nums text-indigo-700 sm:text-[10.5px]">
                 {todayNewWords} / {dailyWordGoal} từ
               </span>
-              <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10.5px] font-extrabold tabular-nums text-amber-700">
+              <span className="whitespace-nowrap rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-extrabold tabular-nums text-amber-700 sm:text-[10.5px]">
                 ⭐ {gamification.today_xp} XP
               </span>
             </div>
@@ -114,7 +115,7 @@ export function StudentSkillsAndProgressSection({
           <button
             type="button"
             onClick={() => onOpenActionModal('review')}
-            className="group -mx-1 block w-full cursor-pointer space-y-1 rounded-lg p-1 text-left transition-all hover:bg-emerald-50/60 active:scale-[0.99]"
+            className="group -mx-1 block w-full cursor-pointer space-y-0.5 rounded-lg p-0.5 text-left transition-all hover:bg-emerald-50/60 active:scale-[0.99] md:space-y-1 md:p-1"
             title="Bấm để chọn chế độ ôn tập"
           >
             <div className="flex items-center justify-between text-[11px]">
@@ -140,7 +141,7 @@ export function StudentSkillsAndProgressSection({
           <button
             type="button"
             onClick={() => onOpenActionModal('learn')}
-            className="group -mx-1 block w-full cursor-pointer space-y-1 rounded-lg p-1 text-left transition-all hover:bg-indigo-50/60 active:scale-[0.99]"
+            className="group -mx-1 block w-full cursor-pointer space-y-0.5 rounded-lg p-0.5 text-left transition-all hover:bg-indigo-50/60 active:scale-[0.99] md:space-y-1 md:p-1"
             title="Bấm để chọn phương thức nạp từ"
           >
             <div className="flex items-center justify-between text-[11px]">
@@ -166,7 +167,7 @@ export function StudentSkillsAndProgressSection({
           <button
             type="button"
             onClick={() => onOpenActionModal('listening')}
-            className="group -mx-1 block w-full cursor-pointer space-y-1 rounded-lg p-1 text-left transition-all hover:bg-purple-50/60 active:scale-[0.99]"
+            className="group -mx-1 block w-full cursor-pointer space-y-0.5 rounded-lg p-0.5 text-left transition-all hover:bg-purple-50/60 active:scale-[0.99] md:space-y-1 md:p-1"
             title="Bấm để chọn chế độ luyện nghe"
           >
             <div className="flex items-center justify-between text-[11px]">
@@ -196,7 +197,7 @@ export function StudentSkillsAndProgressSection({
           <button
             type="button"
             onClick={() => onOpenActionModal('reading')}
-            className="group -mx-1 block w-full cursor-pointer space-y-1 rounded-lg p-1 text-left transition-all hover:bg-amber-50/60 active:scale-[0.99]"
+            className="group -mx-1 block w-full cursor-pointer space-y-0.5 rounded-lg p-0.5 text-left transition-all hover:bg-amber-50/60 active:scale-[0.99] md:space-y-1 md:p-1"
             title="Bấm để chọn chế độ luyện đọc"
           >
             <div className="flex items-center justify-between text-[11px]">
@@ -235,14 +236,14 @@ export function StudentSkillsAndProgressSection({
       )}
 
       {/* ── BLOCK 4A: LỐI TẮT LUYỆN THI & KỸ NĂNG (Chỉ giữ tính năng thật) ── */}
-      <div className="space-y-2.5">
+      <div className="space-y-2 md:space-y-2.5">
         {/* 3 Kỳ thi chuẩn hóa */}
         <div className="space-y-1.5">
           <div className="flex items-center justify-between px-0.5">
-            <span className="flex items-center gap-1.5 text-[11.5px] font-black uppercase tracking-wider text-slate-800">
+            <span className="flex items-center gap-1.5 whitespace-nowrap text-[11px] font-black uppercase tracking-wider text-slate-800 sm:text-[11.5px]">
               <span>🎯</span>
               <span>Luyện thi chuẩn hóa</span>
-              <span className="rounded-full bg-indigo-50 px-2 py-0.5 text-[9.5px] font-extrabold normal-case tracking-normal text-indigo-700">
+              <span className="hidden rounded-full bg-indigo-50 px-2 py-0.5 text-[9.5px] font-extrabold normal-case tracking-normal text-indigo-700 sm:inline">
                 3 Kỳ thi
               </span>
             </span>
@@ -252,7 +253,7 @@ export function StudentSkillsAndProgressSection({
             <button
               type="button"
               onClick={() => onOpenActionModal('toeic')}
-              className="group relative flex min-h-[58px] min-w-0 cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-200/90 bg-white p-2 text-left shadow-2xs transition-all hover:border-indigo-300 hover:shadow-xs active:scale-[0.98] sm:justify-start sm:px-3"
+              className="group relative flex min-h-[46px] min-w-0 cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-200/90 bg-white p-1.5 text-left shadow-2xs transition-all hover:border-indigo-300 hover:shadow-xs active:scale-[0.98] sm:min-h-[58px] sm:justify-start sm:p-2 sm:px-3"
             >
               <span className="absolute -top-1.5 right-1.5 hidden whitespace-nowrap rounded-full bg-indigo-600 px-1.5 py-0.5 text-[8px] font-black text-white ring-1 ring-white shadow-2xs sm:inline">
                 7 Parts
@@ -278,7 +279,7 @@ export function StudentSkillsAndProgressSection({
 
             <Link
               href="/vstep"
-              className="group relative flex min-h-[58px] min-w-0 items-center justify-center gap-2 rounded-xl border border-slate-200/90 bg-white p-2 shadow-2xs transition-all hover:border-blue-300 hover:shadow-xs active:scale-[0.98] sm:justify-start sm:px-3"
+              className="group relative flex min-h-[46px] min-w-0 items-center justify-center gap-2 rounded-xl border border-slate-200/90 bg-white p-1.5 shadow-2xs transition-all hover:border-blue-300 hover:shadow-xs active:scale-[0.98] sm:min-h-[58px] sm:justify-start sm:p-2 sm:px-3"
             >
               <span className="absolute -top-1.5 right-1.5 hidden whitespace-nowrap rounded-full bg-blue-600 px-1.5 py-0.5 text-[8px] font-black text-white ring-1 ring-white shadow-2xs sm:inline">
                 B1–B2–C1
@@ -305,7 +306,7 @@ export function StudentSkillsAndProgressSection({
             <Link
               href="/vnu-bac-3"
               aria-label="VNU Test Bậc 3"
-              className="group relative flex min-h-[58px] min-w-0 items-center justify-center gap-2 rounded-xl border border-slate-200/90 bg-white p-2 shadow-2xs transition-all hover:border-emerald-300 hover:shadow-xs active:scale-[0.98] sm:justify-start sm:px-3"
+              className="group relative flex min-h-[46px] min-w-0 items-center justify-center gap-2 rounded-xl border border-slate-200/90 bg-white p-1.5 shadow-2xs transition-all hover:border-emerald-300 hover:shadow-xs active:scale-[0.98] sm:min-h-[58px] sm:justify-start sm:p-2 sm:px-3"
             >
               <span className="absolute -top-1.5 right-1.5 hidden whitespace-nowrap rounded-full bg-emerald-600 px-1.5 py-0.5 text-[8px] font-black text-white ring-1 ring-white shadow-2xs sm:inline">
                 Bậc 3 / B1
@@ -334,35 +335,36 @@ export function StudentSkillsAndProgressSection({
         {/* 4 Kỹ năng thực hành + Link Trung tâm Luyện tập */}
         <div className="space-y-1.5">
           <div className="flex items-center justify-between gap-2 px-0.5">
-            <span className="flex items-center gap-1.5 text-[11.5px] font-black uppercase tracking-wider text-slate-800">
+            <span className="flex min-w-0 items-center gap-1 whitespace-nowrap text-[11px] font-black uppercase tracking-wider text-slate-800 sm:gap-1.5 sm:text-[11.5px]">
               <span>⚡</span>
-              <span>Kỹ năng thực hành</span>
-              <span className="rounded-full bg-sky-50 px-2 py-0.5 text-[9.5px] font-extrabold normal-case tracking-normal text-sky-700">
+              <span>Kỹ năng</span>
+              <span className="hidden sm:inline">thực hành</span>
+              <span className="hidden rounded-full bg-sky-50 px-2 py-0.5 text-[9.5px] font-extrabold normal-case tracking-normal text-sky-700 sm:inline">
                 4 Kỹ năng
               </span>
             </span>
             <Link
               href="/practice"
-              className="shrink-0 text-[11px] font-extrabold text-indigo-600 hover:underline"
+              className="shrink-0 whitespace-nowrap text-[10.5px] font-extrabold text-indigo-600 hover:underline sm:text-[11px]"
             >
               Trung tâm Luyện tập →
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-2.5">
+          <div className="grid grid-cols-4 gap-1.5 sm:gap-2.5">
             <Link
               href="/grammar"
-              className="group relative flex min-h-[58px] min-w-0 items-center gap-2 rounded-xl border border-sky-200/80 bg-sky-50/70 p-2 px-2.5 text-sky-700 shadow-2xs transition-all hover:border-sky-300 hover:bg-sky-50 hover:shadow-xs active:scale-[0.98]"
+              className="group relative flex min-h-[54px] min-w-0 flex-col items-center justify-center gap-1 rounded-xl border border-sky-200/80 bg-sky-50/70 p-1.5 text-center text-sky-700 shadow-2xs transition-all hover:border-sky-300 hover:bg-sky-50 hover:shadow-xs active:scale-[0.98] sm:min-h-[58px] sm:flex-row sm:justify-start sm:gap-2 sm:p-2 sm:px-2.5 sm:text-left"
             >
-              <span className="absolute -top-1.5 right-1.5 rounded-full bg-sky-600 px-1.5 py-0.5 text-[8px] font-black leading-tight text-white ring-1 ring-white shadow-2xs">
+              <span className="absolute -top-1.5 right-1.5 hidden rounded-full bg-sky-600 px-1.5 py-0.5 text-[8px] font-black leading-tight text-white ring-1 ring-white shadow-2xs sm:inline">
                 A1–C1
               </span>
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-sky-600 shadow-2xs">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white text-sky-600 shadow-2xs sm:h-8 sm:w-8">
                 <Code2 className="h-3.5 w-3.5" strokeWidth={2.3} />
               </div>
-              <div className="min-w-0">
-                <div className="text-xs font-black text-sky-900">Grammar</div>
-                <div className="truncate text-[10px] font-semibold text-sky-700/80">
+              <div className="min-w-0 max-w-full">
+                <div className="truncate text-[10.5px] font-black leading-none text-sky-900 sm:text-xs">Grammar</div>
+                <div className="hidden truncate text-[10px] font-semibold text-sky-700/80 sm:block">
                   Ngữ pháp ứng dụng
                 </div>
               </div>
@@ -371,19 +373,19 @@ export function StudentSkillsAndProgressSection({
             <button
               type="button"
               onClick={() => onOpenActionModal('reading')}
-              className="group relative flex min-h-[58px] min-w-0 cursor-pointer items-center gap-2 rounded-xl border border-amber-200/80 bg-amber-50/70 p-2 px-2.5 text-left text-amber-700 shadow-2xs transition-all hover:border-amber-300 hover:bg-amber-50 hover:shadow-xs active:scale-[0.98]"
+              className="group relative flex min-h-[54px] min-w-0 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border border-amber-200/80 bg-amber-50/70 p-1.5 text-center text-amber-700 shadow-2xs transition-all hover:border-amber-300 hover:bg-amber-50 hover:shadow-xs active:scale-[0.98] sm:min-h-[58px] sm:flex-row sm:justify-start sm:gap-2 sm:p-2 sm:px-2.5 sm:text-left"
             >
-              <span className="absolute -top-1.5 right-1.5 rounded-full bg-amber-500 px-1.5 py-0.5 text-[8px] font-black leading-tight tabular-nums text-white ring-1 ring-white shadow-2xs">
+              <span className="absolute -top-1.5 right-1.5 hidden rounded-full bg-amber-500 px-1.5 py-0.5 text-[8px] font-black leading-tight tabular-nums text-white ring-1 ring-white shadow-2xs sm:inline">
                 {readingProgress.completedCount > 0
                   ? `${readingProgress.completedCount}/${readingProgress.totalArticles}`
                   : '2 Chế độ'}
               </span>
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-amber-600 shadow-2xs">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white text-amber-600 shadow-2xs sm:h-8 sm:w-8">
                 <FileText className="h-3.5 w-3.5" strokeWidth={2.3} />
               </div>
-              <div className="min-w-0">
-                <div className="text-xs font-black text-amber-900">Reading</div>
-                <div className="truncate text-[10px] font-semibold text-amber-700/80">
+              <div className="min-w-0 max-w-full">
+                <div className="truncate text-[10.5px] font-black leading-none text-amber-900 sm:text-xs">Reading</div>
+                <div className="hidden truncate text-[10px] font-semibold text-amber-700/80 sm:block">
                   Đọc hiểu đa tầng
                 </div>
               </div>
@@ -392,21 +394,21 @@ export function StudentSkillsAndProgressSection({
             <button
               type="button"
               onClick={() => onOpenActionModal('listening')}
-              className="group relative flex min-h-[58px] min-w-0 cursor-pointer items-center gap-2 rounded-xl border border-purple-200/80 bg-purple-50/70 p-2 px-2.5 text-left text-purple-700 shadow-2xs transition-all hover:border-purple-300 hover:bg-purple-50 hover:shadow-xs active:scale-[0.98]"
+              className="group relative flex min-h-[54px] min-w-0 cursor-pointer flex-col items-center justify-center gap-1 rounded-xl border border-purple-200/80 bg-purple-50/70 p-1.5 text-center text-purple-700 shadow-2xs transition-all hover:border-purple-300 hover:bg-purple-50 hover:shadow-xs active:scale-[0.98] sm:min-h-[58px] sm:flex-row sm:justify-start sm:gap-2 sm:p-2 sm:px-2.5 sm:text-left"
             >
-              <span className="absolute -top-1.5 right-1.5 rounded-full bg-purple-600 px-1.5 py-0.5 text-[8px] font-black leading-tight tabular-nums text-white ring-1 ring-white shadow-2xs">
+              <span className="absolute -top-1.5 right-1.5 hidden rounded-full bg-purple-600 px-1.5 py-0.5 text-[8px] font-black leading-tight tabular-nums text-white ring-1 ring-white shadow-2xs sm:inline">
                 {listeningStats.completedCount > 0
                   ? `${listeningStats.completedCount} bài`
                   : listeningStats.totalCompleted > 0
                     ? `${listeningStats.totalCompleted} bài`
                     : 'Video & ETS'}
               </span>
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-purple-600 shadow-2xs">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white text-purple-600 shadow-2xs sm:h-8 sm:w-8">
                 <Headphones className="h-3.5 w-3.5" strokeWidth={2.3} />
               </div>
-              <div className="min-w-0">
-                <div className="text-xs font-black text-purple-900">Listening</div>
-                <div className="truncate text-[10px] font-semibold text-purple-700/80">
+              <div className="min-w-0 max-w-full">
+                <div className="truncate text-[10.5px] font-black leading-none text-purple-900 sm:text-xs">Listening</div>
+                <div className="hidden truncate text-[10px] font-semibold text-purple-700/80 sm:block">
                   Luyện nghe thực tế
                 </div>
               </div>
@@ -415,17 +417,17 @@ export function StudentSkillsAndProgressSection({
             <Link
               href="/student/speaking/foundation"
               aria-label="Luyện nói phản xạ Speaking"
-              className="group relative flex min-h-[58px] min-w-0 items-center gap-2 rounded-xl border border-rose-200/80 bg-rose-50/70 p-2 px-2.5 text-rose-700 shadow-2xs transition-all hover:border-rose-300 hover:bg-rose-50 hover:shadow-xs active:scale-[0.98]"
+              className="group relative flex min-h-[54px] min-w-0 flex-col items-center justify-center gap-1 rounded-xl border border-rose-200/80 bg-rose-50/70 p-1.5 text-center text-rose-700 shadow-2xs transition-all hover:border-rose-300 hover:bg-rose-50 hover:shadow-xs active:scale-[0.98] sm:min-h-[58px] sm:flex-row sm:justify-start sm:gap-2 sm:p-2 sm:px-2.5 sm:text-left"
             >
-              <span className="absolute -top-1.5 right-1.5 rounded-full bg-rose-500 px-1.5 py-0.5 text-[8px] font-black leading-tight text-white ring-1 ring-white shadow-2xs">
+              <span className="absolute -top-1.5 right-1.5 hidden rounded-full bg-rose-500 px-1.5 py-0.5 text-[8px] font-black leading-tight text-white ring-1 ring-white shadow-2xs sm:inline">
                 A0–C1
               </span>
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-rose-600 shadow-2xs">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white text-rose-600 shadow-2xs sm:h-8 sm:w-8">
                 <Mic className="h-3.5 w-3.5" strokeWidth={2.3} />
               </div>
-              <div className="min-w-0">
-                <div className="text-xs font-black text-rose-900">Speaking</div>
-                <div className="truncate text-[10px] font-semibold text-rose-700/80">
+              <div className="min-w-0 max-w-full">
+                <div className="truncate text-[10.5px] font-black leading-none text-rose-900 sm:text-xs">Speaking</div>
+                <div className="hidden truncate text-[10px] font-semibold text-rose-700/80 sm:block">
                   Phản xạ nói AI
                 </div>
               </div>
