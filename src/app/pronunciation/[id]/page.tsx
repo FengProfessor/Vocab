@@ -6,7 +6,7 @@
  * drillType khác minimal-pair (stress/intonation/listening) → luyện nghe theo cặp có chú thích.
  * Xong drill → POST roadmap progress (nếu mở từ lộ trình).
  */
-import { useEffect, useMemo, useState, useCallback } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { toast } from 'sonner';
 import { completeRoadmapStep } from '@/lib/roadmap-client';
@@ -19,6 +19,7 @@ import Link from 'next/link';
 import pronunciationData from '@/data/pronunciation/lessons-v1.json';
 import { InteractiveIpaVideoPlayer, pauseIpaVideo } from '@/components/pronunciation/InteractiveIpaVideoPlayer';
 import type { PronunciationLesson, RachelVideoMeta } from '@/types/pronunciation';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 interface MinimalPair { a: string; b: string; note: string }
 
@@ -159,15 +160,33 @@ export default function PronunciationLessonPage() {
             const isTarget = opt === round.target;
             const isPicked = opt === picked;
             return (
-              <Button key={opt} variant="outline"
-                className={`h-auto py-6 text-lg font-semibold ${
+              <div
+                key={opt}
+                role="button"
+                tabIndex={picked === null ? 0 : -1}
+                onClick={() => pick(opt)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    pick(opt);
+                  }
+                }}
+                className={`inline-flex items-center justify-center rounded-md border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground transition-colors h-auto py-6 text-lg font-semibold ${
+                  picked === null ? 'cursor-pointer' : ''
+                } ${
                   picked !== null && isTarget ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30'
                   : picked !== null && isPicked ? 'border-rose-300 bg-rose-50/70 dark:bg-rose-950/20'
                   : ''
                 }`}
-                onClick={() => pick(opt)}>
-                {opt}
-              </Button>
+              >
+                <ExamInteractiveText
+                  text={opt}
+                  enabled={picked !== null}
+                  as="span"
+                  inheritClassName
+                  onWordClick={() => pauseIpaVideo()}
+                />
+              </div>
             );
           })}
         </div>
@@ -244,16 +263,35 @@ export default function PronunciationLessonPage() {
       <div className="space-y-2">
         <p className="text-sm font-semibold">Bấm nghe giọng thật, nhại theo:</p>
         <div className="flex flex-wrap gap-2">
-          {lesson.exampleWords.map((w) => (
-            <Button key={w} variant="outline" size="sm"
-              onClick={() => {
-                pauseIpaVideo();
-                if (isPlayableWord(w)) void playWordAudio(w, null, 0.9);
-                else speak(w, 0.9);
-              }}>
-              <Volume2 className="w-3.5 h-3.5 mr-1.5" /> {w}
-            </Button>
-          ))}
+          {lesson.exampleWords.map((w) => {
+            const playExample = () => {
+              pauseIpaVideo();
+              if (isPlayableWord(w)) void playWordAudio(w, null, 0.9);
+              else speak(w, 0.9);
+            };
+            return (
+              <div
+                key={w}
+                className="inline-flex items-center gap-1.5 rounded-md border border-input bg-background px-2.5 py-1.5 text-sm font-medium shadow-xs hover:bg-accent/50 transition-colors"
+              >
+                <button
+                  type="button"
+                  onClick={playExample}
+                  aria-label={`Nghe ${w}`}
+                  className="inline-flex items-center text-muted-foreground hover:text-primary cursor-pointer"
+                >
+                  <Volume2 className="w-3.5 h-3.5" />
+                </button>
+                <ExamInteractiveText
+                  text={w}
+                  enabled
+                  as="span"
+                  inheritClassName
+                  onWordClick={() => pauseIpaVideo()}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -262,7 +300,27 @@ export default function PronunciationLessonPage() {
         <div className="space-y-1.5">
           {lesson.minimalPairs.map((p, i) => (
             <div key={i} className="flex items-center justify-between rounded-lg border p-2 text-sm">
-              <span><b>{p.a}</b> vs <b>{p.b}</b></span>
+              <span>
+                <b>
+                  <ExamInteractiveText
+                    text={p.a}
+                    enabled
+                    as="span"
+                    inheritClassName
+                    onWordClick={() => pauseIpaVideo()}
+                  />
+                </b>
+                {' vs '}
+                <b>
+                  <ExamInteractiveText
+                    text={p.b}
+                    enabled
+                    as="span"
+                    inheritClassName
+                    onWordClick={() => pauseIpaVideo()}
+                  />
+                </b>
+              </span>
               {isPlayableWord(p.a) && isPlayableWord(p.b) && (
                 <span className="flex gap-1">
                   <Button variant="ghost" size="icon" className="h-7 w-7" onClick={() => { pauseIpaVideo(); void playWordAudio(p.a, null, 0.9); }}><Volume2 className="w-3.5 h-3.5" /></Button>

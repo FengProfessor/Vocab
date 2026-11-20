@@ -13,6 +13,7 @@ import {
   Pause,
 } from 'lucide-react';
 import { SyncedTranscript } from '@/components/listening/SyncedTranscript';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
 import type {
   TranscriptCue,
   SubtitleDisplayMode,
@@ -62,6 +63,7 @@ export function MobileSubtitleDrawer({
   const touchStartY = useRef<number | null>(null);
   const touchDeltaY = useRef<number>(0);
   const drawerRef = useRef<HTMLDivElement>(null);
+  const vocabLookup = useOptionalVocabLookup();
 
   const activeCue = activeCueIndex >= 0 && cues[activeCueIndex] ? cues[activeCueIndex] : null;
 
@@ -141,13 +143,18 @@ export function MobileSubtitleDrawer({
   // Keyboard navigation inside drawer: Escape closes to peek
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && snap !== 'peek') {
+      if (
+        e.key === 'Escape' &&
+        snap !== 'peek' &&
+        !vocabLookup?.isOpen &&
+        !document.querySelector('.exam-lookup-card')
+      ) {
         setSnap('peek');
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [snap]);
+  }, [snap, vocabLookup?.isOpen]);
 
   const snapClasses = {
     peek: 'h-[calc(82px+env(safe-area-inset-bottom,0px))] max-h-[calc(82px+env(safe-area-inset-bottom,0px))]',

@@ -28,6 +28,7 @@ import {
   type ConversationItem,
 } from '@/data/conversations/conversations-data';
 import { ConversationQuizModal } from '@/components/dictionary/ConversationQuizModal';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 interface PhrasebookViewProps {
   onLookupWord?: (word: string) => void;
@@ -281,7 +282,13 @@ export function PhrasebookView({ onLookupWord }: PhrasebookViewProps = {}) {
 
                   {/* English sentence */}
                   <p className="text-base font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
-                    {item.english}
+                    <ExamInteractiveText
+                      text={item.english}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      contextSentence={item.english}
+                    />
                   </p>
 
                   {/* Phonetic IPA */}
@@ -309,13 +316,14 @@ export function PhrasebookView({ onLookupWord }: PhrasebookViewProps = {}) {
                           key={idx}
                           className="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-xs bg-muted/70 hover:bg-muted border border-border/60 transition-colors"
                         >
-                          <span
-                            onClick={() => onLookupWord?.(kp.phrase)}
-                            className="font-semibold text-foreground hover:text-primary cursor-pointer"
-                            title="Bấm để tra cứu từ điển"
-                          >
-                            {kp.phrase}
-                          </span>
+                          <ExamInteractiveText
+                            text={kp.phrase}
+                            enabled
+                            as="span"
+                            inheritClassName
+                            contextSentence={item.english}
+                            className="font-semibold text-foreground"
+                          />
                           <span className="text-muted-foreground text-[11px] font-normal">
                             : {kp.meaning}
                           </span>

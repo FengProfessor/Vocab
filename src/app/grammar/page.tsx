@@ -40,8 +40,13 @@ import GrammarVisualTopicDeck from '@/components/grammar/GrammarVisualTopicDeck'
 import GrammarVideoPlayer, { CURATED_GRAMMAR_VIDEOS } from '@/components/grammar/GrammarVideoPlayer';
 import SvoSentenceDiagram from '@/components/grammar/SvoSentenceDiagram';
 import TenseTimeline from '@/components/grammar/TenseTimeline';
-import FormattedText from '@/components/grammar/FormattedText';
+import FormattedText, {
+  hasVietnameseDiacritics,
+  splitTrailingVietnameseParenthetical,
+} from '@/components/grammar/FormattedText';
 import HighlightedSentence from '@/components/grammar/HighlightedSentence';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveFormattedText, useOptionalVocabLookup } from '@/components/vocab';
 import { detectGrammarKeywords } from '@/components/grammar/GrammarVisualTopicDeck';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import {
@@ -153,8 +158,35 @@ function toUrlSearchParams(params: PageSearchParams): URLSearchParams {
   return sp;
 }
 
+function renderEnglishTheoryFormatted(value?: string | null) {
+  if (value === null || value === undefined) return null;
+  const raw = typeof value === 'string' ? value : String(value);
+  if (!raw.trim()) return null;
+  const split = splitTrailingVietnameseParenthetical(raw);
+  if (split) {
+    return (
+      <>
+        <InteractiveFormattedText
+          text={split.main}
+          enabled={!hasVietnameseDiacritics(split.main) && split.main.trim() !== '—'}
+          themeVariant="minimalist"
+        />
+        <span>{split.viTail}</span>
+      </>
+    );
+  }
+  return (
+    <InteractiveFormattedText
+      text={raw}
+      enabled={!hasVietnameseDiacritics(raw) && raw.trim() !== '—'}
+      themeVariant="minimalist"
+    />
+  );
+}
+
 function GrammarRoadmapContent({ queryString }: { queryString: string }) {
   const router = useRouter();
+  const vocabLookup = useOptionalVocabLookup();
   const searchParams = useMemo(() => new URLSearchParams(queryString), [queryString]);
 
   // Search parameters
@@ -764,12 +796,24 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
       </section>
 
       {/* Slide-over Theory Drawer / Modal */}
-      <DialogPrimitive.Root open={Boolean(selectedTopicSlug && activeTopic)} onOpenChange={(open) => { if (!open) setSelectedTopicSlug(null); }}>
+      <DialogPrimitive.Root
+        open={Boolean(selectedTopicSlug && activeTopic)}
+        onOpenChange={(open, eventDetails) => {
+          if (!open) {
+            if (eventDetails?.reason === 'escape-key' && vocabLookup?.isOpen) {
+              eventDetails.cancel();
+              vocabLookup.closeLookup();
+              return;
+            }
+            setSelectedTopicSlug(null);
+          }
+        }}
+      >
         {activeTopic && (
         <DialogPrimitive.Portal>
-          <DialogPrimitive.Backdrop className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-sm" />
+          <DialogPrimitive.Backdrop className="fixed inset-0 z-[55] bg-background/80 backdrop-blur-sm" />
           <DialogPrimitive.Popup aria-modal="true" initialFocus={theoryCloseRef} finalFocus={() => theoryTriggerRef.current?.isConnected ? theoryTriggerRef.current : true}
-            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[110] border border-border bg-card w-[calc(100%-0.75rem)] sm:w-[calc(100%-2rem)] max-w-4xl lg:max-w-5xl max-h-[94dvh] sm:max-h-[90dvh] lg:max-h-[90dvh] rounded-none flex flex-col shadow-2xl overflow-hidden outline-none">
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[60] border border-border bg-card w-[calc(100%-0.75rem)] sm:w-[calc(100%-2rem)] max-w-4xl lg:max-w-5xl max-h-[94dvh] sm:max-h-[90dvh] lg:max-h-[90dvh] rounded-none flex flex-col shadow-2xl overflow-hidden outline-none">
             {/* Unified Modal Header: Responsive 2-row grid on mobile (full title width) & 1-row on sm:+ */}
             <div className="border-b border-border px-3 sm:px-4 py-2 sm:py-2.5 grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_auto_auto] items-center gap-2 sm:gap-2.5 bg-muted/10 shrink-0">
               <div className="flex items-start sm:items-center gap-2 min-w-0 order-1">
@@ -786,11 +830,11 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                   <DialogPrimitive.Title className="text-sm sm:text-base lg:text-lg font-bold text-foreground leading-snug line-clamp-2 sm:truncate">
                     {activeTopic.title_vi}
                     <span className="text-xs font-normal text-muted-foreground ml-2 font-sans hidden md:inline">
-                      ({activeTopic.title})
+                      (<ExamInteractiveText text={activeTopic.title} enabled as="span" inheritClassName themeVariant="minimalist" />)
                     </span>
                   </DialogPrimitive.Title>
                   <DialogPrimitive.Description className="text-[11px] font-mono text-muted-foreground truncate md:hidden">
-                    {activeTopic.title}
+                    <ExamInteractiveText text={activeTopic.title} enabled as="span" inheritClassName themeVariant="minimalist" />
                   </DialogPrimitive.Description>
                 </div>
               </div>
@@ -997,27 +1041,41 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                                   <div className="grid grid-cols-1 gap-1.5">
                                     <div className="font-mono text-xs text-foreground bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
                                       <span className="text-[10px] uppercase text-muted-foreground block font-normal">I / You / We / They:</span>
-                                      <span className="font-bold"><FormattedText text={r.base || r.structure || '—'} /></span>
+                                      <span className="font-bold">
+                                        {(() => {
+                                          const val = r.base || r.structure || '—';
+                                          return <InteractiveFormattedText text={val} enabled={!hasVietnameseDiacritics(val) && val !== '—'} themeVariant="minimalist" />;
+                                        })()}
+                                      </span>
                                     </div>
                                     <div className="font-mono text-xs text-indigo-700 dark:text-indigo-400 bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
                                       <span className="text-[10px] uppercase text-muted-foreground block font-normal">He / She / It:</span>
-                                      <span className="font-bold"><FormattedText text={thirdCol} /></span>
+                                      <span className="font-bold">
+                                        <InteractiveFormattedText text={thirdCol} enabled={!hasVietnameseDiacritics(thirdCol) && thirdCol !== '—'} themeVariant="minimalist" />
+                                      </span>
                                     </div>
                                   </div>
                                 ) : pluralCol ? (
                                   <div className="grid grid-cols-1 gap-1.5">
                                     <div className="font-mono text-xs text-foreground bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
                                       <span className="text-[10px] uppercase text-muted-foreground block font-normal">Số ít (Singular):</span>
-                                      <span className="font-bold"><FormattedText text={String(r.singular)} /></span>
+                                      <span className="font-bold">
+                                        {(() => {
+                                          const val = String(r.singular);
+                                          return <InteractiveFormattedText text={val} enabled={!hasVietnameseDiacritics(val) && val !== '—'} themeVariant="minimalist" />;
+                                        })()}
+                                      </span>
                                     </div>
                                     <div className="font-mono text-xs text-indigo-700 dark:text-indigo-400 bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
                                       <span className="text-[10px] uppercase text-muted-foreground block font-normal">Số nhiều (Plural):</span>
-                                      <span className="font-bold"><FormattedText text={pluralCol} /></span>
+                                      <span className="font-bold">
+                                        <InteractiveFormattedText text={pluralCol} enabled={!hasVietnameseDiacritics(pluralCol) && pluralCol !== '—'} themeVariant="minimalist" />
+                                      </span>
                                     </div>
                                   </div>
                                 ) : (
                                   <div className="font-mono text-xs font-bold text-foreground bg-background px-2.5 py-1.5 border border-border/60 rounded-none break-words">
-                                    <FormattedText text={structText} />
+                                    <InteractiveFormattedText text={structText} enabled={!hasVietnameseDiacritics(structText) && structText !== '—'} themeVariant="minimalist" />
                                   </div>
                                 )}
                                 {Boolean(r.note) && (
@@ -1027,7 +1085,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                                 )}
                                 <div className="text-xs text-muted-foreground font-sans pt-0.5">
                                   <span className="font-mono text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
-                                  <FormattedText text={exText} />
+                                  {renderEnglishTheoryFormatted(exText)}
                                 </div>
                               </div>
                             );
@@ -1062,26 +1120,35 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                                         <>
                                           <div>
                                             <span className="text-muted-foreground font-normal mr-1">I/You/We/They:</span>
-                                            <FormattedText text={r.base || r.structure || '—'} />
+                                            {(() => {
+                                              const val = r.base || r.structure || '—';
+                                              return <InteractiveFormattedText text={val} enabled={!hasVietnameseDiacritics(val) && val !== '—'} themeVariant="minimalist" />;
+                                            })()}
                                           </div>
                                           <div className="text-indigo-700 dark:text-indigo-400">
                                             <span className="text-muted-foreground font-normal mr-1">He/She/It:</span>
-                                            <FormattedText text={thirdCol} />
+                                            <InteractiveFormattedText text={thirdCol} enabled={!hasVietnameseDiacritics(thirdCol) && thirdCol !== '—'} themeVariant="minimalist" />
                                           </div>
                                         </>
                                       ) : pluralCol ? (
                                         <>
                                           <div>
                                             <span className="text-muted-foreground font-normal mr-1">Số ít:</span>
-                                            <FormattedText text={String(r.singular)} />
+                                            {(() => {
+                                              const val = String(r.singular);
+                                              return <InteractiveFormattedText text={val} enabled={!hasVietnameseDiacritics(val) && val !== '—'} themeVariant="minimalist" />;
+                                            })()}
                                           </div>
                                           <div className="text-indigo-700 dark:text-indigo-400">
                                             <span className="text-muted-foreground font-normal mr-1">Số nhiều:</span>
-                                            <FormattedText text={pluralCol} />
+                                            <InteractiveFormattedText text={pluralCol} enabled={!hasVietnameseDiacritics(pluralCol) && pluralCol !== '—'} themeVariant="minimalist" />
                                           </div>
                                         </>
                                       ) : (
-                                        <FormattedText text={r.structure || r.base || (r['mạo_từ'] as string | undefined) || r.time || r.singular || r.rule || '—'} />
+                                        (() => {
+                                          const val = r.structure || r.base || (r['mạo_từ'] as string | undefined) || r.time || r.singular || r.rule || '—';
+                                          return <InteractiveFormattedText text={val} enabled={!hasVietnameseDiacritics(val) && val !== '—'} themeVariant="minimalist" />;
+                                        })()
                                       )}
                                       {Boolean(r.note) && (
                                         <div className="text-[11px] font-normal text-muted-foreground">
@@ -1090,7 +1157,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                                       )}
                                     </td>
                                     <td className="p-2.5 text-muted-foreground font-sans">
-                                      <FormattedText text={r.example || theoryData.bilingual_examples?.[i]?.en || theoryData.bilingual_examples?.[0]?.en || '—'} />
+                                      {renderEnglishTheoryFormatted(r.example || theoryData.bilingual_examples?.[i]?.en || theoryData.bilingual_examples?.[0]?.en || '—')}
                                     </td>
                                   </tr>
                                 );
@@ -1114,14 +1181,21 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                             Các trạng từ, liên từ và dấu hiệu thời gian nhận diện nhanh khi làm bài:
                           </p>
                           <div className="flex flex-wrap gap-1.5 pt-1">
-                            {theoryData.signals.map((sig, idx) => (
-                              <span
-                                key={idx}
-                                className="font-mono text-xs font-semibold px-2.5 py-1 border border-border bg-muted/20 text-foreground rounded-none"
-                              >
-                                <FormattedText text={typeof sig === 'string' ? sig : JSON.stringify(sig)} />
-                              </span>
-                            ))}
+                            {theoryData.signals.map((sig, idx) => {
+                              const sigStr = typeof sig === 'string' ? sig : JSON.stringify(sig);
+                              return (
+                                <span
+                                  key={idx}
+                                  className="font-mono text-xs font-semibold px-2.5 py-1 border border-border bg-muted/20 text-foreground rounded-none"
+                                >
+                                  <InteractiveFormattedText
+                                    text={sigStr}
+                                    enabled={!hasVietnameseDiacritics(sigStr)}
+                                    themeVariant="minimalist"
+                                  />
+                                </span>
+                              );
+                            })}
                           </div>
                         </div>
                       </GrammarAccordionItem>
@@ -1148,7 +1222,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                               {r.example && (
                                 <div className="text-xs text-muted-foreground font-sans pt-1 border-t border-border/40">
                                   <span className="font-mono text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
-                                  <FormattedText text={r.example} />
+                                  {renderEnglishTheoryFormatted(r.example)}
                                 </div>
                               )}
                             </div>
@@ -1175,7 +1249,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                                     <FormattedText text={r.rule || '—'} />
                                   </td>
                                   <td className="p-2.5 text-muted-foreground font-sans">
-                                    <FormattedText text={r.example || '—'} />
+                                    {r.example ? renderEnglishTheoryFormatted(r.example) : '—'}
                                   </td>
                                 </tr>
                               ))}
@@ -1200,7 +1274,11 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                                 <FormattedText text={u.label} />
                               </span>
                               <span className="font-medium text-foreground">
-                                <FormattedText text={u.en} />
+                                <InteractiveFormattedText
+                                  text={u.en}
+                                  enabled={!hasVietnameseDiacritics(u.en)}
+                                  themeVariant="minimalist"
+                                />
                               </span>
                               <span className="text-xs text-muted-foreground">
                                 <FormattedText text={u.vi} />
@@ -1250,11 +1328,11 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                             <div key={i} className="border border-border p-3 bg-muted/10 space-y-1 rounded-none">
                               <div className="flex items-start gap-2 font-mono text-xs text-rose-600 dark:text-rose-400">
                                 <span className="font-bold shrink-0">✕ SAI:</span>
-                                <span className="break-words"><FormattedText text={m.wrong} /></span>
+                                <span className="break-words">{renderEnglishTheoryFormatted(m.wrong)}</span>
                               </div>
                               <div className="flex items-start gap-2 font-mono text-xs text-emerald-600 dark:text-emerald-400">
                                 <span className="font-bold shrink-0">✓ ĐÚNG:</span>
-                                <span className="break-words"><FormattedText text={m.right} /></span>
+                                <span className="break-words">{renderEnglishTheoryFormatted(m.right)}</span>
                               </div>
                               {m.why && (
                                 <div className="text-xs text-muted-foreground pt-1 border-t border-border/40 font-sans">
@@ -1302,7 +1380,7 @@ function GrammarRoadmapContent({ queryString }: { queryString: string }) {
                         <div key={i} className="border border-border p-3.5 bg-background space-y-1.5 rounded-none flex items-start justify-between gap-3">
                           <div className="space-y-1 flex-1 min-w-0">
                             <div className="font-semibold text-foreground text-sm break-words">
-                              <HighlightedSentence text={ex.en || ''} highlight={kw} />
+                              <HighlightedSentence text={ex.en || ''} highlight={kw} themeVariant="minimalist" />
                             </div>
                             <div className="text-xs text-muted-foreground break-words">
                               <FormattedText text={ex.vi || ''} />

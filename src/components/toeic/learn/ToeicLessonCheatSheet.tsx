@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import type { TheoryLesson } from '@/data/toeic/theory/types';
 import { getCheatSheetByLessonId } from '@/data/toeic/theory/cheatsheets';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 export interface ToeicLessonCheatSheetProps {
   lesson: TheoryLesson;
@@ -74,7 +75,12 @@ export function ToeicLessonCheatSheet({ lesson, className = '' }: ToeicLessonChe
           <span>Công Thức Cốt Lõi (Core Syntax Pattern)</span>
         </div>
         <div className="font-mono text-sm sm:text-base font-black text-slate-950 dark:text-amber-100 bg-white dark:bg-slate-900 p-2.5 rounded-xs border border-amber-200 dark:border-amber-900/60 overflow-x-auto">
-          {cheatSheet.formulaSummary}
+          <ExamInteractiveText
+            text={cheatSheet.formulaSummary}
+            enabled={true}
+            themeVariant="minimalist"
+            inheritClassName
+          />
         </div>
       </div>
 
@@ -91,7 +97,14 @@ export function ToeicLessonCheatSheet({ lesson, className = '' }: ToeicLessonChe
             {cheatSheet.coreRules.map((rule, idx) => (
               <li key={idx} className="flex items-start gap-2">
                 <span className="font-mono font-bold text-emerald-600 shrink-0">#{idx + 1}</span>
-                <span>{rule}</span>
+                <span>
+                  <ExamInteractiveText
+                    text={rule}
+                    enabled={true}
+                    themeVariant="minimalist"
+                    inheritClassName
+                  />
+                </span>
               </li>
             ))}
           </ul>
@@ -108,7 +121,14 @@ export function ToeicLessonCheatSheet({ lesson, className = '' }: ToeicLessonChe
             {cheatSheet.speedTricks.map((trick, idx) => (
               <li key={idx} className="flex items-start gap-2">
                 <span className="font-mono font-bold text-amber-500 shrink-0">⚡</span>
-                <span>{trick}</span>
+                <span>
+                  <ExamInteractiveText
+                    text={trick}
+                    enabled={true}
+                    themeVariant="minimalist"
+                    inheritClassName
+                  />
+                </span>
               </li>
             ))}
           </ul>
@@ -126,7 +146,14 @@ export function ToeicLessonCheatSheet({ lesson, className = '' }: ToeicLessonChe
           {cheatSheet.commonTraps.map((trap, idx) => (
             <li key={idx} className="flex items-start gap-2">
               <span className="font-mono font-bold text-rose-600 shrink-0">✕</span>
-              <span>{trap}</span>
+              <span>
+                <ExamInteractiveText
+                  text={trap}
+                  enabled={true}
+                  themeVariant="minimalist"
+                  inheritClassName
+                />
+              </span>
             </li>
           ))}
         </ul>

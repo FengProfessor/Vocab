@@ -13,6 +13,8 @@ import { toast } from 'sonner';
 import { XP_PER_CORRECT_QUIZ } from '@/lib/gamification';
 import { StudentShell } from '@/components/student/StudentShell';
 import { parseIpa } from '@/lib/study';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { useOptionalVocabLookup } from '@/components/vocab';
 
 // Quiz mode: 'meaning_to_word' = thấy nghĩa → chọn từ tiếng Anh
 //            'word_to_meaning' = thấy từ tiếng Anh → chọn nghĩa tiếng Việt
@@ -77,6 +79,25 @@ function QuizContent() {
   // identity check chống double-advance (bấm nút xong timeout vẫn bắn)
   const advanceRef = useRef<(() => void) | null>(null);
   const advanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const vocabLookup = useOptionalVocabLookup();
+  const vocabLookupRef = useRef(vocabLookup);
+  useEffect(() => {
+    vocabLookupRef.current = vocabLookup;
+  }, [vocabLookup]);
+
+  useEffect(() => {
+    if (vocabLookup?.isOpen && advanceTimerRef.current) {
+      clearTimeout(advanceTimerRef.current);
+      advanceTimerRef.current = null;
+    }
+  }, [vocabLookup?.isOpen]);
+
+  const handleLookupWordClick = useCallback(() => {
+    if (advanceTimerRef.current) {
+      clearTimeout(advanceTimerRef.current);
+      advanceTimerRef.current = null;
+    }
+  }, []);
 
   // Rebuild choices khi đổi mode
   useEffect(() => {
@@ -163,6 +184,7 @@ function QuizContent() {
         clearTimeout(advanceTimerRef.current);
         advanceTimerRef.current = null;
       }
+      vocabLookupRef.current?.closeLookup();
       const newQueue = queue.slice(1);
       setQueue(newQueue);
       const nextWord = newQueue[0] || null;
@@ -210,6 +232,8 @@ function QuizContent() {
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (done || isLoading || !current) return;
+      const target = e.target as HTMLElement | null;
+      if (target?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
 
       if (['1', '2', '3', '4'].includes(e.key)) {
         const idx = parseInt(e.key) - 1;
@@ -218,8 +242,8 @@ function QuizContent() {
         }
       }
 
-      // Đã chọn đáp án → Enter/Space bỏ chờ, chuyển câu ngay
-      if (selected && (e.key === 'Enter' || e.key === ' ')) {
+      // Đã chọn đáp án → Enter/Space bỏ chờ, chuyển câu ngay (trừ khi đang mở lookup card)
+      if (selected && !vocabLookupRef.current?.isOpen && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
         skipNext();
       }
@@ -379,9 +403,18 @@ function QuizContent() {
             {mode === 'meaning_to_word' ? 'Chọn từ tiếng Anh đúng' : 'Chọn nghĩa đúng'}
           </div>
           <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white break-words w-full mb-5 mt-4">
-            {mode === 'meaning_to_word'
-              ? (current.translation?.trim() || '(Chưa có nghĩa — chọn từ đúng)')
-              : current.word}
+            {mode === 'meaning_to_word' ? (
+              current.translation?.trim() || '(Chưa có nghĩa — chọn từ đúng)'
+            ) : (
+              <ExamInteractiveText
+                text={current.word}
+                enabled={selected !== null}
+                as="span"
+                inheritClassName
+                themeVariant="dark"
+                onWordClick={handleLookupWordClick}
+              />
+            )}
           </h2>
           <div className="flex items-center justify-center gap-3 flex-wrap">
             {current.pos && (
@@ -420,19 +453,50 @@ function QuizContent() {
               btnClasses += 'animate-shake ';
             }
 
+            const isEnglishChoices = mode === 'meaning_to_word';
+
             return (
-              <button
+              <div
                 key={`${choice}-${i}`}
-                disabled={!!selected}
-                onClick={() => handleSelect(choice, i)}
-                className={btnClasses}
+                role="button"
+                tabIndex={selected ? -1 : 0}
+                aria-disabled={!!selected}
+                onClick={(e) => {
+                  if (selected) return;
+                  if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) {
+                    return;
+                  }
+                  handleSelect(choice, i);
+                }}
+                onKeyDown={(e) => {
+                  if (selected) return;
+                  if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) {
+                    return;
+                  }
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleSelect(choice, i);
+                  }
+                }}
+                className={`flex items-center justify-center ${selected ? 'select-text' : 'cursor-pointer select-none'} ${btnClasses}`}
               >
                 {/* Keyboard hint badge */}
                 {!selected && (
                   <span className="absolute top-2 left-3 text-[10px] font-black text-slate-600 bg-slate-700 rounded px-1">{i + 1}</span>
                 )}
                 <span className="flex items-center justify-center gap-2 text-center leading-snug">
-                  {choice}
+                  {isEnglishChoices ? (
+                    <ExamInteractiveText
+                      text={choice}
+                      enabled={selected !== null}
+                      as="span"
+                      inheritClassName
+                      themeVariant="dark"
+                      onWordClick={handleLookupWordClick}
+                    />
+                  ) : (
+                    choice
+                  )}
                   {selected && isCorrect && (
                     <CheckCircle2 className="h-5 w-5 text-emerald-400 flex-shrink-0 animate-in zoom-in-50 duration-300" />
                   )}
@@ -440,7 +504,7 @@ function QuizContent() {
                     <XCircle className="h-5 w-5 text-rose-400 flex-shrink-0 animate-in zoom-in-50 duration-300" />
                   )}
                 </span>
-              </button>
+              </div>
             );
           })}
         </div>

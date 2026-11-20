@@ -62,7 +62,12 @@ export function InGameActivityFrame({ open, onClose }: Props) {
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') handleClose();
+      if (e.key === 'Escape') {
+        if (typeof document !== 'undefined' && document.querySelector('.exam-lookup-card')) {
+          return;
+        }
+        handleClose();
+      }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);

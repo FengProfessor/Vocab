@@ -22,7 +22,11 @@ import {
   type DiagnosticReport,
   type AssessmentSkill,
 } from '@/lib/roadmap-assessment';
-import { DiagnosticReportCard } from '@/components/journey/assessment/DiagnosticReportCard';
+import {
+  DiagnosticReportCard,
+  JourneyInteractiveText,
+} from '@/components/journey/assessment/DiagnosticReportCard';
+import { useOptionalVocabLookup } from '@/components/vocab';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Volume2, ArrowLeft, Loader2, Sparkles, Flag } from 'lucide-react';
@@ -69,8 +73,17 @@ export default function CheckpointPage() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [diagnosticReport, setDiagnosticReport] = useState<DiagnosticReport | null>(null);
   const answersRef = useRef<Record<string, string>>({});
+  const vocabLookup = useOptionalVocabLookup();
+  const closeLookup = vocabLookup?.closeLookup;
+
+  useEffect(() => {
+    return () => {
+      closeLookup?.();
+    };
+  }, [closeLookup]);
 
   const load = useCallback(async (): Promise<void> => {
+    closeLookup?.();
     try {
       const res = await authFetch(`/api/roadmap/checkpoint?unit=${encodeURIComponent(unitId)}`);
       const json = (await res.json()) as {
@@ -94,7 +107,7 @@ export default function CheckpointPage() {
     } finally {
       setLoading(false);
     }
-  }, [unitId]);
+  }, [unitId, closeLookup]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -119,6 +132,7 @@ export default function CheckpointPage() {
 
   const submitAnswer = (value: string): void => {
     if (revealed || !q) return;
+    closeLookup?.();
     setPicked(value);
     setRevealed(true);
     const updatedAnswers = { ...answersRef.current, [q.id]: value };
@@ -127,6 +141,7 @@ export default function CheckpointPage() {
   };
 
   const next = async (): Promise<void> => {
+    closeLookup?.();
     if (index + 1 < questions.length) {
       setIndex(index + 1);
       setPicked(null);
@@ -274,6 +289,7 @@ export default function CheckpointPage() {
 
   // Tiến trình làm bài (mistake-safe)
   const progressPct = Math.round(((index + (revealed ? 1 : 0)) / questions.length) * 100);
+  const promptEnabled = q.type === 'word-to-meaning' ? revealed : true;
 
   return (
     <div className="min-h-screen bg-background py-6 px-4">
@@ -315,14 +331,20 @@ export default function CheckpointPage() {
         </div>
 
         {/* Tiêu đề câu hỏi */}
-        <h1 className="text-lg font-bold leading-relaxed">
-          {q.prompt?.trim()
-            ? q.prompt
-            : q.type === 'typing'
-            ? 'Gõ từ tiếng Anh đúng'
-            : isAudioQ
-            ? 'Nghe và chọn đáp án đúng'
-            : 'Chọn đáp án đúng'}
+        <h1 className="text-lg font-bold leading-relaxed select-text">
+          {q.prompt?.trim() ? (
+            <JourneyInteractiveText
+              text={q.prompt}
+              enabled={promptEnabled}
+              mode="quoted-only"
+            />
+          ) : q.type === 'typing' ? (
+            'Gõ từ tiếng Anh đúng'
+          ) : isAudioQ ? (
+            'Nghe và chọn đáp án đúng'
+          ) : (
+            'Chọn đáp án đúng'
+          )}
         </h1>
 
         {/* Nút nghe lại nếu là câu hỏi audio */}
@@ -368,21 +390,52 @@ export default function CheckpointPage() {
               const isAnswer = opt === q.answer;
               const isPicked = opt === picked;
               return (
-                <Button
+                <div
                   key={opt}
-                  variant="outline"
-                  disabled={revealed && !isAnswer && !isPicked}
-                  className={`justify-start h-auto py-3.5 px-4 text-base whitespace-normal font-normal text-left transition-all ${
-                    revealed && isAnswer
-                      ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 font-semibold'
-                      : revealed && isPicked
-                      ? 'border-rose-300 bg-rose-50/70 dark:bg-rose-950/20 text-rose-800 dark:text-rose-300'
-                      : 'hover:border-primary/50'
+                  role="button"
+                  tabIndex={revealed ? -1 : 0}
+                  aria-disabled={revealed}
+                  className={`inline-flex w-full items-center justify-start rounded-lg border bg-clip-padding py-3.5 px-4 text-base whitespace-normal font-normal text-left transition-all outline-none select-text focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 ${
+                    revealed
+                      ? isAnswer
+                        ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-800 dark:text-emerald-300 font-semibold cursor-default'
+                        : isPicked
+                        ? 'border-rose-300 bg-rose-50/70 dark:bg-rose-950/20 text-rose-800 dark:text-rose-300 cursor-default'
+                        : 'border-border bg-background dark:border-input dark:bg-input/30 opacity-50 cursor-default'
+                      : 'border-border bg-background hover:bg-muted hover:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50 hover:border-primary/50 cursor-pointer'
                   }`}
-                  onClick={() => submitAnswer(opt)}
+                  onClick={(e) => {
+                    if (
+                      (e.target as HTMLElement | null)?.closest?.(
+                        '.exam-lookup-trigger, .exam-lookup-card',
+                      )
+                    ) {
+                      return;
+                    }
+                    if (!revealed) submitAnswer(opt);
+                  }}
+                  onKeyDown={(e) => {
+                    if (
+                      (e.target as HTMLElement | null)?.closest?.(
+                        '.exam-lookup-trigger, .exam-lookup-card',
+                      )
+                    ) {
+                      return;
+                    }
+                    if ((e.key === 'Enter' || e.key === ' ') && !revealed) {
+                      e.preventDefault();
+                      submitAnswer(opt);
+                    }
+                  }}
                 >
-                  {opt}
-                </Button>
+                  <span className="select-text">
+                    <JourneyInteractiveText
+                      text={opt}
+                      enabled={revealed}
+                      siblingTexts={q.options}
+                    />
+                  </span>
+                </div>
               );
             })}
           </div>
@@ -392,8 +445,11 @@ export default function CheckpointPage() {
         {revealed && (
           <div className="space-y-3 pt-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
             {q.type === 'typing' && (
-              <p className="text-sm">
-                Đáp án: <b className="text-emerald-600">{q.answer}</b>
+              <p className="text-sm select-text">
+                Đáp án:{' '}
+                <b className="text-emerald-600 select-text">
+                  <JourneyInteractiveText text={q.answer} enabled={revealed} />
+                </b>
               </p>
             )}
             {q.explanation && (

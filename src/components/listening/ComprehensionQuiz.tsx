@@ -11,6 +11,7 @@ import {
   HelpCircle,
 } from 'lucide-react';
 import { formatTime, saveListeningAttempt, getListeningAttempt } from '@/lib/listening';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import type { ComprehensionQuestion } from '@/types/listening';
 
 export interface ComprehensionQuizProps {
@@ -189,7 +190,8 @@ export const ComprehensionQuiz: React.FC<ComprehensionQuizProps> = ({
                       <XCircle className="h-4 w-4 text-rose-500" />
                     )}
                     <span className="font-bold text-slate-800 dark:text-slate-200">
-                      Câu {idx + 1}: {q.question}
+                      Câu {idx + 1}:{' '}
+                      <ExamInteractiveText text={q.question} enabled={true} as="span" inheritClassName />
                     </span>
                   </div>
                   <button
@@ -248,7 +250,7 @@ export const ComprehensionQuiz: React.FC<ComprehensionQuizProps> = ({
       {/* Question Title */}
       <div className="my-4">
         <h3 className="text-base font-bold leading-snug text-slate-900 dark:text-white sm:text-lg">
-          {currentQuestion.question}
+          <ExamInteractiveText text={currentQuestion.question} enabled={true} as="span" inheritClassName />
         </h3>
       </div>
 
@@ -277,12 +279,31 @@ export const ComprehensionQuiz: React.FC<ComprehensionQuizProps> = ({
           }
 
           return (
-            <button
+            <div
               key={optIdx}
-              type="button"
-              disabled={isSubmitted}
-              onClick={() => handleSelectOption(optIdx)}
-              className={`flex w-full items-start gap-3 rounded-xl border p-3.5 text-left text-sm font-medium transition-all ${optionStyle}`}
+              role="button"
+              tabIndex={isSubmitted ? -1 : 0}
+              aria-disabled={isSubmitted}
+              onClick={(e) => {
+                if (isSubmitted) return;
+                if ((e.target as HTMLElement | null)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) {
+                  return;
+                }
+                if (typeof window !== 'undefined' && window.getSelection()?.toString().trim()) {
+                  return;
+                }
+                handleSelectOption(optIdx);
+              }}
+              onKeyDown={(e) => {
+                if (isSubmitted || e.target !== e.currentTarget) return;
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleSelectOption(optIdx);
+                }
+              }}
+              className={`flex w-full items-start gap-3 rounded-xl border p-3.5 text-left text-sm font-medium transition-all ${
+                isSubmitted ? 'cursor-default select-text' : 'cursor-pointer'
+              } ${optionStyle}`}
             >
               <span
                 className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-xs font-bold uppercase ${
@@ -293,14 +314,16 @@ export const ComprehensionQuiz: React.FC<ComprehensionQuizProps> = ({
               >
                 {String.fromCharCode(65 + optIdx)}
               </span>
-              <span className="flex-1 leading-relaxed">{option}</span>
+              <span className="flex-1 leading-relaxed select-text">
+                <ExamInteractiveText text={option} enabled={true} as="span" inheritClassName />
+              </span>
               {isSubmitted && isCorrectOption && (
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
               )}
               {isSubmitted && isSelected && !isCorrectOption && (
                 <XCircle className="h-5 w-5 shrink-0 text-rose-600 dark:text-rose-400" />
               )}
-            </button>
+            </div>
           );
         })}
       </div>

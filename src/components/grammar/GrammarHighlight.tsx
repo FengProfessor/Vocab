@@ -1,6 +1,12 @@
 'use client';
 
 import React from 'react';
+import {
+  InteractiveHighlightedText,
+  type HighlightSpan,
+  type InteractiveHighlightedTextProps,
+} from '@/components/vocab/InteractiveHighlightedText';
+import type { LookupThemeVariant } from '@/components/vocab/VocabLookupProvider';
 
 export type GrammarRole =
   // Part-of-speech (POS) chuẩn — schema mới
@@ -33,6 +39,9 @@ interface GrammarHighlightProps {
   annotations: WordAnnotation[];
   loading?: boolean;
   showLegend?: boolean;
+  enabled?: boolean;
+  themeVariant?: LookupThemeVariant;
+  onWordClick?: InteractiveHighlightedTextProps['onWordClick'];
 }
 
 interface RoleConfig {
@@ -73,6 +82,9 @@ export default function GrammarHighlight({
   annotations,
   loading = false,
   showLegend = true,
+  enabled = true,
+  themeVariant = 'minimalist',
+  onWordClick,
 }: GrammarHighlightProps) {
   if (loading) {
     return (
@@ -83,70 +95,48 @@ export default function GrammarHighlight({
     );
   }
 
-  // Sort annotations by start index
-  const sorted = [...annotations].sort((a, b) => a.start - b.start);
-
-  // Build segments: interleave plain text and annotated spans
-  const segments: React.ReactNode[] = [];
-  let cursor = 0;
-
-  sorted.forEach((ann, idx) => {
-    // Plain text before this annotation
-    if (ann.start > cursor) {
-      segments.push(
-        <span key={`plain-${idx}`}>{sentence.slice(cursor, ann.start)}</span>
-      );
-    }
-
-    const config = ROLE_CONFIG[ann.role];
-    const hasStyle = ann.role !== 'other';
-
-    if (hasStyle && (config.bg || config.text)) {
-      const cls = [
-        config.bg,
-        config.text,
-        'rounded-none',
-        'px-0.5',
-        'font-medium',
-      ]
-        .filter(Boolean)
-        .join(' ');
-
-      segments.push(
-        <span
-          key={`ann-${idx}`}
-          className={cls}
-          style={ROLE_INLINE_STYLE[ann.role]}
-          title={config.label}
-        >
-          {sentence.slice(ann.start, ann.end)}
-        </span>
-      );
-    } else {
-      // 'other' role or no styling
-      segments.push(
-        <span key={`ann-${idx}`}>{sentence.slice(ann.start, ann.end)}</span>
-      );
-    }
-
-    cursor = ann.end;
+  const validAnnotations = annotations.filter((ann) => {
+    if (!Number.isFinite(ann.start) || !Number.isFinite(ann.end) || ann.role === 'other') return false;
+    const clampedStart = Math.max(0, Math.min(ann.start, sentence.length));
+    const clampedEnd = Math.max(clampedStart, Math.min(ann.end, sentence.length));
+    return clampedEnd > clampedStart;
   });
 
-  // Remaining plain text after last annotation
-  if (cursor < sentence.length) {
-    segments.push(<span key="plain-tail">{sentence.slice(cursor)}</span>);
-  }
+  const spans: HighlightSpan[] = validAnnotations.flatMap((ann) => {
+    const config = ROLE_CONFIG[ann.role];
+    if (!config || (!config.bg && !config.text)) return [];
+    return [
+      {
+        start: ann.start,
+        end: ann.end,
+        className: [config.bg, config.text, 'rounded-none', 'px-0.5', 'font-medium']
+          .filter(Boolean)
+          .join(' '),
+        style: ROLE_INLINE_STYLE[ann.role],
+        title: config.label,
+      },
+    ];
+  });
 
   // Determine which roles appear in legend
   const legendRoles = Array.from(
-    new Set(annotations.map((a) => a.role))
-  ).filter((role) => ROLE_CONFIG[role].showInLegend);
+    new Set(validAnnotations.map((a) => a.role))
+  ).filter((role) => Boolean(ROLE_CONFIG[role]?.showInLegend));
 
   const hasLegend = showLegend && legendRoles.length > 0;
 
   return (
     <div className="space-y-2">
-      <p className="text-sm font-semibold text-foreground">{segments}</p>
+      <InteractiveHighlightedText
+        text={sentence}
+        spans={spans.length > 0 ? spans : undefined}
+        enabled={enabled}
+        as="p"
+        className="text-sm font-semibold text-foreground"
+        themeVariant={themeVariant}
+        onWordClick={onWordClick}
+        contextSentence={sentence}
+      />
 
       {hasLegend && (
         <div className="flex flex-wrap gap-x-3 gap-y-1 opacity-70">

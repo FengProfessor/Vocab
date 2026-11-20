@@ -40,7 +40,12 @@ import {
   type DiagnosticReport,
 } from '@/lib/roadmap-assessment';
 import { getExitStandard } from '@/lib/roadmap-client';
-import { DiagnosticReportCard } from './DiagnosticReportCard';
+import {
+  DiagnosticReportCard,
+  hasVietnameseDiacritics,
+  JourneyInteractiveText,
+} from './DiagnosticReportCard';
+import { useOptionalVocabLookup } from '@/components/vocab';
 
 export interface LevelExitExamModalProps {
   open: boolean;
@@ -513,6 +518,24 @@ export function LevelExitExamModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [diagnosticReport, setDiagnosticReport] = useState<DiagnosticReport | null>(null);
 
+  const vocabLookup = useOptionalVocabLookup();
+  const closeLookup = vocabLookup?.closeLookup;
+
+  useEffect(() => {
+    closeLookup?.();
+  }, [open, currentIndex, finished, closeLookup]);
+
+  useEffect(() => {
+    return () => {
+      closeLookup?.();
+    };
+  }, [closeLookup]);
+
+  const handleModalClose = useCallback(() => {
+    closeLookup?.();
+    onClose();
+  }, [closeLookup, onClose]);
+
   // Reset state khi mở modal
   useEffect(() => {
     if (open) {
@@ -528,11 +551,13 @@ export function LevelExitExamModal({
 
   const handleSelectAnswer = (opt: string) => {
     if (finished) return;
+    closeLookup?.();
     setAnswers((prev) => ({ ...prev, [currentQ.id]: opt }));
   };
 
   // Nộp bài thi tốt nghiệp
   const handleSubmitExam = async () => {
+    closeLookup?.();
     setIsSubmitting(true);
     try {
       const report = evaluateDiagnostic({
@@ -581,9 +606,31 @@ export function LevelExitExamModal({
   };
 
   const answeredCount = Object.keys(answers).length;
+  const isVocabMeaningPrompt = useMemo(() => {
+    if (!currentQ?.prompt) return false;
+    const re = /["“]([^"”]+)["”]\s*(?:nghĩa là|có nghĩa|là\s+)/gi;
+    let match: RegExpExecArray | null;
+    while ((match = re.exec(currentQ.prompt)) !== null) {
+      if (!hasVietnameseDiacritics(match[1])) return true;
+    }
+    return false;
+  }, [currentQ]);
+  const promptEnabled = !isVocabMeaningPrompt;
 
   return (
-    <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
+    <Dialog
+      open={open}
+      onOpenChange={(isOpen, eventDetails) => {
+        if (!isOpen) {
+          if (vocabLookup?.isOpen) {
+            eventDetails?.cancel?.();
+            vocabLookup.closeLookup();
+            return;
+          }
+          handleModalClose();
+        }
+      }}
+    >
       <DialogContent className="max-w-3xl w-[96vw] max-h-[90vh] overflow-y-auto p-6 rounded-2xl">
         <DialogHeader className="space-y-1">
           <div className="flex items-center justify-between text-xs text-muted-foreground">
@@ -638,7 +685,10 @@ export function LevelExitExamModal({
                   <button
                     key={q.id}
                     type="button"
-                    onClick={() => setCurrentIndex(idx)}
+                    onClick={() => {
+                      closeLookup?.();
+                      setCurrentIndex(idx);
+                    }}
                     className={`w-7 h-7 text-xs font-semibold rounded-md transition-all flex items-center justify-center ${
                       isCurrent
                         ? 'ring-2 ring-primary ring-offset-1 bg-primary text-white'
@@ -664,8 +714,12 @@ export function LevelExitExamModal({
                 </span>
               </div>
 
-              <h3 className="text-base font-semibold leading-relaxed text-foreground">
-                {currentQ.prompt}
+              <h3 className="text-base font-semibold leading-relaxed text-foreground select-text">
+                <JourneyInteractiveText
+                  text={currentQ.prompt}
+                  enabled={promptEnabled}
+                  mode="quoted-only"
+                />
               </h3>
 
               {/* Lựa chọn đáp án */}
@@ -673,19 +727,48 @@ export function LevelExitExamModal({
                 {(currentQ.options ?? []).map((opt) => {
                   const isSelected = answers[currentQ.id] === opt;
                   return (
-                    <button
+                    <div
                       key={opt}
-                      type="button"
-                      onClick={() => handleSelectAnswer(opt)}
-                      className={`w-full text-left p-3.5 rounded-xl border text-sm transition-all flex items-center justify-between ${
+                      role="button"
+                      tabIndex={0}
+                      onClick={(e) => {
+                        if (
+                          (e.target as HTMLElement | null)?.closest?.(
+                            '.exam-lookup-trigger, .exam-lookup-card',
+                          )
+                        ) {
+                          return;
+                        }
+                        handleSelectAnswer(opt);
+                      }}
+                      onKeyDown={(e) => {
+                        if (
+                          (e.target as HTMLElement | null)?.closest?.(
+                            '.exam-lookup-trigger, .exam-lookup-card',
+                          )
+                        ) {
+                          return;
+                        }
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleSelectAnswer(opt);
+                        }
+                      }}
+                      className={`w-full text-left p-3.5 rounded-xl border text-sm transition-all flex items-center justify-between cursor-pointer select-text ${
                         isSelected
                           ? 'border-primary bg-primary/10 text-primary font-semibold shadow-xs'
                           : 'border-muted hover:border-primary/40 hover:bg-muted/30'
                       }`}
                     >
-                      <span>{opt}</span>
+                      <span className="select-text">
+                        <JourneyInteractiveText
+                          text={opt}
+                          enabled={false}
+                          siblingTexts={currentQ.options}
+                        />
+                      </span>
                       {isSelected && <CheckCircle2 className="w-4 h-4 text-primary shrink-0 ml-2" />}
-                    </button>
+                    </div>
                   );
                 })}
               </div>
@@ -698,7 +781,10 @@ export function LevelExitExamModal({
                 variant="outline"
                 size="sm"
                 disabled={currentIndex === 0}
-                onClick={() => setCurrentIndex((i) => i - 1)}
+                onClick={() => {
+                  closeLookup?.();
+                  setCurrentIndex((i) => i - 1);
+                }}
                 className="gap-1 text-xs"
               >
                 <ArrowLeft className="w-3.5 h-3.5" /> Câu trước
@@ -708,7 +794,10 @@ export function LevelExitExamModal({
                 <Button
                   type="button"
                   size="sm"
-                  onClick={() => setCurrentIndex((i) => i + 1)}
+                  onClick={() => {
+                    closeLookup?.();
+                    setCurrentIndex((i) => i + 1);
+                  }}
                   className="gap-1 text-xs"
                 >
                   Câu tiếp theo <ArrowRight className="w-3.5 h-3.5" />
@@ -772,7 +861,7 @@ export function LevelExitExamModal({
                   type="button"
                   size="lg"
                   onClick={() => {
-                    onClose();
+                    handleModalClose();
                     router.push(`/journey?level=${badgeInfo.nextLevel}`);
                   }}
                   className="w-full sm:w-auto gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold shadow-md"
@@ -783,7 +872,7 @@ export function LevelExitExamModal({
                 <Button
                   type="button"
                   variant="outline"
-                  onClick={onClose}
+                  onClick={handleModalClose}
                   className="w-full sm:w-auto"
                 >
                   Về Lộ trình học
@@ -795,7 +884,7 @@ export function LevelExitExamModal({
             <DiagnosticReportCard
               report={diagnosticReport}
               isExitExam={true}
-              onContinue={onClose}
+              onContinue={handleModalClose}
             />
           </div>
         )}
@@ -807,11 +896,12 @@ export function LevelExitExamModal({
               report={diagnosticReport}
               isExitExam={true}
               onRetry={() => {
+                closeLookup?.();
                 setFinished(false);
                 setCurrentIndex(0);
                 setAnswers({});
               }}
-              onContinue={onClose}
+              onContinue={handleModalClose}
             />
           </div>
         )}

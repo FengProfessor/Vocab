@@ -24,6 +24,9 @@ import {
   CONVERSATION_QUIZ_100,
   type ConversationQuizQuestion,
 } from '@/data/conversations/conversation-quiz-100';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText } from '@/components/vocab/InteractiveClozeText';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
 
 interface ConversationQuizModalProps {
   isOpen: boolean;
@@ -36,6 +39,9 @@ export function ConversationQuizModal({
   onClose,
   onLookupWord,
 }: ConversationQuizModalProps) {
+  void onLookupWord;
+  const vocabLookup = useOptionalVocabLookup();
+  const closeLookup = vocabLookup?.closeLookup;
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [quizSize, setQuizSize] = useState<number>(20);
   const [quizState, setQuizState] = useState<'intro' | 'playing' | 'result'>('intro');
@@ -52,6 +58,7 @@ export function ConversationQuizModal({
   }, [selectedCategory]);
 
   const startQuiz = useCallback(() => {
+    closeLookup?.();
     // Shuffle and slice questions based on quizSize
     const shuffled = [...filteredPool].sort(() => 0.5 - Math.random());
     const selected = shuffled.slice(0, Math.min(quizSize, shuffled.length));
@@ -61,7 +68,7 @@ export function ConversationQuizModal({
     setSelectedAnswers({});
     setIsAnswerSubmitted(false);
     setQuizState('playing');
-  }, [filteredPool, quizSize]);
+  }, [filteredPool, quizSize, closeLookup]);
 
   const currentQ = activeQuestions[currentIndex];
 
@@ -72,6 +79,7 @@ export function ConversationQuizModal({
   };
 
   const handleNextQuestion = () => {
+    closeLookup?.();
     if (currentIndex < activeQuestions.length - 1) {
       setCurrentIndex((prev) => prev + 1);
       setIsAnswerSubmitted(false);
@@ -146,7 +154,10 @@ export function ConversationQuizModal({
           </div>
           <button
             type="button"
-            onClick={onClose}
+            onClick={() => {
+              closeLookup?.();
+              onClose();
+            }}
             className="p-1.5 rounded-lg hover:bg-muted text-muted-foreground hover:text-foreground transition-colors"
           >
             <X className="h-4 w-4" />
@@ -254,9 +265,13 @@ export function ConversationQuizModal({
 
               {/* Question Text */}
               <div className="p-4 rounded-xl bg-card border border-border/80 shadow-xs">
-                <p className="text-base sm:text-lg font-semibold text-foreground leading-relaxed">
-                  {currentQ.question}
-                </p>
+                <InteractiveClozeText
+                  as="p"
+                  text={currentQ.question}
+                  enabled
+                  contextSentence={currentQ.question}
+                  className="text-base sm:text-lg font-semibold text-foreground leading-relaxed"
+                />
               </div>
 
               {/* Options */}
@@ -282,17 +297,44 @@ export function ConversationQuizModal({
                   const labels = ['A', 'B', 'C', 'D'];
 
                   return (
-                    <button
+                    <div
                       key={optIdx}
-                      type="button"
-                      disabled={isAnswerSubmitted}
-                      onClick={() => handleSelectOption(optIdx)}
-                      className={`flex items-center gap-3 p-3.5 rounded-xl border text-left transition-all ${btnStyle}`}
+                      role="button"
+                      tabIndex={isAnswerSubmitted ? -1 : 0}
+                      aria-disabled={isAnswerSubmitted}
+                      onClick={() => {
+                        if (isAnswerSubmitted) return;
+                        handleSelectOption(optIdx);
+                      }}
+                      onKeyDown={(e) => {
+                        if (isAnswerSubmitted) return;
+                        if (
+                          (e.target as HTMLElement | null)?.closest(
+                            '.exam-lookup-trigger, .exam-lookup-card'
+                          )
+                        ) {
+                          return;
+                        }
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleSelectOption(optIdx);
+                        }
+                      }}
+                      className={`flex items-center gap-3 p-3.5 rounded-xl border text-left transition-all ${
+                        isAnswerSubmitted ? 'cursor-default' : 'cursor-pointer'
+                      } ${btnStyle}`}
                     >
                       <span className="flex items-center justify-center h-6 w-6 rounded-md bg-muted text-xs font-bold shrink-0">
                         {labels[optIdx]}
                       </span>
-                      <span className="text-sm font-medium leading-tight flex-1">{opt}</span>
+                      <ExamInteractiveText
+                        text={opt}
+                        enabled={isAnswerSubmitted}
+                        as="span"
+                        inheritClassName
+                        contextSentence={currentQ.question}
+                        className="text-sm font-medium leading-tight flex-1"
+                      />
 
                       {isAnswerSubmitted && isCorrect && (
                         <CheckCircle2 className="h-4 w-4 text-emerald-500 shrink-0" />
@@ -300,7 +342,7 @@ export function ConversationQuizModal({
                       {isAnswerSubmitted && isSelected && !isCorrect && (
                         <XCircle className="h-4 w-4 text-rose-500 shrink-0" />
                       )}
-                    </button>
+                    </div>
                   );
                 })}
               </div>
@@ -331,13 +373,14 @@ export function ConversationQuizModal({
                       >
                         <Volume2 className="h-3.5 w-3.5" />
                       </button>
-                      <span
-                        onClick={() => onLookupWord?.(currentQ.targetPhrase)}
-                        className="font-bold text-primary hover:underline cursor-pointer"
-                        title="Tra cứu từ điển"
-                      >
-                        {currentQ.targetPhrase}
-                      </span>
+                      <ExamInteractiveText
+                        text={currentQ.targetPhrase}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        contextSentence={currentQ.question}
+                        className="font-bold text-primary"
+                      />
                       <span className="text-muted-foreground text-[11px]">
                         : {currentQ.targetMeaningVi}
                       </span>

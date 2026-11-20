@@ -713,16 +713,22 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
       });
     };
 
+    const onLegacyWordSaved = (e: Event) => {
+      const detail = (e as CustomEvent<{ summaryNotified?: boolean }>)?.detail;
+      if (detail?.summaryNotified !== undefined) return;
+      onWordSaved();
+    };
+
     window.addEventListener(WORD_SUMMARY_EVENTS.SAVED, onWordSaved);
     window.addEventListener(WORD_SUMMARY_EVENTS.SAVE_ROLLBACK, onWordSaveRollback);
     window.addEventListener(WORD_SUMMARY_EVENTS.REVIEWED, onWordReviewed);
-    window.addEventListener('lingo_word_saved', onWordSaved);
+    window.addEventListener('lingo_word_saved', onLegacyWordSaved);
 
     return () => {
       window.removeEventListener(WORD_SUMMARY_EVENTS.SAVED, onWordSaved);
       window.removeEventListener(WORD_SUMMARY_EVENTS.SAVE_ROLLBACK, onWordSaveRollback);
       window.removeEventListener(WORD_SUMMARY_EVENTS.REVIEWED, onWordReviewed);
-      window.removeEventListener('lingo_word_saved', onWordSaved);
+      window.removeEventListener('lingo_word_saved', onLegacyWordSaved);
     };
   }, [session?.user?.id]);
 

@@ -28,6 +28,7 @@ import {
 import { ListeningControls } from '../components/ListeningControls';
 import { SyncedTranscript } from '../components/SyncedTranscript';
 import { useListeningShortcuts } from '@/hooks/useListeningShortcuts';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
 import type { SubtitleDisplayMode, ListeningVideo } from '@/types/listening';
 
 export default function InteractiveListeningPage() {
@@ -67,7 +68,20 @@ export default function InteractiveListeningPage() {
     });
   }, []);
 
+  const vocabLookup = useOptionalVocabLookup();
+  const isLookupOpenRef = useRef(false);
+
+  useEffect(() => {
+    isLookupOpenRef.current = Boolean(vocabLookup?.isOpen);
+  }, [vocabLookup?.isOpen]);
+
   const handleExitFocusMode = useCallback(() => {
+    if (
+      isLookupOpenRef.current ||
+      (typeof document !== 'undefined' && document.querySelector('.exam-lookup-card'))
+    ) {
+      return;
+    }
     setIsFocusMode(false);
     try {
       localStorage.setItem('lingo_listening_focus_mode', 'false');
@@ -282,6 +296,12 @@ export default function InteractiveListeningPage() {
 
     function handleKeyDown(e: KeyboardEvent) {
       if (e.key === 'Escape' || e.key === 'Esc') {
+        if (
+          isLookupOpenRef.current ||
+          (typeof document !== 'undefined' && document.querySelector('.exam-lookup-card'))
+        ) {
+          return;
+        }
         e.preventDefault();
         handleExitFocusMode();
       }

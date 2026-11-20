@@ -1,8 +1,22 @@
 'use client';
 
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback, useSyncExternalStore } from 'react';
 import { Volume2, BookOpen, CheckCircle2, XCircle, HelpCircle, X, Check, BookmarkPlus } from 'lucide-react';
+import { toast } from 'sonner';
 import { playWordAudio, stopWordAudio } from '@/lib/audio';
+import { isWordSavedLocally, saveVocabFromLookup } from '@/lib/exam-dict-cache';
+import {
+  ExamInteractiveText,
+  stripWatermarkChars,
+  type CoreVocabularyItem,
+} from '@/components/exam/ExamInteractiveText';
+import {
+  InteractiveHighlightedText,
+  useOptionalVocabLookup,
+  type HighlightSpan,
+} from '@/components/vocab';
+
+const emptySubscribe = () => () => {};
 
 export interface TargetWordItem {
   word: string;
@@ -35,9 +49,12 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
   onComplete,
 }) => {
   // Active lookup popover state
+  const vocabLookup = useOptionalVocabLookup();
+  const isMounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const [activeWord, setActiveWord] = useState<TargetWordItem | null>(null);
   const [isReadingAudioPlaying, setIsReadingAudioPlaying] = useState(false);
-  const [savedWords, setSavedWords] = useState<Set<string>>(new Set());
+  const [savedOverrides, setSavedOverrides] = useState<Record<string, boolean>>({});
+  const [isSavingWord, setIsSavingWord] = useState(false);
 
   // Questions state: selected option indices
   const [userAnswers, setUserAnswers] = useState<Record<string, number>>({});
@@ -45,12 +62,16 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
   const [isAllSubmitted, setIsAllSubmitted] = useState(false);
 
   const onCompleteRef = useRef(onComplete);
-  onCompleteRef.current = onComplete;
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
+
+  const cleanPassage = useMemo(() => stripWatermarkChars(passage), [passage]);
 
   // Word count helper
   const wordCount = useMemo(() => {
-    return passage.trim() ? passage.trim().split(/\s+/).length : 0;
-  }, [passage]);
+    return cleanPassage.trim() ? cleanPassage.trim().split(/\s+/).length : 0;
+  }, [cleanPassage]);
 
   // Map of lowercase target words for fast case-insensitive lookup
   const targetWordsMap = useMemo(() => {
@@ -63,6 +84,53 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
     return map;
   }, [targetWords]);
 
+  const coreVocabulary = useMemo<CoreVocabularyItem[]>(
+    () =>
+      targetWords
+        .filter((tw) => tw.word && tw.word.trim())
+        .map((tw) => ({
+          word: tw.word.trim(),
+          pos: tw.pos,
+          definition: tw.definition,
+          ...(tw.audioUrl ? { audioUs: tw.audioUrl } : {}),
+        })),
+    [targetWords]
+  );
+
+  const isWordSaved = useCallback(
+    (word: string) => {
+      const key = word.trim().toLowerCase();
+      if (!key) return false;
+      if (key in savedOverrides) return savedOverrides[key];
+      return isMounted && isWordSavedLocally(key);
+    },
+    [isMounted, savedOverrides]
+  );
+
+  // Sync with global ExamWordLookupCard save & rollback events
+  useEffect(() => {
+    const handleWordSaved = (e: Event) => {
+      const detail = (e as CustomEvent<{ word?: string }>).detail;
+      const key = detail?.word?.trim().toLowerCase();
+      if (!key) return;
+      setSavedOverrides((prev) => (prev[key] === true ? prev : { ...prev, [key]: true }));
+    };
+
+    const handleWordRollback = (e: Event) => {
+      const detail = (e as CustomEvent<{ word?: string }>).detail;
+      const key = detail?.word?.trim().toLowerCase();
+      if (!key) return;
+      setSavedOverrides((prev) => ({ ...prev, [key]: isWordSavedLocally(key) }));
+    };
+
+    window.addEventListener('lingo_word_saved', handleWordSaved);
+    window.addEventListener('lingo_word_save_rollback', handleWordRollback);
+    return () => {
+      window.removeEventListener('lingo_word_saved', handleWordSaved);
+      window.removeEventListener('lingo_word_save_rollback', handleWordRollback);
+    };
+  }, []);
+
   // Audio playback for whole passage or URL
   const handleTogglePassageAudio = () => {
     if (isReadingAudioPlaying) {
@@ -71,24 +139,106 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
     } else {
       setIsReadingAudioPlaying(true);
       // Play either custom audioUrl or passage TTS
-      playWordAudio(passage.slice(0, 300), audioUrl).finally(() => {
+      playWordAudio(cleanPassage.slice(0, 300), audioUrl).finally(() => {
         setIsReadingAudioPlaying(false);
       });
     }
   };
 
-  // Toggle save word toast
-  const handleSaveWord = (wordStr: string) => {
-    setSavedWords((prev) => {
-      const next = new Set(prev);
-      if (next.has(wordStr)) {
-        next.delete(wordStr);
-      } else {
-        next.add(wordStr);
+  // Real SRS save synced with VocabLookupProvider / ExamWordLookupCard
+  const handleSaveWord = useCallback(
+    async (tw: TargetWordItem) => {
+      const cleanWord = tw.word.trim();
+      const key = cleanWord.toLowerCase();
+      if (!cleanWord || isSavingWord) return;
+      if (isWordSaved(cleanWord)) {
+        toast.info(`"${cleanWord}" đã có trong Sổ từ SRS!`);
+        return;
       }
-      return next;
-    });
-  };
+
+      setIsSavingWord(true);
+      setSavedOverrides((prev) => ({ ...prev, [key]: true }));
+
+      try {
+        const result = await saveVocabFromLookup({
+          word: cleanWord,
+          translation: tw.definition,
+          pos: tw.pos,
+          example: cleanPassage.slice(0, 300),
+        });
+
+        if (!result.ok) {
+          setSavedOverrides((prev) => ({ ...prev, [key]: isWordSavedLocally(key) }));
+          if (result.status === 'limit_reached') {
+            toast.error(result.message || 'Bạn đã đạt giới hạn lưu từ của gói Free.');
+          } else {
+            toast.error(result.message || 'Không thể lưu từ vựng lúc này.');
+          }
+          return;
+        }
+
+        if (result.status === 'already_exists') {
+          toast.info(`"${cleanWord}" đã có trong Sổ từ SRS!`);
+          return;
+        }
+
+        toast.success(`Đã lưu "${cleanWord}" vào Sổ từ SRS!`);
+      } catch {
+        setSavedOverrides((prev) => ({ ...prev, [key]: isWordSavedLocally(key) }));
+        toast.error('Không thể lưu từ vựng lúc này.');
+      } finally {
+        setIsSavingWord(false);
+      }
+    },
+    [cleanPassage, isSavingWord, isWordSaved]
+  );
+
+  const activeWordKey = activeWord?.word.trim().toLowerCase() ?? null;
+
+  const highlightSpans = useMemo<HighlightSpan[]>(() => {
+    if (!cleanPassage || targetWords.length === 0) return [];
+    const uniqueWords = Array.from(
+      new Set(
+        targetWords
+          .map((tw) => tw.word?.trim())
+          .filter((w): w is string => Boolean(w))
+      )
+    ).sort((a, b) => b.length - a.length);
+
+    if (uniqueWords.length === 0) return [];
+
+    const escaped = uniqueWords
+      .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+      .join('|');
+    const regex = new RegExp(
+      `(?<![\\p{L}\\p{M}\\p{N}_'-])(${escaped})(?![\\p{L}\\p{M}\\p{N}_'-])`,
+      'giu'
+    );
+
+    const spans: HighlightSpan[] = [];
+    let match: RegExpExecArray | null;
+    while ((match = regex.exec(cleanPassage)) !== null) {
+      const matchedText = match[0];
+      const key = matchedText.trim().toLowerCase();
+      const isCurrentlyActive = activeWordKey === key;
+      const isSaved = isWordSaved(key);
+
+      spans.push({
+        start: match.index,
+        end: match.index + matchedText.length,
+        title: 'Chạm để tra nghĩa và nghe phát âm',
+        className: `inline-block mx-0.5 px-1 py-0.5 rounded cursor-pointer transition-all border-b-2 font-medium ${
+          isCurrentlyActive
+            ? 'bg-amber-200 dark:bg-amber-900/60 border-amber-600 dark:border-amber-400 text-amber-950 dark:text-amber-100 shadow-sm'
+            : isSaved
+            ? 'bg-emerald-100 dark:bg-emerald-950/50 border-emerald-500 text-emerald-900 dark:text-emerald-200'
+            : 'bg-amber-50 dark:bg-amber-950/30 border-amber-400 dark:border-amber-600 text-amber-900 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/50'
+        }`,
+      });
+    }
+
+    return spans;
+  }, [activeWordKey, cleanPassage, isWordSaved, targetWords]);
 
   // Select option for question
   const handleSelectOption = (questionId: string, optIdx: number) => {
@@ -125,42 +275,8 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
     });
   };
 
-  // Tokenize passage text preserving words and punctuation, highlighting target words
-  const renderPassageTokens = () => {
-    // Split text by word boundaries while preserving whitespace & punctuation
-    const tokens = passage.split(/(\b[A-Za-z0-9'-]+\b)/g);
-
-    return tokens.map((token, idx) => {
-      const cleanLower = token.trim().toLowerCase();
-      const targetMatch = targetWordsMap.get(cleanLower);
-
-      if (targetMatch) {
-        const isCurrentlyActive = activeWord?.word.toLowerCase() === targetMatch.word.toLowerCase();
-        const isSaved = savedWords.has(targetMatch.word);
-
-        return (
-          <span
-            key={idx}
-            onClick={() => setActiveWord(targetMatch)}
-            className={`inline-block mx-0.5 px-1 py-0.5 rounded cursor-pointer transition-all border-b-2 font-medium ${
-              isCurrentlyActive
-                ? 'bg-amber-200 dark:bg-amber-900/60 border-amber-600 dark:border-amber-400 text-amber-950 dark:text-amber-100 shadow-sm'
-                : isSaved
-                ? 'bg-emerald-100 dark:bg-emerald-950/50 border-emerald-500 text-emerald-900 dark:text-emerald-200'
-                : 'bg-amber-50 dark:bg-amber-950/30 border-amber-400 dark:border-amber-600 text-amber-900 dark:text-amber-200 hover:bg-amber-100 dark:hover:bg-amber-900/50'
-            }`}
-            title="Chạm để tra nghĩa và nghe phát âm"
-          >
-            {token}
-          </span>
-        );
-      }
-
-      return <span key={idx}>{token}</span>;
-    });
-  };
-
   const totalAnswered = Object.keys(userAnswers).length;
+  const activeSaved = activeWord ? isWordSaved(activeWord.word) : false;
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4 sm:p-6 bg-white dark:bg-zinc-900 rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800 transition-all">
@@ -176,7 +292,7 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
             </h3>
           </div>
           <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
-            Chạm vào các từ màu vàng để tra nhanh nghĩa, nghe phát âm và trả lời câu hỏi đọc hiểu.
+            Chạm vào bất kỳ từ tiếng Anh nào để tra nghĩa nhanh (từ tô vàng là từ khóa trọng tâm).
           </p>
         </div>
 
@@ -204,7 +320,21 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
         {/* Passage Text Container */}
         <div className="lg:col-span-8 p-5 rounded-2xl bg-zinc-50/70 dark:bg-zinc-800/40 border border-zinc-200 dark:border-zinc-700/80 leading-relaxed text-sm sm:text-base text-zinc-800 dark:text-zinc-200 whitespace-pre-line select-text">
-          {renderPassageTokens()}
+          <InteractiveHighlightedText
+            text={cleanPassage}
+            spans={highlightSpans}
+            enabled
+            as="div"
+            coreVocabulary={coreVocabulary}
+            contextSentence={cleanPassage}
+            activeWordClassName="bg-amber-200 dark:bg-amber-900/60 border-b-2 border-amber-600 dark:border-amber-400 text-amber-950 dark:text-amber-100 font-semibold"
+            onWordClick={(_raw, clean) => {
+              const tw = targetWordsMap.get(clean);
+              if (tw) {
+                setActiveWord(tw);
+              }
+            }}
+          />
         </div>
 
         {/* Word Detail Popover / Glossary Panel */}
@@ -244,14 +374,15 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
 
                 <button
                   type="button"
-                  onClick={() => handleSaveWord(activeWord.word)}
+                  disabled={isSavingWord}
+                  onClick={() => void handleSaveWord(activeWord)}
                   className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium transition ${
-                    savedWords.has(activeWord.word)
+                    activeSaved
                       ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
                       : 'bg-white dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50'
                   }`}
                 >
-                  {savedWords.has(activeWord.word) ? (
+                  {activeSaved ? (
                     <>
                       <Check className="w-3.5 h-3.5 text-emerald-600" />
                       <span>Đã lưu</span>
@@ -259,7 +390,7 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
                   ) : (
                     <>
                       <BookmarkPlus className="w-3.5 h-3.5" />
-                      <span>Lưu từ</span>
+                      <span>{isSavingWord ? 'Đang lưu...' : 'Lưu từ'}</span>
                     </>
                   )}
                 </button>
@@ -269,7 +400,7 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
             <div className="p-4 rounded-2xl border border-dashed border-zinc-200 dark:border-zinc-800 text-center text-zinc-400 dark:text-zinc-500 h-full min-h-[140px] flex flex-col items-center justify-center">
               <HelpCircle className="w-6 h-6 mb-2 opacity-50" />
               <p className="text-xs">
-                Chạm vào từ màu vàng trong bài đọc để xem nghĩa và cách phát âm tại đây.
+                Chạm vào bất kỳ từ tiếng Anh nào trong bài đọc (hoặc từ khóa màu vàng) để tra nghĩa và nghe phát âm.
               </p>
             </div>
           )}
@@ -284,8 +415,28 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
                 <button
                   key={idx}
                   type="button"
-                  onClick={() => setActiveWord(tw)}
-                  className="px-2 py-1 rounded-md text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-amber-100 dark:hover:bg-amber-900/40 hover:text-amber-900 dark:hover:text-amber-200 transition-colors"
+                  onClick={(e) => {
+                    setActiveWord(tw);
+                    const clean = tw.word.trim();
+                    if (vocabLookup && clean) {
+                      vocabLookup.openLookup({
+                        word: clean,
+                        anchorRect: e.currentTarget.getBoundingClientRect(),
+                        contextSentence: cleanPassage,
+                        coreEntry: {
+                          word: clean,
+                          cleanWord: clean.toLowerCase(),
+                          ipa: '',
+                          pos: tw.pos || '',
+                          definition: tw.definition,
+                          synonyms: [],
+                          antonyms: [],
+                          ...(tw.audioUrl ? { audioUs: tw.audioUrl } : {}),
+                        },
+                      });
+                    }
+                  }}
+                  className="exam-lookup-trigger px-2 py-1 rounded-md text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-amber-100 dark:hover:bg-amber-900/40 hover:text-amber-900 dark:hover:text-amber-200 transition-colors"
                 >
                   {tw.word}
                 </button>
@@ -321,7 +472,12 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
                   <span className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 text-xs flex items-center justify-center shrink-0 mt-0.5 font-bold">
                     {qIdx + 1}
                   </span>
-                  <span>{q.question}</span>
+                  <ExamInteractiveText
+                    text={q.question}
+                    enabled={isMounted}
+                    as="span"
+                    inheritClassName
+                  />
                 </div>
 
                 {/* Options List */}
@@ -331,12 +487,27 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
                     const isThisAnswer = optIdx === q.answerIndex;
 
                     return (
-                      <button
+                      <div
                         key={optIdx}
-                        type="button"
-                        disabled={isSubmitted}
-                        onClick={() => handleSelectOption(q.id, optIdx)}
+                        role="button"
+                        tabIndex={isSubmitted ? -1 : 0}
+                        aria-disabled={isSubmitted}
+                        onClick={() => {
+                          if (!isSubmitted) handleSelectOption(q.id, optIdx);
+                        }}
+                        onKeyDown={(e) => {
+                          if (
+                            !isSubmitted &&
+                            e.target === e.currentTarget &&
+                            (e.key === 'Enter' || e.key === ' ')
+                          ) {
+                            e.preventDefault();
+                            handleSelectOption(q.id, optIdx);
+                          }
+                        }}
                         className={`w-full min-h-[44px] p-3 rounded-xl border text-left text-xs sm:text-sm font-medium transition-all flex items-center justify-between ${
+                          isSubmitted ? 'cursor-default' : 'cursor-pointer'
+                        } ${
                           isSubmitted
                             ? isThisAnswer
                               ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-900 dark:text-emerald-200 font-semibold'
@@ -348,14 +519,20 @@ export const ReadingPassageExplorer: React.FC<ReadingPassageExplorerProps> = ({
                             : 'bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 hover:border-indigo-300 dark:hover:border-indigo-600'
                         }`}
                       >
-                        <span>{opt}</span>
+                        <ExamInteractiveText
+                          text={opt}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          contextSentence={q.question}
+                        />
                         {isSubmitted && isThisAnswer && (
                           <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 ml-2" />
                         )}
                         {isSubmitted && isSelected && !isThisAnswer && (
                           <XCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0 ml-2" />
                         )}
-                      </button>
+                      </div>
                     );
                   })}
                 </div>

@@ -19,7 +19,9 @@ import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { authFetch } from '@/lib/auth-fetch';
 import { playWordAudio, stopWordAudio } from '@/lib/audio';
-import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
+import { isWordSavedLocally, saveVocabFromLookup } from '@/lib/exam-dict-cache';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { ExampleWithSub } from '@/components/study/ExampleWithSub';
 import {
   getFoundationVerbPacks,
   type FoundationVerbItem,
@@ -239,33 +241,26 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
       }
       setSavingVerb(key);
       try {
-        const res = await authFetch('/api/words', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            word: cleanWord,
-            translation: v.meaningVi,
-            ipa: v.ipa,
-            pos: 'verb',
-            example: v.example,
-            exampleVi: v.exampleVi,
-            skipAI: true,
-          }),
+        const result = await saveVocabFromLookup({
+          word: cleanWord,
+          translation: v.meaningVi,
+          ipa: v.ipa,
+          pos: 'verb',
+          example: v.example,
+          exampleVi: v.exampleVi,
+          skipAI: true,
         });
-        const data = (await res.json()) as {
-          success?: boolean;
-          alreadyExists?: boolean;
-          error?: string;
-          message?: string;
-        };
-        if (!res.ok || !data.success) {
-          throw new Error(data.message || data.error || 'Không lưu được từ.');
+        if (!result.ok) {
+          if (result.status === 'limit_reached') {
+            toast.error(result.message || 'Bạn đã đạt giới hạn lưu từ của gói Free.');
+          } else {
+            toast.error(result.message || 'Không lưu được từ.');
+          }
+          return;
         }
-        saveWordLocally(cleanWord, v.meaningVi);
         setSavedVerbs((prev) => new Set(prev).add(key));
-        window.dispatchEvent(new CustomEvent('lingo_word_saved', { detail: { word: cleanWord } }));
         toast.success(
-          data.alreadyExists
+          result.status === 'already_exists'
             ? `"${cleanWord}" đã có trong Sổ từ của bạn.`
             : `Đã lưu "${cleanWord}" vào Sổ từ!`
         );
@@ -336,12 +331,38 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
     const handleFocus = () => {
       syncProgressFromStorage();
     };
+    const handleWordSaved = (e: Event) => {
+      const detail = (e as CustomEvent<{ word?: string }>).detail;
+      const key = detail?.word?.trim().toLowerCase();
+      if (!key) return;
+      setSavedVerbs((prev) => {
+        if (prev.has(key)) return prev;
+        const next = new Set(prev);
+        next.add(key);
+        return next;
+      });
+    };
+    const handleWordRollback = (e: Event) => {
+      const detail = (e as CustomEvent<{ word?: string }>).detail;
+      const key = detail?.word?.trim().toLowerCase();
+      if (!key) return;
+      setSavedVerbs((prev) => {
+        if (!prev.has(key) || isWordSavedLocally(key)) return prev;
+        const next = new Set(prev);
+        next.delete(key);
+        return next;
+      });
+    };
 
     window.addEventListener('storage', handleStorage);
     window.addEventListener('focus', handleFocus);
+    window.addEventListener('lingo_word_saved', handleWordSaved);
+    window.addEventListener('lingo_word_save_rollback', handleWordRollback);
     return () => {
       window.removeEventListener('storage', handleStorage);
       window.removeEventListener('focus', handleFocus);
+      window.removeEventListener('lingo_word_saved', handleWordSaved);
+      window.removeEventListener('lingo_word_save_rollback', handleWordRollback);
     };
   }, [syncProgressFromStorage]);
 
@@ -771,13 +792,42 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                                   return (
                                     <div className="mt-2 rounded border border-amber-300/70 bg-amber-50/70 p-2 text-[11px] dark:border-amber-800/70 dark:bg-amber-950/30">
                                       <div className="flex items-start justify-between gap-2">
-                                        <div className="min-w-0">
+                                        <div className="min-w-0 flex-1">
                                           <span className="font-bold text-amber-950 dark:text-amber-200">
-                                            {preview.lemma} {preview.ipa} — {preview.meaningVi}
+                                            <ExamInteractiveText
+                                              text={preview.lemma}
+                                              enabled
+                                              as="span"
+                                              inheritClassName
+                                              contextSentence={preview.example}
+                                              coreVocabulary={[
+                                                {
+                                                  word: preview.lemma,
+                                                  ipa: preview.ipa,
+                                                  pos: 'verb',
+                                                  viDefinition: preview.meaningVi,
+                                                  example: preview.example,
+                                                  exampleVi: preview.exampleVi,
+                                                },
+                                              ]}
+                                            />{' '}
+                                            {preview.ipa} — {preview.meaningVi}
                                           </span>
                                           <p className="mt-0.5 font-mono text-[10px] text-amber-800/90 dark:text-amber-300/90">
                                             {preview.pattern}
                                           </p>
+                                          {preview.example && (
+                                            <ExampleWithSub
+                                              example={preview.example}
+                                              exampleVi={preview.exampleVi}
+                                              defaultShowVi={true}
+                                              interactiveWords={true}
+                                              showSlowAudio={false}
+                                              className="mt-1.5"
+                                              enClassName="text-[11px] font-medium italic leading-snug text-amber-950/90 dark:text-amber-100/90"
+                                              viClassName="mt-0.5 text-[10px] font-medium leading-snug text-amber-900/75 dark:text-amber-200/75 not-italic"
+                                            />
+                                          )}
                                         </div>
                                         <div className="flex items-center gap-1 shrink-0">
                                           <button
@@ -1008,7 +1058,7 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                     {/* Sample word chips with audio */}
                     <div>
                       <div className="flex items-center justify-between mb-1.5 text-[11px] font-semibold text-muted-foreground">
-                        <span>Từ vựng tiêu biểu (bấm để nghe):</span>
+                        <span>Từ vựng tiêu biểu (chạm từ để tra nghĩa, bấm loa để nghe):</span>
                         <span>Đã thuộc: {topicWordsInMastered}/{topic.wordCount}</span>
                       </div>
 
@@ -1017,15 +1067,11 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                           const isWordLearned = masteredWords.has(w.word.toLowerCase());
                           const isPlaying = playingWord === w.word;
                           return (
-                            <button
+                            <div
                               key={w.id}
-                              type="button"
-                              onClick={(e) => handlePlayAudio(e, w.word)}
                               title={`${w.meaningVi} · ${w.ipa}`}
-                              aria-label={`Phát âm từ ${w.word}`}
-                              aria-busy={isPlaying}
                               className={cn(
-                                'group/chip inline-flex items-center gap-1.5 rounded border px-2 py-0.5 text-xs font-medium transition-all min-h-[30px] touch-manipulation focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-sky-500',
+                                'group/chip inline-flex items-center gap-1.5 rounded border px-2 py-0.5 text-xs font-medium transition-all min-h-[30px] touch-manipulation',
                                 isPlaying
                                   ? 'border-sky-400 bg-sky-100/80 text-sky-950 dark:border-sky-700 dark:bg-sky-950/70 dark:text-sky-200'
                                   : isWordLearned
@@ -1037,18 +1083,44 @@ export function VocabRoadmapSection({ onSelectPack }: VocabRoadmapSectionProps) 
                                 {isWordLearned && (
                                   <Check className="h-2.5 w-2.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                                 )}
-                                <span className="font-semibold">{w.word}</span>
+                                <ExamInteractiveText
+                                  text={w.word}
+                                  enabled
+                                  as="span"
+                                  inheritClassName
+                                  className="font-semibold"
+                                  contextSentence={w.example}
+                                  coreVocabulary={[
+                                    {
+                                      word: w.word,
+                                      ipa: w.ipa,
+                                      pos: w.pos,
+                                      viDefinition: w.meaningVi,
+                                      example: w.example,
+                                      exampleVi: w.exampleVi,
+                                      ...(w.audioUrl ? { audioUs: w.audioUrl } : {}),
+                                    },
+                                  ]}
+                                />
                               </div>
                               <span className="text-[10px] opacity-70">({w.meaningVi})</span>
-                              <Volume2
-                                className={cn(
-                                  'h-3 w-3 shrink-0 transition-all',
-                                  isPlaying
-                                    ? 'opacity-100 text-sky-600 dark:text-sky-400 animate-pulse scale-125'
-                                    : 'opacity-40 group-hover/chip:opacity-100'
-                                )}
-                              />
-                            </button>
+                              <button
+                                type="button"
+                                onClick={(e) => handlePlayAudio(e, w.word)}
+                                aria-label={`Phát âm từ ${w.word}`}
+                                aria-busy={isPlaying}
+                                className="p-0.5 rounded hover:bg-sky-200/50 dark:hover:bg-sky-900/50 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-sky-500"
+                              >
+                                <Volume2
+                                  className={cn(
+                                    'h-3 w-3 shrink-0 transition-all',
+                                    isPlaying
+                                      ? 'opacity-100 text-sky-600 dark:text-sky-400 animate-pulse scale-125'
+                                      : 'opacity-40 group-hover/chip:opacity-100'
+                                  )}
+                                />
+                              </button>
+                            </div>
                           );
                         })}
                         {topic.wordCount > 8 && (

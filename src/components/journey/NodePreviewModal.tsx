@@ -27,6 +27,41 @@ import {
   RotateCcw,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
+
+const HAS_VI_DIACRITIC_RE = /[\u00C0-\u024F\u1E00-\u1EFF]/;
+
+function renderInteractiveStepTitle(title: string) {
+  if (!title) return null;
+  if (!HAS_VI_DIACRITIC_RE.test(title)) {
+    return <ExamInteractiveText text={title} enabled as="span" inheritClassName />;
+  }
+  const parts = title.split(/(\([^)]+\))/);
+  return (
+    <>
+      {parts.map((part, idx) => {
+        if (
+          part.startsWith('(') &&
+          part.endsWith(')') &&
+          !HAS_VI_DIACRITIC_RE.test(part) &&
+          /[a-zA-Z]{2,}/.test(part)
+        ) {
+          return (
+            <ExamInteractiveText
+              key={idx}
+              text={part}
+              enabled
+              as="span"
+              inheritClassName
+            />
+          );
+        }
+        return <React.Fragment key={idx}>{part}</React.Fragment>;
+      })}
+    </>
+  );
+}
 
 export interface NodePreviewModalProps {
   step: RoadmapStepView | null;
@@ -113,6 +148,8 @@ export function NodePreviewModal({
   unitIndex,
   isBusy = false,
 }: NodePreviewModalProps) {
+  const vocabLookup = useOptionalVocabLookup();
+
   if (!step) return null;
 
   const meta = STEP_META[step.type] || {
@@ -129,7 +166,20 @@ export function NodePreviewModal({
   const isReview = step.status === 'review';
 
   return (
-    <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
+    <Dialog
+      open={open}
+      onOpenChange={(isOpen, eventDetails) => {
+        if (!isOpen) {
+          if (eventDetails?.reason === 'escape-key' && vocabLookup?.isOpen) {
+            eventDetails.cancel();
+            vocabLookup.closeLookup();
+            return;
+          }
+          vocabLookup?.closeLookup();
+          onClose();
+        }
+      }}
+    >
       <DialogContent
         className="sm:max-w-md p-6 max-h-[90vh] overflow-y-auto"
         data-testid="node-preview-modal"
@@ -158,7 +208,7 @@ export function NodePreviewModal({
           </div>
 
           <DialogTitle className="text-xl font-bold tracking-tight text-foreground pt-1">
-            {step.title}
+            {renderInteractiveStepTitle(step.title)}
           </DialogTitle>
 
           <DialogDescription className="text-xs text-muted-foreground">
@@ -245,7 +295,10 @@ export function NodePreviewModal({
           <Button
             type="button"
             variant="outline"
-            onClick={onClose}
+            onClick={() => {
+              vocabLookup?.closeLookup();
+              onClose();
+            }}
             className="min-h-[44px] px-4 text-xs font-medium"
           >
             Đóng
@@ -255,7 +308,10 @@ export function NodePreviewModal({
             type="button"
             variant="chunky"
             disabled={isBusy}
-            onClick={() => onStart(step)}
+            onClick={() => {
+              vocabLookup?.closeLookup();
+              onStart(step);
+            }}
             className="min-h-[44px] px-5 text-xs font-bold flex items-center gap-2"
           >
             {isBusy ? (

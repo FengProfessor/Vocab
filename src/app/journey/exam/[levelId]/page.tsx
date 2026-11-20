@@ -34,7 +34,12 @@ import {
   generateExitExamQuestions,
   GRADUATION_BADGES,
 } from '@/components/journey/assessment/LevelExitExamModal';
-import { DiagnosticReportCard } from '@/components/journey/assessment/DiagnosticReportCard';
+import {
+  DiagnosticReportCard,
+  hasVietnameseDiacritics,
+  JourneyInteractiveText,
+} from '@/components/journey/assessment/DiagnosticReportCard';
+import { useOptionalVocabLookup } from '@/components/vocab';
 
 export default function LevelExitExamPage() {
   const { levelId } = useParams<{ levelId: string }>();
@@ -57,16 +62,41 @@ export default function LevelExitExamPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [report, setReport] = useState<DiagnosticReport | null>(null);
 
+  const vocabLookup = useOptionalVocabLookup();
+  const closeLookup = vocabLookup?.closeLookup;
+
+  useEffect(() => {
+    closeLookup?.();
+  }, [currentIndex, finished, closeLookup]);
+
+  useEffect(() => {
+    return () => {
+      closeLookup?.();
+    };
+  }, [closeLookup]);
+
   const currentQ = questions[currentIndex];
   const answeredCount = Object.keys(answers).length;
+  const isVocabMeaningPrompt = useMemo(() => {
+    if (!currentQ?.prompt) return false;
+    const re = /["“]([^"”]+)["”]\s*(?:nghĩa là|có nghĩa|là\s+)/gi;
+    let match: RegExpExecArray | null;
+    while ((match = re.exec(currentQ.prompt)) !== null) {
+      if (!hasVietnameseDiacritics(match[1])) return true;
+    }
+    return false;
+  }, [currentQ]);
+  const promptEnabled = !isVocabMeaningPrompt;
 
   const handleSelectOption = (opt: string) => {
     if (finished || !currentQ) return;
+    closeLookup?.();
     setAnswers((prev) => ({ ...prev, [currentQ.id]: opt }));
   };
 
   // Nộp bài thi tốt nghiệp
   const handleSubmit = async () => {
+    closeLookup?.();
     setIsSubmitting(true);
     try {
       const isThpt = levelId.startsWith('lop-');
@@ -123,6 +153,7 @@ export default function LevelExitExamPage() {
   };
 
   const handleRetry = () => {
+    closeLookup?.();
     setFinished(false);
     setCurrentIndex(0);
     setAnswers({});
@@ -191,7 +222,10 @@ export default function LevelExitExamPage() {
                   <button
                     key={q.id}
                     type="button"
-                    onClick={() => setCurrentIndex(idx)}
+                    onClick={() => {
+                      closeLookup?.();
+                      setCurrentIndex(idx);
+                    }}
                     className={`w-8 h-8 text-xs font-semibold rounded-lg transition-all flex items-center justify-center ${
                       isCurrent
                         ? 'ring-2 ring-primary ring-offset-1 bg-primary text-white shadow-xs'
@@ -223,8 +257,12 @@ export default function LevelExitExamPage() {
                 </span>
               </div>
 
-              <h2 className="text-lg font-bold leading-relaxed text-foreground">
-                {currentQ.prompt}
+              <h2 className="text-lg font-bold leading-relaxed text-foreground select-text">
+                <JourneyInteractiveText
+                  text={currentQ.prompt}
+                  enabled={promptEnabled}
+                  mode="quoted-only"
+                />
               </h2>
 
               {/* Lựa chọn đáp án */}
@@ -232,21 +270,50 @@ export default function LevelExitExamPage() {
                 {(currentQ.options ?? []).map((opt) => {
                   const isSelected = answers[currentQ.id] === opt;
                   return (
-                    <button
+                    <div
                       key={opt}
-                      type="button"
-                      onClick={() => handleSelectOption(opt)}
-                      className={`w-full text-left p-4 rounded-xl border text-sm transition-all flex items-center justify-between ${
+                      role="button"
+                      tabIndex={0}
+                      onClick={(e) => {
+                        if (
+                          (e.target as HTMLElement | null)?.closest?.(
+                            '.exam-lookup-trigger, .exam-lookup-card',
+                          )
+                        ) {
+                          return;
+                        }
+                        handleSelectOption(opt);
+                      }}
+                      onKeyDown={(e) => {
+                        if (
+                          (e.target as HTMLElement | null)?.closest?.(
+                            '.exam-lookup-trigger, .exam-lookup-card',
+                          )
+                        ) {
+                          return;
+                        }
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleSelectOption(opt);
+                        }
+                      }}
+                      className={`w-full text-left p-4 rounded-xl border text-sm transition-all flex items-center justify-between cursor-pointer select-text ${
                         isSelected
                           ? 'border-primary bg-primary/10 text-primary font-semibold shadow-xs'
                           : 'border-muted hover:border-primary/40 hover:bg-muted/30'
                       }`}
                     >
-                      <span>{opt}</span>
+                      <span className="select-text">
+                        <JourneyInteractiveText
+                          text={opt}
+                          enabled={false}
+                          siblingTexts={currentQ.options}
+                        />
+                      </span>
                       {isSelected && (
                         <CheckCircle2 className="w-5 h-5 text-primary shrink-0 ml-2" />
                       )}
-                    </button>
+                    </div>
                   );
                 })}
               </div>
@@ -258,7 +325,10 @@ export default function LevelExitExamPage() {
                 type="button"
                 variant="outline"
                 disabled={currentIndex === 0}
-                onClick={() => setCurrentIndex((i) => i - 1)}
+                onClick={() => {
+                  closeLookup?.();
+                  setCurrentIndex((i) => i - 1);
+                }}
                 className="gap-1 text-xs"
               >
                 <ArrowLeft className="w-4 h-4" /> Câu trước
@@ -267,7 +337,10 @@ export default function LevelExitExamPage() {
               {currentIndex + 1 < questions.length ? (
                 <Button
                   type="button"
-                  onClick={() => setCurrentIndex((i) => i + 1)}
+                  onClick={() => {
+                    closeLookup?.();
+                    setCurrentIndex((i) => i + 1);
+                  }}
                   className="gap-1 text-xs"
                 >
                   Câu tiếp theo <ArrowRight className="w-4 h-4" />

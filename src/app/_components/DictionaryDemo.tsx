@@ -6,6 +6,7 @@ import { Search, Loader2, Volume2, Plus, ArrowRight, CheckCircle2, Lock } from '
 import type { DictionaryData, DictionaryMeaning } from '@/lib/supabase';
 import { speak } from '@/lib/study';
 import { resolveImageSrc } from '@/lib/media-url';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 /**
  * Demo tra từ SỐNG trên landing — gọi API công khai (không cần login).
@@ -214,7 +215,19 @@ export default function DictionaryDemo() {
                   </span>
                   <span className="text-sm font-semibold text-[#241710]">{meaning.definition}</span>
                   {meaning.example && (
-                    <p className="mt-1 text-xs italic text-[#7b6558]">&ldquo;{meaning.example}&rdquo;</p>
+                    <p className="mt-1 text-xs italic text-[#7b6558]">
+                      &ldquo;
+                      <ExamInteractiveText
+                        text={meaning.example}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        disableSave
+                        themeVariant="default"
+                        contextSentence={meaning.example}
+                      />
+                      &rdquo;
+                    </p>
                   )}
                 </li>
               ))}

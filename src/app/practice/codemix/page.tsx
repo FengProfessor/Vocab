@@ -5,7 +5,7 @@
  * URL: /practice/codemix
  */
 
-import { Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
   Check,
@@ -24,6 +24,8 @@ import {
   CODEMIX_MIN_WORDS,
 } from '@/lib/codemix-constants';
 import { StudentShell } from '@/components/student/StudentShell';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveFormattedText } from '@/components/vocab';
 
 type Phase = 'pick' | 'write' | 'upgrade';
 
@@ -168,24 +170,6 @@ function shuffle<T>(arr: T[]): T[] {
 
 function wordKey(w: DrillWord): string {
   return w.id || normalize(w.word);
-}
-
-function renderAiEnglish(text: string): ReactNode[] {
-  if (!text) return [];
-  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) => {
-    const m = part.match(/^\*\*([^*]+)\*\*$/);
-    if (m) {
-      return (
-        <mark
-          key={i}
-          className="rounded bg-gradient-to-r from-amber-200 to-yellow-200 px-1 py-0.5 font-bold text-amber-950 shadow-sm"
-        >
-          {m[1]}
-        </mark>
-      );
-    }
-    return <span key={i}>{part}</span>;
-  });
 }
 
 export default function CodeMixPracticePage() {
@@ -887,7 +871,13 @@ function CodeMixPracticeInner() {
               <div className="space-y-3">
                 <div className="rounded-2xl border border-emerald-200 bg-white p-3.5 shadow-sm">
                   <p className="text-[15px] font-semibold leading-relaxed text-slate-900">
-                    {renderAiEnglish(upgrade.english)}
+                    <InteractiveFormattedText
+                      text={upgrade.english}
+                      enabled
+                      boldAsMark
+                      markClassName="rounded bg-gradient-to-r from-amber-200 to-yellow-200 px-1 py-0.5 font-bold text-amber-950 shadow-sm"
+                      contextSentence={upgrade.english_plain || undefined}
+                    />
                   </p>
                   {upgrade.meaning_vi && (
                     <p className="mt-2.5 border-t border-slate-100 pt-2.5 text-xs leading-relaxed text-slate-500">
@@ -909,12 +899,35 @@ function CodeMixPracticeInner() {
                     <div className="space-y-1.5">
                       {upgrade.words.map((w) => {
                         const open = openCard === w.word;
+                        const cleanSentence = w.in_sentence ? w.in_sentence.replace(/\*\*/g, '') : '';
+                        const toggleCard = () => setOpenCard(open ? null : w.word);
                         return (
-                          <button
+                          <div
                             key={w.word}
-                            type="button"
-                            onClick={() => setOpenCard(open ? null : w.word)}
-                            className={`w-full rounded-xl border px-3 py-2.5 text-left transition ${
+                            role="button"
+                            tabIndex={0}
+                            aria-expanded={open}
+                            onClick={(e) => {
+                              const target = e.target as HTMLElement | null;
+                              if (target?.closest('.exam-lookup-trigger, .exam-lookup-card')) return;
+                              if (
+                                typeof window !== 'undefined' &&
+                                window.getSelection()?.toString().trim()
+                              ) {
+                                return;
+                              }
+                              toggleCard();
+                            }}
+                            onKeyDown={(e) => {
+                              if (e.target !== e.currentTarget) return;
+                              const target = e.target as HTMLElement | null;
+                              if (target?.closest('.exam-lookup-trigger, .exam-lookup-card')) return;
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                toggleCard();
+                              }
+                            }}
+                            className={`w-full cursor-pointer rounded-xl border px-3 py-2.5 text-left transition ${
                               open
                                 ? 'border-violet-300 bg-violet-50'
                                 : 'border-slate-200 bg-white'
@@ -929,15 +942,32 @@ function CodeMixPracticeInner() {
                               </span>
                             </div>
                             {open && (
-                              <div className="mt-2 space-y-1.5 border-t border-violet-100 pt-2 text-xs leading-relaxed text-slate-700">
+                              <div
+                                className="mt-2 space-y-1.5 border-t border-violet-100 pt-2 text-xs leading-relaxed text-slate-700"
+                                onClick={(e) => e.stopPropagation()}
+                              >
                                 {w.pattern && (
                                   <p className="font-mono text-[11px] font-semibold text-amber-800">
-                                    {w.pattern}
+                                    <ExamInteractiveText
+                                      text={w.pattern}
+                                      enabled
+                                      as="span"
+                                      inheritClassName
+                                      contextSentence={cleanSentence || w.pattern}
+                                    />
                                   </p>
                                 )}
-                                {w.in_sentence && (
+                                {cleanSentence && (
                                   <p className="text-slate-600">
-                                    “{w.in_sentence.replace(/\*\*/g, '')}”
+                                    &ldquo;
+                                    <ExamInteractiveText
+                                      text={cleanSentence}
+                                      enabled
+                                      as="span"
+                                      inheritClassName
+                                      contextSentence={cleanSentence}
+                                    />
+                                    &rdquo;
                                   </p>
                                 )}
                                 {w.why_vi && <p>{w.why_vi}</p>}
@@ -946,7 +976,7 @@ function CodeMixPracticeInner() {
                                 )}
                               </div>
                             )}
-                          </button>
+                          </div>
                         );
                       })}
                     </div>

@@ -268,17 +268,53 @@ export function ToeicQuickQuiz({
                   }
 
                   return (
-                    <button
+                    <div
                       key={option.key}
-                      type="button"
-                      disabled={isAnswered}
-                      onClick={() => handleSelectOption(checkpoint, option.key)}
-                      className={`flex items-start gap-2.5 p-3 rounded-xs border text-left text-xs sm:text-sm transition-all select-none ${
+                      role="radio"
+                      aria-checked={isSelected}
+                      aria-disabled={isAnswered}
+                      tabIndex={isAnswered ? -1 : 0}
+                      onClick={(e) => {
+                        if (isAnswered) return;
+                        const target = e.target as HTMLElement | null;
+                        if (
+                          target?.closest?.('.exam-lookup-trigger') ||
+                          target?.closest?.('.exam-lookup-card')
+                        ) {
+                          return;
+                        }
+                        const selection = typeof window !== 'undefined' ? window.getSelection() : null;
+                        if (
+                          selection &&
+                          !selection.isCollapsed &&
+                          selection.toString().trim().length > 0 &&
+                          selection.anchorNode &&
+                          e.currentTarget.contains(selection.anchorNode)
+                        ) {
+                          return;
+                        }
+                        handleSelectOption(checkpoint, option.key);
+                      }}
+                      onKeyDown={(e) => {
+                        if (isAnswered) return;
+                        const target = e.target as HTMLElement | null;
+                        if (
+                          target?.closest?.('.exam-lookup-trigger') ||
+                          target?.closest?.('.exam-lookup-card')
+                        ) {
+                          return;
+                        }
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleSelectOption(checkpoint, option.key);
+                        }
+                      }}
+                      className={`flex items-start gap-2.5 p-3 rounded-xs border text-left text-xs sm:text-sm transition-all select-text outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
                         !isAnswered ? 'cursor-pointer' : ''
                       } ${buttonStyles}`}
                     >
                       <span
-                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-xs font-mono text-xs font-bold border ${
+                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-xs font-mono text-xs font-bold border select-none ${
                           isAnswered && isOptionCorrect
                             ? 'bg-emerald-600 text-white border-emerald-600'
                             : isAnswered && isSelected && !isOptionCorrect
@@ -288,10 +324,14 @@ export function ToeicQuickQuiz({
                       >
                         {option.key}
                       </span>
-                      <div className="flex-1 leading-normal">
-                        <ExamInteractiveText text={option.text} enabled={true} />
+                      <div className="flex-1 leading-normal select-text">
+                        <ExamInteractiveText
+                          text={option.text}
+                          enabled={true}
+                          contextSentence={checkpoint.prompt}
+                        />
                       </div>
-                    </button>
+                    </div>
                   );
                 })}
               </div>

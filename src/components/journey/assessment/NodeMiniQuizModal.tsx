@@ -32,6 +32,8 @@ import { authFetch } from '@/lib/auth-fetch';
 import { completeRoadmapStep, type CompleteStepResult } from '@/lib/roadmap-client';
 import { playWordAudio } from '@/lib/audio';
 import { judgeAnswer } from '@/lib/study';
+import { useOptionalVocabLookup } from '@/components/vocab';
+import { hasVietnameseDiacritics, JourneyInteractiveText } from './DiagnosticReportCard';
 
 export interface MiniQuizQuestion {
   id: string;
@@ -233,6 +235,24 @@ export function NodeMiniQuizModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [secondsRemaining, setSecondsRemaining] = useState(90);
 
+  const vocabLookup = useOptionalVocabLookup();
+  const closeLookup = vocabLookup?.closeLookup;
+
+  useEffect(() => {
+    closeLookup?.();
+  }, [open, currentIndex, finished, closeLookup]);
+
+  useEffect(() => {
+    return () => {
+      closeLookup?.();
+    };
+  }, [closeLookup]);
+
+  const handleModalClose = useCallback(() => {
+    closeLookup?.();
+    onClose();
+  }, [closeLookup, onClose]);
+
   // Đếm ngược ~90s
   useEffect(() => {
     if (!open || finished) return;
@@ -268,6 +288,7 @@ export function NodeMiniQuizModal({
   // Trả lời câu hỏi hiện tại
   const handleSelectOption = (opt: string) => {
     if (revealed) return;
+    closeLookup?.();
     setSelectedOption(opt);
     setRevealed(true);
     setAnswers((prev) => ({ ...prev, [currentQ.id]: opt }));
@@ -275,6 +296,7 @@ export function NodeMiniQuizModal({
 
   const handleCheckTyping = () => {
     if (revealed || !typedInput.trim()) return;
+    closeLookup?.();
     setRevealed(true);
     setAnswers((prev) => ({ ...prev, [currentQ.id]: typedInput.trim() }));
   };
@@ -302,6 +324,7 @@ export function NodeMiniQuizModal({
 
   // Chuyển sang câu tiếp theo hoặc nộp bài
   const handleNext = async () => {
+    closeLookup?.();
     if (currentIndex + 1 < quizQuestions.length) {
       setCurrentIndex((i) => i + 1);
       setRevealed(false);
@@ -350,6 +373,7 @@ export function NodeMiniQuizModal({
 
   // Làm lại bài
   const handleRetry = () => {
+    closeLookup?.();
     setCurrentIndex(0);
     setAnswers({});
     setRevealed(false);
@@ -360,9 +384,30 @@ export function NodeMiniQuizModal({
   };
 
   const { correctCount, total, scorePct, passed } = calculateResult();
+  const isPreRevealVocabMeaningPrompt = useMemo(() => {
+    if (!currentQ?.prompt) return false;
+    const re = /["“]([^"”]+)["”]\s*(?:nghĩa là|có nghĩa|là\s+(?:quả|từ|con|màu|gì))/gi;
+    let match: RegExpExecArray | null;
+    while ((match = re.exec(currentQ.prompt)) !== null) {
+      if (!hasVietnameseDiacritics(match[1])) return true;
+    }
+    return false;
+  }, [currentQ]);
 
   return (
-    <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
+    <Dialog
+      open={open}
+      onOpenChange={(isOpen, eventDetails) => {
+        if (!isOpen) {
+          if (vocabLookup?.isOpen) {
+            eventDetails?.cancel?.();
+            vocabLookup.closeLookup();
+            return;
+          }
+          handleModalClose();
+        }
+      }}
+    >
       <DialogContent className="max-w-md w-[95vw] p-6 rounded-2xl">
         <DialogHeader className="space-y-1">
           <div className="flex items-center justify-between text-xs text-muted-foreground">
@@ -401,8 +446,12 @@ export function NodeMiniQuizModal({
         {!finished && currentQ && (
           <div className="space-y-4 py-2">
             <div className="space-y-2">
-              <h3 className="font-medium text-sm leading-relaxed text-foreground">
-                {currentQ.prompt}
+              <h3 className="font-medium text-sm leading-relaxed text-foreground select-text">
+                <JourneyInteractiveText
+                  text={currentQ.prompt}
+                  enabled={!isPreRevealVocabMeaningPrompt || revealed}
+                  mode="quoted-only"
+                />
               </h3>
               {currentQ.audioWord && (
                 <Button
@@ -436,17 +485,48 @@ export function NodeMiniQuizModal({
                   }
 
                   return (
-                    <button
+                    <div
                       key={opt}
-                      type="button"
-                      disabled={revealed}
-                      onClick={() => handleSelectOption(opt)}
-                      className={`w-full text-left p-3 rounded-xl border text-sm transition-all flex items-center justify-between ${optionStyle}`}
+                      role="button"
+                      tabIndex={revealed ? -1 : 0}
+                      aria-disabled={revealed}
+                      onClick={(e) => {
+                        if (
+                          (e.target as HTMLElement | null)?.closest?.(
+                            '.exam-lookup-trigger, .exam-lookup-card',
+                          )
+                        ) {
+                          return;
+                        }
+                        handleSelectOption(opt);
+                      }}
+                      onKeyDown={(e) => {
+                        if (
+                          (e.target as HTMLElement | null)?.closest?.(
+                            '.exam-lookup-trigger, .exam-lookup-card',
+                          )
+                        ) {
+                          return;
+                        }
+                        if ((e.key === 'Enter' || e.key === ' ') && !revealed) {
+                          e.preventDefault();
+                          handleSelectOption(opt);
+                        }
+                      }}
+                      className={`w-full text-left p-3 rounded-xl border text-sm transition-all flex items-center justify-between select-text ${
+                        revealed ? 'cursor-default' : 'cursor-pointer'
+                      } ${optionStyle}`}
                     >
-                      <span>{opt}</span>
+                      <span className="select-text">
+                        <JourneyInteractiveText
+                          text={opt}
+                          enabled={revealed}
+                          siblingTexts={currentQ.options}
+                        />
+                      </span>
                       {revealed && isCorrect && <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 ml-2" />}
                       {revealed && isSelected && !isCorrect && <XCircle className="w-4 h-4 text-rose-600 shrink-0 ml-2" />}
-                    </button>
+                    </div>
                   );
                 })}
               </div>
@@ -479,8 +559,11 @@ export function NodeMiniQuizModal({
                   </Button>
                 )}
                 {revealed && (
-                  <div className="p-2.5 rounded-lg text-xs bg-muted">
-                    Đáp án đúng: <b className="text-emerald-600 dark:text-emerald-400">{currentQ.answer}</b>
+                  <div className="p-2.5 rounded-lg text-xs bg-muted select-text">
+                    Đáp án đúng:{' '}
+                    <b className="text-emerald-600 dark:text-emerald-400 select-text">
+                      <JourneyInteractiveText text={currentQ.answer} enabled={true} />
+                    </b>
                   </div>
                 )}
               </div>
@@ -558,8 +641,15 @@ export function NodeMiniQuizModal({
                       <p className="font-medium line-clamp-1">
                         Câu {idx + 1}: {q.prompt}
                       </p>
-                      <p className="text-muted-foreground">
-                        Đáp án: <span className="text-emerald-600 font-semibold">{q.answer}</span>
+                      <p className="text-muted-foreground select-text">
+                        Đáp án:{' '}
+                        <span className="text-emerald-600 font-semibold select-text">
+                          <JourneyInteractiveText
+                            text={q.answer}
+                            enabled={true}
+                            siblingTexts={q.options}
+                          />
+                        </span>
                       </p>
                     </div>
                     {isCorrect ? (
@@ -577,7 +667,7 @@ export function NodeMiniQuizModal({
               {passed ? (
                 <Button
                   type="button"
-                  onClick={onClose}
+                  onClick={handleModalClose}
                   disabled={isSubmitting}
                   className="w-full bg-emerald-600 hover:bg-emerald-700 text-white gap-2"
                 >
@@ -593,7 +683,7 @@ export function NodeMiniQuizModal({
                       type="button"
                       variant="outline"
                       onClick={() => {
-                        onClose();
+                        handleModalClose();
                         onReviewLesson();
                       }}
                       className="w-full gap-2 text-xs"

@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight, RotateCcw, Trophy } from 'lucide-react';
 import { GAME_MODES, type GameMode, type GameWord } from '@/data/english-games';
 import { EMPTY_GAME_RESULT, makeGameRounds, normalizeGameAnswer, scoreGameAnswer, shuffleGame, type GameResult, type GameRound } from '@/lib/english-games';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText } from '@/components/vocab';
 
 const button = 'min-h-[44px] rounded-xl border px-4 py-2.5 text-xs sm:text-sm font-semibold transition hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:opacity-40 dark:hover:bg-slate-800';
 
@@ -134,13 +136,47 @@ export function EnglishGameSession({ mode, words, onExit, onRecord }: Props) {
       {mistakes.length > 0 && (
         <div className="space-y-2.5 text-left">
           <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">Phân tích bẫy thi & Mẹo ghi nhớ</h3>
-          {mistakes.map((q) => (
-            <div key={q.id} className="rounded-xl border border-amber-200 bg-amber-50/70 p-3.5 text-xs leading-relaxed text-amber-950 dark:border-amber-900/40 dark:bg-amber-950/20 dark:text-amber-200">
-              <p className="font-bold">{q.prompt}</p>
-              <p className="mt-1 font-semibold text-emerald-700 dark:text-emerald-400">✓ Đáp án chuẩn: {q.answer}</p>
-              <p className="mt-1 text-slate-600 dark:text-slate-300">{q.explanation}</p>
-            </div>
-          ))}
+          {mistakes.map((q) => {
+            const isEnglishPrompt = mode === 'grammar' || mode === 'detective';
+            const viIdx = mode === 'sprint' || mode === 'scramble' ? q.explanation.indexOf(' Ví dụ: ') : -1;
+            const hasExampleSplit = viIdx !== -1;
+            const explPrefix = hasExampleSplit ? q.explanation.slice(0, viIdx + ' Ví dụ: '.length) : q.explanation;
+            const explExample = hasExampleSplit ? q.explanation.slice(viIdx + ' Ví dụ: '.length) : '';
+
+            return (
+              <div key={q.id} className="rounded-xl border border-amber-200 bg-amber-50/70 p-3.5 text-xs leading-relaxed text-amber-950 dark:border-amber-900/40 dark:bg-amber-950/20 dark:text-amber-200">
+                <p className="font-bold">
+                  {mode === 'grammar' ? (
+                    <InteractiveClozeText text={q.prompt} enabled as="span" />
+                  ) : isEnglishPrompt ? (
+                    <ExamInteractiveText text={q.prompt} enabled as="span" inheritClassName />
+                  ) : (
+                    q.prompt
+                  )}
+                </p>
+                <p className="mt-1 font-semibold text-emerald-700 dark:text-emerald-400">
+                  ✓ Đáp án chuẩn:{' '}
+                  <ExamInteractiveText
+                    text={q.answer}
+                    enabled
+                    as="span"
+                    inheritClassName
+                    contextSentence={mode === 'grammar' ? q.prompt : explExample || undefined}
+                  />
+                </p>
+                <p className="mt-1 text-slate-600 dark:text-slate-300">
+                  {hasExampleSplit ? (
+                    <>
+                      {explPrefix}
+                      <ExamInteractiveText text={explExample} enabled as="span" inheritClassName />
+                    </>
+                  ) : (
+                    q.explanation
+                  )}
+                </p>
+              </div>
+            );
+          })}
         </div>
       )}
       <div className="flex flex-wrap justify-center gap-3">

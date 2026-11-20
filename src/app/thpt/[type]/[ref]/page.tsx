@@ -11,11 +11,13 @@
 import { useMemo, useState } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import Link from 'next/link';
 import contentData from '@/data/thpt/content-v1.json';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { cn } from '@/lib/utils';
 
 interface Blank { options: string[]; answer: string; explain: string }
 interface FillItem { id: string; title: string; text: string; blanks: Blank[] }
@@ -152,11 +154,15 @@ export default function ThptPlayerPage() {
       <p className="text-xs text-muted-foreground">{title}{note ? ` · ${note}` : ''}</p>
 
       {q.context && (
-        <Card><CardContent className="p-4 whitespace-pre-line text-sm leading-relaxed">{q.context}</CardContent></Card>
+        <Card>
+          <CardContent className="p-4 whitespace-pre-line text-sm leading-relaxed">
+            <ExamInteractiveText text={q.context} enabled={true} />
+          </CardContent>
+        </Card>
       )}
       <h1 className="text-base font-bold">
         {q.prompt?.trim()
-          ? q.prompt
+          ? (q.kind !== 'arrange' ? <ExamInteractiveText text={q.prompt} enabled={true} /> : q.prompt)
           : q.kind === 'arrange'
             ? 'Sắp xếp các câu theo thứ tự đúng'
             : 'Chọn đáp án đúng cho chỗ trống / câu hỏi'}
@@ -170,12 +176,47 @@ export default function ThptPlayerPage() {
               const order = seq.indexOf(s.key);
               const used = order >= 0;
               return (
-                <button key={s.key} disabled={revealed}
-                  onClick={() => setSeq((prev) => used ? prev.filter((k) => k !== s.key) : [...prev, s.key])}
-                  className={`flex w-full items-start gap-2 rounded-lg border p-3 text-left text-sm ${used ? 'border-primary bg-primary/10' : 'hover:bg-muted'}`}>
+                <div
+                  key={s.key}
+                  role="button"
+                  tabIndex={revealed ? -1 : 0}
+                  aria-disabled={revealed}
+                  onClick={(e) => {
+                    const target = e.target as HTMLElement | null;
+                    if (
+                      target?.closest?.('.exam-lookup-trigger') ||
+                      target?.closest?.('.exam-lookup-card')
+                    ) {
+                      return;
+                    }
+                    if (typeof window !== 'undefined' && window.getSelection()?.toString().trim()) {
+                      return;
+                    }
+                    if (revealed) return;
+                    setSeq((prev) => used ? prev.filter((k) => k !== s.key) : [...prev, s.key]);
+                  }}
+                  onKeyDown={(e) => {
+                    const target = e.target as HTMLElement | null;
+                    if (
+                      target?.closest?.('.exam-lookup-trigger') ||
+                      target?.closest?.('.exam-lookup-card')
+                    ) {
+                      return;
+                    }
+                    if (!revealed && (e.key === 'Enter' || e.key === ' ')) {
+                      e.preventDefault();
+                      setSeq((prev) => used ? prev.filter((k) => k !== s.key) : [...prev, s.key]);
+                    }
+                  }}
+                  className={`flex w-full items-start gap-2 rounded-lg border p-3 text-left text-sm ${
+                    revealed ? 'select-text cursor-default' : 'select-none cursor-pointer'
+                  } ${used ? 'border-primary bg-primary/10' : !revealed ? 'hover:bg-muted' : ''}`}
+                >
                   <span className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-bold ${used ? 'bg-primary text-white' : 'bg-muted'}`}>{used ? order + 1 : ''}</span>
-                  <span>{s.text}</span>
-                </button>
+                  <span className="flex-1 select-text">
+                    <ExamInteractiveText text={s.text} enabled={true} />
+                  </span>
+                </div>
               );
             })}
           </div>
@@ -188,16 +229,70 @@ export default function ThptPlayerPage() {
         </div>
       ) : (
         <div className="space-y-3">
-          <div className="grid gap-2">
+          <div role="radiogroup" className="grid gap-2">
             {q.options!.map((opt) => {
               const isAnswer = opt === q.answer;
               const isPicked = opt === picked;
               return (
-                <Button key={opt} variant="outline" disabled={revealed && !isAnswer && !isPicked}
-                  className={`justify-start h-auto py-3 text-sm whitespace-normal ${revealed && isAnswer ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30' : revealed && isPicked ? 'border-rose-300 bg-rose-50/70 dark:bg-rose-950/20' : ''}`}
-                  onClick={() => { if (!revealed) { setPicked(opt); } }}>
-                  {opt}
-                </Button>
+                <div
+                  key={opt}
+                  role="radio"
+                  aria-checked={isPicked}
+                  aria-disabled={revealed}
+                  tabIndex={revealed ? -1 : 0}
+                  className={cn(
+                    buttonVariants({ variant: 'outline' }),
+                    'justify-start h-auto py-3 text-sm whitespace-normal text-left',
+                    revealed
+                      ? 'select-text cursor-default hover:bg-background dark:hover:bg-input/30'
+                      : 'select-none cursor-pointer',
+                    !revealed && isPicked
+                      ? 'border-primary bg-primary/5 ring-1 ring-primary/30'
+                      : '',
+                    revealed && isAnswer
+                      ? 'border-emerald-400 bg-emerald-50 hover:bg-emerald-50 dark:bg-emerald-950/30 dark:hover:bg-emerald-950/30'
+                      : revealed && isPicked
+                        ? 'border-rose-300 bg-rose-50/70 hover:bg-rose-50/70 dark:bg-rose-950/20 dark:hover:bg-rose-950/20'
+                        : '',
+                    revealed && !isAnswer && !isPicked
+                      ? 'opacity-50 cursor-default'
+                      : '',
+                  )}
+                  onClick={(e) => {
+                    const target = e.target as HTMLElement | null;
+                    if (
+                      target?.closest?.('.exam-lookup-trigger') ||
+                      target?.closest?.('.exam-lookup-card')
+                    ) {
+                      return;
+                    }
+                    if (typeof window !== 'undefined' && window.getSelection()?.toString().trim()) {
+                      return;
+                    }
+                    if (!revealed) {
+                      setPicked(opt);
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    const target = e.target as HTMLElement | null;
+                    if (
+                      target?.closest?.('.exam-lookup-trigger') ||
+                      target?.closest?.('.exam-lookup-card')
+                    ) {
+                      return;
+                    }
+                    if (!revealed && (e.key === 'Enter' || e.key === ' ')) {
+                      e.preventDefault();
+                      setPicked(opt);
+                    }
+                  }}
+                >
+                  <ExamInteractiveText
+                    text={opt}
+                    enabled={revealed}
+                    contextSentence={q.context || q.prompt}
+                  />
+                </div>
               );
             })}
           </div>

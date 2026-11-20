@@ -4,11 +4,51 @@ import React from 'react';
 import Image from 'next/image';
 import PronounMatrixTable from './PronounMatrixTable';
 import TenseTimeline from './TenseTimeline';
-import FormattedText from './FormattedText';
+import FormattedText, {
+  hasVietnameseDiacritics,
+  splitTrailingVietnameseParenthetical,
+} from './FormattedText';
 import HighlightedSentence from './HighlightedSentence';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import { detectGrammarKeywords } from './GrammarVisualTopicDeck';
 import { Table, CheckCircle2, AlertCircle, Info, BookOpen, AlertTriangle, Sparkles, Volume2 } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
+
+function renderInteractiveEnglishFormatted(text: string) {
+  const split = splitTrailingVietnameseParenthetical(text);
+  if (split) {
+    return (
+      <>
+        <FormattedText text={split.main} interactive={!hasVietnameseDiacritics(split.main)} />
+        <span>{split.viTail}</span>
+      </>
+    );
+  }
+  return <FormattedText text={text} interactive={!hasVietnameseDiacritics(text)} />;
+}
+
+function renderRuleExampleHighlighted(text: string, topicSlug: string, topicTitle: string) {
+  const split = splitTrailingVietnameseParenthetical(text);
+  if (split) {
+    return (
+      <>
+        <HighlightedSentence
+          text={split.main}
+          highlight={detectGrammarKeywords(split.main, topicSlug, topicTitle)}
+          enabled={!hasVietnameseDiacritics(split.main)}
+        />
+        <span>{split.viTail}</span>
+      </>
+    );
+  }
+  return (
+    <HighlightedSentence
+      text={text}
+      highlight={detectGrammarKeywords(text, topicSlug, topicTitle)}
+      enabled={!hasVietnameseDiacritics(text)}
+    />
+  );
+}
 
 export interface FormulaRow {
   form?: string;
@@ -154,19 +194,27 @@ export default function GrammarReferenceTable({
               <div className="grid grid-cols-2 gap-1.5 font-mono text-xs">
                 <div className="p-2 border border-border/60 bg-primary/5 rounded-none">
                   <div className="text-[10px] uppercase text-muted-foreground">Khẳng định (+)</div>
-                  <div className="font-bold text-primary">{row.affirmative}</div>
+                  <div className="font-bold text-primary">
+                    <ExamInteractiveText text={row.affirmative} enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </div>
                 </div>
                 <div className="p-2 border border-border/60 bg-rose-500/5 rounded-none">
                   <div className="text-[10px] uppercase text-muted-foreground">Phủ định (-)</div>
-                  <div className="font-bold text-rose-700 dark:text-rose-400">{row.negative}</div>
+                  <div className="font-bold text-rose-700 dark:text-rose-400">
+                    <ExamInteractiveText text={row.negative} enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </div>
                 </div>
                 <div className="p-2 border border-border/60 bg-muted/15 rounded-none">
                   <div className="text-[10px] uppercase text-muted-foreground">Nghi vấn (?)</div>
-                  <div className="font-bold text-foreground">{row.question}</div>
+                  <div className="font-bold text-foreground">
+                    <ExamInteractiveText text={row.question} enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </div>
                 </div>
                 <div className="p-2 border border-border/60 bg-muted/15 rounded-none">
                   <div className="text-[10px] uppercase text-muted-foreground">Quá khứ đơn</div>
-                  <div className="font-bold text-foreground">{row.past}</div>
+                  <div className="font-bold text-foreground">
+                    <ExamInteractiveText text={row.past} enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </div>
                 </div>
               </div>
               <div className="text-xs font-sans pt-0.5">
@@ -211,10 +259,18 @@ export default function GrammarReferenceTable({
                     </div>
                   </div>
                 </td>
-                <td className="p-3 font-bold text-primary border-r border-border/60 text-sm">am (I&apos;m)</td>
-                <td className="p-3 font-medium text-rose-700 dark:text-rose-400 border-r border-border/60">am not (I&apos;m not)</td>
-                <td className="p-3 border-r border-border/60">Am I...?</td>
-                <td className="p-3 font-bold border-r border-border/60">was</td>
+                <td className="p-3 font-bold text-primary border-r border-border/60 text-sm">
+                  <ExamInteractiveText text="am (I'm)" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
+                <td className="p-3 font-medium text-rose-700 dark:text-rose-400 border-r border-border/60">
+                  <ExamInteractiveText text="am not (I'm not)" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
+                <td className="p-3 border-r border-border/60">
+                  <ExamInteractiveText text="Am I...?" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
+                <td className="p-3 font-bold border-r border-border/60">
+                  <ExamInteractiveText text="was" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
                 <td className="p-3 font-sans text-xs">
                   <div className="flex items-start justify-between gap-1">
                     <div className="font-medium text-foreground"><HighlightedSentence text="I am a student." highlight="am" /></div>
@@ -251,10 +307,18 @@ export default function GrammarReferenceTable({
                     </div>
                   </div>
                 </td>
-                <td className="p-3 font-bold text-primary border-r border-border/60 text-sm">is (he&apos;s / she&apos;s)</td>
-                <td className="p-3 font-medium text-rose-700 dark:text-rose-400 border-r border-border/60">is not (isn&apos;t)</td>
-                <td className="p-3 border-r border-border/60">Is he / she...?</td>
-                <td className="p-3 font-bold border-r border-border/60">was</td>
+                <td className="p-3 font-bold text-primary border-r border-border/60 text-sm">
+                  <ExamInteractiveText text="is (he's / she's)" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
+                <td className="p-3 font-medium text-rose-700 dark:text-rose-400 border-r border-border/60">
+                  <ExamInteractiveText text="is not (isn't)" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
+                <td className="p-3 border-r border-border/60">
+                  <ExamInteractiveText text="Is he / she...?" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
+                <td className="p-3 font-bold border-r border-border/60">
+                  <ExamInteractiveText text="was" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
                 <td className="p-3 font-sans text-xs">
                   <div className="flex items-start justify-between gap-1">
                     <div className="font-medium text-foreground"><HighlightedSentence text="She is very happy." highlight="is" /></div>
@@ -291,10 +355,18 @@ export default function GrammarReferenceTable({
                     </div>
                   </div>
                 </td>
-                <td className="p-3 font-bold text-primary border-r border-border/60 text-sm">are (you&apos;re / they&apos;re)</td>
-                <td className="p-3 font-medium text-rose-700 dark:text-rose-400 border-r border-border/60">are not (aren&apos;t)</td>
-                <td className="p-3 border-r border-border/60">Are you / they...?</td>
-                <td className="p-3 font-bold border-r border-border/60">were</td>
+                <td className="p-3 font-bold text-primary border-r border-border/60 text-sm">
+                  <ExamInteractiveText text="are (you're / they're)" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
+                <td className="p-3 font-medium text-rose-700 dark:text-rose-400 border-r border-border/60">
+                  <ExamInteractiveText text="are not (aren't)" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
+                <td className="p-3 border-r border-border/60">
+                  <ExamInteractiveText text="Are you / they...?" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
+                <td className="p-3 font-bold border-r border-border/60">
+                  <ExamInteractiveText text="were" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </td>
                 <td className="p-3 font-sans text-xs">
                   <div className="flex items-start justify-between gap-1">
                     <div className="font-medium text-foreground"><HighlightedSentence text="They are in the garden." highlight="are" /></div>
@@ -362,18 +434,28 @@ export default function GrammarReferenceTable({
             <div className="grid grid-cols-2 gap-2 font-mono text-xs">
               <div className="p-2 border border-border/60 bg-primary/5 rounded-none">
                 <div className="text-[10px] uppercase text-muted-foreground">Số ít (Singular)</div>
-                <div className="text-sm font-bold text-primary">This</div>
+                <div className="text-sm font-bold text-primary">
+                  <ExamInteractiveText text="This" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </div>
                 <div className="text-[11px] font-sans text-muted-foreground">Cái này, người này</div>
               </div>
               <div className="p-2 border border-border/60 bg-emerald-500/5 rounded-none">
                 <div className="text-[10px] uppercase text-muted-foreground">Số nhiều (Plural)</div>
-                <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">These</div>
+                <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                  <ExamInteractiveText text="These" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </div>
                 <div className="text-[11px] font-sans text-muted-foreground">Những cái/người này</div>
               </div>
             </div>
             <div className="text-xs font-sans space-y-1 pt-0.5">
-              <div><strong className="text-primary">This</strong> book is useful. (1 cuốn ở gần)</div>
-              <div><strong className="text-emerald-700 dark:text-emerald-400">These</strong> documents need signing. (nhiều bản ở gần)</div>
+              <div>
+                <HighlightedSentence text="This book is useful." highlight="This" />{' '}
+                <span className="text-muted-foreground">(1 cuốn ở gần)</span>
+              </div>
+              <div>
+                <HighlightedSentence text="These documents need signing." highlight="These" />{' '}
+                <span className="text-muted-foreground">(nhiều bản ở gần)</span>
+              </div>
             </div>
           </div>
 
@@ -384,18 +466,28 @@ export default function GrammarReferenceTable({
             <div className="grid grid-cols-2 gap-2 font-mono text-xs">
               <div className="p-2 border border-border/60 bg-primary/5 rounded-none">
                 <div className="text-[10px] uppercase text-muted-foreground">Số ít (Singular)</div>
-                <div className="text-sm font-bold text-primary">That</div>
+                <div className="text-sm font-bold text-primary">
+                  <ExamInteractiveText text="That" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </div>
                 <div className="text-[11px] font-sans text-muted-foreground">Cái kia, người đó</div>
               </div>
               <div className="p-2 border border-border/60 bg-emerald-500/5 rounded-none">
                 <div className="text-[10px] uppercase text-muted-foreground">Số nhiều (Plural)</div>
-                <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">Those</div>
+                <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                  <ExamInteractiveText text="Those" enabled as="span" inheritClassName themeVariant="minimalist" />
+                </div>
                 <div className="text-[11px] font-sans text-muted-foreground">Những cái/người kia</div>
               </div>
             </div>
             <div className="text-xs font-sans space-y-1 pt-0.5">
-              <div><strong className="text-primary">That</strong> building is historic. (1 tòa nhà ở xa)</div>
-              <div><strong className="text-emerald-700 dark:text-emerald-400">Those</strong> cars belong to staff. (nhiều xe ở xa)</div>
+              <div>
+                <HighlightedSentence text="That building is historic." highlight="That" />{' '}
+                <span className="text-muted-foreground">(1 tòa nhà ở xa)</span>
+              </div>
+              <div>
+                <HighlightedSentence text="Those cars belong to staff." highlight="Those" />{' '}
+                <span className="text-muted-foreground">(nhiều xe ở xa)</span>
+              </div>
             </div>
           </div>
         </div>
@@ -418,16 +510,26 @@ export default function GrammarReferenceTable({
                   <div className="text-[11px] text-muted-foreground font-normal font-sans">Trong tầm tay hoặc thời điểm hiện tại</div>
                 </td>
                 <td className="p-3 border-r border-border/60 bg-primary/5">
-                  <div className="text-sm font-bold text-primary">This</div>
+                  <div className="text-sm font-bold text-primary">
+                    <ExamInteractiveText text="This" enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </div>
                   <div className="text-[11px] text-muted-foreground font-sans">Cái này, người này</div>
                 </td>
                 <td className="p-3 border-r border-border/60 bg-emerald-500/5">
-                  <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">These</div>
+                  <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                    <ExamInteractiveText text="These" enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </div>
                   <div className="text-[11px] text-muted-foreground font-sans">Những cái này, những người này</div>
                 </td>
                 <td className="p-3 font-sans text-xs space-y-1">
-                  <div><strong className="text-primary">This</strong> book is useful. (1 cuốn ở gần)</div>
-                  <div><strong className="text-emerald-700 dark:text-emerald-400">These</strong> documents need signing. (nhiều bản ở gần)</div>
+                  <div>
+                    <HighlightedSentence text="This book is useful." highlight="This" />{' '}
+                    <span className="text-muted-foreground">(1 cuốn ở gần)</span>
+                  </div>
+                  <div>
+                    <HighlightedSentence text="These documents need signing." highlight="These" />{' '}
+                    <span className="text-muted-foreground">(nhiều bản ở gần)</span>
+                  </div>
                 </td>
               </tr>
               <tr className="hover:bg-muted/10">
@@ -436,16 +538,26 @@ export default function GrammarReferenceTable({
                   <div className="text-[11px] text-muted-foreground font-normal font-sans">Ngoài tầm với hoặc mốc thời gian đã qua</div>
                 </td>
                 <td className="p-3 border-r border-border/60 bg-primary/5">
-                  <div className="text-sm font-bold text-primary">That</div>
+                  <div className="text-sm font-bold text-primary">
+                    <ExamInteractiveText text="That" enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </div>
                   <div className="text-[11px] text-muted-foreground font-sans">Cái kia, người đó</div>
                 </td>
                 <td className="p-3 border-r border-border/60 bg-emerald-500/5">
-                  <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">Those</div>
+                  <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                    <ExamInteractiveText text="Those" enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </div>
                   <div className="text-[11px] text-muted-foreground font-sans">Những cái kia, những người đó</div>
                 </td>
                 <td className="p-3 font-sans text-xs space-y-1">
-                  <div><strong className="text-primary">That</strong> building is historic. (1 tòa nhà ở xa)</div>
-                  <div><strong className="text-emerald-700 dark:text-emerald-400">Those</strong> cars belong to staff. (nhiều xe ở xa)</div>
+                  <div>
+                    <HighlightedSentence text="That building is historic." highlight="That" />{' '}
+                    <span className="text-muted-foreground">(1 tòa nhà ở xa)</span>
+                  </div>
+                  <div>
+                    <HighlightedSentence text="Those cars belong to staff." highlight="Those" />{' '}
+                    <span className="text-muted-foreground">(nhiều xe ở xa)</span>
+                  </div>
                 </td>
               </tr>
             </tbody>
@@ -595,7 +707,7 @@ export default function GrammarReferenceTable({
                     <div className="text-xs font-sans pt-0.5 space-y-0.5">
                       <div className="font-medium text-foreground">
                         <span className="font-mono text-[10px] uppercase text-muted-foreground mr-1">VD:</span>
-                        <FormattedText text={exEn} />
+                        {renderInteractiveEnglishFormatted(exEn)}
                       </div>
                       {exVi && (
                         <div className="text-muted-foreground text-[11px]">
@@ -663,7 +775,7 @@ export default function GrammarReferenceTable({
                           {resolveExampleEn(r, i) ? (
                             <div className="space-y-0.5">
                               <div className="font-medium text-foreground">
-                                <FormattedText text={resolveExampleEn(r, i)} />
+                                {renderInteractiveEnglishFormatted(resolveExampleEn(r, i))}
                               </div>
                               {resolveExampleVi(r, i) && (
                                 <div className="text-muted-foreground text-[11px]">
@@ -688,7 +800,7 @@ export default function GrammarReferenceTable({
                           {resolveExampleEn(r, i) ? (
                             <div className="space-y-0.5">
                               <div className="font-medium text-foreground">
-                                <FormattedText text={resolveExampleEn(r, i)} />
+                                {renderInteractiveEnglishFormatted(resolveExampleEn(r, i))}
                               </div>
                               {resolveExampleVi(r, i) && (
                                 <div className="text-muted-foreground text-[11px]">
@@ -715,7 +827,7 @@ export default function GrammarReferenceTable({
                           {resolveExampleEn(r, i) ? (
                             <div className="space-y-0.5">
                               <div className="font-medium text-foreground">
-                                <FormattedText text={resolveExampleEn(r, i)} />
+                                {renderInteractiveEnglishFormatted(resolveExampleEn(r, i))}
                               </div>
                               {resolveExampleVi(r, i) && (
                                 <div className="text-muted-foreground text-[11px]">
@@ -774,7 +886,12 @@ export default function GrammarReferenceTable({
                   {item.structure}
                 </div>
                 <div className="text-xs font-sans pt-0.5">
-                  <div className="font-medium text-foreground">{item.en}</div>
+                  <div className="font-medium text-foreground">
+                    <HighlightedSentence
+                      text={item.en}
+                      highlight={detectGrammarKeywords(item.en, topicSlug, topicTitle)}
+                    />
+                  </div>
                   <div className="text-muted-foreground text-[11px]">{item.vi}</div>
                 </div>
               </div>
@@ -863,10 +980,7 @@ export default function GrammarReferenceTable({
                 {ruleItem.example && (
                   <div className="text-xs text-muted-foreground font-sans pt-0.5">
                     <span className="font-mono text-[10px] uppercase text-muted-foreground/80 mr-1">VD:</span>
-                    <HighlightedSentence
-                      text={ruleItem.example}
-                      highlight={detectGrammarKeywords(ruleItem.example, topicSlug, topicTitle)}
-                    />
+                    {renderRuleExampleHighlighted(ruleItem.example, topicSlug, topicTitle)}
                   </div>
                 )}
               </div>
@@ -893,10 +1007,9 @@ export default function GrammarReferenceTable({
                       <FormattedText text={ruleItem.rule} />
                     </td>
                     <td className="p-3 text-muted-foreground font-sans">
-                      <HighlightedSentence
-                        text={ruleItem.example || '—'}
-                        highlight={ruleItem.example ? detectGrammarKeywords(ruleItem.example, topicSlug, topicTitle) : undefined}
-                      />
+                      {ruleItem.example
+                        ? renderRuleExampleHighlighted(ruleItem.example, topicSlug, topicTitle)
+                        : '—'}
                     </td>
                   </tr>
                 ))}
@@ -920,11 +1033,11 @@ export default function GrammarReferenceTable({
               <div key={i} className="border border-border bg-card p-3 space-y-1.5 rounded-none">
                 <div className="flex items-start gap-2 font-mono text-xs text-rose-700 dark:text-rose-400">
                   <span className="font-bold shrink-0">✕ SAI:</span>
-                  <span className="break-words"><FormattedText text={m.wrong} /></span>
+                  <span className="break-words">{renderInteractiveEnglishFormatted(m.wrong)}</span>
                 </div>
                 <div className="flex items-start gap-2 font-mono text-xs text-emerald-700 dark:text-emerald-400 font-bold">
                   <span className="shrink-0">✓ ĐÚNG:</span>
-                  <span className="break-words"><FormattedText text={m.right} /></span>
+                  <span className="break-words">{renderInteractiveEnglishFormatted(m.right)}</span>
                 </div>
                 {m.why && (
                   <div className="text-xs text-muted-foreground font-sans pt-1 border-t border-border/50 leading-relaxed">
@@ -953,10 +1066,10 @@ export default function GrammarReferenceTable({
                 {mistakes.map((m, i) => (
                   <tr key={i} className="hover:bg-muted/10">
                     <td className="p-3 border-r border-border/60 text-rose-700 dark:text-rose-400 font-medium">
-                      ✕ <FormattedText text={m.wrong} />
+                      ✕ {renderInteractiveEnglishFormatted(m.wrong)}
                     </td>
                     <td className="p-3 border-r border-border/60 text-emerald-700 dark:text-emerald-400 font-bold">
-                      ✓ <FormattedText text={m.right} />
+                      ✓ {renderInteractiveEnglishFormatted(m.right)}
                     </td>
                     <td className="p-3 font-sans text-xs text-muted-foreground leading-relaxed">
                       <FormattedText text={m.why} />
@@ -982,7 +1095,7 @@ export default function GrammarReferenceTable({
                 key={i}
                 className="px-2 py-0.5 font-mono text-xs border border-border bg-background text-foreground rounded-none"
               >
-                <FormattedText text={sig} />
+                <FormattedText text={sig} interactive={!hasVietnameseDiacritics(sig)} />
               </span>
             ))}
           </div>

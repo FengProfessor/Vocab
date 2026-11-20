@@ -8,6 +8,7 @@ import { PostHogProvider } from '@/components/PostHogProvider';
 import { ClientBoot } from '@/components/ClientBoot';
 import { DevFcmButton } from '@/components/DevFcmButton';
 import { StudentProvider } from '@/components/student/StudentProvider';
+import { VocabLookupProvider } from '@/components/vocab/VocabLookupProvider';
 
 const beVietnamPro = Be_Vietnam_Pro({
   subsets: ['latin', 'vietnamese'],
@@ -118,7 +119,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <ClientBoot />
           <ErrorBoundary>
             <StudentProvider>
-              {children}
+              <VocabLookupProvider>
+                {children}
+              </VocabLookupProvider>
             </StudentProvider>
           </ErrorBoundary>
           {/* Nút Test Firebase — CHỈ hiện ở môi trường dev trên /test-fcm hoặc ?debugFcm=1 */}

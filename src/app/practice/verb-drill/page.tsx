@@ -8,7 +8,7 @@
  * Ôn due + nghe + gõ + schedule → /review
  */
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { BookOpen, Check, ChevronLeft, Loader2, RotateCcw, Volume2, X } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
@@ -16,6 +16,8 @@ import { Button } from '@/components/ui/button';
 import { authFetch } from '@/lib/auth-fetch';
 import { parseIpa, speak, stopSpeak } from '@/lib/study';
 import { stripEmbeddedVietnamese } from '@/lib/review-modes';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText, useOptionalVocabLookup } from '@/components/vocab';
 
 const CORRECT_LS_KEY = 'verb-drill-correct-v1';
 const MIN_LEARNED = 4;
@@ -252,6 +254,13 @@ export default function VerbDrillPage() {
   const [revealed, setRevealed] = useState(false);
   const [correctN, setCorrectN] = useState(0);
   const [correctMap, setCorrectMap] = useState<CorrectMap>({});
+  const vocabLookup = useOptionalVocabLookup();
+  const isLookupOpen = Boolean(vocabLookup?.isOpen);
+  const vocabLookupRef = useRef(vocabLookup);
+  useEffect(() => {
+    vocabLookupRef.current = vocabLookup;
+  }, [vocabLookup]);
+  const spokenRevealIdxRef = useRef<number | null>(null);
 
   useEffect(() => {
     setCorrectMap(loadCorrectMap());
@@ -425,6 +434,8 @@ export default function VerbDrillPage() {
     }
 
     if (!q.length) return;
+    spokenRevealIdxRef.current = null;
+    vocabLookupRef.current?.closeLookup();
     setQueue(shuffle(q));
     setIdx(0);
     setPicked(null);
@@ -456,6 +467,8 @@ export default function VerbDrillPage() {
 
   const next = useCallback(() => {
     stopSpeak();
+    spokenRevealIdxRef.current = null;
+    vocabLookupRef.current?.closeLookup();
     setIdx((i) => {
       if (i + 1 >= queue.length) {
         setPhase('done');
@@ -501,16 +514,23 @@ export default function VerbDrillPage() {
     if (current.type === 'cloze') {
       // Surface blank (walks) ưu tiên hơn lemma (walk)
       const speakWord = (current.blankSurface || current.answer || current.lemma).trim();
+      const shouldSpeak = spokenRevealIdxRef.current !== idx;
       (async () => {
-        stopSpeak();
-        try {
-          const { playWordAudio } = await import('@/lib/audio');
-          if (cancelled) return;
-          await playWordAudio(speakWord, null, 1.0);
-        } catch {
-          if (!cancelled) speak(speakWord, 1.0);
+        if (shouldSpeak) {
+          stopSpeak();
+          try {
+            const { playWordAudio } = await import('@/lib/audio');
+            if (cancelled) return;
+            spokenRevealIdxRef.current = idx;
+            await playWordAudio(speakWord, null, 1.0);
+          } catch {
+            if (!cancelled) {
+              spokenRevealIdxRef.current = idx;
+              speak(speakWord, 1.0);
+            }
+          }
         }
-        if (cancelled) return;
+        if (cancelled || isLookupOpen) return;
         const afterAudioMs = ok ? 400 : 2500;
         t = window.setTimeout(() => {
           if (!cancelled) next();
@@ -522,6 +542,7 @@ export default function VerbDrillPage() {
       };
     }
 
+    if (isLookupOpen) return;
     const delay = ok ? 1000 : 3500;
     t = window.setTimeout(() => {
       if (!cancelled) next();
@@ -530,7 +551,7 @@ export default function VerbDrillPage() {
       cancelled = true;
       if (t !== undefined) window.clearTimeout(t);
     };
-  }, [phase, revealed, idx, next, picked, current]);
+  }, [phase, revealed, idx, next, picked, current, isLookupOpen]);
 
   const pct = useMemo(() => {
     if (!queue.length || phase !== 'done') return 0;
@@ -714,14 +735,27 @@ export default function VerbDrillPage() {
                 </p>
                 {/* Chỉ câu EN có blank — không sub VI / POS VI (lộ nghĩa) */}
                 <p className="mt-3 text-lg font-bold leading-snug text-slate-900">
-                  {current.stem}
+                  <InteractiveClozeText
+                    text={current.stem ?? ''}
+                    enabled
+                    as="span"
+                    themeVariant="default"
+                    blankClassName="inline-block min-w-10 border-b-2 border-teal-400 px-1 text-center font-mono text-sm text-teal-700/70 select-none"
+                  />
                 </p>
                 {/* Sau khi trả lời: lộ lemma + IPA + nghĩa từ + nghe lại */}
                 {revealed && (
                   <div className="mt-3 flex flex-col items-center justify-center gap-1.5 border-t border-teal-200/60 pt-3">
                     <div className="flex flex-wrap items-center justify-center gap-2">
                       <span className="text-sm font-black text-slate-900">
-                        {current.blankSurface || current.lemma}
+                        <ExamInteractiveText
+                          text={current.blankSurface || current.lemma}
+                          enabled={revealed}
+                          as="span"
+                          inheritClassName
+                          themeVariant="default"
+                          contextSentence={current.stem}
+                        />
                       </span>
                       {currentIpa && (
                         <span className="font-mono text-xs text-slate-500">/{currentIpa}/</span>
@@ -747,7 +781,13 @@ export default function VerbDrillPage() {
             ) : (
               <div className="rounded-2xl border border-violet-100 bg-violet-50/50 py-7 text-center">
                 <p className="text-3xl font-black tracking-tight text-slate-900">
-                  {current.lemma}
+                  <ExamInteractiveText
+                    text={current.lemma}
+                    enabled={revealed}
+                    as="span"
+                    inheritClassName
+                    themeVariant="default"
+                  />
                 </p>
                 <div className="mt-2 flex items-center justify-center gap-2">
                   {currentIpa ? (
@@ -792,12 +832,23 @@ export default function VerbDrillPage() {
                   cls += 'border-slate-100 bg-slate-50 text-slate-400';
                 }
                 return (
-                  <button
+                  <div
                     key={`${current.lemma}-${current.type}-${i}-${o}`}
-                    type="button"
-                    disabled={revealed}
-                    onClick={() => onPick(o)}
-                    className={cls}
+                    role="button"
+                    tabIndex={revealed ? -1 : 0}
+                    aria-disabled={revealed}
+                    onClick={(e) => {
+                      if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
+                      if (!revealed) onPick(o);
+                    }}
+                    onKeyDown={(e) => {
+                      if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
+                      if (!revealed && (e.key === 'Enter' || e.key === ' ')) {
+                        e.preventDefault();
+                        onPick(o);
+                      }
+                    }}
+                    className={`${cls} ${revealed ? 'cursor-default select-text' : 'cursor-pointer select-none'}`}
                   >
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-slate-100 text-[11px] font-black text-slate-600">
                       {label}
@@ -809,9 +860,20 @@ export default function VerbDrillPage() {
                       {revealed && isPick && !isAns && (
                         <X className="mr-1 inline h-3.5 w-3.5" />
                       )}
-                      {o}
+                      {current.type === 'cloze' && !o.startsWith('(khác') ? (
+                        <ExamInteractiveText
+                          text={o}
+                          enabled={revealed}
+                          as="span"
+                          inheritClassName
+                          themeVariant="default"
+                          contextSentence={current.stem}
+                        />
+                      ) : (
+                        o
+                      )}
                     </span>
-                  </button>
+                  </div>
                 );
               })}
             </div>
@@ -849,7 +911,13 @@ export default function VerbDrillPage() {
                       className="flex items-center justify-between gap-2 rounded-lg border border-slate-100 px-2.5 py-1.5 text-[12px]"
                     >
                       <span className="min-w-0 font-semibold text-slate-800">
-                        {row.lemma}
+                        <ExamInteractiveText
+                          text={row.lemma}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          themeVariant="default"
+                        />
                         <span className="ml-1 text-[10px] font-bold text-slate-400">
                           {pl.short}
                         </span>

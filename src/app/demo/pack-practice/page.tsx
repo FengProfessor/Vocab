@@ -8,11 +8,14 @@ import { authFetch } from '@/lib/auth-fetch';
  * Product: /practice/pack-reading (wizard: từ → chủ đề → Gen AI).
  */
 
-import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText, InteractiveFormattedText } from '@/components/vocab';
 import { Loader2, BookOpen, Network, ImageIcon, RotateCcw, Check, X } from 'lucide-react';
 
 interface DemoWord {
@@ -61,75 +64,6 @@ interface MindMapData {
 }
 
 type Tab = 'passage' | 'cloze' | 'mindmap';
-
-function highlightPassage(md: string): ReactNode[] {
-  const parts = md.split(/(\*\*[^*]+\*\*)/g);
-  return parts.map((part, i) => {
-    const m = part.match(/^\*\*([^*]+)\*\*$/);
-    if (m) {
-      return (
-        <mark
-          key={i}
-          className="rounded bg-amber-200/90 px-0.5 font-semibold text-amber-950 dark:bg-amber-500/30 dark:text-amber-100"
-        >
-          {m[1]}
-        </mark>
-      );
-    }
-    return <span key={i}>{part}</span>;
-  });
-}
-
-function renderClozeText(
-  text: string,
-  blanks: { id: number; answer: string; options: string[] }[],
-  answers: Record<number, string>,
-  onPick: (id: number, value: string) => void,
-  revealed: boolean
-): ReactNode[] {
-  const nodes: ReactNode[] = [];
-  const re = /\{\{(\d+)\}\}/g;
-  let last = 0;
-  let match: RegExpExecArray | null;
-  let key = 0;
-  while ((match = re.exec(text)) !== null) {
-    if (match.index > last) {
-      nodes.push(<span key={key++}>{text.slice(last, match.index)}</span>);
-    }
-    const id = Number(match[1]);
-    const blank = blanks.find((b) => b.id === id) ?? blanks[id];
-    const selected = answers[id] ?? '';
-    const correct = blank?.answer?.toLowerCase() === selected.toLowerCase();
-    nodes.push(
-      <span key={key++} className="inline-flex flex-col align-middle mx-0.5 my-1">
-        <select
-          className={`rounded border px-2 py-1 text-sm min-w-[7rem] ${
-            revealed
-              ? correct
-                ? 'border-emerald-500 bg-emerald-50'
-                : 'border-red-400 bg-red-50'
-              : 'border-border bg-background'
-          }`}
-          value={selected}
-          onChange={(e) => onPick(id, e.target.value)}
-          disabled={revealed}
-        >
-          <option value="">— chọn —</option>
-          {(blank?.options ?? []).map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
-      </span>
-    );
-    last = match.index + match[0].length;
-  }
-  if (last < text.length) {
-    nodes.push(<span key={key++}>{text.slice(last)}</span>);
-  }
-  return nodes;
-}
 
 export default function PackPracticeDemoPage() {
   const [packs, setPacks] = useState<DemoPack[]>([]);
@@ -405,7 +339,13 @@ export default function PackPracticeDemoPage() {
               <div className="flex flex-wrap gap-1.5">
                 {activePack.words.map((w) => (
                   <Badge key={w.word} variant="secondary" className="font-normal">
-                    {w.word}
+                    <ExamInteractiveText
+                      text={w.word}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      disableSave
+                    />
                     {w.translation ? (
                       <span className="ml-1 text-muted-foreground">· {w.translation}</span>
                     ) : null}
@@ -504,7 +444,15 @@ export default function PackPracticeDemoPage() {
                 <Card>
                   <CardHeader className="pb-2">
                     <div className="flex flex-wrap items-center gap-2">
-                      <CardTitle className="text-lg">{passage.title}</CardTitle>
+                      <CardTitle className="text-lg">
+                        <ExamInteractiveText
+                          text={passage.title}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          disableSave
+                        />
+                      </CardTitle>
                       <Badge>{passage.level}</Badge>
                       <Badge variant="outline">{passage.wordCount} words</Badge>
                       <Badge
@@ -517,7 +465,14 @@ export default function PackPracticeDemoPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="leading-relaxed text-[15px] whitespace-pre-wrap">
-                      {highlightPassage(passage.passage)}
+                      <InteractiveFormattedText
+                        text={passage.passage}
+                        enabled
+                        boldAsMark
+                        markClassName="rounded bg-amber-200/90 px-0.5 font-semibold text-amber-950 dark:bg-amber-500/30 dark:text-amber-100"
+                        disableSave
+                        contextSentence={passage.passagePlain}
+                      />
                     </p>
                     <div className="mt-4 flex flex-wrap gap-1.5">
                       <span className="text-xs text-muted-foreground mr-1 self-center">
@@ -525,7 +480,13 @@ export default function PackPracticeDemoPage() {
                       </span>
                       {passage.usedWords.map((w) => (
                         <Badge key={w} variant="secondary" className="text-xs">
-                          {w}
+                          <ExamInteractiveText
+                            text={w}
+                            enabled
+                            as="span"
+                            inheritClassName
+                            disableSave
+                          />
                         </Badge>
                       ))}
                       {passage.missingWords.length > 0 && (
@@ -535,7 +496,13 @@ export default function PackPracticeDemoPage() {
                           </span>
                           {passage.missingWords.map((w) => (
                             <Badge key={w} variant="destructive" className="text-xs">
-                              {w}
+                              <ExamInteractiveText
+                                text={w}
+                                enabled
+                                as="span"
+                                inheritClassName
+                                disableSave
+                              />
                             </Badge>
                           ))}
                         </>
@@ -552,13 +519,21 @@ export default function PackPracticeDemoPage() {
                     {passage.questions.map((q, i) => (
                       <div key={i} className="space-y-2">
                         <p className="text-sm font-medium">
-                          {i + 1}. {q.q}
+                          {i + 1}.{' '}
+                          <ExamInteractiveText
+                            text={q.q}
+                            enabled
+                            as="span"
+                            inheritClassName
+                            disableSave
+                            contextSentence={q.q}
+                          />
                         </p>
                         <div className="grid gap-1.5">
                           {q.options.map((opt) => {
                             const selected = qAnswers[i] === opt;
                             let cls =
-                              'justify-start h-auto py-2 px-3 text-left font-normal text-sm';
+                              'justify-start h-auto py-2 px-3 text-left font-normal text-sm whitespace-normal';
                             if (qRevealed) {
                               if (opt === q.answer) cls += ' border-emerald-500 bg-emerald-50';
                               else if (selected) cls += ' border-red-400 bg-red-50';
@@ -566,14 +541,42 @@ export default function PackPracticeDemoPage() {
                               cls += ' border-primary';
                             }
                             return (
-                              <Button
+                              <div
                                 key={opt}
-                                variant="outline"
-                                className={cls}
-                                disabled={qRevealed}
-                                onClick={() =>
-                                  setQAnswers((prev) => ({ ...prev, [i]: opt }))
-                                }
+                                role="button"
+                                tabIndex={qRevealed ? -1 : 0}
+                                aria-disabled={qRevealed}
+                                aria-pressed={selected}
+                                onClick={(e) => {
+                                  if (qRevealed) return;
+                                  const target = e.target as HTMLElement | null;
+                                  if (target?.closest('.exam-lookup-trigger, .exam-lookup-card')) {
+                                    return;
+                                  }
+                                  if (
+                                    typeof window !== 'undefined' &&
+                                    window.getSelection()?.toString().trim()
+                                  ) {
+                                    return;
+                                  }
+                                  setQAnswers((prev) => ({ ...prev, [i]: opt }));
+                                }}
+                                onKeyDown={(e) => {
+                                  if (qRevealed || e.target !== e.currentTarget) return;
+                                  const target = e.target as HTMLElement | null;
+                                  if (target?.closest('.exam-lookup-trigger, .exam-lookup-card')) {
+                                    return;
+                                  }
+                                  if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    setQAnswers((prev) => ({ ...prev, [i]: opt }));
+                                  }
+                                }}
+                                className={cn(
+                                  buttonVariants({ variant: 'outline' }),
+                                  cls,
+                                  qRevealed ? 'cursor-default select-text' : 'cursor-pointer',
+                                )}
                               >
                                 {qRevealed && opt === q.answer && (
                                   <Check className="mr-2 h-3.5 w-3.5 text-emerald-600" />
@@ -581,8 +584,15 @@ export default function PackPracticeDemoPage() {
                                 {qRevealed && selected && opt !== q.answer && (
                                   <X className="mr-2 h-3.5 w-3.5 text-red-500" />
                                 )}
-                                {opt}
-                              </Button>
+                                <ExamInteractiveText
+                                  text={opt}
+                                  enabled={qRevealed}
+                                  as="span"
+                                  inheritClassName
+                                  disableSave
+                                  contextSentence={opt}
+                                />
+                              </div>
                             );
                           })}
                         </div>
@@ -638,16 +648,48 @@ export default function PackPracticeDemoPage() {
                   <CardTitle className="text-base">Điền từ (cloze)</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p className="leading-relaxed text-[15px]">
-                    {renderClozeText(
-                      passage.cloze.text,
-                      passage.cloze.blanks,
-                      clozeAnswers,
-                      (id, value) =>
-                        setClozeAnswers((prev) => ({ ...prev, [id]: value })),
-                      clozeRevealed
-                    )}
-                  </p>
+                  <InteractiveClozeText
+                    as="p"
+                    className="leading-relaxed text-[15px]"
+                    text={passage.cloze.text}
+                    enabled
+                    disableSave
+                    renderBlank={({ rawToken, slotKey }) => {
+                      if (!/^\d+$/.test(slotKey)) {
+                        return <span>{rawToken}</span>;
+                      }
+                      const id = Number(slotKey);
+                      const blank =
+                        passage.cloze.blanks.find((b) => b.id === id) ?? passage.cloze.blanks[id];
+                      const selected = clozeAnswers[id] ?? '';
+                      const correct = blank?.answer?.toLowerCase() === selected.toLowerCase();
+                      return (
+                        <span className="inline-flex flex-col align-middle mx-0.5 my-1">
+                          <select
+                            className={`rounded border px-2 py-1 text-sm min-w-[7rem] ${
+                              clozeRevealed
+                                ? correct
+                                  ? 'border-emerald-500 bg-emerald-50'
+                                  : 'border-red-400 bg-red-50'
+                                : 'border-border bg-background'
+                            }`}
+                            value={selected}
+                            onChange={(e) =>
+                              setClozeAnswers((prev) => ({ ...prev, [id]: e.target.value }))
+                            }
+                            disabled={clozeRevealed}
+                          >
+                            <option value="">— chọn —</option>
+                            {(blank?.options ?? []).map((opt) => (
+                              <option key={opt} value={opt}>
+                                {opt}
+                              </option>
+                            ))}
+                          </select>
+                        </span>
+                      );
+                    }}
+                  />
                   <div className="flex items-center gap-3">
                     {!clozeRevealed ? (
                       <Button onClick={() => setClozeRevealed(true)}>Chấm cloze</Button>

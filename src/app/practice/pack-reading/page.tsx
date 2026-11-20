@@ -6,7 +6,7 @@
  * URL: /practice/pack-reading
  */
 
-import { Suspense, useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import {
@@ -27,6 +27,8 @@ import { FREE_PACK_READING_DAILY_LIMIT } from '@/lib/entitlement';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText, InteractiveFormattedText } from '@/components/vocab';
 import { PACK_THEMES, type PackTheme } from '@/lib/pack-themes';
 import {
   PACK_READING_LEVELS,
@@ -226,75 +228,6 @@ async function readJsonSafe(res: Response): Promise<Record<string, unknown>> {
         : `Lỗi server HTTP ${res.status} (không có JSON)`,
     );
   }
-}
-
-function highlightPassage(md: string): ReactNode[] {
-  const parts = md.split(/(\*\*[^*]+\*\*)/g);
-  return parts.map((part, i) => {
-    const m = part.match(/^\*\*([^*]+)\*\*$/);
-    if (m) {
-      return (
-        <mark
-          key={i}
-          className="rounded bg-amber-200/90 px-0.5 font-semibold text-amber-950 dark:bg-amber-500/30 dark:text-amber-100"
-        >
-          {m[1]}
-        </mark>
-      );
-    }
-    return <span key={i}>{part}</span>;
-  });
-}
-
-function renderClozeText(
-  text: string,
-  blanks: { id: number; answer: string; options: string[] }[],
-  answers: Record<number, string>,
-  onPick: (id: number, value: string) => void,
-  revealed: boolean,
-): ReactNode[] {
-  const nodes: ReactNode[] = [];
-  const re = /\{\{(\d+)\}\}/g;
-  let last = 0;
-  let match: RegExpExecArray | null;
-  let key = 0;
-  while ((match = re.exec(text)) !== null) {
-    if (match.index > last) {
-      nodes.push(<span key={key++}>{text.slice(last, match.index)}</span>);
-    }
-    const id = Number(match[1]);
-    const blank = blanks.find((b) => b.id === id) ?? blanks[id];
-    const selected = answers[id] ?? '';
-    const correct = blank?.answer?.toLowerCase() === selected.toLowerCase();
-    nodes.push(
-      <span key={key++} className="mx-0.5 my-1 inline-flex flex-col align-middle">
-        <select
-          className={`min-w-[7rem] rounded border px-2 py-1 text-sm ${
-            revealed
-              ? correct
-                ? 'border-emerald-500 bg-emerald-50'
-                : 'border-red-400 bg-red-50'
-              : 'border-border bg-background'
-          }`}
-          value={selected}
-          onChange={(e) => onPick(id, e.target.value)}
-          disabled={revealed}
-        >
-          <option value="">— chọn —</option>
-          {(blank?.options ?? []).map((opt) => (
-            <option key={opt} value={opt}>
-              {opt}
-            </option>
-          ))}
-        </select>
-      </span>,
-    );
-    last = match.index + match[0].length;
-  }
-  if (last < text.length) {
-    nodes.push(<span key={key++}>{text.slice(last)}</span>);
-  }
-  return nodes;
 }
 
 function PackReadingInner() {
@@ -1281,13 +1214,27 @@ function PackReadingInner() {
 
             {resultTab === 'passage' && (
               <div className="space-y-3 rounded-xl border bg-white p-3 shadow-sm">
-                <h2 className="text-base font-black text-slate-900">{passage.title}</h2>
+                <h2 className="text-base font-black text-slate-900">
+                  <ExamInteractiveText text={passage.title} enabled as="span" inheritClassName />
+                </h2>
                 <p className="text-sm leading-relaxed text-slate-800">
-                  {highlightPassage(passage.passage)}
+                  <InteractiveFormattedText
+                    text={passage.passage}
+                    enabled
+                    boldAsMark
+                    markClassName="rounded bg-amber-200/90 px-0.5 font-semibold text-amber-950 dark:bg-amber-500/30 dark:text-amber-100"
+                    contextSentence={passage.passagePlain}
+                  />
                 </p>
                 {passage.missingWords.length > 0 && (
                   <p className="text-[10px] text-amber-700">
-                    Thiếu: {passage.missingWords.join(', ')}
+                    Thiếu:{' '}
+                    {passage.missingWords.map((w, idx) => (
+                      <span key={w}>
+                        {idx > 0 && ', '}
+                        <ExamInteractiveText text={w} enabled as="span" inheritClassName />
+                      </span>
+                    ))}
                   </p>
                 )}
 
@@ -1298,7 +1245,14 @@ function PackReadingInner() {
                   {passage.questions.map((q, i) => (
                     <div key={i} className="rounded-lg border bg-slate-50/80 p-2">
                       <p className="text-xs font-semibold text-slate-800">
-                        {i + 1}. {q.q}
+                        {i + 1}.{' '}
+                        <ExamInteractiveText
+                          text={q.q}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          contextSentence={q.q}
+                        />
                       </p>
                       <div className="mt-1.5 grid gap-1">
                         {q.options.map((opt) => {
@@ -1306,14 +1260,40 @@ function PackReadingInner() {
                           const show = qRevealed;
                           const correct = opt === q.answer;
                           return (
-                            <button
+                            <div
                               key={opt}
-                              type="button"
-                              disabled={qRevealed}
-                              onClick={() =>
-                                setQAnswers((prev) => ({ ...prev, [i]: opt }))
-                              }
+                              role="button"
+                              tabIndex={qRevealed ? -1 : 0}
+                              aria-disabled={qRevealed}
+                              aria-pressed={sel}
+                              onClick={(e) => {
+                                if (qRevealed) return;
+                                const target = e.target as HTMLElement | null;
+                                if (target?.closest('.exam-lookup-trigger, .exam-lookup-card')) {
+                                  return;
+                                }
+                                if (
+                                  typeof window !== 'undefined' &&
+                                  window.getSelection()?.toString().trim()
+                                ) {
+                                  return;
+                                }
+                                setQAnswers((prev) => ({ ...prev, [i]: opt }));
+                              }}
+                              onKeyDown={(e) => {
+                                if (qRevealed || e.target !== e.currentTarget) return;
+                                const target = e.target as HTMLElement | null;
+                                if (target?.closest('.exam-lookup-trigger, .exam-lookup-card')) {
+                                  return;
+                                }
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault();
+                                  setQAnswers((prev) => ({ ...prev, [i]: opt }));
+                                }
+                              }}
                               className={`rounded-md border px-2 py-1.5 text-left text-xs ${
+                                qRevealed ? 'cursor-default select-text' : 'cursor-pointer'
+                              } ${
                                 show && correct
                                   ? 'border-emerald-400 bg-emerald-50'
                                   : show && sel && !correct
@@ -1323,8 +1303,14 @@ function PackReadingInner() {
                                       : 'border-slate-200 bg-white'
                               }`}
                             >
-                              {opt}
-                            </button>
+                              <ExamInteractiveText
+                                text={opt}
+                                enabled={qRevealed}
+                                as="span"
+                                inheritClassName
+                                contextSentence={opt}
+                              />
+                            </div>
                           );
                         })}
                       </div>
@@ -1353,16 +1339,47 @@ function PackReadingInner() {
             {resultTab === 'cloze' && (
               <div className="space-y-2.5 rounded-xl border bg-white p-3 shadow-sm">
                 <p className="text-[10px] font-bold uppercase text-slate-400">Điền từ</p>
-                <p className="text-sm leading-relaxed">
-                  {renderClozeText(
-                    passage.cloze.text,
-                    passage.cloze.blanks,
-                    clozeAnswers,
-                    (id, value) =>
-                      setClozeAnswers((prev) => ({ ...prev, [id]: value })),
-                    clozeRevealed,
-                  )}
-                </p>
+                <InteractiveClozeText
+                  as="p"
+                  className="text-sm leading-relaxed"
+                  text={passage.cloze.text}
+                  enabled
+                  renderBlank={({ rawToken, slotKey }) => {
+                    if (!/^\d+$/.test(slotKey)) {
+                      return <span>{rawToken}</span>;
+                    }
+                    const id = Number(slotKey);
+                    const blank =
+                      passage.cloze.blanks.find((b) => b.id === id) ?? passage.cloze.blanks[id];
+                    const selected = clozeAnswers[id] ?? '';
+                    const correct = blank?.answer?.toLowerCase() === selected.toLowerCase();
+                    return (
+                      <span className="mx-0.5 my-1 inline-flex flex-col align-middle">
+                        <select
+                          className={`min-w-[7rem] rounded border px-2 py-1 text-sm ${
+                            clozeRevealed
+                              ? correct
+                                ? 'border-emerald-500 bg-emerald-50'
+                                : 'border-red-400 bg-red-50'
+                              : 'border-border bg-background'
+                          }`}
+                          value={selected}
+                          onChange={(e) =>
+                            setClozeAnswers((prev) => ({ ...prev, [id]: e.target.value }))
+                          }
+                          disabled={clozeRevealed}
+                        >
+                          <option value="">— chọn —</option>
+                          {(blank?.options ?? []).map((opt) => (
+                            <option key={opt} value={opt}>
+                              {opt}
+                            </option>
+                          ))}
+                        </select>
+                      </span>
+                    );
+                  }}
+                />
                 {!clozeRevealed ? (
                   <Button
                     className="h-9 w-full rounded-lg text-xs font-bold"

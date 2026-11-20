@@ -1,8 +1,16 @@
 'use client';
 
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { Volume2, CheckCircle2, XCircle, Lightbulb, RotateCcw, ArrowRight, MessageSquare, AlertCircle } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+
+const VIETNAMESE_DIACRITIC_RE =
+  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+
+function isLikelyEnglishDialogue(text: string): boolean {
+  return Boolean(text && !VIETNAMESE_DIACRITIC_RE.test(text));
+}
 
 export interface DialogueBlank {
   id: string;
@@ -62,7 +70,9 @@ export const DialogueClozeWidget: React.FC<DialogueClozeWidgetProps> = ({ dialog
   const [score, setScore] = useState<number | null>(null);
 
   const onCompleteRef = useRef(onComplete);
-  onCompleteRef.current = onComplete;
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   // Handle case where dialogue has 0 blanks (read-only dialogue mode)
   if (allBlanks.length === 0) {
@@ -81,7 +91,13 @@ export const DialogueClozeWidget: React.FC<DialogueClozeWidgetProps> = ({ dialog
                 {line.speaker}:
               </span>
               <p className="text-zinc-800 dark:text-zinc-200 text-sm sm:text-base flex-1">
-                {line.text}
+                <ExamInteractiveText
+                  text={line.text}
+                  enabled={isLikelyEnglishDialogue(line.text)}
+                  as="span"
+                  inheritClassName
+                  contextSentence={line.text}
+                />
               </p>
               <button
                 type="button"
@@ -201,12 +217,22 @@ export const DialogueClozeWidget: React.FC<DialogueClozeWidgetProps> = ({ dialog
   };
 
   // Render dialogue line text with embedded blanks
-  const renderLineContent = (line: DialogueLine, lineIdx: number) => {
+  const renderLineContent = (line: DialogueLine, _lineIdx: number) => {
     if (!line.blanks || line.blanks.length === 0) {
-      return <span>{line.text}</span>;
+      return (
+        <ExamInteractiveText
+          text={line.text}
+          enabled={isLikelyEnglishDialogue(line.text)}
+          as="span"
+          inheritClassName
+          contextSentence={line.text}
+        />
+      );
     }
 
     // Replace ___ or [id] placeholders with interactive blanks
+    const safeContext = line.text.replace(/(___|\[\w+\])/g, '____');
+    const lineIsEnglish = isLikelyEnglishDialogue(safeContext);
     const parts = line.text.split(/(___|\[\w+\])/g);
     let blankIndex = 0;
 
@@ -261,7 +287,15 @@ export const DialogueClozeWidget: React.FC<DialogueClozeWidgetProps> = ({ dialog
                 {/* Show correct answer inline if wrong after submit */}
                 {isSubmitted && isCorrect === false && (
                   <span className="ml-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-1.5 py-0.5 rounded">
-                    ({blank.answer})
+                    (
+                    <ExamInteractiveText
+                      text={blank.answer}
+                      enabled={isLikelyEnglishDialogue(blank.answer)}
+                      as="span"
+                      inheritClassName
+                      contextSentence={safeContext}
+                    />
+                    )
                   </span>
                 )}
 
@@ -275,7 +309,16 @@ export const DialogueClozeWidget: React.FC<DialogueClozeWidgetProps> = ({ dialog
               </span>
             );
           }
-          return <span key={pIdx}>{part}</span>;
+          return (
+            <ExamInteractiveText
+              key={pIdx}
+              text={part}
+              enabled={lineIsEnglish}
+              as="span"
+              inheritClassName
+              contextSentence={safeContext}
+            />
+          );
         })}
       </span>
     );

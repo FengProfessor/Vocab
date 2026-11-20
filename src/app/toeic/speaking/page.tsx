@@ -33,6 +33,7 @@ import {
   ToeicSpeakingQuestion,
 } from '@/data/toeic/speaking';
 import { SpeechRecorder } from '@/components/speaking/SpeechRecorder';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 type ExamMode = 'practice' | 'simulation';
 type SimPhase = 'idle' | 'prep' | 'speak' | 'review';
@@ -315,7 +316,9 @@ export default function ToeicSpeakingPage() {
             <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <h2 className="text-base font-bold text-white">{activeQuestion.title}</h2>
+                  <h2 className="text-base font-bold text-white">
+                    <ExamInteractiveText text={activeQuestion.title} enabled themeVariant="dark" inheritClassName />
+                  </h2>
                   <p className="text-xs text-slate-400 mt-0.5">{activeQuestion.titleVi}</p>
                 </div>
                 <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-slate-800 text-slate-300">
@@ -384,7 +387,7 @@ export default function ToeicSpeakingPage() {
                   <div className="text-[10px] uppercase font-mono text-slate-500 font-bold mb-2">
                     Text to read aloud (Đoạn văn cần đọc to):
                   </div>
-                  {activeQuestion.stimulusText}
+                  <ExamInteractiveText text={activeQuestion.stimulusText} as="div" enabled themeVariant="dark" inheritClassName />
                 </div>
               )}
 
@@ -394,13 +397,17 @@ export default function ToeicSpeakingPage() {
                     <ImageIcon className="size-4" /> Mô tả bối cảnh bức tranh (Visual Scene Context):
                   </div>
                   <p className="text-xs text-slate-300 italic leading-relaxed">
-                    &ldquo;{activeQuestion.imageContext.sceneDescription}&rdquo;
+                    &ldquo;
+                    <ExamInteractiveText text={activeQuestion.imageContext.sceneDescription} enabled themeVariant="dark" inheritClassName />
+                    &rdquo;
                   </p>
                   <div className="pt-2 border-t border-slate-800/80">
                     <span className="text-[10px] text-slate-500 uppercase font-bold">Gợi ý phân bổ chi tiết:</span>
                     <ul className="list-disc list-inside text-xs text-slate-300 space-y-1 mt-1">
                       {activeQuestion.imageContext.suggestedFocus.map((f, fi) => (
-                        <li key={fi}>{f}</li>
+                        <li key={fi}>
+                          <ExamInteractiveText text={f} enabled themeVariant="dark" inheritClassName />
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -411,10 +418,13 @@ export default function ToeicSpeakingPage() {
                 <div className="p-4 rounded-xl bg-slate-950 border border-slate-800/90 space-y-2.5">
                   <div className="border-b border-slate-800 pb-2">
                     <div className="font-bold text-sm text-amber-400 flex items-center gap-1.5">
-                      <Calendar className="size-4" /> {activeQuestion.scheduleData.heading}
+                      <Calendar className="size-4" />{' '}
+                      <ExamInteractiveText text={activeQuestion.scheduleData.heading} enabled themeVariant="dark" inheritClassName />
                     </div>
                     {activeQuestion.scheduleData.subheading && (
-                      <div className="text-xs text-slate-400">{activeQuestion.scheduleData.subheading}</div>
+                      <div className="text-xs text-slate-400">
+                        <ExamInteractiveText text={activeQuestion.scheduleData.subheading} enabled themeVariant="dark" inheritClassName />
+                      </div>
                     )}
                   </div>
                   <div className="divide-y divide-slate-850">
@@ -422,9 +432,13 @@ export default function ToeicSpeakingPage() {
                       <div key={ii} className="py-2 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                         <span className="font-mono text-slate-400 shrink-0 w-36">{item.time}</span>
                         <div className="flex-1">
-                          <div className="font-semibold text-slate-200">{item.activity}</div>
+                          <div className="font-semibold text-slate-200">
+                            <ExamInteractiveText text={item.activity} enabled themeVariant="dark" inheritClassName />
+                          </div>
                           {item.speakerOrLocation && (
-                            <div className="text-[11px] text-slate-400">{item.speakerOrLocation}</div>
+                            <div className="text-[11px] text-slate-400">
+                              <ExamInteractiveText text={item.speakerOrLocation} enabled themeVariant="dark" inheritClassName />
+                            </div>
                           )}
                         </div>
                       </div>
@@ -438,7 +452,9 @@ export default function ToeicSpeakingPage() {
                 <span className="font-bold uppercase tracking-wider text-[10px] text-indigo-400 block mb-1">
                   Yêu cầu trả lời:
                 </span>
-                <p className="font-medium text-sm text-white mb-1">{activeQuestion.promptText}</p>
+                <p className="font-medium text-sm text-white mb-1">
+                  <ExamInteractiveText text={activeQuestion.promptText} enabled themeVariant="dark" inheritClassName />
+                </p>
                 <p className="text-slate-400">{activeQuestion.promptVi}</p>
               </div>
 
@@ -455,7 +471,9 @@ export default function ToeicSpeakingPage() {
                 />
                 {recordedTranscripts[activeQuestion.questionNumber] && (
                   <div className="w-full p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-emerald-300">
-                    <strong>Nội dung nhận diện giọng nói:</strong> &ldquo;{recordedTranscripts[activeQuestion.questionNumber]}&rdquo;
+                    <strong>Nội dung nhận diện giọng nói:</strong> &ldquo;
+                    <ExamInteractiveText text={recordedTranscripts[activeQuestion.questionNumber]} enabled themeVariant="dark" inheritClassName />
+                    &rdquo;
                   </div>
                 )}
               </div>
@@ -520,7 +538,9 @@ export default function ToeicSpeakingPage() {
                 return (
                   <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2.5">
                     <p className="text-xs text-slate-200 leading-relaxed italic">
-                      &ldquo;{sample}&rdquo;
+                      &ldquo;
+                      <ExamInteractiveText text={sample} enabled themeVariant="dark" inheritClassName />
+                      &rdquo;
                     </p>
                     <div className="pt-2 border-t border-slate-800/80 flex justify-end">
                       <Button
@@ -578,7 +598,10 @@ export default function ToeicSpeakingPage() {
                   <div className="flex flex-wrap gap-1.5 mt-1.5">
                     {activeQuestion.keyVocabulary.map((v, vIdx) => (
                       <div key={vIdx} className="text-[10px] px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300">
-                        <span className="font-bold text-indigo-300">{v.term}</span> {v.ipa && <span className="text-slate-500 font-mono">[{v.ipa}]</span>}: {v.meaningVi}
+                        <span className="font-bold text-indigo-300">
+                          <ExamInteractiveText text={v.term} enabled themeVariant="dark" inheritClassName />
+                        </span>{' '}
+                        {v.ipa && <span className="text-slate-500 font-mono">[{v.ipa}]</span>}: {v.meaningVi}
                       </div>
                     ))}
                   </div>

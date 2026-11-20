@@ -17,6 +17,8 @@ import {
 } from 'lucide-react';
 import type { RachelVideoMeta, InteractiveIpaVideoPlayerProps } from '@/types/pronunciation';
 import { stopWordAudio } from '@/lib/audio';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { hasVietnameseDiacritics } from '@/components/grammar/FormattedText';
 
 export type { RachelVideoMeta, InteractiveIpaVideoPlayerProps };
 
@@ -625,7 +627,13 @@ export const InteractiveIpaVideoPlayer: React.FC<InteractiveIpaVideoPlayerProps>
               {resolvedChannelName}
             </span>
             <span className="font-semibold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100 truncate">
-              {resolvedTitle}
+              <ExamInteractiveText
+                text={resolvedTitle}
+                enabled={!hasVietnameseDiacritics(resolvedTitle)}
+                as="span"
+                inheritClassName
+                themeVariant="default"
+              />
             </span>
             {ipa && (
               <span className="shrink-0 px-2 py-0.5 rounded-md bg-indigo-100 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 font-mono text-xs font-bold">
@@ -677,7 +685,13 @@ export const InteractiveIpaVideoPlayer: React.FC<InteractiveIpaVideoPlayerProps>
               {resolvedChannelName}
             </span>
             <h4 className="font-bold text-sm sm:text-base text-zinc-900 dark:text-zinc-100 truncate">
-              {resolvedTitle}
+              <ExamInteractiveText
+                text={resolvedTitle}
+                enabled={!hasVietnameseDiacritics(resolvedTitle)}
+                as="span"
+                inheritClassName
+                themeVariant="default"
+              />
             </h4>
             {ipa && (
               <span className="shrink-0 px-2 py-0.5 rounded-md bg-indigo-100 dark:bg-indigo-950/70 text-indigo-700 dark:text-indigo-300 font-mono text-xs font-bold">
@@ -919,7 +933,14 @@ export const InteractiveIpaVideoPlayer: React.FC<InteractiveIpaVideoPlayerProps>
               <Sparkles className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
               <p className="line-clamp-2">
                 <span className="font-bold mr-1">Mẹo khẩu hình:</span>
-                {resolvedTip}
+                <ExamInteractiveText
+                  text={resolvedTip}
+                  enabled={!hasVietnameseDiacritics(resolvedTip)}
+                  as="span"
+                  inheritClassName
+                  themeVariant="default"
+                  contextSentence={resolvedTip}
+                />
               </p>
             </div>
           )}

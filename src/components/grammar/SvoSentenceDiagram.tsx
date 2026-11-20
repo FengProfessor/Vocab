@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Volume2, Layers } from 'lucide-react';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import { speak } from '@/lib/study';
 
 export default function SvoSentenceDiagram() {
@@ -39,7 +40,10 @@ export default function SvoSentenceDiagram() {
             <p className="text-xs text-muted-foreground mt-1">Danh từ, đại từ hoặc cụm danh từ thực hiện hành động.</p>
           </div>
           <div className="p-2 rounded-none border border-border/40 bg-muted/40 text-xs font-mono font-medium text-foreground">
-            <span>My sister / Lan / They</span>
+            <span>
+              <ExamInteractiveText text="My sister" enabled as="span" inheritClassName themeVariant="minimalist" /> / Lan /{' '}
+              <ExamInteractiveText text="They" enabled as="span" inheritClassName themeVariant="minimalist" />
+            </span>
           </div>
         </div>
 
@@ -56,7 +60,7 @@ export default function SvoSentenceDiagram() {
             <p className="text-xs text-muted-foreground mt-1">Trọng tâm của câu: động từ to-be (am/is/are) hoặc Động từ thường.</p>
           </div>
           <div className="p-2 rounded-none border border-border/40 bg-muted/40 text-xs font-mono font-medium text-foreground">
-            <span>is / works / studies</span>
+            <ExamInteractiveText text="is / works / studies" enabled as="span" inheritClassName themeVariant="minimalist" />
           </div>
         </div>
 
@@ -73,7 +77,7 @@ export default function SvoSentenceDiagram() {
             <p className="text-xs text-muted-foreground mt-1">Đối tượng nhận tác động hoặc bổ sung ý nghĩa cho chủ ngữ.</p>
           </div>
           <div className="p-2 rounded-none border border-border/40 bg-muted/40 text-xs font-mono font-medium text-foreground">
-            <span>a doctor / English</span>
+            <ExamInteractiveText text="a doctor / English" enabled as="span" inheritClassName themeVariant="minimalist" />
           </div>
         </div>
       </div>
@@ -83,9 +87,39 @@ export default function SvoSentenceDiagram() {
         <div className="flex items-center gap-2">
           <span className="font-semibold text-foreground">Ví dụ minh họa:</span>
           <span className="font-mono text-foreground font-semibold">
-            <span className="text-sky-600 dark:text-sky-400 underline decoration-sky-400/60">My sister</span>{' '}
-            <span className="text-indigo-600 dark:text-indigo-400 underline decoration-indigo-400/60">is</span>{' '}
-            <span className="text-emerald-600 dark:text-emerald-400 underline decoration-emerald-400/60">a student</span>.
+            <span className="text-sky-600 dark:text-sky-400 underline decoration-sky-400/60">
+              <ExamInteractiveText
+                text="My sister"
+                enabled
+                as="span"
+                inheritClassName
+                themeVariant="minimalist"
+                contextSentence="My sister is a student."
+                wordClassName="hover:bg-current/10 cursor-pointer"
+              />
+            </span>{' '}
+            <span className="text-indigo-600 dark:text-indigo-400 underline decoration-indigo-400/60">
+              <ExamInteractiveText
+                text="is"
+                enabled
+                as="span"
+                inheritClassName
+                themeVariant="minimalist"
+                contextSentence="My sister is a student."
+                wordClassName="hover:bg-current/10 cursor-pointer"
+              />
+            </span>{' '}
+            <span className="text-emerald-600 dark:text-emerald-400 underline decoration-emerald-400/60">
+              <ExamInteractiveText
+                text="a student"
+                enabled
+                as="span"
+                inheritClassName
+                themeVariant="minimalist"
+                contextSentence="My sister is a student."
+                wordClassName="hover:bg-current/10 cursor-pointer"
+              />
+            </span>.
           </span>
         </div>
         <button

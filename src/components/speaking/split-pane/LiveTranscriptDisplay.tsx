@@ -17,6 +17,8 @@
 import React, { useMemo } from 'react';
 import { cn } from '@/lib/utils';
 import { Radio, Sparkles, CheckCircle2 } from 'lucide-react';
+import { InteractiveHighlightedText, type LookupThemeVariant } from '@/components/vocab';
+import { hasVietnameseDiacritics } from '@/components/grammar/FormattedText';
 
 export interface LiveTranscriptDisplayProps {
   /** Real-time interim transcript stream from STT */
@@ -37,6 +39,8 @@ export interface LiveTranscriptDisplayProps {
   targetKeywords?: string[];
   /** Custom placeholder message when empty */
   placeholder?: string;
+  /** Optional theme variant for lookup card */
+  themeVariant?: LookupThemeVariant;
   /** Additional container CSS class */
   className?: string;
 }
@@ -51,6 +55,7 @@ export const LiveTranscriptDisplay: React.FC<LiveTranscriptDisplayProps> = ({
   isRecording,
   targetKeywords = [],
   placeholder,
+  themeVariant = 'default',
   className = '',
 }) => {
   const effectiveFinalText = (finalTextProp ?? transcript ?? '').trim();
@@ -68,51 +73,6 @@ export const LiveTranscriptDisplay: React.FC<LiveTranscriptDisplayProps> = ({
     const pct = confidence <= 1.0 && confidence > 0 ? confidence * 100 : confidence;
     return Math.max(0, Math.min(100, Math.round(pct)));
   }, [confidence]);
-
-  // Keyword highlighting parser for finalized text
-  const renderedFinalElements = useMemo(() => {
-    if (!effectiveFinalText) return null;
-    if (!targetKeywords || targetKeywords.length === 0) {
-      return <span>{effectiveFinalText}</span>;
-    }
-
-    // Build regex to capture any target keywords safely
-    const escapedKeywords = targetKeywords
-      .map((k) => k.trim())
-      .filter((k) => k.length > 0)
-      .map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-
-    if (escapedKeywords.length === 0) {
-      return <span>{effectiveFinalText}</span>;
-    }
-
-    const regex = new RegExp(`(\\b(?:${escapedKeywords.join('|')})\\b)`, 'gi');
-    const segments = effectiveFinalText.split(regex);
-
-    return (
-      <span>
-        {segments.map((segment, idx) => {
-          const isKeywordMatch = targetKeywords.some(
-            (k) => k.toLowerCase() === segment.toLowerCase()
-          );
-
-          if (isKeywordMatch) {
-            return (
-              <mark
-                key={idx}
-                className="bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-semibold px-1 py-0.5 rounded-xs border border-emerald-500/30 select-text"
-                title="Từ khóa trọng tâm bài học"
-              >
-                {segment}
-              </mark>
-            );
-          }
-
-          return <span key={idx}>{segment}</span>;
-        })}
-      </span>
-    );
-  }, [effectiveFinalText, targetKeywords]);
 
   return (
     <div
@@ -164,7 +124,17 @@ export const LiveTranscriptDisplay: React.FC<LiveTranscriptDisplayProps> = ({
       <div className="min-h-[72px] sm:min-h-[84px] flex items-center justify-center p-2 text-center text-sm sm:text-base leading-relaxed select-text">
         {hasAnyText ? (
           <p className="text-foreground tracking-normal">
-            {renderedFinalElements}
+            {effectiveFinalText && (
+              <InteractiveHighlightedText
+                text={effectiveFinalText}
+                highlight={targetKeywords}
+                enabled={Boolean(effectiveFinalText) && !hasVietnameseDiacritics(effectiveFinalText)}
+                as="span"
+                highlightClassName="bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 font-semibold px-1 py-0.5 rounded-xs border border-emerald-500/30 select-text"
+                themeVariant={themeVariant}
+                contextSentence={effectiveFinalText}
+              />
+            )}
             {effectiveFinalText && effectiveInterimText && ' '}
             {effectiveInterimText && (
               <span className="italic text-primary/80 dark:text-primary-foreground/80 font-normal animate-pulse">

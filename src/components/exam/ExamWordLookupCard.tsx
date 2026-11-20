@@ -1,18 +1,16 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Volume2, BookmarkPlus, Check, X, Loader2, Sparkles, Lightbulb } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
-import { authFetch } from '@/lib/auth-fetch';
-import { supabase } from '@/lib/supabase';
 import {
   type ExamDictResult,
   type ExamDictSense,
   isWordSavedLocally,
-  saveWordLocally,
   isMeaningSavedLocally,
-  saveMeaningLocally,
+  saveVocabFromLookup,
 } from '@/lib/exam-dict-cache';
+import type { LookupThemeVariant } from '@/components/vocab/VocabLookupProvider';
 import { toast } from 'sonner';
 
 export interface ExamWordLookupCardProps {
@@ -24,7 +22,16 @@ export interface ExamWordLookupCardProps {
   className?: string;
   parentPhrase?: string | null;
   onLookupPhrase?: (phrase: string) => void;
+  themeVariant?: LookupThemeVariant;
+  disableSave?: boolean;
+  contextSentence?: string;
 }
+
+const THEME_SURFACE_CLASSES: Record<LookupThemeVariant, string> = {
+  default: 'rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900',
+  minimalist: 'rounded-xs border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-950',
+  dark: 'dark rounded-md border border-slate-700 bg-slate-900 text-slate-100',
+};
 
 export function ExamWordLookupCard({
   dictResult,
@@ -35,6 +42,9 @@ export function ExamWordLookupCard({
   className = '',
   parentPhrase,
   onLookupPhrase,
+  themeVariant = 'default',
+  disableSave = false,
+  contextSentence,
 }: ExamWordLookupCardProps) {
   const senses: ExamDictSense[] = useMemo(() => {
     if (dictResult?.meanings && dictResult.meanings.length > 0) {
@@ -54,31 +64,45 @@ export function ExamWordLookupCard({
   }, [dictResult]);
 
   const [selectedMeaningIdx, setSelectedMeaningIdx] = useState<number>(0);
+  const selectedMeaningIdxRef = useRef<number>(0);
+  useEffect(() => {
+    selectedMeaningIdxRef.current = selectedMeaningIdx;
+  }, [selectedMeaningIdx]);
+
   const [savedMeaningIndices, setSavedMeaningIndices] = useState<Set<number>>(new Set());
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
+  const activeCleanWordRef = useRef<string | undefined>(dictResult?.cleanWord);
+  useEffect(() => {
+    activeCleanWordRef.current = dictResult?.cleanWord;
+  }, [dictResult?.cleanWord]);
 
   const activeSense: ExamDictSense | null = senses[selectedMeaningIdx] || senses[0] || null;
   const isSaved = savedMeaningIndices.has(selectedMeaningIdx);
 
-  // Sync saved status locally and via global custom event
+  // Sync saved status locally and via global custom events (save + rollback)
   useEffect(() => {
     if (!dictResult?.cleanWord) return;
     const targetWord = dictResult.cleanWord;
 
-    const newSaved = new Set<number>();
-    senses.forEach((s, idx) => {
-      if (isMeaningSavedLocally(targetWord, s.definition)) {
-        newSaved.add(idx);
+    const recomputeSaved = () => {
+      const newSaved = new Set<number>();
+      senses.forEach((s, idx) => {
+        if (isMeaningSavedLocally(targetWord, s.definition)) {
+          newSaved.add(idx);
+        }
+      });
+
+      if (newSaved.size === 0 && isWordSavedLocally(targetWord)) {
+        newSaved.add(0);
       }
-    });
 
-    if (newSaved.size === 0 && isWordSavedLocally(targetWord)) {
-      newSaved.add(0);
-    }
+      setSavedMeaningIndices(newSaved);
+    };
 
-    setSavedMeaningIndices(newSaved);
+    recomputeSaved();
     setSelectedMeaningIdx(0);
+    selectedMeaningIdxRef.current = 0;
 
     const handleWordSaved = (e: Event) => {
       const customEvent = e as CustomEvent<{ word?: string; translation?: string }>;
@@ -94,15 +118,27 @@ export function ExamWordLookupCard({
             }
           });
         } else {
-          setSavedMeaningIndices((prev) => new Set(prev).add(selectedMeaningIdx));
+          setSavedMeaningIndices((prev) => new Set(prev).add(selectedMeaningIdxRef.current));
         }
+      }
+    };
+
+    const handleWordRollback = (e: Event) => {
+      const customEvent = e as CustomEvent<{ word?: string }>;
+      if (
+        !customEvent.detail?.word ||
+        customEvent.detail.word.toLowerCase() === targetWord.toLowerCase()
+      ) {
+        recomputeSaved();
       }
     };
 
     if (typeof window !== 'undefined') {
       window.addEventListener('lingo_word_saved', handleWordSaved);
+      window.addEventListener('lingo_word_save_rollback', handleWordRollback);
       return () => {
         window.removeEventListener('lingo_word_saved', handleWordSaved);
+        window.removeEventListener('lingo_word_save_rollback', handleWordRollback);
       };
     }
   }, [dictResult?.cleanWord, senses]);
@@ -120,9 +156,9 @@ export function ExamWordLookupCard({
     }
   };
 
-  // Save specific sense handler
+  // Save specific sense handler (unified SRS sync + quota rollback)
   const handleSaveSense = async (sense: ExamDictSense, senseIdx: number) => {
-    if (!dictResult?.cleanWord || isSaving) return;
+    if (!dictResult?.cleanWord || isSaving || disableSave) return;
     if (savedMeaningIndices.has(senseIdx)) {
       toast.info('Nghĩa này đã có trong Sổ từ SRS!');
       return;
@@ -132,50 +168,63 @@ export function ExamWordLookupCard({
     const targetWord = dictResult.cleanWord;
     const targetTranslation = sense.definition;
 
+    // Optimistic UI update
+    setSavedMeaningIndices((prev) => new Set(prev).add(senseIdx));
+
     try {
-      // 1. Save locally for instant persistence
-      saveWordLocally(targetWord, targetTranslation);
-      saveMeaningLocally(targetWord, targetTranslation);
-      setSavedMeaningIndices((prev) => new Set(prev).add(senseIdx));
+      const result = await saveVocabFromLookup({
+        word: targetWord,
+        translation: targetTranslation,
+        ipa: dictResult.ipa || '',
+        pos: sense.pos || dictResult.pos || '',
+        example: sense.example || dictResult.example || contextSentence,
+        exampleVi: sense.exampleVi || dictResult.exampleVi,
+        imageUrl: dictResult.imageUrl,
+      });
 
-      // 2. If user is authenticated, sync to Supabase SRS system
-      const {
-        data: { session },
-      } = await supabase.auth.getSession();
+      if (activeCleanWordRef.current !== targetWord) return;
 
-      if (session?.user) {
-        await authFetch('/api/words', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            word: targetWord,
-            translation: targetTranslation,
-            ipa: dictResult.ipa || '',
-            pos: sense.pos || dictResult.pos || '',
-          }),
+      if (!result.ok) {
+        setSavedMeaningIndices((prev) => {
+          const next = new Set(prev);
+          next.delete(senseIdx);
+          return next;
         });
+        if (result.status === 'limit_reached') {
+          toast.error(result.message || 'Bạn đã đạt giới hạn lưu từ của gói Free.');
+        } else {
+          toast.error(result.message || 'Không thể lưu từ vựng lúc này.');
+        }
+        return;
       }
 
-      // 3. Broadcast custom event across the application
-      if (typeof window !== 'undefined') {
-        window.dispatchEvent(
-          new CustomEvent('lingo_word_saved', { detail: { word: targetWord, translation: targetTranslation } })
-        );
+      if (result.status === 'already_exists') {
+        toast.info('Nghĩa này đã có trong Sổ từ SRS!');
+        return;
       }
 
       const shortDef = targetTranslation.length > 25 ? `${targetTranslation.slice(0, 25)}...` : targetTranslation;
       toast.success(`Đã lưu nghĩa "${shortDef}" vào Sổ từ SRS!`);
     } catch (err) {
       console.warn('[ExamWordLookupCard] Save error:', err);
+      if (activeCleanWordRef.current === targetWord) {
+        setSavedMeaningIndices((prev) => {
+          const next = new Set(prev);
+          next.delete(senseIdx);
+          return next;
+        });
+      }
     } finally {
-      setIsSaving(false);
+      if (activeCleanWordRef.current === targetWord) {
+        setIsSaving(false);
+      }
     }
   };
 
   // Save to vocabulary handler (Guest + Auth SRS integration)
   const handleSaveToVocab = async (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (!dictResult?.cleanWord || isSaving) return;
+    if (!dictResult?.cleanWord || isSaving || disableSave) return;
     if (isSaved) {
       toast.info('Nghĩa này đã có trong Sổ từ SRS!');
       return;
@@ -192,9 +241,11 @@ export function ExamWordLookupCard({
     <div
       role="dialog"
       aria-label="Bảng tra cứu từ vựng"
+      data-placement={placement}
       style={positionStyle}
-      className={`exam-lookup-card fixed z-50 max-w-[calc(100vw-24px)] max-h-[85vh] overflow-y-auto rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-3.5 shadow-xl transition-all duration-150 animate-in fade-in zoom-in-95 select-none ${className}`}
+      className={`exam-lookup-card fixed z-[130] max-w-[calc(100vw-24px)] max-h-[85vh] overflow-y-auto p-3.5 shadow-xl transition-all duration-150 animate-in fade-in zoom-in-95 select-none ${THEME_SURFACE_CLASSES[themeVariant]} ${className}`}
       onPointerDown={(e) => e.stopPropagation()}
+      onTouchStart={(e) => e.stopPropagation()}
       onMouseDown={(e) => e.stopPropagation()}
       onClick={(e) => e.stopPropagation()}
     >
@@ -227,7 +278,7 @@ export function ExamWordLookupCard({
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded-sm text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-slate-300 transition cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800"
+            className="p-1 rounded-sm text-slate-400 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800"
             title="Đóng"
             aria-label="Đóng bảng tra từ"
           >
@@ -239,7 +290,7 @@ export function ExamWordLookupCard({
       {/* Body: IPA + Definition */}
       <div className="py-2.5 space-y-1.5 min-h-[58px]">
         {isLoading ? (
-          <div className="flex items-center gap-2 py-3 text-xs text-slate-500 font-mono">
+          <div className="flex items-center gap-2 py-3 text-xs text-slate-500 dark:text-slate-400 font-mono">
             <Loader2 className="h-3.5 w-3.5 animate-spin text-indigo-600 dark:text-indigo-400" />
             <span>Đang tra từ điển...</span>
           </div>
@@ -293,7 +344,7 @@ export function ExamWordLookupCard({
                       >
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-1 flex-wrap">
-                            <span className="font-bold text-[11px] text-slate-500">
+                            <span className="font-bold text-[11px] text-slate-500 dark:text-slate-400">
                               {idx + 1}.
                             </span>
                             {sense.pos && (
@@ -306,34 +357,36 @@ export function ExamWordLookupCard({
                             </span>
                           </div>
                         </div>
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedMeaningIdx(idx);
-                            if (!isSenseSaved) {
-                              void handleSaveSense(sense, idx);
-                            }
-                          }}
-                          disabled={isSaving || isSenseSaved}
-                          className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded-xs font-semibold flex items-center gap-0.5 transition ${
-                            isSenseSaved
-                              ? 'text-emerald-700 bg-emerald-100/70 dark:bg-emerald-950 dark:text-emerald-400'
-                              : 'text-indigo-700 bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-300 cursor-pointer'
-                          }`}
-                        >
-                          {isSenseSaved ? (
-                            <>
-                              <Check className="h-2.5 w-2.5" />
-                              <span>Đã lưu</span>
-                            </>
-                          ) : (
-                            <>
-                              <BookmarkPlus className="h-2.5 w-2.5" />
-                              <span>Lưu</span>
-                            </>
-                          )}
-                        </button>
+                        {!disableSave && (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedMeaningIdx(idx);
+                              if (!isSenseSaved) {
+                                void handleSaveSense(sense, idx);
+                              }
+                            }}
+                            disabled={isSaving || isSenseSaved}
+                            className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded-xs font-semibold flex items-center gap-0.5 transition ${
+                              isSenseSaved
+                                ? 'text-emerald-700 bg-emerald-100/70 dark:bg-emerald-950 dark:text-emerald-400'
+                                : 'text-indigo-700 bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-900/60 dark:text-indigo-300 dark:hover:bg-indigo-800/80 cursor-pointer'
+                            }`}
+                          >
+                            {isSenseSaved ? (
+                              <>
+                                <Check className="h-2.5 w-2.5" />
+                                <span>Đã lưu</span>
+                              </>
+                            ) : (
+                              <>
+                                <BookmarkPlus className="h-2.5 w-2.5" />
+                                <span>Lưu</span>
+                              </>
+                            )}
+                          </button>
+                        )}
                       </div>
                     );
                   })}
@@ -388,7 +441,7 @@ export function ExamWordLookupCard({
                       title={`Tra cụm: ${phraseItem.phrase} - ${phraseItem.meaning}`}
                     >
                       <span className="font-medium">{phraseItem.phrase}</span>
-                      <span className="text-[10px] text-slate-400 dark:text-slate-500">
+                      <span className="text-[10px] text-slate-400 dark:text-slate-400">
                         • {phraseItem.meaning}
                       </span>
                     </button>
@@ -412,7 +465,7 @@ export function ExamWordLookupCard({
               </div>
             )}
             {/* Parent phrase suggestion (e.g. Option text contains 2-8 words) */}
-            {parentPhrase && onLookupPhrase && parentPhrase.toLowerCase() !== dictResult?.cleanWord.toLowerCase() && (
+            {parentPhrase && onLookupPhrase && parentPhrase.toLowerCase() !== dictResult?.cleanWord?.toLowerCase() && (
               <div className="pt-2 pb-1 border-t border-slate-100 dark:border-slate-800/80">
                 <button
                   type="button"
@@ -464,34 +517,40 @@ export function ExamWordLookupCard({
           <span>LingoPro SRS</span>
         </span>
 
-        <button
-          type="button"
-          onClick={handleSaveToVocab}
-          disabled={isSaving || isLoading}
-          className={`inline-flex items-center gap-1.5 rounded-sm px-2.5 py-1 text-xs font-semibold transition shadow-2xs cursor-pointer ${
-            isSaved
-              ? 'bg-emerald-50 text-emerald-700 border border-emerald-300 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800'
-              : 'bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100'
-          }`}
-          title={isSaved ? 'Đã lưu vào Sổ từ vựng' : 'Lưu từ để ôn tập lặp lại ngắt quãng (SRS)'}
-        >
-          {isSaving ? (
-            <>
-              <Loader2 className="h-3.5 w-3.5 animate-spin" />
-              <span>Đang lưu...</span>
-            </>
-          ) : isSaved ? (
-            <>
-              <Check className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-              <span>Đã lưu vào Sổ từ</span>
-            </>
-          ) : (
-            <>
-              <BookmarkPlus className="h-3.5 w-3.5" />
-              <span>Lưu vào Sổ từ</span>
-            </>
-          )}
-        </button>
+        {disableSave ? (
+          <span className="inline-flex items-center rounded-sm bg-slate-100 dark:bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+            Chế độ xem nhanh
+          </span>
+        ) : (
+          <button
+            type="button"
+            onClick={handleSaveToVocab}
+            disabled={isSaving || isLoading}
+            className={`inline-flex items-center gap-1.5 rounded-sm px-2.5 py-1 text-xs font-semibold transition shadow-2xs cursor-pointer ${
+              isSaved
+                ? 'bg-emerald-50 text-emerald-700 border border-emerald-300 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-800'
+                : 'bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100'
+            }`}
+            title={isSaved ? 'Đã lưu vào Sổ từ vựng' : 'Lưu từ để ôn tập lặp lại ngắt quãng (SRS)'}
+          >
+            {isSaving ? (
+              <>
+                <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                <span>Đang lưu...</span>
+              </>
+            ) : isSaved ? (
+              <>
+                <Check className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                <span>Đã lưu vào Sổ từ</span>
+              </>
+            ) : (
+              <>
+                <BookmarkPlus className="h-3.5 w-3.5" />
+                <span>Lưu vào Sổ từ</span>
+              </>
+            )}
+          </button>
+        )}
       </div>
     </div>
   );

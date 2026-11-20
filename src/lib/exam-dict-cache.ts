@@ -1,3 +1,26 @@
+import { authFetch } from '@/lib/auth-fetch';
+import { supabase } from '@/lib/supabase';
+import {
+  notifyWordSaveRollback,
+  notifyWordSavedOptimistic,
+} from '@/lib/word-summary-cache';
+import {
+  isFreeWordLimitError,
+  requestUpsell,
+  upsellFromWordLimitError,
+  WORD_NEAR_LIMIT_USED,
+  type UpsellPayload,
+} from '@/lib/upsell';
+import {
+  cleanDictLookupKey,
+  coalesceDictRequest,
+  FALLBACK_DICT_TTL_MS,
+  getCachedDictionaryEntry,
+  getCandidateLemmas,
+  getSingleWordCandidateLemmas,
+  setCachedDictionaryEntry,
+} from '@/lib/dict-cache';
+
 function sanitizeClientMediaUrl(rawUrl: unknown): string | undefined {
   if (typeof rawUrl !== 'string') return undefined;
   const trimmed = rawUrl.trim();
@@ -48,8 +71,15 @@ export interface ExamDictResult {
   audioUk?: string;
 }
 
-const memoryCache = new Map<string, ExamDictResult>();
-const inFlightRequests = new Map<string, Promise<ExamDictResult>>();
+export type ExamWordDictResult = ExamDictResult;
+
+export interface FetchExamWordDictOptions {
+  signal?: AbortSignal;
+  contextSentence?: string;
+  coreEntry?: Partial<ExamDictResult> & { definition: string };
+}
+
+export { getSingleWordCandidateLemmas, getCandidateLemmas };
 
 const POS_MAP: Record<string, string> = {
   noun: 'danh từ',
@@ -66,82 +96,6 @@ const POS_MAP: Record<string, string> = {
   pron: 'đại từ',
   interjection: 'thán từ',
 };
-
-/**
- * Sinh danh sách các biến thể từ gốc (lemmas) cho một từ đơn lẻ.
- */
-export function getSingleWordCandidateLemmas(clean: string): string[] {
-  const candidates = new Set<string>();
-  if (!clean || clean.length <= 2) {
-    return [clean];
-  }
-
-  candidates.add(clean);
-
-  // Plural / 3rd person singular: -ies -> -y (berries -> berry)
-  if (clean.endsWith('ies') && clean.length > 4) {
-    candidates.add(clean.slice(0, -3) + 'y');
-  }
-  // -es (boxes -> box, watches -> watch, passes -> pass)
-  if (clean.endsWith('es') && clean.length > 3) {
-    candidates.add(clean.slice(0, -2));
-    candidates.add(clean.slice(0, -1)); // likes -> like
-  } else if (clean.endsWith('s') && clean.length > 3) {
-    candidates.add(clean.slice(0, -1));
-  }
-
-  // Past tense / past participle: -ied -> -y (worried -> worry)
-  if (clean.endsWith('ied') && clean.length > 4) {
-    candidates.add(clean.slice(0, -3) + 'y');
-  }
-  // -ed (walked -> walk, liked -> like, stopped -> stop)
-  if (clean.endsWith('ed') && clean.length > 3) {
-    candidates.add(clean.slice(0, -2));
-    candidates.add(clean.slice(0, -1));
-    if (clean.length > 4 && clean[clean.length - 3] === clean[clean.length - 4]) {
-      candidates.add(clean.slice(0, -3));
-    }
-  }
-
-  // Gerund / continuous: -ying -> -ie (tying -> tie)
-  if (clean.endsWith('ying') && clean.length >= 5) {
-    candidates.add(clean.slice(0, -4) + 'ie');
-  }
-  // -ing (walking -> walk, taking -> take, sitting -> sit)
-  if (clean.endsWith('ing') && clean.length > 4) {
-    candidates.add(clean.slice(0, -3));
-    candidates.add(clean.slice(0, -3) + 'e');
-    if (clean.length > 5 && clean[clean.length - 4] === clean[clean.length - 5]) {
-      candidates.add(clean.slice(0, -4));
-    }
-  }
-
-  return Array.from(candidates);
-}
-
-/**
- * Sinh danh sách các biến thể từ gốc (lemmas) cho từ đơn hoặc cụm từ (phrases).
- * Hỗ trợ chuẩn hóa động từ đầu cụm: ví dụ "taking into consideration" -> "take into consideration",
- * "looked forward to" -> "look forward to".
- */
-export function getCandidateLemmas(clean: string): string[] {
-  if (!clean) return [];
-  if (clean.includes(' ')) {
-    const candidates = new Set<string>();
-    candidates.add(clean);
-    const parts = clean.split(/\s+/);
-    if (parts.length >= 2) {
-      const firstWordLemmas = getSingleWordCandidateLemmas(parts[0]);
-      for (const fl of firstWordLemmas) {
-        if (fl !== parts[0]) {
-          candidates.add([fl, ...parts.slice(1)].join(' '));
-        }
-      }
-    }
-    return Array.from(candidates);
-  }
-  return getSingleWordCandidateLemmas(clean);
-}
 
 interface RawDictCoreSense {
   definition_vi?: string;
@@ -186,6 +140,10 @@ interface RawDictPhrase {
 }
 
 interface RawDictPayload {
+  word?: string;
+  cleanWord?: string;
+  source?: string;
+  translatedText?: string;
   core_senses?: RawDictCoreSense[];
   results?: Array<{
     meanings?: RawDictMeaning[];
@@ -396,6 +354,7 @@ export function parseDictPayload(
     definition,
     synonyms,
     antonyms,
+    ...(Array.isArray(data.didYouMean) && data.didYouMean.length > 0 ? { didYouMean: data.didYouMean } : {}),
     ...(extractedSenses.length > 0 ? { meanings: extractedSenses } : {}),
     ...(imageUrl ? { imageUrl } : {}),
     ...(phrases.length > 0 ? { phrases } : {}),
@@ -418,7 +377,14 @@ async function queryDictEndpoint(url: string, timeoutMs: number): Promise<RawDic
     const res = await fetch(url, { signal });
     const json = await res.json();
     if (res.ok) {
-      if (json && (json.results?.length > 0 || json.translation || json.definition)) {
+      if (
+        json &&
+        (json.results?.length > 0 ||
+          json.core_senses?.length > 0 ||
+          json.translation ||
+          json.definition ||
+          json.translatedText)
+      ) {
         return json;
       }
     } else if (json && Array.isArray(json.didYouMean) && json.didYouMean.length > 0) {
@@ -463,48 +429,45 @@ async function queryTranslateEndpoint(text: string, timeoutMs: number): Promise<
   return null;
 }
 
-const SESSION_CACHE_KEY = 'lingo_exam_dict_cache_v2';
+/**
+ * Synchronous 0ms cache peek across unified L1 RAM + L2 sessionStorage.
+ */
+export function peekExamWordDict(rawWord: string): ExamDictResult | null {
+  const clean = cleanDictLookupKey(rawWord);
+  if (!clean) return null;
+  const cached = getCachedDictionaryEntry(clean);
+  if (!cached) return null;
 
-function hydrateFromSession(): void {
-  if (typeof window === 'undefined') return;
-  try {
-    const raw = sessionStorage.getItem(SESSION_CACHE_KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) {
-        for (const [k, v] of parsed) {
-          if (k && v) memoryCache.set(k, v);
-        }
-      }
+  if (cached.examResult && typeof cached.examResult === 'object') {
+    return {
+      ...(cached.examResult as ExamDictResult),
+      word: rawWord,
+      cleanWord: clean,
+    };
+  }
+
+  if (cached.data) {
+    const parsed = parseDictPayload(cached.data, clean, rawWord);
+    if (parsed) {
+      cached.examResult = parsed;
+      return parsed;
     }
-  } catch {
-    // Ignore storage parse error
   }
+  return null;
 }
-
-function persistToSession(key: string, val: ExamDictResult): void {
-  memoryCache.set(key, val);
-  if (typeof window === 'undefined') return;
-  try {
-    const entries = Array.from(memoryCache.entries()).slice(-150);
-    sessionStorage.setItem(SESSION_CACHE_KEY, JSON.stringify(entries));
-  } catch {
-    // Ignore storage quota error
-  }
-}
-
-// Hydrate ngay khi module được load
-hydrateFromSession();
 
 /**
  * Tra cứu nghĩa từ vựng từ từ điển hệ thống với cơ chế caching đa tầng siêu tốc:
- * - SessionStorage + RAM Memory Cache: Trả về kết quả trong 0ms nếu đã từng tra.
- * - Parallel Phrase Lookup: Đối với cụm từ, tra song song Kho từ điển + Dịch máy ngữ cảnh (<250ms).
- * - Parallel Lemma Fallback: Đối với từ chia thì, tra đồng thời các biến thể nguyên mẫu.
- * - Fast Timeout: Giới hạn 2000-2500ms, không bao giờ để giao diện chờ đợi lâu.
+ * - Unified L1 RAM + L2 sessionStorage (`lp:dict:`): Trả về kết quả trong 0ms nếu đã từng tra.
+ * - Coalescing: Gộp các request đồng thời cho cùng từ (cô lập AbortSignal cho từng caller).
+ * - Single HTTP Request on miss: `GET /api/dictionary/lookup?word=<clean>&fallback=external`.
+ *   Server tự giải quyết inflectional lemmas và external fallback trong 1 round-trip.
  */
-export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult> {
-  const clean = rawWord.trim().toLowerCase().replace(/\s+/g, ' ').replace(/^[^\w]+|[^\w]+$/g, '');
+export async function fetchExamWordDict(
+  rawWord: string,
+  options?: FetchExamWordDictOptions,
+): Promise<ExamDictResult> {
+  const clean = cleanDictLookupKey(rawWord);
   if (!clean) {
     return {
       word: rawWord,
@@ -517,174 +480,159 @@ export async function fetchExamWordDict(rawWord: string): Promise<ExamDictResult
     };
   }
 
-  // 1. Kiểm tra bộ nhớ đệm (RAM / Session Cache): 0ms
-  const cached = memoryCache.get(clean);
-  if (cached) {
-    return { ...cached, word: rawWord };
+  if (options?.coreEntry?.definition) {
+    const existing = peekExamWordDict(rawWord);
+    return {
+      ipa: '',
+      pos: '',
+      synonyms: [],
+      antonyms: [],
+      ...(existing ?? {}),
+      ...options.coreEntry,
+      word: rawWord,
+      cleanWord: clean,
+    };
   }
 
-  // 2. Gộp các request đồng thời cho cùng 1 từ (Coalescing in-flight)
-  const inFlight = inFlightRequests.get(clean);
-  if (inFlight) {
-    const res = await inFlight;
-    return { ...res, word: rawWord };
+  // 1. Kiểm tra bộ nhớ đệm hợp nhất (L1 RAM + lazy L2 sessionStorage): 0ms, 0 HTTP requests
+  const syncHit = peekExamWordDict(rawWord);
+  if (syncHit) {
+    return syncHit;
   }
 
-  const fetchPromise = (async (): Promise<ExamDictResult> => {
-    const candidates = getCandidateLemmas(clean);
-    const isPhrase = clean.includes(' ');
-    let lastDidYouMean: string[] | undefined;
+  // 2. Gộp các request đồng thời cho cùng 1 từ với AbortSignal cô lập
+  return coalesceDictRequest(
+    clean,
+    async (): Promise<ExamDictResult> => {
+      const rechecked = peekExamWordDict(rawWord);
+      if (rechecked) return rechecked;
 
-    // ── XỬ LÝ SIÊU TỐC CHO CỤM TỪ (PHRASES / COLLOCATIONS) ──
-    if (isPhrase) {
-      // Chạy song song: Tra Kho từ điển chuẩn (Tier 1) & Dịch máy ngữ cảnh (Tier 3)
-      // Giúp phản hồi ngay trong 150-250ms thay vì đợi 3-5 giây qua các tầng tuần tự!
-      const [tier1Res, translateRes] = await Promise.all([
-        queryDictEndpoint(`/api/dictionary/lookup?word=${encodeURIComponent(clean)}`, 2500),
-        queryTranslateEndpoint(clean, 2500),
-      ]);
+      const isPhrase = clean.includes(' ');
+      let lastDidYouMean: string[] | undefined;
 
-      if (tier1Res) {
-        if (tier1Res.isFuzzyOnly && tier1Res.didYouMean) {
-          lastDidYouMean = tier1Res.didYouMean;
-        } else {
-          const parsed = parseDictPayload(tier1Res, clean, rawWord);
-          if (parsed) {
-            persistToSession(clean, parsed);
-            return parsed;
-          }
-        }
-      }
-
-      // Nếu cụm có biến thể động từ chia thì (looked forward to -> look forward to)
-      const phraseVariants = candidates.filter((c) => c !== clean);
-      if (phraseVariants.length > 0) {
-        const variantData = await queryDictEndpoint(
-          `/api/dictionary/lookup?word=${encodeURIComponent(phraseVariants[0])}`,
-          1800
+      if (!isPhrase) {
+        // Single-word fast-path: 1 HTTP request handles internal + lemmas + external fallback
+        const data = await queryDictEndpoint(
+          `/api/dictionary/lookup?word=${encodeURIComponent(clean)}&fallback=external`,
+          4500,
         );
-        if (variantData && !variantData.isFuzzyOnly) {
-          const parsed = parseDictPayload(variantData, clean, rawWord);
-          if (parsed) {
-            persistToSession(clean, parsed);
-            return parsed;
-          }
-        }
-      }
-
-      // Dùng ngay kết quả dịch máy đã nạp song song (Tier 3)
-      if (translateRes) {
-        const phraseResult: ExamDictResult = {
-          word: rawWord,
-          cleanWord: clean,
-          ipa: '',
-          pos: 'cụm từ',
-          definition: translateRes,
-          synonyms: [],
-          antonyms: [],
-          didYouMean: lastDidYouMean,
-        };
-        persistToSession(clean, phraseResult);
-        return phraseResult;
-      }
-    }
-
-    // ── XỬ LÝ TỪ ĐƠN: TIER 1 KHO NỘI BỘ (GLOBAL_DICTIONARY) ──
-    // 1. Thử từ chính xác `clean` trước (chiếm >95% các lần tra cứu)
-    const exactData = await queryDictEndpoint(
-      `/api/dictionary/lookup?word=${encodeURIComponent(clean)}`,
-      2500
-    );
-    if (exactData) {
-      if (exactData.isFuzzyOnly && exactData.didYouMean) {
-        lastDidYouMean = exactData.didYouMean;
-      } else {
-        const parsed = parseDictPayload(exactData, clean, rawWord);
-        if (parsed) {
-          persistToSession(clean, parsed);
-          return parsed;
-        }
-      }
-    }
-
-    // 2. Nếu từ chia thì/số nhiều (passengers, stopping), tra SONG SONG các biến thể nguyên mẫu
-    const otherCandidates = candidates.filter((c) => c !== clean);
-    if (otherCandidates.length > 0) {
-      const lemmaResults = await Promise.all(
-        otherCandidates.map((c) =>
-          queryDictEndpoint(`/api/dictionary/lookup?word=${encodeURIComponent(c)}`, 2000)
-        )
-      );
-      for (const d of lemmaResults) {
-        if (d) {
-          if (d.isFuzzyOnly && d.didYouMean) {
-            lastDidYouMean = lastDidYouMean || d.didYouMean;
+        if (data) {
+          if (data.isFuzzyOnly && data.didYouMean) {
+            lastDidYouMean = data.didYouMean;
           } else {
-            const parsed = parseDictPayload(d, clean, rawWord);
+            const parsed = parseDictPayload(data, clean, rawWord);
             if (parsed) {
-              persistToSession(clean, parsed);
+              const wordKey = cleanDictLookupKey(String(data.word || ''));
+              const cleanWordKey = cleanDictLookupKey(String(data.cleanWord || ''));
+              const resolvedKey = cleanWordKey || wordKey || clean;
+              const aliasSet = new Set<string>([clean, wordKey, cleanWordKey].filter(Boolean));
+              aliasSet.delete(resolvedKey);
+              setCachedDictionaryEntry(
+                resolvedKey,
+                data,
+                String(data.source || 'Kho từ điển'),
+                data.image_url || data.imageUrl,
+                {
+                  aliases: aliasSet.size > 0 ? Array.from(aliasSet) : undefined,
+                  examResult: parsed,
+                },
+              );
               return parsed;
             }
           }
         }
-      }
-    }
+      } else {
+        // Phrase lookup: 1 request with ?fallback=translate; fallback to POST /api/translate if needed
+        const phraseData = await queryDictEndpoint(
+          `/api/dictionary/lookup?word=${encodeURIComponent(clean)}&fallback=translate`,
+          2500,
+        );
+        if (phraseData) {
+          if (phraseData.isFuzzyOnly && phraseData.didYouMean) {
+            lastDidYouMean = phraseData.didYouMean;
+          } else if (
+            typeof phraseData.translatedText === 'string' &&
+            phraseData.translatedText.trim() &&
+            !phraseData.results?.length &&
+            !phraseData.definition
+          ) {
+            const phraseResult: ExamDictResult = {
+              word: rawWord,
+              cleanWord: clean,
+              ipa: '',
+              pos: 'cụm từ',
+              definition: phraseData.translatedText.trim(),
+              synonyms: [],
+              antonyms: [],
+            };
+            setCachedDictionaryEntry(clean, phraseResult, 'translate', undefined, {
+              examResult: phraseResult,
+            });
+            return phraseResult;
+          } else {
+            const parsed = parseDictPayload(phraseData, clean, rawWord);
+            if (parsed) {
+              const wordKey = cleanDictLookupKey(String(phraseData.word || ''));
+              const cleanWordKey = cleanDictLookupKey(String(phraseData.cleanWord || ''));
+              const resolvedKey = cleanWordKey || wordKey || clean;
+              const aliasSet = new Set<string>([clean, wordKey, cleanWordKey].filter(Boolean));
+              aliasSet.delete(resolvedKey);
+              setCachedDictionaryEntry(
+                resolvedKey,
+                phraseData,
+                String(phraseData.source || 'Kho từ điển'),
+                phraseData.image_url || phraseData.imageUrl,
+                {
+                  aliases: aliasSet.size > 0 ? Array.from(aliasSet) : undefined,
+                  examResult: parsed,
+                },
+              );
+              return parsed;
+            }
+          }
+        }
 
-    // ── TIER 2: WIKTIONARY PROXY (/api/dictionary/external) ──
-    const extData = await queryDictEndpoint(
-      `/api/dictionary/external?word=${encodeURIComponent(clean)}`,
-      2500
-    );
-    if (extData && !extData.isFuzzyOnly) {
-      const parsed = parseDictPayload(extData, clean, rawWord);
-      if (parsed) {
-        persistToSession(clean, parsed);
-        return parsed;
-      }
-    }
-
-    // Thử các biến thể trên Tier 2 song song
-    if (otherCandidates.length > 0) {
-      const extLemmaResults = await Promise.all(
-        otherCandidates.map((c) =>
-          queryDictEndpoint(`/api/dictionary/external?word=${encodeURIComponent(c)}`, 2000)
-        )
-      );
-      for (const d of extLemmaResults) {
-        if (d && !d.isFuzzyOnly) {
-          const parsed = parseDictPayload(d, clean, rawWord);
-          if (parsed) {
-            persistToSession(clean, parsed);
-            return parsed;
+        if (!lastDidYouMean) {
+          const translateRes = await queryTranslateEndpoint(clean, 2500);
+          if (translateRes) {
+            const phraseResult: ExamDictResult = {
+              word: rawWord,
+              cleanWord: clean,
+              ipa: '',
+              pos: 'cụm từ',
+              definition: translateRes,
+              synonyms: [],
+              antonyms: [],
+            };
+            setCachedDictionaryEntry(clean, phraseResult, 'translate', undefined, {
+              examResult: phraseResult,
+            });
+            return phraseResult;
           }
         }
       }
-    }
 
-    // ── Fallback an toàn nếu không tìm thấy ──
-    const fallback: ExamDictResult = {
-      word: rawWord,
-      cleanWord: clean,
-      ipa: '',
-      pos: isPhrase ? 'cụm từ' : '',
-      definition: isPhrase
-        ? 'Cụm từ tiếng Anh. Bấm "Lưu vào Sổ từ" để hệ thống tự động đồng bộ và phân tích.'
-        : 'Từ vựng tiếng Anh. Bấm "Lưu vào Sổ từ" để hệ thống tự động đồng bộ và phân tích.',
-      synonyms: [],
-      antonyms: [],
-      didYouMean: lastDidYouMean,
-    };
-    persistToSession(clean, fallback);
-    return fallback;
-  })();
-
-  inFlightRequests.set(clean, fetchPromise);
-  try {
-    const result = await fetchPromise;
-    return result;
-  } finally {
-    inFlightRequests.delete(clean);
-  }
+      // ── Fallback an toàn (TTL ngắn 30s để phục hồi nhanh khi mạng ổn định) ──
+      const fallback: ExamDictResult = {
+        word: rawWord,
+        cleanWord: clean,
+        ipa: '',
+        pos: isPhrase ? 'cụm từ' : '',
+        definition: isPhrase
+          ? 'Cụm từ tiếng Anh. Bấm "Lưu vào Sổ từ" để hệ thống tự động đồng bộ và phân tích.'
+          : 'Từ vựng tiếng Anh. Bấm "Lưu vào Sổ từ" để hệ thống tự động đồng bộ và phân tích.',
+        synonyms: [],
+        antonyms: [],
+        didYouMean: lastDidYouMean,
+      };
+      setCachedDictionaryEntry(clean, fallback, 'fallback', undefined, {
+        ttlMs: FALLBACK_DICT_TTL_MS,
+        examResult: fallback,
+      });
+      return fallback;
+    },
+    options?.signal,
+  );
 }
 
 const SAVED_WORDS_KEY = 'lingo_saved_words';
@@ -731,6 +679,15 @@ export function isMeaningSavedLocally(cleanWord: string, translation: string): b
     const norm = normalizeTranslationStorageKey(s);
     return norm === targetTrans || (norm.length >= 3 && targetTrans.length >= 3 && (norm.includes(targetTrans) || targetTrans.includes(norm)));
   });
+}
+
+function isExactMeaningSavedLocally(cleanWord: string, translation: string): boolean {
+  if (typeof window === 'undefined' || !cleanWord || !translation) return false;
+  const targetNorm = normalizeTranslationStorageKey(translation);
+  if (!targetNorm) return false;
+  return getSavedMeaningsLocally(cleanWord).some(
+    (s) => normalizeTranslationStorageKey(s) === targetNorm,
+  );
 }
 
 /**
@@ -826,5 +783,310 @@ export function saveWordLocally(cleanWord: string, translation?: string): void {
     }
   } catch {
     // Ignore localStorage quota errors
+  }
+}
+
+function dispatchWindowEvent(name: string, detail?: Record<string, unknown>): void {
+  if (typeof window === 'undefined' || typeof window.dispatchEvent !== 'function') return;
+  try {
+    const event =
+      typeof CustomEvent !== 'undefined'
+        ? new CustomEvent(name, { detail })
+        : ({ type: name, detail } as unknown as Event);
+    window.dispatchEvent(event);
+  } catch {
+    // ignore event dispatch errors in restricted environments
+  }
+}
+
+/**
+ * Xóa một nghĩa cụ thể khỏi localStorage (dùng khi rollback 403 FREE_WORD_LIMIT hoặc lỗi server).
+ */
+export function removeWordMeaningLocally(cleanWord: string, translation: string): void {
+  if (typeof window === 'undefined' || !cleanWord || !translation) return;
+  const target = cleanWord.trim().toLowerCase();
+  const normTarget = normalizeTranslationStorageKey(translation);
+  if (!target || !normTarget) return;
+
+  try {
+    const raw = localStorage.getItem(SAVED_MEANINGS_KEY);
+    if (!raw) return;
+    const map = JSON.parse(raw);
+    if (typeof map !== 'object' || map === null || Array.isArray(map)) return;
+    const list = map[target];
+    if (!Array.isArray(list)) return;
+
+    const filtered = list.filter(
+      (s: unknown) => typeof s === 'string' && normalizeTranslationStorageKey(s) !== normTarget,
+    );
+    if (filtered.length > 0) {
+      map[target] = filtered;
+    } else {
+      delete map[target];
+    }
+    localStorage.setItem(SAVED_MEANINGS_KEY, JSON.stringify(map));
+  } catch {
+    // Ignore storage errors
+  }
+}
+
+/**
+ * Xóa từ khỏi lingo_saved_words nếu từ không còn nghĩa nào khác đã lưu.
+ */
+export function removeWordLocallyIfUnused(cleanWord: string): void {
+  if (typeof window === 'undefined' || !cleanWord) return;
+  const target = cleanWord.trim().toLowerCase();
+  if (!target) return;
+
+  try {
+    const remainingMeanings = getSavedMeaningsLocally(target);
+    if (remainingMeanings.length > 0) return;
+
+    const stored = localStorage.getItem(SAVED_WORDS_KEY);
+    if (!stored) return;
+    const localWords = JSON.parse(stored);
+    if (!Array.isArray(localWords)) return;
+
+    const filtered = localWords.filter(
+      (w: unknown) => typeof w !== 'string' || w.toLowerCase() !== target,
+    );
+    localStorage.setItem(SAVED_WORDS_KEY, JSON.stringify(filtered));
+  } catch {
+    // Ignore storage errors
+  }
+}
+
+export interface SaveVocabFromLookupParams {
+  word: string;
+  translation: string;
+  ipa?: string;
+  pos?: string;
+  example?: string;
+  exampleVi?: string;
+  imageUrl?: string;
+  classroomId?: string;
+  sourceUrl?: string;
+  skipAI?: boolean;
+}
+
+export interface SaveVocabFromLookupResult {
+  ok: boolean;
+  status:
+    | 'saved'
+    | 'already_exists'
+    | 'guest_saved'
+    | 'offline_saved'
+    | 'limit_reached'
+    | 'rate_limited'
+    | 'error';
+  word: string;
+  translation: string;
+  wordId?: string;
+  alreadyExists?: boolean;
+  upsell?: UpsellPayload;
+  wordQuota?: { used: number; limit: number; remaining: number } | null;
+  message?: string;
+}
+
+/**
+ * Unified SRS save flow across all lookup surfaces:
+ * 1. Snapshot pre-save polysemy state for surgical rollback.
+ * 2. Optimistic localStorage persistence + `notifyWordSavedOptimistic(userId)` + `lingo_word_saved`.
+ * 3. Guest-safe early return when `!userId` (0 failed 401 requests).
+ * 4. Authenticated `POST /api/words` via `authFetch` with `alreadyExists` reconciliation,
+ *    `WORD_NEAR_LIMIT_USED` soft upsell, and surgical `403 FREE_WORD_LIMIT` / error rollback.
+ * 5. Offline-first resilience (`GEMINI.md` Rule 4): preserves local save on network errors.
+ */
+export async function saveVocabFromLookup(
+  params: SaveVocabFromLookupParams,
+): Promise<SaveVocabFromLookupResult> {
+  const targetWord = cleanDictLookupKey(params.word) || (params.word || '').trim().toLowerCase();
+  const targetTranslation = (params.translation || '').trim();
+
+  if (!targetWord) {
+    return {
+      ok: false,
+      status: 'error',
+      word: '',
+      translation: targetTranslation,
+      message: 'Từ không hợp lệ.',
+    };
+  }
+
+  // 1. Pre-save snapshot for surgical polysemy rollback (exact normalized equality matching saveMeaningLocally)
+  const wasWordAlreadySaved = isWordSavedLocally(targetWord);
+  const wasMeaningAlreadySaved = targetTranslation
+    ? isExactMeaningSavedLocally(targetWord, targetTranslation)
+    : false;
+
+  // 2. Offline-resilient session resolution (never clears cache on transient network errors)
+  let userId: string | null = null;
+  try {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    userId = session?.user?.id ?? null;
+  } catch {
+    userId = null;
+  }
+
+  // 3. Optimistic local persistence + summary badge update
+  saveWordLocally(targetWord, targetTranslation || undefined);
+  const didIncrementSummary =
+    !wasMeaningAlreadySaved && (Boolean(targetTranslation) || !wasWordAlreadySaved);
+
+  if (didIncrementSummary) {
+    notifyWordSavedOptimistic(userId);
+  }
+
+  dispatchWindowEvent('lingo_word_saved', {
+    word: targetWord,
+    translation: targetTranslation,
+    summaryNotified: true,
+  });
+
+  // 4. Guest-safe early return (avoids 401 network errors)
+  if (!userId) {
+    return {
+      ok: true,
+      status: 'guest_saved',
+      word: targetWord,
+      translation: targetTranslation,
+    };
+  }
+
+  const rollbackOptimisticSave = () => {
+    if (!wasMeaningAlreadySaved && targetTranslation) {
+      removeWordMeaningLocally(targetWord, targetTranslation);
+    }
+    if (!wasWordAlreadySaved) {
+      removeWordLocallyIfUnused(targetWord);
+    }
+    if (didIncrementSummary) {
+      notifyWordSaveRollback(userId);
+    }
+    dispatchWindowEvent('lingo_word_save_rollback', {
+      word: targetWord,
+      translation: targetTranslation,
+    });
+  };
+
+  // 5. Authenticated SRS sync via POST /api/words
+  try {
+    const res = await authFetch('/api/words', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        word: targetWord,
+        translation: targetTranslation || undefined,
+        ipa: params.ipa || '',
+        pos: params.pos || '',
+        example: params.example || undefined,
+        exampleVi: params.exampleVi || undefined,
+        imageUrl: params.imageUrl || undefined,
+        classroomId: params.classroomId || undefined,
+        sourceUrl:
+          params.sourceUrl ||
+          (typeof window !== 'undefined' ? window.location.pathname : undefined),
+        ...(params.skipAI !== undefined ? { skipAI: params.skipAI } : {}),
+      }),
+    });
+
+    const json = (await res.json().catch(() => ({}))) as {
+      success?: boolean;
+      alreadyExists?: boolean;
+      wordId?: string;
+      error?: string;
+      message?: string;
+      used?: number;
+      limit?: number;
+      remaining?: number;
+      wordQuota?: { used: number; limit: number; remaining: number } | null;
+    };
+
+    // Case A: 403 FREE_WORD_LIMIT -> surgical rollback + upsell modal
+    if (res.status === 403 && isFreeWordLimitError(json)) {
+      const limitMessage =
+        typeof (json as { message?: unknown }).message === 'string'
+          ? (json as { message?: string }).message
+          : undefined;
+      rollbackOptimisticSave();
+      const upsell = upsellFromWordLimitError(json);
+      requestUpsell(upsell);
+      return {
+        ok: false,
+        status: 'limit_reached',
+        word: targetWord,
+        translation: targetTranslation,
+        upsell,
+        message: limitMessage,
+      };
+    }
+
+    // Case B: Rate limit or non-ok error -> surgical rollback
+    if (!res.ok) {
+      rollbackOptimisticSave();
+      return {
+        ok: false,
+        status: res.status === 429 ? 'rate_limited' : 'error',
+        word: targetWord,
+        translation: targetTranslation,
+        message: json.message || json.error || 'Không thể lưu từ vựng.',
+      };
+    }
+
+    // Case C: Already exists in DB -> keep local save, reconcile optimistic summary +1
+    if (json.alreadyExists) {
+      if (didIncrementSummary) {
+        notifyWordSaveRollback(userId);
+      }
+      return {
+        ok: true,
+        status: 'already_exists',
+        alreadyExists: true,
+        wordId: json.wordId,
+        word: targetWord,
+        translation: targetTranslation,
+        message: json.message,
+      };
+    }
+
+    // Case D: Saved -> check soft near-limit upsell (>= 150)
+    let upsell: UpsellPayload | undefined;
+    if (
+      typeof json.wordQuota?.used === 'number' &&
+      typeof json.wordQuota?.limit === 'number' &&
+      json.wordQuota.used >= WORD_NEAR_LIMIT_USED
+    ) {
+      upsell = {
+        reason: json.wordQuota.remaining <= 0 ? 'word_limit' : 'word_near_limit',
+        used: json.wordQuota.used,
+        limit: json.wordQuota.limit,
+        remaining: json.wordQuota.remaining ?? 0,
+      };
+      requestUpsell(upsell);
+    }
+
+    return {
+      ok: true,
+      status: 'saved',
+      wordId: json.wordId,
+      wordQuota: json.wordQuota ?? null,
+      upsell,
+      word: targetWord,
+      translation: targetTranslation,
+      message: json.message,
+    };
+  } catch {
+    // Case E: Offline / network failure -> preserve local save, reconcile server summary count
+    if (didIncrementSummary) {
+      notifyWordSaveRollback(userId);
+    }
+    return {
+      ok: true,
+      status: 'offline_saved',
+      word: targetWord,
+      translation: targetTranslation,
+    };
   }
 }

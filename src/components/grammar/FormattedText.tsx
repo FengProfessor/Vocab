@@ -1,78 +1,75 @@
 'use client';
 
 import React from 'react';
+import {
+  InteractiveFormattedText,
+  type InteractiveFormattedTextProps,
+} from '@/components/vocab/InteractiveFormattedText';
+import type { LookupThemeVariant } from '@/components/vocab/VocabLookupProvider';
 
-interface FormattedTextProps {
+/**
+ * Matches Vietnamese-specific diacritic characters while intentionally excluding
+ * French `é` (e.g. `café`) so English loanwords remain lookup-interactive (`IT-7.5`).
+ */
+export const VIETNAMESE_DIACRITICS_REGEX =
+  /[àáạảãâầấậẩẫăằắặẳẵèẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+
+export function hasVietnameseDiacritics(s?: string | null): boolean {
+  return Boolean(s && VIETNAMESE_DIACRITICS_REGEX.test(s));
+}
+
+export function isTrueFalseVi(text?: string | null): boolean {
+  return Boolean(text && /^(?:[A-D]\.\s*)?(Đúng|Sai)$/i.test(text.trim()));
+}
+
+/**
+ * Splits a trailing parenthetical Vietnamese note (e.g. `I cut my hair (nhờ thợ).`)
+ * so the English prefix can be interactive while the Vietnamese tail stays plain (`IT-7.5`).
+ */
+export function splitTrailingVietnameseParenthetical(
+  text?: string | null,
+): { main: string; viTail: string } | null {
+  if (!text) return null;
+  const match = text.match(/^(.*?)(\s*\([^)]+\)\.?)$/);
+  if (!match) return null;
+  const [, main, viTail] = match;
+  if (!main.trim() || !hasVietnameseDiacritics(viTail)) return null;
+  return { main, viTail };
+}
+
+export interface FormattedTextProps {
   text?: string | null;
   className?: string;
+  interactive?: boolean;
+  themeVariant?: LookupThemeVariant;
+  contextSentence?: string;
+  interactiveCode?: boolean;
+  onWordClick?: InteractiveFormattedTextProps['onWordClick'];
 }
 
 /**
  * Renders inline markdown (**bold**, *italic*, `code`) into clean React elements.
- * Converts markdown bullets to typography bullets (•) and strips any rogue unmatched
- * asterisks, guaranteeing zero raw '**' or '*' artifacts in the UI.
+ * Defaults to `interactive={false}` so Vietnamese theory/feedback callers stay
+ * non-interactive (`IT-7.5`); English callers opt in via `interactive`.
  */
-export default function FormattedText({ text, className = '' }: FormattedTextProps) {
-  if (text === null || text === undefined) return null;
-  const rawStr = typeof text === 'string' ? text : String(text);
-  if (!rawStr.trim()) return null;
-
-  // 1. Normalize bullet points at beginning of lines or after punctuation: "* " -> "• "
-  const preprocessed = rawStr
-    .replace(/(^|\n)\s*[*•]\s+/g, '$1• ')
-    .replace(/\s+[*•]\s+/g, ' • ');
-
-  // 2. Tokenize by bold-italic (***...***), bold (**...**), italic (*...*), or inline code (`...`)
-  const tokens = preprocessed.split(/(\*{3}[^*\n]+?\*{3}|\*{2}[^*\n]+?\*{2}|\*[^*\n]+?\*|`[^`\n]+?`)/g);
-
+export default function FormattedText({
+  text,
+  className = '',
+  interactive = false,
+  themeVariant = 'minimalist',
+  contextSentence,
+  interactiveCode = true,
+  onWordClick,
+}: FormattedTextProps) {
   return (
-    <span className={`whitespace-pre-line break-words ${className}`}>
-      {tokens.map((token, i) => {
-        if (!token) return null;
-
-        // Bold + Italic: ***text***
-        if (token.startsWith('***') && token.endsWith('***') && token.length >= 6) {
-          const inner = token.slice(3, -3).replace(/\*/g, '').trim();
-          return (
-            <strong key={i} className="font-semibold italic text-foreground">
-              {inner}
-            </strong>
-          );
-        }
-
-        // Bold: **text**
-        if (token.startsWith('**') && token.endsWith('**') && token.length >= 4) {
-          const inner = token.slice(2, -2).replace(/\*/g, '').trim();
-          return (
-            <strong key={i} className="font-semibold text-foreground">
-              {inner}
-            </strong>
-          );
-        }
-
-        // Italic: *text*
-        if (token.startsWith('*') && token.endsWith('*') && token.length >= 2) {
-          const inner = token.slice(1, -1).replace(/\*/g, '').trim();
-          return (
-            <em key={i} className="italic text-foreground/90">
-              {inner}
-            </em>
-          );
-        }
-
-        // Code: `code`
-        if (token.startsWith('`') && token.endsWith('`') && token.length >= 2) {
-          return (
-            <code key={i} className="font-mono text-[11px] px-1 py-0.5 bg-muted/60 border border-border/60 rounded-none">
-              {token.slice(1, -1)}
-            </code>
-          );
-        }
-
-        // Plain text: strip any stray or unmatched asterisks completely
-        const cleanPlainText = token.replace(/\*+/g, '');
-        return <span key={i}>{cleanPlainText}</span>;
-      })}
-    </span>
+    <InteractiveFormattedText
+      text={text}
+      className={className}
+      enabled={interactive}
+      themeVariant={themeVariant}
+      contextSentence={contextSentence}
+      interactiveCode={interactiveCode}
+      onWordClick={onWordClick}
+    />
   );
 }

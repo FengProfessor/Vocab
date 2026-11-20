@@ -11,7 +11,9 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import type { UnifiedGrammarExercise, DistractorBreakdown } from '@/lib/grammar-types';
-import FormattedText from './FormattedText';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveFormattedText } from '@/components/vocab/InteractiveFormattedText';
+import FormattedText, { hasVietnameseDiacritics, isTrueFalseVi } from './FormattedText';
 
 export interface DistractorExplanation {
   option: string;
@@ -178,7 +180,11 @@ export default function PedagogicalFeedbackPanel({
         <div className="font-mono text-xs flex items-center gap-1.5">
           <span className="text-muted-foreground">ĐÁP ÁN ĐÚNG:</span>
           <strong className="underline underline-offset-2 px-1.5 py-0.5 bg-background border border-border">
-            <FormattedText text={resolvedCorrectAnswer} />
+            <InteractiveFormattedText
+              text={resolvedCorrectAnswer}
+              enabled={!isTrueFalseVi(resolvedCorrectAnswer) && !hasVietnameseDiacritics(resolvedCorrectAnswer)}
+              themeVariant="minimalist"
+            />
           </strong>
         </div>
       </div>
@@ -189,7 +195,15 @@ export default function PedagogicalFeedbackPanel({
           <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-rose-700 dark:text-rose-400">
             <AlertTriangle className="h-4 w-4 shrink-0" />
             <span>
-              Vì sao đáp án bạn chọn chưa đúng: &quot;{selectedChoice}&quot;
+              Vì sao đáp án bạn chọn chưa đúng: &quot;
+              <ExamInteractiveText
+                text={selectedChoice}
+                enabled={!isTrueFalseVi(selectedChoice) && !hasVietnameseDiacritics(selectedChoice)}
+                as="span"
+                inheritClassName
+                themeVariant="minimalist"
+              />
+              &quot;
             </span>
           </div>
 
@@ -299,7 +313,13 @@ export default function PedagogicalFeedbackPanel({
                               : 'bg-muted/40 border-border text-foreground'
                           }`}
                         >
-                          {dist.option}
+                          <ExamInteractiveText
+                            text={dist.option}
+                            enabled={!isTrueFalseVi(dist.option) && !hasVietnameseDiacritics(dist.option)}
+                            as="span"
+                            inheritClassName
+                            themeVariant="minimalist"
+                          />
                         </span>
 
                         <span
@@ -342,7 +362,11 @@ export default function PedagogicalFeedbackPanel({
                 <span className="text-[10px] uppercase font-bold text-primary block mb-1">
                   Công thức & Cấu trúc nền tảng:
                 </span>
-                <FormattedText text={coreRule} />
+                <InteractiveFormattedText
+                  text={coreRule}
+                  enabled={!hasVietnameseDiacritics(coreRule)}
+                  themeVariant="minimalist"
+                />
               </div>
             )}
 

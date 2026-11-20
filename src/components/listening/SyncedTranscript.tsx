@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
-import { Play, Repeat, Eye, EyeOff, ArrowDown, Sparkles } from 'lucide-react';
-import { findActiveCueIndex, formatTime } from '@/lib/listening';
+import { Play, Repeat, Eye, EyeOff, ArrowDown } from 'lucide-react';
+import { findActiveCueIndex, formatTime } from '@/lib/listening-utils';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
 import { WordLookupPopover } from './WordLookupPopover';
 import type { TranscriptCue, CoreVocabulary, SubtitleDisplayMode } from '@/types/listening';
 
@@ -35,13 +36,14 @@ export const SyncedTranscript: React.FC<SyncedTranscriptProps> = ({
   const [isAutoScrollLocked, setIsAutoScrollLocked] = useState(true);
   const [revealedHiddenCues, setRevealedHiddenCues] = useState<Record<string, boolean>>({});
   const isProgrammaticScrollRef = useRef(false);
+  const vocabLookup = useOptionalVocabLookup();
 
   // Active cue calculation with O(log N) binary search and 1.2s silence gap hysteresis
   const activeIndex = findActiveCueIndex(cues, currentTime);
 
   // Auto-scrolling: center active cue smoothly when auto-scroll is locked
   useEffect(() => {
-    if (activeIndex === -1 || !isAutoScrollLocked) return;
+    if (activeIndex === -1 || !isAutoScrollLocked || vocabLookup?.isOpen) return;
 
     const container = containerRef.current;
     if (!container) return;
@@ -66,7 +68,7 @@ export const SyncedTranscript: React.FC<SyncedTranscriptProps> = ({
       }, 500);
       return () => clearTimeout(timer);
     }
-  }, [activeIndex, isAutoScrollLocked]);
+  }, [activeIndex, isAutoScrollLocked, vocabLookup?.isOpen]);
 
   // Detect manual user scroll to pause auto-scroll
   const handleUserScroll = useCallback(() => {

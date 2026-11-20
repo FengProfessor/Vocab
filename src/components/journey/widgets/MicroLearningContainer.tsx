@@ -14,10 +14,15 @@ import {
   BookOpen,
 } from 'lucide-react';
 import { playWordAudio } from '@/lib/audio';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveFormattedText } from '@/components/vocab';
 import { WordPairMatchWidget, WordPairMatchWidgetProps } from './WordPairMatchWidget';
 import { DialogueClozeWidget, DialogueClozeWidgetProps } from './DialogueClozeWidget';
 import { ReadingPassageExplorer, ReadingPassageExplorerProps } from './ReadingPassageExplorer';
 import { PhoneticArticulationWidget, PhoneticArticulationProps } from './PhoneticArticulationWidget';
+
+const VIETNAMESE_DIACRITIC_RE =
+  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
 
 export interface MicroLearningStepConfig {
   hook: {
@@ -77,7 +82,9 @@ export const MicroLearningContainer: React.FC<MicroLearningContainerProps> = ({
 
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const onCompleteRef = useRef(onComplete);
-  onCompleteRef.current = onComplete;
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   // Track elapsed session time
   useEffect(() => {
@@ -268,7 +275,12 @@ export const MicroLearningContainer: React.FC<MicroLearningContainerProps> = ({
             {/* Scenario Dialogue Card */}
             <div className="p-5 rounded-2xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/80">
               <p className="text-base sm:text-lg text-zinc-800 dark:text-zinc-200 leading-relaxed font-medium">
-                "{config.hook.scenario}"
+                &ldquo;
+                <InteractiveFormattedText
+                  text={config.hook.scenario}
+                  enabled={!VIETNAMESE_DIACRITIC_RE.test(config.hook.scenario)}
+                />
+                &rdquo;
               </p>
 
               {config.hook.scenarioVi && (
@@ -282,7 +294,7 @@ export const MicroLearningContainer: React.FC<MicroLearningContainerProps> = ({
                   </button>
                   {showViTranslation && (
                     <p className="text-sm text-zinc-600 dark:text-zinc-400 italic">
-                      "{config.hook.scenarioVi}"
+                      &ldquo;{config.hook.scenarioVi}&rdquo;
                     </p>
                   )}
                 </div>
@@ -325,7 +337,12 @@ export const MicroLearningContainer: React.FC<MicroLearningContainerProps> = ({
                         {rule.label}
                       </div>
                       <div className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
-                        Ví dụ: <span className="font-semibold">{rule.example}</span>
+                        Ví dụ:{' '}
+                        <InteractiveFormattedText
+                          text={rule.example}
+                          enabled={!VIETNAMESE_DIACRITIC_RE.test(rule.example)}
+                          className="font-semibold"
+                        />
                         {rule.exampleVi && <span className="text-zinc-500 italic ml-2">({rule.exampleVi})</span>}
                       </div>
                     </div>
@@ -352,7 +369,12 @@ export const MicroLearningContainer: React.FC<MicroLearningContainerProps> = ({
                       key={sIdx}
                       className="px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 text-xs font-semibold"
                     >
-                      {sig}
+                      <ExamInteractiveText
+                        text={sig}
+                        enabled={!VIETNAMESE_DIACRITIC_RE.test(sig)}
+                        as="span"
+                        inheritClassName
+                      />
                     </span>
                   ))}
                 </div>
@@ -450,7 +472,7 @@ export const MicroLearningContainer: React.FC<MicroLearningContainerProps> = ({
                   Mục tiêu năng lực đầu ra (Can-Do):
                 </div>
                 <div className="text-sm font-bold text-emerald-950 dark:text-emerald-200">
-                  "{config.summary.canDoStatement}"
+                  &ldquo;{config.summary.canDoStatement}&rdquo;
                 </div>
               </div>
             </div>

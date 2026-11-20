@@ -4,6 +4,7 @@ import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import { Table, Search, CheckCircle2, AlertCircle, Info, BookOpen, Volume2, Sparkles, LayoutGrid } from 'lucide-react';
 import { speak } from '@/lib/study';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import PronounVisualDeck from './PronounVisualDeck';
 
 interface PronounRow {
@@ -38,8 +39,14 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'myself',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">I</strong> am a student. The teacher helps{' '}
-        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">me</strong>.
+        <strong className="text-primary font-bold">
+          <ExamInteractiveText text="I" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="I am a student. The teacher helps me." />
+        </strong>
+        <ExamInteractiveText text=" am a student. The teacher helps " enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="I am a student. The teacher helps me." />
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">
+          <ExamInteractiveText text="me" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="I am a student. The teacher helps me." />
+        </strong>
+        .
       </span>
     ),
     exampleSentenceRaw: 'I am a student. The teacher helps me.',
@@ -59,8 +66,14 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'yourself',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">You</strong> are my friend. I like{' '}
-        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">you</strong>.
+        <strong className="text-primary font-bold">
+          <ExamInteractiveText text="You" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="You are my friend. I like you." />
+        </strong>
+        <ExamInteractiveText text=" are my friend. I like " enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="You are my friend. I like you." />
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">
+          <ExamInteractiveText text="you" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="You are my friend. I like you." />
+        </strong>
+        .
       </span>
     ),
     exampleSentenceRaw: 'You are my friend. I like you.',
@@ -80,8 +93,14 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'himself',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">He</strong> is my brother. Everyone likes{' '}
-        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">him</strong>.
+        <strong className="text-primary font-bold">
+          <ExamInteractiveText text="He" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="He is my brother. Everyone likes him." />
+        </strong>
+        <ExamInteractiveText text=" is my brother. Everyone likes " enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="He is my brother. Everyone likes him." />
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">
+          <ExamInteractiveText text="him" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="He is my brother. Everyone likes him." />
+        </strong>
+        .
       </span>
     ),
     exampleSentenceRaw: 'He is my brother. Everyone likes him.',
@@ -101,8 +120,14 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'herself',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">She</strong> is a teacher. We love{' '}
-        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">her</strong>.
+        <strong className="text-primary font-bold">
+          <ExamInteractiveText text="She" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="She is a teacher. We love her." />
+        </strong>
+        <ExamInteractiveText text=" is a teacher. We love " enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="She is a teacher. We love her." />
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">
+          <ExamInteractiveText text="her" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="She is a teacher. We love her." />
+        </strong>
+        .
       </span>
     ),
     exampleSentenceRaw: 'She is a teacher. We love her.',
@@ -122,8 +147,14 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'itself',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">It</strong> is a cute puppy. I feed{' '}
-        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">it</strong> every day.
+        <strong className="text-primary font-bold">
+          <ExamInteractiveText text="It" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="It is a cute puppy. I feed it every day." />
+        </strong>
+        <ExamInteractiveText text=" is a cute puppy. I feed " enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="It is a cute puppy. I feed it every day." />
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">
+          <ExamInteractiveText text="it" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="It is a cute puppy. I feed it every day." />
+        </strong>
+        <ExamInteractiveText text=" every day." enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="It is a cute puppy. I feed it every day." />
       </span>
     ),
     exampleSentenceRaw: 'It is a cute puppy. I feed it every day.',
@@ -143,8 +174,14 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'ourselves',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">We</strong> study English together. The teacher teaches{' '}
-        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">us</strong>.
+        <strong className="text-primary font-bold">
+          <ExamInteractiveText text="We" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="We study English together. The teacher teaches us." />
+        </strong>
+        <ExamInteractiveText text=" study English together. The teacher teaches " enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="We study English together. The teacher teaches us." />
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">
+          <ExamInteractiveText text="us" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="We study English together. The teacher teaches us." />
+        </strong>
+        .
       </span>
     ),
     exampleSentenceRaw: 'We study English together. The teacher teaches us.',
@@ -164,8 +201,14 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'yourselves',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">You</strong> are great students. I will guide{' '}
-        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">you</strong>.
+        <strong className="text-primary font-bold">
+          <ExamInteractiveText text="You" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="You are great students. I will guide you." />
+        </strong>
+        <ExamInteractiveText text=" are great students. I will guide " enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="You are great students. I will guide you." />
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">
+          <ExamInteractiveText text="you" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="You are great students. I will guide you." />
+        </strong>
+        .
       </span>
     ),
     exampleSentenceRaw: 'You are great students. I will guide you.',
@@ -185,8 +228,14 @@ const PRONOUN_DATA: PronounRow[] = [
     reflexive: 'themselves',
     exampleEn: (
       <span>
-        <strong className="text-primary font-bold">They</strong> play football outside. Look at{' '}
-        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">them</strong>.
+        <strong className="text-primary font-bold">
+          <ExamInteractiveText text="They" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="They play football outside. Look at them." />
+        </strong>
+        <ExamInteractiveText text=" play football outside. Look at " enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="They play football outside. Look at them." />
+        <strong className="text-emerald-700 dark:text-emerald-400 font-bold">
+          <ExamInteractiveText text="them" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="They play football outside. Look at them." />
+        </strong>
+        .
       </span>
     ),
     exampleSentenceRaw: 'They play football outside. Look at them.',
@@ -373,43 +422,79 @@ export default function PronounMatrixTable() {
 
                   {/* Primary Pair: Subject (S) vs Object (O) */}
                   <div className="grid grid-cols-2 gap-1.5 font-mono text-xs">
-                    <button
-                      type="button"
-                      onClick={() => playPronunciation(row.subject)}
-                      className="p-2 border border-primary/30 bg-primary/5 flex items-center justify-between gap-1 text-left rounded-none"
+                    <div
+                      onClick={(e) => {
+                        if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger')) return;
+                        if (typeof window !== 'undefined' && !(window.getSelection()?.isCollapsed ?? true)) return;
+                        playPronunciation(row.subject);
+                      }}
+                      className="p-2 border border-primary/30 bg-primary/5 flex items-center justify-between gap-1 text-left rounded-none cursor-pointer"
                     >
                       <div>
                         <div className="text-[10px] uppercase text-muted-foreground">Chủ ngữ (S)</div>
-                        <div className="text-sm font-bold text-primary">{row.subject}</div>
+                        <div className="text-sm font-bold text-primary">
+                          <ExamInteractiveText text={row.subject} enabled as="span" inheritClassName themeVariant="minimalist" contextSentence={row.exampleSentenceRaw} />
+                        </div>
                       </div>
-                      <Volume2 className="h-3.5 w-3.5 text-primary/70 shrink-0" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => playPronunciation(row.object)}
-                      className="p-2 border border-emerald-500/30 bg-emerald-500/5 flex items-center justify-between gap-1 text-left rounded-none"
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          playPronunciation(row.subject);
+                        }}
+                        className="p-1 text-primary/70 hover:text-primary shrink-0"
+                        aria-label={`Nghe "${row.subject}"`}
+                      >
+                        <Volume2 className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                    <div
+                      onClick={(e) => {
+                        if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger')) return;
+                        if (typeof window !== 'undefined' && !(window.getSelection()?.isCollapsed ?? true)) return;
+                        playPronunciation(row.object);
+                      }}
+                      className="p-2 border border-emerald-500/30 bg-emerald-500/5 flex items-center justify-between gap-1 text-left rounded-none cursor-pointer"
                     >
                       <div>
                         <div className="text-[10px] uppercase text-muted-foreground">Tân ngữ (O)</div>
-                        <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">{row.object}</div>
+                        <div className="text-sm font-bold text-emerald-700 dark:text-emerald-400">
+                          <ExamInteractiveText text={row.object} enabled as="span" inheritClassName themeVariant="minimalist" contextSentence={row.exampleSentenceRaw} />
+                        </div>
                       </div>
-                      <Volume2 className="h-3.5 w-3.5 text-emerald-600/70 shrink-0" />
-                    </button>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          playPronunciation(row.object);
+                        }}
+                        className="p-1 text-emerald-600/70 hover:text-emerald-600 shrink-0"
+                        aria-label={`Nghe "${row.object}"`}
+                      >
+                        <Volume2 className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
                   </div>
 
                   {/* Secondary Trio: Possessive Adj, Possessive Pronoun, Reflexive */}
                   <div className="grid grid-cols-3 gap-1.5 font-mono text-[11px]">
                     <div className="p-1.5 border border-border/60 bg-muted/15 rounded-none">
                       <div className="text-[10px] uppercase text-muted-foreground">TT Sở hữu</div>
-                      <div className="font-bold text-foreground">{row.possessiveAdj}</div>
+                      <div className="font-bold text-foreground">
+                        <ExamInteractiveText text={row.possessiveAdj} enabled as="span" inheritClassName themeVariant="minimalist" />
+                      </div>
                     </div>
                     <div className="p-1.5 border border-border/60 bg-muted/15 rounded-none">
                       <div className="text-[10px] uppercase text-muted-foreground">ĐT Sở hữu</div>
-                      <div className="font-bold text-foreground">{row.possessivePronoun}</div>
+                      <div className="font-bold text-foreground">
+                        <ExamInteractiveText text={row.possessivePronoun} enabled as="span" inheritClassName themeVariant="minimalist" />
+                      </div>
                     </div>
                     <div className="p-1.5 border border-border/60 bg-muted/15 rounded-none">
                       <div className="text-[10px] uppercase text-muted-foreground">Phản thân</div>
-                      <div className="font-bold text-foreground">{row.reflexive}</div>
+                      <div className="font-bold text-foreground">
+                        <ExamInteractiveText text={row.reflexive} enabled as="span" inheritClassName themeVariant="minimalist" />
+                      </div>
                     </div>
                   </div>
 
@@ -492,7 +577,7 @@ export default function PronounMatrixTable() {
                       {/* Subject Pronoun with Audio */}
                       <td className="p-3 font-bold text-primary border-r border-border/60 bg-primary/5 text-sm">
                         <div className="flex items-center justify-between gap-1">
-                          <span>{row.subject}</span>
+                          <ExamInteractiveText text={row.subject} enabled as="span" inheritClassName themeVariant="minimalist" contextSentence={row.exampleSentenceRaw} />
                           <button
                             type="button"
                             onClick={() => playPronunciation(row.subject)}
@@ -507,7 +592,7 @@ export default function PronounMatrixTable() {
                       {/* Object Pronoun with Audio */}
                       <td className="p-3 font-bold text-emerald-700 dark:text-emerald-400 border-r border-border/60 bg-emerald-500/5 text-sm">
                         <div className="flex items-center justify-between gap-1">
-                          <span>{row.object}</span>
+                          <ExamInteractiveText text={row.object} enabled as="span" inheritClassName themeVariant="minimalist" contextSentence={row.exampleSentenceRaw} />
                           <button
                             type="button"
                             onClick={() => playPronunciation(row.object)}
@@ -521,17 +606,17 @@ export default function PronounMatrixTable() {
 
                       {/* Possessive Adjective */}
                       <td className="p-3 font-medium text-foreground border-r border-border/60">
-                        {row.possessiveAdj}
+                        <ExamInteractiveText text={row.possessiveAdj} enabled as="span" inheritClassName themeVariant="minimalist" />
                       </td>
 
                       {/* Possessive Pronoun */}
                       <td className="p-3 font-medium text-muted-foreground border-r border-border/60">
-                        {row.possessivePronoun}
+                        <ExamInteractiveText text={row.possessivePronoun} enabled as="span" inheritClassName themeVariant="minimalist" />
                       </td>
 
                       {/* Reflexive Pronoun */}
                       <td className="p-3 font-medium text-muted-foreground border-r border-border/60">
-                        {row.reflexive}
+                        <ExamInteractiveText text={row.reflexive} enabled as="span" inheritClassName themeVariant="minimalist" />
                       </td>
 
                       {/* Example with Audio Button */}
@@ -576,7 +661,7 @@ export default function PronounMatrixTable() {
             1. Vị trí trong câu (S vs O)
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            <strong>Chủ ngữ (S)</strong> luôn đứng trước động từ chính làm người thực hiện hành động (<em>I call, He speaks</em>). <strong>Tân ngữ (O)</strong> luôn đứng sau động từ hoặc sau giới từ nhận tác động (<em>Call me, Help them</em>).
+            <strong>Chủ ngữ (S)</strong> luôn đứng trước động từ chính làm người thực hiện hành động (<em><ExamInteractiveText text="I call, He speaks" enabled as="span" inheritClassName themeVariant="minimalist" /></em>). <strong>Tân ngữ (O)</strong> luôn đứng sau động từ hoặc sau giới từ nhận tác động (<em><ExamInteractiveText text="Call me, Help them" enabled as="span" inheritClassName themeVariant="minimalist" /></em>).
           </p>
         </div>
 
@@ -586,7 +671,7 @@ export default function PronounMatrixTable() {
             2. Lỗi hay gặp: Sau giới từ
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            Sau các giới từ như <em>between, for, with, to, except</em>, bắt buộc dùng dạng tân ngữ: <code className="bg-muted px-1">between you and me</code> (sai: <em>between you and I</em>).
+            Sau các giới từ như <em><ExamInteractiveText text="between, for, with, to, except" enabled as="span" inheritClassName themeVariant="minimalist" /></em>, bắt buộc dùng dạng tân ngữ: <code className="bg-muted px-1"><ExamInteractiveText text="between you and me" enabled as="span" inheritClassName themeVariant="minimalist" /></code> (sai: <em><ExamInteractiveText text="between you and I" enabled as="span" inheritClassName themeVariant="minimalist" /></em>).
           </p>
         </div>
 
@@ -596,7 +681,7 @@ export default function PronounMatrixTable() {
             3. Phân biệt &quot;Its&quot; và &quot;It&apos;s&quot;
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            <code className="bg-muted px-1">its</code> là tính từ sở hữu: của nó (không có dấu nháy: <em>its screen</em>). <code className="bg-muted px-1">it&apos;s</code> là dạng viết tắt của <em>it is</em> hoặc <em>it has</em>.
+            <code className="bg-muted px-1"><ExamInteractiveText text="its" enabled as="span" inheritClassName themeVariant="minimalist" /></code> là tính từ sở hữu: của nó (không có dấu nháy: <em><ExamInteractiveText text="its screen" enabled as="span" inheritClassName themeVariant="minimalist" /></em>). <code className="bg-muted px-1"><ExamInteractiveText text="it's" enabled as="span" inheritClassName themeVariant="minimalist" /></code> là dạng viết tắt của <em><ExamInteractiveText text="it is" enabled as="span" inheritClassName themeVariant="minimalist" /></em> hoặc <em><ExamInteractiveText text="it has" enabled as="span" inheritClassName themeVariant="minimalist" /></em>.
           </p>
         </div>
 
@@ -606,7 +691,7 @@ export default function PronounMatrixTable() {
             4. Lưu ý: Đại từ phản thân
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            Đại từ phản thân (<em>myself, yourself</em>) dùng để nhấn mạnh hoặc khi chủ ngữ và tân ngữ cùng là một đối tượng. Không bao giờ làm chủ ngữ độc lập (không nói <em>&quot;Myself did it&quot;</em>, phải nói: <em>&quot;I did it myself&quot;</em>).
+            Đại từ phản thân (<em><ExamInteractiveText text="myself, yourself" enabled as="span" inheritClassName themeVariant="minimalist" /></em>) dùng để nhấn mạnh hoặc khi chủ ngữ và tân ngữ cùng là một đối tượng. Không bao giờ làm chủ ngữ độc lập (không nói <em>&quot;<ExamInteractiveText text="Myself did it" enabled as="span" inheritClassName themeVariant="minimalist" />&quot;</em>, phải nói: <em>&quot;<ExamInteractiveText text="I did it myself" enabled as="span" inheritClassName themeVariant="minimalist" />&quot;</em>).
           </p>
         </div>
       </div>

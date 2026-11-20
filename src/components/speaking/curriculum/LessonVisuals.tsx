@@ -3,6 +3,12 @@
 import React from 'react';
 import { MapPin, Target } from 'lucide-react';
 import { DualSpeedAudioButton } from '@/components/speaking/foundation/DualSpeedAudioButton';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import {
+  hasVietnameseDiacritics,
+  splitTrailingVietnameseParenthetical,
+} from '@/components/grammar/FormattedText';
+import type { LookupThemeVariant } from '@/components/vocab';
 import {
   getLessonVisual,
   openMojiUrl,
@@ -160,10 +166,26 @@ interface PictureWordCardProps {
   hint?: string;
   /** Cấp CEFR-J của từ (nếu có trong danh sách). */
   level?: string;
+  themeVariant?: LookupThemeVariant;
 }
 
 /** Thẻ từ có tranh: nhìn hình → nghe → đọc to. Từ trừu tượng hiển thị chữ cái đầu thay cho tranh. */
-export function PictureWordCard({ word, ipa, meaningVi, pictureUrl, audioUrl, hint, level }: PictureWordCardProps) {
+export function PictureWordCard({
+  word,
+  ipa,
+  meaningVi,
+  pictureUrl,
+  audioUrl,
+  hint,
+  level,
+  themeVariant = 'dark',
+}: PictureWordCardProps) {
+  const trimmedHint = hint?.trim();
+  const parsedHint = trimmedHint
+    ? splitTrailingVietnameseParenthetical(trimmedHint) ??
+      (!hasVietnameseDiacritics(trimmedHint) ? { main: trimmedHint, viTail: '' } : null)
+    : null;
+
   return (
     <div className="flex items-center gap-3 rounded-xl border border-slate-800 bg-slate-900/60 p-3 hover:border-slate-700 transition-colors">
       <div className="flex size-14 shrink-0 items-center justify-center rounded-xl border border-slate-800 bg-slate-950/70">
@@ -178,7 +200,16 @@ export function PictureWordCard({ word, ipa, meaningVi, pictureUrl, audioUrl, hi
       </div>
       <div className="min-w-0 flex-1 space-y-0.5">
         <div className="flex items-baseline gap-2 flex-wrap">
-          <span className="text-sm sm:text-base font-bold text-white">{word}</span>
+          <span className="text-sm sm:text-base font-bold text-white">
+            <ExamInteractiveText
+              text={word}
+              enabled={!hasVietnameseDiacritics(word)}
+              as="span"
+              inheritClassName
+              themeVariant={themeVariant}
+              contextSentence={parsedHint?.main || undefined}
+            />
+          </span>
           {ipa && <span className="text-xs font-mono text-amber-300">{ipa}</span>}
           {level && (
             <span
@@ -190,7 +221,26 @@ export function PictureWordCard({ word, ipa, meaningVi, pictureUrl, audioUrl, hi
           )}
         </div>
         {meaningVi && <p className="text-xs text-slate-400">{meaningVi}</p>}
-        {hint && <p className="text-[11px] italic text-amber-300/80">💡 {hint}</p>}
+        {hint && (
+          <p className="text-[11px] italic text-amber-300/80">
+            💡{' '}
+            {parsedHint ? (
+              <>
+                <ExamInteractiveText
+                  text={parsedHint.main}
+                  enabled
+                  as="span"
+                  inheritClassName
+                  themeVariant={themeVariant}
+                  contextSentence={parsedHint.main}
+                />
+                {parsedHint.viTail}
+              </>
+            ) : (
+              hint
+            )}
+          </p>
+        )}
       </div>
       <DualSpeedAudioButton text={word} audioUrl={audioUrl} size="sm" showLabels={false} />
     </div>

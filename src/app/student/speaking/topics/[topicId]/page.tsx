@@ -210,12 +210,7 @@ export default function SpeakingTopicDetailPage() {
       'Gợi ý: Trả lời rõ ràng, phát âm đủ âm đuôi.',
       'Sử dụng các cấu trúc mẫu được gợi ý bên phải.',
     ],
-    keyVocabulary: topic.keyVocabulary?.map((v) => ({
-      term: v.term,
-      ipa: v.ipa,
-      meaningVi: v.meaningVi,
-      audioUrl: v.exampleEn,
-    })),
+    keyVocabulary: topic.keyVocabulary,
   };
 
   // Compile starters from useful phrases and associated actions

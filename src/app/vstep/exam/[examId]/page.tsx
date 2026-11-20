@@ -310,6 +310,15 @@ function VstepExamPageInner() {
         )
       : [];
   const currentQuestion: VstepQuestion | undefined = currentQuestions[activeQuestionIdx];
+  const currentQuestionKey = currentQuestion ? getVstepQuestionKey(currentQuestion) : '';
+  const currentOnDemandItem = currentQuestionKey ? onDemandExplanations[currentQuestionKey] : undefined;
+  const currentRevealedAnswer = isCompleted
+    ? currentQuestion?.answer
+    : currentOnDemandItem?.answer;
+  const isCurrentQuestionRevealed = Boolean(
+    isCompleted ||
+      (currentQuestion && (typeof currentRevealedAnswer === 'number' || Boolean(currentOnDemandItem)))
+  );
 
   // Danh sách toàn bộ câu hỏi để hiển thị Question Palette
   const allFlattenedQuestions = useMemo(() => {
@@ -448,7 +457,7 @@ function VstepExamPageInner() {
 
   // Chọn đáp án
   const handleSelectOption = (questionId: string, optionIdx: number) => {
-    if (isCompleted) return;
+    if (isCompleted || onDemandExplanations[questionId]) return;
     setUserAnswers((prev) => ({
       ...prev,
       [questionId]: optionIdx,
@@ -747,9 +756,9 @@ function VstepExamPageInner() {
     (exam.sections[0]?.type === 'listening' || exam.sections[0]?.type === 'reading');
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 select-none">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       {/* ── HEADER PHÒNG THI STICKY TECHNICAL MINIMALIST ── */}
-      <header className="sticky top-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-3 sm:px-4 py-2.5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3 shadow-sm">
+      <header className="sticky top-0 z-40 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-3 sm:px-4 py-2.5 flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3 shadow-sm select-none">
         <div className="flex min-w-0 w-full md:w-auto items-center gap-2 sm:gap-3">
           <Link
             href="/vstep"
@@ -857,7 +866,7 @@ function VstepExamPageInner() {
 
       {/* Mobile section switcher: full mocks must allow moving across all 4 skills. */}
       {currentExam && currentExam.sections.length > 1 && (
-        <div className="md:hidden flex items-center gap-1.5 overflow-x-auto border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-2 scrollbar-none">
+        <div className="md:hidden flex items-center gap-1.5 overflow-x-auto border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-2 scrollbar-none select-none">
           {currentExam.sections.map((sec, idx) => (
             <button
               key={`mobile-${sec.type}`}
@@ -950,7 +959,7 @@ function VstepExamPageInner() {
       )}
 
       {/* Thanh chuyển đổi Đề bài / Câu hỏi trên thiết bị di động (tránh 3 thanh cuộn lồng nhau) */}
-      <div className="md:hidden flex border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-1.5 gap-2">
+      <div className="md:hidden flex border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-3 py-1.5 gap-2 select-none">
         <button
           type="button"
           onClick={() => setMobileActiveTab('stimulus')}
@@ -1041,7 +1050,7 @@ function VstepExamPageInner() {
               {currentSection.type === 'listening' && currentTask?.media?.audio && (
                 <div className="bg-slate-50 dark:bg-slate-800/80 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-3 shadow-xs">
                   {/* Top Bar: Title + Speed selector */}
-                  <div className="flex items-center justify-between text-xs font-mono">
+                  <div className="flex items-center justify-between text-xs font-mono select-none">
                     <div className="flex items-center gap-2">
                       <div className="p-1 rounded bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-300">
                         <Headphones className="w-3.5 h-3.5" />
@@ -1112,7 +1121,7 @@ function VstepExamPageInner() {
 
                   {/* Error Notification with Retry */}
                   {audioError && (
-                    <div className="p-2.5 rounded-lg bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 flex items-center justify-between text-xs text-rose-700 dark:text-rose-300">
+                    <div className="p-2.5 rounded-lg bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 flex items-center justify-between text-xs text-rose-700 dark:text-rose-300 select-none">
                       <div className="flex items-center gap-2">
                         <AlertTriangle className="w-4 h-4 shrink-0 text-rose-500" />
                         <span>{audioError}</span>
@@ -1128,7 +1137,7 @@ function VstepExamPageInner() {
                   )}
 
                   {/* Main Audio Controls */}
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-2.5 select-none">
                     {/* Play / Pause button */}
                     <button
                       type="button"
@@ -1226,7 +1235,7 @@ function VstepExamPageInner() {
                         <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block mb-2">
                           📜 Tapescript Bài Nghe:
                         </span>
-                        <div className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900 p-3 rounded border border-slate-200 dark:border-slate-700 whitespace-pre-line font-sans">
+                        <div className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed bg-white dark:bg-slate-900 p-3 rounded border border-slate-200 dark:border-slate-700 whitespace-pre-line font-sans select-text">
                           <ExamInteractiveText text={stripHtmlTags(resolvedTapescript)} enabled={true} />
                         </div>
                       </div>
@@ -1238,20 +1247,20 @@ function VstepExamPageInner() {
               {/* READING: Passage Text */}
               {currentSection.type === 'reading' && currentTask?.passage && (
                 <div className="space-y-3">
-                  <h3 className="text-base font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1">
-                    {isCompleted ? (
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-1 select-text">
+                    {isCurrentQuestionRevealed ? (
                       <ExamInteractiveText text={stripHtmlTags(currentTask.passage.title)} enabled={true} />
                     ) : (
                       currentTask.passage.title
                     )}
                   </h3>
-                  {isCompleted ? (
-                    <div className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 space-y-3 font-serif whitespace-pre-line">
+                  {isCurrentQuestionRevealed ? (
+                    <div className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 space-y-3 font-serif whitespace-pre-line select-text">
                       <ExamInteractiveText text={stripHtmlTags(currentTask.passage.text)} enabled={true} />
                     </div>
                   ) : (
                     <div
-                      className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 space-y-3 font-serif"
+                      className="text-sm leading-relaxed text-slate-700 dark:text-slate-300 space-y-3 font-serif select-text"
                       dangerouslySetInnerHTML={{ __html: currentTask.passage.text }}
                     />
                   )}
@@ -1262,20 +1271,36 @@ function VstepExamPageInner() {
               {currentSection.type === 'writing' && currentTask && (
                 <div className="space-y-4">
                   {currentTask.title && (
-                    <div
-                      className="text-sm font-semibold text-slate-800 dark:text-slate-200"
-                      dangerouslySetInnerHTML={{ __html: currentTask.title }}
-                    />
+                    isCompleted ? (
+                      <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 whitespace-pre-line select-text">
+                        <ExamInteractiveText text={stripHtmlTags(currentTask.title)} enabled={true} />
+                      </div>
+                    ) : (
+                      <div
+                        className="text-sm font-semibold text-slate-800 dark:text-slate-200 select-text"
+                        dangerouslySetInnerHTML={{ __html: currentTask.title }}
+                      />
+                    )
                   )}
                   {currentTask.content && (
-                    <div
-                      className="p-4 bg-slate-50 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: currentTask.content }}
-                    />
+                    isCompleted ? (
+                      <div className="p-4 bg-slate-50 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 leading-relaxed whitespace-pre-line select-text">
+                        <ExamInteractiveText text={stripHtmlTags(currentTask.content)} enabled={true} />
+                      </div>
+                    ) : (
+                      <div
+                        className="p-4 bg-slate-50 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700 text-xs text-slate-700 dark:text-slate-300 leading-relaxed select-text"
+                        dangerouslySetInnerHTML={{ __html: currentTask.content }}
+                      />
+                    )
                   )}
                   {currentTask.description && (
-                    <p className="text-xs text-slate-500 italic">
-                      {currentTask.description}
+                    <p className="text-xs text-slate-500 italic select-text">
+                      {isCompleted ? (
+                        <ExamInteractiveText text={stripHtmlTags(currentTask.description)} enabled={true} />
+                      ) : (
+                        currentTask.description
+                      )}
                     </p>
                   )}
                   <div className="p-3 bg-blue-50 dark:bg-blue-950/40 rounded border border-blue-200 dark:border-blue-800 text-xs font-mono text-blue-800 dark:text-blue-300">
@@ -1327,12 +1352,15 @@ function VstepExamPageInner() {
                   {currentTask.questions && (
                     <div className="space-y-2">
                       <span className="text-xs font-bold text-slate-600 uppercase">Câu hỏi gợi ý:</span>
-                      <ul className="list-disc pl-5 text-xs text-slate-700 dark:text-slate-300 space-y-1">
-                        {currentTask.questions.map((qText, idx) => (
-                          <li key={idx}>
-                            {typeof qText === 'string' ? qText : qText.question}
-                          </li>
-                        ))}
+                      <ul className="list-disc pl-5 text-xs text-slate-700 dark:text-slate-300 space-y-1 select-text">
+                        {currentTask.questions.map((qText, idx) => {
+                          const rawQ = typeof qText === 'string' ? qText : qText.question;
+                          return (
+                            <li key={idx}>
+                              <ExamInteractiveText text={stripHtmlTags(rawQ)} enabled={isCompleted} />
+                            </li>
+                          );
+                        })}
                       </ul>
                     </div>
                   )}
@@ -1548,26 +1576,24 @@ function VstepExamPageInner() {
               </div>
 
               {/* Question Text */}
-              {isCompleted ? (
-                <div className="text-sm font-semibold text-slate-900 dark:text-white leading-snug">
+              {isCurrentQuestionRevealed ? (
+                <div className="text-sm font-semibold text-slate-900 dark:text-white leading-snug select-text">
                   <ExamInteractiveText text={stripHtmlTags(currentQuestion.question)} enabled={true} />
                 </div>
               ) : (
                 <div
-                  className="text-sm font-semibold text-slate-900 dark:text-white leading-snug"
+                  className="text-sm font-semibold text-slate-900 dark:text-white leading-snug select-text"
                   dangerouslySetInnerHTML={{ __html: currentQuestion.question }}
                 />
               )}
 
               {/* Options A, B, C, D */}
-              <div className="space-y-2.5 pt-2">
+              <div role="radiogroup" aria-label="Các lựa chọn đáp án" className="space-y-2.5 pt-2">
                 {currentQuestion.options.map((optText, optIdx) => {
-                  const currentQuestionKey = getVstepQuestionKey(currentQuestion);
                   const selectedAnswer = userAnswers[currentQuestionKey] ?? userAnswers[currentQuestion.id];
                   const isSelected = selectedAnswer === optIdx;
-                  const onDemandItem = onDemandExplanations[currentQuestionKey];
-                  const revealedAnswer = isCompleted ? currentQuestion.answer : onDemandItem?.answer;
-                  const isRevealed = isCompleted || typeof revealedAnswer === 'number';
+                  const revealedAnswer = currentRevealedAnswer;
+                  const isRevealed = isCurrentQuestionRevealed;
                   const isCorrect = isRevealed && revealedAnswer === optIdx;
                   const isWrong = isRevealed && isSelected && !isCorrect;
 
@@ -1585,12 +1611,50 @@ function VstepExamPageInner() {
                   return (
                     <div
                       key={optIdx}
-                      onClick={() => handleSelectOption(currentQuestionKey, optIdx)}
+                      role="radio"
+                      aria-checked={isSelected}
+                      aria-disabled={isRevealed}
+                      tabIndex={isRevealed ? -1 : 0}
+                      onClick={(e) => {
+                        if (isRevealed) return;
+                        const target = e.target as HTMLElement | null;
+                        if (
+                          target?.closest?.('.exam-lookup-trigger') ||
+                          target?.closest?.('.exam-lookup-card')
+                        ) {
+                          return;
+                        }
+                        const sel = typeof window !== 'undefined' ? window.getSelection() : null;
+                        if (
+                          sel &&
+                          !sel.isCollapsed &&
+                          sel.toString().trim().length > 0 &&
+                          sel.anchorNode &&
+                          e.currentTarget.contains(sel.anchorNode)
+                        ) {
+                          return;
+                        }
+                        handleSelectOption(currentQuestionKey, optIdx);
+                      }}
+                      onKeyDown={(e) => {
+                        if (isRevealed) return;
+                        const target = e.target as HTMLElement | null;
+                        if (
+                          target?.closest?.('.exam-lookup-trigger') ||
+                          target?.closest?.('.exam-lookup-card')
+                        ) {
+                          return;
+                        }
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleSelectOption(currentQuestionKey, optIdx);
+                        }
+                      }}
                       className={`p-3 rounded-lg border flex items-start gap-3 transition-all ${
-                        isCompleted ? 'cursor-default' : 'cursor-pointer'
+                        isRevealed ? 'cursor-default select-text' : 'cursor-pointer select-none'
                       } ${cardStyle}`}
                     >
-                      <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5 ${
+                      <span className={`w-5 h-5 rounded-full flex items-center justify-center text-xs font-mono font-bold shrink-0 mt-0.5 select-none ${
                         isSelected && !isRevealed
                           ? 'bg-blue-600 text-white'
                           : isCorrect
@@ -1646,7 +1710,7 @@ function VstepExamPageInner() {
                     <span className="font-bold flex items-center gap-1 text-blue-800 dark:text-blue-300">
                       <Info className="w-3.5 h-3.5" /> Giải thích chi tiết:
                     </span>
-                    <div className="whitespace-pre-line">
+                    <div className="whitespace-pre-line select-text">
                       <p>{stripHtmlTags(explanationText)}</p>
                     </div>
                   </div>
@@ -1660,7 +1724,7 @@ function VstepExamPageInner() {
           )}
 
           {/* Navigation Buttons: Previous / Next (hỗ trợ chuyển mượt qua ranh giới giữa các Section) */}
-          <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-6 flex items-center justify-between">
+          <div className="border-t border-slate-100 dark:border-slate-800 pt-4 mt-6 flex items-center justify-between select-none">
             <button
               type="button"
               disabled={activeQuestionIdx === 0 && activeTaskIdx === 0 && activeSectionIdx === 0}
@@ -1727,7 +1791,7 @@ function VstepExamPageInner() {
 
       {/* ── QUESTION PALETTE MATRIX DRAWER / MODAL ── */}
       {paletteOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 select-none">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg max-w-2xl w-full max-h-[85vh] flex flex-col shadow-xl">
             <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
               <div>
@@ -1825,7 +1889,7 @@ function VstepExamPageInner() {
 
       {/* ── MODAL XÁC NHẬN NỘP BÀI (SUBMIT CONFIRMATION) ── */}
       {submitModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4 select-none">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg max-w-md w-full p-6 space-y-4 shadow-xl">
             <h3 className="text-base font-bold text-slate-900 dark:text-white">
               Xác Nhận Nộp Bài Khảo Thí VSTEP

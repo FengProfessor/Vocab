@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import type { Components } from 'react-markdown';
 import {
   Clock,
   BookOpen,
@@ -25,6 +26,7 @@ import type {
 } from '@/data/toeic/theory/types';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import { LazyMarkdown } from '@/components/perf/LazyMarkdown';
+import { GrammarFormula } from '@/components/grammar/GrammarFormula';
 import { ToeicTipBox } from './ToeicTipBox';
 import { ToeicTrapAlert } from './ToeicTrapAlert';
 import { ToeicComparisonTable } from './ToeicComparisonTable';
@@ -51,6 +53,100 @@ export type ClassroomWorkspaceTab =
   | 'flashcards'
   | 'notes'
   | 'cheatsheet';
+
+function renderInteractiveChildren(children: React.ReactNode): React.ReactNode {
+  return React.Children.map(children, (child) => {
+    if (typeof child === 'string') {
+      return (
+        <ExamInteractiveText
+          text={child}
+          enabled={true}
+          themeVariant="minimalist"
+          inheritClassName
+        />
+      );
+    }
+    return child;
+  });
+}
+
+const LESSON_MARKDOWN_COMPONENTS: Components = {
+  p: ({ children, ...props }) => (
+    <p className="leading-relaxed my-2.5" {...props}>
+      {renderInteractiveChildren(children)}
+    </p>
+  ),
+  strong: ({ children, ...props }) => (
+    <strong className="font-semibold text-foreground" {...props}>
+      {renderInteractiveChildren(children)}
+    </strong>
+  ),
+  em: ({ children, ...props }) => (
+    <em className="italic" {...props}>
+      {renderInteractiveChildren(children)}
+    </em>
+  ),
+  table: ({ ...props }) => (
+    <div className="overflow-x-auto my-6 -mx-4 sm:mx-0 px-4 sm:px-0">
+      <table className="w-full text-left text-sm border-collapse border-b border-border/60" {...props} />
+    </div>
+  ),
+  thead: ({ ...props }) => (
+    <thead className="border-b border-border/60 text-xs uppercase tracking-wider text-muted-foreground font-semibold" {...props} />
+  ),
+  th: ({ children, ...props }) => (
+    <th className="py-3 px-3.5 font-semibold text-foreground text-xs" {...props}>
+      {renderInteractiveChildren(children)}
+    </th>
+  ),
+  td: ({ children, ...props }) => (
+    <td className="py-3 px-3.5 border-t border-border/30 text-sm text-foreground/90 font-normal" {...props}>
+      {renderInteractiveChildren(children)}
+    </td>
+  ),
+  tr: ({ ...props }) => (
+    <tr className="hover:bg-muted/30 transition-colors" {...props} />
+  ),
+  code: ({
+    inline,
+    className,
+    children,
+    ...props
+  }: React.ComponentPropsWithoutRef<'code'> & { inline?: boolean }) => {
+    const codeText = String(children ?? '').replace(/\n$/, '');
+    if (!inline && className === 'language-formula') {
+      return <GrammarFormula code={codeText} />;
+    }
+    return (
+      <code
+        className="rounded-md bg-muted/60 px-1.5 py-0.5 font-mono text-[0.85em] text-foreground font-medium"
+        {...props}
+      >
+        {codeText ? (
+          <ExamInteractiveText
+            text={codeText}
+            enabled={true}
+            themeVariant="minimalist"
+            inheritClassName
+          />
+        ) : (
+          codeText
+        )}
+      </code>
+    );
+  },
+  ul: ({ ...props }) => (
+    <ul className="my-2.5 list-disc space-y-1 pl-5 text-foreground/90" {...props} />
+  ),
+  ol: ({ ...props }) => (
+    <ol className="my-2.5 list-decimal space-y-1 pl-5 text-foreground/90" {...props} />
+  ),
+  li: ({ children, ...props }) => (
+    <li className="leading-relaxed" {...props}>
+      {renderInteractiveChildren(children)}
+    </li>
+  ),
+};
 
 export function ToeicLessonViewer({
   lesson,
@@ -137,7 +233,12 @@ export function ToeicLessonViewer({
             </h1>
           </div>
           <p className="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            {lesson.englishTitle}
+            <ExamInteractiveText
+              text={lesson.englishTitle}
+              enabled={true}
+              themeVariant="minimalist"
+              inheritClassName
+            />
           </p>
         </div>
 
@@ -327,7 +428,9 @@ export function ToeicLessonViewer({
                 {/* Markdown Body */}
                 {section.contentMarkdown && (
                   <div className="prose prose-slate dark:prose-invert max-w-none text-xs sm:text-sm leading-relaxed">
-                    <LazyMarkdown>{section.contentMarkdown}</LazyMarkdown>
+                    <LazyMarkdown components={LESSON_MARKDOWN_COMPONENTS}>
+                      {section.contentMarkdown}
+                    </LazyMarkdown>
                   </div>
                 )}
 
@@ -372,7 +475,14 @@ export function ToeicLessonViewer({
                           className="flex items-start gap-2 text-emerald-950 dark:text-emerald-200 leading-normal"
                         >
                           <span className="text-emerald-600 font-bold">•</span>
-                          <span>{takeaway}</span>
+                          <span>
+                            <ExamInteractiveText
+                              text={takeaway}
+                              enabled={true}
+                              themeVariant="minimalist"
+                              inheritClassName
+                            />
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -475,7 +585,12 @@ function VisualFormulaBlock({ formula }: { formula: VisualGrammarFormula }) {
       {/* Pattern Banner */}
       <div className="rounded-xs border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-2.5 text-center shadow-xs">
         <span className="font-mono text-sm sm:text-base font-bold text-slate-900 dark:text-white tracking-wider">
-          <ExamInteractiveText text={formula.pattern} enabled={true} />
+          <ExamInteractiveText
+            text={formula.pattern}
+            enabled={true}
+            themeVariant="minimalist"
+            inheritClassName
+          />
         </span>
       </div>
 
@@ -497,7 +612,12 @@ function VisualFormulaBlock({ formula }: { formula: VisualGrammarFormula }) {
                 <div className="min-w-0 space-y-0.5">
                   <div className="font-semibold text-slate-800 dark:text-slate-200">{el.label}</div>
                   <div className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
-                    {el.explanation}
+                    <ExamInteractiveText
+                      text={el.explanation}
+                      enabled={true}
+                      themeVariant="minimalist"
+                      inheritClassName
+                    />
                   </div>
                 </div>
               </div>
@@ -536,7 +656,7 @@ function RealWorldExampleCard({ example }: { example: RealWorldExample }) {
 
       {/* English Sentence (100% interactive with ExamInteractiveText) */}
       <div className="font-semibold text-slate-900 dark:text-slate-100 leading-relaxed text-sm sm:text-base">
-        <ExamInteractiveText text={example.english} enabled={true} />
+        <ExamInteractiveText text={example.english} enabled={true} themeVariant="minimalist" />
       </div>
 
       {/* Vietnamese Translation (plain text, never wrapped per IT-7.5) */}

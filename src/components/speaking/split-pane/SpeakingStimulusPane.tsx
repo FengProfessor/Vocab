@@ -35,6 +35,8 @@ import {
 import { cn } from '@/lib/utils';
 import { stopWordAudio } from '@/lib/audio';
 import { pauseIpaVideo } from '@/components/pronunciation/InteractiveIpaVideoPlayer';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import type { LookupThemeVariant } from '@/components/vocab';
 import type {
   VisualStimulus,
   AudioStimulus,
@@ -104,6 +106,8 @@ export interface SpeakingStimulusPaneProps {
   isRecording?: boolean;
   /** Playback state change listener */
   onPlayStateChange?: (isPlaying: boolean, speed: 0.8 | 1.0) => void;
+  /** Optional theme variant for lookup card */
+  themeVariant?: LookupThemeVariant;
   /** Additional container CSS classes */
   className?: string;
 }
@@ -114,6 +118,51 @@ function formatTime(seconds: number): string {
   const mins = Math.floor(seconds / 60);
   const secs = Math.floor(seconds % 60);
   return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+const VIETNAMESE_DIACRITICS_RE =
+  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+
+function renderCueBullet(bullet: string, themeVariant: LookupThemeVariant) {
+  const parts = bullet.split(/(\([^)]*\))/g);
+  return parts.map((part, idx) => {
+    if (!part) return null;
+    if (part.startsWith('(') && part.endsWith(')') && VIETNAMESE_DIACRITICS_RE.test(part)) {
+      return <React.Fragment key={idx}>{part}</React.Fragment>;
+    }
+    if (VIETNAMESE_DIACRITICS_RE.test(part)) {
+      const colonIdx = part.indexOf(':');
+      if (colonIdx > 0) {
+        const prefix = part.slice(0, colonIdx);
+        const suffix = part.slice(colonIdx);
+        if (!VIETNAMESE_DIACRITICS_RE.test(prefix) && /[a-zA-Z]/.test(prefix)) {
+          return (
+            <React.Fragment key={idx}>
+              <ExamInteractiveText
+                text={prefix}
+                enabled
+                as="span"
+                inheritClassName
+                themeVariant={themeVariant}
+              />
+              {suffix}
+            </React.Fragment>
+          );
+        }
+      }
+      return <React.Fragment key={idx}>{part}</React.Fragment>;
+    }
+    return (
+      <ExamInteractiveText
+        key={idx}
+        text={part}
+        enabled
+        as="span"
+        inheritClassName
+        themeVariant={themeVariant}
+      />
+    );
+  });
 }
 
 export const SpeakingStimulusPane: React.FC<SpeakingStimulusPaneProps> = ({
@@ -132,6 +181,7 @@ export const SpeakingStimulusPane: React.FC<SpeakingStimulusPaneProps> = ({
   keyVocabulary: keyVocabProp,
   isRecording = false,
   onPlayStateChange,
+  themeVariant = 'default',
   className = '',
 }) => {
   // Normalize visual stimulus from either prop
@@ -358,7 +408,13 @@ export const SpeakingStimulusPane: React.FC<SpeakingStimulusPaneProps> = ({
         </div>
 
         <h2 className="text-base sm:text-lg font-bold text-foreground tracking-tight">
-          {displayTitleEn}
+          <ExamInteractiveText
+            text={displayTitleEn}
+            enabled
+            as="span"
+            inheritClassName
+            themeVariant={themeVariant}
+          />
         </h2>
         {displayTitleVi && (
           <p className="text-xs sm:text-sm text-muted-foreground font-medium">
@@ -468,7 +524,9 @@ export const SpeakingStimulusPane: React.FC<SpeakingStimulusPaneProps> = ({
           </div>
           <ul className="list-disc list-inside space-y-1 text-xs sm:text-sm text-foreground/90 pl-1">
             {cueBullets.map((bullet, idx) => (
-              <li key={idx} className="leading-snug">{bullet}</li>
+              <li key={idx} className="leading-snug">
+                {renderCueBullet(bullet, themeVariant)}
+              </li>
             ))}
           </ul>
         </div>
@@ -490,10 +548,23 @@ export const SpeakingStimulusPane: React.FC<SpeakingStimulusPaneProps> = ({
               return (
                 <div
                   key={idx}
-                  className="px-2.5 py-1 rounded border border-border bg-card hover:border-primary/40 transition text-xs flex items-center gap-1.5 select-none"
+                  className="px-2.5 py-1 rounded border border-border bg-card hover:border-primary/40 transition text-xs flex items-center gap-1.5"
                   title={`${term}: ${meaning}`}
                 >
-                  <span className="font-semibold text-foreground">{term}</span>
+                  <span className="font-semibold text-foreground">
+                    <ExamInteractiveText
+                      text={term}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      themeVariant={themeVariant}
+                      contextSentence={
+                        'exampleEn' in item && typeof item.exampleEn === 'string'
+                          ? item.exampleEn
+                          : undefined
+                      }
+                    />
+                  </span>
                   {ipa && (
                     <span className="font-mono text-[11px] text-muted-foreground/80">
                       /{ipa}/
@@ -604,7 +675,17 @@ export const SpeakingStimulusPane: React.FC<SpeakingStimulusPaneProps> = ({
           {audio.transcript && (
             <div className="pt-2 border-t border-dashed border-border/70 text-xs text-muted-foreground leading-relaxed">
               <span className="font-semibold text-foreground">Transcript mẫu: </span>
-              <span>"{audio.transcript}"</span>
+              <span>
+                &ldquo;
+                <ExamInteractiveText
+                  text={audio.transcript}
+                  enabled
+                  as="span"
+                  inheritClassName
+                  themeVariant={themeVariant}
+                />
+                &rdquo;
+              </span>
             </div>
           )}
         </div>
