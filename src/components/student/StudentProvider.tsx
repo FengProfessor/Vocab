@@ -52,6 +52,7 @@ export interface StudentContextValue {
   isLoading: boolean;
   refreshProfile: () => Promise<void>;
   refreshGamification: () => Promise<void>;
+  refreshWordSummary: () => Promise<void>;
   updateWordSummary: (counts: Partial<WordSummaryData>) => void;
 }
 
@@ -110,7 +111,7 @@ export function fetchProfileOnce(userId: string): Promise<ShellProfile | null> {
     try {
       const { data, error } = await supabase
         .from('profiles')
-        .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, created_at')
+        .select('id, full_name, email, role, avatar_url, plan, plan_expires_at, daily_goal, created_at')
         .eq('id', userId)
         .single();
       if (version !== authStateVersion()) return null;
@@ -194,13 +195,14 @@ export function fetchTeacherCheckOnce(userId: string): Promise<boolean> {
 const inFlightWordSummaries = new Map<string, Promise<WordSummaryData | null>>();
 
 export function fetchWordSummaryOnce(userId: string): Promise<WordSummaryData | null> {
-  const existing = inFlightWordSummaries.get(userId);
+  const version = authStateVersion();
+  const requestKey = `${version}:${userId}`;
+  const existing = inFlightWordSummaries.get(requestKey);
   if (existing) return existing;
 
-  const version = authStateVersion();
   const promise = (async () => {
     try {
-      const res = await authFetch('/api/words?summary=1', {});
+      const res = await authFetch('/api/words?summary=1&levels=1', {});
       const json = await res.json();
       if (version !== authStateVersion()) return null;
       if (json?.success) {
@@ -222,11 +224,11 @@ export function fetchWordSummaryOnce(userId: string): Promise<WordSummaryData | 
     } catch {
       return null;
     } finally {
-      inFlightWordSummaries.delete(userId);
+      inFlightWordSummaries.delete(requestKey);
     }
   })();
 
-  inFlightWordSummaries.set(userId, promise);
+  inFlightWordSummaries.set(requestKey, promise);
   return promise;
 }
 
@@ -343,6 +345,15 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
     if (fresh && version === authStateVersion()) {
       setGamification(fresh);
       writeDashboardGamificationCache(session.user.id, fresh);
+    }
+  }, [session]);
+
+  const refreshWordSummary = useCallback(async () => {
+    if (!session?.user?.id) return;
+    const version = authStateVersion();
+    const fresh = await fetchWordSummaryOnce(session.user.id);
+    if (fresh && version === authStateVersion()) {
+      setWordSummary(fresh);
     }
   }, [session]);
 
@@ -561,8 +572,11 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
           };
           setTimeout(() => {
             if (isCancelled) return;
-            if ('requestIdleCallback' in window) {
-              (window as any).requestIdleCallback(triggerPrefetch, { timeout: 4000 });
+            const win = window as Window & {
+              requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number;
+            };
+            if (typeof win.requestIdleCallback === 'function') {
+              win.requestIdleCallback(triggerPrefetch, { timeout: 4000 });
             } else {
               triggerPrefetch();
             }
@@ -722,6 +736,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
       isLoading,
       refreshProfile,
       refreshGamification,
+      refreshWordSummary,
       updateWordSummary,
     }),
     [
@@ -733,6 +748,7 @@ function StudentProviderInner({ children }: { children: ReactNode }) {
       isLoading,
       refreshProfile,
       refreshGamification,
+      refreshWordSummary,
       updateWordSummary,
     ],
   );

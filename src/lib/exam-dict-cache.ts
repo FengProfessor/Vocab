@@ -1,4 +1,18 @@
-import { resolveProxyMediaUrl } from './toeic-media-proxy';
+function sanitizeClientMediaUrl(rawUrl: unknown): string | undefined {
+  if (typeof rawUrl !== 'string') return undefined;
+  const trimmed = rawUrl.trim();
+  if (!trimmed) return undefined;
+  if (
+    trimmed.startsWith('/') ||
+    trimmed.startsWith('data:') ||
+    trimmed.startsWith('blob:') ||
+    trimmed.startsWith('https://') ||
+    trimmed.startsWith('http://')
+  ) {
+    return trimmed;
+  }
+  return undefined;
+}
 
 export interface ExamDictPhrase {
   phrase: string;
@@ -129,12 +143,95 @@ export function getCandidateLemmas(clean: string): string[] {
   return getSingleWordCandidateLemmas(clean);
 }
 
-export function parseDictPayload(data: any, cleanWord: string, rawWord: string): ExamDictResult | null {
-  if (!data) return null;
-  const coreSenses = Array.isArray(data?.core_senses) ? data.core_senses : [];
-  const meanings = data?.results?.[0]?.meanings || data?.meanings || [];
-  const primaryMeaning =
-    meanings.find((m: any) => m?.isPrimary) ||
+interface RawDictCoreSense {
+  definition_vi?: string;
+  label_vi?: string;
+  definition_en?: string;
+  pos?: string;
+  example?: string;
+  example_vi?: string;
+  cefr?: string;
+}
+
+interface RawDictMeaning {
+  isPrimary?: boolean;
+  definition?: string;
+  meaning_vi?: string;
+  meaning?: string;
+  pos?: string;
+  part_of_speech?: string;
+  ipa?: string;
+  example?: string;
+  example_vi?: string;
+  exampleVi?: string;
+  toeic_tip?: string;
+  toeicTip?: string;
+  cefr?: string;
+  synonyms?: string[];
+  antonyms?: string[];
+  familyWords?: string[];
+  word_family?: string[];
+  wordFamily?: string[];
+  image_url?: string;
+  imageUrl?: string;
+}
+
+interface RawDictPhrase {
+  phrase?: string;
+  text?: string;
+  meaning?: string;
+  meaning_vi?: string;
+  image_url?: string;
+  imageUrl?: string;
+}
+
+interface RawDictPayload {
+  core_senses?: RawDictCoreSense[];
+  results?: Array<{
+    meanings?: RawDictMeaning[];
+    pronunciations?: Array<{ ipa?: string }>;
+    definition?: string;
+  }>;
+  meanings?: RawDictMeaning[];
+  translation?: string;
+  definition?: string;
+  pronunciations?: Array<{ ipa?: string }>;
+  ipa?: string;
+  pos?: string;
+  synonyms?: string[];
+  antonyms?: string[];
+  example?: string;
+  example_vi?: string;
+  exampleVi?: string;
+  toeic_tip?: string;
+  toeicTip?: string;
+  familyWords?: string[];
+  word_family?: string[];
+  wordFamily?: string[];
+  image_url?: string;
+  imageUrl?: string;
+  audio_us?: string;
+  audioUs?: string;
+  audio_url?: string;
+  audioUrl?: string;
+  audio_uk?: string;
+  audioUk?: string;
+  phrases?: RawDictPhrase[];
+  isFuzzyOnly?: boolean;
+  didYouMean?: string[];
+}
+
+export function parseDictPayload(
+  rawData: unknown,
+  cleanWord: string,
+  rawWord: string,
+): ExamDictResult | null {
+  if (!rawData || typeof rawData !== 'object') return null;
+  const data = rawData as RawDictPayload;
+  const coreSenses = Array.isArray(data.core_senses) ? data.core_senses : [];
+  const meanings: RawDictMeaning[] = data.results?.[0]?.meanings || data.meanings || [];
+  const primaryMeaning: RawDictMeaning | undefined =
+    meanings.find((m) => m?.isPrimary) ||
     (coreSenses[0]
       ? {
           definition: coreSenses[0].definition_vi || coreSenses[0].label_vi || coreSenses[0].definition_en,
@@ -142,7 +239,7 @@ export function parseDictPayload(data: any, cleanWord: string, rawWord: string):
           example: coreSenses[0].example,
           example_vi: coreSenses[0].example_vi,
         }
-      : null) ||
+      : undefined) ||
     meanings[0];
 
   const definition =
@@ -222,26 +319,24 @@ export function parseDictPayload(data: any, cleanWord: string, rawWord: string):
     data?.imageUrl ||
     primaryMeaning?.image_url ||
     primaryMeaning?.imageUrl;
-  const imageUrl = rawImageUrl ? resolveProxyMediaUrl(rawImageUrl) : undefined;
+  const imageUrl = sanitizeClientMediaUrl(rawImageUrl);
 
   const rawAudioUs =
     data?.audio_us ||
     data?.audioUs ||
     data?.audio_url ||
     data?.audioUrl;
-  const audioUs = rawAudioUs ? resolveProxyMediaUrl(rawAudioUs) : undefined;
+  const audioUs = sanitizeClientMediaUrl(rawAudioUs);
 
   const rawAudioUk = data?.audio_uk || data?.audioUk;
-  const audioUk = rawAudioUk ? resolveProxyMediaUrl(rawAudioUk) : undefined;
+  const audioUk = sanitizeClientMediaUrl(rawAudioUk);
 
-  const rawPhrases = Array.isArray(data?.phrases) ? data.phrases : [];
+  const rawPhrases = Array.isArray(data.phrases) ? data.phrases : [];
   const phrases: ExamDictPhrase[] = rawPhrases
-    .map((p: any) => ({
+    .map((p) => ({
       phrase: p?.phrase || p?.text || '',
       meaning: p?.meaning || p?.meaning_vi || '',
-      imageUrl: p?.image_url || p?.imageUrl
-        ? resolveProxyMediaUrl(p.image_url || p.imageUrl)
-        : undefined,
+      imageUrl: sanitizeClientMediaUrl(p?.image_url || p?.imageUrl),
     }))
     .filter((p: ExamDictPhrase) => Boolean(p.phrase && p.meaning));
 
@@ -313,7 +408,7 @@ export function parseDictPayload(data: any, cleanWord: string, rawWord: string):
   };
 }
 
-async function queryDictEndpoint(url: string, timeoutMs: number): Promise<any | null> {
+async function queryDictEndpoint(url: string, timeoutMs: number): Promise<RawDictPayload | null> {
   try {
     const signal =
       typeof AbortSignal !== 'undefined' && 'timeout' in AbortSignal

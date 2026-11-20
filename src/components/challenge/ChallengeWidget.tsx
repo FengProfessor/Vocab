@@ -13,21 +13,69 @@ import {
   writeChallengeWidgetCache,
 } from '@/lib/dashboard-snapshot-cache'
 
-export function ChallengeWidget() {
-  const [data, setData] = useState<any>(() =>
-    readLastChallengeWidgetCache(readLastProfileCache()?.id),
+export interface ChallengeWidgetData {
+  activeParticipation?: {
+    challenge: {
+      id: string
+      name: string
+      slug: string
+      duration_days: number
+    }
+    progress: {
+      currentDay: number
+      totalDays: number
+      todayCompleted: boolean
+      currentStreak?: number
+      totalActiveDays?: number
+    }
+  }
+  promotedChallenge?: {
+    challenge: {
+      id: string
+      name: string
+      slug: string
+      description?: string | null
+      duration_days?: number
+      deposit_amount?: number | null
+    }
+  }
+}
+
+export interface ChallengeWidgetProps {
+  initialData?: ChallengeWidgetData | null
+  skipFetch?: boolean
+  enabled?: boolean
+}
+
+export function ChallengeWidget({
+  initialData,
+  skipFetch = false,
+  enabled = true,
+}: ChallengeWidgetProps = {}) {
+  const hasInitialProp = initialData !== undefined
+  const [fetchedData, setFetchedData] = useState<ChallengeWidgetData | null>(() =>
+    hasInitialProp
+      ? null
+      : readLastChallengeWidgetCache<ChallengeWidgetData>(readLastProfileCache()?.id),
   )
-  const [loading, setLoading] = useState<boolean>(
-    () => !readLastChallengeWidgetCache(readLastProfileCache()?.id),
+  const [loading, setLoading] = useState<boolean>(() =>
+    hasInitialProp || skipFetch
+      ? false
+      : !readLastChallengeWidgetCache<ChallengeWidgetData>(readLastProfileCache()?.id),
   )
 
   useEffect(() => {
+    if (!enabled || skipFetch || hasInitialProp) {
+      return
+    }
+
+    let cancelled = false
     async function fetchChallengeStatus() {
       try {
         const res = await authFetch('/api/challenges/widget')
-        if (res.ok) {
-          const result = await res.json()
-          setData(result)
+        if (res.ok && !cancelled) {
+          const result = (await res.json()) as ChallengeWidgetData
+          setFetchedData(result)
           const uid = readLastProfileCache()?.id
           if (uid) {
             writeChallengeWidgetCache(uid, result)
@@ -36,14 +84,20 @@ export function ChallengeWidget() {
       } catch (error) {
         console.error('Failed to fetch challenge widget data:', error)
       } finally {
-        setLoading(false)
+        if (!cancelled) setLoading(false)
       }
     }
 
-    fetchChallengeStatus()
-  }, [])
+    void fetchChallengeStatus()
+    return () => {
+      cancelled = true
+    }
+  }, [enabled, skipFetch, hasInitialProp])
 
-  if (loading && !data) {
+  const data = hasInitialProp ? (initialData ?? null) : fetchedData
+  const isLoading = hasInitialProp || skipFetch ? false : loading
+
+  if (!enabled || (isLoading && !data)) {
     return null
   }
 
@@ -55,7 +109,7 @@ export function ChallengeWidget() {
   if (data?.activeParticipation) {
     const { challenge, progress } = data.activeParticipation
     const { currentDay, totalDays, todayCompleted } = progress
-    const percentage = Math.round((currentDay / totalDays) * 100)
+    const percentage = Math.round((currentDay / Math.max(1, totalDays)) * 100)
 
     return (
       <Card className="overflow-hidden border-amber-200 dark:border-amber-900/50 relative">
@@ -79,7 +133,7 @@ export function ChallengeWidget() {
               </Button>
             </Link>
           </div>
-          
+
           <div className="space-y-2">
             <div className="flex justify-between text-xs text-slate-600 dark:text-slate-400">
               <span className="flex items-center gap-1">
@@ -112,7 +166,9 @@ export function ChallengeWidget() {
             </div>
             <div>
               <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100 mb-1">{challenge.name}</h3>
-              <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-1">{challenge.description}</p>
+              {challenge.description ? (
+                <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-1">{challenge.description}</p>
+              ) : null}
             </div>
           </div>
           <Link href={`/challenge/${challenge.slug}`} className="shrink-0">

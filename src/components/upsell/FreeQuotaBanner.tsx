@@ -5,11 +5,18 @@
  * Mount trong StudentShell.
  */
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Crown, X } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
-import { FREE_WORD_MONTHLY_LIMIT, requestUpsell } from '@/lib/upsell';
+import { getEffectivePlan } from '@/lib/entitlement';
+import { useStudentContext } from '@/components/student/StudentProvider';
+import {
+  FREE_WORD_MONTHLY_LIMIT,
+  dismissSuffixDaily,
+  isDismissed,
+  requestUpsell,
+} from '@/lib/upsell';
 
 type Quota = {
   used: number;
@@ -20,15 +27,43 @@ type Quota = {
 
 const SESSION_HIDE_KEY = 'lp:free_quota_banner_hide';
 
-export function FreeQuotaBanner() {
+function isSessionHidden(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    return sessionStorage.getItem(SESSION_HIDE_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+export interface FreeQuotaBannerProps {
+  enabled?: boolean;
+  onStatusChange?: (status: 'active' | 'inactive') => void;
+  onDismiss?: () => void;
+}
+
+export function FreeQuotaBanner({
+  enabled = true,
+  onStatusChange,
+  onDismiss,
+}: FreeQuotaBannerProps) {
+  const studentCtx = useStudentContext();
+  const ctxProfile = studentCtx?.profile ?? null;
+  const isKnownNonFree = Boolean(
+    ctxProfile && getEffectivePlan(ctxProfile.plan, ctxProfile.plan_expires_at) !== 'free',
+  );
   const [quota, setQuota] = useState<Quota | null>(null);
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState<boolean>(() => isSessionHidden());
+  const onStatusChangeRef = useRef(onStatusChange);
 
   useEffect(() => {
-    try {
-      if (sessionStorage.getItem(SESSION_HIDE_KEY) === '1') setHidden(true);
-    } catch {
-      /* ignore */
+    onStatusChangeRef.current = onStatusChange;
+  }, [onStatusChange]);
+
+  useEffect(() => {
+    if (!enabled || isKnownNonFree || hidden || isSessionHidden()) {
+      onStatusChangeRef.current?.('inactive');
+      return;
     }
 
     let cancelled = false;
@@ -36,13 +71,19 @@ export function FreeQuotaBanner() {
       const {
         data: { session },
       } = await supabase.auth.getSession();
-      if (!session?.user || cancelled) return;
+      if (!session?.user || cancelled) {
+        if (!cancelled) onStatusChangeRef.current?.('inactive');
+        return;
+      }
 
       try {
         const res = await fetch('/api/profile', {
           headers: { 'X-LingoPro-Request': '1' },
         });
-        if (!res.ok || cancelled) return;
+        if (!res.ok || cancelled) {
+          if (!cancelled) onStatusChangeRef.current?.('inactive');
+          return;
+        }
         const json = (await res.json()) as {
           success?: boolean;
           entitlement?: {
@@ -55,8 +96,14 @@ export function FreeQuotaBanner() {
             };
           };
         };
-        if (!json.success || !json.entitlement || cancelled) return;
-        if (json.entitlement.effectivePlan !== 'free') return;
+        if (!json.success || !json.entitlement || cancelled) {
+          if (!cancelled) onStatusChangeRef.current?.('inactive');
+          return;
+        }
+        if (json.entitlement.effectivePlan !== 'free') {
+          onStatusChangeRef.current?.('inactive');
+          return;
+        }
 
         const wq = json.entitlement.wordQuota;
         const used = wq?.used ?? 0;
@@ -64,9 +111,13 @@ export function FreeQuotaBanner() {
         const limit = wq?.limit ?? FREE_WORD_MONTHLY_LIMIT;
         const remaining = wq?.remaining ?? Math.max(0, limit - used);
         const signal = Math.max(used, lifetime);
-        if (signal < 150) return;
+        if (signal < 150) {
+          onStatusChangeRef.current?.('inactive');
+          return;
+        }
 
         setQuota({ used: Math.max(used, lifetime), lifetime, limit, remaining });
+        onStatusChangeRef.current?.('active');
 
         // Ép mở modal nếu ≥200 (mọi lần vào shell, kể cả đã dismiss modal trước đó trong session khác)
         if (signal >= limit || used >= limit) {
@@ -77,7 +128,7 @@ export function FreeQuotaBanner() {
             remaining,
             force: true,
           });
-        } else if (signal >= 150) {
+        } else if (signal >= 150 && !isDismissed('word_near_limit', dismissSuffixDaily())) {
           requestUpsell({
             reason: 'word_near_limit',
             used: Math.max(used, lifetime),
@@ -86,16 +137,16 @@ export function FreeQuotaBanner() {
           });
         }
       } catch {
-        /* ignore */
+        if (!cancelled) onStatusChangeRef.current?.('inactive');
       }
     })();
 
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [enabled, isKnownNonFree, hidden]);
 
-  if (hidden || !quota) return null;
+  if (!enabled || isKnownNonFree || hidden || !quota) return null;
 
   const over = quota.used >= quota.limit || quota.remaining <= 0;
   const pct = Math.min(100, Math.round((quota.used / Math.max(1, quota.limit)) * 100));
@@ -147,6 +198,8 @@ export function FreeQuotaBanner() {
             } catch {
               /* ignore */
             }
+            onStatusChange?.('inactive');
+            onDismiss?.();
           }}
           className="shrink-0 rounded-lg p-1.5 text-black/40 hover:bg-black/5 hover:text-black/70"
         >

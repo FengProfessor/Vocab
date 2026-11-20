@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { StudentShell } from '@/components/student/StudentShell';
+import { BadgeGrid } from '@/components/gamification/BadgeGrid';
 import { StreakCounter } from '@/components/gamification/StreakCounter';
 import { XpBadge } from '@/components/gamification/XpBadge';
 import { Button } from '@/components/ui/button';
@@ -25,14 +26,21 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { useGamification } from '@/hooks/useGamification';
+import { authFetch } from '@/lib/auth-fetch';
 import { requestForToken } from '@/lib/firebase';
 import { markPushDeviceRegistered } from '@/lib/push-device-state';
 import {
+  earnedBadges,
   lastActiveFromActivity,
   resolveDisplayStreak,
   xpToLevel,
 } from '@/lib/gamification';
-import { supabase, type Profile } from '@/lib/supabase';
+import {
+  fetchRoadmap,
+  readCachedRoadmapResponse,
+  type RoadmapTreeResponse,
+} from '@/lib/roadmap-client';
+import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
 import { PROVINCES } from '@/lib/provinces';
 import { useStudentContext } from '@/components/student/StudentProvider';
 import {
@@ -87,6 +95,45 @@ function fmtDay(isoDate: string): string {
   return isoDate.slice(8) + '/' + isoDate.slice(5, 7);
 }
 
+const DEFAULT_GAMIFICATION: UserGamification = {
+  user_id: '',
+  total_xp: 0,
+  current_streak: 0,
+  longest_streak: 0,
+  last_active_date: null,
+  daily_goal: 30,
+  today_xp: 0,
+  today_date: null,
+};
+
+function computeRoadmapBadgeProgress(
+  roadmap: RoadmapTreeResponse | null,
+): { unitsDone: number; levelsDone: string[] } | undefined {
+  if (!roadmap?.enrolled || !Array.isArray(roadmap.tree) || roadmap.tree.length === 0) {
+    return undefined;
+  }
+  let unitsDone = 0;
+  const levelsDone: string[] = [];
+  for (const level of roadmap.tree) {
+    if (!Array.isArray(level.units) || level.units.length === 0) continue;
+    let levelCompletedUnits = 0;
+    for (const unit of level.units) {
+      const done =
+        Array.isArray(unit.steps) &&
+        unit.steps.length > 0 &&
+        unit.steps.every((s) => s.status === 'completed');
+      if (done) {
+        unitsDone += 1;
+        levelCompletedUnits += 1;
+      }
+    }
+    if (levelCompletedUnits === level.units.length) {
+      levelsDone.push(level.id);
+    }
+  }
+  return { unitsDone, levelsDone };
+}
+
 function resolveInitialStats(userId?: string | null): StatsData | null {
   const cached = readLastProfileStatsCache<StatsData>(userId);
   if (cached && cached.wordStats) return cached;
@@ -120,7 +167,10 @@ function resolveInitialStats(userId?: string | null): StatsData | null {
   };
 }
 
+const emptySubscribe = () => () => {};
+
 export default function ProfilePage() {
+  const isHydrated = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const studentCtx = useStudentContext();
   const initialProfile = (studentCtx?.profile ?? readLastProfileCache()) as StudentProfile | null;
   const [profile, setProfile] = useState<StudentProfile | null>(() => initialProfile);
@@ -132,12 +182,21 @@ export default function ProfilePage() {
   const [tokenCopied, setTokenCopied] = useState(false);
 
   const [fullName, setFullName] = useState(() => initialProfile?.full_name ?? '');
-  const [dailyGoal, setDailyGoal] = useState(() => initialProfile?.daily_goal ?? 30);
+  const [dailyGoal, setDailyGoal] = useState(() => initialProfile?.daily_goal ?? 10);
   const [notificationHour, setNotificationHour] = useState(() => initialProfile?.notification_hour ?? 8);
   const [province, setProvince] = useState(() => initialProfile?.province ?? '');
 
   const router = useRouter();
-  const { data: gamification } = useGamification(profile?.id ?? null);
+  const initialGamification = studentCtx?.gamification ?? readLastGamificationCache();
+  const { data: fallbackGamification } = useGamification(
+    studentCtx ? null : (profile?.id ?? null),
+  );
+  const gamification = studentCtx
+    ? studentCtx.gamification
+    : (fallbackGamification ?? initialGamification ?? DEFAULT_GAMIFICATION);
+  const [roadmapData, setRoadmapData] = useState<RoadmapTreeResponse | null>(() =>
+    readCachedRoadmapResponse('cefr'),
+  );
 
   /** Streak = ngày học liên tiếp (từ stats heatmap), không phải tổng ngày học / raw DB. */
   const displayStreak =
@@ -152,13 +211,38 @@ export default function ProfilePage() {
     (stats?.dailyActivity ? lastActiveFromActivity(stats.dailyActivity) : null) ??
     gamification.last_active_date;
 
+  const effectiveLevelCounts =
+    stats?.wordStats?.levelCounts && stats.wordStats.levelCounts.length >= 6
+      ? stats.wordStats.levelCounts
+      : studentCtx?.wordSummary?.levelCounts;
+  const masteredCount =
+    effectiveLevelCounts && effectiveLevelCounts.length >= 6
+      ? (Number(effectiveLevelCounts[4]) || 0) + (Number(effectiveLevelCounts[5]) || 0)
+      : 0;
+  const roadmapSummary = useMemo(
+    () => computeRoadmapBadgeProgress(roadmapData),
+    [roadmapData],
+  );
+  const badges = useMemo(
+    () =>
+      earnedBadges(
+        { ...gamification, current_streak: displayStreak },
+        masteredCount,
+        roadmapSummary,
+      ),
+    [gamification, displayStreak, masteredCount, roadmapSummary],
+  );
+
   useEffect(() => {
+    let isCancelled = false;
+
     const checkAuth = async () => {
       try {
         const {
           data: { session },
           error,
         } = await supabase.auth.getSession();
+        if (isCancelled) return;
         if (error) {
           setIsLoading(false);
           return;
@@ -169,25 +253,31 @@ export default function ProfilePage() {
           return;
         }
 
-        const statsPromise = fetch('/api/student/stats', {
-          headers: { 'X-LingoPro-Request': '1' },
-        })
-          .then((response) => response.json())
+        const statsPromise = authFetch('/api/student/stats')
+          .then((response) => (response.ok ? response.json() : null))
           .catch(() => null);
 
-        const { data: prof } = await supabase
+        const profilePromise = supabase
           .from('profiles')
           .select('*')
           .eq('id', session.user.id)
           .single();
 
-        const statsResponse = await statsPromise;
+        const roadmapPromise = fetchRoadmap('cefr').catch(() => null);
+
+        const [statsResponse, { data: prof }, roadmapRes] = await Promise.all([
+          statsPromise,
+          profilePromise,
+          roadmapPromise,
+        ]);
+
+        if (isCancelled) return;
 
         if (prof) {
           const nextProfile = prof as StudentProfile;
           setProfile(nextProfile);
           setFullName(nextProfile.full_name ?? '');
-          setDailyGoal(nextProfile.daily_goal ?? 30);
+          setDailyGoal(nextProfile.daily_goal ?? 10);
           setNotificationHour(nextProfile.notification_hour ?? 8);
           setProvince(nextProfile.province ?? '');
           writeDashboardProfileCache(session.user.id, nextProfile);
@@ -197,14 +287,23 @@ export default function ProfilePage() {
           setStats(statsResponse.data as StatsData);
           writeProfileStatsCache(session.user.id, statsResponse.data);
         }
+
+        if (roadmapRes) {
+          setRoadmapData(roadmapRes);
+        }
       } catch {
         // preserve cached Frame-0 state if offline
       } finally {
-        setIsLoading(false);
+        if (!isCancelled) {
+          setIsLoading(false);
+        }
       }
     };
 
     void checkAuth();
+    return () => {
+      isCancelled = true;
+    };
   }, [router]);
 
   const handleSave = async () => {
@@ -248,6 +347,7 @@ export default function ProfilePage() {
         });
       }
 
+      await studentCtx?.refreshProfile();
       toast.success('Đã lưu.');
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Lỗi không xác định';
@@ -318,7 +418,8 @@ export default function ProfilePage() {
     }
   };
 
-  if (isLoading) {
+  const effectiveIsLoading = !isHydrated || isLoading;
+  if (effectiveIsLoading) {
     return (
       <div className="flex min-h-dvh items-center justify-center bg-muted/40">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -344,7 +445,12 @@ export default function ProfilePage() {
   }
 
   return (
-    <StudentShell title="Hồ sơ">
+    <StudentShell
+      title="Hồ sơ"
+      profile={profile}
+      gamification={gamification}
+      displayStreak={displayStreak}
+    >
       <div className="mx-auto max-w-2xl space-y-3">
         {/* Header */}
         <div className="flex items-center gap-3">
@@ -391,7 +497,7 @@ export default function ProfilePage() {
         </Link>
 
         {/* XP + Streak */}
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
           <XpBadge totalXp={gamification.total_xp} variant="detailed" />
           <StreakCounter
             streak={displayStreak}
@@ -399,6 +505,11 @@ export default function ProfilePage() {
             variant="detailed"
           />
         </div>
+
+        {/* Badges */}
+        <section className="rounded-xl border bg-background p-3 shadow-sm">
+          <BadgeGrid badges={badges} className="[&_h3]:normal-case" />
+        </section>
 
         {/* Stats */}
         <section id="stats" className="space-y-2.5 rounded-xl border bg-background p-3 shadow-sm">
@@ -577,7 +688,7 @@ export default function ProfilePage() {
                 Mục tiêu ngày
               </Label>
               <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[11px] font-black text-primary">
-                {dailyGoal} phút
+                {dailyGoal} từ/ngày
               </span>
             </div>
             <input

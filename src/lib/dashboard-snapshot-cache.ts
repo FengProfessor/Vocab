@@ -220,13 +220,33 @@ export function writeDashboardWordsCache(userId: string, words: Word[]): void {
   }
 }
 
+export interface CachedEnrolledClassroom {
+  id: string;
+  name: string;
+  description: string | null;
+  invite_code: string | null;
+  joined_at: string | null;
+  teacher: {
+    id: string;
+    name: string;
+    email: string;
+  };
+}
+
 export interface DashboardSecondarySnapshot {
   dailyActivity?: Array<{ date: string; count: number; day?: string; words?: number; xp?: number; isToday?: boolean }>;
   todayWords?: number;
   todayNewWords?: number;
   todayReviewWords?: number;
   studyStreak?: number;
-  vocabPacks?: Array<any>;
+  vocabPacks?: unknown[];
+  classrooms?: CachedEnrolledClassroom[];
+  readingProgress?: {
+    completedCount: number;
+    inProgressCount: number;
+    totalReadCount: number;
+    totalArticles: number;
+  };
   dailyReadingStatus?: {
     hasNew: boolean;
     title: string;
@@ -240,7 +260,7 @@ export interface DashboardSecondarySnapshot {
 
 export interface DailyReadingSnapshot {
   date?: string;
-  exercises: any[];
+  exercises: unknown[];
   doneCount?: number;
   totalCount?: number;
   hasNew?: boolean;
@@ -278,12 +298,12 @@ export interface ProfileStatsSnapshot {
   dailyGoal: number;
   todayWords: number;
   dailyActivity: { day: string; words: number; xp: number }[];
-  achievements: any[];
+  achievements: unknown[];
   updatedAt?: number;
 }
 
 export interface LibraryCatalogSnapshot {
-  routes: any[];
+  routes: unknown[];
   microPackSize: number;
   catalogVersion: string;
   updatedAt: number;
@@ -399,7 +419,11 @@ export function writeDailyReadingCache(
   safeWriteJson(keyForDailyReading(userId), record, userId);
 }
 
-export function readLastProfileStatsCache<T = any>(userId?: string | null): T | null {
+type DefaultProfileStats = {
+  wordStats?: { total?: number } & Record<string, unknown>;
+} & Record<string, unknown>;
+
+export function readLastProfileStatsCache<T = DefaultProfileStats>(userId?: string | null): T | null {
   if (userId) {
     const direct = safeReadJson<T>(keyForProfileStats(userId));
     if (direct && typeof direct === 'object') return direct;
@@ -407,13 +431,16 @@ export function readLastProfileStatsCache<T = any>(userId?: string | null): T | 
   return readByUserOrPrefix<T>(
     keyForProfileStats,
     'lp:profile-stats:',
-    (v) => typeof v === 'object' && v !== null && ('wordStats' in (v as any) || 'totalWords' in (v as any)),
+    (v) =>
+      typeof v === 'object' &&
+      v !== null &&
+      ('wordStats' in (v as Record<string, unknown>) || 'totalWords' in (v as Record<string, unknown>)),
   );
 }
 
-export function writeProfileStatsCache<T = any>(userId: string, stats: T): void {
+export function writeProfileStatsCache<T = Record<string, unknown>>(userId: string, stats: T): void {
   if (typeof window === 'undefined' || !userId || !stats || typeof stats !== 'object') return;
-  safeWriteJson(keyForProfileStats(userId), { ...(stats as any), updatedAt: Date.now() }, userId);
+  safeWriteJson(keyForProfileStats(userId), { ...(stats as Record<string, unknown>), updatedAt: Date.now() }, userId);
 }
 
 export function readLibraryCatalogCache(): LibraryCatalogSnapshot | null {
@@ -427,7 +454,7 @@ export function writeLibraryCatalogCache(payload: Omit<LibraryCatalogSnapshot, '
   safeWriteJson(keyForLibraryCatalog(), { ...payload, updatedAt: Date.now() });
 }
 
-export function readLastRoadmapCache<T = any>(track: string, userId?: string | null): T[] | null {
+export function readLastRoadmapCache<T = Record<string, unknown>>(track: string, userId?: string | null): T[] | null {
   if (typeof window === 'undefined' || !track) return null;
   const uid = userId || getLastUserId() || 'anon';
   const snap = safeReadJson<{ nodes: T[]; updatedAt: number }>(keyForRoadmap(uid, track));
@@ -447,13 +474,13 @@ export function readLastRoadmapCache<T = any>(track: string, userId?: string | n
   return null;
 }
 
-export function writeRoadmapCache<T = any>(track: string, nodes: T[], userId?: string | null): void {
+export function writeRoadmapCache<T = Record<string, unknown>>(track: string, nodes: T[], userId?: string | null): void {
   if (typeof window === 'undefined' || !track || !Array.isArray(nodes) || nodes.length === 0) return;
   const uid = userId || getLastUserId() || 'anon';
   safeWriteJson(keyForRoadmap(uid, track), { nodes, updatedAt: Date.now() }, userId || undefined);
 }
 
-export function readLastChallengeWidgetCache<T = any>(userId?: string | null): T | null {
+export function readLastChallengeWidgetCache<T = Record<string, unknown>>(userId?: string | null): T | null {
   if (userId) {
     const direct = safeReadJson<{ data: T; updatedAt: number }>(keyForChallengeWidget(userId));
     if (direct && direct.data !== undefined) return direct.data;
@@ -466,12 +493,12 @@ export function readLastChallengeWidgetCache<T = any>(userId?: string | null): T
   return found ? found.data : null;
 }
 
-export function writeChallengeWidgetCache<T = any>(userId: string, data: T): void {
+export function writeChallengeWidgetCache<T = Record<string, unknown>>(userId: string, data: T): void {
   if (typeof window === 'undefined' || !userId) return;
   safeWriteJson(keyForChallengeWidget(userId), { data, updatedAt: Date.now() }, userId);
 }
 
-export function readLastProMilestoneCache<T = any>(userId?: string | null): T | null {
+export function readLastProMilestoneCache<T = Record<string, unknown>>(userId?: string | null): T | null {
   if (userId) {
     const direct = safeReadJson<{ data: T; updatedAt: number }>(keyForProMilestone(userId));
     if (direct && direct.data !== undefined) return direct.data;
@@ -484,7 +511,7 @@ export function readLastProMilestoneCache<T = any>(userId?: string | null): T | 
   return found ? found.data : null;
 }
 
-export function writeProMilestoneCache<T = any>(userId: string, data: T): void {
+export function writeProMilestoneCache<T = Record<string, unknown>>(userId: string, data: T): void {
   if (typeof window === 'undefined' || !userId) return;
   safeWriteJson(keyForProMilestone(userId), { data, updatedAt: Date.now() }, userId);
 }

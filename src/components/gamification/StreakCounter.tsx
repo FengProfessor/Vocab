@@ -2,18 +2,7 @@
 
 import { useSyncExternalStore } from 'react';
 
-function useIsDesktop(breakpoint = 768): boolean {
-  return useSyncExternalStore(
-    (onStoreChange) => {
-      if (typeof window === 'undefined') return () => {};
-      const mql = window.matchMedia(`(min-width: ${breakpoint}px)`);
-      mql.addEventListener('change', onStoreChange);
-      return () => mql.removeEventListener('change', onStoreChange);
-    },
-    () => (typeof window !== 'undefined' ? window.matchMedia(`(min-width: ${breakpoint}px)`).matches : false),
-    () => false,
-  );
-}
+const emptySubscribe = () => () => {};
 
 interface Props {
   streak: number;
@@ -24,6 +13,13 @@ interface Props {
 }
 
 const HEAT_PALETTE = ['#eef2f5', '#cde7d8', '#86d6a6', '#34b87a', '#15875a'];
+const HEAT_CELL_CLASSES = [
+  'bg-[#eef2f5] text-[#9aa3b2] border-black/[0.04] md:border-[#e8ebef]',
+  'bg-[#cde7d8] text-[#9aa3b2] border-black/[0.04]',
+  'bg-[#86d6a6] text-[#0a6b4a] border-black/[0.04]',
+  'bg-[#34b87a] text-white border-black/[0.04]',
+  'bg-[#15875a] text-white border-black/[0.04]',
+] as const;
 const MONTH_LABELS = [
   'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
   'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12',
@@ -83,7 +79,7 @@ export function StreakCounter({
   dailyCounts,
   className = '',
 }: Props) {
-  const isDesktop = useIsDesktop();
+  const isHydrated = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const isActive = streak > 0;
 
   if (variant === 'compact') {
@@ -98,10 +94,10 @@ export function StreakCounter({
   }
 
   if (variant === 'calendar') {
-    const now = new Date();
+    const now = isHydrated ? new Date() : new Date(2026, 0, 1);
     const year = now.getFullYear();
     const month = now.getMonth();
-    const todayDate = now.getDate();
+    const todayDate = isHydrated ? now.getDate() : 1;
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const lead = new Date(year, month, 1).getDay();
     const weekdays = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
@@ -120,155 +116,93 @@ export function StreakCounter({
     const activeDays = Object.values(minsByDay).filter((c) => c > 0).length;
     const totalReviews = Object.values(minsByDay).reduce((s, c) => s + c, 0);
 
-    // ═════════════════════════════════════════════════════════════════════════
-    // GIAO DIỆN MÁY TÍNH (if isDesktop)
-    // Ô lịch có chiều cao cố định h-[22px] thay vì aspect-square để cân đối với cột Tiến độ ngày
-    // ═════════════════════════════════════════════════════════════════════════
-    if (isDesktop) {
-      const cellDesktop =
-        'flex h-[19px] items-center justify-center rounded-[4px] text-[8.5px] font-extrabold tabular-nums';
-
-      return (
-        <div
-          className={`flex h-full min-w-0 flex-row items-stretch gap-2.5 rounded-xl border border-[#e9e9f0] bg-white p-2.5 px-3 shadow-[0_1px_2px_rgba(16,24,40,.04)] ${className}`}
-        >
-          {/* Cột trái: Streak */}
-          <div className="flex w-[68px] shrink-0 flex-col justify-between border-r border-slate-100 pr-2">
-            <div className="flex flex-col items-start gap-1">
-              <div className="flex h-6.5 w-6.5 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-orange-400 to-orange-500 text-xs">
-                🔥
-              </div>
-              <div className="min-w-0">
-                <div className="flex items-baseline gap-0.5">
-                  <span className="text-[18px] font-black leading-none text-orange-600 tabular-nums">{streak}</span>
-                  <span className="text-[9.5px] font-bold text-orange-400">liên tiếp</span>
-                </div>
-              </div>
-            </div>
-            <div className="text-[9.5px] font-bold text-[#aab0bd]">{MONTH_LABELS[month]}</div>
-          </div>
-
-          {/* Cột phải: Heatmap tháng */}
-          <div className="flex min-w-0 flex-1 flex-col justify-between">
-            <div className="mb-0.5 flex items-center justify-between">
-              <span className="text-[10.5px] font-extrabold text-[#0f172a]">Bảng hoạt động</span>
-              <span className="text-[9.5px] font-bold text-[#aab0bd]" title="Số ngày có học trong tháng — khác streak liên tiếp">
-                {activeDays} ngày có học · {totalReviews} lượt
-              </span>
-            </div>
-
-            <div className="mb-0.5 grid grid-cols-7 gap-[3px]">
-              {weekdays.map((wd) => (
-                <div key={wd} className="text-center text-[7.5px] font-extrabold uppercase text-[#b3b8c4]">
-                  {wd}
-                </div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-7 gap-[3px]">
-              {Array.from({ length: lead }).map((_, i) => (
-                <div key={`d-lead-${i}`} className="h-[19px]" />
-              ))}
-              {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
-                const isToday = d === todayDate;
-                const future = d > todayDate;
-                if (future) {
-                  return (
-                    <div
-                      key={`d-${d}`}
-                      className={`${cellDesktop} border border-[#eef0f3] bg-[#f8f9fb] text-[#c8cdd6]`}
-                      title={`${d} · sắp tới`}
-                    >
-                      {d}
-                    </div>
-                  );
-                }
-                const lvl = intensityByDay[d] ?? 0;
-                const fg = lvl >= 3 ? '#ffffff' : lvl <= 1 ? '#9aa3b2' : '#0a6b4a';
-                const mins = minsByDay[d] ?? 0;
-                return (
-                  <div
-                    key={`d-${d}`}
-                    className={cellDesktop}
-                    style={{
-                      background: HEAT_PALETTE[lvl],
-                      color: fg,
-                      border: lvl === 0 ? '1px solid #e8ebef' : '1px solid rgba(0,0,0,.04)',
-                      boxShadow: isToday ? `0 0 0 1.5px #fff, 0 0 0 2.5px ${HEAT_PALETTE[4]}` : undefined,
-                    }}
-                    title={`${d}${mins ? ` · ${mins} từ` : ' · nghỉ'}`}
-                  >
-                    {d}
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="mt-1.5 flex items-center justify-end gap-1.5">
-              <span className="text-[10px] font-bold text-[#b3b8c4]">Ít</span>
-              <div className="flex gap-[3px]">
-                {HEAT_PALETTE.map((c) => (
-                  <div
-                    key={c}
-                    className="h-3 w-3 rounded-[3px] border border-black/5"
-                    style={{ background: c }}
-                  />
-                ))}
-              </div>
-              <span className="text-[10px] font-bold text-[#b3b8c4]">Nhiều</span>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    // ═════════════════════════════════════════════════════════════════════════
-    // GIAO DIỆN ĐIỆN THOẠI (else — giữ nguyên 100% thiết kế mobile)
-    // ═════════════════════════════════════════════════════════════════════════
-    const cellMobile =
-      'h-[10px] w-[10px] shrink-0 rounded-[2px] border border-black/[0.04]';
-
     return (
       <div
-        className={`flex h-full min-w-0 flex-col justify-center gap-1 rounded-xl border border-[#e9e9f0] bg-white px-2 py-1.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] ${className}`}
+        className={`flex h-full min-w-0 flex-row items-stretch gap-2 rounded-xl border border-[#e9e9f0] bg-white p-2 px-2.5 shadow-[0_1px_2px_rgba(16,24,40,.04)] md:gap-2.5 md:p-2.5 md:px-3 ${className}`}
       >
-        {/* Streak — gọn trên heatmap (mobile) */}
-        <div className="flex shrink-0 items-center gap-1">
-          <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-orange-400 to-orange-500 text-[10px]">
-            🔥
-          </div>
-          <div className="min-w-0">
-            <div className="flex items-baseline gap-0.5">
-              <span className="text-[13px] font-black leading-none text-orange-600">{streak}</span>
-              <span className="text-[8px] font-bold text-orange-400">liên tiếp</span>
+        {/* Streak summary column */}
+        <div className="flex w-[58px] shrink-0 flex-col justify-between border-r border-slate-100 pr-2 md:w-[68px]">
+          <div className="flex flex-col items-start gap-1">
+            <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-orange-400 to-orange-500 text-[11px] md:h-6.5 md:w-6.5 md:text-xs">
+              🔥
+            </div>
+            <div className="min-w-0">
+              <div className="flex items-baseline gap-0.5">
+                <span className="text-[16px] font-black leading-none text-orange-600 tabular-nums md:text-[18px]">
+                  {streak}
+                </span>
+                <span className="text-[8.5px] font-bold text-orange-400 md:text-[9.5px]">liên tiếp</span>
+              </div>
             </div>
           </div>
+          <div className="text-[9px] font-bold text-[#aab0bd] md:text-[9.5px]">{MONTH_LABELS[month]}</div>
         </div>
 
-        {/* Heatmap: fixed tiny dots */}
-        <div className="min-w-0">
-          <div className="flex flex-wrap content-start gap-[2px]" style={{ maxWidth: 7 * 12 }}>
+        {/* Heatmap tháng */}
+        <div className="flex min-w-0 flex-1 flex-col justify-between">
+          <div className="mb-0.5 flex items-center justify-between gap-1">
+            <span className="text-[10px] font-extrabold text-[#0f172a] md:text-[10.5px]">Bảng hoạt động</span>
+            <span className="text-[9px] font-bold text-[#aab0bd] md:text-[9.5px]" title="Số ngày có học trong tháng — khác streak liên tiếp">
+              {activeDays} ngày<span className="hidden md:inline"> có học</span> · {totalReviews} lượt
+            </span>
+          </div>
+
+          <div className="mb-0.5 grid grid-cols-7 gap-[2.5px] md:gap-[3px]">
+            {weekdays.map((wd) => (
+              <div key={wd} className="text-center text-[7px] font-extrabold uppercase text-[#b3b8c4] md:text-[7.5px]">
+                {wd}
+              </div>
+            ))}
+          </div>
+
+          <div className="grid w-full grid-cols-7 gap-[2.5px] md:gap-[3px]">
             {Array.from({ length: lead }).map((_, i) => (
-              <div key={`m-lead-${i}`} className="h-[10px] w-[10px]" />
+              <div key={`lead-${i}`} className="h-[17px] md:h-[19px]" />
             ))}
             {Array.from({ length: daysInMonth }, (_, i) => i + 1).map((d) => {
               const isToday = d === todayDate;
               const future = d > todayDate;
-              const lvl = future ? 0 : (intensityByDay[d] ?? 0);
               const mins = minsByDay[d] ?? 0;
+              if (future) {
+                return (
+                  <div
+                    key={`d-${d}`}
+                    className="flex h-[17px] w-full items-center justify-center rounded-[3px] border border-[#eef0f3] bg-[#f8f9fb] text-[8px] font-extrabold tabular-nums text-[#c8cdd6] md:h-[19px] md:rounded-[4px] md:text-[8.5px]"
+                    title={`${d} · sắp tới`}
+                  >
+                    {d}
+                  </div>
+                );
+              }
+              const lvl = intensityByDay[d] ?? 0;
+              const lvlClass = HEAT_CELL_CLASSES[lvl] ?? HEAT_CELL_CLASSES[0];
+              const todayClass = isToday
+                ? 'shadow-[0_0_0_1px_#15875a] md:shadow-[0_0_0_1.5px_#fff,0_0_0_2.5px_#15875a]'
+                : '';
               return (
                 <div
-                  key={`m-${d}`}
-                  className={cellMobile}
-                  style={{
-                    background: future ? '#f1f5f9' : HEAT_PALETTE[lvl],
-                    opacity: future ? 0.55 : 1,
-                    boxShadow: isToday && !future ? `0 0 0 1px ${HEAT_PALETTE[4]}` : undefined,
-                  }}
-                  title={`${d}${mins ? ` · ${mins} từ` : future ? ' · sắp tới' : ' · nghỉ'}`}
-                />
+                  key={`d-${d}`}
+                  className={`flex h-[17px] w-full items-center justify-center rounded-[3px] border text-[8px] font-extrabold tabular-nums md:h-[19px] md:rounded-[4px] md:text-[8.5px] ${lvlClass} ${todayClass}`}
+                  title={`${d}${mins ? ` · ${mins} từ` : ' · nghỉ'}`}
+                >
+                  {d}
+                </div>
               );
             })}
+          </div>
+
+          <div className="mt-1.5 hidden items-center justify-end gap-1.5 md:flex">
+            <span className="text-[10px] font-bold text-[#b3b8c4]">Ít</span>
+            <div className="flex gap-[3px]">
+              {HEAT_PALETTE.map((c) => (
+                <div
+                  key={c}
+                  className="h-3 w-3 rounded-[3px] border border-black/5"
+                  style={{ background: c }}
+                />
+              ))}
+            </div>
+            <span className="text-[10px] font-bold text-[#b3b8c4]">Nhiều</span>
           </div>
         </div>
       </div>

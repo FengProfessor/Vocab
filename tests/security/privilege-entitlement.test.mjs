@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -10,7 +10,6 @@ const paths = {
   billingCampaign: 'src/app/api/billing/claim-upgrade-gift/route.ts',
   campaign: 'src/app/api/campaign/claim-upgrade-gift/route.ts',
   teacher: 'src/app/api/teacher/students/add/route.ts',
-  campaignClient: 'src/components/campaign/UpgradeGiftModal.tsx',
   teacherClient: 'src/components/teacher/StudentsPanel.tsx',
   schema: 'supabase/schema.sql',
 };
@@ -159,8 +158,10 @@ try {
     assert(concurrent.every((response) => response.status === 410));
   }
 
-  assert(!sources.campaignClient.includes('fetch('), 'retired campaign client must not call an endpoint');
-  assert(!sources.campaignClient.includes('claim-upgrade-gift'));
+  assert(!existsSync(join(repoRoot, 'src/components/campaign/UpgradeGiftModal.tsx')), 'retired UpgradeGiftModal.tsx must remain deleted');
+  const studentShellSource = readFileSync(join(repoRoot, 'src/components/student/StudentShell.tsx'), 'utf8');
+  assert(!studentShellSource.includes('UpgradeGiftModal'), 'StudentShell must not reference retired UpgradeGiftModal');
+  assert(!studentShellSource.includes('claim-upgrade-gift'), 'StudentShell must not reference claim-upgrade-gift');
 
   for (const forbidden of [
     "plan: 'pro'",

@@ -2,21 +2,20 @@
 import { authFetch } from '@/lib/auth-fetch';
 
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
+
+const emptySubscribe = () => () => {};
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   ArrowDownToLine,
-  Brain,
   ChevronDown,
   Crown,
   GraduationCap,
-  Loader2,
   LogOut,
   Menu,
   Search,
-  Sparkles,
   User,
   UserPlus,
   Users,
@@ -34,13 +33,10 @@ const CohortProPromoBanner = dynamic(
   () => import('@/components/upsell/CohortProPromoBanner').then((m) => m.CohortProPromoBanner),
   { ssr: false },
 );
-const UpgradeGiftModal = dynamic(
-  () => import('@/components/campaign/UpgradeGiftModal').then((m) => m.UpgradeGiftModal),
-  { ssr: false },
-);
 
 import { useGamification } from '@/hooks/useGamification';
-import { supabase, type Profile, type UserGamification } from '@/lib/supabase';
+import { getEffectivePlan } from '@/lib/entitlement';
+import { supabase, type UserGamification } from '@/lib/supabase';
 import { xpToLevel } from '@/lib/gamification';
 import {
   readWordSummaryCache,
@@ -121,9 +117,11 @@ interface StudentShellProps {
   /** Optional overrides from parent context or props */
   profile?: ShellProfile | null;
   gamification?: UserGamification;
+  displayStreak?: number;
   reviewDueCount?: number;
-  newCount?: number;
   classroomId?: string | null;
+  /** Khi true (vd /student dùng PriorityBannerSlot), ẩn banner promo/quota khỏi chrome chung */
+  suppressGlobalBanners?: boolean;
 }
 
 export function StudentShell({
@@ -137,9 +135,10 @@ export function StudentShell({
   requireAuth = true,
   profile: propProfile,
   gamification: propGamification,
+  displayStreak: propDisplayStreak,
   reviewDueCount: propReviewDueCount,
-  newCount: propNewCount,
   classroomId: propClassroomId,
+  suppressGlobalBanners = false,
 }: StudentShellProps) {
   const pathname = usePathname();
   const router = useRouter();
@@ -168,11 +167,6 @@ export function StudentShell({
     const cached = readLastWordSummaryCache();
     return cached?.reviewDueCount ?? 0;
   });
-  const [newCount, setNewCount] = useState<number>(() => {
-    if (context?.wordSummary) return context.wordSummary.newCount;
-    const cached = readLastWordSummaryCache();
-    return cached?.newCount ?? 0;
-  });
   const [grammarDue, setGrammarDue] = useState<number>(() => readGrammarDueCache()?.dueCount ?? 0);
   const [isBootstrapping, setIsBootstrapping] = useState<boolean>(() => {
     const active = propProfile ?? context?.profile ?? readLastProfileCache();
@@ -188,52 +182,68 @@ export function StudentShell({
     context ? null : (internalProfile?.id ?? null),
   );
 
+  const isHydrated = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const cachedGamification = useMemo(() => {
-    if (propGamification || (context?.gamification && context.gamification.total_xp > 0)) {
+    if (!isHydrated || propGamification || (context?.gamification && context.gamification.total_xp > 0)) {
       return null;
     }
     return readLastGamificationCache();
-  }, [propGamification, context?.gamification]);
+  }, [isHydrated, propGamification, context?.gamification]);
 
-  // Effective values derived from Props -> Context -> Internal State
-  const effectiveProfile = propProfile ?? context?.profile ?? internalProfile;
-  const effectiveGamification =
-    propGamification ??
-    (context?.gamification && (context.gamification.total_xp > 0 || !cachedGamification)
-      ? context.gamification
-      : (cachedGamification ?? fallbackGamification ?? DEFAULT_GAMIFICATION));
-  const effectiveIsTeacher = context
-    ? context.isTeacherUser
-    : (effectiveProfile?.role === 'teacher' || isTeacherUser);
-  const effectiveClassroomId =
-    propClassroomId ?? context?.wordSummary.classroomId ?? classroomId;
-  const effectiveReviewDueCount =
-    propReviewDueCount ?? context?.wordSummary.reviewDueCount ?? reviewDueCount;
-  const effectiveNewCount =
-    propNewCount ?? context?.wordSummary.newCount ?? newCount;
+  // Effective values derived from Props -> Context -> Internal State (hydration-safe)
+  const effectiveProfile = isHydrated ? (propProfile ?? context?.profile ?? internalProfile) : (propProfile ?? null);
+  const effectiveGamification = isHydrated
+    ? (propGamification ??
+      (context?.gamification && (context.gamification.total_xp > 0 || !cachedGamification)
+        ? context.gamification
+        : (cachedGamification ?? fallbackGamification ?? DEFAULT_GAMIFICATION)))
+    : (propGamification ?? DEFAULT_GAMIFICATION);
+  const effectiveIsTeacher = isHydrated
+    ? (context ? context.isTeacherUser : (effectiveProfile?.role === 'teacher' || isTeacherUser))
+    : false;
+  const effectiveClassroomId = isHydrated
+    ? (propClassroomId ?? context?.wordSummary.classroomId ?? classroomId)
+    : (propClassroomId ?? null);
+  const effectiveReviewDueCount = isHydrated
+    ? (propReviewDueCount ?? context?.wordSummary.reviewDueCount ?? reviewDueCount)
+    : (propReviewDueCount ?? 0);
+  const resolvedStreak = isHydrated
+    ? (typeof propDisplayStreak === 'number' ? propDisplayStreak : effectiveGamification.current_streak)
+    : 0;
+  const effectiveBootstrapping = isHydrated ? isBootstrapping : !effectiveProfile;
+  const effectiveGrammarDue = isHydrated ? grammarDue : 0;
+  const effectiveProfileEmail = isHydrated ? profileEmail : '';
   const effectiveImmersive = immersive || embedMode;
   const hasContext = Boolean(context);
   const contextSessionUserId = context?.session?.user?.id ?? null;
   const isFreePlan = Boolean(
-    effectiveProfile
-      ? !effectiveProfile.plan || effectiveProfile.plan === 'free'
-      : !isBootstrapping,
+    effectiveProfile &&
+      getEffectivePlan(effectiveProfile.plan, effectiveProfile.plan_expires_at) === 'free',
   );
 
+  const contextRef = useRef(context);
+  const effectiveProfileRef = useRef(effectiveProfile);
   useEffect(() => {
-    try {
-      const q = new URLSearchParams(window.location.search);
-      setEmbedMode(
-        q.get('embed') === '1' ||
-          q.get('embed') === 'true' ||
-          q.get('from') === 'hub' ||
-          q.get('from') === 'lingotown-embed',
-      );
-    } catch {
-      setEmbedMode(false);
-    }
-    setIsMenuOpen(false);
-    setIsProfileOpen(false);
+    contextRef.current = context;
+    effectiveProfileRef.current = effectiveProfile;
+  });
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      try {
+        const q = new URLSearchParams(window.location.search);
+        setEmbedMode(
+          q.get('embed') === '1' ||
+            q.get('embed') === 'true' ||
+            q.get('from') === 'hub' ||
+            q.get('from') === 'lingotown-embed',
+        );
+      } catch {
+        setEmbedMode(false);
+      }
+      setIsMenuOpen(false);
+      setIsProfileOpen(false);
+    });
 
     try {
       const saved = sessionStorage.getItem('lingopro_sidebar_scroll');
@@ -253,13 +263,14 @@ export function StudentShell({
 
     const loadShellData = async () => {
       try {
-        if (effectiveProfile) {
+        if (effectiveProfileRef.current) {
           setIsBootstrapping(false);
         }
-        if (context) {
-          const result = context.session ? null : await supabase.auth.getSession();
+        const currentCtx = contextRef.current;
+        if (currentCtx) {
+          const result = currentCtx.session ? null : await supabase.auth.getSession();
           if (result?.error) return;
-          const session = context.session ?? result?.data.session;
+          const session = currentCtx.session ?? result?.data.session;
           if (isCancelled) return;
           if (!session?.user) {
             clearDashboardSnapshotCache();
@@ -313,7 +324,6 @@ export function StudentShell({
         const cached = readWordSummaryCache(session.user.id);
         if (cached && !isCancelled) {
           setReviewDueCount(cached.reviewDueCount);
-          setNewCount(cached.newCount ?? 0);
           if (cached.classroomId) setClassroomId(cached.classroomId);
         }
         const cachedGrammar = readGrammarDueCache(session.user.id);
@@ -357,7 +367,6 @@ export function StudentShell({
           const nextNew = Number(wordsResponse.newCount ?? 0);
           setClassroomId(wordsResponse.classroomId ?? null);
           setReviewDueCount(nextReview);
-          setNewCount(nextNew);
           writeWordSummaryCache(session.user.id, {
             total: Number(wordsResponse.total ?? 0),
             newCount: nextNew,
@@ -435,9 +444,17 @@ export function StudentShell({
       } catch {}
     };
 
-    if ('requestIdleCallback' in window) {
-      const id = (window as any).requestIdleCallback(runRouteWarmup, { timeout: 3500 });
-      return () => (window as any).cancelIdleCallback?.(id);
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout?: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (typeof win.requestIdleCallback === 'function') {
+      const id = win.requestIdleCallback(runRouteWarmup, { timeout: 3500 });
+      return () => {
+        if (typeof win.cancelIdleCallback === 'function') {
+          win.cancelIdleCallback(id);
+        }
+      };
     } else {
       const timer = setTimeout(runRouteWarmup, 1500);
       return () => clearTimeout(timer);
@@ -584,9 +601,9 @@ export function StudentShell({
         classroomId: effectiveClassroomId,
         hasClass: Boolean(effectiveClassroomId),
         reviewDueCount: effectiveReviewDueCount,
-        grammarDueCount: grammarDue,
+        grammarDueCount: effectiveGrammarDue,
       }),
-    [effectiveClassroomId, effectiveReviewDueCount, grammarDue],
+    [effectiveClassroomId, effectiveReviewDueCount, effectiveGrammarDue],
   );
 
   const mobileDrawerSections = useMemo<StudentNavSection[]>(
@@ -676,13 +693,10 @@ export function StudentShell({
   const currentLevel = xpToLevel(effectiveGamification.total_xp);
   const showBottomNav = !hideMobileNav && !effectiveImmersive;
   const showChrome = !effectiveImmersive;
-  const isTeacherActive = pathname.startsWith('/teacher');
   const isUpgradeActive = pathname.startsWith('/upgrade');
-  const isGroupActive = pathname.startsWith('/group');
 
   return (
     <>
-      <UpgradeGiftModal />
       <div
         className={cn(
           'flex min-h-dvh w-full font-sans',
@@ -744,7 +758,7 @@ export function StudentShell({
               <div className="flex flex-1 items-center gap-1.5 rounded-md border border-[#fde2c0] bg-[#fff5e9] px-3 py-1.5 dark:border-amber-900/40 dark:bg-amber-950/25">
                 <span className="text-sm leading-none">🔥</span>
                 <span className="tabular-nums text-xs font-black text-[#ea7a23]">
-                  {effectiveGamification.current_streak} ngày
+                  {resolvedStreak} ngày
                 </span>
               </div>
               <div className="flex flex-1 items-center gap-1.5 rounded-md border border-[#fbeaa6] bg-[#fffbe8] px-3 py-1.5 dark:border-yellow-900/40 dark:bg-yellow-950/25">
@@ -827,7 +841,7 @@ export function StudentShell({
                   </div>
                   <div className="min-w-0 truncate text-left">
                     <div className="font-semibold text-slate-800 dark:text-slate-200 leading-tight truncate text-xs group-hover:text-slate-900 dark:group-hover:text-white">
-                      {effectiveProfile?.full_name || profileEmail || 'Học viên'}
+                      {effectiveProfile?.full_name || effectiveProfileEmail || 'Học viên'}
                     </div>
                     <div className="text-[10px] text-slate-400 dark:text-slate-500 truncate">
                       Lv.{currentLevel} · {effectiveGamification.total_xp} XP
@@ -966,7 +980,7 @@ export function StudentShell({
               </div>
               <div className="min-w-0 truncate text-left">
                 <div className="font-semibold text-slate-800 dark:text-slate-200 leading-tight truncate text-xs group-hover:text-slate-900 dark:group-hover:text-white">
-                  {effectiveProfile?.full_name || profileEmail || 'Học viên'}
+                  {effectiveProfile?.full_name || effectiveProfileEmail || 'Học viên'}
                 </div>
                 <div className="text-[10px] text-slate-400 dark:text-slate-500 truncate">
                   Lv.{currentLevel} · {effectiveGamification.total_xp} XP
@@ -1026,11 +1040,13 @@ export function StudentShell({
         )}
       >
         {/* Flash sale Pro (kết thúc khóa) — chỉ hiện cho user free, trên banner quota */}
-        {showChrome && !effectiveImmersive && isFreePlan ? (
+        {showChrome && !effectiveImmersive && isFreePlan && !suppressGlobalBanners ? (
           <CohortProPromoBanner variant="dashboard" />
         ) : null}
         {/* Free ≥150: banner dính + ép modal — lead upsell chắc thấy */}
-        {showChrome && !effectiveImmersive ? <FreeQuotaBanner /> : null}
+        {showChrome && !effectiveImmersive && isFreePlan && !suppressGlobalBanners ? (
+          <FreeQuotaBanner />
+        ) : null}
 
         {showChrome && (
         <header
@@ -1057,7 +1073,7 @@ export function StudentShell({
             </h1>
           </div>
 
-          {isBootstrapping && !effectiveProfile ? (
+          {effectiveBootstrapping && !effectiveProfile ? (
             <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
               <div className="h-7 w-14 sm:w-16 rounded-full bg-[#fff5e9] border border-[#fde2c0] animate-pulse" />
               <div className="hidden md:block h-7 w-20 rounded-full bg-[#fffbe8] border border-[#fbeaa6] animate-pulse" />
@@ -1095,7 +1111,7 @@ export function StudentShell({
               <div className="flex items-center gap-1 rounded-full border border-[#fde2c0] bg-[#fff5e9] py-1 pl-1.5 pr-2 sm:gap-1.5 sm:pl-2 sm:pr-[11px]">
                 <span className="text-[13px] leading-none sm:text-[15px]">🔥</span>
                 <span className="tabular-nums text-[12px] font-black text-[#ea7a23] sm:text-[13px]">
-                  {effectiveGamification.current_streak}
+                  {resolvedStreak}
                 </span>
               </div>
               <div className="hidden items-center gap-1.5 rounded-full border border-[#fbeaa6] bg-[#fffbe8] px-[11px] py-1 md:flex">
@@ -1109,8 +1125,8 @@ export function StudentShell({
               </div>
               <NotificationBell
                 dueCount={effectiveReviewDueCount}
-                grammarDueCount={grammarDue}
-                streak={effectiveGamification.current_streak}
+                grammarDueCount={effectiveGrammarDue}
+                streak={resolvedStreak}
                 dailyGoalXp={effectiveGamification.today_xp}
                 dailyGoal={effectiveGamification.daily_goal}
                 classroomId={effectiveClassroomId}
@@ -1206,13 +1222,7 @@ export function StudentShell({
         </div>
       </main>
 
-      {showBottomNav && (
-        <MobileBottomNav
-          classroomId={effectiveClassroomId}
-          reviewDueCount={effectiveReviewDueCount}
-          newCount={effectiveNewCount}
-        />
-      )}
+      {showBottomNav && <MobileBottomNav />}
     </div>
     </>
   );
