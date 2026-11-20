@@ -21,6 +21,7 @@ import { DualSpeedAudioButton } from '@/components/speaking/foundation/DualSpeed
 import { SafeHarborRecorder } from '@/components/speaking/foundation/SafeHarborRecorder';
 import { InteractiveIpaVideoPlayer } from '@/components/pronunciation/InteractiveIpaVideoPlayer';
 import { MouthAnatomyStudio } from '@/components/speaking/foundation/MouthAnatomyStudio';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import {
   STAGE_0_PHONETIC_LESSONS,
   getStage0Lessons,
@@ -218,7 +219,7 @@ export default function Stage0PhoneticsPage() {
                         <div className="p-2.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between gap-2">
                           <div>
                             <div className="font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base">
-                              {pair.wordA}
+                              <ExamInteractiveText text={pair.wordA} enabled as="span" inheritClassName />
                             </div>
                             <div className="font-mono text-xs text-amber-600 dark:text-amber-400">
                               {pair.ipaA}
@@ -244,7 +245,7 @@ export default function Stage0PhoneticsPage() {
                         <div className="p-2.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between gap-2">
                           <div>
                             <div className="font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base">
-                              {pair.wordB}
+                              <ExamInteractiveText text={pair.wordB} enabled as="span" inheritClassName />
                             </div>
                             <div className="font-mono text-xs text-amber-600 dark:text-amber-400">
                               {pair.ipaB}
@@ -287,7 +288,14 @@ export default function Stage0PhoneticsPage() {
                   <div className="flex items-center gap-2">
                     <Mic className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                     <span className="text-xs font-bold text-emerald-800 dark:text-emerald-300">
-                      Ghi âm luyện nói: &quot;{selectedWordForRecording}&quot;
+                      Ghi âm luyện nói: &quot;
+                      <ExamInteractiveText
+                        text={selectedWordForRecording}
+                        enabled
+                        as="span"
+                        inheritClassName
+                      />
+                      &quot;
                     </span>
                   </div>
                   <button
@@ -326,7 +334,7 @@ export default function Stage0PhoneticsPage() {
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-slate-900 dark:text-slate-100 text-sm">
-                          {item.word}
+                          <ExamInteractiveText text={item.word} enabled as="span" inheritClassName />
                         </span>
                         <span className="font-mono text-slate-400 dark:text-slate-500">
                           {item.ipa}

@@ -13,6 +13,8 @@ import { toast } from 'sonner';
 import { levenshtein, verdictToQuality, parseIpa, canAutoFocus, speak, type Verdict } from '@/lib/study';
 import { stopWordAudio } from '@/lib/audio';
 import { StudentShell } from '@/components/student/StudentShell';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { useOptionalVocabLookup } from '@/components/vocab';
 
 interface WordItem {
   id: string;
@@ -54,6 +56,11 @@ function WritingContent() {
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const advanceFn = useRef<(() => void) | null>(null);
   const lastSubmitAtRef = useRef<number>(0);
+  const vocabLookup = useOptionalVocabLookup();
+  const vocabLookupRef = useRef(vocabLookup);
+  useEffect(() => {
+    vocabLookupRef.current = vocabLookup;
+  }, [vocabLookup]);
 
   useEffect(() => {
     const init = async () => {
@@ -121,6 +128,7 @@ function WritingContent() {
 
   // wasWrong: từ sai quay lại cuối hàng để luyện lại (như flashcard); không tính tiến độ.
   const goNext = useCallback((wasWrong = false) => {
+    vocabLookupRef.current?.closeLookup();
     advanceFn.current = null;
     if (advanceTimer.current) {
       clearTimeout(advanceTimer.current);
@@ -231,11 +239,13 @@ function WritingContent() {
 
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
+      if (verdict !== null && vocabLookup?.isOpen) return;
       e.preventDefault();
       e.stopPropagation();
       if (verdict === null) handleSubmit();
       else skipWait(); // Nhấn Enter khi đã chấm → bỏ qua đợi, tiếp theo ngay
     } else if (e.key === ' ' && verdict !== null) {
+      if (vocabLookup?.isOpen) return;
       e.preventDefault();
       e.stopPropagation();
       skipWait(); // Nhấn Space khi đã chấm → bỏ qua đợi
@@ -245,6 +255,9 @@ function WritingContent() {
   useEffect(() => {
     const onGlobalKey = (e: KeyboardEvent) => {
       if (verdict === null || done || isLoading || !current) return;
+      if (vocabLookup?.isOpen) return;
+      const target = e.target as HTMLElement | null;
+      if (target?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         skipWait();
@@ -252,7 +265,7 @@ function WritingContent() {
     };
     window.addEventListener('keydown', onGlobalKey);
     return () => window.removeEventListener('keydown', onGlobalKey);
-  }, [verdict, done, isLoading, current, skipWait]);
+  }, [verdict, done, isLoading, current, skipWait, vocabLookup?.isOpen]);
 
   if (isLoading) {
     return (
@@ -436,22 +449,55 @@ function WritingContent() {
             {verdict !== null && (
               <div
                 className="w-full animate-in fade-in slide-in-from-bottom-2 duration-300 cursor-pointer"
-                onClick={skipWait}
+                onClick={(e) => {
+                  const target = e.target as HTMLElement | null;
+                  if (target?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
+                  if (vocabLookup?.isOpen) return;
+                  const sel = typeof window !== 'undefined' ? window.getSelection() : null;
+                  if (sel && !sel.isCollapsed && sel.toString().trim().length > 0) return;
+                  skipWait();
+                }}
               >
                 {verdict === 'correct' && (
                   <p className="text-lg font-black text-emerald-600">
-                    ✓ Chính xác! <span className="underline decoration-emerald-400">{word.word}</span>
+                    ✓ Chính xác!{' '}
+                    <span className="underline decoration-emerald-400">
+                      <ExamInteractiveText
+                        text={word.word}
+                        enabled={verdict !== null}
+                        as="span"
+                        inheritClassName
+                        themeVariant="default"
+                      />
+                    </span>
                   </p>
                 )}
                 {verdict === 'close' && (
                   <p className="text-lg font-black text-amber-600">
                     Gần đúng! Đáp án:{' '}
-                    <span className="underline decoration-amber-400">{word.word}</span>
+                    <span className="underline decoration-amber-400">
+                      <ExamInteractiveText
+                        text={word.word}
+                        enabled={verdict !== null}
+                        as="span"
+                        inheritClassName
+                        themeVariant="default"
+                      />
+                    </span>
                   </p>
                 )}
                 {verdict === 'wrong' && (
                   <p className="text-lg font-black text-rose-600">
-                    ✗ Đáp án: <span className="underline decoration-rose-400">{word.word}</span>
+                    ✗ Đáp án:{' '}
+                    <span className="underline decoration-rose-400">
+                      <ExamInteractiveText
+                        text={word.word}
+                        enabled={verdict !== null}
+                        as="span"
+                        inheritClassName
+                        themeVariant="default"
+                      />
+                    </span>
                   </p>
                 )}
                 <p className="text-xs text-muted-foreground mt-2">Nhấn Enter hoặc chạm để tiếp tục →</p>

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Volume2, Snail, Sparkles, Loader2 } from 'lucide-react';
 import { playWordAudio, stopWordAudio } from '@/lib/audio';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import type { LookupThemeVariant } from '@/components/vocab/VocabLookupProvider';
 import {
   extractVietnameseSentenceTranslation,
   stripEmbeddedVietnamese,
@@ -27,6 +28,11 @@ export interface ExampleWithSubProps {
   viClassName?: string;
   audioBtnClassName?: string;
   wordClassName?: string;
+  themeVariant?: LookupThemeVariant;
+  disableSave?: boolean;
+  inheritClassName?: boolean;
+  onWordClick?: (word: string, cleanWord: string) => void;
+  contextSentence?: string;
 }
 
 // Session cache cho các câu đã dịch on-demand tránh gọi lặp lại API
@@ -52,6 +58,11 @@ export function ExampleWithSub({
   viClassName = 'mt-1 text-[11px] font-medium leading-snug text-slate-500 sm:text-xs not-italic dark:text-slate-400',
   audioBtnClassName = '',
   wordClassName = '',
+  themeVariant,
+  disableSave,
+  inheritClassName,
+  onWordClick,
+  contextSentence,
 }: ExampleWithSubProps) {
   const rawEx = (example || '').trim();
 
@@ -180,6 +191,7 @@ export function ExampleWithSub({
     <div
       className={`group/example relative select-text ${className}`}
       onClick={(e) => e.stopPropagation()}
+      onPointerDown={(e) => e.stopPropagation()}
     >
       <div className="flex items-start gap-1.5 sm:gap-2">
         {/* Nút phát âm âm thanh cả câu ví dụ */}
@@ -226,6 +238,11 @@ export function ExampleWithSub({
               enabled={interactiveWords}
               as="span"
               wordClassName={wordClassName}
+              themeVariant={themeVariant}
+              disableSave={disableSave}
+              inheritClassName={inheritClassName}
+              onWordClick={onWordClick}
+              contextSentence={contextSentence || cleanEn}
             />
             <span className="opacity-60 select-none">&rdquo;</span>
           </p>

@@ -21,6 +21,8 @@ import { StudentShell } from '@/components/student/StudentShell';
 import { StageProgressNav } from '@/components/speaking/foundation/StageProgressNav';
 import { DualSpeedAudioButton } from '@/components/speaking/foundation/DualSpeedAudioButton';
 import { SafeHarborRecorder } from '@/components/speaking/foundation/SafeHarborRecorder';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText } from '@/components/vocab';
 import {
   STAGE_2_LEGO_LESSONS,
   getLegoSlotLessons,
@@ -324,24 +326,34 @@ export default function Stage2LegoSlotsPage() {
 
           {/* Large Interactive Assembled Sentence */}
           <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 space-y-3">
-            <div className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-slate-100 tracking-tight leading-relaxed">
-              {activeLesson.baseFrame.split(/(\{.*?\})/).map((part, idx) => {
-                if (part.startsWith('{') && part.endsWith('}')) {
-                  const key = part.slice(1, -1);
-                  const selectedBrick = selectedBricks[key];
-                  return (
-                    <span
-                      key={idx}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 mx-1.5 rounded-xl bg-emerald-500 text-white font-extrabold shadow-sm border-b-2 border-emerald-700 animate-in fade-in zoom-in duration-200"
-                    >
-                      {selectedBrick?.icon && <span>{selectedBrick.icon}</span>}
-                      <span>{selectedBrick?.value || part}</span>
-                    </span>
-                  );
-                }
-                return <span key={idx}>{part}</span>;
-              })}
-            </div>
+            <InteractiveClozeText
+              text={activeLesson.baseFrame}
+              enabled
+              as="div"
+              contextSentence={assembledSentence}
+              className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-slate-100 tracking-tight leading-relaxed"
+              renderBlank={({ rawToken, slotKey }) => {
+                const selectedBrick = selectedBricks[slotKey];
+                return (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 mx-1.5 rounded-xl bg-emerald-500 text-white font-extrabold shadow-sm border-b-2 border-emerald-700 animate-in fade-in zoom-in duration-200">
+                    {selectedBrick?.icon && <span>{selectedBrick.icon}</span>}
+                    {selectedBrick?.value ? (
+                      <ExamInteractiveText
+                        text={selectedBrick.value}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        wordClassName="hover:bg-white/20 underline decoration-white/60 hover:decoration-white underline-offset-3"
+                        activeWordClassName="bg-white text-emerald-700 font-extrabold"
+                        contextSentence={assembledSentence}
+                      />
+                    ) : (
+                      <span>{rawToken}</span>
+                    )}
+                  </span>
+                );
+              }}
+            />
 
             <div className="text-sm sm:text-base text-slate-600 dark:text-slate-300 font-medium">
               Nghĩa tiếng Việt: &quot;{assembledMeaningVi}&quot;
@@ -379,10 +391,18 @@ export default function Stage2LegoSlotsPage() {
                     {slot.bricks.map((brick) => {
                       const isChosen = currentSelected?.value === brick.value;
                       return (
-                        <button
+                        <div
                           key={brick.value}
+                          role="button"
+                          tabIndex={0}
                           onClick={() => handleSelectBrick(slot.slotKey, brick)}
-                          className={`p-3 rounded-2xl text-left border-2 transition-all flex flex-col justify-between gap-2 group relative overflow-hidden ${
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              handleSelectBrick(slot.slotKey, brick);
+                            }
+                          }}
+                          className={`cursor-pointer p-3 rounded-2xl text-left border-2 transition-all flex flex-col justify-between gap-2 group relative overflow-hidden ${
                             isChosen
                               ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/50 shadow-md ring-2 ring-emerald-500/40 translate-y-[-2px]'
                               : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 hover:border-emerald-300 dark:hover:border-emerald-700'
@@ -396,7 +416,24 @@ export default function Stage2LegoSlotsPage() {
                               )}
                             </div>
                             <div className="font-bold text-slate-900 dark:text-slate-100 text-xs sm:text-sm group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                              {brick.value}
+                              <ExamInteractiveText
+                                text={brick.value}
+                                enabled={!promptTime}
+                                as="span"
+                                inheritClassName
+                                contextSentence={activeLesson.slots.reduce(
+                                  (acc, s) =>
+                                    acc.replace(
+                                      `{${s.slotKey}}`,
+                                      s.slotKey === slot.slotKey
+                                        ? brick.value
+                                        : selectedBricks[s.slotKey]?.value ||
+                                            s.bricks[0]?.value ||
+                                            '',
+                                    ),
+                                  activeLesson.baseFrame,
+                                )}
+                              />
                             </div>
                             {brick.ipa && (
                               <div className="font-mono text-[10px] text-slate-400">
@@ -408,7 +445,7 @@ export default function Stage2LegoSlotsPage() {
                           <div className="text-[11px] text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-100 dark:border-slate-800">
                             {brick.meaningVi}
                           </div>
-                        </button>
+                        </div>
                       );
                     })}
                   </div>

@@ -23,6 +23,8 @@ import { speak, parseIpa, canAutoFocus } from '@/lib/study';
 import { stopWordAudio } from '@/lib/audio';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
 import { resolveImageSrc } from '@/lib/media-url';
 import { saveSrsReview } from '@/lib/save-srs-review';
 import { getOfflineStudyQueue } from '@/lib/offline/study-queue';
@@ -59,6 +61,7 @@ function FlashcardContent() {
 
 function ReviewSession({ initialClassroomId }: { initialClassroomId: string | null }) {
   const router = useRouter();
+  const vocabLookup = useOptionalVocabLookup();
 
   const [userId, setUserId] = useState<string | null>(() => readLastProfileCache()?.id ?? null);
   const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
@@ -210,8 +213,8 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                           review_count: w.srs.review_count ?? 1,
                           next_review_date: w.srs.next_review_date ?? new Date(now).toISOString(),
                           last_reviewed_at: w.srs.last_reviewed_at ?? new Date(now).toISOString(),
-                          state: (w.srs as any).state ?? 2,
-                          lapses: (w.srs as any).lapses ?? 0,
+                          state: (w.srs as SRSProgress & { state?: number; lapses?: number }).state ?? 2,
+                          lapses: (w.srs as SRSProgress & { state?: number; lapses?: number }).lapses ?? 0,
                         }
                       : null,
                     queueType: 'review' as const,
@@ -344,8 +347,9 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
   // Task 1: Keyboard shortcuts
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      // Allow Escape key to skip spelling card even when input is focused
+      // Allow Escape key to skip spelling card even when input is focused (unless lookup card is open)
       if (e.key === 'Escape') {
+        if (document.querySelector('.exam-lookup-card')) return;
         if (current && typingMode && current.srsLevel >= 2 && !hasSpelledCorrectly && !flipped) {
           e.preventDefault();
           handleSpellingSkip();
@@ -354,6 +358,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
       }
 
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger, .exam-lookup-card')) return;
       if (e.key === ' ') { e.preventDefault(); setFlipped(f => !f); }
       if (flipped) {
         if (e.key === '1') handleRate(0);
@@ -415,6 +420,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     setAutoAdvanceTime(null);
     // Chặn tiếng từ cũ phát trễ khi đã sang thẻ mới
     stopWordAudio();
+    vocabLookup?.closeLookup();
 
     // 1. Snapshot for the background sync
     const currentWordId = current.id;
@@ -663,8 +669,10 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         <div
           className={`relative min-h-0 w-full max-w-[400px] flex-1 ${isTypingFront ? '' : 'cursor-pointer'}`}
           style={{ perspective: '1200px' }}
-          onClick={() => {
-            if (!isTypingFront) setFlipped(!flipped);
+          onClick={(e) => {
+            if (isTypingFront) return;
+            if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger, .exam-lookup-card')) return;
+            setFlipped(!flipped);
           }}
         >
           {goodStreak >= 2 && (
@@ -809,6 +817,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                               toast.error('Incorrect, try again!', { position: 'top-center' });
                             }
                           } else if (e.key === 'Escape') {
+                            if (document.querySelector('.exam-lookup-card')) return;
                             e.preventDefault();
                             handleSpellingSkip();
                           }
@@ -881,8 +890,19 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
             >
               <CardContent className="flex min-h-0 w-full flex-1 flex-col items-center justify-center gap-2 overflow-y-auto overscroll-contain p-3 text-white sm:gap-2.5 sm:p-4">
                 <div className="flex w-full shrink-0 flex-col items-center gap-1">
-                  <h3 className="line-clamp-2 w-full break-words px-1 text-[clamp(1.5rem,6.5vw,2.75rem)] font-black leading-tight tracking-tight">
-                    {current.word}
+                  <h3
+                    className="line-clamp-2 w-full break-words px-1 text-[clamp(1.5rem,6.5vw,2.75rem)] font-black leading-tight tracking-tight"
+                    onClick={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => e.stopPropagation()}
+                  >
+                    <ExamInteractiveText
+                      text={current.word}
+                      enabled={flipped}
+                      as="span"
+                      inheritClassName
+                      wordClassName="hover:bg-white/20 hover:text-white underline decoration-white/40 hover:decoration-white underline-offset-4"
+                      contextSentence={current.example || current.word}
+                    />
                   </h3>
                   {current.ipa && (
                     <p className="font-mono text-sm tracking-wide text-indigo-200 sm:text-base">
@@ -941,6 +961,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                       example={current.example}
                       exampleVi={current.example_vi}
                       defaultShowVi={false}
+                      interactiveWords={flipped}
                       className="border-l-4 border-white/30 pl-3"
                       enClassName="line-clamp-3 text-xs font-medium italic leading-snug sm:text-sm text-white"
                       viClassName="mt-1 text-[11px] font-medium leading-snug text-white/80 sm:text-xs not-italic"
@@ -958,8 +979,21 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
                     {current.familyWords && current.familyWords.length > 0 && (
                       <div className="space-y-0.5 text-[11px] leading-snug text-white/95">
                         {current.familyWords.slice(0, 4).map((fw, idx) => (
-                          <div key={idx}>
-                            <strong className="font-bold">{fw.word}</strong>
+                          <div
+                            key={idx}
+                            onClick={(e) => e.stopPropagation()}
+                            onPointerDown={(e) => e.stopPropagation()}
+                          >
+                            <strong className="font-bold">
+                              <ExamInteractiveText
+                                text={fw.word}
+                                enabled={flipped}
+                                as="span"
+                                inheritClassName
+                                wordClassName="hover:bg-white/20 hover:text-white underline decoration-white/40 hover:decoration-white underline-offset-3"
+                                contextSentence={current.example || current.word}
+                              />
+                            </strong>
                             {fw.pos && <span className="ml-1 italic text-indigo-200">({fw.pos})</span>}
                             {fw.meaning && <span className="text-white/85">: {fw.meaning}</span>}
                           </div>
@@ -987,15 +1021,35 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
                 {((current.synonyms && current.synonyms.length > 0) ||
                   (current.antonyms && current.antonyms.length > 0)) && (
-                  <div className="flex w-full max-w-sm shrink-0 flex-col gap-0.5 text-[10px] sm:text-xs">
+                  <div
+                    className="flex w-full max-w-sm shrink-0 flex-col gap-0.5 text-[10px] sm:text-xs"
+                    onClick={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => e.stopPropagation()}
+                  >
                     {current.synonyms && current.synonyms.length > 0 && (
                       <p className="line-clamp-1 text-emerald-300">
-                        <span className="font-black">Đồng nghĩa:</span> {current.synonyms.join(', ')}
+                        <span className="font-black">Đồng nghĩa:</span>{' '}
+                        <ExamInteractiveText
+                          text={current.synonyms.join(', ')}
+                          enabled={flipped}
+                          as="span"
+                          inheritClassName
+                          wordClassName="hover:bg-white/20 hover:text-white underline decoration-emerald-300/50 hover:decoration-white underline-offset-2"
+                          contextSentence={current.example || current.word}
+                        />
                       </p>
                     )}
                     {current.antonyms && current.antonyms.length > 0 && (
                       <p className="line-clamp-1 text-red-300">
-                        <span className="font-black">Trái nghĩa:</span> {current.antonyms.join(', ')}
+                        <span className="font-black">Trái nghĩa:</span>{' '}
+                        <ExamInteractiveText
+                          text={current.antonyms.join(', ')}
+                          enabled={flipped}
+                          as="span"
+                          inheritClassName
+                          wordClassName="hover:bg-white/20 hover:text-white underline decoration-red-300/50 hover:decoration-white underline-offset-2"
+                          contextSentence={current.example || current.word}
+                        />
                       </p>
                     )}
                   </div>

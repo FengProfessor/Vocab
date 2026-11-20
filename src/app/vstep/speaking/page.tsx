@@ -30,6 +30,7 @@ import {
   VstepFullSpeakingExam,
 } from '@/data/vstep/speaking';
 import { SpeechRecorder } from '@/components/speaking/SpeechRecorder';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 type SpeakingTab = 'part1' | 'part2' | 'part3' | 'full_exam';
 
@@ -263,7 +264,9 @@ export default function VstepSpeakingPage() {
               <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between gap-3">
                 <div>
                   <h2 className="text-base font-bold text-white flex items-center gap-2">
-                    <span>{activeP1Topic.topicName}</span>
+                    <span>
+                      <ExamInteractiveText text={activeP1Topic.topicName} enabled themeVariant="dark" inheritClassName />
+                    </span>
                     <span className="text-xs font-normal text-slate-400">({activeP1Topic.topicVi})</span>
                   </h2>
                   <p className="text-xs text-slate-400 mt-0.5">
@@ -340,7 +343,9 @@ export default function VstepSpeakingPage() {
                             <span className="size-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center font-mono">
                               {qIdx + 1}
                             </span>
-                            <span>{q.question}</span>
+                            <span>
+                              <ExamInteractiveText text={q.question} enabled themeVariant="dark" inheritClassName />
+                            </span>
                           </div>
                           <div className="text-xs text-slate-400 ml-7 mt-0.5">{q.questionVi}</div>
                         </div>
@@ -366,7 +371,9 @@ export default function VstepSpeakingPage() {
                           </span>
                         </div>
                         <p className="text-xs text-slate-200 leading-relaxed italic">
-                          &ldquo;{sampleText}&rdquo;
+                          &ldquo;
+                          <ExamInteractiveText text={sampleText} enabled themeVariant="dark" inheritClassName />
+                          &rdquo;
                         </p>
                       </div>
 
@@ -380,7 +387,9 @@ export default function VstepSpeakingPage() {
                               className="text-[10px] px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700/60 text-slate-300 flex items-center gap-1"
                               title={`${v.ipa || ''} • ${v.collocation || ''}`}
                             >
-                              <span className="font-bold text-amber-300">{v.term}</span>
+                              <span className="font-bold text-amber-300">
+                                <ExamInteractiveText text={v.term} enabled themeVariant="dark" inheritClassName />
+                              </span>
                               <span className="text-slate-500">({v.meaningVi})</span>
                             </div>
                           ))}
@@ -459,7 +468,9 @@ export default function VstepSpeakingPage() {
                 </div>
 
                 <div className="space-y-1">
-                  <h2 className="text-sm font-bold text-white">{activeP2Scenario.situation}</h2>
+                  <h2 className="text-sm font-bold text-white">
+                    <ExamInteractiveText text={activeP2Scenario.situation} enabled themeVariant="dark" inheritClassName />
+                  </h2>
                   <p className="text-xs text-slate-400">{activeP2Scenario.situationVi}</p>
                 </div>
 
@@ -515,7 +526,9 @@ export default function VstepSpeakingPage() {
                       >
                         <div>
                           <div className="font-bold flex items-center justify-between text-slate-200">
-                            <span>{opt.title}</span>
+                            <span>
+                              <ExamInteractiveText text={opt.title} enabled themeVariant="dark" inheritClassName />
+                            </span>
                             {isRecommended && (
                               <span className="text-[10px] bg-amber-500 text-slate-950 font-bold px-1.5 py-0.5 rounded">
                                 Lựa chọn tối ưu
@@ -529,7 +542,9 @@ export default function VstepSpeakingPage() {
                           <div className="text-emerald-400 font-medium">✓ Ưu điểm:</div>
                           <ul className="list-disc list-inside text-slate-300 space-y-0.5 text-[10px]">
                             {opt.pros.map((p, i) => (
-                              <li key={i}>{p}</li>
+                              <li key={i}>
+                                <ExamInteractiveText text={p} enabled themeVariant="dark" inheritClassName />
+                              </li>
                             ))}
                           </ul>
                           {opt.cons && opt.cons.length > 0 && (
@@ -537,7 +552,9 @@ export default function VstepSpeakingPage() {
                               <div className="text-red-400 font-medium pt-1">✗ Nhược điểm:</div>
                               <ul className="list-disc list-inside text-slate-400 space-y-0.5 text-[10px]">
                                 {opt.cons.map((c, i) => (
-                                  <li key={i}>{c}</li>
+                                  <li key={i}>
+                                    <ExamInteractiveText text={c} enabled themeVariant="dark" inheritClassName />
+                                  </li>
                                 ))}
                               </ul>
                             </>
@@ -557,15 +574,21 @@ export default function VstepSpeakingPage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
                   <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
                     <span className="font-bold text-amber-300 font-mono">1. I - Introduction</span>
-                    <p className="text-[11px] text-slate-400 mt-1">{activeP2Scenario.iceBreakdown.introduction}</p>
+                    <p className="text-[11px] text-slate-400 mt-1">
+                      <ExamInteractiveText text={activeP2Scenario.iceBreakdown.introduction} enabled themeVariant="dark" inheritClassName />
+                    </p>
                   </div>
                   <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
                     <span className="font-bold text-amber-300 font-mono">2. C - Compare & Counter</span>
-                    <p className="text-[11px] text-slate-400 mt-1">{activeP2Scenario.iceBreakdown.comparisonAndCounter}</p>
+                    <p className="text-[11px] text-slate-400 mt-1">
+                      <ExamInteractiveText text={activeP2Scenario.iceBreakdown.comparisonAndCounter} enabled themeVariant="dark" inheritClassName />
+                    </p>
                   </div>
                   <div className="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
                     <span className="font-bold text-amber-300 font-mono">3. E - End & Conclusion</span>
-                    <p className="text-[11px] text-slate-400 mt-1">{activeP2Scenario.iceBreakdown.endAndConclusion}</p>
+                    <p className="text-[11px] text-slate-400 mt-1">
+                      <ExamInteractiveText text={activeP2Scenario.iceBreakdown.endAndConclusion} enabled themeVariant="dark" inheritClassName />
+                    </p>
                   </div>
                 </div>
               </div>
@@ -597,7 +620,7 @@ export default function VstepSpeakingPage() {
                     </div>
 
                     <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 text-xs text-slate-200 leading-relaxed whitespace-pre-line">
-                      {speech}
+                      <ExamInteractiveText text={speech} as="div" enabled themeVariant="dark" inheritClassName />
                     </div>
 
                     {/* Key phrases */}
@@ -607,7 +630,7 @@ export default function VstepSpeakingPage() {
                         <div className="flex flex-wrap gap-1.5 mt-1.5">
                           {activeP2Scenario.usefulPhrases.map((phrase, pIdx) => (
                             <span key={pIdx} className="text-[10px] px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700">
-                              {phrase}
+                              <ExamInteractiveText text={phrase} enabled themeVariant="dark" inheritClassName />
                             </span>
                           ))}
                         </div>
@@ -674,7 +697,9 @@ export default function VstepSpeakingPage() {
                 </div>
 
                 <div className="space-y-1">
-                  <h2 className="text-base font-bold text-white">{activeP3Topic.topicTitle}</h2>
+                  <h2 className="text-base font-bold text-white">
+                    <ExamInteractiveText text={activeP3Topic.topicTitle} enabled themeVariant="dark" inheritClassName />
+                  </h2>
                   <p className="text-xs text-slate-400">{activeP3Topic.topicVi}</p>
                 </div>
 
@@ -720,19 +745,24 @@ export default function VstepSpeakingPage() {
                 {/* Mindmap Visualization Box */}
                 <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
                   <div className="text-center font-bold text-sm text-amber-300 p-2.5 rounded-lg bg-amber-500/10 border border-amber-500/30">
-                    💡 Ý TƯỞNG TRUNG TÂM: {activeP3Topic.mindmap.centerIdea}
+                    💡 Ý TƯỞNG TRUNG TÂM:{' '}
+                    <ExamInteractiveText text={activeP3Topic.mindmap.centerIdea} enabled themeVariant="dark" inheritClassName />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
                     {activeP3Topic.mindmap.givenBranches.map((branch, bIdx) => (
                       <div key={bIdx} className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex items-start gap-2">
                         <span className="font-mono text-amber-400 font-bold">Nhánh {bIdx + 1}:</span>
-                        <span className="text-slate-200">{branch}</span>
+                        <span className="text-slate-200">
+                          <ExamInteractiveText text={branch} enabled themeVariant="dark" inheritClassName />
+                        </span>
                       </div>
                     ))}
                     <div className="p-2.5 rounded-lg bg-purple-950/40 border border-purple-800/50 flex items-start gap-2 text-purple-200">
                       <span className="font-mono text-purple-400 font-bold">Nhánh tự phát triển:</span>
-                      <span>{activeP3Topic.mindmap.customBranchPlaceholder}</span>
+                      <span>
+                        <ExamInteractiveText text={activeP3Topic.mindmap.customBranchPlaceholder} enabled themeVariant="dark" inheritClassName />
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -765,7 +795,7 @@ export default function VstepSpeakingPage() {
                     </div>
 
                     <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800/80 text-xs text-slate-200 leading-relaxed whitespace-pre-line">
-                      {speech}
+                      <ExamInteractiveText text={speech} as="div" enabled themeVariant="dark" inheritClassName />
                     </div>
                   </div>
                 );
@@ -783,7 +813,9 @@ export default function VstepSpeakingPage() {
                         <span className="size-5 rounded-full bg-slate-800 text-amber-400 flex items-center justify-center font-mono text-[10px]">
                           Q{fIdx + 1}
                         </span>
-                        <span>{fq.question}</span>
+                        <span>
+                          <ExamInteractiveText text={fq.question} enabled themeVariant="dark" inheritClassName />
+                        </span>
                       </div>
                       <div className="text-[11px] text-slate-400 ml-7">{fq.questionVi}</div>
                       {fq.contextNoteVi && (
@@ -792,7 +824,9 @@ export default function VstepSpeakingPage() {
                         </div>
                       )}
                       <div className="ml-7 pt-1 text-[11px] text-emerald-300 italic">
-                        &ldquo;{fq.sampleAnswer}&rdquo;
+                        &ldquo;
+                        <ExamInteractiveText text={fq.sampleAnswer} enabled themeVariant="dark" inheritClassName />
+                        &rdquo;
                       </div>
                     </div>
                   ))}
@@ -899,12 +933,18 @@ export default function VstepSpeakingPage() {
                 {/* Exam Content for current step */}
                 {examStep === 'part1' && (
                   <div className="space-y-4">
-                    <h3 className="font-bold text-sm text-white">Chủ đề: {activeExam.part1.topicName} ({activeExam.part1.topicVi})</h3>
+                    <h3 className="font-bold text-sm text-white">
+                      Chủ đề:{' '}
+                      <ExamInteractiveText text={activeExam.part1.topicName} enabled themeVariant="dark" inheritClassName />{' '}
+                      ({activeExam.part1.topicVi})
+                    </h3>
                     <div className="space-y-3">
                       {activeExam.part1.questions.map((q, idx) => (
                         <div key={q.id} className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 text-sm">
                           <span className="font-bold text-amber-400 mr-2">Câu {idx + 1}:</span>
-                          <span>{q.question}</span>
+                          <span>
+                            <ExamInteractiveText text={q.question} enabled themeVariant="dark" inheritClassName />
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -915,12 +955,16 @@ export default function VstepSpeakingPage() {
                   <div className="space-y-4">
                     <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                       <h3 className="font-bold text-sm text-white">Tình huống:</h3>
-                      <p className="text-xs text-slate-300">{activeExam.part2.situation}</p>
+                      <p className="text-xs text-slate-300">
+                        <ExamInteractiveText text={activeExam.part2.situation} enabled themeVariant="dark" inheritClassName />
+                      </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                       {activeExam.part2.options.map((opt, i) => (
                         <div key={i} className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs">
-                          <div className="font-bold text-amber-300">{opt.title}</div>
+                          <div className="font-bold text-amber-300">
+                            <ExamInteractiveText text={opt.title} enabled themeVariant="dark" inheritClassName />
+                          </div>
                           <div className="text-slate-400 mt-1">{opt.titleVi}</div>
                         </div>
                       ))}
@@ -931,13 +975,20 @@ export default function VstepSpeakingPage() {
                 {(examStep === 'part3_prep' || examStep === 'part3_speak') && (
                   <div className="space-y-4">
                     <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
-                      <h3 className="font-bold text-sm text-white">Chủ đề thuyết trình: {activeExam.part3.topicTitle}</h3>
-                      <div className="text-xs text-amber-300 font-bold">Ý chính: {activeExam.part3.mindmap.centerIdea}</div>
+                      <h3 className="font-bold text-sm text-white">
+                        Chủ đề thuyết trình:{' '}
+                        <ExamInteractiveText text={activeExam.part3.topicTitle} enabled themeVariant="dark" inheritClassName />
+                      </h3>
+                      <div className="text-xs text-amber-300 font-bold">
+                        Ý chính:{' '}
+                        <ExamInteractiveText text={activeExam.part3.mindmap.centerIdea} enabled themeVariant="dark" inheritClassName />
+                      </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
                       {activeExam.part3.mindmap.givenBranches.map((b, i) => (
                         <div key={i} className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-200">
-                          Gợi ý {i + 1}: {b}
+                          Gợi ý {i + 1}:{' '}
+                          <ExamInteractiveText text={b} enabled themeVariant="dark" inheritClassName />
                         </div>
                       ))}
                     </div>
@@ -951,9 +1002,10 @@ export default function VstepSpeakingPage() {
                       setUserTranscript((prev) => `${prev} ${text}`);
                     }}
                   />
-                  {userTranscript && (
+                  {userTranscript.trim() && (
                     <div className="w-full max-w-xl p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs text-emerald-300">
-                      <strong>Nội dung bạn đã nói:</strong> {userTranscript}
+                      <strong>Nội dung bạn đã nói:</strong>{' '}
+                      <ExamInteractiveText text={userTranscript.trim()} enabled themeVariant="dark" inheritClassName />
                     </div>
                   )}
                 </div>

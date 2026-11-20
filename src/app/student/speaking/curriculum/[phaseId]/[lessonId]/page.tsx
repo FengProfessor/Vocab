@@ -38,6 +38,8 @@ import {
   PictureWordCard,
   SpeakerAvatar,
 } from '@/components/speaking/curriculum/LessonVisuals';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText, InteractiveHighlightedText } from '@/components/vocab';
 import {
   getLessonVisual,
   getWordCefrLevel,
@@ -57,49 +59,6 @@ import type {
 } from '@/types/speaking-curriculum';
 import type { SafeHarborResult } from '@/types/speaking-foundation';
 
-// Helper to highlight coreKeywords inside a sentence
-function renderHighlightedText(text: string, keywords?: string[]) {
-  if (!keywords || keywords.length === 0 || !text) {
-    return <span>{text}</span>;
-  }
-
-  const validKeywords = keywords
-    .filter((k) => typeof k === 'string' && k.trim().length > 0)
-    .map((k) => k.trim())
-    .sort((a, b) => b.length - a.length);
-
-  if (validKeywords.length === 0) {
-    return <span>{text}</span>;
-  }
-
-  const escapedPatterns = validKeywords.map((k) =>
-    k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  );
-  const regex = new RegExp(`(${escapedPatterns.join('|')})`, 'gi');
-  const parts = text.split(regex);
-
-  return (
-    <span>
-      {parts.map((part, idx) => {
-        const isMatch = validKeywords.some(
-          (k) => k.toLowerCase() === part.toLowerCase()
-        );
-        if (isMatch) {
-          return (
-            <mark
-              key={idx}
-              className="rounded bg-indigo-500/25 px-1 py-0.5 font-bold text-indigo-300 border border-indigo-500/40 not-italic inline-block mx-0.5"
-            >
-              {part}
-            </mark>
-          );
-        }
-        return <React.Fragment key={idx}>{part}</React.Fragment>;
-      })}
-    </span>
-  );
-}
-
 // Helper to assemble dynamic Lego sentence from template and slot selections
 function assembleLegoSentence(
   template: string,
@@ -112,6 +71,69 @@ function assembleLegoSentence(
     result = result.replace(new RegExp(`\\{${slotKey}\\}`, 'g'), chosenWord);
   }
   return result;
+}
+
+const VIETNAMESE_DIACRITICS_RE =
+  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+const FORMULA_TIME_UNIT_RE = /\d+\s*(?:-\s*\d+)?\s*s\b/i;
+
+function renderFormulaText(formula: string, contextSentence = formula): React.ReactNode {
+  const parts = formula.split(/(\{[^}]+\}|\[[^\]]+\]|\([^)]*\))/g);
+  return parts.map((part, idx) => {
+    if (!part) return null;
+
+    const isPlaceholder =
+      (part.startsWith('{') && part.endsWith('}')) ||
+      (part.startsWith('[') && part.endsWith(']'));
+    if (isPlaceholder) {
+      return (
+        <span key={idx} className="text-indigo-300 font-semibold">
+          {part}
+        </span>
+      );
+    }
+
+    if (part.startsWith('(') && part.endsWith(')')) {
+      if (VIETNAMESE_DIACRITICS_RE.test(part) || FORMULA_TIME_UNIT_RE.test(part)) {
+        return <React.Fragment key={idx}>{part}</React.Fragment>;
+      }
+      const inner = part.slice(1, -1);
+      if (/\{[^}]+\}|\[[^\]]+\]/.test(inner)) {
+        return (
+          <React.Fragment key={idx}>
+            ({renderFormulaText(inner, contextSentence)})
+          </React.Fragment>
+        );
+      }
+      return (
+        <ExamInteractiveText
+          key={idx}
+          text={part}
+          enabled
+          as="span"
+          inheritClassName
+          themeVariant="dark"
+          contextSentence={contextSentence}
+        />
+      );
+    }
+
+    if (VIETNAMESE_DIACRITICS_RE.test(part) || FORMULA_TIME_UNIT_RE.test(part)) {
+      return <React.Fragment key={idx}>{part}</React.Fragment>;
+    }
+
+    return (
+      <ExamInteractiveText
+        key={idx}
+        text={part}
+        enabled
+        as="span"
+        inheritClassName
+        themeVariant="dark"
+        contextSentence={contextSentence}
+      />
+    );
+  });
 }
 
 interface PageProps {
@@ -447,7 +469,13 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                               <div className="flex items-baseline justify-between">
                                 <span className="text-base sm:text-lg font-bold text-white inline-flex items-center gap-1.5">
                                   <MiniWordPicture url={getWordPictureUrl(lesson.id, pair.wordA)} alt={pair.meaningA} />
-                                  {pair.wordA}
+                                  <ExamInteractiveText
+                                    text={pair.wordA}
+                                    enabled
+                                    as="span"
+                                    inheritClassName
+                                    themeVariant="dark"
+                                  />
                                 </span>
                                 <span className="text-xs font-mono text-amber-300">
                                   {pair.ipaA}
@@ -468,7 +496,13 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                               <div className="flex items-baseline justify-between">
                                 <span className="text-base sm:text-lg font-bold text-white inline-flex items-center gap-1.5">
                                   <MiniWordPicture url={getWordPictureUrl(lesson.id, pair.wordB)} alt={pair.meaningB} />
-                                  {pair.wordB}
+                                  <ExamInteractiveText
+                                    text={pair.wordB}
+                                    enabled
+                                    as="span"
+                                    inheritClassName
+                                    themeVariant="dark"
+                                  />
                                 </span>
                                 <span className="text-xs font-mono text-cyan-300">
                                   {pair.ipaB}
@@ -518,7 +552,13 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                               </span>
                             </div>
                             <p className="text-sm sm:text-base font-semibold text-white">
-                              {s.sentence}
+                              <ExamInteractiveText
+                                text={s.sentence}
+                                enabled
+                                as="span"
+                                inheritClassName
+                                themeVariant="dark"
+                              />
                             </p>
                             <p className="text-xs text-slate-400">
                               {s.vietnameseTranslation}
@@ -565,7 +605,7 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                       Công thức khung câu bất biến (Zero-Conjugation Frame):
                     </span>
                     <div className="text-base sm:text-xl font-mono font-extrabold text-white tracking-wide bg-slate-900/80 p-3 rounded-lg border border-slate-800">
-                      {lesson.stage2CorePatterns.formula}
+                      {renderFormulaText(lesson.stage2CorePatterns.formula)}
                     </div>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed pt-1">
                       💡 <strong className="text-blue-300">Quy tắc sư phạm:</strong> {lesson.stage2CorePatterns.vietnameseGrammarRule}
@@ -590,7 +630,14 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                     <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2">
                       <span className="text-xs text-slate-400 block font-medium">Khung đế Lego:</span>
                       <div className="text-sm sm:text-base font-mono text-slate-200">
-                        {activeLegoItem.template}
+                        <InteractiveClozeText
+                          text={activeLegoItem.template}
+                          enabled
+                          themeVariant="dark"
+                          renderBlank={({ rawToken }) => (
+                            <span className="text-indigo-300 font-semibold">{rawToken}</span>
+                          )}
+                        />
                       </div>
                     </div>
 
@@ -640,7 +687,15 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                       </div>
 
                       <p className="text-base sm:text-xl font-bold text-white tracking-wide">
-                        &ldquo;{assembledSentence}&rdquo;
+                        &ldquo;
+                        <ExamInteractiveText
+                          text={assembledSentence}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          themeVariant="dark"
+                        />
+                        &rdquo;
                       </p>
 
                       <div className="pt-2 flex items-center justify-between flex-wrap gap-3">
@@ -665,7 +720,13 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                             >
                               <div>
                                 <p className="text-xs sm:text-sm font-semibold text-slate-200">
-                                  {ex.en}
+                                  <ExamInteractiveText
+                                    text={ex.en}
+                                    enabled
+                                    as="span"
+                                    inheritClassName
+                                    themeVariant="dark"
+                                  />
                                 </p>
                                 <p className="text-xs text-slate-400">{ex.vi}</p>
                               </div>
@@ -793,7 +854,12 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
 
                         {/* English sentence with highlighted core keywords */}
                         <div className="text-sm sm:text-base font-semibold text-white leading-relaxed">
-                          {renderHighlightedText(turn.en, turn.coreKeywords)}
+                          <InteractiveHighlightedText
+                            text={turn.en}
+                            highlight={turn.coreKeywords}
+                            highlightClassName="rounded bg-indigo-500/25 px-1 py-0.5 font-bold text-indigo-300 border border-indigo-500/40 not-italic mx-0.5"
+                            themeVariant="dark"
+                          />
                         </div>
 
                         {/* Vietnamese translation */}
@@ -811,7 +877,13 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                                 key={hIdx}
                                 className="px-2 py-0.5 rounded bg-slate-800 text-slate-200 border border-slate-700"
                               >
-                                {hint}
+                                <ExamInteractiveText
+                                  text={hint}
+                                  enabled={!/[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(hint)}
+                                  as="span"
+                                  inheritClassName
+                                  themeVariant="dark"
+                                />
                               </span>
                             ))}
                           </div>
@@ -872,7 +944,13 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                       />
                     </div>
                     <p className="text-sm sm:text-base font-bold text-white">
-                      {lesson.stage4SafeHarborEvaluation.targetSentence}
+                      <ExamInteractiveText
+                        text={lesson.stage4SafeHarborEvaluation.targetSentence}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        themeVariant="dark"
+                      />
                     </p>
                   </div>
 
@@ -888,7 +966,14 @@ export default function CurriculumLessonDetailPage({ params }: PageProps) {
                             key={kwIdx}
                             className="px-2.5 py-1 rounded-md bg-indigo-500/15 text-indigo-300 text-xs font-semibold border border-indigo-500/30"
                           >
-                            ✓ {kw}
+                            ✓{' '}
+                            <ExamInteractiveText
+                              text={kw}
+                              enabled
+                              as="span"
+                              inheritClassName
+                              themeVariant="dark"
+                            />
                           </span>
                         ))}
                       </div>

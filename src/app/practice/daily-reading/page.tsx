@@ -7,7 +7,7 @@
  * Optimized for mobile touch, dark mode, inflection-tolerant lookup, and smooth cloze rendering.
  */
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
   BookOpen,
@@ -24,8 +24,6 @@ import {
   ChevronDown,
   ChevronUp,
   AlertCircle,
-  Layers,
-  ArrowRight,
   Library,
 } from 'lucide-react';
 import { authFetch } from '@/lib/auth-fetch';
@@ -34,10 +32,10 @@ import {
   writeDailyReadingCache,
 } from '@/lib/dashboard-snapshot-cache';
 import { StudentShell } from '@/components/student/StudentShell';
-import {
-  findMatchingSourceWord,
-  type WordItem,
-} from '@/lib/daily-reading-morphology';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveFormattedText, InteractiveClozeText } from '@/components/vocab';
+import { playWordAudio } from '@/lib/audio';
+import { type WordItem } from '@/lib/daily-reading-morphology';
 
 // ── Types ──
 interface PassageQuestion {
@@ -91,254 +89,6 @@ interface StarterPackItem {
 
 type Tab = 'passage' | 'cloze' | 'vocab';
 
-// ── Speech Synthesis Helper ──
-function speakEnglishWord(word: string, e?: React.MouseEvent) {
-  if (e) e.stopPropagation();
-  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-    window.speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(word);
-    u.lang = 'en-US';
-    u.rate = 0.9;
-    window.speechSynthesis.speak(u);
-  }
-}
-
-// ── Passage Word Component with Viewport-Safe Tooltip ──
-function PassageWord({
-  target,
-  match,
-  isActive,
-  onToggle,
-}: {
-  target: string;
-  match: { word: string; translation: string; pos?: string } | null;
-  isActive: boolean;
-  onToggle: () => void;
-}) {
-  const tooltipRef = useRef<HTMLSpanElement>(null);
-  const [horizontalOffset, setHorizontalOffset] = useState<number>(0);
-  const [placement, setPlacement] = useState<'top' | 'bottom'>('top');
-
-  useLayoutEffect(() => {
-    if (isActive && tooltipRef.current) {
-      const rect = tooltipRef.current.getBoundingClientRect();
-      const padding = 12;
-      const vpWidth = window.innerWidth;
-      let shift = 0;
-
-      if (rect.left < padding) {
-        shift = padding - rect.left;
-      } else if (rect.right > vpWidth - padding) {
-        shift = (vpWidth - padding) - rect.right;
-      }
-      setHorizontalOffset(shift);
-
-      // If word is too close to top of viewport, flip tooltip downward
-      if (rect.top < 65) {
-        setPlacement('bottom');
-      } else {
-        setPlacement('top');
-      }
-    } else {
-      setHorizontalOffset(0);
-      setPlacement('top');
-    }
-  }, [isActive]);
-
-  const trans = match?.translation;
-  const isLemmaDifferent = Boolean(match && match.word.toLowerCase() !== target.toLowerCase().trim());
-  const pronunciationWord = match?.word || target;
-
-  return (
-    <span className="relative inline-block mx-0.5">
-      <button
-        type="button"
-        onClick={(e) => {
-          e.stopPropagation();
-          onToggle();
-        }}
-        title={trans ? `${target}${isLemmaDifferent ? ` (${match?.word})` : ''}: ${trans}` : target}
-        className={`font-bold px-1.5 py-0.5 rounded transition-colors text-left inline-flex items-center gap-0.5 ${
-          isActive
-            ? 'bg-indigo-600 text-white dark:bg-indigo-500 shadow-xs'
-            : 'text-indigo-700 bg-indigo-50/90 hover:bg-indigo-100 hover:text-indigo-900 dark:text-indigo-300 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60'
-        }`}
-      >
-        <span>{target}</span>
-      </button>
-
-      {/* Floating Tooltip / Popover (Responsive, bounds-safe & viewport clip-proof) */}
-      {isActive && (
-        <span
-          ref={tooltipRef}
-          onClick={(e) => e.stopPropagation()}
-          style={{
-            transform: `translateX(calc(-50% + ${horizontalOffset}px))`,
-          }}
-          className={`absolute left-1/2 w-max max-w-[calc(100vw-24px)] sm:max-w-xs px-3.5 py-2.5 text-xs text-white bg-slate-900/95 dark:bg-slate-800/95 backdrop-blur-md rounded-xl shadow-2xl z-40 pointer-events-auto border border-slate-700/60 flex flex-col items-center gap-1 text-center animate-in fade-in zoom-in-95 duration-150 ${
-            placement === 'bottom' ? 'top-full mt-2' : 'bottom-full mb-2'
-          }`}
-        >
-          <div className="flex items-center gap-1.5 font-bold text-indigo-300">
-            <span>{target}</span>
-            {isLemmaDifferent && (
-              <span className="text-[10px] text-slate-400 font-normal">
-                ({match?.word}{match?.pos ? ` · ${match.pos}` : ''})
-              </span>
-            )}
-            <button
-              type="button"
-              onClick={(e) => speakEnglishWord(pronunciationWord, e)}
-              className="p-1 rounded hover:bg-slate-700/60 text-slate-300 hover:text-white"
-              title="Phát âm"
-            >
-              <Volume2 className="h-3.5 w-3.5 text-indigo-400" />
-            </button>
-          </div>
-
-          {trans ? (
-            <span className="text-slate-100 font-medium leading-snug">{trans}</span>
-          ) : (
-            <div className="flex flex-col items-center gap-1 mt-0.5">
-              <span className="text-slate-400 text-[11px] italic">Từ vựng theo ngữ cảnh bài đọc</span>
-              <Link
-                href={`/dictionary?q=${encodeURIComponent(target)}`}
-                className="mt-1 inline-flex items-center gap-1 text-[11px] font-bold text-indigo-400 hover:text-indigo-300 underline"
-              >
-                Tra trong Từ điển
-              </Link>
-            </div>
-          )}
-
-          {/* Pointer Arrow adjusted to match original word position */}
-          <span
-            style={{
-              transform: `translateX(calc(-50% - ${horizontalOffset}px))`,
-            }}
-            className={`absolute left-1/2 border-4 border-transparent ${
-              placement === 'bottom'
-                ? 'bottom-full -mb-1 border-b-slate-900/95 dark:border-b-slate-800/95'
-                : 'top-full -mt-1 border-t-slate-900/95 dark:border-t-slate-800/95'
-            }`}
-          />
-        </span>
-      )}
-    </span>
-  );
-}
-
-// ── Passage Renderer ──
-export function renderFormattedPassage(
-  text: string,
-  sourceWords: WordItem[] = [],
-  bonusWords: WordItem[] = [],
-  activeWordIndex: number | null,
-  setActiveWordIndex: (idx: number | null) => void,
-): ReactNode {
-  if (!text) return null;
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
-  let wordCounter = 0;
-
-  return parts.map((part, i) => {
-    if (part.startsWith('**') && part.endsWith('**')) {
-      const target = part.slice(2, -2);
-      const currentIdx = wordCounter++;
-      const match = findMatchingSourceWord(target, sourceWords, bonusWords);
-      const isActive = activeWordIndex === currentIdx;
-
-      return (
-        <PassageWord
-          key={i}
-          target={target}
-          match={match}
-          isActive={isActive}
-          onToggle={() => setActiveWordIndex(isActive ? null : currentIdx)}
-        />
-      );
-    }
-    return part;
-  });
-}
-
-// ── Cloze Renderer (Layout-Shift Proof & Inline) ──
-function renderClozeText(
-  text: string,
-  blanks: ClozeBlank[],
-  answers: Record<number, string>,
-  onPick: (id: number, value: string) => void,
-  revealed: boolean,
-): ReactNode[] {
-  const nodes: ReactNode[] = [];
-  const re = /\{\{(\d+)\}\}/g;
-  let last = 0;
-  let match: RegExpExecArray | null;
-  let key = 0;
-
-  while ((match = re.exec(text)) !== null) {
-    if (match.index > last) {
-      nodes.push(<span key={key++}>{text.slice(last, match.index)}</span>);
-    }
-    const id = Number(match[1]);
-    const blank = blanks.find((b) => b.id === id) ?? blanks[id];
-    const selected = answers[id] ?? '';
-    const correct = blank?.answer?.toLowerCase() === selected.toLowerCase();
-
-    nodes.push(
-      <span
-        key={key++}
-        className="inline-block mx-1 my-0.5 align-baseline"
-      >
-        <span
-          className={`inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-xs font-semibold transition-all ${
-            revealed
-              ? correct
-                ? 'border-emerald-500 bg-emerald-50 text-emerald-900 dark:border-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-200'
-                : 'border-rose-400 bg-rose-50 text-rose-900 dark:border-rose-700 dark:bg-rose-950/60 dark:text-rose-200'
-              : selected
-                ? 'border-indigo-400 bg-indigo-50/80 text-indigo-900 dark:border-indigo-600 dark:bg-indigo-950/60 dark:text-indigo-200 shadow-2xs'
-                : 'border-slate-300 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 shadow-2xs'
-          }`}
-        >
-          <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono">({id + 1})</span>
-          <select
-            className="bg-transparent text-current text-xs font-bold focus:outline-none cursor-pointer pr-1"
-            value={selected}
-            onChange={(e) => onPick(id, e.target.value)}
-            disabled={revealed}
-            aria-label={`Điền từ vị trí ${id + 1}`}
-          >
-            <option value="" className="bg-white dark:bg-slate-900 text-slate-500">
-              — chọn từ —
-            </option>
-            {Array.from(new Set((blank?.options ?? []).map((o) => o.trim()))).map((opt) => (
-              <option key={opt} value={opt} className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100">
-                {opt}
-              </option>
-            ))}
-          </select>
-          {revealed && (
-            correct ? (
-              <span className="text-emerald-600 dark:text-emerald-400 text-xs font-bold">✓</span>
-            ) : (
-              <span className="text-rose-600 dark:text-rose-400 text-xs font-bold">✗</span>
-            )
-          )}
-        </span>
-        {revealed && !correct && blank && (
-          <span className="ml-1 inline-block text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-300 dark:border-emerald-800">
-            ✓ {blank.answer}
-          </span>
-        )}
-      </span>,
-    );
-    last = match.index + match[0].length;
-  }
-  if (last < text.length) {
-    nodes.push(<span key={key++}>{text.slice(last)}</span>);
-  }
-  return nodes;
-}
-
 function formatDate(dateStr: string): string {
   try {
     const d = new Date(dateStr + 'T00:00:00+07:00');
@@ -371,7 +121,6 @@ export default function DailyReadingPage() {
 
   const [tab, setTab] = useState<Tab>('passage');
   const [showTranslation, setShowTranslation] = useState(false);
-  const [activeWordIndex, setActiveWordIndex] = useState<number | null>(null);
 
   // Metadata from GET
   const [canGenerateToday, setCanGenerateToday] = useState(() => Boolean(initialSnapshot?.canGenerateToday));
@@ -502,7 +251,6 @@ export default function DailyReadingPage() {
     setClozeRevealed(false);
     setShowWordBank(true);
     setShowTranslation(false);
-    setActiveWordIndex(null);
     setTab('passage');
   };
 
@@ -577,43 +325,41 @@ export default function DailyReadingPage() {
           }),
         });
 
-        setExercises((prev) => {
-          const updated = prev.map((e) =>
-            e.id === exercise.id
-              ? {
-                  ...e,
-                  completion: {
-                    mcqScore: mcqScoreVal,
-                    mcqTotal: mcqTotalVal,
-                    clozeScore: clozeScoreVal,
-                    clozeTotal: clozeTotalVal,
-                    completedAt: new Date().toISOString(),
-                  },
-                }
-              : e,
-          );
-          const remainingUncompleted = updated.find((e) => !e.completion?.completedAt);
-          setHasUncompleted(Boolean(remainingUncompleted));
-          setUncompletedExerciseId(remainingUncompleted?.id || null);
-          try {
-            const lastUid = localStorage.getItem('lp:last_user_id') || sessionStorage.getItem('lp:last_user_id');
-            if (lastUid) {
-              writeDailyReadingCache(lastUid, {
-                exercises: updated,
-                canGenerateToday,
-                hasNew: Boolean(remainingUncompleted),
-                hasUncompleted: Boolean(remainingUncompleted),
-                uncompletedExerciseId: remainingUncompleted?.id || null,
-              });
-            }
-          } catch {}
-          return updated;
-        });
+        const updated = exercises.map((e) =>
+          e.id === exercise.id
+            ? {
+                ...e,
+                completion: {
+                  mcqScore: mcqScoreVal,
+                  mcqTotal: mcqTotalVal,
+                  clozeScore: clozeScoreVal,
+                  clozeTotal: clozeTotalVal,
+                  completedAt: new Date().toISOString(),
+                },
+              }
+            : e,
+        );
+        const remainingUncompleted = updated.find((e) => !e.completion?.completedAt);
+        setExercises(updated);
+        setHasUncompleted(Boolean(remainingUncompleted));
+        setUncompletedExerciseId(remainingUncompleted?.id || null);
+        try {
+          const lastUid = localStorage.getItem('lp:last_user_id') || sessionStorage.getItem('lp:last_user_id');
+          if (lastUid) {
+            writeDailyReadingCache(lastUid, {
+              exercises: updated,
+              canGenerateToday,
+              hasNew: Boolean(remainingUncompleted),
+              hasUncompleted: Boolean(remainingUncompleted),
+              uncompletedExerciseId: remainingUncompleted?.id || null,
+            });
+          }
+        } catch {}
       } catch {
         // Non-critical
       }
     },
-    [exercise],
+    [exercise, exercises, canGenerateToday],
   );
 
   const handleGradeMcq = useCallback(() => {
@@ -745,10 +491,7 @@ export default function DailyReadingPage() {
 
   return (
     <StudentShell title="Bài đọc hàng ngày">
-      <div
-        className="mx-auto max-w-5xl space-y-3 px-3 py-3 pb-24 sm:px-4"
-        onClick={() => setActiveWordIndex(null)}
-      >
+      <div className="mx-auto max-w-5xl space-y-3 px-3 py-3 pb-24 sm:px-4">
         {/* Header */}
         <div className="flex items-center gap-2">
           <Link
@@ -930,7 +673,7 @@ export default function DailyReadingPage() {
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-slate-100 leading-snug">
-                    {exercise.title}
+                    <ExamInteractiveText text={exercise.title} enabled as="span" inheritClassName />
                   </h2>
                   <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400">
                     <span className="rounded-full border border-slate-200 bg-white px-2 py-0.5 font-bold dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
@@ -1033,7 +776,6 @@ export default function DailyReadingPage() {
                   type="button"
                   onClick={() => {
                     setTab(t.id);
-                    setActiveWordIndex(null);
                   }}
                   className={`flex flex-1 items-center justify-center gap-1.5 rounded-lg py-2 text-xs font-bold transition-all ${
                     tab === t.id
@@ -1054,17 +796,15 @@ export default function DailyReadingPage() {
                 <div className="lg:col-span-2">
                   <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900 lg:sticky lg:top-4">
                     <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 mb-3 pb-2 border-b border-slate-100 dark:border-slate-800">
-                      <span>💡 Bấm vào từ in đậm để tra nghĩa và nghe phát âm</span>
+                      <span>💡 Bấm vào từ bất kỳ (hoặc từ in đậm) để tra nghĩa và nghe phát âm</span>
                     </div>
 
                     <div className="whitespace-pre-line text-sm sm:text-base leading-[2] text-slate-800 dark:text-slate-200 selection:bg-indigo-100 dark:selection:bg-indigo-900">
-                      {renderFormattedPassage(
-                        exercise.passage || exercise.passagePlain,
-                        exercise.sourceWords,
-                        exercise.bonusWords,
-                        activeWordIndex,
-                        setActiveWordIndex,
-                      )}
+                      <InteractiveFormattedText
+                        text={exercise.passage || exercise.passagePlain}
+                        enabled
+                        boldClassName="font-bold px-1 py-0.5 rounded bg-indigo-50/90 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300 transition-colors"
+                      />
                     </div>
 
                     {/* Translation Toggle */}
@@ -1117,7 +857,8 @@ export default function DailyReadingPage() {
                         }`}
                       >
                         <p className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug">
-                          {qi + 1}. {q.q}
+                          {qi + 1}.{' '}
+                          <ExamInteractiveText text={q.q} enabled as="span" inheritClassName />
                         </p>
                         <div className="mt-2.5 space-y-1.5">
                           {q.options.map((opt) => {
@@ -1141,14 +882,31 @@ export default function DailyReadingPage() {
                             }
 
                             return (
-                              <button
+                              <div
                                 key={opt}
-                                type="button"
-                                disabled={qRevealed}
-                                onClick={() =>
-                                  setQAnswers((prev) => ({ ...prev, [qi]: opt }))
-                                }
-                                className={`block w-full rounded-xl border px-3 py-2 text-left text-xs transition-colors min-h-[42px] ${cls}`}
+                                role="button"
+                                tabIndex={qRevealed ? -1 : 0}
+                                aria-disabled={qRevealed}
+                                onClick={(e) => {
+                                  if (qRevealed) return;
+                                  if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger, .exam-lookup-card')) {
+                                    return;
+                                  }
+                                  if (typeof window !== 'undefined' && window.getSelection()?.toString().trim()) {
+                                    return;
+                                  }
+                                  setQAnswers((prev) => ({ ...prev, [qi]: opt }));
+                                }}
+                                onKeyDown={(e) => {
+                                  if (qRevealed || e.target !== e.currentTarget) return;
+                                  if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    setQAnswers((prev) => ({ ...prev, [qi]: opt }));
+                                  }
+                                }}
+                                className={`block w-full rounded-xl border px-3 py-2 text-left text-xs transition-colors min-h-[42px] ${
+                                  qRevealed ? 'cursor-default select-text' : 'cursor-pointer'
+                                } ${cls}`}
                               >
                                 {qRevealed && isAnswer && (
                                   <CheckCircle2 className="mr-1.5 inline h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
@@ -1156,8 +914,13 @@ export default function DailyReadingPage() {
                                 {qRevealed && selected && !isAnswer && (
                                   <XCircle className="mr-1.5 inline h-3.5 w-3.5 text-rose-500 dark:text-rose-400" />
                                 )}
-                                {opt}
-                              </button>
+                                <ExamInteractiveText
+                                  text={opt}
+                                  enabled={qRevealed}
+                                  as="span"
+                                  inheritClassName
+                                />
+                              </div>
                             );
                           })}
                         </div>
@@ -1249,7 +1012,7 @@ export default function DailyReadingPage() {
                                 : 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/60 dark:text-indigo-300'
                             }`}
                           >
-                            {w}
+                            <ExamInteractiveText text={w} enabled as="span" inheritClassName />
                           </span>
                         );
                       })}
@@ -1259,15 +1022,87 @@ export default function DailyReadingPage() {
 
                 {/* Cloze Passage text */}
                 <div className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
-                  <p className="whitespace-pre-line text-sm sm:text-base leading-[2.2] text-slate-800 dark:text-slate-200">
-                    {renderClozeText(
-                      exercise.cloze.text,
-                      exercise.cloze.blanks,
-                      clozeAnswers,
-                      (id, val) => setClozeAnswers((prev) => ({ ...prev, [id]: val })),
-                      clozeRevealed,
-                    )}
-                  </p>
+                  <InteractiveClozeText
+                    text={exercise.cloze.text}
+                    enabled
+                    as="p"
+                    className="whitespace-pre-line text-sm sm:text-base leading-[2.2] text-slate-800 dark:text-slate-200"
+                    renderBlank={({ rawToken, slotKey }) => {
+                      if (!/^\d+$/.test(slotKey)) {
+                        return <span>{rawToken}</span>;
+                      }
+                      const id = Number(slotKey);
+                      const blank =
+                        exercise.cloze.blanks.find((b) => b.id === id) ?? exercise.cloze.blanks[id];
+                      const selected = clozeAnswers[id] ?? '';
+                      const correct = blank?.answer?.toLowerCase() === selected.toLowerCase();
+
+                      return (
+                        <span className="inline-block mx-1 my-0.5 align-baseline">
+                          <span
+                            className={`inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-xs font-semibold transition-all ${
+                              clozeRevealed
+                                ? correct
+                                  ? 'border-emerald-500 bg-emerald-50 text-emerald-900 dark:border-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-200'
+                                  : 'border-rose-400 bg-rose-50 text-rose-900 dark:border-rose-700 dark:bg-rose-950/60 dark:text-rose-200'
+                                : selected
+                                  ? 'border-indigo-400 bg-indigo-50/80 text-indigo-900 dark:border-indigo-600 dark:bg-indigo-950/60 dark:text-indigo-200 shadow-2xs'
+                                  : 'border-slate-300 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 shadow-2xs'
+                            }`}
+                          >
+                            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono">
+                              ({id + 1})
+                            </span>
+                            <select
+                              className="bg-transparent text-current text-xs font-bold focus:outline-none cursor-pointer pr-1"
+                              value={selected}
+                              onChange={(e) =>
+                                setClozeAnswers((prev) => ({ ...prev, [id]: e.target.value }))
+                              }
+                              disabled={clozeRevealed}
+                              aria-label={`Điền từ vị trí ${id + 1}`}
+                            >
+                              <option value="" className="bg-white dark:bg-slate-900 text-slate-500">
+                                — chọn từ —
+                              </option>
+                              {Array.from(new Set((blank?.options ?? []).map((o) => o.trim()))).map(
+                                (opt) => (
+                                  <option
+                                    key={opt}
+                                    value={opt}
+                                    className="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                                  >
+                                    {opt}
+                                  </option>
+                                ),
+                              )}
+                            </select>
+                            {clozeRevealed &&
+                              (correct ? (
+                                <span className="text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+                                  ✓
+                                </span>
+                              ) : (
+                                <span className="text-rose-600 dark:text-rose-400 text-xs font-bold">
+                                  ✗
+                                </span>
+                              ))}
+                          </span>
+                          {clozeRevealed && !correct && blank && (
+                            <span className="ml-1 inline-block text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/80 px-1.5 py-0.5 rounded border border-emerald-300 dark:border-emerald-800">
+                              ✓{' '}
+                              <ExamInteractiveText
+                                text={blank.answer}
+                                enabled
+                                as="span"
+                                inheritClassName
+                              />
+                            </span>
+                          )}
+                        </span>
+                      );
+                    }}
+                  />
                 </div>
 
                 {!clozeRevealed ? (
@@ -1335,7 +1170,7 @@ export default function DailyReadingPage() {
                           <div className="min-w-0 flex-1">
                             <div className="flex items-center gap-1.5">
                               <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
-                                {w.word}
+                                <ExamInteractiveText text={w.word} enabled as="span" inheritClassName />
                               </span>
                               {w.pos && (
                                 <span className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">
@@ -1344,7 +1179,10 @@ export default function DailyReadingPage() {
                               )}
                               <button
                                 type="button"
-                                onClick={(e) => speakEnglishWord(w.word, e)}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  void playWordAudio(w.word);
+                                }}
                                 className="p-1 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400"
                                 title="Phát âm"
                               >
@@ -1387,7 +1225,7 @@ export default function DailyReadingPage() {
                             <div className="min-w-0 flex-1">
                               <div className="flex items-center gap-1.5">
                                 <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100">
-                                  {w.word}
+                                  <ExamInteractiveText text={w.word} enabled as="span" inheritClassName />
                                 </span>
                                 {w.pos && (
                                   <span className="text-[10px] text-slate-400 dark:text-slate-500">
@@ -1396,7 +1234,10 @@ export default function DailyReadingPage() {
                                 )}
                                 <button
                                   type="button"
-                                  onClick={(e) => speakEnglishWord(w.word, e)}
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    void playWordAudio(w.word);
+                                  }}
                                   className="p-1 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400"
                                   title="Phát âm"
                                 >
@@ -1408,7 +1249,12 @@ export default function DailyReadingPage() {
                               </p>
                               {w.definition_en && (
                                 <p className="text-[10px] text-slate-400 italic mt-0.5">
-                                  {w.definition_en}
+                                  <ExamInteractiveText
+                                    text={w.definition_en}
+                                    enabled
+                                    as="span"
+                                    inheritClassName
+                                  />
                                 </p>
                               )}
                             </div>

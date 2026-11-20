@@ -41,6 +41,9 @@ import { RecordingButton, type RecordingButtonState } from './RecordingButton';
 import { LiveTranscriptDisplay } from './LiveTranscriptDisplay';
 import { stopWordAudio } from '@/lib/audio';
 import { pauseIpaVideo } from '@/components/pronunciation/InteractiveIpaVideoPlayer';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { hasVietnameseDiacritics } from '@/components/grammar/FormattedText';
+import type { LookupThemeVariant } from '@/components/vocab';
 
 export interface SpeakingEvaluationFeedback {
   score: number;
@@ -88,7 +91,45 @@ export interface SpeakingInteractionPaneProps {
   onRetry?: () => void;
   onNextTask?: () => void;
 
+  themeVariant?: LookupThemeVariant;
   className?: string;
+}
+
+function renderDisplayPrompt(prompt: string, themeVariant: LookupThemeVariant): React.ReactNode {
+  if (!hasVietnameseDiacritics(prompt)) {
+    return (
+      <ExamInteractiveText
+        text={prompt}
+        enabled
+        as="span"
+        inheritClassName
+        themeVariant={themeVariant}
+      />
+    );
+  }
+
+  const match = prompt.match(/^([^:]+:\s*["“]?)(.+?)(["”]?)$/);
+  if (match) {
+    const [, prefix, body, suffix] = match;
+    if (!hasVietnameseDiacritics(body) && /[a-zA-Z]/.test(body)) {
+      return (
+        <>
+          {prefix}
+          <ExamInteractiveText
+            text={body}
+            enabled
+            as="span"
+            inheritClassName
+            themeVariant={themeVariant}
+            contextSentence={body}
+          />
+          {suffix}
+        </>
+      );
+    }
+  }
+
+  return prompt;
 }
 
 /** Formats seconds into MM:SS tabular numbers */
@@ -128,6 +169,7 @@ export const SpeakingInteractionPane: React.FC<SpeakingInteractionPaneProps> = (
   onRetry,
   onNextTask,
 
+  themeVariant = 'default',
   className = '',
 }) => {
   // Normalize task instructions
@@ -246,7 +288,7 @@ export const SpeakingInteractionPane: React.FC<SpeakingInteractionPaneProps> = (
         </div>
 
         <h3 className="text-sm sm:text-base font-semibold text-foreground leading-snug">
-          {displayPrompt}
+          {renderDisplayPrompt(displayPrompt, themeVariant)}
         </h3>
 
         {contextVietnamese && (
@@ -269,7 +311,19 @@ export const SpeakingInteractionPane: React.FC<SpeakingInteractionPaneProps> = (
                 key={idx}
                 className="px-2.5 py-1 rounded border border-border/80 bg-muted/30 text-xs font-mono text-foreground/90 select-text"
               >
-                "{starter}..."
+                &ldquo;
+                {!hasVietnameseDiacritics(starter) && /[a-zA-Z]/.test(starter) ? (
+                  <ExamInteractiveText
+                    text={starter}
+                    enabled
+                    as="span"
+                    inheritClassName
+                    themeVariant={themeVariant}
+                  />
+                ) : (
+                  starter
+                )}
+                ...&rdquo;
               </span>
             ))}
           </div>
@@ -284,6 +338,7 @@ export const SpeakingInteractionPane: React.FC<SpeakingInteractionPaneProps> = (
           confidence={confidence}
           isListening={isRecording}
           targetKeywords={targetKeywords}
+          themeVariant={themeVariant}
         />
       </div>
 
@@ -401,7 +456,17 @@ export const SpeakingInteractionPane: React.FC<SpeakingInteractionPaneProps> = (
                     key={i}
                     className="px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20"
                   >
-                    {kw}
+                    {!hasVietnameseDiacritics(kw) && /[a-zA-Z]/.test(kw) ? (
+                      <ExamInteractiveText
+                        text={kw}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        themeVariant={themeVariant}
+                      />
+                    ) : (
+                      kw
+                    )}
                   </span>
                 ))}
               </div>
@@ -417,7 +482,17 @@ export const SpeakingInteractionPane: React.FC<SpeakingInteractionPaneProps> = (
                     key={i}
                     className="px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20"
                   >
-                    {kw}
+                    {!hasVietnameseDiacritics(kw) && /[a-zA-Z]/.test(kw) ? (
+                      <ExamInteractiveText
+                        text={kw}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        themeVariant={themeVariant}
+                      />
+                    ) : (
+                      kw
+                    )}
                   </span>
                 ))}
               </div>

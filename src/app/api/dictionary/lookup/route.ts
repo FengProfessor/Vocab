@@ -4,9 +4,19 @@ import { getClientIp } from '@/lib/api-security';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { getInMemWordList, fuzzySuggestFromRAM } from '@/lib/dict-trie-engine';
-import { getCollocationVocabEntry, getWordFamilyCluster } from '@/lib/toeic-collocation-index';
+import {
+  getCollocationVocabEntry,
+  getWordFamilyCluster,
+  type CollocationVocabEntry,
+} from '@/lib/toeic-collocation-index';
 import { getDerivationalStems } from '@/lib/dict-cache';
 import { resolveProxyMediaUrl } from '@/lib/toeic-media-proxy';
+import {
+  buildExternalLookupPayload,
+  fetchExternalDict,
+  upsertExternalToGlobalDict,
+} from '@/lib/external-dict';
+import { translateWithDetails } from '@/lib/api/translation';
 import {
   cleanBareIpaString,
   extractCleanBareIpa,
@@ -21,6 +31,14 @@ type CachedPayload = {
   status: number;
   body: Record<string, unknown>;
 };
+
+interface LookupGlobalDictRow {
+  word?: string;
+  data?: Record<string, unknown> | null;
+  tags?: string[] | null;
+  image_url?: string | null;
+  image_source?: string | null;
+}
 
 const CACHE_TTL_MS = 24 * 3600 * 1000; // 24 giờ lưu RAM
 const CACHE_HEADERS = {
@@ -247,12 +265,11 @@ function buildOrderedMeanings(
   return { meanings, coreSenses };
 }
 
-async function enrichFamilyWords(
+function collectRamFamilyWords(
   word: string,
   baseFamily: WordFamilyEntry[],
-  morphology?: unknown,
-  supabase?: ReturnType<typeof createServiceClient> | null,
-): Promise<WordFamilyEntry[]> {
+  parentWord?: string,
+): WordFamilyEntry[] {
   const map = new Map<string, WordFamilyEntry>();
   const headLower = word.trim().toLowerCase();
 
@@ -260,7 +277,6 @@ async function enrichFamilyWords(
     if (f.word) map.set(f.word.toLowerCase().trim(), f);
   }
 
-  // 1. Instant 0ms bidirectional family cluster lookup (covers ~5,000 common words)
   const cluster = getWordFamilyCluster(word);
   if (cluster && cluster.length > 0) {
     for (const f of cluster) {
@@ -270,12 +286,60 @@ async function enrichFamilyWords(
     }
   }
 
+  if (parentWord) {
+    const parentCluster = getWordFamilyCluster(parentWord);
+    if (parentCluster) {
+      for (const f of parentCluster) {
+        if (f.word && !map.has(f.word.toLowerCase().trim())) {
+          map.set(f.word.toLowerCase().trim(), f);
+        }
+      }
+    }
+  }
+
+  const candidateStems = getDerivationalStems(word).filter((s) => s !== headLower && s.length >= 3);
+  for (const stem of candidateStems.slice(0, 5)) {
+    const stemCluster = getWordFamilyCluster(stem);
+    if (stemCluster) {
+      for (const f of stemCluster) {
+        if (f.word && !map.has(f.word.toLowerCase().trim())) {
+          map.set(f.word.toLowerCase().trim(), f);
+        }
+      }
+    }
+    const stemToeic = getCollocationVocabEntry(stem);
+    if (stemToeic?.wordFamily) {
+      for (const f of parseRawFamilyWords(stemToeic.wordFamily)) {
+        if (f.word && !map.has(f.word.toLowerCase().trim())) {
+          map.set(f.word.toLowerCase().trim(), f);
+        }
+      }
+    }
+  }
+
+  return Array.from(map.values());
+}
+
+async function enrichFamilyWords(
+  word: string,
+  baseFamily: WordFamilyEntry[],
+  morphology?: unknown,
+  supabase?: ReturnType<typeof createServiceClient> | null,
+  prefetchedStemRows?: Array<{ word: string; data?: Record<string, unknown> | null }>,
+): Promise<WordFamilyEntry[]> {
+  const map = new Map<string, WordFamilyEntry>();
+  const headLower = word.trim().toLowerCase();
+
+  for (const f of collectRamFamilyWords(word, baseFamily)) {
+    if (f.word) map.set(f.word.toLowerCase().trim(), f);
+  }
+
   const nonSelf = Array.from(map.values()).filter((f) => f.word.toLowerCase().trim() !== headLower);
   if (nonSelf.length >= 2) {
     return Array.from(map.values());
   }
 
-  // 2. Try morphology root word
+  // 2. Try morphology root word in RAM first
   const morph =
     morphology && typeof morphology === 'object'
       ? (morphology as { rootWord?: unknown; rootMeaning?: unknown })
@@ -299,120 +363,280 @@ async function enrichFamilyWords(
         }
       }
     }
-    if (supabase) {
+  }
+
+  // 3. Single concurrent/combined DB check if still < 2 non-self family words
+  const candidateStems = getDerivationalStems(word)
+    .filter((s) => s !== headLower && s.length >= 3)
+    .slice(0, 5);
+  const currentNonSelf = Array.from(map.values()).filter((f) => f.word.toLowerCase().trim() !== headLower);
+
+  let stemRowsToApply = prefetchedStemRows;
+  if (!stemRowsToApply && currentNonSelf.length < 2 && supabase) {
+    const dbKeys = Array.from(
+      new Set([
+        ...(root && root !== headLower && root.length >= 3 ? [root] : []),
+        ...candidateStems,
+      ]),
+    );
+    if (dbKeys.length > 0) {
       try {
-        const { data: rootDb } = await supabase
+        const { data: stemRows } = await supabase
           .from('global_dictionary')
-          .select('data')
-          .eq('word', root)
-          .maybeSingle();
-        if (rootDb?.data?.familyWords) {
-          for (const f of parseRawFamilyWords(rootDb.data.familyWords)) {
-            if (f.word && !map.has(f.word.toLowerCase().trim())) {
-              map.set(f.word.toLowerCase().trim(), f);
-            }
-          }
-        }
+          .select('word, data')
+          .in('word', dbKeys);
+        stemRowsToApply = (stemRows || []) as Array<{ word: string; data?: Record<string, unknown> | null }>;
       } catch {
         // ignore db error
       }
     }
-    if (!map.has(root)) {
-      const rootMeaning =
-        typeof morph?.rootMeaning === 'string' && morph.rootMeaning.trim()
-          ? morph.rootMeaning
-          : undefined;
-      map.set(root, { word: root, pos: 'gốc từ', meaning: rootMeaning });
+  }
+
+  for (const r of stemRowsToApply || []) {
+    const rData = r.data as
+      | {
+          familyWords?: unknown;
+          definition?: string;
+          pos?: string;
+          results?: Array<{ meanings?: Array<{ definition?: string; pos?: string }> }>;
+        }
+      | undefined;
+    const stemFam = parseRawFamilyWords(rData?.familyWords);
+    for (const f of stemFam) {
+      if (f.word && !map.has(f.word.toLowerCase().trim())) {
+        map.set(f.word.toLowerCase().trim(), f);
+      }
+    }
+    const rKey = r.word.toLowerCase().trim();
+    if (rKey !== headLower && !map.has(rKey)) {
+      const def = rData?.results?.[0]?.meanings?.[0]?.definition || rData?.definition;
+      map.set(rKey, {
+        word: r.word,
+        pos: rData?.results?.[0]?.meanings?.[0]?.pos || rData?.pos || 'từ gốc',
+        meaning: def || undefined,
+      });
     }
   }
 
-  // 3. Try derivational stems with bidirectional clusters
-  const candidateStems = getDerivationalStems(word).filter((s) => s !== headLower && s.length >= 3);
-  for (const stem of candidateStems.slice(0, 5)) {
-    const stemCluster = getWordFamilyCluster(stem);
-    if (stemCluster) {
-      for (const f of stemCluster) {
-        if (f.word && !map.has(f.word.toLowerCase().trim())) {
-          map.set(f.word.toLowerCase().trim(), f);
-        }
-      }
-    }
-    const stemToeic = getCollocationVocabEntry(stem);
-    if (stemToeic?.wordFamily) {
-      for (const f of parseRawFamilyWords(stemToeic.wordFamily)) {
-        if (f.word && !map.has(f.word.toLowerCase().trim())) {
-          map.set(f.word.toLowerCase().trim(), f);
-        }
-      }
-    }
-  }
-
-  const remainingNonSelf = Array.from(map.values()).filter((f) => f.word.toLowerCase().trim() !== headLower);
-  if (remainingNonSelf.length < 2 && candidateStems.length > 0 && supabase) {
-    try {
-      const { data: stemRows } = await supabase
-        .from('global_dictionary')
-        .select('word, data')
-        .in('word', candidateStems.slice(0, 5));
-
-      for (const r of stemRows || []) {
-        const stemFam = parseRawFamilyWords(r.data?.familyWords);
-        for (const f of stemFam) {
-          if (f.word && !map.has(f.word.toLowerCase().trim())) {
-            map.set(f.word.toLowerCase().trim(), f);
-          }
-        }
-        if (!map.has(r.word.toLowerCase().trim())) {
-          const def = r.data?.results?.[0]?.meanings?.[0]?.definition || r.data?.definition;
-          map.set(r.word.toLowerCase().trim(), {
-            word: r.word,
-            pos: r.data?.results?.[0]?.meanings?.[0]?.pos || r.data?.pos || 'từ gốc',
-            meaning: def || undefined,
-          });
-        }
-      }
-    } catch {
-      // ignore db error
-    }
+  if (root && root !== headLower && root.length >= 3 && !map.has(root)) {
+    const rootMeaning =
+      typeof morph?.rootMeaning === 'string' && morph.rootMeaning.trim()
+        ? morph.rootMeaning
+        : undefined;
+    map.set(root, { word: root, pos: 'gốc từ', meaning: rootMeaning });
   }
 
   return Array.from(map.values());
 }
 
+function buildToeicCollocationPayload(
+  matchedKey: string,
+  toeicEntry: CollocationVocabEntry,
+  familyWords: WordFamilyEntry[],
+  extraRow?: {
+    data?: Record<string, unknown> | null;
+    tags?: string[] | null;
+    image_url?: string | null;
+    image_source?: string | null;
+  } | null,
+): Record<string, unknown> {
+  const extraData = (extraRow?.data || null) as Record<string, unknown> | null;
+  const extraTags = extraRow?.tags || [];
+  const extraImageUrl = extraRow?.image_url || null;
+  const extraImageSource = extraRow?.image_source || 'none';
+
+  const { meanings, coreSenses } = buildOrderedMeanings(
+    extraData?.core_senses,
+    extraData?.results,
+    {
+      pos: toeicEntry.pos,
+      definition: toeicEntry.definition,
+      example: toeicEntry.example,
+      exampleVi: toeicEntry.exampleVi,
+      toeicTip: toeicEntry.toeicTip,
+    },
+  );
+
+  const rawPhrases = toeicEntry.phrases || [];
+  const extraColls = Array.isArray(extraData?.collocations) ? extraData.collocations : [];
+  const collocations = [
+    ...rawPhrases.map((p) => ({
+      phrase: p.phrase,
+      meaning_vi: p.meaning,
+      imageUrl: p.imageUrl,
+    })),
+    ...extraColls,
+  ];
+
+  const extraProns = extraData?.pronunciations as Array<{ ipa: string; region?: 'UK' | 'US' | null }> | undefined;
+  const pronunciations = extraProns?.length
+    ? extraProns
+    : parsePronunciations(toeicEntry.ipa);
+
+  const resolvedToeicImageUrl = resolveNullableMediaUrl(extraImageUrl || toeicEntry.imageUrl);
+  const resolvedToeicAudioUs = resolveNullableMediaUrl(toeicEntry.audioUs || extraData?.audio_us);
+  const resolvedToeicAudioUk = resolveNullableMediaUrl(toeicEntry.audioUk || extraData?.audio_uk);
+  const resolvedToeicPhrases = (toeicEntry.phrases || []).map((p) => ({
+    ...p,
+    ...(p.imageUrl ? { imageUrl: resolveProxyMediaUrl(p.imageUrl) } : {}),
+  }));
+
+  return {
+    success: true,
+    source: 'toeic_collocation_index',
+    word: toeicEntry.word,
+    cleanWord: toeicEntry.cleanWord || matchedKey,
+    ipa: toeicEntry.ipa || (pronunciations[0] ? pronunciations[0].ipa : ''),
+    pos: toeicEntry.pos || meanings[0]?.pos || '',
+    definition: toeicEntry.definition || meanings[0]?.definition || '',
+    example: toeicEntry.example || meanings[0]?.example || undefined,
+    example_vi: toeicEntry.exampleVi || meanings[0]?.example_vi || undefined,
+    exampleVi: toeicEntry.exampleVi || meanings[0]?.example_vi || undefined,
+    toeic_tip: toeicEntry.toeicTip || undefined,
+    toeicTip: toeicEntry.toeicTip || undefined,
+    word_family: toeicEntry.wordFamily || [],
+    wordFamily: toeicEntry.wordFamily || [],
+    familyWords,
+    synonyms: toeicEntry.synonyms?.length ? toeicEntry.synonyms : asStringList(extraData?.synonyms),
+    antonyms: toeicEntry.antonyms?.length ? toeicEntry.antonyms : asStringList(extraData?.antonyms),
+    image_url: resolvedToeicImageUrl,
+    imageUrl: resolvedToeicImageUrl,
+    image_source: extraImageSource,
+    audio_us: resolvedToeicAudioUs,
+    audioUs: resolvedToeicAudioUs,
+    audio_uk: resolvedToeicAudioUk,
+    audioUk: resolvedToeicAudioUk,
+    phrases: resolvedToeicPhrases,
+    collocations,
+    pronunciations,
+    core_senses: coreSenses.length > 0 ? coreSenses : undefined,
+    morphology: extraData?.morphology || undefined,
+    results: [
+      {
+        meanings,
+      },
+    ],
+    meanings: meanings.map((m) => ({
+      meaning: m.definition || '',
+      part_of_speech: m.pos || '',
+      example: m.example || '',
+      example_vi: m.example_vi || '',
+      toeic_tip: m.toeic_tip || '',
+      word_family: toeicEntry.wordFamily || [],
+      antonyms: toeicEntry.antonyms || [],
+    })),
+    tags: extraTags,
+  };
+}
+
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const word = (searchParams.get('word') || '').trim().toLowerCase();
+  const rawWord = (searchParams.get('word') || '').trim().toLowerCase();
 
-  if (!word) {
+  if (!rawWord) {
     return NextResponse.json({ success: false, error: 'word is required' }, { status: 400 });
   }
-  if (word.length > 100) {
+  if (rawWord.length > 100) {
     return NextResponse.json(
       { success: false, error: 'word must not exceed 100 characters' },
       { status: 400 },
     );
   }
+  if (/[\x00-\x1f\x7f]/.test(rawWord)) {
+    return NextResponse.json(
+      { success: false, error: 'word contains invalid control characters' },
+      { status: 400 },
+    );
+  }
+
+  const word = rawWord.replace(/[\u200B-\u200D\uFEFF]/g, '');
+  if (!word || !/[a-z0-9]/i.test(word)) {
+    return NextResponse.json(
+      { success: false, error: 'Not found' },
+      { status: 404, headers: { 'X-Lookup-Cache': 'MISS' } },
+    );
+  }
+
+  const fallbackMode = searchParams.get('fallback');
+  const fallbackExternal = fallbackMode === 'external';
+  const fallbackTranslate = fallbackMode === 'translate';
 
   const ip = getClientIp(req);
   const denied = await assertScrapeQuota(`dict-lookup:${ip}`, QUOTA.dictLookup);
   if (denied) return denied;
 
   const cacheKey = `dict-lookup:${word}`;
-  const cached = cacheGet<CachedPayload>(cacheKey);
-  if (cached) {
-    return NextResponse.json(cached.body, {
-      status: cached.status,
+  const cached200 = cacheGet<CachedPayload>(cacheKey);
+  if (cached200) {
+    return NextResponse.json(cached200.body, {
+      status: cached200.status,
       headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT' },
     });
   }
 
+  if (fallbackTranslate) {
+    const cachedTr = cacheGet<CachedPayload>(`dict-lookup:tr:${word}`);
+    if (cachedTr) {
+      return NextResponse.json(cachedTr.body, {
+        status: cachedTr.status,
+        headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT' },
+      });
+    }
+  }
+
+  const negCacheKey = fallbackExternal
+    ? `dict-lookup:ext404:${word}`
+    : fallbackTranslate
+      ? `dict-lookup:tr404:${word}`
+      : `dict-lookup:404:${word}`;
+  const cached404 = cacheGet<CachedPayload>(negCacheKey);
+  if (cached404) {
+    return NextResponse.json(cached404.body, {
+      status: 404,
+      headers: { 'X-Lookup-Cache': 'HIT' },
+    });
+  }
+
+  const structuralKeys = getLookupCandidateKeys(word);
+  const structuralSet = new Set(structuralKeys);
+  const allCandidateKeys = getLookupCandidateKeys(word, { includeInflections: true });
+  const inflectionalKeys = allCandidateKeys.filter((k) => !structuralSet.has(k));
+
   // ── 0. High-Performance TOEIC Collocation & Vocabulary Static Index (0ms RAM lookup) ──
-  const toeicEntry = getCollocationVocabEntry(word);
+  let matchedToeicKey = '';
+  let toeicEntry: CollocationVocabEntry | null = null;
+  for (const k of structuralKeys) {
+    const hit = getCollocationVocabEntry(k);
+    if (hit) {
+      matchedToeicKey = k;
+      toeicEntry = hit;
+      break;
+    }
+  }
+
   if (toeicEntry) {
-    let extraData: Record<string, unknown> | null = null;
-    let extraTags: string[] = [];
-    let extraImageUrl: string | null = null;
-    let extraImageSource = 'none';
+    const baseFamily = parseRawFamilyWords(toeicEntry.wordFamily);
+    const ramFamily = collectRamFamilyWords(matchedToeicKey, baseFamily, toeicEntry.parentWord);
+    const isPhrase = matchedToeicKey.includes(' ');
+    const hasCore = Boolean(
+      toeicEntry.definition?.trim() &&
+        toeicEntry.pos?.trim() &&
+        (isPhrase || (toeicEntry.ipa?.trim() && toeicEntry.example?.trim())),
+    );
+    const hasImage = Boolean(toeicEntry.imageUrl) || isPhrase;
+    const ramNonSelfCount = ramFamily.filter((f) => f.word.toLowerCase().trim() !== matchedToeicKey).length;
+    const isCompleteInRam = hasCore && hasImage && (isPhrase || ramNonSelfCount >= 2);
+
+    if (isCompleteInRam) {
+      const body = buildToeicCollocationPayload(matchedToeicKey, toeicEntry, ramFamily);
+      cacheSet(cacheKey, { status: 200, body }, CACHE_TTL_MS);
+      if (matchedToeicKey !== word) {
+        cacheSet(`dict-lookup:${matchedToeicKey}`, { status: 200, body }, CACHE_TTL_MS);
+      }
+      return NextResponse.json(body, {
+        headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT-TOEIC-COLLOCATION' },
+      });
+    }
 
     let supabaseClient: ReturnType<typeof createServiceClient> | null = null;
     try {
@@ -421,169 +645,144 @@ export async function GET(req: Request) {
       // Offline/test/network fallback
     }
 
+    let gdRow: LookupGlobalDictRow | null = null;
+    let prefetchedStemRows: Array<{ word: string; data?: Record<string, unknown> | null }> = [];
+
     if (supabaseClient) {
+      const candidateStems = getDerivationalStems(matchedToeicKey)
+        .filter((s) => s !== matchedToeicKey && s.length >= 3)
+        .slice(0, 5);
       try {
-        const { data: gdRow } = await supabaseClient
-          .from('global_dictionary')
-          .select('word, data, tags, image_url, image_source')
-          .eq('word', word)
-          .maybeSingle();
-        if (gdRow?.data) {
-          extraData = gdRow.data as Record<string, unknown>;
-          extraTags = gdRow.tags || [];
-          extraImageUrl = gdRow.image_url || null;
-          extraImageSource = gdRow.image_source || 'none';
+        const [gdRes, stemRes] = await Promise.all([
+          supabaseClient
+            .from('global_dictionary')
+            .select('word, data, tags, image_url, image_source')
+            .eq('word', matchedToeicKey)
+            .maybeSingle(),
+          ramNonSelfCount < 2 && candidateStems.length > 0
+            ? supabaseClient
+                .from('global_dictionary')
+                .select('word, data')
+                .in('word', candidateStems)
+            : Promise.resolve({ data: [] as Array<{ word: string; data?: Record<string, unknown> | null }> }),
+        ]);
+        if (gdRes.data?.data) {
+          gdRow = gdRes.data as LookupGlobalDictRow;
+        }
+        if (Array.isArray(stemRes.data)) {
+          prefetchedStemRows = stemRes.data as typeof prefetchedStemRows;
         }
       } catch {
         // Offline/test/network fallback
       }
     }
 
-    const { meanings, coreSenses } = buildOrderedMeanings(
-      extraData?.core_senses,
-      extraData?.results,
-      {
-        pos: toeicEntry.pos,
-        definition: toeicEntry.definition,
-        example: toeicEntry.example,
-        exampleVi: toeicEntry.exampleVi,
-        toeicTip: toeicEntry.toeicTip,
-      },
-    );
-
-    const baseFamily = [
+    const extraData = gdRow?.data || null;
+    const combinedBaseFamily = [
       ...parseRawFamilyWords(extraData?.familyWords || extraData?.wordFamily || extraData?.word_family),
-      ...parseRawFamilyWords(toeicEntry.wordFamily),
+      ...baseFamily,
     ];
-    let familyWords = baseFamily;
+    let familyWords = ramFamily;
     try {
-      familyWords = await enrichFamilyWords(word, baseFamily, extraData?.morphology, supabaseClient);
+      familyWords = await enrichFamilyWords(
+        matchedToeicKey,
+        combinedBaseFamily,
+        extraData?.morphology,
+        supabaseClient,
+        prefetchedStemRows,
+      );
     } catch {
       // fallback
     }
 
-    const rawPhrases = toeicEntry.phrases || [];
-    const extraColls = Array.isArray(extraData?.collocations) ? extraData.collocations : [];
-    const collocations = [
-      ...rawPhrases.map((p) => ({
-        phrase: p.phrase,
-        meaning_vi: p.meaning,
-        imageUrl: p.imageUrl,
-      })),
-      ...extraColls,
-    ];
-
-    const extraProns = extraData?.pronunciations as Array<{ ipa: string; region?: 'UK' | 'US' | null }> | undefined;
-    const pronunciations = extraProns?.length
-      ? extraProns
-      : parsePronunciations(toeicEntry.ipa);
-
-    const resolvedToeicImageUrl = resolveNullableMediaUrl(extraImageUrl || toeicEntry.imageUrl);
-    const resolvedToeicAudioUs = resolveNullableMediaUrl(toeicEntry.audioUs || extraData?.audio_us);
-    const resolvedToeicAudioUk = resolveNullableMediaUrl(toeicEntry.audioUk || extraData?.audio_uk);
-    const resolvedToeicPhrases = (toeicEntry.phrases || []).map((p) => ({
-      ...p,
-      ...(p.imageUrl ? { imageUrl: resolveProxyMediaUrl(p.imageUrl) } : {}),
-    }));
-
-    const body: Record<string, unknown> = {
-      success: true,
-      source: 'toeic_collocation_index',
-      word: toeicEntry.word,
-      cleanWord: toeicEntry.cleanWord || word,
-      ipa: toeicEntry.ipa || (pronunciations[0] ? pronunciations[0].ipa : ''),
-      pos: toeicEntry.pos || meanings[0]?.pos || '',
-      definition: toeicEntry.definition || meanings[0]?.definition || '',
-      example: toeicEntry.example || meanings[0]?.example || undefined,
-      example_vi: toeicEntry.exampleVi || meanings[0]?.example_vi || undefined,
-      exampleVi: toeicEntry.exampleVi || meanings[0]?.example_vi || undefined,
-      toeic_tip: toeicEntry.toeicTip || undefined,
-      toeicTip: toeicEntry.toeicTip || undefined,
-      word_family: toeicEntry.wordFamily || [],
-      wordFamily: toeicEntry.wordFamily || [],
-      familyWords,
-      synonyms: toeicEntry.synonyms?.length ? toeicEntry.synonyms : asStringList(extraData?.synonyms),
-      antonyms: toeicEntry.antonyms?.length ? toeicEntry.antonyms : asStringList(extraData?.antonyms),
-      image_url: resolvedToeicImageUrl,
-      imageUrl: resolvedToeicImageUrl,
-      image_source: extraImageSource,
-      audio_us: resolvedToeicAudioUs,
-      audioUs: resolvedToeicAudioUs,
-      audio_uk: resolvedToeicAudioUk,
-      audioUk: resolvedToeicAudioUk,
-      phrases: resolvedToeicPhrases,
-      collocations,
-      pronunciations,
-      core_senses: coreSenses.length > 0 ? coreSenses : undefined,
-      morphology: extraData?.morphology || undefined,
-      results: [
-        {
-          meanings,
-        },
-      ],
-      meanings: meanings.map((m) => ({
-        meaning: m.definition || '',
-        part_of_speech: m.pos || '',
-        example: m.example || '',
-        example_vi: m.example_vi || '',
-        toeic_tip: m.toeic_tip || '',
-        word_family: toeicEntry.wordFamily || [],
-        antonyms: toeicEntry.antonyms || [],
-      })),
-      tags: extraTags,
-    };
+    const body = buildToeicCollocationPayload(matchedToeicKey, toeicEntry, familyWords, gdRow);
     cacheSet(cacheKey, { status: 200, body }, CACHE_TTL_MS);
+    if (matchedToeicKey !== word) {
+      cacheSet(`dict-lookup:${matchedToeicKey}`, { status: 200, body }, CACHE_TTL_MS);
+    }
     return NextResponse.json(body, {
       headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT-TOEIC-COLLOCATION' },
     });
   }
 
   try {
-    const supabase = createServiceClient();
+    let supabase: ReturnType<typeof createServiceClient> | null = null;
+    try {
+      supabase = createServiceClient();
+    } catch {
+      supabase = null;
+    }
 
-    const { data, error } = await supabase
-      .from('global_dictionary')
-      .select('word, data, tags, image_url, image_source')
-      .eq('word', word)
-      .maybeSingle();
+    let resolvedRow: LookupGlobalDictRow | null = null;
+    let matchedDbKey = '';
 
-    if (error) throw error;
+    if (supabase && allCandidateKeys.length > 0) {
+      const { data: gdRows, error } = await supabase
+        .from('global_dictionary')
+        .select('word, data, tags, image_url, image_source')
+        .in('word', allCandidateKeys);
 
-    let resolvedRow = data && data.data ? data : null;
-    if (!resolvedRow) {
-      const candidateKeys = getLookupCandidateKeys(word).filter((k) => k !== word);
-      if (candidateKeys.length > 0) {
-        const { data: altRows } = await supabase
-          .from('global_dictionary')
-          .select('word, data, tags, image_url, image_source')
-          .in('word', candidateKeys);
-        if (altRows && altRows.length > 0) {
-          const altMap = new Map(
-            altRows
-              .filter((r) => Boolean(r && r.data))
-              .map((r) => [(r.word as string).toLowerCase().trim(), r]),
-          );
-          for (const key of candidateKeys) {
-            const match = altMap.get(key);
-            if (match) {
-              resolvedRow = match;
-              break;
-            }
+      if (error) throw error;
+
+      if (gdRows && gdRows.length > 0) {
+        const altMap = new Map(
+          gdRows
+            .filter((r) => Boolean(r && r.data))
+            .map((r) => [(r.word as string).toLowerCase().trim(), r]),
+        );
+        for (const key of allCandidateKeys) {
+          const match = altMap.get(key);
+          if (match) {
+            resolvedRow = match as LookupGlobalDictRow;
+            matchedDbKey = key;
+            break;
           }
         }
       }
     }
 
+    // Inflectional upgrade to TOEIC collocation index (0 extra DB round-trips)
+    // Only triggers if global_dictionary did not hit an exact/structural headword
+    if ((!resolvedRow || !structuralSet.has(matchedDbKey)) && inflectionalKeys.length > 0) {
+      for (const ik of inflectionalKeys) {
+        const inflectedToeic = getCollocationVocabEntry(ik);
+        if (inflectedToeic) {
+          const matchingExtraRow =
+            resolvedRow && matchedDbKey === ik ? resolvedRow : null;
+          const extraData = matchingExtraRow?.data || null;
+          const combinedBaseFamily = [
+            ...parseRawFamilyWords(extraData?.familyWords || extraData?.wordFamily || extraData?.word_family),
+            ...parseRawFamilyWords(inflectedToeic.wordFamily),
+          ];
+          const familyWords = await enrichFamilyWords(
+            ik,
+            combinedBaseFamily,
+            extraData?.morphology,
+            supabase,
+          ).catch(() => collectRamFamilyWords(ik, combinedBaseFamily, inflectedToeic.parentWord));
+
+          const body = buildToeicCollocationPayload(ik, inflectedToeic, familyWords, matchingExtraRow);
+          cacheSet(cacheKey, { status: 200, body }, CACHE_TTL_MS);
+          cacheSet(`dict-lookup:${ik}`, { status: 200, body }, CACHE_TTL_MS);
+          return NextResponse.json(body, {
+            headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT-TOEIC-COLLOCATION' },
+          });
+        }
+      }
+    }
+
     if (!resolvedRow || !resolvedRow.data) {
-      const staticFallback = resolveStaticVocabFallback(word);
+      const staticFallback = resolveStaticVocabFallback(word, { includeInflections: true });
       if (staticFallback?.translation) {
+        const matchedStaticKey =
+          allCandidateKeys.find((k) => Boolean(resolveStaticVocabFallback(k)?.translation)) || word;
         const pronunciations = parsePronunciations(staticFallback.ipa);
-        const familyWords = await enrichFamilyWords(word, [], undefined, supabase);
+        const familyWords = await enrichFamilyWords(matchedStaticKey, [], undefined, supabase);
         const body: Record<string, unknown> = {
           success: true,
           source: 'static_curriculum_fallback',
-          word,
-          cleanWord: word,
+          word: matchedStaticKey,
+          cleanWord: matchedStaticKey,
           ipa: staticFallback.ipa || '',
           pronunciations,
           pos: staticFallback.pos || '',
@@ -623,9 +822,79 @@ export async function GET(req: Request) {
           word_family: familyWords,
         };
         cacheSet(cacheKey, { status: 200, body }, CACHE_TTL_MS);
+        if (matchedStaticKey !== word) {
+          cacheSet(`dict-lookup:${matchedStaticKey}`, { status: 200, body }, CACHE_TTL_MS);
+        }
         return NextResponse.json(body, {
           headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'HIT-STATIC-FALLBACK' },
         });
+      }
+
+      // ── Optional Server-Side External Fallback (?fallback=external, single words only) ──
+      if (fallbackExternal && !word.includes(' ')) {
+        const extDenied = await assertScrapeQuota(`ext:${ip}`, QUOTA.dictExternal);
+        if (extDenied) return extDenied;
+
+        let resolvedLemma = word;
+        let extData = await fetchExternalDict(word, 2500);
+
+        if (!extData && inflectionalKeys.length > 0) {
+          const singleLemmas = inflectionalKeys.filter((k) => !k.includes(' ')).slice(0, 3);
+          if (singleLemmas.length > 0) {
+            const settled = await Promise.allSettled(
+              singleLemmas.map((k) => fetchExternalDict(k, 2000)),
+            );
+            for (let i = 0; i < settled.length; i++) {
+              const r = settled[i];
+              if (r.status === 'fulfilled' && r.value) {
+                resolvedLemma = singleLemmas[i];
+                extData = r.value;
+                break;
+              }
+            }
+          }
+        }
+
+        if (extData) {
+          upsertExternalToGlobalDict(resolvedLemma, extData);
+          const body = buildExternalLookupPayload(resolvedLemma, word, extData);
+          cacheSet(cacheKey, { status: 200, body }, CACHE_TTL_MS);
+          if (resolvedLemma !== word) {
+            cacheSet(`dict-lookup:${resolvedLemma}`, { status: 200, body }, CACHE_TTL_MS);
+          }
+          return NextResponse.json(body, {
+            headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'MISS-EXTERNAL' },
+          });
+        }
+      }
+
+      // ── Optional Server-Side Translate Fallback (?fallback=translate, multi-word phrases only) ──
+      if (fallbackTranslate && word.includes(' ')) {
+        try {
+          const trRes = await translateWithDetails(word, {
+            sourceLang: 'en',
+            targetLang: 'vi',
+            timeoutMs: 2500,
+          });
+          if (trRes?.translatedText?.trim()) {
+            const translatedText = trRes.translatedText.trim();
+            const body: Record<string, unknown> = {
+              success: true,
+              source: 'translate',
+              word,
+              cleanWord: word,
+              pos: 'cụm từ',
+              translation: translatedText,
+              translatedText,
+            };
+            cacheSet(`dict-lookup:tr:${word}`, { status: 200, body }, CACHE_TTL_MS);
+            return NextResponse.json(body, {
+              headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'MISS-TRANSLATE' },
+            });
+          }
+        } catch {
+          // Graceful fallthrough to 404
+        }
       }
 
       // Tìm kiếm gợi ý sửa lỗi gõ sai chính tả từ 40,860 từ trong RAM
@@ -638,8 +907,8 @@ export async function GET(req: Request) {
         error: 'Not found',
         ...(didYouMean.length > 0 ? { didYouMean } : {}),
       };
-      // 404 cache ngắn hơn — từ mới backfill có thể xuất hiện
-      cacheSet(cacheKey, { status: 404, body }, 15_000);
+      // 404 cache ngắn hơn — tách key theo chế độ fallback để không poison ?fallback=external
+      cacheSet(negCacheKey, { status: 404, body }, 15_000);
       return NextResponse.json(body, {
         status: 404,
         headers: { 'X-Lookup-Cache': 'MISS' },
@@ -647,6 +916,7 @@ export async function GET(req: Request) {
     }
 
     const headword = ((resolvedRow.word as string) || word).trim();
+    const headLower = headword.toLowerCase();
     const raw = (resolvedRow.data || {}) as Record<string, unknown>;
     const cleaned = sanitizeSynAntPayload(headword, raw);
 
@@ -661,15 +931,21 @@ export async function GET(req: Request) {
       },
     );
 
-    const gdMap = new Map<string, GlobalDictRowInput>([
-      [headword.toLowerCase(), resolvedRow as GlobalDictRowInput],
-    ]);
+    const gdEntries: Array<[string, GlobalDictRowInput]> = [
+      [headLower, resolvedRow as GlobalDictRowInput],
+    ];
+    if (headLower !== word) {
+      gdEntries.push([word, resolvedRow as GlobalDictRowInput]);
+    }
+    const gdMap = new Map<string, GlobalDictRowInput>(gdEntries);
     const extractedIpa = extractCleanBareIpa(raw, headword);
     const needsFallback =
       meanings.length === 0 ||
       !extractedIpa ||
       !(typeof cleaned.definition === 'string' && cleaned.definition.trim());
-    const fallback = needsFallback ? resolveVocabPartialFromSources(word, gdMap) : {};
+    const fallback = needsFallback
+      ? resolveVocabPartialFromSources(word, gdMap, { includeInflections: true })
+      : {};
 
     if (meanings.length === 0 && fallback.translation) {
       meanings.push({
@@ -733,7 +1009,7 @@ export async function GET(req: Request) {
       undefined;
 
     const baseFamily = parseRawFamilyWords(raw.familyWords || raw.wordFamily || raw.word_family);
-    const familyWords = await enrichFamilyWords(word, baseFamily, raw.morphology, supabase);
+    const familyWords = await enrichFamilyWords(headword, baseFamily, raw.morphology, supabase);
 
     const resolvedGlobalImageUrl = resolveNullableMediaUrl(
       resolvedRow.image_url || cleaned.image_url || cleaned.imageUrl,
@@ -748,6 +1024,8 @@ export async function GET(req: Request) {
       source: 'global_dictionary',
       tags: resolvedRow.tags || [],
       ...cleaned,
+      word: headword,
+      cleanWord: headLower,
       image_url: resolvedGlobalImageUrl,
       ...(resolvedGlobalImageUrl ? { imageUrl: resolvedGlobalImageUrl } : {}),
       ...(resolvedGlobalAudioUs ? { audio_us: resolvedGlobalAudioUs, audioUs: resolvedGlobalAudioUs } : {}),
@@ -772,6 +1050,9 @@ export async function GET(req: Request) {
       word_family: familyWords,
     };
     cacheSet(cacheKey, { status: 200, body }, CACHE_TTL_MS);
+    if (headLower !== word) {
+      cacheSet(`dict-lookup:${headLower}`, { status: 200, body }, CACHE_TTL_MS);
+    }
 
     return NextResponse.json(body, {
       headers: { ...CACHE_HEADERS, 'X-Lookup-Cache': 'MISS' },

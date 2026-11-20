@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from 'react';
 import { supabase } from '@/lib/supabase';
 import { authFetch } from '@/lib/auth-fetch';
 import type { DictionaryData, DictionaryMeaning, WordFamilyEntry, RichCollocationEntry, MorphologyData } from '@/lib/supabase';
@@ -20,24 +20,24 @@ import { SentenceStructureView } from '@/components/dictionary/SentenceStructure
 import type { SentenceAnalysisData } from '@/types/sentence-analysis';
 import { isWordSavedLocally, saveWordLocally, getSavedMeaningsLocally, saveMeaningLocally } from '@/lib/exam-dict-cache';
 import { notifyWordSavedOptimistic, notifyWordSaveRollback } from '@/lib/word-summary-cache';
-import { getCachedDictionaryEntry, setCachedDictionaryEntry } from '@/lib/dict-cache';
+import {
+  getCachedDictionaryEntry,
+  setCachedDictionaryEntry,
+  isUsableDictionaryPageCacheEntry,
+  normalizeDictSourceBadge,
+  type DictionarySourceBadge,
+} from '@/lib/dict-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 const HISTORY_KEY = 'lingo_dict_history';
 const MAX_HISTORY = 20;
+const emptySubscribe = () => () => {};
 
 // Regex phát hiện kết quả rác từ AI (từ không tồn tại)
 const GARBAGE_PATTERNS = /không có trong từ điển|not a real word|word not found|không tồn tại/i;
 
-type SourceBadge =
-  | 'Kho từ điển'
-  | 'Wiktionary'
-  | 'AI'
-  | 'Cụm · kho'
-  | 'Cụm · AI'
-  | 'Câu · giáo án'
-  | 'Câu · AI'
-  | 'Câu · ước lượng';
+type SourceBadge = DictionarySourceBadge;
 
 /** Auto-route: user chỉ gõ — không chọn mode. */
 type LookupKind = 'word' | 'phrase' | 'sentence';
@@ -132,7 +132,8 @@ function phrasePayloadToDict(
 function getHistory(): string[] {
   if (typeof window === 'undefined') return [];
   try {
-    return JSON.parse(localStorage.getItem(HISTORY_KEY) ?? '[]');
+    const parsed = JSON.parse(localStorage.getItem(HISTORY_KEY) ?? '[]');
+    return Array.isArray(parsed) ? parsed.filter((x): x is string => typeof x === 'string') : [];
   } catch {
     return [];
   }
@@ -300,6 +301,7 @@ export default function DictionaryPage() {
   const [result, setResult] = useState<LookupResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<string[]>(getHistory);
+  const isHydrated = useSyncExternalStore(emptySubscribe, () => true, () => false);
   // Track saved state per meaning index
   const [savedIndexes, setSavedIndexes] = useState<Set<number>>(new Set());
   const [savingIndexes, setSavingIndexes] = useState<Set<number>>(new Set());
@@ -426,10 +428,10 @@ export default function DictionaryPage() {
 
       // 0ms Unified Dict Cache Hit (In-Memory + SessionStorage + Lemma expansion)
       const cachedEntry = getCachedDictionaryEntry(trimmed);
-      if (cachedEntry && cachedEntry.data) {
+      if (isUsableDictionaryPageCacheEntry(cachedEntry) && !isGarbageResult(cachedEntry.data)) {
         const resObj: LookupResult = {
           data: cachedEntry.data,
-          source: (cachedEntry.source as SourceBadge) || (isPhrase ? 'Cụm · kho' : 'Kho từ điển'),
+          source: normalizeDictSourceBadge(cachedEntry.source, isPhrase),
           imageUrl: cachedEntry.imageUrl,
           queriedWord: trimmed,
           kind,
@@ -495,6 +497,7 @@ export default function DictionaryPage() {
                   kind,
                 };
                 clientLexicalCache.set(cacheKey, resObj);
+                setCachedDictionaryEntry(trimmed, data, resObj.source, json.image_url);
                 return resObj;
               }
             }
@@ -529,6 +532,7 @@ export default function DictionaryPage() {
                   kind,
                 };
                 clientLexicalCache.set(cacheKey, resObj);
+                setCachedDictionaryEntry(trimmed, data, resObj.source, json.data?.image_url);
                 return resObj;
               }
             }
@@ -620,12 +624,20 @@ export default function DictionaryPage() {
     const trimmed =
       kind === 'sentence' ? raw.slice(0, 400) : raw.toLowerCase().slice(0, 100);
 
+    if (suggestTimerRef.current) {
+      clearTimeout(suggestTimerRef.current);
+      suggestTimerRef.current = null;
+    }
+    suggestAbortRef.current?.abort();
+    suggestAbortRef.current = null;
+
     setLoading(true);
     setResult(null);
     setError(null);
     setDidYouMean([]);
     setWordAlreadySaved(false);
     setShowSuggest(false);
+    setSelectedSuggestIdx(-1);
 
     // ── CÂU ──
     if (kind === 'sentence') {
@@ -788,6 +800,7 @@ export default function DictionaryPage() {
           `/api/dictionary/suggest?q=${encodeURIComponent(q)}`,
           { signal: ctrl.signal }
         );
+        if (ctrl.signal.aborted) return;
         if (!res.ok) { setSuggestions([]); setShowSuggest(false); return; }
         const json = (await res.json()) as {
           success: boolean;
@@ -795,6 +808,7 @@ export default function DictionaryPage() {
           isFuzzy?: boolean;
           didYouMean?: string[];
         };
+        if (ctrl.signal.aborted) return;
         if (json.success && json.suggestions && json.suggestions.length > 0) {
           clientSuggestCache.set(q, {
             suggestions: json.suggestions,
@@ -1397,9 +1411,14 @@ export default function DictionaryPage() {
                     {primaryItem.meaning.definition}
                   </p>
                   {primaryItem.meaning.definition_en && primaryItem.meaning.definition_en !== primaryItem.meaning.definition && (
-                    <p className="text-xs text-muted-foreground italic break-words [overflow-wrap:anywhere]">
-                      {primaryItem.meaning.definition_en}
-                    </p>
+                    <ExamInteractiveText
+                      text={primaryItem.meaning.definition_en}
+                      enabled
+                      as="p"
+                      inheritClassName
+                      className="text-xs text-muted-foreground italic break-words [overflow-wrap:anywhere]"
+                      contextSentence={primaryItem.meaning.definition_en}
+                    />
                   )}
                 </div>
 
@@ -1458,9 +1477,14 @@ export default function DictionaryPage() {
                                 )}
                               </div>
                               {meaning.definition_en && meaning.definition_en !== meaning.definition && (
-                                <p className="text-xs text-muted-foreground mt-0.5 italic break-words [overflow-wrap:anywhere]">
-                                  {meaning.definition_en}
-                                </p>
+                                <ExamInteractiveText
+                                  text={meaning.definition_en}
+                                  enabled
+                                  as="p"
+                                  inheritClassName
+                                  className="text-xs text-muted-foreground mt-0.5 italic break-words [overflow-wrap:anywhere]"
+                                  contextSentence={meaning.definition_en}
+                                />
                               )}
                               {meaning.example && (
                                 <div className="mt-1.5">
@@ -1614,7 +1638,14 @@ export default function DictionaryPage() {
                     >
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
-                          <span className="font-semibold text-sm text-foreground break-words">{col.phrase}</span>
+                          <ExamInteractiveText
+                            text={col.phrase}
+                            enabled
+                            as="span"
+                            inheritClassName
+                            className="font-semibold text-sm text-foreground break-words"
+                            contextSentence={col.example || col.phrase}
+                          />
                           {col.type && (
                             <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">
                               {col.type}
@@ -1702,7 +1733,7 @@ export default function DictionaryPage() {
         )}
 
         {/* History — show when no result and not loading */}
-        {!loading && !result && !error && history.length > 0 && (
+        {isHydrated && !loading && !result && !error && history.length > 0 && (
           <div>
             <div className="flex items-center justify-between mb-3">
               <p className="text-sm font-semibold text-muted-foreground">Đã tra gần đây</p>

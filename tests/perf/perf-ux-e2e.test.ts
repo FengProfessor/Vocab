@@ -965,11 +965,14 @@ export async function runPerfUxE2ETests(): Promise<{
     expect(rawIpa).toBe('/ˈvɪvɪd/');
   });
 
-  await runner.it('T1.F11.5: Static code audit in WordLookupPopover verifies caching and popover positioning', () => {
+  await runner.it('T1.F11.5: Static code audit in unified lookup layer verifies caching and popover delegation', () => {
     const popoverCode = inspector.readFile('src/components/listening/WordLookupPopover.tsx');
-    expect(popoverCode).toContain('coreMap');
-    expect(popoverCode).toContain('savedWordsMap');
-    expect(popoverCode).toContain('/api/dictionary/lookup');
+    const interactiveCode = inspector.readFile('src/components/exam/ExamInteractiveText.tsx');
+    const cacheCode = inspector.readFile('src/lib/exam-dict-cache.ts');
+    expect(popoverCode).toContain('<ExamInteractiveText');
+    expect(interactiveCode).toContain('coreMap');
+    expect(interactiveCode).toContain('fetchExamWordDict');
+    expect(cacheCode).toContain('/api/dictionary/lookup');
   });
 
   // F12: Zero-DB Saved Status Check (5 tests)
@@ -1012,10 +1015,13 @@ export async function runPerfUxE2ETests(): Promise<{
     expect(retrieved).toContain('grit');
   });
 
-  await runner.it('T1.F12.5: Static code audit in WordLookupPopover verifies lingo_word_saved listener', () => {
-    const popoverCode = inspector.readFile('src/components/listening/WordLookupPopover.tsx');
-    expect(popoverCode).toContain("window.addEventListener('lingo_word_saved'");
-    expect(popoverCode).toContain("localStorage.getItem('lingo_saved_words')");
+  await runner.it('T1.F12.5: Static code audit in unified lookup card verifies lingo_word_saved listener and local cache', () => {
+    const cardCode = inspector.readFile('src/components/exam/ExamWordLookupCard.tsx');
+    const cacheCode = inspector.readFile('src/lib/exam-dict-cache.ts');
+    expect(cardCode).toContain("window.addEventListener('lingo_word_saved'");
+    expect(cardCode).toContain('isWordSavedLocally');
+    expect(cacheCode).toContain("const SAVED_WORDS_KEY = 'lingo_saved_words'");
+    expect(cacheCode).toContain('localStorage.getItem(SAVED_WORDS_KEY)');
   });
 
   // F13: Universal Optimistic Save UI (5 tests)

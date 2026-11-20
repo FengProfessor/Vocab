@@ -14,6 +14,8 @@ import {
   ListFilter,
 } from 'lucide-react';
 import { validateClozeAnswer, saveListeningAttempt, getListeningAttempt } from '@/lib/listening';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText } from '@/components/vocab/InteractiveClozeText';
 import type { ClozeItem } from '@/types/listening';
 
 export interface ClozeListeningExerciseProps {
@@ -146,33 +148,47 @@ export const ClozeListeningExercise: React.FC<ClozeListeningExerciseProps> = ({
 
   // Render masked sentence with highlighted blank
   const renderSentenceWithBlank = () => {
-    const parts = currentItem.sentence.split('{{blank}}');
+    const resolvedContext = isAnswered
+      ? currentItem.sentence.replace(/\{\{blank\}\}/g, currentItem.blankWord)
+      : undefined;
+
     return (
-      <p className="text-base font-semibold leading-relaxed text-slate-800 dark:text-slate-100 sm:text-lg">
-        {parts[0]}
-        <span
-          className={`inline-block mx-1.5 min-w-[90px] border-b-2 px-2.5 py-0.5 text-center font-bold transition-all ${
-            isAnswered
-              ? currentStatus.isCorrect
-                ? 'border-emerald-500 bg-emerald-100 text-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-200'
-                : 'border-rose-500 bg-rose-100 text-rose-900 dark:bg-rose-950/60 dark:text-rose-200'
-              : 'border-indigo-500 bg-indigo-50 text-indigo-900 dark:bg-indigo-950/50 dark:text-indigo-200'
-          }`}
-        >
-          {isAnswered ? (
-            currentStatus.isCorrect ? (
-              currentItem.blankWord
+      <InteractiveClozeText
+        text={currentItem.sentence}
+        enabled={true}
+        as="p"
+        className="text-base font-semibold leading-relaxed text-slate-800 dark:text-slate-100 sm:text-lg"
+        contextSentence={resolvedContext}
+        renderBlank={() => (
+          <span
+            className={`inline-block mx-1.5 min-w-[90px] border-b-2 px-2.5 py-0.5 text-center font-bold transition-all ${
+              isAnswered
+                ? currentStatus.isCorrect
+                  ? 'border-emerald-500 bg-emerald-100 text-emerald-900 dark:bg-emerald-950/60 dark:text-emerald-200'
+                  : 'border-rose-500 bg-rose-100 text-rose-900 dark:bg-rose-950/60 dark:text-rose-200'
+                : 'border-indigo-500 bg-indigo-50 text-indigo-900 dark:bg-indigo-950/50 dark:text-indigo-200'
+            }`}
+          >
+            {isAnswered ? (
+              currentStatus.isCorrect ? (
+                <ExamInteractiveText
+                  text={currentItem.blankWord}
+                  enabled={true}
+                  as="span"
+                  inheritClassName
+                  contextSentence={resolvedContext}
+                />
+              ) : (
+                <span className="line-through">{currentStatus.userAnswer || '...'}</span>
+              )
+            ) : inputMode === 'type' ? (
+              typedInput || '____'
             ) : (
-              <span className="line-through">{currentStatus.userAnswer || '...'}</span>
-            )
-          ) : inputMode === 'type' ? (
-            typedInput || '____'
-          ) : (
-            selectedOption || '____'
-          )}
-        </span>
-        {parts[1] || ''}
-      </p>
+              selectedOption || '____'
+            )}
+          </span>
+        )}
+      />
     );
   };
 
@@ -326,21 +342,43 @@ export const ClozeListeningExercise: React.FC<ClozeListeningExerciseProps> = ({
               {currentItem.options?.map((opt) => {
                 const isSelected = selectedOption === opt;
                 return (
-                  <button
+                  <div
                     key={opt}
-                    type="button"
-                    disabled={isAnswered}
-                    onClick={() => {
+                    role="button"
+                    tabIndex={isAnswered ? -1 : 0}
+                    aria-disabled={isAnswered}
+                    onClick={(e) => {
+                      if (isAnswered) return;
+                      if ((e.target as HTMLElement | null)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) {
+                        return;
+                      }
+                      if (typeof window !== 'undefined' && window.getSelection()?.toString().trim()) {
+                        return;
+                      }
                       setSelectedOption(opt);
                     }}
+                    onKeyDown={(e) => {
+                      if (isAnswered || e.target !== e.currentTarget) return;
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setSelectedOption(opt);
+                      }
+                    }}
                     className={`rounded-xl border p-2.5 text-center text-sm font-bold transition-all ${
+                      isAnswered ? 'cursor-default select-text' : 'cursor-pointer'
+                    } ${
                       isSelected
                         ? 'border-indigo-600 bg-indigo-600 text-white shadow-sm'
                         : 'border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 hover:bg-slate-100 dark:border-slate-800 dark:bg-slate-800 dark:text-slate-200'
                     }`}
                   >
-                    {opt}
-                  </button>
+                    <ExamInteractiveText
+                      text={opt}
+                      enabled={isAnswered}
+                      as="span"
+                      inheritClassName
+                    />
+                  </div>
                 );
               })}
             </div>
@@ -403,7 +441,15 @@ export const ClozeListeningExercise: React.FC<ClozeListeningExerciseProps> = ({
               </p>
               {!currentStatus.isCorrect && (
                 <p className="mt-0.5">
-                  Đáp án đúng là: <strong className="underline">{currentItem.blankWord}</strong>
+                  Đáp án đúng là:{' '}
+                  <strong className="underline">
+                    <ExamInteractiveText
+                      text={currentItem.blankWord}
+                      enabled={true}
+                      as="span"
+                      inheritClassName
+                    />
+                  </strong>
                 </p>
               )}
               {currentItem.hintVi && (

@@ -22,8 +22,11 @@ import {
   Link2,
   Users,
   Sparkles,
+  ExternalLink,
 } from 'lucide-react';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
 import { parseIpa } from '@/lib/study';
 import { resolveImageSrc } from '@/lib/media-url';
 
@@ -79,6 +82,8 @@ function formatNextReview(iso?: string, level?: number): string {
 
 export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalProps) {
   const router = useRouter();
+  const vocabLookup = useOptionalVocabLookup();
+  const closeLookup = vocabLookup?.closeLookup;
   const [word, setWord] = useState<WordDetail | null>(null);
   const [srs, setSrs] = useState<SRSProgressFull | null>(null);
   const [currentUserId, setCurrentUserId] = useState<string | null>(null);
@@ -181,11 +186,22 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
   useEffect(() => {
     if (!open) return;
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (document.querySelector('.exam-lookup-card')) return;
+        onClose();
+      }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, [open, onClose]);
+
+  // Đóng lookup card khi modal đóng hoặc unmount
+  useEffect(() => {
+    if (!open) return;
+    return () => {
+      closeLookup?.();
+    };
+  }, [open, closeLookup]);
 
   // Khóa scroll body khi modal mở
   useEffect(() => {
@@ -391,7 +407,13 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
             {/* Header */}
             <div className="p-6 pb-4">
               <h2 className="text-3xl font-black text-primary leading-tight break-words">
-                {word.word}
+                <ExamInteractiveText
+                  text={word.word}
+                  enabled
+                  as="span"
+                  inheritClassName
+                  contextSentence={word.example || word.word}
+                />
               </h2>
               <div className="flex flex-wrap items-center gap-2 mt-2">
                 {word.pos && (
@@ -479,7 +501,14 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                       </div>
                       <p className="text-foreground font-bold text-base leading-snug">{meanings[0].definition}</p>
                       {meanings[0].definition_en && meanings[0].definition_en !== meanings[0].definition && (
-                        <p className="text-xs text-muted-foreground italic leading-snug">{meanings[0].definition_en}</p>
+                        <ExamInteractiveText
+                          text={meanings[0].definition_en}
+                          enabled
+                          as="p"
+                          inheritClassName
+                          className="text-xs text-muted-foreground italic leading-snug"
+                          contextSentence={meanings[0].definition_en}
+                        />
                       )}
                       {meanings[0].example && (
                         <div className="pt-1.5 border-t border-amber-500/20">
@@ -524,7 +553,14 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                             </div>
                             <p className="text-slate-800 dark:text-slate-200 font-medium leading-snug">{m.definition}</p>
                             {m.definition_en && m.definition_en !== m.definition && (
-                              <p className="text-xs text-muted-foreground italic">{m.definition_en}</p>
+                              <ExamInteractiveText
+                                text={m.definition_en}
+                                enabled
+                                as="p"
+                                inheritClassName
+                                className="text-xs text-muted-foreground italic"
+                                contextSentence={m.definition_en}
+                              />
                             )}
                             {m.example && (
                               <ExampleWithSub
@@ -626,7 +662,13 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                           key={i}
                           className="text-xs font-semibold bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-md"
                         >
-                          {s}
+                          <ExamInteractiveText
+                            text={s}
+                            enabled
+                            as="span"
+                            inheritClassName
+                            contextSentence={word.example || word.word}
+                          />
                         </span>
                       ))}
                     </div>
@@ -643,7 +685,13 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                           key={i}
                           className="text-xs font-semibold bg-rose-50 text-rose-700 px-2 py-0.5 rounded-md"
                         >
-                          {s}
+                          <ExamInteractiveText
+                            text={s}
+                            enabled
+                            as="span"
+                            inheritClassName
+                            contextSentence={word.example || word.word}
+                          />
                         </span>
                       ))}
                     </div>
@@ -663,7 +711,15 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                   {morphology.rootWord && (
                     <p className="text-slate-700 dark:text-slate-300">
                       <span className="font-semibold text-muted-foreground">Từ gốc: </span>
-                      <strong className="text-primary">{morphology.rootWord}</strong>
+                      <strong className="text-primary">
+                        <ExamInteractiveText
+                          text={morphology.rootWord}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          contextSentence={word.example || word.word}
+                        />
+                      </strong>
                       {morphology.rootMeaning && <span className="text-muted-foreground ml-1">({morphology.rootMeaning})</span>}
                     </p>
                   )}
@@ -701,7 +757,14 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                   {collocations.slice(0, 4).map((col, i) => (
                     <div key={i} className="bg-indigo-500/5 border border-indigo-500/20 rounded-lg p-2 text-xs flex items-center justify-between">
                       <div>
-                        <span className="font-bold text-slate-800 dark:text-slate-200">{col.phrase}</span>
+                        <ExamInteractiveText
+                          text={col.phrase}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          className="font-bold text-slate-800 dark:text-slate-200"
+                          contextSentence={col.example || word.example || col.phrase}
+                        />
                         {col.type && <span className="ml-1.5 text-[9px] uppercase font-bold text-indigo-500">[{col.type}]</span>}
                         {col.meaning_vi && <p className="text-[11px] text-muted-foreground">{col.meaning_vi}</p>}
                       </div>
@@ -727,20 +790,37 @@ export function WordDetailModal({ wordId, onClose, onDeleted }: WordDetailModalP
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {familyWords.map((fw, i) => (
-                    <button
+                    <div
                       key={i}
-                      type="button"
-                      onClick={() => {
-                        onClose();
-                        router.push(`/dictionary?q=${encodeURIComponent(fw.word)}`);
-                      }}
-                      className="text-xs bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 px-2.5 py-1 rounded-md flex items-center gap-1 hover:bg-sky-100 dark:hover:bg-sky-900/50 transition-colors text-left group"
-                      title={`Tra từ ${fw.word}`}
+                      className="text-xs bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 px-2.5 py-1 rounded-md flex items-center gap-1.5 text-left"
                     >
-                      <strong className="font-semibold group-hover:underline">{fw.word}</strong>
-                      {fw.pos && <span className="text-[10px] italic opacity-80">({fw.pos})</span>}
-                      {fw.meaning && <span className="text-[11px] opacity-90">: {fw.meaning}</span>}
-                    </button>
+                      <div>
+                        <strong className="font-semibold">
+                          <ExamInteractiveText
+                            text={fw.word}
+                            enabled
+                            as="span"
+                            inheritClassName
+                            contextSentence={word.example || word.word}
+                          />
+                        </strong>
+                        {fw.pos && <span className="text-[10px] italic opacity-80 ml-1">({fw.pos})</span>}
+                        {fw.meaning && <span className="text-[11px] opacity-90">: {fw.meaning}</span>}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          closeLookup?.();
+                          onClose();
+                          router.push(`/dictionary?q=${encodeURIComponent(fw.word)}`);
+                        }}
+                        className="p-0.5 rounded hover:bg-sky-200/60 dark:hover:bg-sky-800/60 text-sky-600 dark:text-sky-300 shrink-0 transition-colors"
+                        title={`Mở từ điển tra ${fw.word}`}
+                        aria-label={`Mở từ điển tra ${fw.word}`}
+                      >
+                        <ExternalLink className="h-3 w-3" />
+                      </button>
+                    </div>
                   ))}
                 </div>
               </div>

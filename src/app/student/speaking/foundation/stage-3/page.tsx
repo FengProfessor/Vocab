@@ -22,6 +22,7 @@ import { StudentShell } from '@/components/student/StudentShell';
 import { StageProgressNav } from '@/components/speaking/foundation/StageProgressNav';
 import { DualSpeedAudioButton } from '@/components/speaking/foundation/DualSpeedAudioButton';
 import { SafeHarborRecorder } from '@/components/speaking/foundation/SafeHarborRecorder';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import {
   STAGE_3_EXPANSIONS,
   STAGE_3_MICRO_DIALOGUES,
@@ -156,7 +157,12 @@ export default function Stage3ExpansionsPage() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
                 <div>
                   <span className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
-                    {activeExpansion.topic}
+                    <ExamInteractiveText
+                      text={activeExpansion.topic}
+                      enabled
+                      as="span"
+                      inheritClassName
+                    />
                   </span>
                   <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 mt-0.5">
                     {activeExpansion.topicVi}
@@ -185,7 +191,13 @@ export default function Stage3ExpansionsPage() {
                       </span>
                     </div>
                     <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug">
-                      {activeExpansion.beat1Core.en}
+                      <ExamInteractiveText
+                        text={activeExpansion.beat1Core.en}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        contextSentence={activeExpansion.fullSentence}
+                      />
                     </div>
                     {activeExpansion.beat1Core.ipa && (
                       <div className="font-mono text-xs text-purple-600 dark:text-purple-400">
@@ -220,7 +232,13 @@ export default function Stage3ExpansionsPage() {
                       </span>
                     </div>
                     <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug">
-                      {activeExpansion.beat2Context.en}
+                      <ExamInteractiveText
+                        text={activeExpansion.beat2Context.en}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        contextSentence={activeExpansion.fullSentence}
+                      />
                     </div>
                     {activeExpansion.beat2Context.ipa && (
                       <div className="font-mono text-xs text-blue-600 dark:text-blue-400">
@@ -255,7 +273,13 @@ export default function Stage3ExpansionsPage() {
                       </span>
                     </div>
                     <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-slate-100 leading-snug">
-                      {activeExpansion.beat3EmotionReason.en}
+                      <ExamInteractiveText
+                        text={activeExpansion.beat3EmotionReason.en}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        contextSentence={activeExpansion.fullSentence}
+                      />
                     </div>
                     {activeExpansion.beat3EmotionReason.ipa && (
                       <div className="font-mono text-xs text-emerald-600 dark:text-emerald-400">
@@ -289,7 +313,16 @@ export default function Stage3ExpansionsPage() {
                     Câu nở hoàn chỉnh (Full 3-Beat Sentence)
                   </span>
                   <div className="text-lg sm:text-xl font-bold tracking-tight leading-relaxed">
-                    &quot;{activeExpansion.fullSentence}&quot;
+                    &quot;
+                    <ExamInteractiveText
+                      text={activeExpansion.fullSentence}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      wordClassName="hover:bg-white/15 underline decoration-white/40 hover:decoration-white underline-offset-3"
+                      activeWordClassName="bg-indigo-500 text-white font-bold"
+                    />
+                    &quot;
                   </div>
                   <div className="text-xs sm:text-sm text-slate-300">
                     {activeExpansion.fullMeaningVi}
@@ -361,7 +394,13 @@ export default function Stage3ExpansionsPage() {
               {/* Scenario Context Header */}
               <div className="border-b border-slate-100 dark:border-slate-800 pb-4 space-y-1">
                 <span className="text-xs font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider">
-                  Tình huống thực tế • {activeDialogue.scenario}
+                  Tình huống thực tế •{' '}
+                  <ExamInteractiveText
+                    text={activeDialogue.scenario}
+                    enabled
+                    as="span"
+                    inheritClassName
+                  />
                 </span>
                 <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100">
                   {activeDialogue.scenarioVi}
@@ -429,7 +468,7 @@ export default function Stage3ExpansionsPage() {
                       {/* Turn Text */}
                       <div className="pl-9 space-y-1">
                         <div className="font-bold text-slate-900 dark:text-slate-100 text-sm sm:text-base">
-                          {turn.textEn}
+                          <ExamInteractiveText text={turn.textEn} enabled as="span" inheritClassName />
                         </div>
                         {turn.ipa && (
                           <div className="font-mono text-xs text-slate-400">{turn.ipa}</div>
@@ -446,7 +485,13 @@ export default function Stage3ExpansionsPage() {
                                 key={kIdx}
                                 className="px-1.5 py-0.2 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[10px] font-mono text-purple-700 dark:text-purple-300 font-semibold"
                               >
-                                {kw}
+                                <ExamInteractiveText
+                                  text={kw}
+                                  enabled
+                                  as="span"
+                                  inheritClassName
+                                  contextSentence={turn.textEn}
+                                />
                               </span>
                             ))}
                           </div>

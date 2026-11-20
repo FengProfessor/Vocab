@@ -5,7 +5,95 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Volume2, Sparkles, User, Users, ChevronDown, ChevronUp, Lightbulb, Dumbbell, ArrowRight, RotateCcw } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { hasVietnameseDiacritics } from './FormattedText';
 import GrammarCardNavigator from './GrammarCardNavigator';
+
+function renderPronounFormValue(value: string) {
+  if (!hasVietnameseDiacritics(value)) {
+    return (
+      <ExamInteractiveText
+        text={value}
+        enabled
+        as="span"
+        inheritClassName
+        themeVariant="minimalist"
+      />
+    );
+  }
+
+  const match = value.match(/^([a-zA-Z'\s/]+?)\s*\(([^)]+)\)(.*)$/);
+  if (!match) {
+    return value;
+  }
+
+  const [, leadEn, insideParen, trailing] = match;
+  const colonIdx = insideParen.indexOf(':');
+
+  let parenNode: React.ReactNode = insideParen;
+  if (colonIdx !== -1) {
+    const viPrefix = insideParen.slice(0, colonIdx + 1);
+    const afterColon = insideParen.slice(colonIdx + 1);
+    const dashIdx = afterColon.indexOf(' - ');
+    if (dashIdx !== -1) {
+      const enPart = afterColon.slice(0, dashIdx);
+      const viSuffix = afterColon.slice(dashIdx);
+      parenNode = (
+        <>
+          {viPrefix}
+          {!hasVietnameseDiacritics(enPart) ? (
+            <ExamInteractiveText
+              text={enPart}
+              enabled
+              as="span"
+              inheritClassName
+              themeVariant="minimalist"
+            />
+          ) : (
+            enPart
+          )}
+          {viSuffix}
+        </>
+      );
+    } else if (!hasVietnameseDiacritics(afterColon)) {
+      parenNode = (
+        <>
+          {viPrefix}
+          <ExamInteractiveText
+            text={afterColon}
+            enabled
+            as="span"
+            inheritClassName
+            themeVariant="minimalist"
+          />
+        </>
+      );
+    }
+  } else if (!hasVietnameseDiacritics(insideParen)) {
+    parenNode = (
+      <ExamInteractiveText
+        text={insideParen}
+        enabled
+        as="span"
+        inheritClassName
+        themeVariant="minimalist"
+      />
+    );
+  }
+
+  return (
+    <>
+      <ExamInteractiveText
+        text={leadEn}
+        enabled
+        as="span"
+        inheritClassName
+        themeVariant="minimalist"
+      />{' '}
+      ({parenNode}){trailing}
+    </>
+  );
+}
 
 export interface PronounExample {
   en: string;
@@ -434,7 +522,7 @@ function PronounCardItem({
               <span className="hidden sm:inline">Chủ ngữ </span>(S):
             </span>
             <span className="font-bold text-primary bg-primary/10 border border-primary/30 px-1.5 sm:px-2 py-0.5 text-xs sm:text-sm">
-              {item.subject}
+              <ExamInteractiveText text={item.subject} enabled as="span" inheritClassName themeVariant="minimalist" />
             </span>
           </div>
           <span className="text-muted-foreground font-bold text-xs">➔</span>
@@ -443,7 +531,7 @@ function PronounCardItem({
               <span className="hidden sm:inline">Tân ngữ </span>(O):
             </span>
             <span className="font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-1.5 sm:px-2 py-0.5 text-xs sm:text-sm">
-              {item.forms.object.split(' ')[0]}
+              <ExamInteractiveText text={item.forms.object.split(' ')[0]} enabled as="span" inheritClassName themeVariant="minimalist" />
             </span>
           </div>
           <span className="text-xs text-muted-foreground font-sans hidden md:inline truncate">
@@ -465,15 +553,15 @@ function PronounCardItem({
         <div className="border-b border-border bg-muted/15 px-2.5 sm:px-4 py-2 grid grid-cols-3 gap-1.5 font-mono text-[11px] shrink-0">
           <div className="border border-border/60 bg-background px-2 py-1 rounded-none">
             <span className="text-[10px] uppercase text-muted-foreground block">TT Sở hữu</span>
-            <span className="font-bold text-foreground">{item.forms.possessiveAdj}</span>
+            <span className="font-bold text-foreground">{renderPronounFormValue(item.forms.possessiveAdj)}</span>
           </div>
           <div className="border border-border/60 bg-background px-2 py-1 rounded-none">
             <span className="text-[10px] uppercase text-muted-foreground block">ĐT Sở hữu</span>
-            <span className="font-bold text-foreground">{item.forms.possessivePronoun}</span>
+            <span className="font-bold text-foreground">{renderPronounFormValue(item.forms.possessivePronoun)}</span>
           </div>
           <div className="border border-border/60 bg-background px-2 py-1 rounded-none">
             <span className="text-[10px] uppercase text-muted-foreground block">Phản thân</span>
-            <span className="font-bold text-foreground">{item.forms.reflexive}</span>
+            <span className="font-bold text-foreground">{renderPronounFormValue(item.forms.reflexive)}</span>
           </div>
         </div>
       )}
@@ -499,7 +587,9 @@ function PronounCardItem({
               />
             ) : (
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-muted flex flex-col items-center justify-center p-4 text-center">
-                <span className="font-serif text-2xl font-bold text-primary">{item.subject}</span>
+                <span className="font-serif text-2xl font-bold text-primary">
+                  <ExamInteractiveText text={item.subject} enabled as="span" inheritClassName themeVariant="minimalist" />
+                </span>
                 <span className="text-xs text-muted-foreground mt-1">{item.meaning}</span>
               </div>
             )}
@@ -537,7 +627,7 @@ function PronounCardItem({
               <div className="bg-background/95 backdrop-blur-md border border-border px-3 py-1.5 flex items-baseline justify-between shadow-xs rounded-none">
                 <div className="flex items-baseline gap-2">
                   <span className="font-mono text-lg sm:text-xl font-extrabold tracking-tight text-foreground">
-                    {item.subject}
+                    <ExamInteractiveText text={item.subject} enabled as="span" inheritClassName themeVariant="minimalist" />
                   </span>
                   <span className="font-sans text-xs font-bold text-primary">
                     = {item.meaning}
@@ -586,7 +676,10 @@ function PronounCardItem({
                       }
                     }}
                     onMouseLeave={() => setHoveredIdx(null)}
-                    onClick={() => {
+                    onClick={(e) => {
+                      const target = e.target as HTMLElement | null;
+                      if (target?.closest('.exam-lookup-trigger')) return;
+                      if (typeof window !== 'undefined' && !(window.getSelection()?.isCollapsed ?? true)) return;
                       if (typeof navigator !== 'undefined' && 'vibrate' in navigator) {
                         try { navigator.vibrate(8); } catch {}
                       }
@@ -607,7 +700,7 @@ function PronounCardItem({
                   >
                     <div className="space-y-0.5 min-w-0 flex-1 text-left">
                       <p className="font-serif text-xs sm:text-sm font-semibold text-foreground leading-snug">
-                        <HighlightedSentence text={ex.en} highlight={ex.highlightWord} />
+                        <HighlightedSentence text={ex.en} highlight={ex.highlightWord} themeVariant="minimalist" />
                       </p>
                       {ex.vi && (
                         <p className="text-[11px] text-muted-foreground font-sans leading-tight">

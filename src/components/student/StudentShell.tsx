@@ -682,7 +682,7 @@ export function StudentShell({
     );
   };
 
-  const initials = (effectiveProfile?.full_name || profileEmail || 'U')
+  const initials = (effectiveProfile?.full_name || effectiveProfileEmail || 'U')
     .split(' ')
     .filter(Boolean)
     .map((word) => word[0])
@@ -1160,9 +1160,9 @@ export function StudentShell({
                       <div className="truncate text-[13px] font-extrabold text-[#0f172a] dark:text-slate-100">
                         {effectiveProfile?.full_name || 'Học viên'}
                       </div>
-                      {profileEmail && (
+                      {effectiveProfileEmail && (
                         <div className="truncate text-[11px] font-semibold text-[#9aa2b1] dark:text-slate-400">
-                          {profileEmail}
+                          {effectiveProfileEmail}
                         </div>
                       )}
                     </div>

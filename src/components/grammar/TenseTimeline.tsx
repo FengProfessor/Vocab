@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { Clock, Info, CheckCircle2 } from 'lucide-react';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { hasVietnameseDiacritics } from './FormattedText';
 
 interface TenseTimelineProps {
   lessonTitle?: string;
@@ -353,6 +355,26 @@ function detectTense(title: string): TenseDetail | null {
   return null;
 }
 
+function renderTimelineMarker(marker: string): React.ReactNode {
+  const parts = marker.split(/(\s*\+\s*|\([^)]*\))/);
+  return parts.map((part, idx) => {
+    if (!part) return null;
+    if (/^\s*\+\s*$/.test(part) || hasVietnameseDiacritics(part) || !/[a-zA-Z]/.test(part)) {
+      return <React.Fragment key={idx}>{part}</React.Fragment>;
+    }
+    return (
+      <ExamInteractiveText
+        key={idx}
+        text={part}
+        enabled
+        as="span"
+        inheritClassName
+        themeVariant="minimalist"
+      />
+    );
+  });
+}
+
 export default function TenseTimeline({ lessonTitle, slug, titleVi }: TenseTimelineProps) {
   const tense = detectTense(`${lessonTitle || ''} ${titleVi || ''} ${slug || ''}`.trim());
   if (!tense) return null;
@@ -370,7 +392,9 @@ export default function TenseTimeline({ lessonTitle, slug, titleVi }: TenseTimel
         <div>
           <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
             <h4 className="font-sans font-bold text-foreground text-base sm:text-lg leading-tight">{tense.nameVi}</h4>
-            <span className="text-[11px] font-mono tracking-widest text-muted-foreground uppercase">{tense.nameEn}</span>
+            <span className="text-[11px] font-mono tracking-widest text-muted-foreground uppercase">
+              <ExamInteractiveText text={tense.nameEn} enabled as="span" inheritClassName themeVariant="minimalist" />
+            </span>
           </div>
           <p className="text-xs text-muted-foreground mt-0.5 leading-relaxed">
             Sơ đồ trực quan hóa dòng thời gian
@@ -440,7 +464,7 @@ export default function TenseTimeline({ lessonTitle, slug, titleVi }: TenseTimel
             <div className="flex flex-wrap gap-1.5 mt-1.5">
               {tense.markers.map(m => (
                 <span key={m} className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-800 dark:text-emerald-300 font-mono font-medium px-2 py-0.5 rounded-none text-[11px]">
-                  {m}
+                  {renderTimelineMarker(m)}
                 </span>
               ))}
             </div>

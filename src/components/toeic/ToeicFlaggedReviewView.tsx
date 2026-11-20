@@ -27,6 +27,12 @@ import {
   TOEIC_HISTORY_UPDATED_EVENT,
   type ToeicQuestionHistoryRecord,
 } from '@/lib/toeic-question-history';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import {
+  stripHtmlTags,
+  cleanQuestionPrompt,
+  cleanOptionText,
+} from './ToeicSplitPane';
 
 interface QuestionDetails {
   questionId: string;
@@ -586,7 +592,9 @@ function ReviewQuestionCard({ record, onFlagToggled, onNoteSaved }: ReviewQuesti
                   <div className="font-mono font-bold text-[11px] text-slate-500 uppercase tracking-wider">
                     Đoạn văn đọc hiểu:
                   </div>
-                  <div className="whitespace-pre-line">{details.passage}</div>
+                  <div className="whitespace-pre-line">
+                    <ExamInteractiveText text={stripHtmlTags(details.passage)} enabled={true} />
+                  </div>
                 </div>
               )}
 
@@ -604,7 +612,7 @@ function ReviewQuestionCard({ record, onFlagToggled, onNoteSaved }: ReviewQuesti
 
                   {showTranscript && (
                     <div className="rounded-sm border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-3 font-mono text-xs leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line">
-                      {details.transcript}
+                      <ExamInteractiveText text={stripHtmlTags(details.transcript)} enabled={true} />
                     </div>
                   )}
                 </div>
@@ -613,7 +621,7 @@ function ReviewQuestionCard({ record, onFlagToggled, onNoteSaved }: ReviewQuesti
               {/* ── Question Prompt & Options ── */}
               {details.question && (
                 <div className="font-semibold text-xs sm:text-sm text-slate-900 dark:text-white">
-                  {details.question}
+                  <ExamInteractiveText text={cleanQuestionPrompt(details.question)} enabled={true} />
                 </div>
               )}
 
@@ -622,6 +630,8 @@ function ReviewQuestionCard({ record, onFlagToggled, onNoteSaved }: ReviewQuesti
                   {details.options.map((opt) => {
                     const isCorrect = opt.key === details.correctAnswer;
                     const isUserChoice = opt.key === record.selectedOption;
+                    const isListening = (details.part || record.part) <= 4;
+                    const cleanedOptionText = cleanOptionText(opt.text, opt.key);
                     return (
                       <div
                         key={opt.key}
@@ -644,7 +654,18 @@ function ReviewQuestionCard({ record, onFlagToggled, onNoteSaved }: ReviewQuesti
                         >
                           {opt.key}
                         </span>
-                        <span>{opt.text}</span>
+                        <span className="flex-1 min-w-0">
+                          {cleanedOptionText ? (
+                            <ExamInteractiveText
+                              text={cleanedOptionText}
+                              enabled={true}
+                            />
+                          ) : isListening ? (
+                            <span className="italic text-slate-400 font-mono text-xs">
+                              (Phương án {opt.key})
+                            </span>
+                          ) : null}
+                        </span>
                         {isCorrect && (
                           <span className="ml-auto font-mono text-[10px] uppercase font-bold text-emerald-700 dark:text-emerald-400">
                             Đáp án đúng
@@ -668,7 +689,7 @@ function ReviewQuestionCard({ record, onFlagToggled, onNoteSaved }: ReviewQuesti
                     <Sparkles className="h-3 w-3 text-sky-600" /> Giải thích chi tiết:
                   </div>
                   <div className="leading-relaxed whitespace-pre-line text-slate-700 dark:text-slate-300">
-                    {details.explanationVi}
+                    {stripHtmlTags(details.explanationVi)}
                   </div>
                 </div>
               )}

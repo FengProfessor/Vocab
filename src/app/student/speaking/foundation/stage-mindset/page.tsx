@@ -28,6 +28,57 @@ import {
   MINDSET_PLEDGES,
 } from '@/data/speaking/foundation/stage-mindset';
 import { Button } from '@/components/ui/button';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+
+const VIETNAMESE_DIACRITICS_RE =
+  /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i;
+
+function renderMixedExampleText(text: string, contextSentence?: string) {
+  if (!text) return null;
+  const parts = text.split(/("[^"]+"|\[[^\]]+\])/g);
+  return parts.map((part, idx) => {
+    if (!part) return null;
+    const isQuotedOrBracketed =
+      (part.startsWith('"') && part.endsWith('"')) ||
+      (part.startsWith('[') && part.endsWith(']'));
+    if (isQuotedOrBracketed) {
+      if (!VIETNAMESE_DIACRITICS_RE.test(part)) {
+        return (
+          <ExamInteractiveText
+            key={idx}
+            text={part}
+            enabled
+            as="span"
+            inheritClassName
+            contextSentence={contextSentence}
+          />
+        );
+      }
+      const subParts = part.split(/(\([^)]+\))/g);
+      return (
+        <React.Fragment key={idx}>
+          {subParts.map((subPart, subIdx) => {
+            if (!subPart) return null;
+            if (!VIETNAMESE_DIACRITICS_RE.test(subPart) && /[a-zA-Z]/.test(subPart)) {
+              return (
+                <ExamInteractiveText
+                  key={subIdx}
+                  text={subPart}
+                  enabled
+                  as="span"
+                  inheritClassName
+                  contextSentence={contextSentence}
+                />
+              );
+            }
+            return <React.Fragment key={subIdx}>{subPart}</React.Fragment>;
+          })}
+        </React.Fragment>
+      );
+    }
+    return <React.Fragment key={idx}>{part}</React.Fragment>;
+  });
+}
 
 export default function SpeakingFoundationStageMindsetPage() {
   const [activeLessonId, setActiveLessonId] = useState(STAGE_MINDSET_LESSONS[0].id);
@@ -216,7 +267,7 @@ export default function SpeakingFoundationStageMindsetPage() {
                   {activeLesson.comparison.beforeDescription}
                 </p>
                 <div className="p-2.5 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-rose-200/60 dark:border-rose-900/40 text-xs font-mono text-rose-900 dark:text-rose-200 italic">
-                  {activeLesson.comparison.beforeExample}
+                  {renderMixedExampleText(activeLesson.comparison.beforeExample)}
                 </div>
               </div>
 
@@ -230,7 +281,12 @@ export default function SpeakingFoundationStageMindsetPage() {
                   {activeLesson.comparison.afterDescription}
                 </p>
                 <div className="p-2.5 rounded-lg bg-white/80 dark:bg-slate-900/80 border border-emerald-200/60 dark:border-emerald-900/40 text-xs font-mono text-emerald-900 dark:text-emerald-200 font-semibold flex items-center justify-between">
-                  <span>{activeLesson.comparison.afterExample}</span>
+                  <span>
+                    {renderMixedExampleText(
+                      activeLesson.comparison.afterExample,
+                      activeLesson.audioExampleSentence,
+                    )}
+                  </span>
                   {activeLesson.audioExampleSentence && (
                     <DualSpeedAudioButton
                       text={activeLesson.audioExampleSentence}
@@ -258,7 +314,12 @@ export default function SpeakingFoundationStageMindsetPage() {
                   >
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-sm text-indigo-600 dark:text-indigo-400">
-                        {phrase.phraseEn}
+                        <ExamInteractiveText
+                          text={phrase.phraseEn}
+                          enabled
+                          as="span"
+                          inheritClassName
+                        />
                       </span>
                       <DualSpeedAudioButton text={phrase.phraseEn} size="sm" />
                     </div>

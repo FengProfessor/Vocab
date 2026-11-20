@@ -64,9 +64,286 @@ export function cleanViDefinition(raw?: string | null): string {
   return cleaned;
 }
 
-export function getLookupCandidateKeys(rawWord: string): string[] {
+const IRREGULAR_INFLECTION_LEMMAS: Record<string, string> = {
+  // Irregular verbs
+  am: 'be',
+  is: 'be',
+  are: 'be',
+  was: 'be',
+  were: 'be',
+  been: 'be',
+  being: 'be',
+  has: 'have',
+  had: 'have',
+  having: 'have',
+  does: 'do',
+  did: 'do',
+  done: 'do',
+  doing: 'do',
+  goes: 'go',
+  went: 'go',
+  gone: 'go',
+  going: 'go',
+  comes: 'come',
+  came: 'come',
+  coming: 'come',
+  saw: 'see',
+  seen: 'see',
+  seeing: 'see',
+  knew: 'know',
+  known: 'know',
+  knowing: 'know',
+  thought: 'think',
+  ran: 'run',
+  running: 'run',
+  sat: 'sit',
+  sitting: 'sit',
+  stood: 'stand',
+  standing: 'stand',
+  woke: 'wake',
+  woken: 'wake',
+  ate: 'eat',
+  eaten: 'eat',
+  drank: 'drink',
+  drunk: 'drink',
+  wore: 'wear',
+  worn: 'wear',
+  slept: 'sleep',
+  said: 'say',
+  says: 'say',
+  told: 'tell',
+  spoke: 'speak',
+  spoken: 'speak',
+  heard: 'hear',
+  wrote: 'write',
+  written: 'write',
+  gave: 'give',
+  given: 'give',
+  took: 'take',
+  taken: 'take',
+  made: 'make',
+  brought: 'bring',
+  sent: 'send',
+  shown: 'show',
+  showed: 'show',
+  met: 'meet',
+  taught: 'teach',
+  found: 'find',
+  bought: 'buy',
+  sold: 'sell',
+  paid: 'pay',
+  spent: 'spend',
+  chose: 'choose',
+  chosen: 'choose',
+  felt: 'feel',
+  forgot: 'forget',
+  forgotten: 'forget',
+  understood: 'understand',
+  held: 'hold',
+  caught: 'catch',
+  lost: 'lose',
+  won: 'win',
+  grew: 'grow',
+  grown: 'grow',
+  kept: 'keep',
+  became: 'become',
+  become: 'become',
+  left: 'leave',
+  began: 'begin',
+  begun: 'begin',
+  broke: 'break',
+  broken: 'break',
+  built: 'build',
+  drove: 'drive',
+  driven: 'drive',
+  fell: 'fall',
+  fallen: 'fall',
+  flew: 'fly',
+  flown: 'fly',
+  got: 'get',
+  gotten: 'get',
+  led: 'lead',
+  lent: 'lend',
+  meant: 'mean',
+  rose: 'rise',
+  risen: 'rise',
+  sought: 'seek',
+  shook: 'shake',
+  shaken: 'shake',
+  stole: 'steal',
+  stolen: 'steal',
+  struck: 'strike',
+  withdrew: 'withdraw',
+  withdrawn: 'withdraw',
+  underwent: 'undergo',
+  undergone: 'undergo',
+  undertook: 'undertake',
+  undertaken: 'undertake',
+  overcame: 'overcome',
+  forbade: 'forbid',
+  forbidden: 'forbid',
+  froze: 'freeze',
+  frozen: 'freeze',
+  drew: 'draw',
+  drawn: 'draw',
+  dealt: 'deal',
+  fed: 'feed',
+  // Irregular plurals
+  children: 'child',
+  men: 'man',
+  women: 'woman',
+  people: 'person',
+  feet: 'foot',
+  teeth: 'tooth',
+  geese: 'goose',
+  mice: 'mouse',
+  oxen: 'ox',
+  analyses: 'analysis',
+  crises: 'crisis',
+  theses: 'thesis',
+  hypotheses: 'hypothesis',
+  bases: 'basis',
+  diagnoses: 'diagnosis',
+  phenomena: 'phenomenon',
+  criteria: 'criterion',
+  data: 'datum',
+  media: 'medium',
+  curricula: 'curriculum',
+  alumni: 'alumnus',
+  stimuli: 'stimulus',
+  fungi: 'fungus',
+  radii: 'radius',
+  indices: 'index',
+  appendices: 'appendix',
+  matrices: 'matrix',
+  // Irregular comparatives / superlatives
+  better: 'good',
+  best: 'good',
+  worse: 'bad',
+  worst: 'bad',
+  further: 'far',
+  furthest: 'far',
+  farther: 'far',
+  farthest: 'far',
+  elder: 'old',
+  eldest: 'old',
+};
+
+export function expandSingleWordInflections(raw: string): string[] {
+  const clean = raw.trim().toLowerCase().replace(/[’‘]/g, "'");
+  if (!clean) return [];
+
+  const out: string[] = [];
+  const seen = new Set<string>([clean]);
+  const push = (val: string) => {
+    if (val && val.length >= 2 && !seen.has(val)) {
+      seen.add(val);
+      out.push(val);
+    }
+  };
+
+  // Possessives
+  if (clean.endsWith("'s") && clean.length > 3) {
+    push(clean.slice(0, -2));
+  } else if (clean.endsWith("s'") && clean.length > 3) {
+    push(clean.slice(0, -1));
+    push(clean.slice(0, -2));
+  }
+
+  // Irregular lookup table
+  const irreg = IRREGULAR_INFLECTION_LEMMAS[clean];
+  if (irreg) push(irreg);
+
+  const len = clean.length;
+  if (len <= 2) return out;
+
+  // -ies -> -y
+  if (clean.endsWith('ies') && len > 4) {
+    push(clean.slice(0, -3) + 'y');
+  }
+  // -ves -> -f / -fe
+  if (clean.endsWith('ves') && len > 4) {
+    push(clean.slice(0, -3) + 'f');
+    push(clean.slice(0, -3) + 'fe');
+  }
+  // -es / -s
+  if (clean.endsWith('es') && len > 3) {
+    push(clean.slice(0, -2));
+    push(clean.slice(0, -1));
+  } else if (
+    clean.endsWith('s') &&
+    !clean.endsWith('ss') &&
+    !clean.endsWith('us') &&
+    !clean.endsWith('is') &&
+    len > 3
+  ) {
+    push(clean.slice(0, -1));
+  }
+
+  // -ied -> -y
+  if (clean.endsWith('ied') && len > 4) {
+    push(clean.slice(0, -3) + 'y');
+  }
+  // -ed
+  if (clean.endsWith('ed') && len > 3) {
+    push(clean.slice(0, -2));
+    push(clean.slice(0, -1));
+    if (len > 4 && clean[len - 3] === clean[len - 4]) {
+      push(clean.slice(0, -3));
+    }
+  }
+
+  // -ying -> -ie
+  if (clean.endsWith('ying') && len >= 5) {
+    push(clean.slice(0, -4) + 'ie');
+  }
+  // -ing
+  if (clean.endsWith('ing') && len > 4) {
+    push(clean.slice(0, -3));
+    push(clean.slice(0, -3) + 'e');
+    if (len > 5 && clean[len - 4] === clean[len - 5]) {
+      push(clean.slice(0, -4));
+    }
+  }
+
+  // Comparatives & superlatives (-iest, -ier, -est, -er)
+  if (clean.endsWith('iest') && len > 5) {
+    push(clean.slice(0, -4) + 'y');
+  } else if (clean.endsWith('est') && len > 4) {
+    push(clean.slice(0, -3));
+    push(clean.slice(0, -2));
+    if (len > 5 && clean[len - 4] === clean[len - 5]) {
+      push(clean.slice(0, -4));
+    }
+  }
+  if (clean.endsWith('ier') && len > 4) {
+    push(clean.slice(0, -3) + 'y');
+  } else if (clean.endsWith('er') && len > 3) {
+    push(clean.slice(0, -2));
+    push(clean.slice(0, -1));
+    if (len > 4 && clean[len - 3] === clean[len - 4]) {
+      push(clean.slice(0, -3));
+    }
+  }
+
+  return out;
+}
+
+export interface LookupCandidateOptions {
+  includeInflections?: boolean;
+}
+
+export function getLookupCandidateKeys(
+  rawWord: string,
+  options?: LookupCandidateOptions,
+): string[] {
   if (!rawWord || typeof rawWord !== 'string') return [];
-  const base = rawWord.trim().toLowerCase().replace(/\s+/g, ' ');
+  const base = rawWord
+    .trim()
+    .toLowerCase()
+    .replace(/[\u200B-\u200D\uFEFF]/g, '')
+    .replace(/[’‘]/g, "'")
+    .replace(/\s+/g, ' ');
   if (!base) return [];
 
   const candidates: string[] = [];
@@ -80,6 +357,12 @@ export function getLookupCandidateKeys(rawWord: string): string[] {
   };
 
   add(base);
+
+  // Strip outer edge punctuation as structural fallback if present
+  const edgeTrimmed = base.replace(/^[^\w]+|[^\w]+$/g, '');
+  if (edgeTrimmed && edgeTrimmed !== base && !(base.includes('(') && base.includes(')'))) {
+    add(edgeTrimmed);
+  }
 
   // Expand parentheses: e.g. "balanced (diet)" -> "balanced diet", "balanced"
   if (base.includes('(') && base.includes(')')) {
@@ -127,6 +410,53 @@ export function getLookupCandidateKeys(rawWord: string): string[] {
       add(item.replace(/-/g, ' '));
     } else if (item.includes(' ') && !item.includes('(') && !item.includes('/')) {
       add(item.replace(/\s+/g, '-'));
+    }
+  }
+
+  if (options?.includeInflections) {
+    const structuralSnapshot = [...candidates];
+    for (const item of structuralSnapshot) {
+      if (!item.includes(' ') && !item.includes('-')) {
+        for (const lemma of expandSingleWordInflections(item)) {
+          add(lemma);
+        }
+      } else if (item.includes(' ')) {
+        const parts = item.split(/\s+/);
+        if (parts.length >= 2) {
+          // Lemmatize leading verb for phrasal verbs ("taking into consideration" -> "take into consideration")
+          for (const fl of expandSingleWordInflections(parts[0])) {
+            add([fl, ...parts.slice(1)].join(' '));
+          }
+        }
+      } else if (item.includes('-')) {
+        const parts = item.split('-');
+        if (parts.length >= 2) {
+          const first = parts[0];
+          for (const fl of expandSingleWordInflections(first)) {
+            const joined = [fl, ...parts.slice(1)].join('-');
+            add(joined);
+            add(joined.replace(/-/g, ' '));
+          }
+          const last = parts[parts.length - 1];
+          for (const ll of expandSingleWordInflections(last)) {
+            const joined = [...parts.slice(0, -1), ll].join('-');
+            add(joined);
+            add(joined.replace(/-/g, ' '));
+          }
+          if (
+            last.length === 3 &&
+            last.endsWith('s') &&
+            !last.endsWith('ss') &&
+            !last.endsWith('us') &&
+            !last.endsWith('is')
+          ) {
+            const strippedLast = last.slice(0, -1);
+            const joined = [...parts.slice(0, -1), strippedLast].join('-');
+            add(joined);
+            add(joined.replace(/-/g, ' '));
+          }
+        }
+      }
     }
   }
 
@@ -795,12 +1125,22 @@ function getStaticVocabMap(): Map<string, Partial<ResolvedVocabEntry>> {
   return map;
 }
 
-export function resolveStaticVocabFallback(rawWord: string): Partial<ResolvedVocabEntry> | null {
+export function resolveStaticVocabFallback(
+  rawWord: string,
+  options?: LookupCandidateOptions,
+): Partial<ResolvedVocabEntry> | null {
   const staticMap = getStaticVocabMap();
-  const candidates = getLookupCandidateKeys(rawWord);
+  const structuralSet = new Set(getLookupCandidateKeys(rawWord));
+  const candidates = options?.includeInflections
+    ? getLookupCandidateKeys(rawWord, { includeInflections: true })
+    : Array.from(structuralSet);
   let merged: Partial<ResolvedVocabEntry> = {};
 
   for (const key of candidates) {
+    if (merged.translation && !structuralSet.has(key)) {
+      // Do not mix fields across inflectional boundaries once a structural translation matched
+      break;
+    }
     const hit = staticMap.get(key);
     if (hit) {
       merged = mergePartial(merged, hit);
@@ -847,12 +1187,19 @@ function extractMorphologyFallbackFromRow(
 export function resolveVocabPartialFromSources(
   rawWord: string,
   gdMap?: Map<string, GlobalDictRowInput>,
+  options?: LookupCandidateOptions,
 ): Partial<ResolvedVocabEntry> {
-  const candidates = getLookupCandidateKeys(rawWord);
+  const structuralSet = new Set(getLookupCandidateKeys(rawWord));
+  const candidates = options?.includeInflections
+    ? getLookupCandidateKeys(rawWord, { includeInflections: true })
+    : Array.from(structuralSet);
   let merged: Partial<ResolvedVocabEntry> = {};
 
   if (gdMap && gdMap.size > 0) {
     for (const key of candidates) {
+      if (merged.translation && !structuralSet.has(key)) {
+        break;
+      }
       const row = gdMap.get(key);
       if (!row) continue;
       const extracted = extractFromGlobalDictRow(row, key);
@@ -864,7 +1211,7 @@ export function resolveVocabPartialFromSources(
   }
 
   if (!merged.translation || !merged.ipa || !merged.example || !merged.pos || !merged.image_url) {
-    const fallback = resolveStaticVocabFallback(rawWord);
+    const fallback = resolveStaticVocabFallback(rawWord, options);
     if (fallback) {
       merged = mergePartial(merged, fallback);
     }
@@ -888,8 +1235,9 @@ export function resolveVocabPartialFromSources(
 export function resolveVocabEntryFromSources(
   rawWord: string,
   gdMap?: Map<string, GlobalDictRowInput>,
+  options?: LookupCandidateOptions,
 ): ResolvedVocabEntry | null {
-  const partial = resolveVocabPartialFromSources(rawWord, gdMap);
+  const partial = resolveVocabPartialFromSources(rawWord, gdMap, options);
   if (!partial.translation) return null;
   return {
     translation: partial.translation,

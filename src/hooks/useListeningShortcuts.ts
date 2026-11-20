@@ -51,6 +51,17 @@ export function isInputElement(target: EventTarget | null | unknown): boolean {
   return false;
 }
 
+function isLookupInteractiveTarget(target: EventTarget | null | unknown): boolean {
+  if (!target || typeof target !== 'object') return false;
+  const el = target as { closest?: (selector: string) => unknown };
+  if (typeof el.closest !== 'function') return false;
+  try {
+    return Boolean(el.closest('.exam-lookup-card, .exam-lookup-trigger'));
+  } catch {
+    return false;
+  }
+}
+
 export type ShortcutAction =
   | 'toggle_play'
   | 'prev_sentence'
@@ -73,7 +84,7 @@ export function getShortcutActionFromEvent(e: {
   target?: unknown;
 }): ShortcutAction {
   // Never intercept when typing into an input field or content-editable area
-  if (isInputElement(e.target)) {
+  if (isInputElement(e.target) || isLookupInteractiveTarget(e.target)) {
     return null;
   }
 
@@ -196,6 +207,9 @@ export function useListeningShortcuts({
           callbacksRef.current.onCycleSpeed();
           break;
         case 'exit_focus_mode':
+          if (typeof document !== 'undefined' && document.querySelector('.exam-lookup-card')) {
+            return;
+          }
           if (callbacksRef.current.onToggleFocusMode) {
             e.preventDefault();
             callbacksRef.current.onToggleFocusMode();

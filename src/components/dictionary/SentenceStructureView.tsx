@@ -23,6 +23,7 @@ import {
   SecondaryClause,
   SpanRole,
 } from '@/types/sentence-analysis';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 interface SentenceStructureViewProps {
   data: SentenceAnalysisData;
@@ -207,7 +208,13 @@ export function SentenceStructureView({
               if (isOther) {
                 return (
                   <span key={idx} className="whitespace-pre-wrap text-foreground/80">
-                    {span.text}
+                    <ExamInteractiveText
+                      text={span.text}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      contextSentence={data.sentence}
+                    />
                   </span>
                 );
               }
@@ -217,14 +224,25 @@ export function SentenceStructureView({
                   key={idx}
                   onMouseEnter={() => setActiveRole(span.role)}
                   onMouseLeave={() => setActiveRole(null)}
-                  onClick={() => setActiveRole(activeRole === span.role ? null : span.role)}
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && !window.getSelection()?.isCollapsed) return;
+                    setActiveRole(activeRole === span.role ? null : span.role);
+                  }}
                   className={cn(
                     'inline-flex items-baseline gap-1 mx-0.5 px-2 py-0.5 rounded-lg transition-all cursor-pointer select-text',
                     getSpanStyles(span.role, isHighlighted),
                   )}
                   title={`${span.label_vi || span.role}: ${span.text}`}
                 >
-                  <span className="font-medium leading-normal">{span.text}</span>
+                  <span className="font-medium leading-normal">
+                    <ExamInteractiveText
+                      text={span.text}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      contextSentence={data.sentence}
+                    />
+                  </span>
                   {badge && (
                     <span
                       className={cn(
@@ -239,7 +257,13 @@ export function SentenceStructureView({
               );
             })
           ) : (
-            <p>{data.sentence}</p>
+            <ExamInteractiveText
+              as="p"
+              text={data.sentence}
+              enabled
+              inheritClassName
+              contextSentence={data.sentence}
+            />
           )}
         </div>
 
@@ -284,7 +308,10 @@ export function SentenceStructureView({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {/* Subject */}
               <div
-                onClick={(e) => handleLookup(mainClause.subject.head || mainClause.subject.text, e)}
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && !window.getSelection()?.isCollapsed) return;
+                  handleLookup(mainClause.subject.head || mainClause.subject.text, e);
+                }}
                 className="p-3 rounded-xl border border-emerald-300/80 dark:border-emerald-700/60 bg-emerald-50/70 dark:bg-emerald-950/40 cursor-pointer hover:bg-emerald-100/70 dark:hover:bg-emerald-900/50 transition-colors"
               >
                 <div className="flex items-center justify-between mb-1">
@@ -293,19 +320,41 @@ export function SentenceStructureView({
                     <span>Chủ ngữ (Subject)</span>
                   </span>
                   {mainClause.subject.head !== mainClause.subject.text && (
-                    <span className="text-[10px] font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-200/60 dark:bg-emerald-900/60 px-1.5 py-0.5 rounded">
-                      Lõi: {mainClause.subject.head}
+                    <span
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-[10px] font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-200/60 dark:bg-emerald-900/60 px-1.5 py-0.5 rounded"
+                    >
+                      Lõi:{' '}
+                      <ExamInteractiveText
+                        text={mainClause.subject.head}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        contextSentence={data.sentence}
+                      />
                     </span>
                   )}
                 </div>
-                <p className="text-sm font-bold text-emerald-950 dark:text-emerald-100">
-                  {mainClause.subject.text}
+                <p
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-sm font-bold text-emerald-950 dark:text-emerald-100"
+                >
+                  <ExamInteractiveText
+                    text={mainClause.subject.text}
+                    enabled
+                    as="span"
+                    inheritClassName
+                    contextSentence={data.sentence}
+                  />
                 </p>
               </div>
 
               {/* Verb */}
               <div
-                onClick={(e) => handleLookup(mainClause.verb.head || mainClause.verb.text, e)}
+                onClick={(e) => {
+                  if (typeof window !== 'undefined' && !window.getSelection()?.isCollapsed) return;
+                  handleLookup(mainClause.verb.head || mainClause.verb.text, e);
+                }}
                 className="p-3 rounded-xl border border-sky-300/80 dark:border-sky-700/60 bg-sky-50/70 dark:bg-sky-950/40 cursor-pointer hover:bg-sky-100/70 dark:hover:bg-sky-900/50 transition-colors"
               >
                 <div className="flex items-center justify-between mb-1">
@@ -319,15 +368,27 @@ export function SentenceStructureView({
                     </span>
                   )}
                 </div>
-                <p className="text-sm font-bold text-sky-950 dark:text-sky-100">
-                  {mainClause.verb.text}
+                <p
+                  onClick={(e) => e.stopPropagation()}
+                  className="text-sm font-bold text-sky-950 dark:text-sky-100"
+                >
+                  <ExamInteractiveText
+                    text={mainClause.verb.text}
+                    enabled
+                    as="span"
+                    inheritClassName
+                    contextSentence={data.sentence}
+                  />
                 </p>
               </div>
 
               {/* Object */}
               {mainClause.object && (
                 <div
-                  onClick={(e) => handleLookup(mainClause.object!.head || mainClause.object!.text, e)}
+                  onClick={(e) => {
+                    if (typeof window !== 'undefined' && !window.getSelection()?.isCollapsed) return;
+                    handleLookup(mainClause.object!.head || mainClause.object!.text, e);
+                  }}
                   className="p-3 rounded-xl border border-amber-300/80 dark:border-amber-700/60 bg-amber-50/70 dark:bg-amber-950/40 cursor-pointer hover:bg-amber-100/70 dark:hover:bg-amber-900/50 transition-colors"
                 >
                   <div className="flex items-center justify-between mb-1">
@@ -336,13 +397,32 @@ export function SentenceStructureView({
                       <span>Tân ngữ (Object)</span>
                     </span>
                     {mainClause.object.head && mainClause.object.head !== mainClause.object.text && (
-                      <span className="text-[10px] font-semibold text-amber-800 dark:text-amber-300 bg-amber-200/60 dark:bg-amber-900/60 px-1.5 py-0.5 rounded">
-                        Lõi: {mainClause.object.head}
+                      <span
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-[10px] font-semibold text-amber-800 dark:text-amber-300 bg-amber-200/60 dark:bg-amber-900/60 px-1.5 py-0.5 rounded"
+                      >
+                        Lõi:{' '}
+                        <ExamInteractiveText
+                          text={mainClause.object.head}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          contextSentence={data.sentence}
+                        />
                       </span>
                     )}
                   </div>
-                  <p className="text-sm font-bold text-amber-950 dark:text-amber-100 leading-snug">
-                    {mainClause.object.text}
+                  <p
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-sm font-bold text-amber-950 dark:text-amber-100 leading-snug"
+                  >
+                    <ExamInteractiveText
+                      text={mainClause.object.text}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      contextSentence={data.sentence}
+                    />
                   </p>
                 </div>
               )}
@@ -380,13 +460,28 @@ export function SentenceStructureView({
                   </span>
                   {sc.linker && (
                     <span className="text-[10px] font-semibold bg-purple-200/60 dark:bg-purple-900/60 text-purple-800 dark:text-purple-300 px-2 py-0.5 rounded-full">
-                      Từ nối / Dấu hiệu: <strong>{sc.linker}</strong>
+                      Từ nối / Dấu hiệu:{' '}
+                      <strong>
+                        <ExamInteractiveText
+                          text={sc.linker}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          contextSentence={sc.text || data.sentence}
+                        />
+                      </strong>
                     </span>
                   )}
                 </div>
 
                 <p className="text-sm font-semibold text-purple-950 dark:text-purple-100 mb-2 leading-relaxed">
-                  {sc.text}
+                  <ExamInteractiveText
+                    text={sc.text}
+                    enabled
+                    as="span"
+                    inheritClassName
+                    contextSentence={sc.text || data.sentence}
+                  />
                 </p>
 
                 {/* Inner Decomposition (Linker, Action, Target) */}
@@ -394,13 +489,29 @@ export function SentenceStructureView({
                   {sc.action && (
                     <div className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-background/80 border border-purple-200/60 dark:border-purple-800/40">
                       <span className="text-[10px] font-bold text-muted-foreground uppercase">Hành động:</span>
-                      <strong className="text-purple-900 dark:text-purple-200">{sc.action}</strong>
+                      <strong className="text-purple-900 dark:text-purple-200">
+                        <ExamInteractiveText
+                          text={sc.action}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          contextSentence={sc.text || data.sentence}
+                        />
+                      </strong>
                     </div>
                   )}
                   {sc.target && (
                     <div className="inline-flex items-center gap-1 px-2 py-1 rounded-lg bg-background/80 border border-purple-200/60 dark:border-purple-800/40">
                       <span className="text-[10px] font-bold text-muted-foreground uppercase">Tác động lên:</span>
-                      <strong className="text-purple-900 dark:text-purple-200">{sc.target}</strong>
+                      <strong className="text-purple-900 dark:text-purple-200">
+                        <ExamInteractiveText
+                          text={sc.target}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          contextSentence={sc.text || data.sentence}
+                        />
+                      </strong>
                     </div>
                   )}
                 </div>
@@ -442,12 +553,14 @@ export function SentenceStructureView({
                   <div className="space-y-1">
                     <div className="flex items-start justify-between gap-1">
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <span
-                          onClick={(e) => handleLookup(chunk.base || chunk.text, e)}
-                          className="font-bold text-sm text-foreground hover:text-primary transition-colors cursor-pointer"
-                        >
-                          {chunk.text || chunk.base}
-                        </span>
+                        <ExamInteractiveText
+                          text={chunk.text || chunk.base}
+                          enabled
+                          as="span"
+                          inheritClassName
+                          contextSentence={data.sentence}
+                          className="font-bold text-sm text-foreground"
+                        />
                         {chunk.pos && (
                           <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border border-indigo-500/20">
                             {chunk.pos}
@@ -480,7 +593,16 @@ export function SentenceStructureView({
                   <div className="flex items-center justify-between pt-2 border-t border-border/40 text-[11px]">
                     {chunk.base && chunk.base.toLowerCase() !== chunk.text.toLowerCase() && (
                       <span className="text-muted-foreground italic">
-                        Nguyên mẫu: <strong>{chunk.base}</strong>
+                        Nguyên mẫu:{' '}
+                        <strong>
+                          <ExamInteractiveText
+                            text={chunk.base}
+                            enabled
+                            as="span"
+                            inheritClassName
+                            contextSentence={data.sentence}
+                          />
+                        </strong>
                       </span>
                     )}
 
@@ -523,9 +645,23 @@ export function SentenceStructureView({
             ⚡ Mô hình Logic: {data.logic.pattern}
           </p>
           <p className="text-sm">
-            <span className="font-semibold text-muted-foreground">A:</span> {data.logic.a}
+            <span className="font-semibold text-muted-foreground">A:</span>{' '}
+            <ExamInteractiveText
+              text={data.logic.a}
+              enabled
+              as="span"
+              inheritClassName
+              contextSentence={data.sentence}
+            />
             <span className="mx-2 text-muted-foreground">➔</span>
-            <span className="font-semibold text-violet-700 dark:text-violet-300">B:</span> {data.logic.b}
+            <span className="font-semibold text-violet-700 dark:text-violet-300">B:</span>{' '}
+            <ExamInteractiveText
+              text={data.logic.b}
+              enabled
+              as="span"
+              inheritClassName
+              contextSentence={data.sentence}
+            />
           </p>
           <p className="text-muted-foreground">{data.logic.formula_vi}</p>
         </div>
@@ -552,7 +688,13 @@ export function SentenceStructureView({
                     {lvl.slot_vi}
                   </span>
                   <p className="text-sm font-medium text-foreground leading-snug break-words">
-                    {lvl.text}
+                    <ExamInteractiveText
+                      text={lvl.text}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      contextSentence={lvl.text}
+                    />
                   </p>
                 </div>
               </div>

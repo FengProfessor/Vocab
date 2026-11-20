@@ -24,6 +24,58 @@ import {
   Layers,
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { hasVietnameseDiacritics } from '@/components/grammar/FormattedText';
+
+function renderPairTip(tip: string): React.ReactNode {
+  const parts = tip.split(/(\/[^/]+\/|\([^)]*\)|\s+-\s+|\bvs\b)/);
+  return parts.map((seg, idx) => {
+    if (!seg) return null;
+    if (/^\/[^/]+\/$/.test(seg) || /^\s+-\s+$/.test(seg) || seg.trim().toLowerCase() === 'vs') {
+      return <React.Fragment key={idx}>{seg}</React.Fragment>;
+    }
+    if (seg.startsWith('(') && seg.endsWith(')')) {
+      const inner = seg.slice(1, -1);
+      if (inner.includes('/') || hasVietnameseDiacritics(inner) || !/[a-zA-Z]/.test(inner)) {
+        return <React.Fragment key={idx}>{seg}</React.Fragment>;
+      }
+      const innerParts = inner.split(/(\bvs\b)/);
+      return (
+        <React.Fragment key={idx}>
+          (
+          {innerParts.map((sub, subIdx) =>
+            sub && /[a-zA-Z]/.test(sub) && sub.trim().toLowerCase() !== 'vs' ? (
+              <ExamInteractiveText
+                key={subIdx}
+                text={sub}
+                enabled
+                as="span"
+                inheritClassName
+                themeVariant="default"
+              />
+            ) : (
+              <React.Fragment key={subIdx}>{sub}</React.Fragment>
+            ),
+          )}
+          )
+        </React.Fragment>
+      );
+    }
+    if (/[a-zA-Z]/.test(seg) && !hasVietnameseDiacritics(seg)) {
+      return (
+        <ExamInteractiveText
+          key={idx}
+          text={seg}
+          enabled
+          as="span"
+          inheritClassName
+          themeVariant="default"
+        />
+      );
+    }
+    return <React.Fragment key={idx}>{seg}</React.Fragment>;
+  });
+}
 
 export interface IpaSoundboardProps {
   phonemes: IpaPhoneme[];
@@ -108,7 +160,11 @@ export function IpaSoundboard({
     return (
       <div
         key={p.id}
-        onClick={() => onSelectPhoneme(p)}
+        onClick={(e) => {
+          if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger')) return;
+          if (typeof window !== 'undefined' && !(window.getSelection()?.isCollapsed ?? true)) return;
+          onSelectPhoneme(p);
+        }}
         className={`group relative flex flex-col items-center justify-center p-3 rounded-xl border transition-all cursor-pointer select-none text-center ${
           isMastered
             ? 'bg-emerald-500/5 border-emerald-500/40 hover:border-emerald-500/70 hover:bg-emerald-500/10'
@@ -154,7 +210,7 @@ export function IpaSoundboard({
             /{p.symbol}/
           </div>
           <p className="text-xs font-semibold text-foreground/80 mt-0.5 flex items-center justify-center gap-1">
-            <span>{p.anchorWord}</span>
+            <ExamInteractiveText text={p.anchorWord} enabled as="span" inheritClassName themeVariant="default" />
             <span className="text-[10px] font-mono text-muted-foreground">{p.anchorWordIpa}</span>
           </p>
           {customSubtitle && (
@@ -213,7 +269,11 @@ export function IpaSoundboard({
         <div className="grid grid-cols-2 gap-2 relative items-center">
           {/* Tile 1 */}
           <div
-            onClick={() => onSelectPhoneme(p1)}
+            onClick={(e) => {
+              if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger')) return;
+              if (typeof window !== 'undefined' && !(window.getSelection()?.isCollapsed ?? true)) return;
+              onSelectPhoneme(p1);
+            }}
             className={`group/tile relative p-2.5 rounded-lg border text-center cursor-pointer transition-all ${
               p1Mastered
                 ? 'bg-emerald-500/10 border-emerald-500/40 hover:border-emerald-500'
@@ -243,7 +303,7 @@ export function IpaSoundboard({
               /{p1.symbol}/
             </div>
             <div className="text-xs font-semibold text-foreground/80 mt-0.5">
-              {p1.anchorWord}
+              <ExamInteractiveText text={p1.anchorWord} enabled as="span" inheritClassName themeVariant="default" />
             </div>
           </div>
 
@@ -254,7 +314,11 @@ export function IpaSoundboard({
 
           {/* Tile 2 */}
           <div
-            onClick={() => onSelectPhoneme(p2)}
+            onClick={(e) => {
+              if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger')) return;
+              if (typeof window !== 'undefined' && !(window.getSelection()?.isCollapsed ?? true)) return;
+              onSelectPhoneme(p2);
+            }}
             className={`group/tile relative p-2.5 rounded-lg border text-center cursor-pointer transition-all ${
               p2Mastered
                 ? 'bg-emerald-500/10 border-emerald-500/40 hover:border-emerald-500'
@@ -284,7 +348,7 @@ export function IpaSoundboard({
               /{p2.symbol}/
             </div>
             <div className="text-xs font-semibold text-foreground/80 mt-0.5">
-              {p2.anchorWord}
+              <ExamInteractiveText text={p2.anchorWord} enabled as="span" inheritClassName themeVariant="default" />
             </div>
           </div>
         </div>
@@ -292,7 +356,7 @@ export function IpaSoundboard({
         {/* Mnemonic Tip */}
         {pair.tip && (
           <p className="text-[11px] text-muted-foreground/90 italic bg-muted/20 px-2 py-1 rounded-md">
-            💡 {pair.tip}
+            💡 {renderPairTip(pair.tip)}
           </p>
         )}
       </div>

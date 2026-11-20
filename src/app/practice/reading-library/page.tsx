@@ -9,51 +9,43 @@
  * Web Speech TTS / podcast audio, and collapsible mindmap visualizer.
  */
 
-import { Suspense, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import {
   BookOpen,
   Check,
-  CheckCircle2,
   ChevronLeft,
   ChevronRight,
-  Filter,
   Headphones,
   Heart,
-  Info,
-  Layers,
   Loader2,
-  Play,
   RotateCcw,
   Search,
   Sparkles,
   Volume2,
   VolumeX,
   X,
-  XCircle,
   Eye,
   EyeOff,
   Brain,
-  Share2,
   ArrowRight,
   ArrowLeft,
-  Calendar,
-  BookMarked,
   Library,
-  Award,
   ChevronDown,
   ChevronUp,
 } from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { PACK_THEMES, getPackTheme } from '@/lib/pack-themes';
 import { authFetch } from '@/lib/auth-fetch';
+import { playWordAudio } from '@/lib/audio';
+import { ExamInteractiveText, type CoreVocabularyItem } from '@/components/exam/ExamInteractiveText';
+import { InteractiveHighlightedText } from '@/components/vocab';
 import {
   readLibraryCache,
   writeLibraryCache,
   readLocalBookmarks,
   writeLocalBookmark,
-  type CachedLibraryResponse,
 } from '@/lib/reading-library-cache';
 import type {
   ReadingArticle,
@@ -61,7 +53,6 @@ import type {
   ArticleSourceType,
   ReadingClozeBlank,
   ReadingQuestion,
-  ReadingVocabularyItem,
   ReadingMindmapNode,
 } from '@/types/reading-library';
 
@@ -237,48 +228,9 @@ export function getPassageParagraphs(article: ReadingArticle): string[] {
   return [plain.trim()].filter(Boolean);
 }
 
-// ── Interactive Passage Word Component ──
-function InteractivePassageWord({
-  wordText,
-  highlight,
-  onLookup,
-}: {
-  wordText: string;
-  highlight?: ReadingVocabularyItem;
-  onLookup: (word: string, highlight?: ReadingVocabularyItem) => void;
-}) {
-  const isHighlighted = Boolean(highlight);
-
-  return (
-    <span
-      role="button"
-      tabIndex={0}
-      onClick={(e) => {
-        e.stopPropagation();
-        onLookup(wordText, highlight);
-      }}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          onLookup(wordText, highlight);
-        }
-      }}
-      className={`inline cursor-pointer select-text transition-colors ${
-        isHighlighted
-          ? 'font-bold text-indigo-700 dark:text-indigo-300 bg-indigo-50/90 dark:bg-indigo-950/70 px-0.5 rounded-xs underline decoration-indigo-400 decoration-1 underline-offset-3 hover:bg-indigo-100 dark:hover:bg-indigo-900'
-          : 'hover:text-indigo-600 dark:hover:text-indigo-300 hover:underline decoration-indigo-300/60 underline-offset-3 text-inherit'
-      }`}
-      title={highlight ? `${wordText}: ${highlight.meaning_vi}` : `Bấm để tra từ: ${wordText}`}
-    >
-      {wordText}
-    </span>
-  );
-}
-
 // ── Main Page Content Component ──
 function ReadingLibraryContent() {
   const searchParams = useSearchParams();
-  const router = useRouter();
 
   // Filters State
   const initialLevel = searchParams.get('level') || 'all';
@@ -304,14 +256,6 @@ function ReadingLibraryContent() {
   const [isTranslating, setIsTranslating] = useState<boolean>(false);
   const [fontSizeOffset, setFontSizeOffset] = useState<number>(0);
   const [isPlayingAudio, setIsPlayingAudio] = useState<boolean>(false);
-
-  // Lookup Tooltip / Sheet State
-  const [inspectedWord, setInspectedWord] = useState<{
-    word: string;
-    item?: ReadingVocabularyItem;
-  } | null>(null);
-  const [lookingUpWord, setLookingUpWord] = useState<string | null>(null);
-  const dictCacheRef = useRef<Record<string, ReadingVocabularyItem>>({});
 
   // Cloze State
   const [clozeAnswers, setClozeAnswers] = useState<Record<string, string>>({});
@@ -464,7 +408,6 @@ function ReadingLibraryContent() {
         stopSpeech();
         setIsPlayingAudio(false);
         setActiveArticle(null);
-        setInspectedWord(null);
         setShowTranslation(false);
         setActiveTranslation(null);
         setIsTranslating(false);
@@ -511,7 +454,6 @@ function ReadingLibraryContent() {
     setShowTranslation(false);
     setActiveTranslation(art.translation || null);
     setIsTranslating(false);
-    setInspectedWord(null);
     setClozeAnswers({});
     setClozeRevealed(false);
     setMcqAnswers({});
@@ -533,7 +475,6 @@ function ReadingLibraryContent() {
     setActiveArticle(null);
     setMobileTab('passage');
     setMobilePeekOpen(false);
-    setInspectedWord(null);
     setShowTranslation(false);
     setActiveTranslation(null);
     setIsTranslating(false);
@@ -585,54 +526,6 @@ function ReadingLibraryContent() {
       console.warn('[Reading Library] Translation error:', err);
     } finally {
       setIsTranslating(false);
-    }
-  };
-
-  // Lookup word in dictionary on demand
-  const handleWordClick = async (wordText: string, highlight?: ReadingVocabularyItem) => {
-    if (highlight && highlight.meaning_vi) {
-      setInspectedWord({ word: wordText, item: highlight });
-      return;
-    }
-
-    const clean = wordText.toLowerCase().replace(/^[^a-z0-9]+|[^a-z0-9]+$/gi, '').trim();
-    if (!clean || clean.length < 2) return;
-
-    if (dictCacheRef.current[clean]) {
-      setInspectedWord({ word: wordText, item: dictCacheRef.current[clean] });
-      return;
-    }
-
-    setInspectedWord({ word: wordText, item: undefined });
-    setLookingUpWord(clean);
-
-    try {
-      const res = await authFetch(`/api/dictionary/lookup?word=${encodeURIComponent(clean)}`);
-      if (res.ok) {
-        const data = await res.json();
-        const meaning =
-          data.meanings?.[0]?.meaning ||
-          data.definition ||
-          (data.results && data.results[0]?.definition);
-        const phonetic = data.ipa || data.pronunciations?.[0]?.ipa;
-        const pos = data.pos || data.meanings?.[0]?.part_of_speech;
-
-        const item: ReadingVocabularyItem = {
-          word: clean,
-          meaning_vi: meaning || 'Từ vựng trong ngữ cảnh bài đọc.',
-          phonetic,
-          pos,
-        };
-
-        if (meaning) {
-          dictCacheRef.current[clean] = item;
-        }
-        setInspectedWord({ word: wordText, item });
-      }
-    } catch {
-      // Keep inspectedWord with fallback
-    } finally {
-      setLookingUpWord(null);
     }
   };
 
@@ -758,62 +651,47 @@ function ReadingLibraryContent() {
     });
   };
 
+  const highlightWords = useMemo(
+    () => (activeArticle?.vocabulary_highlights || []).map((v) => v.word).filter(Boolean),
+    [activeArticle],
+  );
+
+  // Only pass highlights with phonetic/IPA so VocabLookupProvider never short-circuits without IPA
+  const coreVocabulary = useMemo<CoreVocabularyItem[]>(() => {
+    return (activeArticle?.vocabulary_highlights || [])
+      .filter((item) => Boolean(item?.word?.trim() && item?.meaning_vi?.trim() && item?.phonetic?.trim()))
+      .map((item) => ({
+        word: item.word,
+        phonetic: item.phonetic,
+        pos: item.pos,
+        viDefinition: item.meaning_vi,
+        contextSentence: item.context_sentence,
+      }));
+  }, [activeArticle]);
+
   // Render Passage text with clickable words and natural English typography
   const renderPassageParagraphs = (article: ReadingArticle) => {
     const paragraphs = getPassageParagraphs(article);
 
-    const highlightsMap = new Map<string, ReadingVocabularyItem>();
-    (article.vocabulary_highlights || []).forEach((item) => {
-      if (item.word) highlightsMap.set(item.word.toLowerCase().trim(), item);
-    });
-
-    return paragraphs.map((para, pIdx) => {
-      // Split paragraph by whitespace only to keep words intact
-      const words = para.trim().split(/\s+/);
-
-      return (
-        <p
-          key={pIdx}
-          style={{
-            fontSize: `calc(1.0625rem + ${fontSizeOffset}px)`,
-            lineHeight: 1.8,
-          }}
-          className="mb-5 text-slate-850 dark:text-slate-200 font-serif tracking-normal text-left selection:bg-indigo-100 dark:selection:bg-indigo-900/60 leading-relaxed"
-        >
-          {words.map((chunk, wIdx) => {
-            const isLast = wIdx === words.length - 1;
-            // Match leading non-alphanumeric, middle word, trailing punctuation
-            const match = chunk.match(/^([^a-zA-Z0-9]*)([a-zA-Z0-9'-]+)([^a-zA-Z0-9]*)$/);
-
-            if (!match) {
-              return (
-                <span key={wIdx}>
-                  {chunk}
-                  {!isLast && ' '}
-                </span>
-              );
-            }
-
-            const [, prefix, wordCore, suffix] = match;
-            const clean = wordCore.toLowerCase();
-            const highlight = highlightsMap.get(clean);
-
-            return (
-              <span key={wIdx}>
-                {prefix && <span>{prefix}</span>}
-                <InteractivePassageWord
-                  wordText={wordCore}
-                  highlight={highlight}
-                  onLookup={(w, h) => void handleWordClick(w, h)}
-                />
-                {suffix && <span>{suffix}</span>}
-                {!isLast && ' '}
-              </span>
-            );
-          })}
-        </p>
-      );
-    });
+    return paragraphs.map((para, pIdx) => (
+      <p
+        key={pIdx}
+        style={{
+          fontSize: `calc(1.0625rem + ${fontSizeOffset}px)`,
+          lineHeight: 1.8,
+        }}
+        className="mb-5 text-slate-850 dark:text-slate-200 font-serif tracking-normal text-left selection:bg-indigo-100 dark:selection:bg-indigo-900/60 leading-relaxed"
+      >
+        <InteractiveHighlightedText
+          text={para}
+          highlight={highlightWords}
+          enabled
+          as="span"
+          highlightClassName="font-bold text-indigo-700 dark:text-indigo-300 bg-indigo-50/90 dark:bg-indigo-950/70 px-0.5 rounded-xs underline decoration-indigo-400 decoration-1 underline-offset-3 hover:bg-indigo-100 dark:hover:bg-indigo-900"
+          coreVocabulary={coreVocabulary}
+        />
+      </p>
+    ));
   };
 
   return (
@@ -1046,7 +924,13 @@ function ReadingLibraryContent() {
                   </div>
 
                   <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-slate-100 leading-tight">
-                    {activeArticle.title}
+                    <ExamInteractiveText
+                      text={activeArticle.title}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      coreVocabulary={coreVocabulary}
+                    />
                   </h2>
 
                   {activeArticle.summary && (
@@ -1106,66 +990,6 @@ function ReadingLibraryContent() {
                     </div>
                   )}
 
-                  {/* Floating Inspected Word Box */}
-                  {inspectedWord && (
-                    <div className="mt-5 rounded-2xl border border-indigo-200 bg-indigo-50/80 dark:border-indigo-900/80 dark:bg-indigo-950/50 p-4 shadow-sm animate-in fade-in zoom-in-95 duration-150">
-                      <div className="flex items-start justify-between gap-2">
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="text-base font-black text-indigo-950 dark:text-indigo-100">
-                              {inspectedWord.word}
-                            </span>
-                            <button
-                              type="button"
-                              onClick={() => speakText(inspectedWord.word)}
-                              className="p-1 rounded-lg hover:bg-indigo-200/60 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-300 cursor-pointer"
-                              title="Phát âm"
-                            >
-                              <Volume2 className="h-4 w-4" />
-                            </button>
-                          </div>
-                          {inspectedWord.item?.phonetic && (
-                            <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                              {inspectedWord.item.phonetic} {inspectedWord.item.pos ? `· (${inspectedWord.item.pos})` : ''}
-                            </span>
-                          )}
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => setInspectedWord(null)}
-                          className="text-slate-400 hover:text-slate-600 p-1 cursor-pointer"
-                        >
-                          <X className="h-4 w-4" />
-                        </button>
-                      </div>
-
-                      <div className="mt-2.5 pt-2.5 border-t border-indigo-200/60 dark:border-indigo-900/60">
-                        {lookingUpWord ? (
-                          <div className="flex items-center gap-2 py-1 text-xs text-indigo-700 dark:text-indigo-300">
-                            <Loader2 className="h-3.5 w-3.5 animate-spin text-indigo-600" />
-                            <span>Đang tra cứu từ điển…</span>
-                          </div>
-                        ) : inspectedWord.item?.meaning_vi ? (
-                          <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 leading-snug">
-                            {inspectedWord.item.meaning_vi}
-                          </p>
-                        ) : (
-                          <p className="text-xs text-slate-500 italic">
-                            Từ vựng trong ngữ cảnh bài đọc.
-                          </p>
-                        )}
-                        <Link
-                          href={`/dictionary?q=${encodeURIComponent(inspectedWord.word)}`}
-                          target="_blank"
-                          className="mt-2 inline-flex items-center gap-1 text-xs font-bold text-indigo-600 dark:text-indigo-400 underline hover:opacity-80"
-                        >
-                          <span>Tra cứu đầy đủ trong Từ điển</span>
-                          <ArrowRight className="h-3 w-3" />
-                        </Link>
-                      </div>
-                    </div>
-                  )}
-
                   {/* Mobile Jump to Exercise Button */}
                   <div className="lg:hidden mt-6 pt-4 border-t border-slate-100 dark:border-slate-800">
                     <button
@@ -1210,8 +1034,19 @@ function ReadingLibraryContent() {
                       )}
                     </button>
                     {mobilePeekOpen && (
-                      <div className="mt-2 p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 max-h-56 overflow-y-auto text-xs font-serif leading-relaxed text-slate-800 dark:text-slate-200 whitespace-pre-line animate-in fade-in duration-150">
-                        {activeArticle.passage_plain || activeArticle.passage}
+                      <div className="mt-2 p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 max-h-56 overflow-y-auto text-xs font-serif leading-relaxed text-slate-800 dark:text-slate-200 space-y-2 animate-in fade-in duration-150">
+                        {getPassageParagraphs(activeArticle).map((para, idx) => (
+                          <p key={idx}>
+                            <InteractiveHighlightedText
+                              text={para}
+                              highlight={highlightWords}
+                              enabled
+                              as="span"
+                              highlightClassName="font-bold text-indigo-700 dark:text-indigo-300 bg-indigo-50/90 dark:bg-indigo-950/70 px-0.5 rounded-xs underline decoration-indigo-400 decoration-1 underline-offset-3"
+                              coreVocabulary={coreVocabulary}
+                            />
+                          </p>
+                        ))}
                       </div>
                     )}
                   </div>
@@ -1333,7 +1168,13 @@ function ReadingLibraryContent() {
                                     {qIdx + 1}
                                   </span>
                                   <p className="flex-1 font-bold text-xs text-slate-900 dark:text-slate-100 leading-snug">
-                                    {q.question}
+                                    <ExamInteractiveText
+                                      text={q.question}
+                                      enabled
+                                      as="span"
+                                      inheritClassName
+                                      coreVocabulary={coreVocabulary}
+                                    />
                                   </p>
                                   {mcqRevealed && (
                                     <span className={`text-[11px] font-bold shrink-0 ${isCorrect ? 'text-emerald-600' : 'text-rose-600'}`}>
@@ -1350,14 +1191,31 @@ function ReadingLibraryContent() {
                                     const isExpected = optIdx === expectedIdx;
 
                                     return (
-                                      <button
+                                      <div
                                         key={optIdx}
-                                        type="button"
-                                        disabled={mcqRevealed}
-                                        onClick={() => {
+                                        role="button"
+                                        tabIndex={mcqRevealed ? -1 : 0}
+                                        aria-disabled={mcqRevealed}
+                                        onClick={(e) => {
+                                          if (mcqRevealed) return;
+                                          if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger, .exam-lookup-card')) {
+                                            return;
+                                          }
+                                          if (typeof window !== 'undefined' && window.getSelection()?.toString().trim()) {
+                                            return;
+                                          }
                                           setMcqAnswers((prev) => ({ ...prev, [qKey]: optIdx }));
                                         }}
+                                        onKeyDown={(e) => {
+                                          if (mcqRevealed || e.target !== e.currentTarget) return;
+                                          if (e.key === 'Enter' || e.key === ' ') {
+                                            e.preventDefault();
+                                            setMcqAnswers((prev) => ({ ...prev, [qKey]: optIdx }));
+                                          }
+                                        }}
                                         className={`w-full flex items-center gap-2 rounded-lg border px-2.5 py-1.5 text-xs text-left transition-all ${
+                                          mcqRevealed ? 'cursor-default select-text' : 'cursor-pointer'
+                                        } ${
                                           mcqRevealed
                                             ? isExpected
                                               ? 'border-emerald-500 bg-emerald-100 dark:bg-emerald-900/60 text-emerald-900 dark:text-emerald-100 font-bold'
@@ -1380,8 +1238,16 @@ function ReadingLibraryContent() {
                                         >
                                           {letters[optIdx] || optIdx + 1}
                                         </span>
-                                        <span className="flex-1 leading-snug">{opt}</span>
-                                      </button>
+                                        <span className="flex-1 leading-snug">
+                                          <ExamInteractiveText
+                                            text={opt}
+                                            enabled={mcqRevealed}
+                                            as="span"
+                                            inheritClassName
+                                            coreVocabulary={coreVocabulary}
+                                          />
+                                        </span>
+                                      </div>
                                     );
                                   })}
                                 </div>
@@ -1433,11 +1299,38 @@ function ReadingLibraryContent() {
                             >
                               <div className="flex items-center justify-between mb-2">
                                 <span className="text-xs font-bold text-indigo-700 dark:text-indigo-400">
-                                  Vị trí ({bIdx + 1}): {blank.word ? `Từ: ${blank.word}` : `Chỗ trống ${bIdx + 1}`}
+                                  Vị trí ({bIdx + 1}):{' '}
+                                  {blank.word ? (
+                                    <>
+                                      Từ:{' '}
+                                      <ExamInteractiveText
+                                        text={blank.word}
+                                        enabled={clozeRevealed}
+                                        as="span"
+                                        inheritClassName
+                                        coreVocabulary={coreVocabulary}
+                                      />
+                                    </>
+                                  ) : (
+                                    `Chỗ trống ${bIdx + 1}`
+                                  )}
                                 </span>
                                 {clozeRevealed && (
                                   <span className={`text-[11px] font-bold ${isCorrect ? 'text-emerald-600' : 'text-rose-600'}`}>
-                                    {isCorrect ? '✓ Đúng' : `✗ Đáp án: ${expected}`}
+                                    {isCorrect ? (
+                                      '✓ Đúng'
+                                    ) : (
+                                      <>
+                                        ✗ Đáp án:{' '}
+                                        <ExamInteractiveText
+                                          text={expected}
+                                          enabled
+                                          as="span"
+                                          inheritClassName
+                                          coreVocabulary={coreVocabulary}
+                                        />
+                                      </>
+                                    )}
                                   </span>
                                 )}
                               </div>
@@ -1448,14 +1341,31 @@ function ReadingLibraryContent() {
                                   const isThisOptionCorrect = opt.trim().toLowerCase() === expected.trim().toLowerCase();
 
                                   return (
-                                    <button
+                                    <div
                                       key={opt}
-                                      type="button"
-                                      disabled={clozeRevealed}
-                                      onClick={() => {
+                                      role="button"
+                                      tabIndex={clozeRevealed ? -1 : 0}
+                                      aria-disabled={clozeRevealed}
+                                      onClick={(e) => {
+                                        if (clozeRevealed) return;
+                                        if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger, .exam-lookup-card')) {
+                                          return;
+                                        }
+                                        if (typeof window !== 'undefined' && window.getSelection()?.toString().trim()) {
+                                          return;
+                                        }
                                         setClozeAnswers((prev) => ({ ...prev, [blankKey]: opt }));
                                       }}
+                                      onKeyDown={(e) => {
+                                        if (clozeRevealed || e.target !== e.currentTarget) return;
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                          e.preventDefault();
+                                          setClozeAnswers((prev) => ({ ...prev, [blankKey]: opt }));
+                                        }
+                                      }}
                                       className={`rounded-lg border px-2.5 py-1.5 text-xs font-bold transition-all text-left truncate ${
+                                        clozeRevealed ? 'cursor-default select-text' : 'cursor-pointer'
+                                      } ${
                                         clozeRevealed
                                           ? isThisOptionCorrect
                                             ? 'border-emerald-500 bg-emerald-100 text-emerald-900 dark:bg-emerald-900 dark:text-emerald-100 font-extrabold'
@@ -1467,8 +1377,14 @@ function ReadingLibraryContent() {
                                           : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:border-indigo-300'
                                       }`}
                                     >
-                                      {opt}
-                                    </button>
+                                      <ExamInteractiveText
+                                        text={opt}
+                                        enabled={clozeRevealed}
+                                        as="span"
+                                        inheritClassName
+                                        coreVocabulary={coreVocabulary}
+                                      />
+                                    </div>
                                   );
                                 })}
                               </div>
@@ -1499,7 +1415,13 @@ function ReadingLibraryContent() {
                             >
                               <div className="flex items-center justify-between gap-1.5">
                                 <span className="font-bold text-xs text-indigo-700 dark:text-indigo-300">
-                                  {voc.word}
+                                  <ExamInteractiveText
+                                    text={voc.word}
+                                    enabled
+                                    as="span"
+                                    inheritClassName
+                                    coreVocabulary={coreVocabulary}
+                                  />
                                 </span>
                                 <div className="flex items-center gap-1">
                                   {voc.pos && (
@@ -1509,7 +1431,7 @@ function ReadingLibraryContent() {
                                   )}
                                   <button
                                     type="button"
-                                    onClick={() => speakText(voc.word)}
+                                    onClick={() => void playWordAudio(voc.word)}
                                     className="p-1 text-slate-400 hover:text-indigo-600"
                                     title="Phát âm"
                                   >
@@ -1525,7 +1447,15 @@ function ReadingLibraryContent() {
                               </p>
                               {voc.context_sentence && (
                                 <p className="mt-1 text-[11px] text-slate-500 italic border-l-2 border-indigo-200 pl-2">
-                                  &ldquo;{voc.context_sentence}&rdquo;
+                                  &ldquo;
+                                  <ExamInteractiveText
+                                    text={voc.context_sentence}
+                                    enabled
+                                    as="span"
+                                    inheritClassName
+                                    coreVocabulary={coreVocabulary}
+                                  />
+                                  &rdquo;
                                 </p>
                               )}
                             </div>
@@ -1578,7 +1508,15 @@ function ReadingLibraryContent() {
                                         Đoạn {idx + 1}
                                       </span>
                                       <p className="text-slate-600 dark:text-slate-300 italic line-clamp-2">
-                                        &ldquo;{p.slice(0, 120)}...&rdquo;
+                                        &ldquo;
+                                        <ExamInteractiveText
+                                          text={p.slice(0, 120)}
+                                          enabled
+                                          as="span"
+                                          inheritClassName
+                                          coreVocabulary={coreVocabulary}
+                                        />
+                                        ...&rdquo;
                                       </p>
                                     </div>
                                   ))}

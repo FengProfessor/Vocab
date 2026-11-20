@@ -25,6 +25,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { InteractiveIpaVideoPlayer } from '@/components/pronunciation/InteractiveIpaVideoPlayer';
 import { SpeechRecorder } from '@/components/speaking/SpeechRecorder';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveHighlightedText } from '@/components/vocab/InteractiveHighlightedText';
 
 export interface IpaPracticeStudioProps {
   phoneme: IpaPhoneme;
@@ -164,7 +166,14 @@ export function IpaPracticeStudio({
               </div>
               <p className="text-xs text-muted-foreground flex items-center gap-1 mt-0.5">
                 <span>Từ mẫu:</span>
-                <span className="font-bold text-foreground">{phoneme.anchorWord}</span>
+                <span className="font-bold text-foreground">
+                  <ExamInteractiveText
+                    text={phoneme.anchorWord}
+                    enabled
+                    as="span"
+                    inheritClassName
+                  />
+                </span>
                 <span className="font-mono text-[11px] opacity-70">{phoneme.anchorWordIpa}</span>
                 <button
                   type="button"
@@ -288,14 +297,26 @@ export function IpaPracticeStudio({
                           else if (isSelected) btnClass = 'border-rose-500 bg-rose-500/10 text-rose-800 dark:text-rose-300';
                         }
                         return (
-                          <button
+                          <div
                             key={opt}
-                            type="button"
+                            role="button"
+                            tabIndex={isAnswered ? -1 : 0}
                             onClick={() => handleSelectQuizAnswer(opt)}
-                            className={`p-3 rounded-xl border text-sm font-bold transition-all ${btnClass}`}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                e.preventDefault();
+                                handleSelectQuizAnswer(opt);
+                              }
+                            }}
+                            className={`p-3 rounded-xl border text-sm font-bold transition-all ${!isAnswered ? 'cursor-pointer' : ''} ${btnClass}`}
                           >
-                            {opt}
-                          </button>
+                            <ExamInteractiveText
+                              text={opt}
+                              enabled={isAnswered}
+                              as="span"
+                              inheritClassName
+                            />
+                          </div>
                         );
                       });
                     })()}
@@ -385,15 +406,28 @@ export function IpaPracticeStudio({
                   }
 
                   return words.map((w) => (
-                    <button
+                    <div
                       key={w}
-                      type="button"
+                      role="button"
+                      tabIndex={0}
                       onClick={() => void playWordAudio(w)}
-                      className="p-2.5 rounded-lg border bg-card hover:border-primary/60 hover:bg-muted/30 flex items-center justify-between text-left transition-all group"
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          void playWordAudio(w);
+                        }
+                      }}
+                      className="p-2.5 rounded-lg border bg-card hover:border-primary/60 hover:bg-muted/30 flex items-center justify-between text-left transition-all group cursor-pointer"
                     >
-                      <span className="font-bold text-xs group-hover:text-primary transition-colors">{w}</span>
+                      <ExamInteractiveText
+                        text={w}
+                        enabled
+                        as="span"
+                        inheritClassName
+                        className="font-bold text-xs group-hover:text-primary transition-colors"
+                      />
                       <Volume2 className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary" />
-                    </button>
+                    </div>
                   ));
                 })()}
               </div>
@@ -419,14 +453,32 @@ export function IpaPracticeStudio({
               <div>
                 <h3 className="text-sm font-bold text-foreground">Thu âm giọng đọc & đối chiếu</h3>
                 <p className="text-xs text-muted-foreground">
-                  Phát âm từ <b>"{phoneme.anchorWord}"</b> /{phoneme.anchorWordIpa}/ và nghe lại để so sánh với cô Rachel.
+                  Phát âm từ{' '}
+                  <b>
+                    &ldquo;
+                    <ExamInteractiveText
+                      text={phoneme.anchorWord}
+                      enabled
+                      as="span"
+                      inheritClassName
+                    />
+                    &rdquo;
+                  </b>{' '}
+                  /{phoneme.anchorWordIpa}/ và nghe lại để so sánh với cô Rachel.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-muted/30 border text-center space-y-4">
                 <div className="flex items-center justify-center gap-3">
                   <span className="text-2xl font-black font-mono">/{phoneme.symbol}/</span>
-                  <span className="text-lg font-bold">{phoneme.anchorWord}</span>
+                  <span className="text-lg font-bold">
+                    <ExamInteractiveText
+                      text={phoneme.anchorWord}
+                      enabled
+                      as="span"
+                      inheritClassName
+                    />
+                  </span>
                   <Button
                     variant="outline"
                     size="sm"
@@ -506,26 +558,15 @@ export function IpaPracticeStudio({
                   >
                     <div className="flex items-start justify-between gap-2">
                       <div>
-                        <p className="text-sm font-bold text-foreground">
-                          {s.sentence.split(' ').map((word, i) => {
-                            const clean = word.replace(/[^a-zA-Z]/g, '');
-                            const isTarget = s.targetWords.some(
-                              (tw) => tw.toLowerCase() === clean.toLowerCase(),
-                            );
-                            return (
-                              <span
-                                key={i}
-                                className={
-                                  isTarget
-                                    ? 'text-primary font-black border-b-2 border-primary/50 mr-1'
-                                    : 'mr-1'
-                                }
-                              >
-                                {word}
-                              </span>
-                            );
-                          })}
-                        </p>
+                        <InteractiveHighlightedText
+                          text={s.sentence}
+                          highlight={s.targetWords}
+                          enabled
+                          as="p"
+                          className="text-sm font-bold text-foreground"
+                          highlightClassName="text-primary font-black border-b-2 border-primary/50"
+                          contextSentence={s.sentence}
+                        />
                         <p className="text-xs text-muted-foreground">{s.translationVi}</p>
                       </div>
                       <Button

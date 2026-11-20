@@ -12,7 +12,10 @@ import {
 } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
 import type { VettedMediaAsset } from '@/lib/grammar-types';
-import FormattedText from './FormattedText';
+import FormattedText, {
+  hasVietnameseDiacritics,
+  splitTrailingVietnameseParenthetical,
+} from './FormattedText';
 import HighlightedSentence from './HighlightedSentence';
 import { detectGrammarKeywords } from './GrammarVisualTopicDeck';
 
@@ -95,6 +98,17 @@ export default function VettedMediaCard({
     if (m) {
       derivedEn = m[1].trim();
       derivedVi = m[2] ? m[2].trim() : '';
+    } else {
+      const rawBeforeDash = resolvedCaption.split('—')[0].replace(/"/g, '').trim();
+      const split = splitTrailingVietnameseParenthetical(rawBeforeDash);
+      if (split && split.main.trim() && !hasVietnameseDiacritics(split.main.trim())) {
+        derivedEn = split.main.trim();
+        if (!derivedVi && split.viTail) {
+          derivedVi = split.viTail.trim().replace(/^\(|\)$/g, '').trim();
+        }
+      } else if (!split && rawBeforeDash && !hasVietnameseDiacritics(rawBeforeDash)) {
+        derivedEn = rawBeforeDash;
+      }
     }
   }
 
@@ -158,7 +172,12 @@ export default function VettedMediaCard({
                 <div className="space-y-0.5">
                   {derivedEn && (
                     <p className="text-sm font-semibold text-foreground font-sans">
-                      <HighlightedSentence text={derivedEn} highlight={detectedKws} />
+                      <HighlightedSentence
+                        text={derivedEn}
+                        highlight={detectedKws}
+                        enabled={!hasVietnameseDiacritics(derivedEn)}
+                        themeVariant="minimalist"
+                      />
                     </p>
                   )}
                   {derivedVi && (

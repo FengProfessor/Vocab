@@ -46,6 +46,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { ExamInteractiveText, type CoreVocabularyItem } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText, InteractiveFormattedText } from '@/components/vocab';
 import { Celebration } from '@/components/gamification/Celebration';
 import { playWordAudio } from '@/lib/audio';
 import { authFetch } from '@/lib/auth-fetch';
@@ -186,6 +188,37 @@ function VocabStationContent() {
     }
     return pack.verbs;
   }, [isTopicMode, activeTopic, loadedTopicWords, pack]);
+
+  const storyCoreVocabulary = useMemo(() => {
+    const map: Record<string, CoreVocabularyItem> = {};
+    for (const v of pack.verbs) {
+      map[v.lemma.toLowerCase()] = {
+        word: v.lemma,
+        ipa: v.ipa,
+        pos: 'verb',
+        viDefinition: v.meaningVi,
+        example: v.example,
+        exampleVi: v.exampleVi,
+      };
+    }
+    if (pack.story?.passage) {
+      for (const m of pack.story.passage.matchAll(/\*\*([^*]+)\*\*/g)) {
+        const token = m[1].trim();
+        const matched = matchFoundationVerb(token, pack.verbs);
+        if (matched) {
+          map[token.toLowerCase()] = {
+            word: matched.lemma,
+            ipa: matched.ipa,
+            pos: 'verb',
+            viDefinition: matched.meaningVi,
+            example: matched.example,
+            exampleVi: matched.exampleVi,
+          };
+        }
+      }
+    }
+    return map;
+  }, [pack]);
 
   const handlePackChange = (newPackId: string) => {
     setCurrentPackId(newPackId);
@@ -760,12 +793,34 @@ function VocabStationContent() {
                     </p>
                   </div>
 
-                  <div className="rounded-xl bg-slate-50 p-3 dark:bg-slate-800/60">
+                  <div
+                    onClick={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => e.stopPropagation()}
+                    onKeyDown={(e) => e.stopPropagation()}
+                    className="select-text rounded-xl bg-slate-50 p-3 dark:bg-slate-800/60"
+                  >
                     <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
                       Cụm hay gặp (Collocation):
                     </span>
                     <p className="mt-0.5 text-sm font-semibold text-slate-800 dark:text-slate-200">
-                      {currentVerb.collocation}
+                      {currentVerb.collocation
+                        ? currentVerb.collocation.split(/(\([^)]+\))/g).map((part, idx) => {
+                            const isParenGloss = /^\([^)]+\)$/.test(part);
+                            if (isParenGloss && (!isTopicMode || /[^\x00-\x7F]/.test(part))) {
+                              return <span key={idx}>{part}</span>;
+                            }
+                            return (
+                              <ExamInteractiveText
+                                key={idx}
+                                text={part}
+                                enabled={Boolean(part.trim())}
+                                as="span"
+                                inheritClassName
+                                contextSentence={currentVerb.collocation}
+                              />
+                            );
+                          })
+                        : null}
                     </p>
                   </div>
 
@@ -878,7 +933,11 @@ function VocabStationContent() {
                       Chọn đáp án thích hợp điền vào chỗ trống:
                     </span>
                     <p className="text-xl font-bold text-slate-900 dark:text-white sm:text-2xl">
-                      {activeWords[clozeIdx].cloze.sentence}
+                      <InteractiveClozeText
+                        text={activeWords[clozeIdx].cloze.sentence}
+                        enabled
+                        as="span"
+                      />
                     </p>
                   </div>
 
@@ -903,20 +962,55 @@ function VocabStationContent() {
                       }
 
                       return (
-                        <button
+                        <div
                           key={opt}
-                          disabled={clozeSubmitted}
-                          onClick={() => setClozeSelected(opt)}
-                          className={`flex items-center justify-between rounded-2xl border-2 p-4 text-left font-bold transition-all ${btnStyle}`}
+                          role="button"
+                          tabIndex={clozeSubmitted ? -1 : 0}
+                          aria-disabled={clozeSubmitted}
+                          onClick={(e) => {
+                            if (clozeSubmitted) return;
+                            if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) {
+                              return;
+                            }
+                            setClozeSelected(opt);
+                          }}
+                          onKeyDown={(e) => {
+                            if (clozeSubmitted) return;
+                            if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) {
+                              return;
+                            }
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              setClozeSelected(opt);
+                            }
+                          }}
+                          className={`flex items-center justify-between rounded-2xl border-2 p-4 text-left font-bold transition-all ${
+                            clozeSubmitted ? 'cursor-default select-text' : 'cursor-pointer select-none'
+                          } ${btnStyle}`}
                         >
-                          <span className="text-base">{opt}</span>
+                          <span className="text-base">
+                            <ExamInteractiveText
+                              text={opt}
+                              enabled={clozeSubmitted}
+                              as="span"
+                              inheritClassName
+                              contextSentence={
+                                clozeSubmitted
+                                  ? activeWords[clozeIdx].cloze.sentence.replace(
+                                      /_{3,}/,
+                                      activeWords[clozeIdx].cloze.answer,
+                                    )
+                                  : undefined
+                              }
+                            />
+                          </span>
                           {clozeSubmitted && isCorrect && (
                             <Check className="h-5 w-5 text-emerald-600" />
                           )}
                           {clozeSubmitted && isSelected && !isCorrect && (
                             <X className="h-5 w-5 text-rose-600" />
                           )}
-                        </button>
+                        </div>
                       );
                     })}
                   </div>
@@ -1097,27 +1191,22 @@ function VocabStationContent() {
                   // CHẾ ĐỘ ĐỌC HIỂU TỰ NHIÊN
                   <div className="space-y-4">
                     <p className="text-lg leading-relaxed text-slate-800 dark:text-slate-200">
-                      {pack.story.passage.split(/(\*\*[^*]+\*\*)/g).map((chunk, i) => {
-                        const m = chunk.match(/^\*\*([^*]+)\*\*$/);
-                        if (m) {
-                          const word = m[1];
-                          const verbData = matchFoundationVerb(word, pack.verbs);
-                          return (
-                            <button
-                              key={i}
-                              type="button"
-                              onClick={() => {
-                                handlePlayAudio(word);
-                                if (verbData) setActiveWordTooltip(verbData);
-                              }}
-                              className="mx-0.5 inline-flex items-center rounded-md bg-amber-200/90 px-1.5 py-0.5 font-black text-amber-950 transition hover:bg-amber-300 hover:scale-105 active:scale-95 dark:bg-amber-500/30 dark:text-amber-200"
-                            >
-                              {word}
-                            </button>
-                          );
-                        }
-                        return <span key={i}>{chunk}</span>;
-                      })}
+                      <InteractiveFormattedText
+                        text={pack.story.passage}
+                        enabled
+                        boldClassName="mx-0.5 inline-block rounded-md bg-amber-200/90 px-1.5 py-0.5 font-black text-amber-950 dark:bg-amber-500/30 dark:text-amber-200"
+                        coreVocabulary={storyCoreVocabulary}
+                        onWordClick={(_raw, clean) => {
+                          const verbData =
+                            matchFoundationVerb(clean, pack.verbs) ||
+                            (clean === 'wake' || clean === 'up'
+                              ? pack.verbs.find((v) => v.lemma.toLowerCase() === 'wake up')
+                              : undefined);
+                          if (verbData) {
+                            setActiveWordTooltip(verbData);
+                          }
+                        }}
+                      />
                     </p>
 
                     <div className="flex items-center gap-2 pt-2">
@@ -1210,10 +1299,16 @@ function VocabStationContent() {
                       </div>
 
                       <p className="text-base sm:text-lg leading-loose text-slate-800 dark:text-slate-200">
-                        {pack.story.cloze.text.split(/(\{\{\d+\}\})/g).map((chunk, idx) => {
-                          const m = chunk.match(/^\{\{(\d+)\}\}$/);
-                          if (m) {
-                            const blankId = parseInt(m[1], 10);
+                        <InteractiveClozeText
+                          text={pack.story.cloze.text}
+                          enabled
+                          as="span"
+                          coreVocabulary={storyRevealed ? storyCoreVocabulary : undefined}
+                          renderBlank={({ rawToken, slotKey }) => {
+                            if (!/^\d+$/.test(slotKey)) {
+                              return <span>{rawToken}</span>;
+                            }
+                            const blankId = Number.parseInt(slotKey, 10);
                             const blankDef = pack.story.cloze.blanks.find((b) => b.id === blankId);
                             const userChoice = storyUserAnswers[blankId];
                             const isAnswer = blankDef?.answer;
@@ -1242,15 +1337,13 @@ function VocabStationContent() {
 
                             return (
                               <span
-                                key={`blank-token-${blankId}`}
                                 className={`mx-1 inline-flex items-center rounded-lg border-2 px-2.5 py-0.5 text-xs sm:text-sm font-bold shadow-xs transition-all ${chipStyle}`}
                               >
                                 {displayLabel}
                               </span>
                             );
-                          }
-                          return <span key={idx}>{chunk}</span>;
-                        })}
+                          }}
+                        />
                       </p>
                     </div>
 

@@ -260,6 +260,8 @@ export function VnuSplitPane({
     );
   }
 
+  const isProdSkillInteractive = Boolean(isReviewMode || showReviewModal || mode === 'practice');
+
   const currentIdInList = currentQuestion?.id || currentTask.id;
   const currentIndex = allItemIds.indexOf(currentIdInList);
   const prevId = currentIndex > 0 ? allItemIds[currentIndex - 1] : null;
@@ -323,17 +325,26 @@ export function VnuSplitPane({
           <div className="flex-1 p-4 overflow-y-auto space-y-4 text-sm leading-relaxed text-slate-800 dark:text-slate-200">
             {/* Hướng dẫn chung của Task */}
             <div className="p-3 bg-slate-50 dark:bg-slate-800/50 border-l-2 border-blue-500 rounded-none text-xs text-slate-600 dark:text-slate-300 italic font-mono">
-              {currentTask.instructions}
+              <ExamInteractiveText
+                text={stripHtmlTags(currentTask.instructions)}
+                enabled={isProdSkillInteractive}
+              />
             </div>
 
             {/* Chi tiết Prompt */}
             {writingPrompt && (
               <div className="space-y-3">
                 <h3 className="font-bold text-sm text-slate-900 dark:text-slate-100 border-b border-slate-100 dark:border-slate-800 pb-1">
-                  {writingPrompt.title}
+                  <ExamInteractiveText
+                    text={stripHtmlTags(writingPrompt.title)}
+                    enabled={isProdSkillInteractive}
+                  />
                 </h3>
                 <p className="text-xs text-slate-600 dark:text-slate-300">
-                  {writingPrompt.instructions}
+                  <ExamInteractiveText
+                    text={stripHtmlTags(writingPrompt.instructions)}
+                    enabled={isProdSkillInteractive}
+                  />
                 </p>
 
                 {/* Task 1: Bảng dữ liệu Data Card */}
@@ -350,10 +361,17 @@ export function VnuSplitPane({
                           className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2 p-1.5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-none"
                         >
                           <span className="font-mono font-bold text-slate-600 dark:text-slate-300 sm:w-36 flex-shrink-0">
-                            {key}:
+                            <ExamInteractiveText
+                              text={key}
+                              enabled={isProdSkillInteractive}
+                              inheritClassName
+                            />:
                           </span>
                           <span className="text-slate-900 dark:text-slate-100 font-medium">
-                            {val}
+                            <ExamInteractiveText
+                              text={stripHtmlTags(val)}
+                              enabled={isProdSkillInteractive}
+                            />
                           </span>
                         </div>
                       ))}
@@ -377,7 +395,10 @@ export function VnuSplitPane({
                             Topic {choice.code}
                           </span>
                           <h4 className="font-bold text-sm text-slate-900 dark:text-slate-100">
-                            {choice.topic}
+                            <ExamInteractiveText
+                              text={stripHtmlTags(choice.topic)}
+                              enabled={isProdSkillInteractive}
+                            />
                           </h4>
                         </div>
                         {choice.guidelines && choice.guidelines.length > 0 && (
@@ -387,7 +408,12 @@ export function VnuSplitPane({
                             </div>
                             <ul className="list-disc list-inside text-xs text-slate-700 dark:text-slate-300 space-y-0.5">
                               {choice.guidelines.map((g, idx) => (
-                                <li key={idx}>{g}</li>
+                                <li key={idx}>
+                                  <ExamInteractiveText
+                                    text={stripHtmlTags(g)}
+                                    enabled={isProdSkillInteractive}
+                                  />
+                                </li>
                               ))}
                             </ul>
                           </div>
@@ -498,7 +524,10 @@ export function VnuSplitPane({
                           <span>Độ dài: {countWords(writingPrompt.sampleAnswer)} từ</span>
                         </div>
                         <div className="text-xs leading-relaxed text-slate-800 dark:text-slate-200 whitespace-pre-line font-sans select-text">
-                          {writingPrompt.sampleAnswer}
+                          <ExamInteractiveText
+                            text={stripHtmlTags(writingPrompt.sampleAnswer)}
+                            enabled={isProdSkillInteractive}
+                          />
                         </div>
                         <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 font-mono space-y-0.5">
                           <p className="font-bold text-slate-600 dark:text-slate-400">
@@ -802,7 +831,10 @@ export function VnuSplitPane({
           <div className="flex-1 p-4 overflow-y-auto space-y-4 text-sm leading-relaxed text-slate-800 dark:text-slate-200">
             {/* Hướng dẫn chung của Part */}
             <div className="p-3 bg-slate-50 dark:bg-slate-800/50 border-l-2 border-blue-500 rounded-none text-xs text-slate-600 dark:text-slate-300 italic font-mono">
-              {currentTask.instructions}
+              <ExamInteractiveText
+                text={stripHtmlTags(currentTask.instructions)}
+                enabled={isProdSkillInteractive}
+              />
             </div>
 
             {/* Part 1: Danh sách câu hỏi Social Interaction */}
@@ -823,7 +855,10 @@ export function VnuSplitPane({
                       {idx + 1}
                     </span>
                     <p className="text-sm font-medium text-slate-900 dark:text-slate-100 pt-0.5 leading-relaxed">
-                      {q}
+                      <ExamInteractiveText
+                        text={stripHtmlTags(q)}
+                        enabled={isProdSkillInteractive}
+                      />
                     </p>
                   </div>
                 ))}
@@ -852,7 +887,10 @@ export function VnuSplitPane({
                         {card.code}
                       </span>
                       <h4 className="font-bold text-sm text-slate-900 dark:text-slate-100">
-                        {card.title}
+                        <ExamInteractiveText
+                          text={stripHtmlTags(card.title)}
+                          enabled={isProdSkillInteractive}
+                        />
                       </h4>
                     </div>
 
@@ -864,7 +902,10 @@ export function VnuSplitPane({
                         <ul className="list-disc list-inside text-xs text-slate-700 dark:text-slate-200 space-y-1 pl-1">
                           {card.prompts.map((p, idx) => (
                             <li key={idx} className="font-medium">
-                              {p}
+                              <ExamInteractiveText
+                                text={stripHtmlTags(p)}
+                                enabled={isProdSkillInteractive}
+                              />
                             </li>
                           ))}
                         </ul>
@@ -878,7 +919,12 @@ export function VnuSplitPane({
                         </div>
                         <ol className="list-decimal list-inside text-xs text-slate-700 dark:text-slate-200 space-y-1 pl-1">
                           {card.furtherQuestions.map((fq, idx) => (
-                            <li key={idx}>{fq}</li>
+                            <li key={idx}>
+                              <ExamInteractiveText
+                                text={stripHtmlTags(fq)}
+                                enabled={isProdSkillInteractive}
+                              />
+                            </li>
                           ))}
                         </ol>
                       </div>
@@ -1081,7 +1127,10 @@ export function VnuSplitPane({
         <div className="flex-1 p-2 sm:p-3 overflow-y-auto max-h-[30vh] sm:max-h-[38vh] lg:max-h-none space-y-2 sm:space-y-3 text-xs sm:text-sm leading-relaxed text-slate-800 dark:text-slate-200">
           {/* Hướng dẫn chung của Task (ẩn trên mobile để ưu tiên thấy đáp án) */}
           <div className="hidden sm:block p-2 bg-slate-50 dark:bg-slate-800/50 border-l-2 border-blue-500 rounded-none text-xs text-slate-600 dark:text-slate-300 italic font-mono">
-            {currentTask.instructions}
+            <ExamInteractiveText
+              text={stripHtmlTags(currentTask.instructions)}
+              enabled={isInteractiveEnabled}
+            />
           </div>
 
           {/* Nếu là bài nghe: Hiển thị Audio Player */}
@@ -1234,12 +1283,31 @@ export function VnuSplitPane({
               const qSelectedAnswer = userAnswers[q.id];
               const isQFlagged = Boolean(flaggedQuestions[q.id]);
               const qExplanation = getQuestionExplanation(q.id);
+              const isQInteractive = Boolean(isReviewMode || showReviewModal || qExplanation);
 
               return (
                 <div
                   key={q.id}
                   id={`vnu-question-${q.id}`}
-                  onClick={() => {
+                  onClick={(e) => {
+                    const target = e.target as HTMLElement | null;
+                    if (
+                      target?.closest?.('.exam-lookup-trigger') ||
+                      target?.closest?.('.exam-lookup-card')
+                    ) {
+                      return;
+                    }
+                    const sel = typeof window !== 'undefined' ? window.getSelection() : null;
+                    if (
+                      isQInteractive &&
+                      sel &&
+                      !sel.isCollapsed &&
+                      sel.toString().trim().length > 0 &&
+                      sel.anchorNode &&
+                      e.currentTarget.contains(sel.anchorNode)
+                    ) {
+                      return;
+                    }
                     if (currentQuestionId !== q.id) {
                       onNavigateQuestion(q.id);
                     }
@@ -1295,7 +1363,10 @@ export function VnuSplitPane({
                         Sign / Notice #{q.questionNumber}
                       </div>
                       <div className="whitespace-pre-line font-mono font-bold text-xs sm:text-sm tracking-wide text-slate-900 dark:text-slate-100 leading-snug select-text">
-                        {q.prompt}
+                        <ExamInteractiveText
+                          text={stripHtmlTags(q.prompt)}
+                          enabled={isQInteractive}
+                        />
                       </div>
                     </div>
                   )}
@@ -1309,13 +1380,17 @@ export function VnuSplitPane({
                             ? `What does Sign / Notice #${q.questionNumber} mean?`
                             : cleanQuestionPrompt(q.prompt)
                         }
-                        enabled={Boolean(isReviewMode || showReviewModal || qExplanation)}
+                        enabled={isQInteractive}
                       />
                     </div>
                   )}
 
                   {/* Danh sách lựa chọn (A, B, C hoặc True, False) */}
-                  <div className="space-y-1.5 sm:space-y-2">
+                  <div
+                    role="radiogroup"
+                    aria-label={`Các lựa chọn cho câu ${q.questionNumber}`}
+                    className="space-y-1.5 sm:space-y-2"
+                  >
                     {q.options.map((opt) => {
                       const isSelected = qSelectedAnswer === opt.key;
                       const isCorrectAnswer = Boolean(
@@ -1324,9 +1399,7 @@ export function VnuSplitPane({
                       const isWrongSelection = Boolean(
                         qExplanation && isSelected && !isCorrectAnswer
                       );
-                      const isOptionInteractive = Boolean(
-                        isReviewMode || showReviewModal || qExplanation
-                      );
+                      const isOptionInteractive = isQInteractive;
 
                       let optionStyle =
                         'border-slate-200 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-200';
@@ -1345,10 +1418,14 @@ export function VnuSplitPane({
                       }
 
                       return (
-                        <button
+                        <div
                           key={opt.key}
-                          type="button"
+                          role="radio"
+                          aria-checked={isSelected}
+                          aria-disabled={isReviewMode}
+                          tabIndex={isReviewMode ? -1 : 0}
                           onClick={(e) => {
+                            if (isReviewMode) return;
                             const target = e.target as HTMLElement | null;
                             if (
                               target?.closest?.('.exam-lookup-trigger') ||
@@ -1356,20 +1433,48 @@ export function VnuSplitPane({
                             ) {
                               return;
                             }
+                            const sel =
+                              typeof window !== 'undefined' ? window.getSelection() : null;
+                            if (
+                              isOptionInteractive &&
+                              sel &&
+                              !sel.isCollapsed &&
+                              sel.toString().trim().length > 0 &&
+                              sel.anchorNode &&
+                              e.currentTarget.contains(sel.anchorNode)
+                            ) {
+                              return;
+                            }
                             e.stopPropagation();
-                            if (!isReviewMode) {
+                            onAnswerSelect(q.id, opt.key);
+                            if (currentQuestionId !== q.id) {
+                              onNavigateQuestion(q.id);
+                            }
+                          }}
+                          onKeyDown={(e) => {
+                            if (isReviewMode) return;
+                            const target = e.target as HTMLElement | null;
+                            if (
+                              target?.closest?.('.exam-lookup-trigger') ||
+                              target?.closest?.('.exam-lookup-card')
+                            ) {
+                              return;
+                            }
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              e.stopPropagation();
                               onAnswerSelect(q.id, opt.key);
                               if (currentQuestionId !== q.id) {
                                 onNavigateQuestion(q.id);
                               }
                             }
                           }}
-                          className={`w-full min-h-[38px] sm:min-h-[42px] p-2 sm:p-2.5 text-left border rounded-sm flex items-start gap-2.5 transition-all ${
-                            isReviewMode ? 'cursor-default' : 'cursor-pointer'
-                          } ${isOptionInteractive ? 'select-text' : ''} ${optionStyle}`}
+                          className={`w-full min-h-[38px] sm:min-h-[42px] p-2 sm:p-2.5 text-left border rounded-sm flex items-start gap-2.5 transition-all outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                            !isReviewMode ? 'cursor-pointer' : 'cursor-default'
+                          } ${isOptionInteractive ? 'select-text' : 'select-none'} ${optionStyle}`}
                         >
                           <span
-                            className={`flex-shrink-0 w-5 h-5 rounded-none flex items-center justify-center font-mono text-xs font-bold border mt-0.5 ${
+                            className={`flex-shrink-0 w-5 h-5 rounded-none flex items-center justify-center font-mono text-xs font-bold border mt-0.5 select-none ${
                               isSelected
                                 ? 'bg-blue-600 text-white border-blue-600'
                                 : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700'
@@ -1389,7 +1494,7 @@ export function VnuSplitPane({
                           {qExplanation && isWrongSelection && (
                             <XCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
                           )}
-                        </button>
+                        </div>
                       );
                     })}
                   </div>
@@ -1440,7 +1545,11 @@ export function VnuSplitPane({
                                 className="p-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-none"
                               >
                                 <span className="font-bold text-blue-700 dark:text-blue-400">
-                                  {voc.word}
+                                  <ExamInteractiveText
+                                    text={voc.word}
+                                    enabled={isQInteractive}
+                                    inheritClassName
+                                  />
                                 </span>
                                 {voc.ipa && (
                                   <span className="text-slate-400 text-[11px] ml-1">{voc.ipa}</span>
@@ -1477,7 +1586,11 @@ export function VnuSplitPane({
             )}
 
             {/* Danh sách lựa chọn (A, B, C hoặc True, False) */}
-            <div className="space-y-1.5 sm:space-y-2">
+            <div
+              role="radiogroup"
+              aria-label={`Các lựa chọn cho câu ${currentQuestion.questionNumber}`}
+              className="space-y-1.5 sm:space-y-2"
+            >
               {currentQuestion.options.map((opt) => {
                 const isSelected = selectedAnswer === opt.key;
                 const isCorrectAnswer = Boolean(
@@ -1502,10 +1615,14 @@ export function VnuSplitPane({
                 }
 
                 return (
-                  <button
+                  <div
                     key={opt.key}
-                    type="button"
+                    role="radio"
+                    aria-checked={isSelected}
+                    aria-disabled={isReviewMode}
+                    tabIndex={isReviewMode ? -1 : 0}
                     onClick={(e) => {
+                      if (isReviewMode) return;
                       const target = e.target as HTMLElement | null;
                       if (
                         target?.closest?.('.exam-lookup-trigger') ||
@@ -1513,16 +1630,39 @@ export function VnuSplitPane({
                       ) {
                         return;
                       }
-                      if (!isReviewMode) {
-                        onAnswerSelect(currentQuestion!.id, opt.key);
+                      const sel = typeof window !== 'undefined' ? window.getSelection() : null;
+                      if (
+                        isInteractiveEnabled &&
+                        sel &&
+                        !sel.isCollapsed &&
+                        sel.toString().trim().length > 0 &&
+                        sel.anchorNode &&
+                        e.currentTarget.contains(sel.anchorNode)
+                      ) {
+                        return;
+                      }
+                      onAnswerSelect(currentQuestion.id, opt.key);
+                    }}
+                    onKeyDown={(e) => {
+                      if (isReviewMode) return;
+                      const target = e.target as HTMLElement | null;
+                      if (
+                        target?.closest?.('.exam-lookup-trigger') ||
+                        target?.closest?.('.exam-lookup-card')
+                      ) {
+                        return;
+                      }
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        onAnswerSelect(currentQuestion.id, opt.key);
                       }
                     }}
-                    className={`w-full min-h-[42px] sm:min-h-[46px] p-2 sm:p-2.5 text-left border rounded-sm flex items-start gap-2.5 transition-all ${
-                      isReviewMode ? 'cursor-default' : 'cursor-pointer'
-                    } ${isInteractiveEnabled ? 'select-text' : ''} ${optionStyle}`}
+                    className={`w-full min-h-[42px] sm:min-h-[46px] p-2 sm:p-2.5 text-left border rounded-sm flex items-start gap-2.5 transition-all outline-none focus-visible:ring-2 focus-visible:ring-blue-500 ${
+                      !isReviewMode ? 'cursor-pointer' : 'cursor-default'
+                    } ${isInteractiveEnabled ? 'select-text' : 'select-none'} ${optionStyle}`}
                   >
                     <span
-                      className={`flex-shrink-0 w-5 h-5 rounded-none flex items-center justify-center font-mono text-xs font-bold border mt-0.5 ${
+                      className={`flex-shrink-0 w-5 h-5 rounded-none flex items-center justify-center font-mono text-xs font-bold border mt-0.5 select-none ${
                         isSelected
                           ? 'bg-blue-600 text-white border-blue-600'
                           : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700'
@@ -1542,7 +1682,7 @@ export function VnuSplitPane({
                     {explanation && isWrongSelection && (
                       <XCircle className="w-4 h-4 text-rose-600 flex-shrink-0 mt-0.5" />
                     )}
-                  </button>
+                  </div>
                 );
               })}
             </div>
@@ -1590,7 +1730,11 @@ export function VnuSplitPane({
                           className="p-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-none"
                         >
                           <span className="font-bold text-blue-700 dark:text-blue-400">
-                            {voc.word}
+                            <ExamInteractiveText
+                              text={voc.word}
+                              enabled={isInteractiveEnabled}
+                              inheritClassName
+                            />
                           </span>
                           {voc.ipa && (
                             <span className="text-slate-400 text-[11px] ml-1">{voc.ipa}</span>

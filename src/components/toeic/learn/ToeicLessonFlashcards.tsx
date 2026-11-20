@@ -16,6 +16,7 @@ import {
 import type { LessonFlashcard } from '@/data/toeic/theory/types';
 import { getFlashcardsByLessonId, getAllFlashcards } from '@/data/toeic/theory/flashcards';
 import { speakLocal } from '@/lib/study';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 export interface ToeicLessonFlashcardsProps {
   lessonId: string;
@@ -146,6 +147,12 @@ export function ToeicLessonFlashcards({ lessonId, className = '' }: ToeicLessonF
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
         return;
       }
+      if (e.target instanceof HTMLElement && e.target.closest('.exam-lookup-trigger, .exam-lookup-card')) {
+        return;
+      }
+      if (document.querySelector('.exam-lookup-card')) {
+        return;
+      }
       if (e.code === 'Space') {
         e.preventDefault();
         setIsFlipped(prev => !prev);
@@ -252,8 +259,12 @@ export function ToeicLessonFlashcards({ lessonId, className = '' }: ToeicLessonF
       <div
         role="button"
         tabIndex={0}
-        onClick={handleFlip}
+        onClick={(e) => {
+          if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
+          handleFlip();
+        }}
         onKeyDown={(e) => {
+          if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
             handleFlip();
@@ -322,18 +333,48 @@ export function ToeicLessonFlashcards({ lessonId, className = '' }: ToeicLessonF
             </div>
 
             {currentCard.collocation && (
-              <div className="bg-slate-50 dark:bg-slate-950/60 p-2.5 rounded-xs border border-slate-200 dark:border-slate-800">
+              <div
+                onClick={(e) => e.stopPropagation()}
+                onPointerDown={(e) => e.stopPropagation()}
+                onKeyDown={(e) => {
+                  if (e.key !== 'Escape') e.stopPropagation();
+                }}
+                className="bg-slate-50 dark:bg-slate-950/60 p-2.5 rounded-xs border border-slate-200 dark:border-slate-800"
+              >
                 <span className="font-mono text-[10px] uppercase font-bold text-amber-600 dark:text-amber-400 block mb-0.5">
                   Cụm từ thường gặp (Collocation):
                 </span>
                 <span className="font-mono text-xs font-bold text-slate-800 dark:text-slate-200">
-                  {currentCard.collocation}
+                  <ExamInteractiveText
+                    text={currentCard.collocation}
+                    enabled={true}
+                    themeVariant="minimalist"
+                    inheritClassName
+                    contextSentence={currentCard.exampleSentence}
+                  />
                 </span>
               </div>
             )}
 
             <div className="text-xs text-slate-700 dark:text-slate-300 space-y-1">
-              <p className="font-semibold italic">&quot;{currentCard.exampleSentence}&quot;</p>
+              <div
+                onClick={(e) => e.stopPropagation()}
+                onPointerDown={(e) => e.stopPropagation()}
+                onKeyDown={(e) => {
+                  if (e.key !== 'Escape') e.stopPropagation();
+                }}
+              >
+                <p className="font-semibold italic">
+                  &quot;
+                  <ExamInteractiveText
+                    text={currentCard.exampleSentence}
+                    enabled={true}
+                    themeVariant="minimalist"
+                    inheritClassName
+                  />
+                  &quot;
+                </p>
+              </div>
               <p className="text-slate-500 dark:text-slate-400">→ {currentCard.exampleTranslation}</p>
             </div>
 

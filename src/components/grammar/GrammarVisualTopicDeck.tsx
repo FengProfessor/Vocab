@@ -11,7 +11,10 @@ import SvoSentenceVisualDeck from './SvoSentenceVisualDeck';
 import type { GrammarTheoryData } from './GrammarReferenceTable';
 import topicAssetsData from '@/data/grammar-topic-assets.json';
 import GrammarCardNavigator from './GrammarCardNavigator';
-import FormattedText from './FormattedText';
+import FormattedText, {
+  hasVietnameseDiacritics,
+  splitTrailingVietnameseParenthetical,
+} from './FormattedText';
 
 export interface VisualDeckExample {
   en: string;
@@ -1038,7 +1041,14 @@ function GrammarVisualTopicDeckInner({
           captionEn = m[1].trim();
           captionVi = m[2] ? m[2].trim() : '';
         } else {
-          captionEn = asset.caption.split('—')[0].replace(/"/g, '').trim();
+          const rawBeforeDash = asset.caption.split('—')[0].replace(/"/g, '').trim();
+          const split = splitTrailingVietnameseParenthetical(rawBeforeDash);
+          if (split) {
+            captionEn = split.main.trim();
+            captionVi = split.viTail.trim().replace(/^\(|\)$/g, '').trim();
+          } else {
+            captionEn = rawBeforeDash;
+          }
         }
       }
 
@@ -1715,7 +1725,7 @@ function VisualTopicCardItem({
 
             <div className="text-center py-2.5 px-1 my-auto space-y-2">
               <div className="font-serif text-base sm:text-lg font-bold text-foreground tracking-tight leading-snug">
-                <HighlightedSentence text={currentExample.en} highlight={currentHighlight} />
+                <HighlightedSentence text={currentExample.en} highlight={currentHighlight} enabled={!hasVietnameseDiacritics(currentExample.en)} themeVariant="minimalist" />
               </div>
               {currentExample.vi && (
                 <div className="text-xs text-muted-foreground leading-relaxed">
@@ -1783,22 +1793,35 @@ function VisualTopicCardItem({
                       : 'border-border/60 bg-muted/10 hover:border-border hover:bg-muted/20'
                   }`}
                 >
-                  <button
-                    type="button"
+                  <div
+                    role="button"
+                    tabIndex={0}
                     aria-pressed={isSelected}
-                    onClick={() => setActiveIdx(exIdx)}
-                    className="flex items-start gap-2 min-w-0 flex-1 text-left min-h-[44px]"
+                    onClick={(e) => {
+                      const target = e.target as HTMLElement | null;
+                      if (target?.closest('.exam-lookup-trigger')) return;
+                      if (typeof window !== 'undefined' && !(window.getSelection()?.isCollapsed ?? true)) return;
+                      setActiveIdx(exIdx);
+                    }}
+                    onKeyDown={(e) => {
+                      if (e.target !== e.currentTarget) return;
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActiveIdx(exIdx);
+                      }
+                    }}
+                    className="flex items-start gap-2 min-w-0 flex-1 text-left min-h-[44px] cursor-pointer"
                   >
                     <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 border border-border bg-background text-muted-foreground shrink-0 mt-0.5">
                       0{exIdx + 1}
                     </span>
                     <div className="space-y-0.5 min-w-0 flex-1">
                       <p className="text-xs sm:text-sm font-semibold text-foreground font-sans leading-snug">
-                        <HighlightedSentence text={ex.en} highlight={effectiveHighlight} />
+                        <HighlightedSentence text={ex.en} highlight={effectiveHighlight} enabled={!hasVietnameseDiacritics(ex.en)} themeVariant="minimalist" />
                       </p>
                       {ex.vi && <p className="text-[11px] text-muted-foreground leading-snug">{ex.vi}</p>}
                     </div>
-                  </button>
+                  </div>
 
                   <button
                     type="button"

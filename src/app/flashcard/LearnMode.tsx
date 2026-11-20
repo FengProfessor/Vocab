@@ -19,6 +19,8 @@ import { stopWordAudio } from '@/lib/audio';
 import { completeRoadmapStep, getLastRoadmapStepError } from '@/lib/roadmap-client';
 import { invalidateWordSummaryCache } from '@/lib/word-summary-cache';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
 import { resolveImageSrc } from '@/lib/media-url';
 import { saveSrsReview } from '@/lib/save-srs-review';
 import { getOfflineStudyQueue } from '@/lib/offline/study-queue';
@@ -51,6 +53,8 @@ type Phase = 'loading' | 'empty' | 'ready' | 'introduce' | 'recall' | 'done';
 
 export function LearnMode({ classroomId: initialClassroomId }: { classroomId: string | null }) {
   const router = useRouter();
+  const vocabLookup = useOptionalVocabLookup();
+  const closeLookup = vocabLookup?.closeLookup;
   const searchParams = useSearchParams();
   const idsParam = searchParams.get('ids');
   const [classroomId, setClassroomId] = useState<string | null>(initialClassroomId);
@@ -348,6 +352,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   };
 
   const nextIntro = useCallback(() => {
+    closeLookup?.();
     if (introIndex + 1 >= batch.length) {
       // Sang bước Nhớ lại — stop ngay (trước re-render) kẻo tiếng từ cuối
       // còn vang khi UI đã hiện từ đầu của recall.
@@ -365,17 +370,19 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
     } else {
       setIntroIndex((i) => i + 1);
     }
-  }, [introIndex, batch.length]);
+  }, [introIndex, batch.length, closeLookup]);
 
   // Chỉ phase Làm quen: xem lại từ trước (chưa chấm SRS)
   const prevIntro = useCallback(() => {
     if (introIndex <= 0) return;
+    closeLookup?.();
     setIntroIndex((i) => i - 1);
-  }, [introIndex]);
+  }, [introIndex, closeLookup]);
 
   const recallWord = batch[recallIndex];
 
   const advanceRecall = useCallback(() => {
+    closeLookup?.();
     submittedWordIdRef.current = null;
     advanceFn.current = null;
     if (advanceTimer.current) {
@@ -399,7 +406,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
       requestAnimationFrame(() => inputRef.current?.focus());
       setTimeout(() => inputRef.current?.focus(), 50);
     }
-  }, [recallIndex, batch.length]);
+  }, [recallIndex, batch.length, closeLookup]);
 
   const goNextRecall = useCallback(() => {
     if (verdict !== null) {
@@ -497,6 +504,9 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   }, [recallWord, verdict, finalizeRecall]);
 
   const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape' && verdict === null && document.querySelector('.exam-lookup-card')) {
+      return;
+    }
     if (e.key === 'Enter') {
       e.preventDefault();
       e.stopPropagation();
@@ -517,6 +527,13 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   useEffect(() => {
     const handleGlobalKeyDown = (e: KeyboardEvent) => {
       if (showGuide) return;
+      const targetEl = e.target as HTMLElement | null;
+      if (
+        (e.key === 'Enter' || e.key === ' ') &&
+        targetEl?.closest('.exam-lookup-trigger, .exam-lookup-card')
+      ) {
+        return;
+      }
 
       if (phase === 'introduce') {
         if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowRight') {
@@ -534,6 +551,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
           }
         } else {
           if (e.key === 'Escape') {
+            if (document.querySelector('.exam-lookup-card')) return;
             e.preventDefault();
             giveUpRecall();
           } else if (e.key === 'Enter' && document.activeElement !== inputRef.current) {
@@ -709,7 +727,13 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
               )}
 
               <h2 className="line-clamp-2 w-full break-words text-[clamp(1.5rem,6.5vw,2.75rem)] font-black leading-tight tracking-tight text-slate-900">
-                {w.word}
+                <ExamInteractiveText
+                  text={w.word}
+                  enabled
+                  as="span"
+                  inheritClassName
+                  contextSentence={w.example || w.word}
+                />
               </h2>
               {w.ipa && <p className="shrink-0 font-mono text-sm text-slate-400 sm:text-base">{parseIpa(w.ipa)}</p>}
 
@@ -775,7 +799,15 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                       <div className="space-y-0.5 text-[11px] leading-snug text-slate-700">
                         {(expandedFamilyWordId === w.id ? w.familyWords : w.familyWords.slice(0, 3)).map((fw, idx) => (
                           <div key={idx}>
-                            <strong className="font-bold text-sky-900">{fw.word}</strong>
+                            <strong className="font-bold text-sky-900">
+                              <ExamInteractiveText
+                                text={fw.word}
+                                enabled
+                                as="span"
+                                inheritClassName
+                                contextSentence={w.example || w.word}
+                              />
+                            </strong>
                             {fw.pos && <span className="ml-1 italic text-slate-500">({fw.pos})</span>}
                             {fw.meaning && <span className="text-slate-600">: {fw.meaning}</span>}
                           </div>
@@ -913,14 +945,30 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                     {verdict === 'correct' && (
                       <p className="text-sm font-black text-emerald-600">
                         ✓ Chính xác!{' '}
-                        <span className="underline decoration-emerald-400">{recallWord.word}</span>
+                        <span className="underline decoration-emerald-400">
+                          <ExamInteractiveText
+                            text={recallWord.word}
+                            enabled
+                            as="span"
+                            inheritClassName
+                            contextSentence={recallWord.example || recallWord.word}
+                          />
+                        </span>
                       </p>
                     )}
                     {verdict === 'close' && (
                       <>
                         <p className="text-sm font-black text-amber-600">
                           Gần đúng! Đáp án:{' '}
-                          <span className="underline decoration-amber-400">{recallWord.word}</span>
+                          <span className="underline decoration-amber-400">
+                            <ExamInteractiveText
+                              text={recallWord.word}
+                              enabled
+                              as="span"
+                              inheritClassName
+                              contextSentence={recallWord.example || recallWord.word}
+                            />
+                          </span>
                         </p>
                         {input.trim() && (
                           <p className="text-xs font-medium text-slate-500">
@@ -932,7 +980,16 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                     {verdict === 'wrong' && (
                       <>
                         <p className="text-sm font-black text-rose-600">
-                          ✗ Đáp án: <span className="underline decoration-rose-400">{recallWord.word}</span>
+                          ✗ Đáp án:{' '}
+                          <span className="underline decoration-rose-400">
+                            <ExamInteractiveText
+                              text={recallWord.word}
+                              enabled
+                              as="span"
+                              inheritClassName
+                              contextSentence={recallWord.example || recallWord.word}
+                            />
+                          </span>
                         </p>
                         {input.trim() && (
                           <p className="text-xs font-medium text-slate-500">

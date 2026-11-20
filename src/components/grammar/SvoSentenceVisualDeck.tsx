@@ -17,6 +17,7 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import { grammarAudio } from '@/lib/grammar/grammarAudioManager';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import GrammarCardNavigator from './GrammarCardNavigator';
 
 export interface SvoSentenceItem {
@@ -597,7 +598,11 @@ export default function SvoSentenceVisualDeck({
             <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed">
               Trật tự câu kể cơ bản trong tiếng Anh giống hệt tiếng Việt:
               <strong className="text-foreground ml-1 font-mono">TÔI [S] + ĂN [V] + CƠM [O]</strong> ➔{' '}
-              <strong className="text-foreground font-mono">I [S] + eat [V] + rice [O]</strong>.
+              <strong className="text-foreground font-mono">
+                <ExamInteractiveText text="I" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="I eat rice." /> [S] +{' '}
+                <ExamInteractiveText text="eat" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="I eat rice." /> [V] +{' '}
+                <ExamInteractiveText text="rice" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="I eat rice." /> [O]
+              </strong>.
             </p>
 
             {/* 3 Colored Structural Reference Blocks */}
@@ -608,7 +613,9 @@ export default function SvoSentenceVisualDeck({
                   <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-sky-400/50 bg-sky-100/80 dark:bg-sky-900/40 rounded-none">
                     [S] Chủ ngữ
                   </span>
-                  <span className="font-mono text-[11px] opacity-80">Subject</span>
+                  <span className="font-mono text-[11px] opacity-80">
+                    <ExamInteractiveText text="Subject" enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </span>
                 </div>
                 <div className="mt-2 text-xs">
                   <p className="font-bold text-sm">Ai làm?</p>
@@ -622,7 +629,9 @@ export default function SvoSentenceVisualDeck({
                   <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-amber-400/50 bg-amber-100/80 dark:bg-amber-900/40 rounded-none">
                     [V] Động từ
                   </span>
-                  <span className="font-mono text-[11px] opacity-80">Verb</span>
+                  <span className="font-mono text-[11px] opacity-80">
+                    <ExamInteractiveText text="Verb" enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </span>
                 </div>
                 <div className="mt-2 text-xs">
                   <p className="font-bold text-sm">Làm gì?</p>
@@ -636,7 +645,9 @@ export default function SvoSentenceVisualDeck({
                   <span className="font-mono text-xs font-bold px-1.5 py-0.5 border border-emerald-400/50 bg-emerald-100/80 dark:bg-emerald-900/40 rounded-none">
                     [O] Tân ngữ
                   </span>
-                  <span className="font-mono text-[11px] opacity-80">Object</span>
+                  <span className="font-mono text-[11px] opacity-80">
+                    <ExamInteractiveText text="Object" enabled as="span" inheritClassName themeVariant="minimalist" />
+                  </span>
                 </div>
                 <div className="mt-2 text-xs">
                   <p className="font-bold text-sm">Cái gì / Ai?</p>
@@ -766,15 +777,36 @@ export default function SvoSentenceVisualDeck({
                     <div className="inline-flex items-center gap-1.5 flex-wrap text-base sm:text-lg font-bold font-mono">
                       <span className="px-2.5 py-1 border border-sky-400 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-none inline-flex items-center gap-1.5">
                         <span className="text-xs opacity-70 font-normal">[S]</span>
-                        <span>{sentence.enS}</span>
+                        <ExamInteractiveText
+                          text={sentence.enS}
+                          enabled
+                          as="span"
+                          themeVariant="minimalist"
+                          inheritClassName
+                          contextSentence={sentence.en}
+                        />
                       </span>
                       <span className="px-2.5 py-1 border border-amber-400 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 rounded-none inline-flex items-center gap-1.5">
                         <span className="text-xs opacity-70 font-normal">[V]</span>
-                        <span>{sentence.enV}</span>
+                        <ExamInteractiveText
+                          text={sentence.enV}
+                          enabled
+                          as="span"
+                          themeVariant="minimalist"
+                          inheritClassName
+                          contextSentence={sentence.en}
+                        />
                       </span>
                       <span className="px-2.5 py-1 border border-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 rounded-none inline-flex items-center gap-1.5">
                         <span className="text-xs opacity-70 font-normal">[O]</span>
-                        <span>{sentence.enO}</span>
+                        <ExamInteractiveText
+                          text={sentence.enO}
+                          enabled
+                          as="span"
+                          themeVariant="minimalist"
+                          inheritClassName
+                          contextSentence={sentence.en}
+                        />
                       </span>
                       <span className="text-muted-foreground font-bold">.</span>
                     </div>
@@ -805,16 +837,29 @@ export default function SvoSentenceVisualDeck({
           <p>
             1. <strong>Đầy đủ chủ vị:</strong> Tiếng Việt có thể nói rút gọn như <em>&ldquo;Ăn cơm chưa?&rdquo;</em> hay <em>&ldquo;Mưa rồi&rdquo;</em>.
             Nhưng trong tiếng Anh, <strong>mọi câu kể đều bắt buộc phải có đủ Chủ ngữ (S) và Động từ (V)</strong> (ví dụ:{' '}
-            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">I eat rice</code>,{' '}
-            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">It is raining</code>).
+            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">
+              <ExamInteractiveText text="I eat rice" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="I eat rice." />
+            </code>,{' '}
+            <code className="font-mono font-bold bg-background/80 px-1 border border-border rounded-none">
+              <ExamInteractiveText text="It is raining" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="It is raining." />
+            </code>).
           </p>
           <p>
             2. <strong>Cầu nối đại từ (I vs me):</strong> Trong tiếng Việt, từ &ldquo;tôi&rdquo; ở đầu câu hay cuối câu đều không đổi.
             Nhưng trong tiếng Anh, khi đứng ở vị trí <strong>[S] (làm hành động)</strong> thì dùng{' '}
-            <strong className="text-sky-600 dark:text-sky-400 font-mono">I</strong>, còn khi chuyển xuống vị trí{' '}
+            <strong className="text-sky-600 dark:text-sky-400 font-mono">
+              <ExamInteractiveText text="I" enabled as="span" inheritClassName themeVariant="minimalist" />
+            </strong>, còn khi chuyển xuống vị trí{' '}
             <strong>[O] (nhận hành động)</strong> thì đổi thành{' '}
-            <strong className="text-emerald-600 dark:text-emerald-400 font-mono">me</strong> ({' '}
-            <span className="font-mono font-bold">I love you</span> ➔ <span className="font-mono font-bold">You love me</span>
+            <strong className="text-emerald-600 dark:text-emerald-400 font-mono">
+              <ExamInteractiveText text="me" enabled as="span" inheritClassName themeVariant="minimalist" />
+            </strong> ({' '}
+            <span className="font-mono font-bold">
+              <ExamInteractiveText text="I love you" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="I love you." />
+            </span> ➔{' '}
+            <span className="font-mono font-bold">
+              <ExamInteractiveText text="You love me" enabled as="span" inheritClassName themeVariant="minimalist" contextSentence="You love me." />
+            </span>
             ).
           </p>
           <div className="flex items-center gap-1.5 text-xs text-primary font-bold pt-1">

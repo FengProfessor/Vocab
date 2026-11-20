@@ -10,7 +10,8 @@
 import { useState, useEffect, useCallback, useMemo, Suspense } from 'react';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { completeRoadmapStep, setRoadmapCelebrateFlag } from '@/lib/roadmap-client';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowLeft, CheckCircle2, Lightbulb, BookOpen, ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
 import Link from 'next/link';
@@ -328,7 +329,13 @@ function ToeicPlayerInner() {
 
     const handleKeyDown = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement | null;
-      if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable)) {
+      if (
+        target &&
+        (target.tagName === 'INPUT' ||
+          target.tagName === 'TEXTAREA' ||
+          target.isContentEditable ||
+          target.closest?.('.exam-lookup-trigger, .exam-lookup-card'))
+      ) {
         return;
       }
 
@@ -558,38 +565,82 @@ function ToeicPlayerInner() {
 
       {/* Options — 2x2 Grid (1 2 / 3 4) on Mobile */}
       <div className="space-y-3">
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-1 sm:gap-2">
+        <div
+          role="radiogroup"
+          aria-label="Các phương án lựa chọn"
+          className="grid grid-cols-2 gap-2 sm:grid-cols-1 sm:gap-2"
+        >
           {q.options.map((opt) => {
             const isAnswer = isOptionMatch(opt, q.answer);
             const isPicked = opt === picked;
 
             return (
-              <Button
+              <div
                 key={opt}
-                variant="outline"
-                className={`justify-start h-auto py-2.5 px-3 text-xs sm:text-sm whitespace-normal text-left ${
+                role="radio"
+                aria-checked={isPicked}
+                aria-disabled={revealed}
+                tabIndex={revealed ? -1 : 0}
+                className={cn(
+                  buttonVariants({ variant: 'outline' }),
+                  'justify-start h-auto py-2.5 px-3 text-xs sm:text-sm whitespace-normal text-left',
+                  revealed ? 'select-text cursor-default hover:bg-background dark:hover:bg-input/30' : 'select-none cursor-pointer',
                   !revealed && isPicked
                     ? 'border-primary bg-primary/5 ring-1 ring-primary/30'
-                    : ''
-                } ${
+                    : '',
                   revealed && isAnswer
-                    ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300'
-                    : ''
-                } ${
+                    ? 'border-emerald-400 bg-emerald-50 hover:bg-emerald-50 dark:bg-emerald-950/30 dark:hover:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300'
+                    : '',
                   revealed && isPicked && !isAnswer
-                    ? 'border-rose-300 bg-rose-50/70 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 line-through'
-                    : ''
-                } ${
+                    ? 'border-rose-300 bg-rose-50/70 hover:bg-rose-50/70 dark:bg-rose-950/20 dark:hover:bg-rose-950/20 text-rose-600 dark:text-rose-400 line-through'
+                    : '',
                   revealed && !isAnswer && !isPicked
                     ? 'opacity-60 cursor-default'
-                    : ''
-                }`}
-                onClick={() => {
+                    : '',
+                )}
+                onClick={(e) => {
+                  const target = e.target as HTMLElement | null;
+                  if (
+                    target?.closest?.('.exam-lookup-trigger') ||
+                    target?.closest?.('.exam-lookup-card')
+                  ) {
+                    return;
+                  }
+                  const selection = typeof window !== 'undefined' ? window.getSelection() : null;
+                  if (
+                    selection &&
+                    !selection.isCollapsed &&
+                    selection.toString().trim().length > 0 &&
+                    selection.anchorNode &&
+                    e.currentTarget.contains(selection.anchorNode)
+                  ) {
+                    return;
+                  }
                   if (!revealed) setPicked(opt);
                 }}
+                onKeyDown={(e) => {
+                  if (revealed) return;
+                  const target = e.target as HTMLElement | null;
+                  if (
+                    target?.closest?.('.exam-lookup-trigger') ||
+                    target?.closest?.('.exam-lookup-card')
+                  ) {
+                    return;
+                  }
+                  if ((e.key === 'Enter' || e.key === ' ') && !isPicked) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    e.nativeEvent.stopPropagation();
+                    setPicked(opt);
+                  }
+                }}
               >
-                <ExamInteractiveText text={stripHtmlTags(opt)} enabled={revealed} />
-              </Button>
+                <ExamInteractiveText
+                  text={stripHtmlTags(opt)}
+                  enabled={revealed}
+                  contextSentence={stripHtmlTags(q.prompt)}
+                />
+              </div>
             );
           })}
         </div>

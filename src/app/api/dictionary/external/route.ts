@@ -1,9 +1,12 @@
 import { NextResponse } from 'next/server';
-import { createServiceClient } from '@/lib/supabase-server';
 import { getClientIp } from '@/lib/api-security';
 import { assertScrapeQuota, QUOTA } from '@/lib/anti-scrape';
 import { cacheGet, cacheSet } from '@/lib/ttl-cache';
-import { getWordFamilyCluster } from '@/lib/toeic-collocation-index';
+import {
+  buildExternalLookupPayload,
+  fetchExternalDict,
+  upsertExternalToGlobalDict,
+} from '@/lib/external-dict';
 
 const CACHE_TTL_MS = 24 * 3600 * 1000; // 24h
 const CACHE_HEADERS = {
@@ -44,73 +47,14 @@ export async function GET(req: Request) {
   }
 
   try {
-    const word = encodeURIComponent(raw);
-
-    // Gọi dict.minhqnd.com với timeout 2.5s (giảm từ 6s để không treo request)
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2500);
-
-    let extData: Record<string, unknown>;
-    try {
-      const res = await fetch(
-        `https://dict.minhqnd.com/api/v1/lookup?word=${word}&lang=en&def_lang=vi`,
-        { signal: controller.signal }
-      );
-      clearTimeout(timeoutId);
-
-      if (!res.ok) {
-        return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
-      }
-
-      extData = (await res.json()) as Record<string, unknown>;
-    } catch {
-      clearTimeout(timeoutId);
+    const extData = await fetchExternalDict(raw, 2500);
+    if (!extData) {
       return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
     }
 
-    // Kiểm tra kết quả hợp lệ: exists=true và có ít nhất 1 meaning
-    const results = extData?.results as Array<{ meanings?: unknown[] }> | undefined;
-    if (!extData?.exists || !results?.[0]?.meanings?.length) {
-      return NextResponse.json({ success: false, error: 'Not found' }, { status: 404 });
-    }
+    upsertExternalToGlobalDict(raw, extData);
 
-    // Cache ngược: fire-and-forget — chỉ ghi khi chưa có (ignoreDuplicates: không đè bot cào)
-    void (async () => {
-      try {
-        const supabase = createServiceClient();
-        const { error } = await supabase
-          .from('global_dictionary')
-          .upsert(
-            { word: raw, data: extData, tags: ['minhqnd'] },
-            { onConflict: 'word', ignoreDuplicates: true }
-          );
-        if (error) console.error('[ext-proxy] Cache upsert error:', error.message);
-      } catch (e) {
-        console.error('[ext-proxy] Cache upsert exception:', e);
-      }
-    })();
-
-    // Enrich with family words if known in our cluster index
-    const familyWords = getWordFamilyCluster(raw);
-    const enrichedResults = Array.isArray(results)
-      ? results.map((r, rIdx) => ({
-          ...r,
-          meanings: Array.isArray(r.meanings)
-            ? r.meanings.map((m: any, mIdx: number) => ({
-                ...m,
-                isPrimary: rIdx === 0 && mIdx === 0,
-              }))
-            : r.meanings,
-        }))
-      : results;
-
-    const payload = {
-      success: true,
-      source: 'external',
-      ...extData,
-      results: enrichedResults,
-      ...(familyWords && familyWords.length > 0 ? { familyWords, wordFamily: familyWords, word_family: familyWords } : {}),
-    };
+    const payload = buildExternalLookupPayload(raw, raw, extData);
     cacheSet(cacheKey, payload, CACHE_TTL_MS);
 
     // Trả về spread nguyên body dict.minhqnd kèm meta source & Cache-Control

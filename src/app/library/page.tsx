@@ -10,7 +10,9 @@ import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
 import { supabase } from '@/lib/supabase';
 import { StudentShell } from '@/components/student/StudentShell';
-import { isWordSavedLocally, saveWordLocally } from '@/lib/exam-dict-cache';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
+import { isWordSavedLocally, removeWordLocallyIfUnused, saveWordLocally } from '@/lib/exam-dict-cache';
 import { playWordAudio } from '@/lib/audio';
 import {
   readLibraryCatalogCache,
@@ -59,6 +61,8 @@ function subtopicStatus(sub: Subtopic): 'new' | 'in_progress' | 'completed' {
 
 export default function LibraryPage() {
   const router = useRouter();
+  const vocabLookup = useOptionalVocabLookup();
+  const closeLookup = vocabLookup?.closeLookup;
   const initialCatalog = useMemo(() => readLibraryCatalogCache(), []);
   const [routes, setRoutes] = useState<Route[]>(() => (initialCatalog?.routes as Route[]) ?? []);
   const [microPackSize, setMicroPackSize] = useState(() => initialCatalog?.microPackSize ?? 15);
@@ -120,7 +124,7 @@ export default function LibraryPage() {
     return () => { active = false; };
   }, [previewPack]);
 
-  // Lắng nghe sự kiện lưu từ toàn cục (từ các modal/trang khác)
+  // Lắng nghe sự kiện lưu từ & rollback toàn cục (từ các modal/trang khác)
   useEffect(() => {
     const handleWordSaved = (e: Event) => {
       const customEvent = e as CustomEvent<{ word?: string }>;
@@ -129,10 +133,27 @@ export default function LibraryPage() {
         setSavedWords((prev) => new Set(prev).add(w));
       }
     };
+    const handleWordSaveRollback = (e: Event) => {
+      const customEvent = e as CustomEvent<{ word?: string }>;
+      if (customEvent.detail?.word) {
+        const raw = customEvent.detail.word;
+        const w = raw.toLowerCase().trim();
+        if (!isWordSavedLocally(raw)) {
+          setSavedWords((prev) => {
+            if (!prev.has(w)) return prev;
+            const next = new Set(prev);
+            next.delete(w);
+            return next;
+          });
+        }
+      }
+    };
     if (typeof window !== 'undefined') {
       window.addEventListener('lingo_word_saved', handleWordSaved);
+      window.addEventListener('lingo_word_save_rollback', handleWordSaveRollback);
       return () => {
         window.removeEventListener('lingo_word_saved', handleWordSaved);
+        window.removeEventListener('lingo_word_save_rollback', handleWordSaveRollback);
       };
     }
   }, []);
@@ -176,10 +197,11 @@ export default function LibraryPage() {
     return () => { active = false; };
   }, [router, initialCatalog]);
 
-  // ESC đóng modal (pack → unit → route)
+  // ESC đóng modal (pack → unit → route), ưu tiên đóng lookup card trước
   useEffect(() => {
     const onEsc = (e: KeyboardEvent): void => {
       if (e.key !== 'Escape' || importingPack) return;
+      if (document.querySelector('.exam-lookup-card')) return;
       if (previewPack) { setPreviewPack(null); return; }
       if (selectedSubtopic) { setSelectedSubtopic(null); return; }
       if (activeRouteId) { setActiveRouteId(null); setQuery(''); setContentFilter(ALL); setStatusFilter(ALL); }
@@ -187,6 +209,14 @@ export default function LibraryPage() {
     document.addEventListener('keydown', onEsc);
     return () => document.removeEventListener('keydown', onEsc);
   }, [importingPack, previewPack, selectedSubtopic, activeRouteId]);
+
+  // Đóng lookup card khi previewPack đóng hoặc unmount
+  useEffect(() => {
+    if (!previewPack) return;
+    return () => {
+      closeLookup?.();
+    };
+  }, [previewPack, closeLookup]);
 
   // Khoá scroll body khi modal mở
   useEffect(() => {
@@ -451,6 +481,23 @@ export default function LibraryPage() {
       return;
     }
 
+    const wasSavedLocally = isWordSavedLocally(cleanWord);
+    const rollbackLocalSave = () => {
+      if (!wasSavedLocally) {
+        removeWordLocallyIfUnused(cleanWord);
+      }
+      setSavedWords((prev) => {
+        const next = new Set(prev);
+        next.delete(lower);
+        return next;
+      });
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(
+          new CustomEvent('lingo_word_save_rollback', { detail: { word: cleanWord } }),
+        );
+      }
+    };
+
     setSavingWords((prev) => new Set(prev).add(lower));
     // Optimistic UI update
     setSavedWords((prev) => new Set(prev).add(lower));
@@ -474,11 +521,7 @@ export default function LibraryPage() {
 
       if (res.status === 403 && data.error === 'FREE_WORD_LIMIT') {
         // Rollback optimistic state
-        setSavedWords((prev) => {
-          const next = new Set(prev);
-          next.delete(lower);
-          return next;
-        });
+        rollbackLocalSave();
         toast.error(data.message || 'Đã đạt giới hạn từ gói Free. Nâng Pro để lưu không giới hạn.');
         return;
       }
@@ -494,11 +537,7 @@ export default function LibraryPage() {
       }
     } catch (error: unknown) {
       // Rollback optimistic state
-      setSavedWords((prev) => {
-        const next = new Set(prev);
-        next.delete(lower);
-        return next;
-      });
+      rollbackLocalSave();
       toast.error(error instanceof Error ? error.message : 'Có lỗi khi lưu từ');
     } finally {
       setSavingWords((prev) => {
@@ -919,7 +958,15 @@ export default function LibraryPage() {
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-[10px] font-black text-indigo-700">
                             {index + 1}
                           </span>
-                          <span className="truncate">{word}</span>
+                          <span className="min-w-0 truncate">
+                            <ExamInteractiveText
+                              text={word}
+                              enabled
+                              as="span"
+                              inheritClassName
+                              contextSentence={word}
+                            />
+                          </span>
                           <button
                             type="button"
                             onClick={(e) => void handlePlayAudio(word, e)}

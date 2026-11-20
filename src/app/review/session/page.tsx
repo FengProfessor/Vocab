@@ -22,6 +22,8 @@ import {
 } from '@/lib/study';
 import { stopWordAudio } from '@/lib/audio';
 import { ExampleWithSub } from '@/components/study/ExampleWithSub';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveClozeText, useOptionalVocabLookup } from '@/components/vocab';
 import {
   type ItemMode,
   type ReviewSessionMode,
@@ -173,6 +175,11 @@ function SessionContent() {
   /** Buffer phím Enter/Space bấm trong lúc feedback lock (180ms) để không bị trôi/bỏ qua */
   const pendingSkipRef = useRef(false);
   const ratedWordIdsRef = useRef<Set<string>>(new Set());
+  const vocabLookup = useOptionalVocabLookup();
+  const vocabLookupRef = useRef(vocabLookup);
+  useEffect(() => {
+    vocabLookupRef.current = vocabLookup;
+  }, [vocabLookup]);
 
   const modeMeta = useMemo(() => itemModeLabel(itemMode), [itemMode]);
 
@@ -613,6 +620,7 @@ function SessionContent() {
   }, []);
 
   const goNext = useCallback((wasWrong: boolean) => {
+    vocabLookupRef.current?.closeLookup();
     if (advanceTimer.current) {
       clearTimeout(advanceTimer.current);
       advanceTimer.current = null;
@@ -779,7 +787,9 @@ function SessionContent() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (done || isLoading || !current) return;
-      if (answeredRef.current && (e.key === 'Enter' || e.key === ' ')) {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
+      if (answeredRef.current && !vocabLookupRef.current?.isOpen && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();
         skipWait();
         return;
@@ -998,7 +1008,9 @@ function SessionContent() {
                         <p className="text-[10px] font-black uppercase tracking-wide text-slate-400">
                           EN
                         </p>
-                        <p className="text-2xl font-black text-slate-900">{current.word}</p>
+                        <p className="text-2xl font-black text-slate-900">
+                          <ExamInteractiveText text={current.word} enabled as="span" inheritClassName />
+                        </p>
                         {current.ipa && (
                           <p className="font-mono text-sm text-slate-400">{parseIpa(current.ipa)}</p>
                         )}
@@ -1021,28 +1033,31 @@ function SessionContent() {
                   <p className="text-xs font-black uppercase tracking-widest text-violet-500">
                     Điền vào chỗ trống
                   </p>
-                  <p className="text-lg font-bold leading-relaxed text-slate-800 sm:text-xl">
-                    {clozeStem.split('___').map((part, i, arr) => (
-                      <span key={i}>
-                        {part}
-                        {i < arr.length - 1 && (
-                          <span
-                            className={`mx-0.5 inline-block min-w-[3rem] rounded-lg border-b-2 px-1 text-center ${
-                              verdict === 'correct'
-                                ? 'border-emerald-400 bg-emerald-50 text-emerald-700'
-                                : verdict === 'close'
-                                  ? 'border-amber-400 bg-amber-50 text-amber-700'
-                                  : verdict === 'wrong'
-                                    ? 'border-rose-400 bg-rose-50 text-rose-600'
-                                    : 'border-indigo-300 bg-indigo-50 text-indigo-400'
-                            }`}
-                          >
-                            {verdict !== null ? answer : '___'}
-                          </span>
+                  <InteractiveClozeText
+                    text={clozeStem}
+                    enabled
+                    as="p"
+                    className="text-lg font-bold leading-relaxed text-slate-800 sm:text-xl"
+                    renderBlank={() => (
+                      <span
+                        className={`mx-0.5 inline-block min-w-[3rem] rounded-lg border-b-2 px-1 text-center ${
+                          verdict === 'correct'
+                            ? 'border-emerald-400 bg-emerald-50 text-emerald-700'
+                            : verdict === 'close'
+                              ? 'border-amber-400 bg-amber-50 text-amber-700'
+                              : verdict === 'wrong'
+                                ? 'border-rose-400 bg-rose-50 text-rose-600'
+                                : 'border-indigo-300 bg-indigo-50 text-indigo-400 select-none'
+                        }`}
+                      >
+                        {verdict !== null ? (
+                          <ExamInteractiveText text={answer} enabled as="span" inheritClassName />
+                        ) : (
+                          '___'
                         )}
                       </span>
-                    ))}
-                  </p>
+                    )}
+                  />
                   {/* Cloze: không hiện gợi ý/VI — lộ đáp án */}
                 </div>
               )}
@@ -1069,7 +1084,14 @@ function SessionContent() {
                     Từ → chọn nghĩa
                   </p>
                   <div className="flex items-center justify-center gap-2">
-                    <p className="text-3xl font-black text-slate-900">{current?.word}</p>
+                    <p className="text-3xl font-black text-slate-900">
+                      <ExamInteractiveText
+                        text={current?.word}
+                        enabled={verdict !== null}
+                        as="span"
+                        inheritClassName
+                      />
+                    </p>
                     <button
                       type="button"
                       onClick={() => current && speak(current.word, 1.0)}
@@ -1117,7 +1139,13 @@ function SessionContent() {
                 {/* Từ vựng + IPA + Nghĩa Tiếng Việt của từ */}
                 {current && (
                   <div className="flex flex-wrap items-center justify-center gap-1.5 text-xs sm:text-sm">
-                    <span className="font-black text-slate-900">{current.word}</span>
+                    <ExamInteractiveText
+                      text={current.word}
+                      enabled
+                      as="span"
+                      inheritClassName
+                      className="font-black text-slate-900"
+                    />
                     {current.pos && (
                       <span className="rounded bg-slate-200/60 px-1 py-0.2 text-[10px] font-bold text-slate-600">
                         {current.pos}
@@ -1155,7 +1183,9 @@ function SessionContent() {
                       <div className="space-y-0.5 text-[11px] leading-snug text-slate-700">
                         {current.familyWords.slice(0, 3).map((fw, idx) => (
                           <div key={idx}>
-                            <strong className="font-bold text-sky-900">{fw.word}</strong>
+                            <strong className="font-bold text-sky-900">
+                              <ExamInteractiveText text={fw.word} enabled as="span" inheritClassName />
+                            </strong>
                             {fw.pos && <span className="ml-1 italic text-slate-500">({fw.pos})</span>}
                             {fw.meaning && <span className="text-slate-600">: {fw.meaning}</span>}
                           </div>
@@ -1195,21 +1225,53 @@ function SessionContent() {
                   } else if (isSel) {
                     cls = 'border-indigo-400 bg-indigo-50 text-indigo-800';
                   }
+                  const isEnglishChoices = itemMode !== 'mcq_en_vi';
+                  const canLookupChoice =
+                    verdict !== null && isEnglishChoices && !/^\(option \d+\)$/i.test(c.trim());
+
                   return (
-                    <button
+                    <div
                       key={`${c}-${idx}`}
-                      type="button"
-                      disabled={verdict !== null}
-                      onClick={() => handleMcq(c, idx)}
-                      className={`flex h-12 items-center gap-2 rounded-xl border-2 px-3 text-left text-sm font-bold transition active:scale-[0.99] sm:h-14 sm:text-base ${cls} ${
-                        shakingIdx === idx ? 'animate-shake' : ''
-                      }`}
+                      role="button"
+                      tabIndex={verdict !== null ? -1 : 0}
+                      aria-disabled={verdict !== null}
+                      onClick={(e) => {
+                        if (verdict !== null) return;
+                        if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) {
+                          return;
+                        }
+                        handleMcq(c, idx);
+                      }}
+                      onKeyDown={(e) => {
+                        if (verdict !== null) return;
+                        if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) {
+                          return;
+                        }
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          handleMcq(c, idx);
+                        }
+                      }}
+                      className={`flex h-12 items-center gap-2 rounded-xl border-2 px-3 text-left text-sm font-bold transition sm:h-14 sm:text-base ${
+                        verdict === null ? 'cursor-pointer active:scale-[0.99] select-none' : 'select-text'
+                      } ${cls} ${shakingIdx === idx ? 'animate-shake' : ''}`}
                     >
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-slate-100 text-[10px] font-black text-slate-500">
                         {idx + 1}
                       </span>
-                      <span className="line-clamp-2">{c}</span>
-                    </button>
+                      <span className="line-clamp-2">
+                        {isEnglishChoices ? (
+                          <ExamInteractiveText
+                            text={c}
+                            enabled={canLookupChoice}
+                            as="span"
+                            inheritClassName
+                          />
+                        ) : (
+                          c
+                        )}
+                      </span>
+                    </div>
                   );
                 })}
               </div>
@@ -1227,6 +1289,7 @@ function SessionContent() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
+                      if (answeredRef.current && vocabLookupRef.current?.isOpen) return;
                       e.preventDefault();
                       e.stopPropagation();
                       if (answeredRef.current) {

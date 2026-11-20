@@ -9,6 +9,8 @@ import { authFetch } from '@/lib/auth-fetch';
 import type { ActivityKind } from '@/lib/lingo-town-activities';
 import { GROVE_WORDS } from '@/lib/lingo-town';
 import { speak, parseIpa } from '@/lib/study';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { useOptionalVocabLookup } from '@/components/vocab/VocabLookupProvider';
 
 export interface StudyWord {
   id: string;
@@ -41,6 +43,8 @@ type Props = {
 };
 
 export function MiniStudySession({ kind, onProgress }: Props) {
+  const vocabLookup = useOptionalVocabLookup();
+  const closeLookup = vocabLookup?.closeLookup;
   const [words, setWords] = useState<StudyWord[]>([...DEMO_WORDS, ...EXTRA]);
   const [source, setSource] = useState<'live' | 'demo'>('demo');
   const [loading, setLoading] = useState(true);
@@ -99,6 +103,7 @@ export function MiniStudySession({ kind, onProgress }: Props) {
 
   const advance = useCallback(
     (correct: boolean) => {
+      closeLookup?.();
       if (correct) {
         setDone((d) => {
           const n = d + 1;
@@ -111,7 +116,7 @@ export function MiniStudySession({ kind, onProgress }: Props) {
       setVerdict(null);
       setIdx((i) => i + 1);
     },
-    [onProgress]
+    [onProgress, closeLookup]
   );
 
   if (loading) {
@@ -363,17 +368,54 @@ function FlashBody({
 }) {
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setFlipped(!flipped)}
-        className="w-full min-h-[160px] rounded-2xl border-2 border-amber-700/50 bg-gradient-to-b from-[#3d2a1a] to-[#1a120c] px-4 py-8 text-center shadow-inner"
+      <div
+        role="button"
+        tabIndex={0}
+        onClick={(e) => {
+          if (
+            (e.target as HTMLElement | null)?.closest(
+              '.exam-lookup-trigger, .exam-lookup-card, button, input, textarea, a'
+            )
+          ) {
+            return;
+          }
+          setFlipped(!flipped);
+        }}
+        onKeyDown={(e) => {
+          if (
+            (e.target as HTMLElement | null)?.closest(
+              '.exam-lookup-trigger, .exam-lookup-card, button, input, textarea, a'
+            )
+          ) {
+            return;
+          }
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setFlipped(!flipped);
+          }
+        }}
+        className="w-full min-h-[160px] cursor-pointer select-none rounded-2xl border-2 border-amber-700/50 bg-gradient-to-b from-[#3d2a1a] to-[#1a120c] px-4 py-8 text-center shadow-inner outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
       >
         {!flipped ? (
           <>
             <p className="text-[10px] uppercase tracking-widest text-amber-200/40 mb-2">
               English · chạm để lật
             </p>
-            <p className="text-3xl font-bold text-amber-50">{current.word}</p>
+            <p
+              className="inline-block text-3xl font-bold text-amber-50"
+              onClick={(e) => e.stopPropagation()}
+              onPointerDown={(e) => e.stopPropagation()}
+            >
+              <ExamInteractiveText
+                text={current.word}
+                enabled
+                as="span"
+                inheritClassName
+                themeVariant="dark"
+                wordClassName="hover:bg-amber-400/20 hover:text-amber-50 underline decoration-amber-200/35 hover:decoration-amber-200 underline-offset-4"
+                contextSentence={current.example || current.word}
+              />
+            </p>
             {current.ipa && (
               <p className="text-sm text-amber-100/40 mt-2">{parseIpa(current.ipa)}</p>
             )}
@@ -385,10 +427,21 @@ function FlashBody({
             </p>
             <p className="text-2xl font-semibold text-emerald-300">{current.translation}</p>
             {current.example && (
-              <div className="mt-3 text-left">
-                <p className="text-xs text-amber-100/45 italic leading-relaxed">
-                  {current.example}
-                </p>
+              <div
+                className="mt-3 text-left select-text"
+                onClick={(e) => e.stopPropagation()}
+                onPointerDown={(e) => e.stopPropagation()}
+              >
+                <ExamInteractiveText
+                  as="p"
+                  text={current.example}
+                  enabled
+                  inheritClassName
+                  themeVariant="dark"
+                  wordClassName="hover:bg-amber-400/20 hover:text-amber-100 underline decoration-amber-200/30 hover:decoration-amber-200/80 underline-offset-2"
+                  contextSentence={current.example}
+                  className="text-xs text-amber-100/45 italic leading-relaxed"
+                />
                 {current.example_vi && (
                   <p className="mt-1 text-[11px] text-amber-100/35 leading-relaxed">
                     {current.example_vi}
@@ -398,7 +451,7 @@ function FlashBody({
             )}
           </>
         )}
-      </button>
+      </div>
       <div className="flex gap-2">
         <button
           type="button"

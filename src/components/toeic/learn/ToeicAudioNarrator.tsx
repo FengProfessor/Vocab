@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import type { TheoryLesson } from '@/data/toeic/theory/types';
 import { speakLocal, silenceSpeech, type SpeakLang } from '@/lib/study';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 export interface ToeicAudioNarratorProps {
   lesson: TheoryLesson;
@@ -182,7 +183,13 @@ export function ToeicAudioNarrator({ lesson, className = '' }: ToeicAudioNarrato
                 AI Audio Walkthrough
               </span>
               <span className="font-mono text-xs text-slate-300">
-                Part {lesson.targetPart} · {lesson.englishTitle}
+                Part {lesson.targetPart} ·{' '}
+                <ExamInteractiveText
+                  text={lesson.englishTitle}
+                  enabled={true}
+                  themeVariant="minimalist"
+                  inheritClassName
+                />
               </span>
             </div>
             <h3 className="font-mono text-sm sm:text-base font-bold text-white mt-0.5">
@@ -234,12 +241,24 @@ export function ToeicAudioNarrator({ lesson, className = '' }: ToeicAudioNarrato
             </div>
 
             <p className="font-mono text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 truncate">
-              {currentTrack?.title}
+              <ExamInteractiveText
+                text={currentTrack?.title ?? ''}
+                enabled={Boolean(currentTrack?.title)}
+                themeVariant="minimalist"
+                inheritClassName
+              />
             </p>
 
             {/* Speaking snippet preview */}
             <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 italic bg-white dark:bg-slate-900 p-2.5 rounded-xs border border-slate-200/80 dark:border-slate-800">
-              &quot;{currentTrack?.textToSpeak}&quot;
+              &quot;
+              <ExamInteractiveText
+                text={currentTrack?.textToSpeak ?? ''}
+                enabled={Boolean(currentTrack?.textToSpeak)}
+                themeVariant="minimalist"
+                inheritClassName
+              />
+              &quot;
             </p>
           </div>
 
@@ -296,15 +315,28 @@ export function ToeicAudioNarrator({ lesson, className = '' }: ToeicAudioNarrato
         <div className="space-y-1 max-h-56 overflow-y-auto pr-1">
           {playlist.map((track, idx) => {
             const isSelected = idx === currentTrackIndex;
+            const triggerTrack = () => {
+              handleSelectTrack(idx);
+              silenceSpeech();
+              setIsPlaying(true);
+              speakLocal(track.textToSpeak, playbackRate, track.lang);
+            };
             return (
-              <button
+              <div
                 key={track.id}
-                type="button"
-                onClick={() => {
-                  handleSelectTrack(idx);
-                  silenceSpeech();
-                  setIsPlaying(true);
-                  speakLocal(track.textToSpeak, playbackRate, track.lang);
+                role="button"
+                tabIndex={0}
+                onClick={(e) => {
+                  if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
+                  if (typeof window !== 'undefined' && window.getSelection()?.toString().trim()) return;
+                  triggerTrack();
+                }}
+                onKeyDown={(e) => {
+                  if ((e.target as HTMLElement)?.closest?.('.exam-lookup-trigger, .exam-lookup-card')) return;
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    triggerTrack();
+                  }
                 }}
                 className={`w-full text-left p-2.5 rounded-xs flex items-center justify-between gap-3 text-xs transition cursor-pointer ${
                   isSelected
@@ -316,7 +348,14 @@ export function ToeicAudioNarrator({ lesson, className = '' }: ToeicAudioNarrato
                   <span className="font-mono text-[10px] text-slate-400 w-5 shrink-0">
                     #{idx + 1}
                   </span>
-                  <span className="truncate">{track.title}</span>
+                  <span className="truncate">
+                    <ExamInteractiveText
+                      text={track.title}
+                      enabled={true}
+                      themeVariant="minimalist"
+                      inheritClassName
+                    />
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-1.5 shrink-0">
@@ -326,7 +365,7 @@ export function ToeicAudioNarrator({ lesson, className = '' }: ToeicAudioNarrato
                     <Play className="h-3 w-3 text-slate-400" />
                   )}
                 </div>
-              </button>
+              </div>
             );
           })}
         </div>

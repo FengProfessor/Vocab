@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useSyncExternalStore } from 'react';
 import {
   ArrowLeftRight,
   Volume2,
@@ -30,10 +30,12 @@ import type { ExtractedPhrase } from '@/types/translation';
 import type { SentenceAnalysisData } from '@/types/sentence-analysis';
 import { SentenceStructureView } from '@/components/dictionary/SentenceStructureView';
 import { PhrasebookView } from '@/components/dictionary/PhrasebookView';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 
 const STORAGE_KEY = 'lingo_sentence_history_v1';
 const MAX_HISTORY = 10;
 const MAX_CHARS = 3000;
+const emptySubscribe = () => () => {};
 
 interface TranslationHistoryItem {
   id: string;
@@ -65,6 +67,38 @@ function getPhraseBadgeStyle(type: string) {
   }
 }
 
+function isValidExtractedPhrase(p: unknown): p is ExtractedPhrase {
+  if (!p || typeof p !== 'object') return false;
+  const candidate = p as Partial<ExtractedPhrase>;
+  return (
+    typeof candidate.baseForm === 'string' &&
+    typeof candidate.meaningVi === 'string' &&
+    typeof candidate.type === 'string' &&
+    (candidate.phrase === undefined || typeof candidate.phrase === 'string') &&
+    (candidate.ipa === undefined || typeof candidate.ipa === 'string') &&
+    (candidate.example === undefined || typeof candidate.example === 'string')
+  );
+}
+
+function isValidHistoryItem(x: unknown): x is TranslationHistoryItem {
+  if (!x || typeof x !== 'object') return false;
+  const item = x as Partial<TranslationHistoryItem>;
+  return (
+    typeof item.id === 'string' &&
+    item.id.length > 0 &&
+    typeof item.sourceText === 'string' &&
+    typeof item.translatedText === 'string' &&
+    (item.sourceLang === 'en' || item.sourceLang === 'vi') &&
+    (item.targetLang === 'en' || item.targetLang === 'vi') &&
+    typeof item.timestamp === 'number' &&
+    Number.isFinite(item.timestamp) &&
+    (item.fromCache === undefined || typeof item.fromCache === 'boolean') &&
+    (item.extractedPhrases === undefined ||
+      (Array.isArray(item.extractedPhrases) &&
+        item.extractedPhrases.every(isValidExtractedPhrase)))
+  );
+}
+
 export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {}) {
   const [activeTab, setActiveTab] = useState<'translator' | 'phrasebook'>('translator');
   const [sourceLang, setSourceLang] = useState<'en' | 'vi'>('en');
@@ -85,11 +119,13 @@ export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {
   const [svoData, setSvoData] = useState<SentenceAnalysisData | null>(null);
   const [showSvo, setShowSvo] = useState(false);
 
+  const isHydrated = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const [history, setHistory] = useState<TranslationHistoryItem[]>(() => {
     if (typeof window === 'undefined') return [];
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : [];
+      const parsed: unknown = saved ? JSON.parse(saved) : [];
+      return Array.isArray(parsed) ? parsed.filter(isValidHistoryItem) : [];
     } catch {
       return [];
     }
@@ -613,9 +649,13 @@ export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {
                 </div>
               ) : (
                 <>
-                  <p className="text-base sm:text-lg text-foreground font-medium leading-relaxed select-text">
-                    {resultText}
-                  </p>
+                  <ExamInteractiveText
+                    as="p"
+                    text={resultText}
+                    enabled={targetLang === 'en'}
+                    contextSentence={resultText}
+                    className="text-base sm:text-lg text-foreground font-medium leading-relaxed select-text"
+                  />
 
                   {/* Section: Bóc tách Cụm từ & Collocations trọng điểm */}
                   {extractedPhrases.length > 0 && (
@@ -655,12 +695,14 @@ export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {
                                 </div>
 
                                 <div className="flex items-baseline gap-1.5">
-                                  <h4
-                                    onClick={() => onLookupWord?.(phrase.baseForm)}
-                                    className="text-sm font-bold text-foreground hover:text-primary cursor-pointer transition-colors"
-                                    title="Bấm để tra cứu từ điển"
-                                  >
-                                    {phrase.baseForm}
+                                  <h4 className="text-sm font-bold text-foreground">
+                                    <ExamInteractiveText
+                                      text={phrase.baseForm}
+                                      enabled
+                                      as="span"
+                                      inheritClassName
+                                      contextSentence={phrase.example || (sourceLang === 'en' ? inputText : resultText)}
+                                    />
                                   </h4>
                                 </div>
 
@@ -670,7 +712,15 @@ export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {
 
                                 {phrase.example && (
                                   <p className="text-[11px] text-muted-foreground italic mt-1 line-clamp-1" title={phrase.example}>
-                                    Ví dụ: &quot;{phrase.example}&quot;
+                                    Ví dụ: &quot;
+                                    <ExamInteractiveText
+                                      text={phrase.example}
+                                      enabled
+                                      as="span"
+                                      inheritClassName
+                                      contextSentence={phrase.example}
+                                    />
+                                    &quot;
                                   </p>
                                 )}
                               </div>
@@ -767,7 +817,7 @@ export function SentenceTranslator({ onLookupWord }: SentenceTranslatorProps = {
           )}
 
           {/* Lịch sử dịch gần đây (Recent Translations) */}
-          {history.length > 0 && (
+          {isHydrated && history.length > 0 && (
             <div className="pt-2">
               <div className="flex items-center justify-between mb-2 px-1">
                 <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5">

@@ -35,9 +35,11 @@ import { completeRoadmapStep } from '@/lib/roadmap-client';
 import { getTopicBySlug, UNIFIED_GRAMMAR_TOPICS } from '@/lib/grammar-roadmap-data';
 import CategorizationPractice from '@/components/grammar/CategorizationPractice';
 import PedagogicalFeedbackPanel from '@/components/grammar/PedagogicalFeedbackPanel';
-import FormattedText from '@/components/grammar/FormattedText';
+import FormattedText, { hasVietnameseDiacritics, isTrueFalseVi } from '@/components/grammar/FormattedText';
 import GrammarReferenceTable, { type GrammarTheoryData } from '@/components/grammar/GrammarReferenceTable';
 import PronounMatrixTable from '@/components/grammar/PronounMatrixTable';
+import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
+import { InteractiveFormattedText } from '@/components/vocab';
 import { readLastProfileCache } from '@/lib/dashboard-snapshot-cache';
 
 const GRAMMAR_PRACTICE_STATE_VER = 'v3';
@@ -51,10 +53,6 @@ function grammarStateKey(
   if (kind === 'topic') return `lingopro_grammar_practice_${GRAMMAR_PRACTICE_STATE_VER}_${userId}_topic_${id}`;
   if (kind === 'lesson') return `lingopro_grammar_practice_${GRAMMAR_PRACTICE_STATE_VER}_${userId}_lesson_${id}`;
   return `lingopro_grammar_practice_${GRAMMAR_PRACTICE_STATE_VER}_${userId}_class_${id}`;
-}
-
-function hasVietnameseDiacritics(s: string): boolean {
-  return /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/i.test(s);
 }
 
 function extractEnglishForSpeech(raw: string): string | null {
@@ -133,69 +131,134 @@ function renderRichText(text: string): ReactNode[] {
     .replace(/\(\.\.\.\)/g, '___');
 
   const nodes: ReactNode[] = [];
-  // Tokenize bold-italic (***...***), bold (**...**), italic (*...*), code (`...`), or blank (___)
-  const tokens = normalized.split(/(\*{3}[^*\n]+?\*{3}|\*{2}[^*\n]+?\*{2}|\*[^*\n]+?\*|`[^`\n]+?`|_{3,})/g);
+  const TOKEN_SPLIT_RE =
+    /(\*{3}[^*\n]+?\*{3}|\*{2}[^*\n]+?\*{2}|\*[^*\n]+?\*|`[^`\n]+?`|_{3,})/g;
 
-  tokens.forEach((token, i) => {
-    if (!token) return;
+  const pushSegmentTokens = (
+    segmentText: string,
+    keyPrefix: string,
+    interactive: boolean,
+    contextSentence?: string,
+  ) => {
+    const tokens = segmentText.split(TOKEN_SPLIT_RE);
+    tokens.forEach((token, i) => {
+      if (!token) return;
 
-    // Blank line
-    if (/^_{3,}$/.test(token)) {
-      nodes.push(
-        <span
-          key={`bl-${i}`}
-          className="inline-block min-w-[3.5rem] px-2 mx-1 border-b-2 border-dashed border-primary align-baseline"
-          aria-label="Chỗ trống cần điền"
-        />
-      );
+      // Blank line
+      if (/^_{3,}$/.test(token)) {
+        nodes.push(
+          <span
+            key={`${keyPrefix}-bl-${i}`}
+            className="inline-block min-w-[3.5rem] px-2 mx-1 border-b-2 border-dashed border-primary align-baseline"
+            aria-label="Chỗ trống cần điền"
+          />
+        );
+        return;
+      }
+
+      const renderInner = (innerText: string) =>
+        interactive ? (
+          <ExamInteractiveText
+            text={innerText}
+            enabled
+            as="span"
+            inheritClassName
+            themeVariant="minimalist"
+            contextSentence={contextSentence}
+          />
+        ) : (
+          innerText
+        );
+
+      // Bold + Italic: ***text***
+      if (token.startsWith('***') && token.endsWith('***') && token.length >= 6) {
+        const inner = token.slice(3, -3).replace(/\*/g, '').trim();
+        nodes.push(
+          <strong key={`${keyPrefix}-bi-${i}`} className="text-primary font-bold italic">
+            {renderInner(inner)}
+          </strong>
+        );
+        return;
+      }
+
+      // Bold: **text**
+      if (token.startsWith('**') && token.endsWith('**') && token.length >= 4) {
+        const inner = token.slice(2, -2).replace(/\*/g, '').trim();
+        nodes.push(
+          <strong key={`${keyPrefix}-b-${i}`} className="text-primary font-bold">
+            {renderInner(inner)}
+          </strong>
+        );
+        return;
+      }
+
+      // Italic: *text*
+      if (token.startsWith('*') && token.endsWith('*') && token.length >= 2) {
+        const inner = token.slice(1, -1).replace(/\*/g, '').trim();
+        nodes.push(
+          <em key={`${keyPrefix}-it-${i}`} className="italic text-foreground/90 font-medium">
+            {renderInner(inner)}
+          </em>
+        );
+        return;
+      }
+
+      // Code: `code`
+      if (token.startsWith('`') && token.endsWith('`') && token.length >= 2) {
+        const inner = token.slice(1, -1);
+        nodes.push(
+          <code key={`${keyPrefix}-cd-${i}`} className="font-mono text-xs px-1.5 py-0.5 bg-muted/60 border border-border/60 rounded-none">
+            {renderInner(inner)}
+          </code>
+        );
+        return;
+      }
+
+      // Plain text: strip all stray unmatched asterisks
+      const cleanText = token.replace(/\*+/g, '');
+      if (cleanText) {
+        nodes.push(
+          interactive ? (
+            <ExamInteractiveText
+              key={`${keyPrefix}-t-${i}`}
+              text={cleanText}
+              enabled
+              as="span"
+              inheritClassName
+              themeVariant="minimalist"
+              contextSentence={contextSentence}
+            />
+          ) : (
+            <span key={`${keyPrefix}-t-${i}`}>{cleanText}</span>
+          )
+        );
+      }
+    });
+  };
+
+  const lines = normalized.split('\n');
+  lines.forEach((line, lineIdx) => {
+    if (lineIdx > 0) {
+      nodes.push(<span key={`nl-${lineIdx}`}>{'\n'}</span>);
+    }
+    if (!line) return;
+
+    if (!hasVietnameseDiacritics(line)) {
+      const ctx = line.replace(/\*+/g, '').replace(/_{3,}/g, '___').trim();
+      pushSegmentTokens(line, `l${lineIdx}`, true, ctx);
       return;
     }
 
-    // Bold + Italic: ***text***
-    if (token.startsWith('***') && token.endsWith('***') && token.length >= 6) {
-      nodes.push(
-        <strong key={`bi-${i}`} className="text-primary font-bold italic">
-          {token.slice(3, -3).replace(/\*/g, '').trim()}
-        </strong>
-      );
+    const colonMatch = line.match(/^([^:：]+[:：]\s*)(.+)$/);
+    if (colonMatch && hasVietnameseDiacritics(colonMatch[1]) && !hasVietnameseDiacritics(colonMatch[2])) {
+      const [, viPrefix, enClause] = colonMatch;
+      const ctx = enClause.replace(/\*+/g, '').replace(/_{3,}/g, '___').trim();
+      pushSegmentTokens(viPrefix, `l${lineIdx}-vi`, false);
+      pushSegmentTokens(enClause, `l${lineIdx}-en`, true, ctx);
       return;
     }
 
-    // Bold: **text**
-    if (token.startsWith('**') && token.endsWith('**') && token.length >= 4) {
-      nodes.push(
-        <strong key={`b-${i}`} className="text-primary font-bold">
-          {token.slice(2, -2).replace(/\*/g, '').trim()}
-        </strong>
-      );
-      return;
-    }
-
-    // Italic: *text*
-    if (token.startsWith('*') && token.endsWith('*') && token.length >= 2) {
-      nodes.push(
-        <em key={`it-${i}`} className="italic text-foreground/90 font-medium">
-          {token.slice(1, -1).replace(/\*/g, '').trim()}
-        </em>
-      );
-      return;
-    }
-
-    // Code: `code`
-    if (token.startsWith('`') && token.endsWith('`') && token.length >= 2) {
-      nodes.push(
-        <code key={`cd-${i}`} className="font-mono text-xs px-1.5 py-0.5 bg-muted/60 border border-border/60 rounded-none">
-          {token.slice(1, -1)}
-        </code>
-      );
-      return;
-    }
-
-    // Plain text: strip all stray unmatched asterisks
-    const cleanText = token.replace(/\*+/g, '');
-    if (cleanText) {
-      nodes.push(<span key={`t-${i}`}>{cleanText}</span>);
-    }
+    pushSegmentTokens(line, `l${lineIdx}`, false);
   });
 
   return nodes;
@@ -222,7 +285,11 @@ function ErrorCorrectionSentence({
   if (!options || options.length === 0 || !cleanSentence) {
     return (
       <div className="text-base sm:text-lg font-medium text-foreground leading-relaxed">
-        <FormattedText text={sentence} />
+        <InteractiveFormattedText
+          text={sentence}
+          enabled={!hasVietnameseDiacritics(sentence)}
+          themeVariant="minimalist"
+        />
       </div>
     );
   }
@@ -239,7 +306,11 @@ function ErrorCorrectionSentence({
   if (!hasMatchedTokens) {
     return (
       <div className="text-base sm:text-lg font-medium text-foreground leading-relaxed">
-        <FormattedText text={sentence} />
+        <InteractiveFormattedText
+          text={sentence}
+          enabled={!hasVietnameseDiacritics(sentence)}
+          themeVariant="minimalist"
+        />
       </div>
     );
   }
@@ -251,7 +322,17 @@ function ErrorCorrectionSentence({
         const matchedOption = options.find((opt) => opt.toLowerCase() === trimmed.toLowerCase());
 
         if (!matchedOption) {
-          return <span key={i}>{part}</span>;
+          return (
+            <ExamInteractiveText
+              key={i}
+              text={part}
+              enabled={!hasVietnameseDiacritics(part)}
+              as="span"
+              inheritClassName
+              themeVariant="minimalist"
+              contextSentence={cleanSentence}
+            />
+          );
         }
 
         const isCorrect = isGrammarAnswerCorrect(matchedOption, correctAnswer, options);
@@ -269,11 +350,25 @@ function ErrorCorrectionSentence({
           cn += 'border-dashed border-border hover:bg-muted hover:border-foreground cursor-pointer ';
         }
 
+        if (selected) {
+          return (
+            <span key={i} className={cn}>
+              <ExamInteractiveText
+                text={part}
+                enabled={!hasVietnameseDiacritics(part)}
+                as="span"
+                inheritClassName
+                themeVariant="minimalist"
+                contextSentence={cleanSentence}
+              />
+            </span>
+          );
+        }
+
         return (
           <button
             key={i}
             className={cn}
-            disabled={!!selected}
             onClick={() => onSelect(matchedOption)}
             type="button"
           >
@@ -1058,11 +1153,27 @@ function PracticeHubContent() {
                             'border-border/50 bg-muted/20 text-muted-foreground opacity-60';
                         }
                       }
+                      if (selected !== null) {
+                        return (
+                          <div
+                            key={`${idx}-${cleanOpt}`}
+                            className={`min-h-[44px] px-3.5 py-2 border rounded-none font-mono text-sm text-left sm:text-center flex items-center justify-start sm:justify-center transition-colors ${btnStyle}`}
+                          >
+                            <ExamInteractiveText
+                              text={cleanOpt}
+                              enabled={!isTrueFalseVi(cleanOpt) && !hasVietnameseDiacritics(cleanOpt)}
+                              as="span"
+                              inheritClassName
+                              themeVariant="minimalist"
+                              contextSentence={current.question}
+                            />
+                          </div>
+                        );
+                      }
                       return (
                         <button
                           key={`${idx}-${cleanOpt}`}
                           type="button"
-                          disabled={!!selected}
                           onClick={() => {
                             setTypedAnswer(cleanOpt);
                             handleSelectOption(cleanOpt);
@@ -1115,11 +1226,36 @@ function PracticeHubContent() {
                   optClass += 'border-border bg-card hover:bg-muted/70 hover:border-foreground';
                 }
 
+                if (selected) {
+                  return (
+                    <div key={idx} className={optClass}>
+                      <div className="flex items-start gap-2.5 sm:gap-3 flex-1 min-w-0 text-left">
+                        <span className="text-xs text-muted-foreground uppercase pt-0.5 shrink-0 font-bold tabular-nums">
+                          {String.fromCharCode(65 + idx)}.
+                        </span>
+                        <span className="flex-1 min-w-0 text-left leading-relaxed break-words">
+                          <InteractiveFormattedText
+                            text={opt}
+                            enabled={!isTrueFalseVi(opt) && !hasVietnameseDiacritics(opt)}
+                            themeVariant="minimalist"
+                            contextSentence={current.question}
+                          />
+                        </span>
+                      </div>
+                      {isCorrect && (
+                        <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      )}
+                      {isSelected && !isCorrect && (
+                        <XCircle className="h-4 w-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
+                      )}
+                    </div>
+                  );
+                }
+
                 return (
                   <button
                     key={idx}
                     onClick={() => handleSelectOption(opt)}
-                    disabled={!!selected}
                     className={optClass}
                     type="button"
                   >
@@ -1131,12 +1267,6 @@ function PracticeHubContent() {
                         <FormattedText text={opt} />
                       </span>
                     </div>
-                    {selected && isCorrect && (
-                      <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                    )}
-                    {selected && isSelected && !isCorrect && (
-                      <XCircle className="h-4 w-4 text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
-                    )}
                   </button>
                 );
               })}
