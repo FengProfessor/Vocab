@@ -29,6 +29,7 @@ import {
   parseFamilyWordsFromEditor,
 } from '@/lib/teacher-vocab-import';
 import VocabImportPanel from '@/components/teacher/VocabImportPanel';
+import { invalidateClassroomTeacherCache } from '@/components/teacher/teacher-cache';
 
 type AddMode = 'presets' | 'file' | 'paste' | 'single';
 
@@ -43,6 +44,7 @@ interface TeacherWord extends Word {
 interface WordsPanelProps {
   classroomId: string;
   userId: string | null;
+  onWordsChanged?: () => void;
 }
 
 function escapeCsvCell(val: string): string {
@@ -57,7 +59,7 @@ function escapeCsvCell(val: string): string {
  * Vocabulary management panel — embedded in the unified teacher dashboard.
  * Supports Word/Excel/CSV upload, pasted table import, single word AI add, and full editing.
  */
-export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
+export default function WordsPanel({ classroomId, userId, onWordsChanged }: WordsPanelProps) {
   const [words, setWords] = useState<TeacherWord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
@@ -151,6 +153,8 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
           ),
         );
         toast.success(`Đã thêm "${optimistic.word}" — AI đang tự động điền nghĩa ✨`);
+        invalidateClassroomTeacherCache(classroomId);
+        onWordsChanged?.();
         setTimeout(() => {
           void loadWords();
         }, 3000);
@@ -245,6 +249,8 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
       });
       if (!res.ok) throw new Error('Failed to delete');
       toast.success(`Đã xóa "${word}".`);
+      invalidateClassroomTeacherCache(classroomId);
+      onWordsChanged?.();
     } catch {
       setWords(prev);
       toast.error('Không xóa được từ');
@@ -424,6 +430,8 @@ export default function WordsPanel({ classroomId, userId }: WordsPanelProps) {
             mode={addMode}
             existingWordKeys={existingWordKeys}
             onImported={() => {
+              invalidateClassroomTeacherCache(classroomId);
+              onWordsChanged?.();
               void loadWords();
             }}
           />

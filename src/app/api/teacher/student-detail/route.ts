@@ -3,6 +3,11 @@ import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
 import { computeTrueLastActive } from '@/lib/activity/universal-activity';
+import {
+  buildAssignedWordsOverview,
+  fetchClassroomSrsRows,
+  type ClassroomWordRowInput,
+} from '@/lib/teacher-assigned-words';
 import type { TimelineItem } from '@/components/teacher/types';
 
 export async function GET(req: Request): Promise<NextResponse> {
@@ -59,6 +64,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       grammarMicroRes,
       readingRes,
       toeicRes,
+      classroomWordsRes,
     ] = await Promise.all([
       supabase
         .from('student_daily_stats')
@@ -134,7 +140,21 @@ export async function GET(req: Request): Promise<NextResponse> {
         .eq('user_id', studentId)
         .order('last_answered_at', { ascending: false })
         .limit(30),
+      supabase
+        .from('words')
+        .select('id, word, translation, ipa, pos, example, created_at, dictionary_data')
+        .eq('classroom_id', classroomId)
+        .order('created_at', { ascending: false, nullsFirst: false })
+        .limit(500),
     ]);
+
+    const classroomWords = (classroomWordsRes?.data || []) as ClassroomWordRowInput[];
+    const classroomWordIds = classroomWords.map((w) => w.id).filter(Boolean);
+    const assignedSrsRows = await fetchClassroomSrsRows(supabase, classroomWordIds, [studentId]);
+    const { items: assignedWords, summary: assignedSummary } = buildAssignedWordsOverview(
+      classroomWords,
+      assignedSrsRows,
+    );
 
     const quizzes = quizzesRes.data || [];
     const savedWords = savedWordsRes.data || [];
@@ -351,6 +371,8 @@ export async function GET(req: Request): Promise<NextResponse> {
         quiz_type: latestQuiz.quiz_type,
       } : null,
       saved_words_count: savedCount,
+      assigned_words_total: assignedSummary.total,
+      assigned_words_learned: assignedSummary.learned,
     };
 
     return NextResponse.json({
@@ -359,6 +381,8 @@ export async function GET(req: Request): Promise<NextResponse> {
       history: historyRes.data || [],
       quizzes,
       savedWords,
+      assignedWords,
+      assignedSummary,
       toeicAssessments: assessments,
       timeline,
     });

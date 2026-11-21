@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useTransition, useRef } from 'react';
+import { useState, useEffect, useCallback, useTransition, useRef, useMemo } from 'react';
 import type { StudentProgress } from '@/lib/supabase';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import {
   X, ChevronUp, ChevronDown, ExternalLink, Sparkles,
   Copy, CheckCircle2, Plus, Loader2,
   ShieldCheck, BarChart3, Clock, Trophy, BookOpen, Bookmark, Target,
-  Zap, Headphones, FileText
+  Zap, Headphones, FileText, Send, Search
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { authFetch } from '@/lib/auth-fetch';
@@ -25,6 +25,8 @@ import {
   type QuizPoint,
   type StudentErrorItem,
   type SavedWordItem,
+  type AssignedWordItem,
+  type AssignedWordsSummary,
   type ToeicAssessmentItem,
   type TimelineItem,
 } from './teacher-cache';
@@ -103,7 +105,7 @@ async function copyTextToClipboard(text: string): Promise<boolean> {
   }
 }
 
-type SheetTab = 'timeline' | 'saved_words' | 'quizzes' | 'analytics';
+type SheetTab = 'timeline' | 'assigned_words' | 'saved_words' | 'quizzes' | 'analytics';
 
 export default function StudentDetailSheet({
   student,
@@ -119,6 +121,10 @@ export default function StudentDetailSheet({
   const [history, setHistory] = useState<HistoryPoint[]>([]);
   const [quizzes, setQuizzes] = useState<QuizPoint[]>([]);
   const [savedWords, setSavedWords] = useState<SavedWordItem[]>([]);
+  const [assignedWords, setAssignedWords] = useState<AssignedWordItem[]>([]);
+  const [assignedSummary, setAssignedSummary] = useState<AssignedWordsSummary | null>(null);
+  const [assignedFilter, setAssignedFilter] = useState<'all' | 'pending' | 'learned'>('all');
+  const [assignedSearch, setAssignedSearch] = useState('');
   const [toeicAssessments, setToeicAssessments] = useState<ToeicAssessmentItem[]>([]);
   const [timeline, setTimeline] = useState<TimelineItem[]>([]);
   const [errorsList, setErrorsList] = useState<StudentErrorItem[]>([]);
@@ -209,39 +215,53 @@ export default function StudentDetailSheet({
     }
   }, [status.tag, status.title, getFallbackSuggestion]);
 
-  // 2. Fetch Detail & Quizzes with in-memory caching & Race Condition Guard
+  // 2. Fetch Detail & Quizzes with in-memory caching + silent background revalidation
   const loadDetail = useCallback(async (studentId: string) => {
+    const applyPayload = (json: {
+      history?: HistoryPoint[];
+      quizzes?: QuizPoint[];
+      savedWords?: SavedWordItem[];
+      assignedWords?: AssignedWordItem[];
+      assignedSummary?: AssignedWordsSummary;
+      toeicAssessments?: ToeicAssessmentItem[];
+      timeline?: TimelineItem[];
+    }) => {
+      setHistory(json.history || []);
+      setQuizzes(json.quizzes || []);
+      setSavedWords(json.savedWords || []);
+      setAssignedWords(json.assignedWords || []);
+      setAssignedSummary(json.assignedSummary || null);
+      setToeicAssessments(json.toeicAssessments || []);
+      setTimeline(json.timeline || []);
+    };
+
     const cached = getCachedStudentDetail(studentId, classroomId);
     if (cached) {
-      setHistory(cached.history || []);
-      setQuizzes(cached.quizzes || []);
-      setSavedWords(cached.savedWords || []);
-      setToeicAssessments(cached.toeicAssessments || []);
-      setTimeline(cached.timeline || []);
-      return;
+      applyPayload(cached);
+    } else {
+      setHistory([]);
+      setQuizzes([]);
+      setSavedWords([]);
+      setAssignedWords([]);
+      setAssignedSummary(null);
+      setToeicAssessments([]);
+      setTimeline([]);
+      setIsLoadingDetail(true);
     }
 
-    setHistory([]);
-    setQuizzes([]);
-    setSavedWords([]);
-    setToeicAssessments([]);
-    setTimeline([]);
-    setIsLoadingDetail(true);
     try {
       const res = await authFetch(`/api/teacher/student-detail?studentId=${studentId}&classroomId=${classroomId}`);
       const json = await res.json();
       if (json.success) {
         setCachedStudentDetail(studentId, classroomId, json);
         if (currentStudentIdRef.current === studentId) {
-          setHistory(json.history || []);
-          setQuizzes(json.quizzes || []);
-          setSavedWords(json.savedWords || []);
-          setToeicAssessments(json.toeicAssessments || []);
-          setTimeline(json.timeline || []);
+          applyPayload(json);
         }
       }
     } catch (err) {
-      console.error('[StudentDetailSheet] Error loading detail:', err);
+      if (!cached) {
+        console.error('[StudentDetailSheet] Error loading detail:', err);
+      }
     } finally {
       if (currentStudentIdRef.current === studentId) {
         setIsLoadingDetail(false);
@@ -284,6 +304,8 @@ export default function StudentDetailSheet({
     // Fast state transition
     startTransition(() => {
       setActiveTab('timeline');
+      setAssignedFilter('all');
+      setAssignedSearch('');
       void loadDetail(student.student_id);
       void loadErrors(student.student_id);
       void loadAiSuggestion(student);
@@ -299,6 +321,20 @@ export default function StudentDetailSheet({
       if (nextStudent) void prefetchStudent(nextStudent.student_id, classroomId);
     }
   }, [student, isOpen, classroomId, currentIndex, allStudents, loadDetail, loadErrors, loadAiSuggestion]);
+
+  const filteredAssignedWords = useMemo(() => {
+    const q = assignedSearch.trim().toLowerCase();
+    return assignedWords.filter((w) => {
+      if (assignedFilter === 'pending' && w.status !== 'pending') return false;
+      if (assignedFilter === 'learned' && w.status === 'pending') return false;
+      if (!q) return true;
+      return (
+        w.word.toLowerCase().includes(q) ||
+        (w.translation || '').toLowerCase().includes(q) ||
+        (w.section || '').toLowerCase().includes(q)
+      );
+    });
+  }, [assignedWords, assignedFilter, assignedSearch]);
 
   // Copy Zalo message action with robust clipboard fallback
   const handleCopyZaloMessage = useCallback(async () => {
@@ -610,6 +646,28 @@ export default function StudentDetailSheet({
               </button>
 
               <button
+                onClick={() => setActiveTab('assigned_words')}
+                className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
+                  activeTab === 'assigned_words'
+                    ? 'border-primary text-primary'
+                    : 'border-transparent text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <Send className="h-4 w-4" /> Từ lớp giao
+                {assignedWords.length > 0 && (
+                  <span
+                    className={`ml-1 px-1.5 py-0.5 rounded-full text-[10px] font-bold tabular-nums ${
+                      (assignedSummary?.learned ?? 0) >= assignedWords.length
+                        ? 'bg-emerald-100 text-emerald-700'
+                        : 'bg-indigo-100 text-indigo-700'
+                    }`}
+                  >
+                    {assignedSummary?.learned ?? 0}/{assignedWords.length}
+                  </span>
+                )}
+              </button>
+
+              <button
                 onClick={() => setActiveTab('saved_words')}
                 className={`py-2.5 px-3 text-xs sm:text-sm font-semibold border-b-2 transition-colors flex items-center gap-1.5 shrink-0 whitespace-nowrap touch-manipulation ${
                   activeTab === 'saved_words'
@@ -795,9 +853,184 @@ export default function StudentDetailSheet({
               </div>
             )}
 
-            {/* TAB 2: Từ vựng đã lưu */}
+            {/* TAB 2: Từ lớp giao (Từ vựng giáo viên giao trong lớp & tiến độ của học sinh) */}
+            {activeTab === 'assigned_words' && (
+              <div className="space-y-4 animate-in fade-in duration-150">
+                <div className="p-3 rounded-xl bg-indigo-50/70 border border-indigo-200/80 space-y-2">
+                  <div className="flex items-center justify-between gap-2 flex-wrap">
+                    <div className="flex items-center gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                      <h4 className="font-bold text-xs sm:text-sm text-foreground">
+                        {assignedWords.length > 0
+                          ? `Học sinh đã nhận ${assignedWords.length} từ lớp giao`
+                          : 'Lớp chưa có từ vựng nào được giao'}
+                      </h4>
+                    </div>
+                    {assignedWords.length > 0 && (
+                      <span className="font-mono text-xs px-2.5 py-0.5 rounded-full bg-background border border-indigo-200 text-indigo-700 font-bold tabular-nums">
+                        Đã học {assignedSummary?.learned ?? 0}/{assignedWords.length}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[11px] text-muted-foreground leading-relaxed">
+                    Học sinh thuộc lớp <strong>{classroomName}</strong> nên mọi từ giáo viên giao đều tự động đồng bộ vào mục <strong>Học Từ Mới</strong> của học sinh mà không cần bấm nhận thủ công.
+                  </p>
+                </div>
+
+                {assignedWords.length > 0 && (
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <button
+                        type="button"
+                        onClick={() => setAssignedFilter('all')}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors ${
+                          assignedFilter === 'all'
+                            ? 'bg-primary text-white border-primary'
+                            : 'bg-background text-muted-foreground hover:text-foreground'
+                        }`}
+                      >
+                        Tất cả ({assignedWords.length})
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setAssignedFilter('pending')}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors ${
+                          assignedFilter === 'pending'
+                            ? 'bg-indigo-600 text-white border-indigo-600'
+                            : 'bg-background text-muted-foreground hover:text-foreground'
+                        }`}
+                      >
+                        Chờ học ({assignedSummary?.pending ?? 0})
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setAssignedFilter('learned')}
+                        className={`px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors ${
+                          assignedFilter === 'learned'
+                            ? 'bg-emerald-600 text-white border-emerald-600'
+                            : 'bg-background text-muted-foreground hover:text-foreground'
+                        }`}
+                      >
+                        Đã học ({assignedSummary?.learned ?? 0})
+                      </button>
+                    </div>
+
+                    <div className="relative flex-1 min-w-[160px] max-w-[220px]">
+                      <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+                      <input
+                        type="search"
+                        value={assignedSearch}
+                        onChange={(e) => setAssignedSearch(e.target.value)}
+                        placeholder="Lọc từ..."
+                        className="w-full rounded-lg border bg-background pl-8 pr-2.5 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {isLoadingDetail ? (
+                  <div className="py-12 text-center text-xs text-muted-foreground flex flex-col items-center justify-center gap-2">
+                    <Loader2 className="h-6 w-6 animate-spin text-primary" />
+                    <span>Đang tải danh sách từ lớp giao...</span>
+                  </div>
+                ) : assignedWords.length === 0 ? (
+                  <div className="p-8 text-center bg-muted/20 border rounded-2xl">
+                    <Send className="h-8 w-8 text-muted-foreground/40 mx-auto mb-2" />
+                    <p className="font-semibold text-xs sm:text-sm">Chưa có từ vựng nào trong lớp</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Hãy vào tab Từ vựng để giao gói bài học hoặc nhập danh sách từ mới cho lớp.
+                    </p>
+                  </div>
+                ) : filteredAssignedWords.length === 0 ? (
+                  <div className="p-6 text-center bg-muted/20 border rounded-2xl text-xs text-muted-foreground">
+                    Không có từ nào khớp bộ lọc hiện tại.
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    {filteredAssignedWords.map((w) => {
+                      const statusMeta =
+                        w.status === 'mastered'
+                          ? {
+                              label: `Đã nhớ (${w.reviewCount} lần)`,
+                              badgeClass: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                            }
+                          : w.status === 'learning'
+                          ? {
+                              label: `Đang học (${w.reviewCount} lần)`,
+                              badgeClass: 'bg-sky-50 text-sky-700 border-sky-200',
+                            }
+                          : {
+                              label: 'Đã nhận • Chờ học',
+                              badgeClass: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+                            };
+
+                      return (
+                        <div
+                          key={w.id}
+                          className="p-3 bg-background border rounded-xl shadow-xs hover:border-primary/40 transition-colors space-y-1.5"
+                        >
+                          <div className="flex items-start justify-between gap-2">
+                            <div className="min-w-0">
+                              <div className="flex items-baseline gap-2 flex-wrap">
+                                <span className="font-bold text-sm text-foreground">{w.word}</span>
+                                {w.pos && (
+                                  <span className="text-[10px] font-bold bg-primary/10 text-primary px-1.5 py-0.5 rounded uppercase">
+                                    {w.pos}
+                                  </span>
+                                )}
+                                {w.ipa && (
+                                  <span className="text-muted-foreground text-xs font-mono">/{w.ipa}/</span>
+                                )}
+                              </div>
+                              {w.translation && (
+                                <p className="text-xs text-muted-foreground mt-0.5">{w.translation}</p>
+                              )}
+                              {w.section && (
+                                <p className="text-[10px] text-muted-foreground/80 mt-0.5 truncate">
+                                  {w.section}
+                                </p>
+                              )}
+                            </div>
+
+                            <div className="text-right shrink-0 space-y-1">
+                              <span
+                                className={`inline-block px-2 py-0.5 rounded-full text-[10px] font-bold border ${statusMeta.badgeClass}`}
+                              >
+                                {statusMeta.label}
+                              </span>
+                              <p className="text-[10px] text-muted-foreground font-mono">
+                                {w.lastReviewedAt
+                                  ? `Ôn: ${formatExactTimestamp(w.lastReviewedAt)}`
+                                  : `Giao: ${formatExactTimestamp(w.created_at)}`}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* TAB 3: Từ vựng đã lưu */}
             {activeTab === 'saved_words' && (
               <div className="space-y-4 animate-in fade-in duration-150">
+                {assignedWords.length > 0 && (
+                  <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-indigo-50/70 border border-indigo-200/80">
+                    <p className="text-xs text-indigo-950">
+                      Có <strong>{assignedWords.length} từ</strong> giáo viên giao cho lớp (đã học{' '}
+                      <strong>{assignedSummary?.learned ?? 0}/{assignedWords.length}</strong>).
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTab('assigned_words')}
+                      className="text-xs font-bold text-indigo-700 hover:text-indigo-900 whitespace-nowrap shrink-0 underline underline-offset-2"
+                    >
+                      Xem từ lớp giao →
+                    </button>
+                  </div>
+                )}
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="font-bold text-xs sm:text-sm">Từ vựng học sinh đã lưu</h4>

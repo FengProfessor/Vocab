@@ -3,6 +3,10 @@ import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
 import { getAuthUser, unauthorized } from '@/lib/api-security';
 import { getBatchStudentActivity, computeTrueLastActive } from '@/lib/activity/universal-activity';
+import {
+  countLearnedClassroomWordsByStudent,
+  fetchClassroomSrsRows,
+} from '@/lib/teacher-assigned-words';
 
 /**
  * GET /api/teacher/stats?classroomId=yyy
@@ -53,7 +57,7 @@ export async function GET(req: Request) {
       if (studentErr) throw studentErr;
 
       const studentIds = (studentData || []).map(s => s.student_id);
-      const [profilesRes, enrollmentsRes, quizzesRes, wordsRes, activitySummaryMap] = studentIds.length > 0 ? await Promise.all([
+      const [profilesRes, enrollmentsRes, quizzesRes, wordsRes, classroomWordsRes, activitySummaryMap] = studentIds.length > 0 ? await Promise.all([
         supabase.from('profiles').select('id, plan, plan_expires_at').in('id', studentIds),
         supabase.from('enrollments').select('student_id, joined_at').eq('classroom_id', classroomId).in('student_id', studentIds),
         supabase
@@ -66,8 +70,16 @@ export async function GET(req: Request) {
           .select('added_by, created_at')
           .in('added_by', studentIds)
           .order('created_at', { ascending: false, nullsFirst: false }),
+        supabase
+          .from('words')
+          .select('id')
+          .eq('classroom_id', classroomId),
         getBatchStudentActivity(studentIds, supabase),
-      ]) : [{ data: [] }, { data: [] }, { data: [] }, { data: [] }, new Map()];
+      ]) : [{ data: [] }, { data: [] }, { data: [] }, { data: [] }, { data: [] }, new Map()];
+
+      const classroomWordIds = (classroomWordsRes.data || []).map((w: { id: string }) => w.id).filter(Boolean);
+      const assignedSrsRows = await fetchClassroomSrsRows(supabase, classroomWordIds, studentIds);
+      const learnedAssignedMap = countLearnedClassroomWordsByStudent(classroomWordIds, assignedSrsRows);
 
       const profMap = new Map((profilesRes.data || []).map(p => [p.id, p]));
       const enrMap = new Map((enrollmentsRes.data || []).map(e => [e.student_id, e.joined_at]));
@@ -146,6 +158,8 @@ export async function GET(req: Request) {
           joined_at: joinedAt || null,
           latest_quiz: latestQuiz,
           saved_words_count: Math.max(savedWordsCount, actSummary?.wordCount || 0),
+          assigned_words_total: classroomWordIds.length,
+          assigned_words_learned: learnedAssignedMap.get(s.student_id) || 0,
         };
       });
     }
