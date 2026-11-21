@@ -53,13 +53,21 @@ interface WordItem {
 function FlashcardContent() {
   const searchParams = useSearchParams();
   // Chế độ học từ mới (Giới thiệu → Nhớ lại) tách khỏi luồng ôn tập
-  if (searchParams.get('mode') === 'learn') {
+  const mode = searchParams.get('mode');
+  if (mode === 'learn') {
     return <LearnMode classroomId={searchParams.get('class')} />;
   }
-  return <ReviewSession initialClassroomId={searchParams.get('class')} />;
+  const freeMode = mode === 'free' || searchParams.get('free') === '1';
+  return <ReviewSession initialClassroomId={searchParams.get('class')} freeMode={freeMode} />;
 }
 
-function ReviewSession({ initialClassroomId }: { initialClassroomId: string | null }) {
+function ReviewSession({
+  initialClassroomId,
+  freeMode = false,
+}: {
+  initialClassroomId: string | null;
+  freeMode?: boolean;
+}) {
   const router = useRouter();
   const vocabLookup = useOptionalVocabLookup();
 
@@ -95,10 +103,18 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
 
   useEffect(() => {
     const init = async () => {
+      ratedWordIdsRef.current.clear();
+      setQueue([]);
+      setCurrent(null);
+      setProgress(0);
+      setTotal(0);
+      setDone(false);
+      setIsLoading(true);
+
       let hasCached = false;
       const isPersonalScope = !initialClassroomId || initialClassroomId === '__personal__';
       const hydrateFromIndexedDB = async (uid: string) => {
-        if (!isPersonalScope) return;
+        if (freeMode || !isPersonalScope) return;
         try {
           const cachedWords = await getOfflineStudyQueue(uid, 'review');
           const dueCached = cachedWords.filter((cw) => cw.isDue !== false);
@@ -151,7 +167,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         const cachedUserId = readLastProfileCache()?.id ?? null;
         const [sessionRes] = await Promise.all([
           supabase.auth.getSession(),
-          cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
+          !freeMode && cachedUserId ? hydrateFromIndexedDB(cachedUserId) : Promise.resolve(),
         ]);
         const { data: { session }, error } = sessionRes;
         if (error) return;
@@ -159,14 +175,15 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         if (!user || !session) { router.replace('/auth'); return; }
         setUserId(user.id);
 
-        if (!hasCached && user.id !== cachedUserId) {
+        if (!freeMode && !hasCached && user.id !== cachedUserId) {
           await hydrateFromIndexedDB(user.id);
         }
 
-        // 2. Background revalidation from /api/words
-        const url = classroomId
-          ? `/api/words?classroomId=${classroomId}&filter=review&limit=40`
-          : `/api/words?filter=review&limit=40`;
+        // 2. Background revalidation from /api/words (freeMode loads all saved/assigned words without waiting for FSRS due date)
+        const filterParam = freeMode ? '' : '&filter=review';
+        const url = initialClassroomId
+          ? `/api/words?classroomId=${encodeURIComponent(initialClassroomId)}&limit=40&noCount=1${filterParam}`
+          : `/api/words?limit=40&noCount=1${filterParam}`;
 
         const res = await fetch(url, {
           headers: { 'X-LingoPro-Request': '1' },
@@ -174,14 +191,14 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
         const data = await res.json();
 
         if (data.success && data.data) {
-          if (!classroomId && data.classroomId) setClassroomId(data.classroomId);
+          if (!initialClassroomId && data.classroomId) setClassroomId(data.classroomId);
 
-          // Server đã trả đúng từ đã học & đến hạn (filter=review)
+          // Server trả danh sách từ (toàn bộ kho nếu freeMode, hoặc đến hạn nếu review)
           const studyQueue: WordItem[] = data.data;
           const unratedServer = studyQueue.filter((w) => !ratedWordIdsRef.current.has(w.id));
 
-          // Đồng bộ lại IndexedDB cho personal scope (kể cả khi server trả [] để xoá sạch từ cũ đã ôn trên thiết bị khác)
-          if (isPersonalScope) {
+          // Đồng bộ lại IndexedDB cho personal scope (chỉ với hàng đợi due FSRS chuẩn)
+          if (!freeMode && isPersonalScope) {
             void import('@/lib/offline/db')
               .then((dbMod) => {
                 const now = Date.now();
@@ -264,7 +281,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
       }
     };
     init();
-  }, [initialClassroomId]);
+  }, [initialClassroomId, freeMode]);
 
   const loadFreeReview = async () => {
     setIsLoading(true);
@@ -580,7 +597,7 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
             <ChevronLeft className="mr-2 h-5 w-5" /> Dashboard
           </Button>
           <Button className="flex-1 h-14 rounded-2xl bg-primary hover:brightness-110 text-white font-bold shadow-lg border-b-4 border-primary/60 active:translate-y-0.5 active:border-b-0 transition-all" onClick={() => window.location.reload()}>
-            <RotateCcw className="mr-2 h-5 w-5" /> Ôn lại
+            <RotateCcw className="mr-2 h-5 w-5" /> {freeMode ? 'Luyện lại' : 'Ôn lại'}
           </Button>
         </div>
       </div>
@@ -591,22 +608,31 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
     return (
       <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 text-center font-sans">
         <div className="space-y-3">
-          <div className="text-6xl mb-2">🎉</div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight">Hôm nay không có từ đến hạn ôn</h1>
+          <div className="text-6xl mb-2">{freeMode ? '🃏' : '🎉'}</div>
+          <h1 className="text-3xl font-black text-slate-900 tracking-tight">
+            {freeMode ? 'Chưa có từ vựng nào để luyện tập' : 'Hôm nay không có từ đến hạn ôn'}
+          </h1>
           <p className="max-w-md text-slate-500 font-medium leading-relaxed">
-            Bạn đã hoàn thành các từ đến hạn theo thuật toán FSRS. Bạn có thể ôn tự do các từ đã lưu để củng cố trí nhớ bất cứ lúc nào!
+            {freeMode
+              ? 'Kho từ hiện tại chưa có từ nào. Hãy học từ mới hoặc thêm từ vào kho để bắt đầu luyện Flashcard ngay!'
+              : 'Bạn đã hoàn thành các từ đến hạn theo thuật toán FSRS. Bạn có thể ôn tự do các từ đã lưu để củng cố trí nhớ bất cứ lúc nào!'}
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 w-full max-w-sm">
-          <Button
-            onClick={loadFreeReview}
-            className="h-12 w-full rounded-2xl bg-indigo-600 font-bold text-white shadow-md hover:bg-indigo-700"
-          >
-            🔄 Ôn tập tự do (Từ đã lưu)
-          </Button>
+          {!freeMode && (
+            <Button
+              onClick={loadFreeReview}
+              className="h-12 w-full rounded-2xl bg-indigo-600 font-bold text-white shadow-md hover:bg-indigo-700"
+            >
+              🔄 Ôn tập tự do (Từ đã lưu)
+            </Button>
+          )}
           <Link href="/flashcard?mode=learn" className="w-full">
-            <Button variant="outline" className="h-12 w-full rounded-2xl font-bold border-2">
+            <Button
+              variant={freeMode ? 'default' : 'outline'}
+              className={`h-12 w-full rounded-2xl font-bold ${freeMode ? 'bg-indigo-600 text-white hover:bg-indigo-700' : 'border-2'}`}
+            >
               📖 Học từ mới
             </Button>
           </Link>
@@ -698,8 +724,18 @@ function ReviewSession({ initialClassroomId }: { initialClassroomId: string | nu
               style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
             >
               <CardContent className="flex min-h-0 w-full flex-1 flex-col items-center gap-2 overflow-y-auto overscroll-contain p-3 sm:gap-2.5 sm:p-4">
-                <Badge className="shrink-0 rounded-full border-none bg-amber-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-amber-600">
-                  {current.isDue ? '⚡ ÔN TẬP' : '📖 TỪ MỚI'}
+                <Badge
+                  className={`shrink-0 rounded-full border-none px-3 py-0.5 text-[9px] font-black uppercase tracking-widest ${
+                    freeMode
+                      ? 'bg-violet-100 text-violet-700'
+                      : 'bg-amber-50 text-amber-600'
+                  }`}
+                >
+                  {freeMode
+                    ? '🃏 LUYỆN TẬP TỰ DO • KHÔNG CHỜ HẠN'
+                    : current.isDue
+                      ? '⚡ ÔN TẬP'
+                      : '📖 TỪ MỚI'}
                 </Badge>
 
                 {current.image_url && (
