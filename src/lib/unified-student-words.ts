@@ -140,9 +140,17 @@ export function mergeAndDedupeNewWords<
 
   const sorted = Array.from(dedupedByWord.values())
     .sort((a, b) => {
-      const timeDiff =
-        parseTimestampMs(b.item.created_at) - parseTimestampMs(a.item.created_at);
-      if (timeDiff !== 0) return timeDiff;
+      const pa = getNewWordCandidatePriority(a.item, personalClassroomId);
+      const pb = getNewWordCandidatePriority(b.item, personalClassroomId);
+      if (pb.isTeacherImport !== pa.isTeacherImport) {
+        return pb.isTeacherImport - pa.isTeacherImport;
+      }
+      if (pb.isEnrolledClass !== pa.isEnrolledClass) {
+        return pb.isEnrolledClass - pa.isEnrolledClass;
+      }
+      if (pb.createdMs !== pa.createdMs) {
+        return pb.createdMs - pa.createdMs;
+      }
       return a.firstSeenIndex - b.firstSeenIndex;
     })
     .map((entry) => entry.item);

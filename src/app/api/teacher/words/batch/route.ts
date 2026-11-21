@@ -253,7 +253,9 @@ export async function POST(req: Request): Promise<NextResponse> {
     const toUpdate: Array<{ id: string; payload: Record<string, unknown> }> = [];
     const baseNow = Date.now();
 
-    for (const item of dedupedItems) {
+    for (let itemIdx = 0; itemIdx < dedupedItems.length; itemIdx++) {
+      const item = dedupedItems[itemIdx];
+      const itemCreatedAt = new Date(baseNow - itemIdx * 10).toISOString();
       const lower = item.word.toLowerCase();
       const existing = existingMap.get(lower);
 
@@ -337,10 +339,10 @@ export async function POST(req: Request): Promise<NextResponse> {
             synonyms: finalSynonyms,
             antonyms: finalAntonyms,
             dictionary_data: nextDict,
+            created_at: itemCreatedAt,
           },
         });
       } else {
-        const insertIdx = toInsert.length;
         toInsert.push({
           classroom_id: classroomId,
           added_by: auth.userId,
@@ -356,7 +358,7 @@ export async function POST(req: Request): Promise<NextResponse> {
           synonyms: finalSynonyms,
           antonyms: finalAntonyms,
           dictionary_data: nextDict,
-          created_at: new Date(baseNow - insertIdx * 10).toISOString(),
+          created_at: itemCreatedAt,
         });
       }
     }

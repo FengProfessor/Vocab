@@ -1500,7 +1500,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       } else {
         let idQuery = supabase
           .from('words')
-          .select('id, word, classroom_id, created_at')
+          .select('id, word, classroom_id, created_at, src:dictionary_data->>source')
           .order('created_at', { ascending: false });
         idQuery =
           targetClassroomIds.length === 1
@@ -1514,7 +1514,16 @@ export async function GET(req: Request): Promise<NextResponse> {
           word: string;
           classroom_id?: string | null;
           created_at?: string | null;
-        }>).filter((r) => !learnedIds.has(r.id));
+          src?: string | null;
+        }>)
+          .filter((r) => !learnedIds.has(r.id))
+          .map((r) => ({
+            id: r.id,
+            word: r.word,
+            classroom_id: r.classroom_id,
+            created_at: r.created_at,
+            ...(r.src?.trim() ? { source: r.src.trim() } : {}),
+          }));
 
         candidateIds =
           targetClassroomIds.length > 1

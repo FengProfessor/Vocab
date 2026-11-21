@@ -77,6 +77,51 @@ const CLASS_B_ID = '33333333-3333-4333-8333-333333333333';
   );
 }
 
+// 1b. Teacher-assigned words STILL come first ahead of NEWER personal words saved later
+{
+  const newerPersonalWords: MockNewWord[] = [
+    {
+      id: 'p-new-1',
+      word: 'ephemeral',
+      translation: 'phù du',
+      classroom_id: PERSONAL_ID,
+      created_at: '2026-11-21T08:30:00.000Z',
+    },
+    {
+      id: 'p-new-2',
+      word: 'ubiquitous',
+      translation: 'phổ biến khắp nơi',
+      classroom_id: PERSONAL_ID,
+      created_at: '2026-11-21T08:20:00.000Z',
+    },
+  ];
+  const earlierTeacherBatch: MockNewWord[] = [
+    {
+      id: 't-u1-1',
+      word: 'balanced diet',
+      translation: 'chế độ ăn cân bằng',
+      classroom_id: CLASS_A_ID,
+      created_at: '2026-11-20T10:00:00.000Z',
+      source: 'teacher_import',
+    },
+    {
+      id: 't-u1-2',
+      word: 'cut down on',
+      translation: 'cắt giảm',
+      classroom_id: CLASS_A_ID,
+      created_at: '2026-11-20T09:59:59.990Z',
+      source: 'teacher_import',
+    },
+  ];
+
+  const merged = mergeAndDedupeNewWords([...newerPersonalWords, ...earlierTeacherBatch], PERSONAL_ID, 20);
+  assert.deepEqual(
+    merged.map((w) => w.id),
+    ['t-u1-1', 't-u1-2', 'p-new-1', 'p-new-2'],
+    'Teacher-assigned words must stay prioritized ahead of newer personal words in Học Từ Mới',
+  );
+}
+
 // 2. Duplicate word in both personal and enrolled class prefers teacher-assigned / enrolled version
 {
   const items: MockNewWord[] = [

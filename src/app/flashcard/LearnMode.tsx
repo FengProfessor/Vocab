@@ -38,6 +38,7 @@ interface WordItem {
   familyWords?: WordFamilyEntry[];
   teacherNote?: string;
   section?: string;
+  source?: string;
   reviewCount: number;
   srsLevel: number;
   isDue: boolean;
@@ -66,6 +67,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
   }, [phase]);
   const [batch, setBatch] = useState<WordItem[]>([]);
   const [remainingNew, setRemainingNew] = useState(0);
+  const [isSyncingLatest, setIsSyncingLatest] = useState(true);
 
   // Introduce
   const [introIndex, setIntroIndex] = useState(0);
@@ -132,6 +134,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
               familyWords: cw.familyWords,
               teacherNote: cw.teacherNote,
               section: cw.section,
+              source: cw.source,
               reviewCount: cw.reviewCount,
               srsLevel: cw.srsLevel,
               isDue: cw.isDue,
@@ -238,6 +241,7 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
                     familyWords: w.familyWords,
                     teacherNote: w.teacherNote,
                     section: w.section,
+                    source: w.source,
                     synonyms: [],
                     antonyms: [],
                     srsLevel: w.srsLevel ?? 1,
@@ -296,6 +300,8 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
           toast.error('Không tải được từ mới.');
           setPhase('empty');
         }
+      } finally {
+        setIsSyncingLatest(false);
       }
     })();
   }, [initialClassroomId, idsParam, router, roadmapStepParam, forceReplay]);
@@ -653,11 +659,19 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
 
   // Màn bắt đầu — cần 1 cú chạm để mở khoá audio (autoplay policy)
   if (phase === 'ready') {
+    const teacherAssignedCount = batch.filter((w) => w.source === 'teacher_import').length;
     return (
       <div className="flex h-[calc(100dvh-var(--header-h)-var(--safe-top))] flex-col items-center justify-center gap-6 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-6 text-center font-sans">
         <StudyGuideModal open={showGuide} onClose={closeGuide} />
-        <div className="inline-flex items-center gap-2 rounded-full bg-indigo-100 px-4 py-1.5 text-xs font-black text-indigo-600">
-          <Sparkles className="h-4 w-4" /> Phiên học mới
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="inline-flex items-center gap-2 rounded-full bg-indigo-100 px-4 py-1.5 text-xs font-black text-indigo-600">
+            <Sparkles className="h-4 w-4" /> Phiên học mới
+          </div>
+          {teacherAssignedCount > 0 && (
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3.5 py-1.5 text-xs font-black text-emerald-700">
+              <span>👩‍🏫 Giáo viên giao ({teacherAssignedCount}/{batch.length} từ)</span>
+            </div>
+          )}
         </div>
         <div className="space-y-2">
           <h1 className="text-3xl font-black text-slate-900 sm:text-4xl">
@@ -668,6 +682,11 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
           <p className="max-w-sm font-medium text-slate-500">
             Xem từ, nghĩa và nghe phát âm trước. Sau đó điền lại để kiểm tra trí nhớ ngay.
           </p>
+          {isSyncingLatest && (
+            <p className="text-xs font-semibold text-indigo-500 animate-pulse">
+              Đang đồng bộ danh sách từ mới nhất...
+            </p>
+          )}
         </div>
         <Button
           onClick={startSession}
@@ -697,9 +716,16 @@ export function LearnMode({ classroomId: initialClassroomId }: { classroomId: st
         <div className="flex min-h-0 flex-1 flex-col items-center px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 sm:px-4">
           <Card className="flex min-h-0 w-full max-w-[400px] flex-1 flex-col overflow-hidden rounded-[28px] border-none border-b-[6px] border-slate-200 bg-white shadow-xl shadow-indigo-100 sm:rounded-[32px]">
             <CardContent className="flex min-h-0 flex-1 flex-col items-center gap-2 overflow-y-auto overscroll-contain p-3 text-center sm:gap-2.5 sm:p-4">
-              <Badge className="shrink-0 rounded-full border-none bg-amber-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-amber-600">
-                📖 Làm quen
-              </Badge>
+              <div className="flex flex-wrap items-center justify-center gap-1.5 shrink-0">
+                <Badge className="rounded-full border-none bg-amber-50 px-3 py-0.5 text-[9px] font-black uppercase tracking-widest text-amber-600">
+                  📖 Làm quen
+                </Badge>
+                {w.source === 'teacher_import' && (
+                  <Badge className="rounded-full border-none bg-emerald-50 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-emerald-700">
+                    👩‍🏫 Giáo viên giao
+                  </Badge>
+                )}
+              </div>
 
               {w.image_url && (
                 <div className="relative aspect-[16/10] max-h-[min(26dvh,168px)] w-full shrink-0 overflow-hidden rounded-2xl border border-slate-100 bg-slate-50 shadow-inner">

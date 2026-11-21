@@ -502,9 +502,11 @@ export function useStudentDashboard() {
     [applySummaryCounts, loadSecondaryDashboard, studentCtx],
   );
 
+  const lastSummarySyncAtRef = useRef<number>(Date.now());
   const refreshSummary = useCallback(
     async (userId: string) => {
       try {
+        lastSummarySyncAtRef.current = Date.now();
         const scope = currentClassScopeRef.current;
         const scopeParam = scopeParamFor(scope);
         const res = await authFetch(`/api/words?summary=1${scopeParam}`, {});
@@ -519,15 +521,28 @@ export function useStudentDashboard() {
     [applySummaryCounts],
   );
 
-  // Periodic summary refresh only when STAMPEDE_MODE is disabled
+  // Periodic summary refresh when STAMPEDE_MODE is disabled, plus throttled tab-return sync
   useEffect(() => {
-    if (STAMPEDE_MODE || !profileId) return;
-    const tick = () => {
+    if (!profileId) return;
+    const onVisibilityChange = () => {
       if (document.visibilityState !== 'visible') return;
+      if (Date.now() - lastSummarySyncAtRef.current < 45_000) return;
       void refreshSummary(profileId);
     };
-    const id = window.setInterval(tick, 60_000);
-    return () => window.clearInterval(id);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
+    let intervalId: number | null = null;
+    if (!STAMPEDE_MODE) {
+      intervalId = window.setInterval(() => {
+        if (document.visibilityState !== 'visible') return;
+        void refreshSummary(profileId);
+      }, 60_000);
+    }
+
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      if (intervalId !== null) window.clearInterval(intervalId);
+    };
   }, [profileId, refreshSummary]);
 
   const loadStartedRef = useRef(false);
