@@ -1,20 +1,33 @@
 'use client';
 
 /**
- * Quiz nhớ nhanh từ kho đã học (không FSRS / không ôn sâu).
- * 1) meaning — EN → chọn nghĩa VI
- * 2) cloze — blank example sẵn (MCQ, không gen)
+ * Quiz nhớ nhanh A/B/C/D (không FSRS / không chờ đến hạn).
+ * Nạp cả từ mới/giáo viên giao lẫn từ đã ôn, kèm hình ảnh & phát âm.
+ * 1) meaning — EN + hình ảnh + âm thanh → chọn nghĩa VI (A/B/C/D)
+ * 2) cloze — điền từ vào câu mẫu (A/B/C/D, lộ hình + âm thanh sau khi chọn)
  * 3) mix — xen kẽ cloze + meaning
- * Ôn due + nghe + gõ + schedule → /review
  */
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
-import { BookOpen, Check, ChevronLeft, Loader2, RotateCcw, Volume2, X } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import {
+  ArrowRight,
+  BookOpen,
+  Check,
+  ChevronLeft,
+  Loader2,
+  RotateCcw,
+  Volume2,
+  VolumeX,
+  X,
+} from 'lucide-react';
 import { StudentShell } from '@/components/student/StudentShell';
 import { Button } from '@/components/ui/button';
 import { authFetch } from '@/lib/auth-fetch';
+import { resolveImageSrc } from '@/lib/media-url';
 import { parseIpa, speak, stopSpeak } from '@/lib/study';
+import { stopWordAudio } from '@/lib/audio';
 import { stripEmbeddedVietnamese } from '@/lib/review-modes';
 import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import { InteractiveClozeText, useOptionalVocabLookup } from '@/components/vocab';
@@ -24,6 +37,7 @@ const MIN_LEARNED = 4;
 const MAX_POOL = 200;
 
 type QType = 'meaning' | 'cloze';
+type DrillMode = 'mix' | 'meaning_only';
 type Phase = 'setup' | 'quiz' | 'done';
 /** Bậc đúng quiz: 0=chưa, 1, 2, 3, 4=>3 */
 type TierKey = 0 | 1 | 2 | 3 | 4;
@@ -53,6 +67,7 @@ interface WordEntry {
   ipa: string;
   example: string;
   exampleVi: string;
+  imageUrl?: string;
   reviewCount: number;
 }
 
@@ -63,11 +78,25 @@ interface QuizQ {
   answer: string;
   pos: string;
   ipa: string;
-  opts: string[];
+  imageUrl?: string;
   /** Câu example đã blank (cloze) — chỉ EN, không sub VI */
   stem?: string;
   /** Surface form bị blank trong câu (có thể khác lemma: walks) */
   blankSurface?: string;
+  opts: string[];
+}
+
+async function playDrillAudio(wordText: string): Promise<void> {
+  const clean = wordText.trim();
+  if (!clean) return;
+  stopSpeak();
+  stopWordAudio();
+  try {
+    const { playWordAudio } = await import('@/lib/audio');
+    await playWordAudio(clean, null, 1.0);
+  } catch {
+    speak(clean, 1.0);
+  }
 }
 
 type CorrectMap = Record<string, number>;
@@ -239,14 +268,43 @@ function buildOpts(answer: string, pool: string[]): string[] {
   return shuffle([answer, ...wrong]);
 }
 
-export default function VerbDrillPage() {
+function DrillWordImage({ imageUrl, alt }: { imageUrl?: string; alt: string }) {
+  if (!imageUrl) return null;
+  return (
+    <div className="mx-auto mb-3 aspect-[16/10] w-full max-w-[230px] overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-inner">
+      <img
+        src={resolveImageSrc(imageUrl)}
+        alt={alt}
+        referrerPolicy="no-referrer"
+        loading="eager"
+        decoding="async"
+        className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-300"
+        onLoad={(e) => {
+          e.currentTarget.style.opacity = '1';
+        }}
+        onError={(e) => {
+          const wrap = e.currentTarget.parentElement;
+          if (wrap) wrap.style.display = 'none';
+        }}
+      />
+    </div>
+  );
+}
+
+function VerbDrillContent() {
+  const searchParams = useSearchParams();
+  const initialClassroomId = searchParams.get('class');
+
   const [words, setWords] = useState<WordEntry[]>([]);
   const [savedTotal, setSavedTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [loadErr, setLoadErr] = useState<string | null>(null);
   const [phase, setPhase] = useState<Phase>('setup');
-  /** Kho theo bậc đúng — không auto chọn, user tự bật 1+ kho */
+  /** Kho theo bậc đúng — mặc định auto chọn các kho có từ để vào chơi 1 chạm */
   const [selectedTiers, setSelectedTiers] = useState<Set<TierKey>>(() => new Set());
+  const userTouchedTiersRef = useRef(false);
+  const [drillMode, setDrillMode] = useState<DrillMode>('mix');
+  const [soundEnabled, setSoundEnabled] = useState(true);
   const [wordCount, setWordCount] = useState(15);
   const [queue, setQueue] = useState<QuizQ[]>([]);
   const [idx, setIdx] = useState(0);
@@ -272,71 +330,96 @@ export default function VerbDrillPage() {
       setLoading(true);
       setLoadErr(null);
       try {
-        const mapped: WordEntry[] = [];
-        const seen = new Set<string>();
-        let totalSaved = 0;
+        const fetchScopeWords = async (scopeClassId: string | null) => {
+          const mapped: WordEntry[] = [];
+          const seen = new Set<string>();
+          let totalSaved = 0;
 
-        for (let page = 0; page < 6; page++) {
-          const offset = page * 50;
-          const res = await authFetch(`/api/words?limit=50&offset=${offset}`);
-          if (res.status === 401) {
-            if (!cancelled) {
-              setLoadErr('login');
-              setWords([]);
-              setSavedTotal(0);
-            }
-            return;
-          }
-          const json = (await res.json()) as {
-            success?: boolean;
-            total?: number;
-            data?: Array<{
-              id?: string;
-              word?: string;
-              translation?: string;
-              pos?: string;
-              ipa?: string;
-              example?: string | null;
-              example_vi?: string | null;
-              reviewCount?: number;
-              srs?: { review_count?: number } | null;
-            }>;
-            error?: string;
-          };
-          if (!json.success || !Array.isArray(json.data)) {
-            throw new Error(json.error || 'Không tải được kho từ');
-          }
-          if (typeof json.total === 'number') totalSaved = json.total;
-
-          for (const w of json.data) {
-            const lemma = (w.word || '').trim();
-            if (!lemma || lemma.length > 48) continue;
-            const key = lemma.toLowerCase();
-            if (seen.has(key)) continue;
-            const vi = (w.translation || '').trim().replace(/\s+/g, ' ');
-            if (isBadTranslation(vi)) continue;
-            seen.add(key);
-            totalSaved = Math.max(totalSaved, seen.size);
-            const reviewCount = w.srs?.review_count ?? w.reviewCount ?? 0;
-            if (reviewCount <= 0) continue;
-            mapped.push({
-              id: w.id,
-              lemma,
-              vi,
-              pos: (w.pos || '').trim() || '',
-              ipa: (w.ipa || '').trim(),
-              example: (w.example || '').trim(),
-              exampleVi: (w.example_vi || '').trim(),
-              reviewCount,
+          for (let page = 0; page < 6; page++) {
+            const offset = page * 50;
+            const qs = new URLSearchParams({
+              limit: '50',
+              offset: String(offset),
+              noCount: '1',
             });
-            if (mapped.length >= MAX_POOL) break;
+            if (scopeClassId && scopeClassId !== '__personal__') {
+              qs.set('classroomId', scopeClassId);
+            }
+            const res = await authFetch(`/api/words?${qs.toString()}`);
+            if (res.status === 401) {
+              return { status: 'login' as const, mapped: [], totalSaved: 0 };
+            }
+            const json = (await res.json()) as {
+              success?: boolean;
+              total?: number;
+              data?: Array<{
+                id?: string;
+                word?: string;
+                translation?: string;
+                pos?: string;
+                ipa?: string;
+                image_url?: string | null;
+                example?: string | null;
+                example_vi?: string | null;
+                reviewCount?: number;
+                srs?: { review_count?: number } | null;
+              }>;
+              error?: string;
+            };
+            if (!json.success || !Array.isArray(json.data)) {
+              throw new Error(json.error || 'Không tải được kho từ');
+            }
+            if (typeof json.total === 'number') totalSaved = json.total;
+
+            for (const w of json.data) {
+              const lemma = (w.word || '').trim();
+              if (!lemma || lemma.length > 48) continue;
+              const key = lemma.toLowerCase();
+              if (seen.has(key)) continue;
+              const vi = (w.translation || '').trim().replace(/\s+/g, ' ');
+              if (isBadTranslation(vi)) continue;
+              seen.add(key);
+              totalSaved = Math.max(totalSaved, seen.size);
+              const reviewCount = w.srs?.review_count ?? w.reviewCount ?? 0;
+              mapped.push({
+                id: w.id,
+                lemma,
+                vi,
+                pos: (w.pos || '').trim() || '',
+                ipa: (w.ipa || '').trim(),
+                example: (w.example || '').trim(),
+                exampleVi: (w.example_vi || '').trim(),
+                imageUrl: w.image_url?.trim() || undefined,
+                reviewCount,
+              });
+              if (mapped.length >= MAX_POOL) break;
+            }
+            if (json.data.length < 50 || mapped.length >= MAX_POOL) break;
           }
-          if (json.data.length < 50 || mapped.length >= MAX_POOL) break;
+          return { status: 'ok' as const, mapped, totalSaved };
+        };
+
+        let result = await fetchScopeWords(initialClassroomId);
+        if (result.status === 'login') {
+          if (!cancelled) {
+            setLoadErr('login');
+            setWords([]);
+            setSavedTotal(0);
+          }
+          return;
+        }
+
+        // Nếu lọc riêng 1 lớp mà chưa đủ từ để tạo 4 phương án A/B/C/D, tự mở rộng sang toàn bộ kho của học viên
+        if (initialClassroomId && result.mapped.length < MIN_LEARNED) {
+          const globalResult = await fetchScopeWords(null);
+          if (globalResult.status === 'ok' && globalResult.mapped.length > result.mapped.length) {
+            result = globalResult;
+          }
         }
 
         if (cancelled) return;
-        setWords(mapped);
-        setSavedTotal(totalSaved || mapped.length);
+        setWords(result.mapped);
+        setSavedTotal(result.totalSaved || result.mapped.length);
       } catch (e) {
         if (!cancelled) {
           setLoadErr(e instanceof Error ? e.message : 'Lỗi tải');
@@ -349,7 +432,7 @@ export default function VerbDrillPage() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [initialClassroomId]);
 
   const canMeaning = words.length >= MIN_LEARNED;
 
@@ -383,6 +466,7 @@ export default function VerbDrillPage() {
   const canQuiz = poolWords.length >= 1 && words.length >= MIN_LEARNED;
 
   const toggleTier = (t: TierKey) => {
+    userTouchedTiersRef.current = true;
     setSelectedTiers((prev) => {
       const next = new Set(prev);
       if (next.has(t)) next.delete(t);
@@ -391,18 +475,29 @@ export default function VerbDrillPage() {
     });
   };
 
+  useEffect(() => {
+    if (userTouchedTiersRef.current || words.length === 0) return;
+    const nonEmpty = new Set<TierKey>();
+    for (const t of ALL_TIERS) {
+      if (tierStats[t] > 0) nonEmpty.add(t);
+    }
+    if (nonEmpty.size > 0) {
+      setSelectedTiers(nonEmpty);
+    }
+  }, [words.length, tierStats]);
+
   const start = useCallback(() => {
     if (!canQuiz || poolWords.length === 0) return;
 
-    // Mix cố định: có example blank được → cloze (~55%), không → nghĩa
+    // Mix cố định: có example blank được → cloze (~45%), còn lại meaning (hoặc 100% meaning nếu chọn Chỉ nghĩa)
     const pool = shuffle(poolWords);
     const n = Math.min(wordCount, pool.length);
     const pickedWords = pool.slice(0, n);
 
     const q: QuizQ[] = [];
     for (const w of pickedWords) {
-      const blank = blankInExample(w.example, w.lemma);
-      const wantCloze = blank != null && Math.random() < 0.55;
+      const blank = drillMode === 'mix' ? blankInExample(w.example, w.lemma) : null;
+      const wantCloze = blank != null && Math.random() < 0.45;
 
       if (wantCloze && blank) {
         const answer = blank.surface;
@@ -417,6 +512,7 @@ export default function VerbDrillPage() {
           answer,
           pos: w.pos,
           ipa: w.ipa,
+          imageUrl: w.imageUrl,
           stem: blank.stem,
           blankSurface: blank.surface,
           opts: buildOpts(answer, distractorPool),
@@ -428,6 +524,7 @@ export default function VerbDrillPage() {
           answer: w.vi,
           pos: w.pos,
           ipa: w.ipa,
+          imageUrl: w.imageUrl,
           opts: buildOpts(w.vi, allMeanings),
         });
       }
@@ -442,31 +539,35 @@ export default function VerbDrillPage() {
     setRevealed(false);
     setCorrectN(0);
     setPhase('quiz');
-  }, [canQuiz, poolWords, wordCount, allMeanings, allLemmas]);
+  }, [canQuiz, poolWords, wordCount, drillMode, allMeanings, allLemmas]);
 
   const current = queue[idx] ?? null;
   const currentPos = current ? posLabel(current.pos, current.lemma) : null;
   const currentIpa = current?.ipa ? parseIpa(current.ipa) : '';
 
-  // Meaning card: auto nghe lemma (cloze không — spoil đáp án)
+  // Meaning card: auto nghe phát âm lemma bằng audio chuẩn (cloze chỉ nghe sau khi chọn để không lộ đáp án)
   useEffect(() => {
-    if (phase !== 'quiz' || !current || current.type !== 'meaning') {
+    if (phase !== 'quiz' || !current || current.type !== 'meaning' || !soundEnabled) {
       return () => {
         stopSpeak();
+        stopWordAudio();
       };
     }
     stopSpeak();
+    stopWordAudio();
     const t = window.setTimeout(() => {
-      speak(current.lemma, 1.0);
-    }, 180);
+      void playDrillAudio(current.lemma);
+    }, 160);
     return () => {
       window.clearTimeout(t);
       stopSpeak();
+      stopWordAudio();
     };
-  }, [phase, idx, current?.lemma, current?.type]);
+  }, [phase, idx, current?.lemma, current?.type, soundEnabled]);
 
   const next = useCallback(() => {
     stopSpeak();
+    stopWordAudio();
     spokenRevealIdxRef.current = null;
     vocabLookupRef.current?.closeLookup();
     setIdx((i) => {
@@ -483,7 +584,7 @@ export default function VerbDrillPage() {
   const answersMatch = (pickedOpt: string, answer: string) =>
     pickedOpt.trim().toLowerCase() === answer.trim().toLowerCase();
 
-  const onPick = (o: string) => {
+  const onPick = useCallback((o: string) => {
     if (revealed || !current) return;
     setPicked(o);
     setRevealed(true);
@@ -497,12 +598,41 @@ export default function VerbDrillPage() {
         return nextMap;
       });
     }
-  };
+  }, [revealed, current]);
+
+  // Phím tắt 1-4 / A-D chọn nhanh và Enter/Space sang câu tiếp
+  useEffect(() => {
+    if (phase !== 'quiz' || !current) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if ((e.target as HTMLElement | null)?.closest('.exam-lookup-trigger, .exam-lookup-card')) return;
+      if (document.querySelector('.exam-lookup-card')) return;
+
+      if (!revealed) {
+        const keyMap: Record<string, number> = {
+          '1': 0, a: 0, A: 0,
+          '2': 1, b: 1, B: 1,
+          '3': 2, c: 2, C: 2,
+          '4': 3, d: 3, D: 3,
+        };
+        const optIdx = keyMap[e.key];
+        if (optIdx !== undefined && current.opts[optIdx]) {
+          e.preventDefault();
+          onPick(current.opts[optIdx]);
+        }
+      } else if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        next();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [phase, current, revealed, onPick, next]);
 
   /**
    * Next timing:
-   * - cloze (đúng/sai): luôn phát âm từ đúng → rồi next (đúng ~0.4s sau audio, sai ~2.5s)
-   * - nghĩa đúng: 1s (đã auto nghe lúc hiện thẻ)
+   * - cloze (đúng/sai): phát âm từ đúng (nếu bật âm thanh) → rồi next (đúng ~0.4s sau audio, sai ~2.5s)
+   * - nghĩa đúng: 1s
    * - nghĩa sai: 3.5s
    */
   useEffect(() => {
@@ -512,23 +642,12 @@ export default function VerbDrillPage() {
     let t: number | undefined;
 
     if (current.type === 'cloze') {
-      // Surface blank (walks) ưu tiên hơn lemma (walk)
       const speakWord = (current.blankSurface || current.answer || current.lemma).trim();
-      const shouldSpeak = spokenRevealIdxRef.current !== idx;
+      const shouldSpeak = soundEnabled && spokenRevealIdxRef.current !== idx;
       (async () => {
         if (shouldSpeak) {
-          stopSpeak();
-          try {
-            const { playWordAudio } = await import('@/lib/audio');
-            if (cancelled) return;
-            spokenRevealIdxRef.current = idx;
-            await playWordAudio(speakWord, null, 1.0);
-          } catch {
-            if (!cancelled) {
-              spokenRevealIdxRef.current = idx;
-              speak(speakWord, 1.0);
-            }
-          }
+          spokenRevealIdxRef.current = idx;
+          await playDrillAudio(speakWord);
         }
         if (cancelled || isLookupOpen) return;
         const afterAudioMs = ok ? 400 : 2500;
@@ -551,7 +670,7 @@ export default function VerbDrillPage() {
       cancelled = true;
       if (t !== undefined) window.clearTimeout(t);
     };
-  }, [phase, revealed, idx, next, picked, current, isLookupOpen]);
+  }, [phase, revealed, idx, next, picked, current, isLookupOpen, soundEnabled]);
 
   const pct = useMemo(() => {
     if (!queue.length || phase !== 'done') return 0;
@@ -572,16 +691,40 @@ export default function VerbDrillPage() {
   const maxWords = poolWords.length;
 
   return (
-    <StudentShell title="Quiz nhớ nhanh" contentClassName="p-0" hideMobileNav>
+    <StudentShell title="Quiz nhớ nhanh A/B/C/D" contentClassName="p-0" hideMobileNav>
       <div className="mx-auto max-w-md space-y-3 px-3 py-3 pb-24">
-        <div className="flex items-center gap-2">
-          <Link
-            href="/practice"
-            className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-[11px] font-semibold text-slate-600"
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <Link
+              href="/student"
+              className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-[11px] font-semibold text-slate-600"
+              aria-label="Quay lại màn hình chính"
+            >
+              <ChevronLeft className="inline h-3.5 w-3.5" />
+            </Link>
+            <h1 className="text-base font-black text-slate-900">Quiz nhớ nhanh A·B·C·D</h1>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              const nextSound = !soundEnabled;
+              setSoundEnabled(nextSound);
+              if (!nextSound) {
+                stopSpeak();
+                stopWordAudio();
+              }
+            }}
+            className={`inline-flex items-center gap-1 rounded-lg border px-2.5 py-1 text-[11px] font-bold transition ${
+              soundEnabled
+                ? 'border-violet-200 bg-violet-50 text-violet-700'
+                : 'border-slate-200 bg-white text-slate-400'
+            }`}
+            aria-label={soundEnabled ? 'Tắt âm thanh tự động' : 'Bật âm thanh tự động'}
           >
-            <ChevronLeft className="inline h-3.5 w-3.5" />
-          </Link>
-          <h1 className="text-base font-black text-slate-900">Quiz nhớ nhanh</h1>
+            {soundEnabled ? <Volume2 className="h-3.5 w-3.5" /> : <VolumeX className="h-3.5 w-3.5" />}
+            <span>{soundEnabled ? 'Âm thanh' : 'Tắt tiếng'}</span>
+          </button>
         </div>
 
         {loading && (
@@ -614,35 +757,22 @@ export default function VerbDrillPage() {
             <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-100 text-violet-700">
               <BookOpen className="h-6 w-6" />
             </div>
-            <p className="text-sm font-bold text-slate-900">Chưa đủ từ đã học</p>
+            <p className="text-sm font-bold text-slate-900">Cần tối thiểu {MIN_LEARNED} từ trong kho</p>
             <p className="text-[12px] leading-relaxed text-slate-500">
-              Quiz chỉ dùng từ trong <strong className="text-slate-700">kho của bạn</strong> sau khi
-              đã lưu và học qua flashcard.
+              Quiz sẽ tự lấy toàn bộ từ cá nhân &amp; từ lớp giáo viên giao để tạo 4 phương án A/B/C/D (không cần chờ đến hạn FSRS).
             </p>
             <div className="rounded-xl bg-slate-50 px-3 py-2 text-left text-[11px] text-slate-600">
               <p>
-                · Đã lưu: <strong>{savedTotal}</strong>
-              </p>
-              <p>
-                · Đã học: <strong>{words.length}</strong> / cần ≥ {MIN_LEARNED}
+                · Hiện có: <strong>{words.length}</strong> / cần ≥ {MIN_LEARNED} từ
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              {savedTotal === 0 ? (
-                <Link
-                  href="/dictionary"
-                  className="flex h-10 w-full items-center justify-center rounded-xl bg-violet-600 text-sm font-bold text-white hover:bg-violet-700"
-                >
-                  Lưu từ mới
-                </Link>
-              ) : (
-                <Link
-                  href="/flashcard"
-                  className="flex h-10 w-full items-center justify-center rounded-xl bg-violet-600 text-sm font-bold text-white hover:bg-violet-700"
-                >
-                  Học flashcard
-                </Link>
-              )}
+              <Link
+                href="/dictionary"
+                className="flex h-10 w-full items-center justify-center rounded-xl bg-violet-600 text-sm font-bold text-white hover:bg-violet-700"
+              >
+                Tra &amp; lưu thêm từ
+              </Link>
               <Link
                 href="/library"
                 className="flex h-10 w-full items-center justify-center rounded-xl border border-slate-200 bg-white text-sm font-semibold text-slate-700 hover:bg-slate-50"
@@ -655,12 +785,45 @@ export default function VerbDrillPage() {
 
         {!loading && !loadErr && canMeaning && phase === 'setup' && (
           <section className="space-y-3 rounded-2xl border border-slate-200 bg-white p-4">
-            <p className="text-sm font-bold text-slate-800">Quiz nhớ nhanh</p>
-            <p className="text-[12px] text-slate-500">
-              {words.length} từ đã học · đúng thì lên bậc
-            </p>
+            <div className="flex items-center justify-between gap-2">
+              <div>
+                <p className="text-sm font-bold text-slate-800">Luyện tập A·B·C·D nhanh</p>
+                <p className="text-[12px] text-slate-500">
+                  {words.length} từ sẵn sàng (không chờ hạn FSRS)
+                </p>
+              </div>
+              <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-black text-violet-700">
+                Hình + Tiếng
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-1.5 rounded-xl bg-slate-100 p-1 text-xs font-bold">
+              <button
+                type="button"
+                onClick={() => setDrillMode('mix')}
+                className={`rounded-lg py-1.5 transition ${
+                  drillMode === 'mix'
+                    ? 'bg-white text-violet-700 shadow-xs'
+                    : 'text-slate-500 hover:text-slate-700'
+                }`}
+              >
+                Hỗn hợp (Nghĩa + Cloze)
+              </button>
+              <button
+                type="button"
+                onClick={() => setDrillMode('meaning_only')}
+                className={`rounded-lg py-1.5 transition ${
+                  drillMode === 'meaning_only'
+                    ? 'bg-white text-violet-700 shadow-xs'
+                    : 'text-slate-500 hover:text-slate-700'
+                }`}
+              >
+                Chỉ chọn nghĩa A·B·C·D
+              </button>
+            </div>
+
             <p className="text-[12px] font-semibold text-slate-600">
-              Chọn 1 hoặc nhiều kho từ
+              Lọc theo lượt trả lời đúng
             </p>
 
             <div>
@@ -729,12 +892,12 @@ export default function VerbDrillPage() {
             </p>
 
             {current.type === 'cloze' ? (
-              <div className="rounded-2xl border border-teal-100 bg-teal-50/40 px-4 py-6 text-center">
+              <div className="rounded-2xl border border-teal-100 bg-teal-50/40 px-4 py-5 text-center">
                 <p className="text-[11px] font-bold uppercase tracking-wide text-teal-700/80">
                   Điền vào chỗ trống
                 </p>
                 {/* Chỉ câu EN có blank — không sub VI / POS VI (lộ nghĩa) */}
-                <p className="mt-3 text-lg font-bold leading-snug text-slate-900">
+                <p className="mt-2.5 text-lg font-bold leading-snug text-slate-900">
                   <InteractiveClozeText
                     text={current.stem ?? ''}
                     enabled
@@ -743,9 +906,14 @@ export default function VerbDrillPage() {
                     blankClassName="inline-block min-w-10 border-b-2 border-teal-400 px-1 text-center font-mono text-sm text-teal-700/70 select-none"
                   />
                 </p>
-                {/* Sau khi trả lời: lộ lemma + IPA + nghĩa từ + nghe lại */}
+                {/* Sau khi trả lời: lộ hình ảnh minh họa + lemma + IPA + nghĩa từ + nghe lại */}
                 {revealed && (
                   <div className="mt-3 flex flex-col items-center justify-center gap-1.5 border-t border-teal-200/60 pt-3">
+                    <DrillWordImage
+                      key={`cloze-img-${idx}-${current.lemma}`}
+                      imageUrl={current.imageUrl}
+                      alt={current.lemma}
+                    />
                     <div className="flex flex-wrap items-center justify-center gap-2">
                       <span className="text-sm font-black text-slate-900">
                         <ExamInteractiveText
@@ -763,7 +931,7 @@ export default function VerbDrillPage() {
                       <button
                         type="button"
                         onClick={() =>
-                          speak((current.blankSurface || current.lemma).trim(), 1.0)
+                          void playDrillAudio((current.blankSurface || current.lemma).trim())
                         }
                         className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-teal-200 bg-white text-teal-700 shadow-xs active:scale-95"
                         aria-label="Nghe"
@@ -779,7 +947,12 @@ export default function VerbDrillPage() {
                 )}
               </div>
             ) : (
-              <div className="rounded-2xl border border-violet-100 bg-violet-50/50 py-7 text-center">
+              <div className="rounded-2xl border border-violet-100 bg-violet-50/50 px-4 py-5 text-center">
+                <DrillWordImage
+                  key={`meaning-img-${idx}-${current.lemma}`}
+                  imageUrl={current.imageUrl}
+                  alt={current.lemma}
+                />
                 <p className="text-3xl font-black tracking-tight text-slate-900">
                   <ExamInteractiveText
                     text={current.lemma}
@@ -797,7 +970,7 @@ export default function VerbDrillPage() {
                   )}
                   <button
                     type="button"
-                    onClick={() => speak(current.lemma, 1.0)}
+                    onClick={() => void playDrillAudio(current.lemma)}
                     className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-violet-200 bg-white text-violet-700 shadow-sm active:scale-95"
                     aria-label="Nghe phát âm"
                   >
@@ -879,15 +1052,26 @@ export default function VerbDrillPage() {
             </div>
 
             {revealed && picked != null && (
-              <p className="text-center text-[11px] font-medium text-slate-400">
-                {idx + 1 >= queue.length
-                  ? 'Sắp xem kết quả…'
-                  : current.type === 'cloze'
-                    ? 'Đang nghe từ đúng…'
-                    : answersMatch(picked, current.answer)
-                      ? 'Tự sang câu tiếp (1s)…'
-                      : 'Tự sang câu tiếp (3.5s)…'}
-              </p>
+              <div className="flex items-center justify-between gap-2 pt-1">
+                <p className="text-[11px] font-medium text-slate-400">
+                  {idx + 1 >= queue.length
+                    ? 'Sắp xem kết quả…'
+                    : current.type === 'cloze'
+                      ? 'Đang nghe từ đúng…'
+                      : answersMatch(picked, current.answer)
+                        ? 'Tự sang câu tiếp (1s)…'
+                        : 'Tự sang câu tiếp (3.5s)…'}
+                </p>
+                <Button
+                  type="button"
+                  size="sm"
+                  onClick={next}
+                  className="h-8 rounded-lg bg-violet-600 px-3 text-xs font-bold text-white hover:bg-violet-700"
+                >
+                  <span>{idx + 1 >= queue.length ? 'Xem kết quả' : 'Câu tiếp'}</span>
+                  <ArrowRight className="ml-1 h-3.5 w-3.5" />
+                </Button>
+              </div>
             )}
           </section>
         )}
@@ -955,5 +1139,19 @@ export default function VerbDrillPage() {
         )}
       </div>
     </StudentShell>
+  );
+}
+
+export default function VerbDrillPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-[60vh] items-center justify-center text-slate-400">
+          <Loader2 className="h-6 w-6 animate-spin" />
+        </div>
+      }
+    >
+      <VerbDrillContent />
+    </Suspense>
   );
 }

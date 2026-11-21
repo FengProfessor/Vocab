@@ -11,15 +11,26 @@ import { StudentShell } from '@/components/student/StudentShell';
 
 const MODES = [
   {
-    href: '/flashcard?mode=free',
-    emoji: '🃏',
-    title: 'Luyện tập Flashcard tự do · Không chờ hạn',
-    desc: 'Lật thẻ, nghe phát âm & test toàn bộ từ đang có ngay lập tức mà không cần đợi lịch ôn FSRS',
+    href: '/practice/verb-drill',
+    emoji: '⚡',
+    title: 'Quiz nhớ nhanh A·B·C·D · Không chờ hạn',
+    desc: 'Chọn A/B/C/D siêu nhanh với cả từ mới & đã học · có hình ảnh & phát âm chuẩn',
     ring: 'border-violet-300 bg-violet-50/90 hover:border-violet-500 hover:bg-violet-100/70 dark:border-violet-800 dark:bg-violet-950/30',
     badge: 'bg-violet-600',
     text: 'text-violet-950 dark:text-violet-100',
     sub: 'text-violet-800/90 dark:text-violet-300',
     arrow: 'text-violet-500',
+  },
+  {
+    href: '/flashcard?mode=free',
+    emoji: '🃏',
+    title: 'Luyện tập Flashcard tự do · Không chờ hạn',
+    desc: 'Lật thẻ, nghe phát âm & test toàn bộ từ đang có ngay lập tức mà không cần đợi lịch ôn FSRS',
+    ring: 'border-indigo-200 bg-indigo-50/70 hover:border-indigo-400 hover:bg-indigo-100/60 dark:border-indigo-800 dark:bg-indigo-950/30',
+    badge: 'bg-indigo-600',
+    text: 'text-indigo-950 dark:text-indigo-100',
+    sub: 'text-indigo-800/90 dark:text-indigo-300',
+    arrow: 'text-indigo-500',
   },
   {
     href: '/student/speaking/foundation',
@@ -64,17 +75,6 @@ const MODES = [
     text: 'text-blue-950',
     sub: 'text-blue-800/80',
     arrow: 'text-blue-400',
-  },
-  {
-    href: '/practice/verb-drill',
-    emoji: '⚡',
-    title: 'Quiz nhớ nhanh',
-    desc: 'MCQ mix nghĩa + cloze · đúng thì lên bậc',
-    ring: 'border-amber-200 bg-amber-50/70 hover:border-amber-400 hover:bg-amber-50',
-    badge: 'bg-amber-500',
-    text: 'text-amber-950',
-    sub: 'text-amber-800/80',
-    arrow: 'text-amber-400',
   },
   {
     href: '/practice/codemix',
