@@ -2,6 +2,7 @@ import { sessionErrorResponse } from '@/lib/session-response';
 import { createServiceClient } from '@/lib/supabase-server';
 import { NextResponse } from 'next/server';
 import { getAuthUser, unauthorized, forbidden, safeErrorResponse } from '@/lib/api-security';
+import { invalidateServerWordSummaryCache } from '@/lib/ttl-cache';
 
 /**
  * POST /api/teacher/assign-drill
@@ -94,6 +95,8 @@ export async function POST(req: Request): Promise<NextResponse> {
       .in('word_id', targetWordIds);
 
     if (updateErr) throw updateErr;
+
+    invalidateServerWordSummaryCache(studentId);
 
     // Fetch the word details to include in the response message
     const { data: words } = await supabase
