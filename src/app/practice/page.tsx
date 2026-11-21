@@ -11,6 +11,17 @@ import { StudentShell } from '@/components/student/StudentShell';
 
 const MODES = [
   {
+    href: '/flashcard?mode=free',
+    emoji: '🃏',
+    title: 'Luyện tập Flashcard tự do · Không chờ hạn',
+    desc: 'Lật thẻ, nghe phát âm & test toàn bộ từ đang có ngay lập tức mà không cần đợi lịch ôn FSRS',
+    ring: 'border-violet-300 bg-violet-50/90 hover:border-violet-500 hover:bg-violet-100/70 dark:border-violet-800 dark:bg-violet-950/30',
+    badge: 'bg-violet-600',
+    text: 'text-violet-950 dark:text-violet-100',
+    sub: 'text-violet-800/90 dark:text-violet-300',
+    arrow: 'text-violet-500',
+  },
+  {
     href: '/student/speaking/foundation',
     emoji: '🎙️',
     title: 'Luyện nói phản xạ · A0–C1',

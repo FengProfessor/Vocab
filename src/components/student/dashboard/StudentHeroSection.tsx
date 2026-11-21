@@ -9,6 +9,7 @@ import type { ActiveVocabPack } from './types';
 interface StudentHeroSectionProps {
   learnHref: string;
   reviewHref: string;
+  freeFlashcardHref: string;
   reviewSessionHref: (mode: string) => string;
   learnHeaderLink: ReactNode;
   reviewHeaderLink: ReactNode;
@@ -19,6 +20,7 @@ interface StudentHeroSectionProps {
 export function StudentHeroSection({
   learnHref,
   reviewHref,
+  freeFlashcardHref,
   reviewSessionHref,
   learnHeaderLink,
   reviewHeaderLink,
@@ -130,6 +132,35 @@ export function StudentHeroSection({
           </div>
         </div>
       </div>
+
+      {/* Lối tắt Luyện tập Flashcard tự do (đặt ngay màn hình chính mobile, tách khỏi Ôn tập FSRS) */}
+      <Link
+        href={freeFlashcardHref}
+        className="flex items-center justify-between gap-2.5 rounded-xl border border-violet-200/90 bg-gradient-to-r from-violet-50 via-fuchsia-50/50 to-indigo-50 px-3 py-2 shadow-2xs transition-all hover:border-violet-300 hover:shadow-xs active:scale-[0.99]"
+      >
+        <div className="flex min-w-0 items-center gap-2.5">
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-violet-600 text-base text-white shadow-xs">
+            🃏
+          </span>
+          <div className="min-w-0">
+            <div className="flex items-center gap-1.5">
+              <span className="truncate text-xs font-black text-violet-950">
+                Luyện tập Flashcard
+              </span>
+              <span className="shrink-0 rounded-full bg-violet-100 px-1.5 py-0.5 text-[9.5px] font-extrabold text-violet-700">
+                Không chờ hạn
+              </span>
+            </div>
+            <p className="truncate text-[10.5px] font-medium text-violet-700/80">
+              Test &amp; lật thẻ tự do tất cả từ đang có ngay lập tức
+            </p>
+          </div>
+        </div>
+        <span className="inline-flex shrink-0 items-center gap-1 rounded-lg bg-violet-600 px-2.5 py-1 text-[11px] font-extrabold text-white shadow-2xs">
+          <span>Luyện ngay</span>
+          <ArrowRight className="h-3 w-3" />
+        </span>
+      </Link>
 
       {/* Strip "Tiếp tục học" (1–3 in_progress packs for BOTH Mobile & Desktop) */}
       {inProgressPacks.length > 0 && (

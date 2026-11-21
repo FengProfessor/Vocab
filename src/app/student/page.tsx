@@ -64,6 +64,11 @@ export default function StudentDashboard() {
       ? `/flashcard?mode=learn&class=${encodeURIComponent(currentClassScope)}`
       : '/flashcard?mode=learn';
 
+  const freeFlashcardHref =
+    currentClassScope && currentClassScope !== '__personal__'
+      ? `/flashcard?mode=free&class=${encodeURIComponent(currentClassScope)}`
+      : '/flashcard?mode=free';
+
   const reviewSessionHref = (mode: string) =>
     currentClassScope && currentClassScope !== '__personal__'
       ? `/review/session?mode=${mode}&class=${encodeURIComponent(currentClassScope)}`
@@ -175,6 +180,7 @@ export default function StudentDashboard() {
         <StudentHeroSection
           learnHref={learnHref}
           reviewHref={reviewHref}
+          freeFlashcardHref={freeFlashcardHref}
           reviewSessionHref={reviewSessionHref}
           learnHeaderLink={learnHeaderLink}
           reviewHeaderLink={reviewHeaderLink}
