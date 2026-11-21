@@ -807,7 +807,14 @@ export default function TeacherDashboard() {
             )}
 
             {activeTab === 'words' && (
-              <WordsPanel key={selectedClass.id} classroomId={selectedClass.id} userId={userId} />
+              <WordsPanel
+                key={selectedClass.id}
+                classroomId={selectedClass.id}
+                userId={userId}
+                onWordsChanged={() => {
+                  void loadStudents(selectedClass.id);
+                }}
+              />
             )}
 
             {activeTab === 'grammar' && (

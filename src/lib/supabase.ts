@@ -475,4 +475,6 @@ export interface StudentProgress {
     quiz_type?: string;
   } | null;
   saved_words_count?: number;
+  assigned_words_total?: number;
+  assigned_words_learned?: number;
 }

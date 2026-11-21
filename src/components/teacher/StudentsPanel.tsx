@@ -74,20 +74,42 @@ export function formatQuizSummary(s: StudentProgress): { text: string; subtext?:
   return { text: 'Chưa làm quiz', hasQuiz: false };
 }
 
-export function formatWordsSummary(s: StudentProgress): { text: string; subtext?: string } {
+export function formatWordsSummary(s: StudentProgress): {
+  text: string;
+  subtext?: string;
+  assignedBadge?: {
+    label: string;
+    isComplete: boolean;
+    title: string;
+  };
+} {
   const reviewed = s.words_reviewed || s.total_words || 0;
   const saved = s.saved_words_count || 0;
+  const assignedTotal = s.assigned_words_total || 0;
+  const assignedLearned = s.assigned_words_learned || 0;
+
+  const assignedBadge =
+    assignedTotal > 0
+      ? {
+          label: `Lớp giao: ${assignedLearned}/${assignedTotal} từ`,
+          isComplete: assignedLearned >= assignedTotal,
+          title:
+            assignedLearned === 0
+              ? `Học sinh đã được đồng bộ đủ ${assignedTotal} từ vào Học Từ Mới, hiện chưa mở học từ nào`
+              : `Học sinh đã học ${assignedLearned}/${assignedTotal} từ do giáo viên giao trong lớp`,
+        }
+      : undefined;
 
   if (reviewed > 0 && saved > 0) {
-    return { text: `${reviewed} từ đã nạp`, subtext: `+${saved} từ đã lưu` };
+    return { text: `${reviewed} từ đã nạp`, subtext: `+${saved} từ đã lưu`, assignedBadge };
   }
   if (reviewed > 0) {
-    return { text: `${reviewed} từ đã nạp`, subtext: undefined };
+    return { text: `${reviewed} từ đã nạp`, subtext: undefined, assignedBadge };
   }
   if (saved > 0) {
-    return { text: `${saved} từ đã lưu`, subtext: 'Chưa nạp flashcard' };
+    return { text: `${saved} từ đã lưu`, subtext: 'Chưa nạp flashcard', assignedBadge };
   }
-  return { text: '0 từ', subtext: 'Chưa học từ nào' };
+  return { text: '0 từ', subtext: 'Chưa học từ nào', assignedBadge };
 }
 
 interface StudentsPanelProps {
@@ -571,6 +593,16 @@ export default function StudentsPanel({
                       <p className="font-semibold text-[11px] text-foreground truncate">
                         {wordsInfo.text}
                       </p>
+                      {wordsInfo.assignedBadge && (
+                        <p
+                          className={`text-[10px] font-semibold truncate ${
+                            wordsInfo.assignedBadge.isComplete ? 'text-emerald-700' : 'text-indigo-700'
+                          }`}
+                          title={wordsInfo.assignedBadge.title}
+                        >
+                          {wordsInfo.assignedBadge.label}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -723,6 +755,20 @@ export default function StudentsPanel({
                           </div>
                           {wordsInfo.subtext && (
                             <p className="text-[11px] text-muted-foreground pl-5 font-medium">{wordsInfo.subtext}</p>
+                          )}
+                          {wordsInfo.assignedBadge && (
+                            <div className="pl-5 pt-0.5">
+                              <span
+                                title={wordsInfo.assignedBadge.title}
+                                className={`inline-flex items-center px-1.5 py-0.5 rounded-md text-[10px] font-semibold border ${
+                                  wordsInfo.assignedBadge.isComplete
+                                    ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                                    : 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                                }`}
+                              >
+                                {wordsInfo.assignedBadge.label}
+                              </span>
+                            </div>
                           )}
                         </div>
                       </td>

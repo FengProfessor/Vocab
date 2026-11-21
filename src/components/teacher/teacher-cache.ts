@@ -28,6 +28,29 @@ export interface SavedWordItem {
   classroom_id?: string;
 }
 
+export interface AssignedWordItem {
+  id: string;
+  word: string;
+  translation?: string;
+  ipa?: string;
+  pos?: string;
+  example?: string;
+  section?: string;
+  source?: string;
+  created_at: string;
+  reviewCount: number;
+  lastReviewedAt?: string | null;
+  stability?: number | null;
+  status: 'pending' | 'learning' | 'mastered';
+}
+
+export interface AssignedWordsSummary {
+  total: number;
+  learned: number;
+  mastered: number;
+  pending: number;
+}
+
 export interface ToeicAssessmentItem {
   id: string;
   track?: string;
@@ -69,6 +92,8 @@ export interface StudentDetailPayload {
   history: HistoryPoint[];
   quizzes: QuizPoint[];
   savedWords?: SavedWordItem[];
+  assignedWords?: AssignedWordItem[];
+  assignedSummary?: AssignedWordsSummary;
   toeicAssessments?: ToeicAssessmentItem[];
   timeline?: TimelineItem[];
 }
@@ -120,6 +145,16 @@ export function getCachedStudentErrors(studentId: string, classroomId: string): 
 export function setCachedStudentErrors(studentId: string, classroomId: string, data: StudentErrorItem[]): void {
   enforceLimit(errorsCache, MAX_CACHE_ENTRIES);
   errorsCache.set(makeKey(studentId, classroomId), data);
+}
+
+export function invalidateClassroomTeacherCache(classroomId: string): void {
+  const prefix = `${classroomId}:`;
+  for (const key of detailCache.keys()) {
+    if (key.startsWith(prefix)) detailCache.delete(key);
+  }
+  for (const key of errorsCache.keys()) {
+    if (key.startsWith(prefix)) errorsCache.delete(key);
+  }
 }
 
 export function getCachedAiInsight(studentId: string): string | undefined {
