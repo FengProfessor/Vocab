@@ -33,8 +33,9 @@ import { ExamInteractiveText } from '@/components/exam/ExamInteractiveText';
 import { InteractiveClozeText, useOptionalVocabLookup } from '@/components/vocab';
 
 const CORRECT_LS_KEY = 'verb-drill-correct-v1';
+const POOL_CACHE_PREFIX = 'lp:verb-drill-pool:v2:';
+const POOL_CACHE_TTL_MS = 2 * 60_000;
 const MIN_LEARNED = 4;
-const MAX_POOL = 200;
 
 type QType = 'meaning' | 'cloze';
 type DrillMode = 'mix' | 'meaning_only';
@@ -66,9 +67,35 @@ interface WordEntry {
   pos: string;
   ipa: string;
   example: string;
-  exampleVi: string;
   imageUrl?: string;
-  reviewCount: number;
+}
+
+function readPoolCache(scopeKey: string): WordEntry[] | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = sessionStorage.getItem(`${POOL_CACHE_PREFIX}${scopeKey}`);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { ts?: number; items?: WordEntry[] };
+    if (!parsed || !Array.isArray(parsed.items)) return null;
+    if (typeof parsed.ts === 'number' && Date.now() - parsed.ts > POOL_CACHE_TTL_MS) {
+      return null;
+    }
+    return parsed.items;
+  } catch {
+    return null;
+  }
+}
+
+function writePoolCache(scopeKey: string, items: WordEntry[]): void {
+  if (typeof window === 'undefined') return;
+  try {
+    sessionStorage.setItem(
+      `${POOL_CACHE_PREFIX}${scopeKey}`,
+      JSON.stringify({ ts: Date.now(), items }),
+    );
+  } catch {
+    /* ignore quota errors */
+  }
 }
 
 interface QuizQ {
@@ -189,16 +216,6 @@ function posLabel(pos: string, lemma?: string): { short: string; vi: string } {
   return { short: `${p}.`, vi: p };
 }
 
-function isBadTranslation(vi: string): boolean {
-  return (
-    !vi ||
-    vi.length < 1 ||
-    vi.includes('failed') ||
-    vi.includes('Analyzing') ||
-    vi.includes('⏳')
-  );
-}
-
 function escapeRe(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -269,23 +286,29 @@ function buildOpts(answer: string, pool: string[]): string[] {
 }
 
 function DrillWordImage({ imageUrl, alt }: { imageUrl?: string; alt: string }) {
-  if (!imageUrl) return null;
+  const [hidden, setHidden] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    setHidden(false);
+  }, [imageUrl]);
+
+  if (!imageUrl || hidden) return null;
+
+  const src = resolveImageSrc(imageUrl);
+  if (!src) return null;
+
   return (
-    <div className="mx-auto mb-3 aspect-[16/10] w-full max-w-[230px] overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-inner">
+    <div className="mx-auto mb-3 aspect-[16/10] w-full max-w-[230px] overflow-hidden rounded-2xl border border-slate-100 bg-slate-100/80 shadow-inner">
       <img
-        src={resolveImageSrc(imageUrl)}
+        ref={imgRef}
+        src={src}
         alt={alt}
         referrerPolicy="no-referrer"
         loading="eager"
         decoding="async"
-        className="h-full w-full object-cover object-center opacity-0 transition-opacity duration-300"
-        onLoad={(e) => {
-          e.currentTarget.style.opacity = '1';
-        }}
-        onError={(e) => {
-          const wrap = e.currentTarget.parentElement;
-          if (wrap) wrap.style.display = 'none';
-        }}
+        className="h-full w-full object-cover object-center transition-opacity duration-150"
+        onError={() => setHidden(true)}
       />
     </div>
   );
@@ -294,9 +317,9 @@ function DrillWordImage({ imageUrl, alt }: { imageUrl?: string; alt: string }) {
 function VerbDrillContent() {
   const searchParams = useSearchParams();
   const initialClassroomId = searchParams.get('class');
+  const scopeCacheKey = initialClassroomId || 'all';
 
   const [words, setWords] = useState<WordEntry[]>([]);
-  const [savedTotal, setSavedTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [loadErr, setLoadErr] = useState<string | null>(null);
   const [phase, setPhase] = useState<Phase>('setup');
@@ -326,102 +349,85 @@ function VerbDrillContent() {
 
   useEffect(() => {
     let cancelled = false;
-    (async () => {
+    const cached = readPoolCache(scopeCacheKey);
+    if (cached && cached.length > 0) {
+      setWords(cached);
+      setLoading(false);
+    } else {
       setLoading(true);
-      setLoadErr(null);
+    }
+    setLoadErr(null);
+
+    (async () => {
       try {
-        const fetchScopeWords = async (scopeClassId: string | null) => {
-          const mapped: WordEntry[] = [];
-          const seen = new Set<string>();
-          let totalSaved = 0;
+        const qs = new URLSearchParams();
+        if (initialClassroomId && initialClassroomId !== '__personal__') {
+          qs.set('classroomId', initialClassroomId);
+        }
+        const endpoint = qs.toString()
+          ? `/api/practice/verb-drill-pool?${qs.toString()}`
+          : '/api/practice/verb-drill-pool';
 
-          for (let page = 0; page < 6; page++) {
-            const offset = page * 50;
-            const qs = new URLSearchParams({
-              limit: '50',
-              offset: String(offset),
-              noCount: '1',
-            });
-            if (scopeClassId && scopeClassId !== '__personal__') {
-              qs.set('classroomId', scopeClassId);
-            }
-            const res = await authFetch(`/api/words?${qs.toString()}`);
-            if (res.status === 401) {
-              return { status: 'login' as const, mapped: [], totalSaved: 0 };
-            }
-            const json = (await res.json()) as {
-              success?: boolean;
-              total?: number;
-              data?: Array<{
-                id?: string;
-                word?: string;
-                translation?: string;
-                pos?: string;
-                ipa?: string;
-                image_url?: string | null;
-                example?: string | null;
-                example_vi?: string | null;
-                reviewCount?: number;
-                srs?: { review_count?: number } | null;
-              }>;
-              error?: string;
-            };
-            if (!json.success || !Array.isArray(json.data)) {
-              throw new Error(json.error || 'Không tải được kho từ');
-            }
-            if (typeof json.total === 'number') totalSaved = json.total;
-
-            for (const w of json.data) {
-              const lemma = (w.word || '').trim();
-              if (!lemma || lemma.length > 48) continue;
-              const key = lemma.toLowerCase();
-              if (seen.has(key)) continue;
-              const vi = (w.translation || '').trim().replace(/\s+/g, ' ');
-              if (isBadTranslation(vi)) continue;
-              seen.add(key);
-              totalSaved = Math.max(totalSaved, seen.size);
-              const reviewCount = w.srs?.review_count ?? w.reviewCount ?? 0;
-              mapped.push({
-                id: w.id,
-                lemma,
-                vi,
-                pos: (w.pos || '').trim() || '',
-                ipa: (w.ipa || '').trim(),
-                example: (w.example || '').trim(),
-                exampleVi: (w.example_vi || '').trim(),
-                imageUrl: w.image_url?.trim() || undefined,
-                reviewCount,
-              });
-              if (mapped.length >= MAX_POOL) break;
-            }
-            if (json.data.length < 50 || mapped.length >= MAX_POOL) break;
-          }
-          return { status: 'ok' as const, mapped, totalSaved };
-        };
-
-        let result = await fetchScopeWords(initialClassroomId);
-        if (result.status === 'login') {
+        const res = await authFetch(endpoint);
+        if (res.status === 401) {
           if (!cancelled) {
             setLoadErr('login');
             setWords([]);
-            setSavedTotal(0);
           }
           return;
         }
-
-        // Nếu lọc riêng 1 lớp mà chưa đủ từ để tạo 4 phương án A/B/C/D, tự mở rộng sang toàn bộ kho của học viên
-        if (initialClassroomId && result.mapped.length < MIN_LEARNED) {
-          const globalResult = await fetchScopeWords(null);
-          if (globalResult.status === 'ok' && globalResult.mapped.length > result.mapped.length) {
-            result = globalResult;
-          }
+        const json = (await res.json()) as {
+          success?: boolean;
+          items?: WordEntry[];
+          error?: string;
+        };
+        if (!json.success || !Array.isArray(json.items)) {
+          throw new Error(json.error || 'Không tải được kho từ');
         }
-
         if (cancelled) return;
-        setWords(result.mapped);
-        setSavedTotal(result.totalSaved || result.mapped.length);
+
+        setWords(json.items);
+        writePoolCache(scopeCacheKey, json.items);
+
+        // Background IPA fill cho các từ đơn còn thiếu IPA (không chặn setup UI)
+        const missingIpaIds = json.items
+          .filter((item) => item.id && !item.ipa && /^[a-zA-Z-]{2,32}$/.test(item.lemma))
+          .slice(0, 15)
+          .map((item) => item.id as string);
+
+        if (missingIpaIds.length > 0) {
+          void authFetch('/api/practice/verb-drill-pool', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ wordIds: missingIpaIds }),
+          })
+            .then((r) => r.json())
+            .then((fillJson: { success?: boolean; updated?: Record<string, string> }) => {
+              if (cancelled || !fillJson?.success || !fillJson.updated) return;
+              const updatedMap = fillJson.updated;
+              if (Object.keys(updatedMap).length === 0) return;
+
+              setWords((prev) => {
+                const nextWords = prev.map((w) =>
+                  w.id && updatedMap[w.id] ? { ...w, ipa: updatedMap[w.id] } : w,
+                );
+                writePoolCache(scopeCacheKey, nextWords);
+                return nextWords;
+              });
+              setQueue((prev) =>
+                prev.map((q) => {
+                  const matched = json.items?.find(
+                    (it) => it.lemma.toLowerCase() === q.lemma.toLowerCase(),
+                  );
+                  const newIpa = matched?.id ? updatedMap[matched.id] : undefined;
+                  return newIpa ? { ...q, ipa: newIpa } : q;
+                }),
+              );
+            })
+            .catch(() => {});
+        }
       } catch (e) {
-        if (!cancelled) {
+        if (!cancelled && !cached) {
           setLoadErr(e instanceof Error ? e.message : 'Lỗi tải');
           setWords([]);
         }
@@ -432,7 +438,7 @@ function VerbDrillContent() {
     return () => {
       cancelled = true;
     };
-  }, [initialClassroomId]);
+  }, [initialClassroomId, scopeCacheKey]);
 
   const canMeaning = words.length >= MIN_LEARNED;
 
@@ -544,6 +550,33 @@ function VerbDrillContent() {
   const current = queue[idx] ?? null;
   const currentPos = current ? posLabel(current.pos, current.lemma) : null;
   const currentIpa = current?.ipa ? parseIpa(current.ipa) : '';
+
+  // Preload hình ảnh + audio cho 5 câu kế tiếp để khi bấm next ảnh/tiếng hiện tức thì (0ms)
+  useEffect(() => {
+    if (phase !== 'quiz' || queue.length === 0) return;
+    const upcoming = queue.slice(idx, idx + 6);
+    for (const q of upcoming) {
+      if (q.imageUrl && typeof window !== 'undefined') {
+        const src = resolveImageSrc(q.imageUrl);
+        if (src) {
+          const img = new window.Image();
+          img.referrerPolicy = 'no-referrer';
+          img.src = src;
+        }
+      }
+    }
+    if (soundEnabled) {
+      void import('@/lib/offline/audio-cache')
+        .then((m) =>
+          m.prefetchAudioWindow(
+            upcoming.map((q) => ({ id: q.lemma, word: q.blankSurface || q.lemma })),
+            0,
+            5,
+          ),
+        )
+        .catch(() => {});
+    }
+  }, [phase, idx, queue, soundEnabled]);
 
   // Meaning card: auto nghe phát âm lemma bằng audio chuẩn (cloze chỉ nghe sau khi chọn để không lộ đáp án)
   useEffect(() => {
@@ -926,7 +959,7 @@ function VerbDrillContent() {
                         />
                       </span>
                       {currentIpa && (
-                        <span className="font-mono text-xs text-slate-500">/{currentIpa}/</span>
+                        <span className="font-mono text-xs text-slate-500">{currentIpa}</span>
                       )}
                       <button
                         type="button"
@@ -963,10 +996,8 @@ function VerbDrillContent() {
                   />
                 </p>
                 <div className="mt-2 flex items-center justify-center gap-2">
-                  {currentIpa ? (
-                    <p className="font-mono text-sm text-slate-500">/{currentIpa}/</p>
-                  ) : (
-                    <p className="text-[11px] text-slate-400">chưa có IPA</p>
+                  {currentIpa && (
+                    <p className="font-mono text-sm text-slate-500">{currentIpa}</p>
                   )}
                   <button
                     type="button"
